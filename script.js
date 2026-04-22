@@ -260,26 +260,38 @@ document.getElementById('clearAllBtn').addEventListener('click', () => {
 
 document.getElementById('emailBtn').addEventListener('click', async () => {
     const report = buildReport();
+    const emailBtn = document.getElementById('emailBtn');
+    const original = emailBtn.textContent;
+    emailBtn.textContent = 'Sending…';
+    emailBtn.disabled = true;
     try {
         const res = await fetch('/api/email', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ report, date: new Date().toISOString() })
         });
+        const data = await res.json().catch(() => ({}));
         if (res.ok) {
             alert('Report emailed!');
+        } else if (res.status === 404) {
+            // No serverless endpoint (running locally on a static server). Use mailto.
+            mailtoFallback(report);
         } else {
-            // Fallback: open mail client with prefilled body
-            const body = encodeURIComponent(report);
-            const subj = encodeURIComponent('Yard Check - ' + new Date().toLocaleDateString());
-            window.location.href = `mailto:?subject=${subj}&body=${body}`;
+            alert('Email failed: ' + (data.error || res.statusText));
         }
-    } catch {
-        const body = encodeURIComponent(report);
-        const subj = encodeURIComponent('Yard Check - ' + new Date().toLocaleDateString());
-        window.location.href = `mailto:?subject=${subj}&body=${body}`;
+    } catch (err) {
+        mailtoFallback(report);
+    } finally {
+        emailBtn.textContent = original;
+        emailBtn.disabled = false;
     }
 });
+
+function mailtoFallback(report) {
+    const body = encodeURIComponent(report);
+    const subj = encodeURIComponent('Yard Check - ' + new Date().toLocaleDateString());
+    window.location.href = `mailto:?subject=${subj}&body=${body}`;
+}
 
 function buildReport() {
     const dateStr = new Date().toLocaleDateString(undefined, {
