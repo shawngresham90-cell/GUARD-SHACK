@@ -16,28 +16,29 @@
         <div class="controls">
             <button id="startBtn" class="btn btn-start">START</button>
             <button id="stopBtn" class="btn btn-stop" disabled>STOP</button>
-            <div class="status" id="status">Ready to listen</div>
+            <div class="status" id="status">Tap START and allow mic access</div>
             <div class="transcript" id="transcript"></div>
+            <div class="current-category" id="currentCategory"></div>
         </div>
 
         <div class="categories-container">
-            <div class="category">
-                <h2>📦 LOADED</h2>
+            <div class="category" data-cat="loaded">
+                <h2>📦 LOADED <span class="count-badge" id="loaded-count">0</span></h2>
                 <div class="trailer-list" id="loaded"></div>
             </div>
 
-            <div class="category">
-                <h2>📭 EMPTY</h2>
+            <div class="category" data-cat="empty">
+                <h2>📭 EMPTY <span class="count-badge" id="empty-count">0</span></h2>
                 <div class="trailer-list" id="empty"></div>
             </div>
 
-            <div class="category">
-                <h2>🔧 DOCKED</h2>
+            <div class="category" data-cat="docked">
+                <h2>🔧 DOCKED <span class="count-badge" id="docked-count">0</span></h2>
                 <div class="trailer-list" id="docked"></div>
             </div>
 
-            <div class="category">
-                <h2>⚠️ REDLINE</h2>
+            <div class="category" data-cat="redline">
+                <h2>⚠️ REDLINE <span class="count-badge" id="redline-count">0</span></h2>
                 <div class="trailer-list" id="redline"></div>
             </div>
         </div>
