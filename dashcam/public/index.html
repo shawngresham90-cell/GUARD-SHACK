@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dashcam Content Machine</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="hero">
+    <h1>🚛 Dashcam Content Machine</h1>
+    <p>Drop a real photo. Pick a fail. Grok writes the script. Get a 10-second viral clip.</p>
+  </header>
+
+  <main>
+    <section class="card">
+      <h2>1 — Upload a real photo</h2>
+      <label class="dropzone" id="dropzone">
+        <input type="file" id="photo" accept="image/*" hidden />
+        <span id="dropzoneLabel">Click or drop a semi/road photo here</span>
+        <img id="preview" alt="" />
+      </label>
+    </section>
+
+    <section class="card">
+      <h2>2 — Pick the failure</h2>
+      <div class="scenes" id="scenes"></div>
+      <label class="notes">
+        <span>Extra direction (optional)</span>
+        <textarea id="notes" rows="2" placeholder="e.g. night, rain, Texas plates, Peterbilt 389"></textarea>
+      </label>
+    </section>
+
+    <section class="card">
+      <h2>3 — Generate</h2>
+      <div class="row">
+        <button id="analyzeBtn" class="primary">Write Viral Prompt</button>
+        <button id="generateBtn" disabled>🎬 Make 10s Clip</button>
+      </div>
+      <div id="status" class="status"></div>
+    </section>
+
+    <section class="card" id="resultCard" hidden>
+      <h2>4 — The package</h2>
+      <div class="grid">
+        <div>
+          <h3>Caption</h3>
+          <p id="caption" class="copyable"></p>
+          <h3>Hook variants</h3>
+          <ul id="hookVariants"></ul>
+          <h3>Hashtags</h3>
+          <p id="hashtags" class="copyable mono"></p>
+        </div>
+        <div>
+          <h3>Video prompt</h3>
+          <pre id="videoPrompt" class="copyable"></pre>
+          <h3>Negative prompt</h3>
+          <pre id="negativePrompt" class="copyable"></pre>
+          <h3>Observed in photo</h3>
+          <p id="observed" class="muted"></p>
+        </div>
+      </div>
+    </section>
+
+    <section class="card" id="videoCard" hidden>
+      <h2>5 — Clip</h2>
+      <div id="videoStatus" class="status"></div>
+      <video id="videoPlayer" controls playsinline></video>
+      <pre id="rawJob" class="muted small"></pre>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
