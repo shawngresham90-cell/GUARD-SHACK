@@ -1,0 +1,5 @@
+# One YouTube channel per line. Handles, /channel/ID, /c/, /user/ all work.
+# Replace these with your real trucking channel list.
+@SmartTrucker
+@TruckerJB
+@TheTrucker
