@@ -1,5 +1,19 @@
-# One YouTube channel per line. Handles, /channel/ID, /c/, /user/ all work.
-# Replace these with your real trucking channel list.
-@SmartTrucker
-@TruckerJB
-@TheTrucker
+# Trucking YouTube channels — sourced from public best-of lists (May 2026).
+https://www.youtube.com/@TruckerKearsey
+https://www.youtube.com/channel/UCM-h4zMpYqjDBdpAlfaVv5Q
+https://www.youtube.com/channel/UCYJ9xuyU0cemgJUR7JvEkog
+https://www.youtube.com/channel/UCxzI5akvIpeE3VvDvKUQHMA
+https://www.youtube.com/channel/UCxwk8UOT-3BbeD0HfdGiLwQ
+https://www.youtube.com/channel/UC7qhEuCYkV1Q5jFSxS21Oxw
+https://www.youtube.com/channel/UCxVQwVuWxOD0xtn2ucnhpDw
+https://www.youtube.com/channel/UCDLYpkffTdRP_7gSf18CAXA
+https://www.youtube.com/channel/UCWVH1gwSYZwMZFqCspdw2Rw
+@indianajack
+@RedVikingTrucker
+@TruckerJosh
+@AsianMaiShow
+@DrivenTrucking
+@JustTruckin
+@JuniorHondurasOfficial
+@LukeC
+@Stavros969
