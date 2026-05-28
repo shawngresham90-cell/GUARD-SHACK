@@ -251,6 +251,21 @@
             <h2 class="section">Cash Flow</h2>
             <button class="btn-ghost" style="width:100%;margin-bottom:12px;" onclick="openMoneyModal()">＋ Log a Sale / Tip</button>
             <div class="card" id="moneyList"></div>
+
+            <h2 class="section">Backup &amp; Settings</h2>
+            <div class="card">
+                <label class="fld">Shop name (shown at the top)</label>
+                <div class="btn-row">
+                    <input id="shopNameInput" placeholder="e.g. Shiny's Cuts">
+                    <button class="btn-gold btn-sm" onclick="saveShopName()">Save</button>
+                </div>
+                <div class="btn-row" style="margin-top:14px;">
+                    <button class="btn-green btn-sm" style="flex:1;" onclick="exportData()">⬇️ Backup</button>
+                    <button class="btn-gold btn-sm" style="flex:1;" onclick="document.getElementById('importFile').click()">⬆️ Restore</button>
+                </div>
+                <input type="file" id="importFile" accept="application/json,.json" style="display:none" onchange="importData(this)">
+                <p class="hint">Backup saves all clients, appointments &amp; money to a file you can keep safe or move to another device. Restore loads a backup file (replaces current data).</p>
+            </div>
         </section>
     </main>
 
@@ -741,12 +756,63 @@
         toast('Deleted');
     }
 
+    /* ================= BACKUP / RESTORE / SETTINGS ================= */
+    function saveShopName() {
+        DB.meta.shop = document.getElementById('shopNameInput').value.trim();
+        persist();
+        document.getElementById('shopName').textContent = DB.meta.shop || 'Barbershop Manager';
+        toast('Shop name saved');
+    }
+    function exportData() {
+        const payload = { app: 'chair-cash', version: 1, exportedAt: new Date().toISOString(),
+            customers: DB.customers, appts: DB.appts, money: DB.money, meta: DB.meta };
+        const blob = new Blob([JSON.stringify(payload, null, 2)], { type: 'application/json' });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = 'chair-cash-backup-' + todayISO() + '.json';
+        document.body.appendChild(a); a.click(); a.remove();
+        setTimeout(() => URL.revokeObjectURL(url), 1000);
+        toast('Backup saved ⬇️');
+    }
+    function importData(input) {
+        const file = input.files && input.files[0];
+        if (!file) return;
+        const reader = new FileReader();
+        reader.onload = () => {
+            try {
+                const d = JSON.parse(reader.result);
+                if (!d || (!Array.isArray(d.customers) && !Array.isArray(d.appts) && !Array.isArray(d.money))) {
+                    toast('Not a valid backup file'); return;
+                }
+                if (!confirm('Restore this backup? It will replace all current clients, appointments and money.')) return;
+                DB.customers = Array.isArray(d.customers) ? d.customers : [];
+                DB.appts = Array.isArray(d.appts) ? d.appts : [];
+                DB.money = Array.isArray(d.money) ? d.money : [];
+                DB.meta = (d.meta && typeof d.meta === 'object') ? d.meta : DB.meta;
+                persist();
+                document.getElementById('shopName').textContent = DB.meta.shop || 'Barbershop Manager';
+                document.getElementById('shopNameInput').value = DB.meta.shop || '';
+                renderMoney(); renderHome(); renderCustomers(); renderSchedule();
+                toast('Backup restored ✓');
+            } catch {
+                toast('Could not read that file');
+            } finally {
+                input.value = '';
+            }
+        };
+        reader.readAsText(file);
+    }
+
     /* ---------- util ---------- */
     function esc(s) { return (s ?? '').toString().replace(/[&<>"']/g, c => ({ '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;' }[c])); }
 
     /* ---------- boot ---------- */
     document.getElementById('schedDate').value = todayISO();
-    if (DB.meta.shop) document.getElementById('shopName').textContent = DB.meta.shop;
+    if (DB.meta.shop) {
+        document.getElementById('shopName').textContent = DB.meta.shop;
+        document.getElementById('shopNameInput').value = DB.meta.shop;
+    }
     renderHome();
     </script>
 </body>
