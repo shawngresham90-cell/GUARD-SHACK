@@ -212,6 +212,9 @@
                 <div class="stat"><div class="label">No-Shows (30d)</div><div class="value warn" id="stNoShow">0</div></div>
             </div>
 
+            <h2 class="section">Needs a Text 📲</h2>
+            <div class="card" id="reminders"></div>
+
             <h2 class="section">Up Next</h2>
             <div class="card" id="upNext"></div>
 
@@ -259,6 +262,13 @@
                     <input id="shopNameInput" placeholder="e.g. Shiny's Cuts">
                     <button class="btn-gold btn-sm" onclick="saveShopName()">Save</button>
                 </div>
+                <label class="fld">Reminder text — day before</label>
+                <textarea id="tplDayBefore"></textarea>
+                <label class="fld">Reminder text — running late</label>
+                <textarea id="tplLate"></textarea>
+                <button class="btn-gold btn-sm" style="width:100%;margin-top:8px;" onclick="saveTemplates()">Save reminder texts</button>
+                <p class="hint">Use <b>{name}</b>, <b>{time}</b>, <b>{service}</b> and <b>{shop}</b> — they get filled in automatically for each customer.</p>
+
                 <div class="btn-row" style="margin-top:14px;">
                     <button class="btn-green btn-sm" style="flex:1;" onclick="exportData()">⬇️ Backup</button>
                     <button class="btn-gold btn-sm" style="flex:1;" onclick="document.getElementById('importFile').click()">⬆️ Restore</button>
@@ -445,8 +455,82 @@
         } else {
             box.innerHTML = upcoming.map(a => apptRow(a, true)).join('');
         }
+
+        renderReminders();
     }
     function sumMoney(filterFn) { return DB.money.filter(filterFn).reduce((s, m) => s + (+m.amount || 0), 0); }
+
+    /* ---------- Reminders: who needs a text ---------- */
+    const DEFAULT_TPL = {
+        dayBefore: "Hi {name}, friendly reminder about your {service} tomorrow at {time} with {shop}. See you then! Reply here to reschedule.",
+        late: "Hey {name}, we had you down for {time} today — still able to make it in? Let me know!"
+    };
+    function tpl(key) { return (DB.meta.tpl && DB.meta.tpl[key]) || DEFAULT_TPL[key]; }
+    function fillTpl(str, a) {
+        const c = custById(a.custId);
+        const t = fmtTime(a.time);
+        return str
+            .replace(/{name}/g, (c ? c.name.split(/\s+/)[0] : (a.custName || 'there')))
+            .replace(/{time}/g, a.time ? (t.h + ' ' + t.ap) : 'your appointment time')
+            .replace(/{service}/g, a.service || 'appointment')
+            .replace(/{shop}/g, DB.meta.shop || 'the shop');
+    }
+    function smsLink(phone, body) {
+        // ?& form works across iOS and Android for prefilled SMS body
+        return 'sms:' + encodeURIComponent(phone) + '?&body=' + encodeURIComponent(body);
+    }
+    function renderReminders() {
+        const box = document.getElementById('reminders');
+        const today = todayISO();
+        const tomorrow = (() => { const d = new Date(); d.setDate(d.getDate() + 1); return d.toLocaleDateString('en-CA'); })();
+        const nowMin = new Date().getHours() * 60 + new Date().getMinutes();
+
+        const items = [];
+        // Running late today: booked, has a time, time already passed
+        DB.appts.filter(a => a.status === 'booked' && a.date === today && a.time)
+            .forEach(a => {
+                const [h, m] = a.time.split(':').map(Number);
+                if (h * 60 + m < nowMin) items.push({ a, kind: 'late' });
+            });
+        // Due tomorrow: any booked appointment
+        DB.appts.filter(a => a.status === 'booked' && a.date === tomorrow)
+            .forEach(a => items.push({ a, kind: 'dayBefore' }));
+
+        items.sort((x, y) => (x.a.time || '99').localeCompare(y.a.time || '99'));
+
+        if (!items.length) {
+            box.innerHTML = emptyState('👍', 'Nobody needs a text', 'Late clients and tomorrow\'s bookings show up here.');
+            return;
+        }
+        box.innerHTML = items.map(({ a, kind }) => {
+            const c = custById(a.custId);
+            const name = c ? c.name : (a.custName || 'Walk-in');
+            const t = fmtTime(a.time);
+            const timeHtml = a.time ? `<div class="time-chip">${t.h}<span class="ampm">${t.ap}</span></div>` : `<div class="time-chip">—</div>`;
+            const tag = kind === 'late'
+                ? '<span class="pill noshow">Late</span>'
+                : '<span class="pill booked">Tomorrow</span>';
+            let btn;
+            if (c && c.phone) {
+                btn = `<a class="btn-green btn-sm" style="text-decoration:none;display:inline-block;" href="${smsLink(c.phone, fillTpl(tpl(kind), a))}">📲 Text</a>`;
+            } else {
+                btn = `<button class="btn-ghost btn-sm" onclick="openCustModal('${c ? c.id : ''}')">No #</button>`;
+            }
+            return `<div class="row">
+                ${timeHtml}
+                <div class="grow"><div class="name">${esc(name)}</div><div class="sub">${esc(a.service || 'appointment')}</div></div>
+                ${tag} ${btn}
+            </div>`;
+        }).join('');
+    }
+    function saveTemplates() {
+        DB.meta.tpl = {
+            dayBefore: document.getElementById('tplDayBefore').value.trim() || DEFAULT_TPL.dayBefore,
+            late: document.getElementById('tplLate').value.trim() || DEFAULT_TPL.late,
+        };
+        persist();
+        toast('Reminder texts saved');
+    }
 
     function emptyState(icon, title, sub) {
         return `<div class="empty"><span class="big">${icon}</span>${title}<br><span style="font-size:12px;">${sub || ''}</span></div>`;
@@ -793,6 +877,8 @@
                 persist();
                 document.getElementById('shopName').textContent = DB.meta.shop || 'Barbershop Manager';
                 document.getElementById('shopNameInput').value = DB.meta.shop || '';
+                document.getElementById('tplDayBefore').value = tpl('dayBefore');
+                document.getElementById('tplLate').value = tpl('late');
                 renderMoney(); renderHome(); renderCustomers(); renderSchedule();
                 toast('Backup restored ✓');
             } catch {
@@ -813,6 +899,8 @@
         document.getElementById('shopName').textContent = DB.meta.shop;
         document.getElementById('shopNameInput').value = DB.meta.shop;
     }
+    document.getElementById('tplDayBefore').value = tpl('dayBefore');
+    document.getElementById('tplLate').value = tpl('late');
     renderHome();
     </script>
 </body>
