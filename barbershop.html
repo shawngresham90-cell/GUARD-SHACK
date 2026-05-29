@@ -4,6 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="theme-color" content="#1a1208">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Chair Cash">
+    <link rel="manifest" href="barbershop.webmanifest">
     <title>Chair Cash — Barbershop Manager</title>
     <style>
         * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
@@ -269,12 +273,20 @@
                 <button class="btn-gold btn-sm" style="width:100%;margin-top:8px;" onclick="saveTemplates()">Save reminder texts</button>
                 <p class="hint">Use <b>{name}</b>, <b>{time}</b>, <b>{service}</b> and <b>{shop}</b> — they get filled in automatically for each customer.</p>
 
+                <label class="fld">Daily reminder alert</label>
+                <div class="btn-row">
+                    <input type="time" id="alertTime">
+                    <button class="btn-gold btn-sm" id="alertToggleBtn" onclick="toggleAlerts()">Turn on</button>
+                </div>
+                <p class="hint" id="alertHint">Get a phone notification each day listing who needs a text, then tap to send. Works best with the app added to your home screen (see below).</p>
+
                 <div class="btn-row" style="margin-top:14px;">
                     <button class="btn-green btn-sm" style="flex:1;" onclick="exportData()">⬇️ Backup</button>
                     <button class="btn-gold btn-sm" style="flex:1;" onclick="document.getElementById('importFile').click()">⬆️ Restore</button>
                 </div>
                 <input type="file" id="importFile" accept="application/json,.json" style="display:none" onchange="importData(this)">
                 <p class="hint">Backup saves all clients, appointments &amp; money to a file you can keep safe or move to another device. Restore loads a backup file (replaces current data).</p>
+                <p class="hint" id="installHint" style="display:none;">📲 <b>Add to Home Screen</b> from your browser menu to use Chair Cash like a real app and get daily alerts.</p>
             </div>
         </section>
     </main>
@@ -479,8 +491,7 @@
         // ?& form works across iOS and Android for prefilled SMS body
         return 'sms:' + encodeURIComponent(phone) + '?&body=' + encodeURIComponent(body);
     }
-    function renderReminders() {
-        const box = document.getElementById('reminders');
+    function computeReminders() {
         const today = todayISO();
         const tomorrow = (() => { const d = new Date(); d.setDate(d.getDate() + 1); return d.toLocaleDateString('en-CA'); })();
         const nowMin = new Date().getHours() * 60 + new Date().getMinutes();
@@ -497,6 +508,11 @@
             .forEach(a => items.push({ a, kind: 'dayBefore' }));
 
         items.sort((x, y) => (x.a.time || '99').localeCompare(y.a.time || '99'));
+        return items;
+    }
+    function renderReminders() {
+        const box = document.getElementById('reminders');
+        const items = computeReminders();
 
         if (!items.length) {
             box.innerHTML = emptyState('👍', 'Nobody needs a text', 'Late clients and tomorrow\'s bookings show up here.');
@@ -530,6 +546,83 @@
         };
         persist();
         toast('Reminder texts saved');
+    }
+
+    /* ================= DAILY REMINDER ALERTS (web notifications) ================= */
+    function alertsOn() { return !!(DB.meta.alerts && DB.meta.alerts.on); }
+    function refreshAlertUI() {
+        const btn = document.getElementById('alertToggleBtn');
+        const timeEl = document.getElementById('alertTime');
+        timeEl.value = (DB.meta.alerts && DB.meta.alerts.time) || '18:00';
+        if (alertsOn() && Notification.permission === 'granted') {
+            btn.textContent = 'On ✓'; btn.classList.remove('btn-gold'); btn.classList.add('btn-green');
+        } else {
+            btn.textContent = 'Turn on'; btn.classList.add('btn-gold'); btn.classList.remove('btn-green');
+        }
+    }
+    async function toggleAlerts() {
+        if (!('Notification' in window)) { toast("This browser can't show alerts"); return; }
+        if (alertsOn()) {
+            DB.meta.alerts = { on: false, time: document.getElementById('alertTime').value };
+            persist(); refreshAlertUI(); toast('Alerts off');
+            return;
+        }
+        let perm = Notification.permission;
+        if (perm !== 'granted') perm = await Notification.requestPermission();
+        if (perm !== 'granted') { toast('Allow notifications to use alerts'); return; }
+        DB.meta.alerts = { on: true, time: document.getElementById('alertTime').value || '18:00' };
+        persist(); refreshAlertUI();
+        toast('Daily alerts on 🔔');
+        maybeAlert(true);
+    }
+    document.getElementById('alertTime') && document.getElementById('alertTime').addEventListener('change', () => {
+        if (!DB.meta.alerts) DB.meta.alerts = {};
+        DB.meta.alerts.time = document.getElementById('alertTime').value;
+        persist();
+    });
+    // Show today's alert once if it's past the chosen time and reminders are pending.
+    function maybeAlert(force) {
+        if (!alertsOn() || Notification.permission !== 'granted') return;
+        const items = computeReminders();
+        if (!items.length) return;
+        const today = todayISO();
+        const [h, m] = ((DB.meta.alerts && DB.meta.alerts.time) || '18:00').split(':').map(Number);
+        const due = new Date(); due.setHours(h, m, 0, 0);
+        if (!force && Date.now() < due.getTime()) return;          // not time yet
+        if (!force && DB.meta.alerts.lastShown === today) return;  // already alerted today
+
+        const late = items.filter(i => i.kind === 'late').length;
+        const tmrw = items.filter(i => i.kind === 'dayBefore').length;
+        const parts = [];
+        if (tmrw) parts.push(tmrw + ' due tomorrow');
+        if (late) parts.push(late + ' running late');
+        const body = parts.join(' · ') + ' — tap to send their texts.';
+        try {
+            const n = new Notification('💈 ' + (DB.meta.shop || 'Chair Cash') + ' — ' + items.length + ' need a text', {
+                body, tag: 'chaircash-daily', icon: ICON_URL, badge: ICON_URL
+            });
+            n.onclick = () => { window.focus(); switchView('home'); n.close(); };
+        } catch (e) { /* ignore */ }
+        DB.meta.alerts.lastShown = today;
+        persist();
+    }
+    // Re-check when the app regains focus (covers it being left open / reopened).
+    document.addEventListener('visibilitychange', () => { if (!document.hidden) maybeAlert(false); });
+    setInterval(() => maybeAlert(false), 5 * 60 * 1000); // every 5 min while open
+
+    // Small inline barber-pole icon for notifications (data URL, no extra file needed).
+    const ICON_URL = 'data:image/svg+xml,' + encodeURIComponent(
+        '<svg xmlns="http://www.w3.org/2000/svg" width="96" height="96"><rect width="96" height="96" rx="20" fill="%231a1208"/><text x="50%" y="54%" font-size="56" text-anchor="middle" dominant-baseline="middle">💈</text></svg>'
+    );
+
+    /* PWA: register service worker so it's installable + works offline */
+    if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('barbershop-sw.js').catch(() => {});
+    }
+    // Hint about installing only when not already running as an installed app
+    if (!window.matchMedia('(display-mode: standalone)').matches && !navigator.standalone) {
+        const ih = document.getElementById('installHint');
+        if (ih) ih.style.display = 'block';
     }
 
     function emptyState(icon, title, sub) {
@@ -879,6 +972,7 @@
                 document.getElementById('shopNameInput').value = DB.meta.shop || '';
                 document.getElementById('tplDayBefore').value = tpl('dayBefore');
                 document.getElementById('tplLate').value = tpl('late');
+                if ('Notification' in window) refreshAlertUI();
                 renderMoney(); renderHome(); renderCustomers(); renderSchedule();
                 toast('Backup restored ✓');
             } catch {
@@ -901,7 +995,9 @@
     }
     document.getElementById('tplDayBefore').value = tpl('dayBefore');
     document.getElementById('tplLate').value = tpl('late');
+    if ('Notification' in window) refreshAlertUI();
     renderHome();
+    maybeAlert(false);
     </script>
 </body>
 </html>
