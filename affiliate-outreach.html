@@ -423,6 +423,56 @@ function addFromSearch(ytId, btn) {
     render();
 }
 
+// Pull a published business email from a channel's public description / recent video descriptions.
+// This only reads text the creator chose to publish via the official API — no captcha, no scraping.
+async function autoFindEmail(id, btn) {
+    const key = state.settings.youtubeKey;
+    if (!key) { alert('Add your YouTube Data API key in Setup first.'); settingsCard.open = true; return; }
+    const c = state.creators.find(x => x.id === id);
+    if (!c.ytId) { alert('Auto-find only works for channels added from YouTube search.'); return; }
+    const original = btn.innerHTML;
+    btn.disabled = true; btn.innerHTML = '<span class="spinner"></span>Looking...';
+    try {
+        const chRes = await fetch('https://www.googleapis.com/youtube/v3/channels?part=snippet,contentDetails&id='
+            + c.ytId + '&key=' + encodeURIComponent(key));
+        const chData = await chRes.json();
+        const ch = (chData.items || [])[0] || {};
+        let email = pickEmail((ch.snippet && ch.snippet.description) || '');
+        if (!email) {
+            const uploads = ch.contentDetails && ch.contentDetails.relatedPlaylists && ch.contentDetails.relatedPlaylists.uploads;
+            if (uploads) {
+                const plRes = await fetch('https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&maxResults=15&playlistId='
+                    + uploads + '&key=' + encodeURIComponent(key));
+                const plData = await plRes.json();
+                email = pickEmail((plData.items || []).map(i => i.snippet.description || '').join('\n'));
+            }
+        }
+        if (email) { c.email = email; save(); render(); }
+        else {
+            btn.disabled = false; btn.innerHTML = original;
+            alert('No public email found in their description or recent videos.\n\nThey likely only show it on their About page (behind a captcha). Open that link and paste it in.');
+        }
+    } catch (e) {
+        btn.disabled = false; btn.innerHTML = original;
+        alert('Lookup failed: ' + e.message);
+    }
+}
+
+// Extract the most likely business email from a blob of public text.
+function pickEmail(text) {
+    if (!text) return '';
+    const matches = text.match(/[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}/g);
+    if (!matches) return '';
+    const lower = text.toLowerCase();
+    const ranked = matches.map(m => {
+        const idx = lower.indexOf(m.toLowerCase());
+        const ctx = lower.slice(Math.max(0, idx - 45), idx);
+        return { m, biz: /business|inquir|contact|booking|sponsor|collab|partner/.test(ctx) };
+    });
+    const pref = ranked.find(r => r.biz);
+    return (pref || ranked[0]).m;
+}
+
 // ---- AI message generation ----
 async function genMessage(id, btn) {
     const s = state.settings;
@@ -563,8 +613,12 @@ function render() {
                     <div class="name">${esc(c.name)}</div>
                     <div class="meta">${c.platform} · ${c.followers ? fmtNum(c.followers) + ' followers' : 'size unknown'}${c.niche ? ' · ' + esc(c.niche) : ''}</div>
                     ${c.email ? `<div class="meta">✉ ${esc(c.email)}</div>`
-                        : `<div class="meta" style="color:#c8a6ff;">no email${c.link ? ` — <a href="${c.link}" target="_blank">grab it from About page</a>` : ''}</div>
-                           <input type="email" placeholder="paste business email" style="margin-top:6px;font-size:12px;padding:7px 9px;" onchange="setEmail(${c.id}, this.value)">`}
+                        : `<div class="meta" style="color:#c8a6ff;">no email yet</div>
+                           <div style="display:flex;gap:6px;margin-top:6px;flex-wrap:wrap;">
+                             ${c.ytId ? `<button class="btn-ghost btn-sm" onclick="autoFindEmail(${c.id}, this)">🔍 Auto-find email</button>` : ''}
+                             ${c.link ? `<a class="btn-ghost btn-sm" style="text-decoration:none;" href="${c.link}" target="_blank">About page</a>` : ''}
+                           </div>
+                           <input type="email" placeholder="or paste business email" style="margin-top:6px;font-size:12px;padding:7px 9px;" onchange="setEmail(${c.id}, this.value)">`}
                 </div>
                 <div style="text-align:right;display:flex;flex-direction:column;gap:6px;align-items:flex-end;">
                     ${sweet}
