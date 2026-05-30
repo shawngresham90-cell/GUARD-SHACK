@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#0b1220">
+    <title>Outreach Agent - AI Affiliate Recruiter</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
+        html, body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background: radial-gradient(circle at top, #142036 0%, #0b1220 60%, #060912 100%);
+            color: #e6ecf5;
+            min-height: 100vh;
+        }
+        body { padding: 18px 16px 40px; }
+        .wrap { max-width: 760px; margin: 0 auto; }
+        header { text-align: center; margin-bottom: 18px; }
+        header h1 { font-size: 24px; letter-spacing: 0.5px; }
+        header p { font-size: 13px; color: #93a4c0; margin-top: 4px; }
+
+        .card {
+            background: linear-gradient(180deg, #1a2640, #111b30);
+            border-radius: 16px;
+            padding: 16px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.45);
+            margin-bottom: 16px;
+        }
+        .card h2 { font-size: 15px; margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
+        .card h2 .tag { font-size: 11px; font-weight: 600; color: #93a4c0; }
+
+        label { display: block; font-size: 12px; color: #93a4c0; margin: 10px 0 4px; }
+        input, textarea, select {
+            width: 100%;
+            background: #0d1626;
+            border: 1px solid #243450;
+            border-radius: 10px;
+            padding: 11px 12px;
+            color: #e6ecf5;
+            font-size: 14px;
+            font-family: inherit;
+        }
+        textarea { resize: vertical; min-height: 70px; }
+        input:focus, textarea:focus, select:focus { outline: none; border-color: #4f8cff; }
+        .row { display: flex; gap: 10px; }
+        .row > * { flex: 1; }
+
+        button {
+            border: 0;
+            padding: 12px 16px;
+            border-radius: 10px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.05s, opacity 0.15s;
+        }
+        button:active { transform: scale(0.97); }
+        button:disabled { opacity: 0.5; cursor: not-allowed; }
+        .btn-primary { background: linear-gradient(135deg, #4f8cff, #2f6bdc); color: #fff; }
+        .btn-ghost { background: #1f2d49; color: #cdd9ee; }
+        .btn-sm { padding: 8px 12px; font-size: 13px; }
+        .btn-danger { background: #3a1c28; color: #ff9db0; }
+        .btn-row { display: flex; gap: 10px; margin-top: 14px; }
+
+        .hint { font-size: 12px; color: #7d8ba6; margin-top: 6px; line-height: 1.5; }
+        a { color: #6fa3ff; }
+
+        .notice {
+            background: #15233d;
+            border: 1px solid #2a3c5e;
+            border-left: 3px solid #4f8cff;
+            border-radius: 10px;
+            padding: 12px 14px;
+            font-size: 12.5px;
+            color: #b9c6dd;
+            line-height: 1.55;
+            margin-bottom: 16px;
+        }
+        .notice b { color: #e6ecf5; }
+
+        /* creator cards */
+        .creator {
+            background: #0e1828;
+            border: 1px solid #213150;
+            border-radius: 12px;
+            padding: 14px;
+            margin-bottom: 12px;
+        }
+        .creator .top { display: flex; justify-content: space-between; align-items: flex-start; gap: 10px; }
+        .creator .name { font-size: 15px; font-weight: 700; }
+        .creator .meta { font-size: 12px; color: #93a4c0; margin-top: 3px; }
+        .badge {
+            display: inline-block; font-size: 11px; font-weight: 700;
+            padding: 2px 8px; border-radius: 20px; white-space: nowrap;
+        }
+        .badge.sweet { background: #14361f; color: #7ee29a; }
+        .badge.out { background: #2d2438; color: #c8a6ff; }
+        .status-pill {
+            font-size: 11px; font-weight: 700; padding: 3px 9px; border-radius: 20px;
+            border: 1px solid #2a3c5e; background: #16243d; color: #cdd9ee; cursor: pointer;
+        }
+        .status-pill[data-status="Contacted"] { background: #2a2410; color: #ffd87a; border-color: #4a3f18; }
+        .status-pill[data-status="Replied"] { background: #102a2e; color: #6fe0d2; border-color: #1d4047; }
+        .status-pill[data-status="Joined"] { background: #14361f; color: #7ee29a; border-color: #245232; }
+
+        .msg-box {
+            margin-top: 12px; background: #0a131f; border: 1px dashed #2a3c5e;
+            border-radius: 10px; padding: 0;
+        }
+        .msg-box textarea { border: 0; background: transparent; min-height: 130px; }
+        .creator .actions { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
+
+        .empty { text-align: center; color: #7d8ba6; font-size: 13px; padding: 18px; }
+        .spinner {
+            display: inline-block; width: 14px; height: 14px; border: 2px solid #ffffff66;
+            border-top-color: #fff; border-radius: 50%; animation: spin 0.7s linear infinite;
+            vertical-align: -2px; margin-right: 6px;
+        }
+        @keyframes spin { to { transform: rotate(360deg); } }
+        details summary { cursor: pointer; font-size: 13px; color: #93a4c0; }
+        .pipeline { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 14px; }
+        .stat { flex: 1; min-width: 70px; background: #0e1828; border: 1px solid #213150; border-radius: 10px; padding: 10px; text-align: center; }
+        .stat .n { font-size: 20px; font-weight: 800; }
+        .stat .l { font-size: 11px; color: #93a4c0; margin-top: 2px; }
+    </style>
+</head>
+<body>
+<div class="wrap">
+    <header>
+        <h1>🤝 Outreach Agent</h1>
+        <p>AI affiliate recruiter — find creators, write personalized pitches, work the pipeline</p>
+    </header>
+
+    <div class="notice">
+        <b>How this stays safe:</b> This tool helps you write personalized affiliate pitches fast, but
+        <b>you</b> send them — through a creator's public business-inquiry email (the one in their
+        channel "About" page). It does <b>not</b> auto-DM or scrape, because that breaks YouTube/Instagram/TikTok
+        rules and gets accounts banned. Personalize, respect "no", and you'll get real replies.
+    </div>
+
+    <!-- SETTINGS -->
+    <details class="card" id="settingsCard">
+        <summary><h2 style="display:inline-flex; margin:0;">⚙️ Setup <span class="tag" id="setupState"></span></h2></summary>
+        <div style="margin-top:14px;">
+            <label>Anthropic API key <span style="color:#7d8ba6;">(stored only in this browser)</span></label>
+            <input type="password" id="apiKey" placeholder="sk-ant-...">
+            <p class="hint">Get one at <a href="https://console.anthropic.com/settings/keys" target="_blank">console.anthropic.com</a>. It's saved to this device only and used to generate your messages.</p>
+
+            <label>AI model</label>
+            <select id="model">
+                <option value="claude-sonnet-4-6">Sonnet 4.6 — balanced (recommended)</option>
+                <option value="claude-haiku-4-5-20251001">Haiku 4.5 — fastest / cheapest</option>
+                <option value="claude-opus-4-8">Opus 4.8 — highest quality</option>
+            </select>
+
+            <hr style="border:0;border-top:1px solid #243450;margin:16px 0;">
+
+            <label>Your name / brand (signature)</label>
+            <input type="text" id="senderName" placeholder="Shawn from GuardShack">
+
+            <label>Product / what you're selling</label>
+            <input type="text" id="productName" placeholder="GuardShack Dashcam Pro">
+
+            <label>Short product pitch</label>
+            <textarea id="productPitch" placeholder="A dashcam that auto-uploads crash footage to the cloud. Aimed at truckers and car enthusiasts."></textarea>
+
+            <label>Affiliate offer (commission / perks)</label>
+            <input type="text" id="affiliateOffer" placeholder="30% recurring commission + free unit">
+
+            <label>Signup / affiliate link</label>
+            <input type="text" id="signupLink" placeholder="https://guardshack.com/affiliates">
+
+            <label>Tone</label>
+            <select id="tone">
+                <option>Friendly &amp; casual</option>
+                <option>Professional</option>
+                <option>Short &amp; punchy</option>
+                <option>Enthusiastic</option>
+            </select>
+
+            <div class="btn-row">
+                <button class="btn-primary" onclick="saveSettings()">Save setup</button>
+            </div>
+        </div>
+    </details>
+
+    <!-- PIPELINE STATS -->
+    <div class="pipeline" id="pipeline"></div>
+
+    <!-- ADD CREATOR -->
+    <div class="card">
+        <h2>➕ Add a creator</h2>
+        <div class="row">
+            <div><label>Name / handle</label><input type="text" id="cName" placeholder="@TruckLifeMike"></div>
+            <div><label>Followers / subs</label><input type="number" id="cFollowers" placeholder="45000"></div>
+        </div>
+        <div class="row">
+            <div><label>Niche / topic</label><input type="text" id="cNiche" placeholder="trucking vlogs"></div>
+            <div><label>Platform</label>
+                <select id="cPlatform"><option>YouTube</option><option>Instagram</option><option>TikTok</option><option>Other</option></select>
+            </div>
+        </div>
+        <label>Business email (from their "About" page)</label>
+        <input type="email" id="cEmail" placeholder="mike@business.com">
+        <label>Notes (anything to personalize on — a recent video, their style)</label>
+        <textarea id="cNotes" placeholder="Did a video on highway near-misses last week"></textarea>
+        <div class="btn-row">
+            <button class="btn-primary" onclick="addCreator()">Add to pipeline</button>
+        </div>
+        <p class="hint">Tip: your sweet spot is <b>10k–80k followers</b> — big enough to drive sales, small enough to actually answer their email.</p>
+    </div>
+
+    <!-- CREATOR LIST -->
+    <div class="card">
+        <h2>📋 Pipeline <span class="tag" id="filterTag"></span></h2>
+        <div class="row" style="margin-bottom:10px;">
+            <select id="filterStatus" onchange="render()">
+                <option value="">All statuses</option>
+                <option>To contact</option><option>Contacted</option>
+                <option>Replied</option><option>Joined</option>
+            </select>
+            <select id="filterRange" onchange="render()">
+                <option value="">All sizes</option>
+                <option value="sweet">10k–80k (sweet spot)</option>
+                <option value="out">Outside range</option>
+            </select>
+        </div>
+        <div id="list"></div>
+        <div class="btn-row">
+            <button class="btn-ghost btn-sm" onclick="exportCSV()">⬇ Export CSV</button>
+            <button class="btn-ghost btn-sm" onclick="genAllMissing()">✨ Draft all empty</button>
+        </div>
+    </div>
+
+    <p class="hint" style="text-align:center;">
+        Reminder: keep a record of who opted out and never email them again. Quality &gt; quantity wins affiliates.
+    </p>
+</div>
+
+<script>
+const LS = 'outreachAgent.v1';
+let state = load();
+
+function load() {
+    try { return JSON.parse(localStorage.getItem(LS)) || defaults(); }
+    catch { return defaults(); }
+}
+function defaults() {
+    return { settings: { model: 'claude-sonnet-4-6', tone: 'Friendly & casual' }, creators: [] };
+}
+function save() { localStorage.setItem(LS, JSON.stringify(state)); }
+
+// ---- settings ----
+function hydrateSettings() {
+    const s = state.settings;
+    apiKey.value = s.apiKey || '';
+    model.value = s.model || 'claude-sonnet-4-6';
+    senderName.value = s.senderName || '';
+    productName.value = s.productName || '';
+    productPitch.value = s.productPitch || '';
+    affiliateOffer.value = s.affiliateOffer || '';
+    signupLink.value = s.signupLink || '';
+    tone.value = s.tone || 'Friendly & casual';
+    refreshSetupState();
+}
+function saveSettings() {
+    state.settings = {
+        apiKey: apiKey.value.trim(), model: model.value,
+        senderName: senderName.value.trim(), productName: productName.value.trim(),
+        productPitch: productPitch.value.trim(), affiliateOffer: affiliateOffer.value.trim(),
+        signupLink: signupLink.value.trim(), tone: tone.value
+    };
+    save();
+    refreshSetupState();
+    settingsCard.open = false;
+}
+function refreshSetupState() {
+    const s = state.settings;
+    const ready = s.apiKey && s.productName && s.senderName;
+    setupState.textContent = ready ? '✓ ready' : '— needs setup';
+    setupState.style.color = ready ? '#7ee29a' : '#ffd87a';
+}
+
+// ---- creators ----
+function addCreator() {
+    const name = cName.value.trim();
+    if (!name) { alert('Add a name or handle first.'); return; }
+    state.creators.unshift({
+        id: Date.now(),
+        name, followers: parseInt(cFollowers.value) || 0,
+        niche: cNiche.value.trim(), platform: cPlatform.value,
+        email: cEmail.value.trim(), notes: cNotes.value.trim(),
+        status: 'To contact', message: ''
+    });
+    save();
+    [cName, cFollowers, cNiche, cEmail, cNotes].forEach(el => el.value = '');
+    render();
+}
+function delCreator(id) {
+    if (!confirm('Remove this creator from your pipeline?')) return;
+    state.creators = state.creators.filter(c => c.id !== id);
+    save(); render();
+}
+function inSweetSpot(f) { return f >= 10000 && f <= 80000; }
+function fmtNum(n) { return n >= 1000 ? (n/1000).toFixed(n % 1000 ? 1 : 0) + 'k' : n; }
+
+const STATUSES = ['To contact', 'Contacted', 'Replied', 'Joined'];
+function cycleStatus(id) {
+    const c = state.creators.find(x => x.id === id);
+    c.status = STATUSES[(STATUSES.indexOf(c.status) + 1) % STATUSES.length];
+    save(); render();
+}
+
+// ---- AI message generation ----
+async function genMessage(id, btn) {
+    const s = state.settings;
+    if (!s.apiKey) { alert('Add your Anthropic API key in Setup first.'); settingsCard.open = true; return; }
+    if (!s.productName) { alert('Fill in your product details in Setup first.'); settingsCard.open = true; return; }
+    const c = state.creators.find(x => x.id === id);
+    const original = btn.innerHTML;
+    btn.disabled = true; btn.innerHTML = '<span class="spinner"></span>Writing...';
+
+    const prompt = `You are helping me recruit an affiliate to promote my product. Write a SHORT, personalized outreach email I can send to this creator. It must feel hand-written, not like a template blast.
+
+MY PRODUCT: ${s.productName}
+PITCH: ${s.productPitch || '(none given)'}
+AFFILIATE OFFER: ${s.affiliateOffer || '(none given)'}
+SIGNUP LINK: ${s.signupLink || '(none given)'}
+MY NAME/SIGNATURE: ${s.senderName}
+TONE: ${s.tone}
+
+THE CREATOR:
+- Name/handle: ${c.name}
+- Platform: ${c.platform}
+- Audience size: ${c.followers ? fmtNum(c.followers) + ' followers' : 'unknown'}
+- Niche: ${c.niche || 'unknown'}
+- Notes to personalize on: ${c.notes || 'none'}
+
+RULES:
+- Subject line on the first line as "Subject: ..."
+- Reference their niche/content genuinely in the first sentence.
+- Explain the offer in one or two sentences, lead with what's in it for them.
+- One clear call to action with the signup link.
+- Keep it under 130 words. No emojis unless tone is enthusiastic. No fake flattery.
+- End with my signature.
+Return only the email text.`;
+
+    try {
+        const res = await fetch('https://api.anthropic.com/v1/messages', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json',
+                'x-api-key': s.apiKey,
+                'anthropic-version': '2023-06-01',
+                'anthropic-dangerous-direct-browser-access': 'true'
+            },
+            body: JSON.stringify({
+                model: s.model, max_tokens: 600,
+                messages: [{ role: 'user', content: prompt }]
+            })
+        });
+        if (!res.ok) {
+            const err = await res.text();
+            throw new Error('API ' + res.status + ': ' + err.slice(0, 200));
+        }
+        const data = await res.json();
+        c.message = (data.content || []).map(b => b.text || '').join('').trim();
+        save(); render();
+    } catch (e) {
+        alert('Could not generate message.\n\n' + e.message);
+        btn.disabled = false; btn.innerHTML = original;
+    }
+}
+
+async function genAllMissing() {
+    const targets = visibleCreators().filter(c => !c.message);
+    if (!targets.length) { alert('No empty drafts in the current view.'); return; }
+    if (!confirm('Draft messages for ' + targets.length + ' creator(s)? This uses your API key.')) return;
+    for (const c of targets) {
+        await genMessage(c.id, { set innerHTML(v){}, get innerHTML(){return '';}, set disabled(v){} });
+    }
+}
+
+function updateMessage(id, val) {
+    const c = state.creators.find(x => x.id === id);
+    c.message = val; save();
+}
+function copyMsg(id) {
+    const c = state.creators.find(x => x.id === id);
+    navigator.clipboard.writeText(c.message).then(() => toast('Copied!'));
+}
+function openEmail(id) {
+    const c = state.creators.find(x => x.id === id);
+    let subject = '', body = c.message;
+    const m = c.message.match(/^subject:\s*(.+)$/im);
+    if (m) { subject = m[1].trim(); body = c.message.replace(m[0], '').trim(); }
+    const to = c.email || '';
+    window.location.href = `mailto:${encodeURIComponent(to)}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    if (c.status === 'To contact') { c.status = 'Contacted'; save(); render(); }
+}
+
+let toastTimer;
+function toast(t) {
+    let el = document.getElementById('toast');
+    if (!el) {
+        el = document.createElement('div'); el.id = 'toast';
+        el.style.cssText = 'position:fixed;bottom:24px;left:50%;transform:translateX(-50%);background:#1f3358;color:#fff;padding:10px 18px;border-radius:20px;font-size:13px;z-index:99;box-shadow:0 6px 20px rgba(0,0,0,.5)';
+        document.body.appendChild(el);
+    }
+    el.textContent = t; el.style.opacity = '1';
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(() => el.style.opacity = '0', 1400);
+}
+
+// ---- filtering + render ----
+function visibleCreators() {
+    const fs = filterStatus.value, fr = filterRange.value;
+    return state.creators.filter(c => {
+        if (fs && c.status !== fs) return false;
+        if (fr === 'sweet' && !inSweetSpot(c.followers)) return false;
+        if (fr === 'out' && inSweetSpot(c.followers)) return false;
+        return true;
+    });
+}
+
+function render() {
+    // pipeline stats
+    const counts = { 'To contact': 0, 'Contacted': 0, 'Replied': 0, 'Joined': 0 };
+    state.creators.forEach(c => counts[c.status]++);
+    pipeline.innerHTML = STATUSES.map(s =>
+        `<div class="stat"><div class="n">${counts[s]}</div><div class="l">${s}</div></div>`).join('');
+
+    const list = visibleCreators();
+    filterTag.textContent = list.length + ' shown';
+    const wrap = document.getElementById('list');
+    if (!list.length) {
+        wrap.innerHTML = '<div class="empty">No creators yet. Add one above to start your pipeline.</div>';
+        return;
+    }
+    wrap.innerHTML = list.map(c => {
+        const sweet = c.followers ? (inSweetSpot(c.followers)
+            ? '<span class="badge sweet">sweet spot</span>'
+            : '<span class="badge out">outside range</span>') : '';
+        return `<div class="creator">
+            <div class="top">
+                <div>
+                    <div class="name">${esc(c.name)}</div>
+                    <div class="meta">${c.platform} · ${c.followers ? fmtNum(c.followers) + ' followers' : 'size unknown'}${c.niche ? ' · ' + esc(c.niche) : ''}</div>
+                    ${c.email ? `<div class="meta">✉ ${esc(c.email)}</div>` : '<div class="meta" style="color:#c8a6ff;">no email — find it on their About page</div>'}
+                </div>
+                <div style="text-align:right;display:flex;flex-direction:column;gap:6px;align-items:flex-end;">
+                    ${sweet}
+                    <span class="status-pill" data-status="${c.status}" onclick="cycleStatus(${c.id})" title="Click to advance">${c.status} ›</span>
+                </div>
+            </div>
+            ${c.message ? `
+            <div class="msg-box">
+                <textarea oninput="updateMessage(${c.id}, this.value)">${esc(c.message)}</textarea>
+            </div>
+            <div class="actions">
+                <button class="btn-ghost btn-sm" onclick="copyMsg(${c.id})">📋 Copy</button>
+                <button class="btn-primary btn-sm" onclick="openEmail(${c.id})">✉ Open email</button>
+                <button class="btn-ghost btn-sm" onclick="genMessage(${c.id}, this)">🔄 Rewrite</button>
+                <button class="btn-danger btn-sm" onclick="delCreator(${c.id})">Delete</button>
+            </div>` : `
+            <div class="actions">
+                <button class="btn-primary btn-sm" onclick="genMessage(${c.id}, this)">✨ Draft pitch</button>
+                <button class="btn-danger btn-sm" onclick="delCreator(${c.id})">Delete</button>
+            </div>`}
+        </div>`;
+    }).join('');
+}
+
+function esc(s) { return (s || '').replace(/[&<>"]/g, m => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[m])); }
+
+function exportCSV() {
+    if (!state.creators.length) { alert('Nothing to export yet.'); return; }
+    const rows = [['Name','Platform','Followers','Niche','Email','Status','Notes']];
+    state.creators.forEach(c => rows.push([c.name, c.platform, c.followers, c.niche, c.email, c.status, c.notes]));
+    const csv = rows.map(r => r.map(v => `"${String(v ?? '').replace(/"/g,'""')}"`).join(',')).join('\n');
+    const blob = new Blob([csv], { type: 'text/csv' });
+    const a = document.createElement('a');
+    a.href = URL.createObjectURL(blob);
+    a.download = 'affiliate-pipeline.csv';
+    a.click();
+}
+
+hydrateSettings();
+render();
+</script>
+</body>
+</html>
