@@ -259,8 +259,8 @@
         </div>
         <div id="list"></div>
         <div class="btn-row">
+            <button class="btn-primary btn-sm" id="bulkBtn" onclick="bulkDraft(this)">✨ Draft all</button>
             <button class="btn-ghost btn-sm" onclick="exportCSV()">⬇ Export CSV</button>
-            <button class="btn-ghost btn-sm" onclick="genAllMissing()">✨ Draft all empty</button>
         </div>
     </div>
 
@@ -496,14 +496,8 @@ function pickEmail(text) {
 }
 
 // ---- AI message generation ----
-async function genMessage(id, btn) {
+function buildPrompt(c) {
     const s = state.settings;
-    if (!s.apiKey) { alert('Add your Anthropic API key in Setup first.'); settingsCard.open = true; return; }
-    if (!s.productName) { alert('Fill in your product details in Setup first.'); settingsCard.open = true; return; }
-    const c = state.creators.find(x => x.id === id);
-    const original = btn.innerHTML;
-    btn.disabled = true; btn.innerHTML = '<span class="spinner"></span>Writing...';
-
     const type = state.msgType || 'Email (YouTube)';
     const FORMATS = {
         'Email (YouTube)': `Write a SHORT outreach EMAIL to their business address.
@@ -556,27 +550,43 @@ HARD RULES (from my playbook):
 - Make it specific to THIS creator so it doesn't read as copy-paste.
 - No fake flattery, no hard-sell desperation.
 Return ONLY the message text, nothing else.`;
+    return prompt;
+}
 
+async function callClaude(prompt) {
+    const s = state.settings;
+    const res = await fetch('https://api.anthropic.com/v1/messages', {
+        method: 'POST',
+        headers: {
+            'content-type': 'application/json',
+            'x-api-key': s.apiKey,
+            'anthropic-version': '2023-06-01',
+            'anthropic-dangerous-direct-browser-access': 'true'
+        },
+        body: JSON.stringify({
+            model: s.model, max_tokens: 600,
+            messages: [{ role: 'user', content: prompt }]
+        })
+    });
+    if (!res.ok) throw new Error('API ' + res.status + ': ' + (await res.text()).slice(0, 200));
+    const data = await res.json();
+    return (data.content || []).map(b => b.text || '').join('').trim();
+}
+
+function settingsReady() {
+    const s = state.settings;
+    if (!s.apiKey) { alert('Add your Anthropic API key in Setup first.'); settingsCard.open = true; return false; }
+    if (!s.productName) { alert('Fill in your product details in Setup first.'); settingsCard.open = true; return false; }
+    return true;
+}
+
+async function genMessage(id, btn) {
+    if (!settingsReady()) return;
+    const c = state.creators.find(x => x.id === id);
+    const original = btn.innerHTML;
+    btn.disabled = true; btn.innerHTML = '<span class="spinner"></span>Writing...';
     try {
-        const res = await fetch('https://api.anthropic.com/v1/messages', {
-            method: 'POST',
-            headers: {
-                'content-type': 'application/json',
-                'x-api-key': s.apiKey,
-                'anthropic-version': '2023-06-01',
-                'anthropic-dangerous-direct-browser-access': 'true'
-            },
-            body: JSON.stringify({
-                model: s.model, max_tokens: 600,
-                messages: [{ role: 'user', content: prompt }]
-            })
-        });
-        if (!res.ok) {
-            const err = await res.text();
-            throw new Error('API ' + res.status + ': ' + err.slice(0, 200));
-        }
-        const data = await res.json();
-        c.message = (data.content || []).map(b => b.text || '').join('').trim();
+        c.message = await callClaude(buildPrompt(c));
         save(); render();
     } catch (e) {
         alert('Could not generate message.\n\n' + e.message);
@@ -584,13 +594,26 @@ Return ONLY the message text, nothing else.`;
     }
 }
 
-async function genAllMissing() {
+// Draft the selected message type for everyone in the current view who has no draft yet.
+let bulkRunning = false;
+async function bulkDraft(btn) {
+    if (!settingsReady()) return;
     const targets = visibleCreators().filter(c => !c.message);
-    if (!targets.length) { alert('No empty drafts in the current view.'); return; }
-    if (!confirm('Draft messages for ' + targets.length + ' creator(s)? This uses your API key.')) return;
+    if (!targets.length) { alert('Everyone in this view already has a draft.\n\nChange the "Draft as" type and use 🔄 Rewrite on a card, or adjust the filters.'); return; }
+    if (!confirm('Draft a "' + (state.msgType || 'message') + '" for ' + targets.length + ' creator(s)?\n\nThis uses your Anthropic API key (one request each).')) return;
+
+    bulkRunning = true;
+    btn.disabled = true;
+    let done = 0, fail = 0;
     for (const c of targets) {
-        await genMessage(c.id, { set innerHTML(v){}, get innerHTML(){return '';}, set disabled(v){} });
+        btn.innerHTML = '<span class="spinner"></span>Drafting ' + (done + fail + 1) + '/' + targets.length + '…';
+        try { c.message = await callClaude(buildPrompt(c)); done++; save(); render(); }
+        catch (e) { fail++; }
     }
+    bulkRunning = false;
+    btn.disabled = false;
+    render();
+    toast('Drafted ' + done + (fail ? ' · ' + fail + ' failed' : '') + ' — review before sending');
 }
 
 function updateMessage(id, val) {
@@ -648,6 +671,15 @@ function render() {
 
     const list = visibleCreators();
     filterTag.textContent = list.length + ' shown';
+
+    // bulk-draft button label (skip while a run is in progress)
+    const bulk = document.getElementById('bulkBtn');
+    if (bulk && !bulkRunning) {
+        const empties = list.filter(c => !c.message).length;
+        bulk.innerHTML = '✨ Draft all' + (empties ? ' (' + empties + ')' : '');
+        bulk.disabled = empties === 0;
+    }
+
     const wrap = document.getElementById('list');
     if (!list.length) {
         wrap.innerHTML = '<div class="empty">No creators yet. Add one above to start your pipeline.</div>';
