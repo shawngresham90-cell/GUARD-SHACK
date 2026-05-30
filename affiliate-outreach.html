@@ -168,6 +168,9 @@
             <label>Short product pitch</label>
             <textarea id="productPitch" placeholder="A dashcam that auto-uploads crash footage to the cloud. Aimed at truckers and car enthusiasts."></textarea>
 
+            <label>Products &amp; prices (one per line)</label>
+            <textarea id="products" placeholder="Save Your CDL — $47"></textarea>
+
             <label>Affiliate offer (commission / perks)</label>
             <input type="text" id="affiliateOffer" placeholder="30% recurring commission + free unit">
 
@@ -235,6 +238,13 @@
     <!-- CREATOR LIST -->
     <div class="card">
         <h2>📋 Pipeline <span class="tag" id="filterTag"></span></h2>
+        <label>Draft as</label>
+        <select id="msgType" onchange="state.msgType=this.value;save();" style="margin-bottom:10px;">
+            <option>Email (YouTube)</option>
+            <option>DM — opener</option>
+            <option>DM — follow-up</option>
+            <option>Comment</option>
+        </select>
         <div class="row" style="margin-bottom:10px;">
             <select id="filterStatus" onchange="render()">
                 <option value="">All statuses</option>
@@ -267,8 +277,17 @@ function load() {
     try { return JSON.parse(localStorage.getItem(LS)) || defaults(); }
     catch { return defaults(); }
 }
+// Pre-loaded with the "Trucking Life with Shawn" offer — editable in Setup.
+const BRAND = {
+    productName: 'Trucking Life with Shawn — CDL guides & trucker books',
+    productPitch: 'Practical products real drivers use: Save Your CDL ($47), 17 Years Zero Violations ($20), Carnivore In The Truck ($20), The Driver\'s Mind ($20). Created by Shawn Gresham — 17 yrs zero violations, CDL instructor, 84K on YouTube.',
+    products: 'Save Your CDL — $47\n17 Years Zero Violations — $20\nCarnivore In The Truck — $20\nThe Driver\'s Mind — $20',
+    affiliateOffer: '50% commission on every sale, plug-and-play scripts, full welcome pack, no quotas, no BS',
+    signupLink: 'stan.store/TRUCKINGLIFEWITHSHAWN',
+    tone: 'Short & punchy'
+};
 function defaults() {
-    return { settings: { model: 'claude-sonnet-4-6', tone: 'Friendly & casual' }, creators: [] };
+    return { settings: { model: 'claude-sonnet-4-6', tone: BRAND.tone }, creators: [], msgType: 'Email (YouTube)' };
 }
 function save() { localStorage.setItem(LS, JSON.stringify(state)); }
 
@@ -279,18 +298,21 @@ function hydrateSettings() {
     youtubeKey.value = s.youtubeKey || '';
     model.value = s.model || 'claude-sonnet-4-6';
     senderName.value = s.senderName || '';
-    productName.value = s.productName || '';
-    productPitch.value = s.productPitch || '';
-    affiliateOffer.value = s.affiliateOffer || '';
-    signupLink.value = s.signupLink || '';
-    tone.value = s.tone || 'Friendly & casual';
+    productName.value = s.productName || BRAND.productName;
+    productPitch.value = s.productPitch || BRAND.productPitch;
+    products.value = s.products || BRAND.products;
+    affiliateOffer.value = s.affiliateOffer || BRAND.affiliateOffer;
+    signupLink.value = s.signupLink || BRAND.signupLink;
+    tone.value = s.tone || BRAND.tone;
+    if (state.msgType) msgType.value = state.msgType;
     refreshSetupState();
 }
 function saveSettings() {
     state.settings = {
         apiKey: apiKey.value.trim(), youtubeKey: youtubeKey.value.trim(), model: model.value,
         senderName: senderName.value.trim(), productName: productName.value.trim(),
-        productPitch: productPitch.value.trim(), affiliateOffer: affiliateOffer.value.trim(),
+        productPitch: productPitch.value.trim(), products: products.value.trim(),
+        affiliateOffer: affiliateOffer.value.trim(),
         signupLink: signupLink.value.trim(), tone: tone.value
     };
     save();
@@ -482,30 +504,58 @@ async function genMessage(id, btn) {
     const original = btn.innerHTML;
     btn.disabled = true; btn.innerHTML = '<span class="spinner"></span>Writing...';
 
-    const prompt = `You are helping me recruit an affiliate to promote my product. Write a SHORT, personalized outreach email I can send to this creator. It must feel hand-written, not like a template blast.
+    const type = state.msgType || 'Email (YouTube)';
+    const FORMATS = {
+        'Email (YouTube)': `Write a SHORT outreach EMAIL to their business address.
+- First line: "Subject: ..." (short, curiosity-driven, no spammy caps).
+- Reference their content genuinely in the first sentence.
+- Pitch the 50% commission and the welcome pack; lead with what's in it for THEM.
+- One clear call to action inviting a quick reply, include the store link.
+- Under 130 words. End with my signature.`,
+        'DM — opener': `Write a SHORT cold DM (for TikTok/IG/YouTube). This is the FIRST message.
+- Sound like a real person typing on their phone, not a press release.
+- Open with a genuine one-line reaction to their content.
+- Pitch the 50% commission as a simple "extra revenue stream, link-in-bio type thing."
+- End by inviting them to reply/DM back. 2-4 sentences MAX. A couple emojis OK (🚛🙌).
+- Do NOT paste the store link in a cold DM; get the conversation first.`,
+        'DM — follow-up': `Write a SHORT, friendly FOLLOW-UP DM for someone who saw the first message but didn't reply (~3 days later).
+- Low pressure, "bumping this up so it doesn't get lost."
+- Restate the offer in one line (50% commission, I send everything to start).
+- "If now's not the time, no stress." 2-3 sentences. One emoji OK.`,
+        'Comment': `Write a SHORT public COMMENT to leave on one of their videos.
+- Compliment the content, hint at the affiliate opportunity, tell them to DM you.
+- NEVER include a link (gets flagged as spam). Say "DM me" or "check my page."
+- One or two sentences. One emoji OK.`
+    };
 
-MY PRODUCT: ${s.productName}
-PITCH: ${s.productPitch || '(none given)'}
-AFFILIATE OFFER: ${s.affiliateOffer || '(none given)'}
-SIGNUP LINK: ${s.signupLink || '(none given)'}
-MY NAME/SIGNATURE: ${s.senderName}
+    const prompt = `You are writing affiliate-recruiting outreach for me. I recruit truck-niche content creators to become affiliates for my brand. Write ONE message in my voice — it must feel hand-typed, never like a mass template.
+
+MY BRAND / SIGNATURE: ${s.senderName || 'Trucking Life with Shawn'}
+WHAT I SELL: ${s.productName}
+PITCH: ${s.productPitch || '(none)'}
+PRODUCTS:
+${s.products || '(none listed)'}
+THE OFFER I PITCH THEM: ${s.affiliateOffer}
+STORE LINK: ${s.signupLink}
 TONE: ${s.tone}
 
-THE CREATOR:
+THE CREATOR I'M CONTACTING:
 - Name/handle: ${c.name}
 - Platform: ${c.platform}
 - Audience size: ${c.followers ? fmtNum(c.followers) + ' followers' : 'unknown'}
-- Niche: ${c.niche || 'unknown'}
-- Notes to personalize on: ${c.notes || 'none'}
+- Niche: ${c.niche || 'trucking content'}
+- Notes to personalize on: ${c.notes || 'none — keep it general but genuine'}
 
-RULES:
-- Subject line on the first line as "Subject: ..."
-- Reference their niche/content genuinely in the first sentence.
-- Explain the offer in one or two sentences, lead with what's in it for them.
-- One clear call to action with the signup link.
-- Keep it under 130 words. No emojis unless tone is enthusiastic. No fake flattery.
-- End with my signature.
-Return only the email text.`;
+FORMAT — ${type}:
+${FORMATS[type]}
+
+HARD RULES (from my playbook):
+- Lead with the brand name for authority (Trucking Life with Shawn — 17 yrs zero violations, CDL instructor, 84K on YouTube) where it fits naturally.
+- NEVER promise specific income numbers ("you'll make $5K/month") — that's not allowed.
+- Pitch THEIR 50% commission. Never mention recruiter overrides or my business model.
+- Make it specific to THIS creator so it doesn't read as copy-paste.
+- No fake flattery, no hard-sell desperation.
+Return ONLY the message text, nothing else.`;
 
     try {
         const res = await fetch('https://api.anthropic.com/v1/messages', {
