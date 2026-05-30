@@ -153,6 +153,10 @@
                 <option value="claude-opus-4-8">Opus 4.8 — highest quality</option>
             </select>
 
+            <label>YouTube Data API key <span style="color:#7d8ba6;">(for finding creators)</span></label>
+            <input type="password" id="youtubeKey" placeholder="AIza...">
+            <p class="hint">Create one free in <a href="https://console.cloud.google.com/apis/library/youtube.googleapis.com" target="_blank">Google Cloud Console</a>: enable "YouTube Data API v3", then make an API key. Lets the Find tab pull channels by niche.</p>
+
             <hr style="border:0;border-top:1px solid #243450;margin:16px 0;">
 
             <label>Your name / brand (signature)</label>
@@ -187,9 +191,26 @@
     <!-- PIPELINE STATS -->
     <div class="pipeline" id="pipeline"></div>
 
-    <!-- ADD CREATOR -->
+    <!-- FIND CREATORS -->
     <div class="card">
-        <h2>➕ Add a creator</h2>
+        <h2>🔎 Find creators on YouTube</h2>
+        <label>Niche / keywords to search</label>
+        <input type="text" id="searchQuery" placeholder="trucking vlog, dashcam, road rage" onkeydown="if(event.key==='Enter')searchYouTube()">
+        <div class="row">
+            <div><label>Min followers</label><input type="number" id="minFollowers" value="10000"></div>
+            <div><label>Max followers</label><input type="number" id="maxFollowers" value="80000"></div>
+        </div>
+        <div class="btn-row">
+            <button class="btn-primary" id="searchBtn" onclick="searchYouTube()">Search channels</button>
+        </div>
+        <p class="hint">Pulls channels in your niche and keeps only those in your follower range. YouTube rounds sub counts and hides some — those are skipped. Emails aren't in the API; use each result's "About page" link to grab the business email.</p>
+        <div id="searchResults"></div>
+    </div>
+
+    <!-- ADD CREATOR -->
+    <details class="card">
+        <summary><h2 style="display:inline-flex;margin:0;">➕ Add a creator manually</h2></summary>
+        <div style="margin-top:8px;">
         <div class="row">
             <div><label>Name / handle</label><input type="text" id="cName" placeholder="@TruckLifeMike"></div>
             <div><label>Followers / subs</label><input type="number" id="cFollowers" placeholder="45000"></div>
@@ -208,7 +229,8 @@
             <button class="btn-primary" onclick="addCreator()">Add to pipeline</button>
         </div>
         <p class="hint">Tip: your sweet spot is <b>10k–80k followers</b> — big enough to drive sales, small enough to actually answer their email.</p>
-    </div>
+        </div>
+    </details>
 
     <!-- CREATOR LIST -->
     <div class="card">
@@ -254,6 +276,7 @@ function save() { localStorage.setItem(LS, JSON.stringify(state)); }
 function hydrateSettings() {
     const s = state.settings;
     apiKey.value = s.apiKey || '';
+    youtubeKey.value = s.youtubeKey || '';
     model.value = s.model || 'claude-sonnet-4-6';
     senderName.value = s.senderName || '';
     productName.value = s.productName || '';
@@ -265,7 +288,7 @@ function hydrateSettings() {
 }
 function saveSettings() {
     state.settings = {
-        apiKey: apiKey.value.trim(), model: model.value,
+        apiKey: apiKey.value.trim(), youtubeKey: youtubeKey.value.trim(), model: model.value,
         senderName: senderName.value.trim(), productName: productName.value.trim(),
         productPitch: productPitch.value.trim(), affiliateOffer: affiliateOffer.value.trim(),
         signupLink: signupLink.value.trim(), tone: tone.value
@@ -309,6 +332,95 @@ function cycleStatus(id) {
     const c = state.creators.find(x => x.id === id);
     c.status = STATUSES[(STATUSES.indexOf(c.status) + 1) % STATUSES.length];
     save(); render();
+}
+
+// ---- YouTube channel finder ----
+let lastResults = [];
+async function searchYouTube() {
+    const key = state.settings.youtubeKey;
+    if (!key) { alert('Add your YouTube Data API key in Setup first.'); settingsCard.open = true; return; }
+    const q = searchQuery.value.trim();
+    if (!q) { alert('Enter a niche or keywords to search.'); return; }
+    const min = parseInt(minFollowers.value) || 0;
+    const max = parseInt(maxFollowers.value) || Infinity;
+    const btn = searchBtn, original = btn.innerHTML;
+    btn.disabled = true; btn.innerHTML = '<span class="spinner"></span>Searching...';
+    searchResults.innerHTML = '';
+
+    try {
+        // 1) find candidate channels by keyword
+        const sUrl = 'https://www.googleapis.com/youtube/v3/search?part=snippet&type=channel&maxResults=50'
+            + '&q=' + encodeURIComponent(q) + '&key=' + encodeURIComponent(key);
+        const sRes = await fetch(sUrl);
+        if (!sRes.ok) throw new Error('Search failed (' + sRes.status + '): ' + (await sRes.text()).slice(0, 200));
+        const sData = await sRes.json();
+        const ids = (sData.items || []).map(i => i.snippet.channelId || (i.id && i.id.channelId)).filter(Boolean);
+        if (!ids.length) { searchResults.innerHTML = '<div class="empty">No channels found for that search.</div>'; return; }
+
+        // 2) pull stats for those channels (batched, 50 max per call)
+        const cUrl = 'https://www.googleapis.com/youtube/v3/channels?part=snippet,statistics'
+            + '&id=' + ids.join(',') + '&maxResults=50&key=' + encodeURIComponent(key);
+        const cRes = await fetch(cUrl);
+        if (!cRes.ok) throw new Error('Channel lookup failed (' + cRes.status + ')');
+        const cData = await cRes.json();
+
+        // 3) filter to the follower range
+        lastResults = (cData.items || []).map(ch => ({
+            id: ch.id,
+            name: ch.snippet.title,
+            desc: ch.snippet.description || '',
+            followers: ch.statistics.hiddenSubscriberCount ? null : parseInt(ch.statistics.subscriberCount),
+            videos: parseInt(ch.statistics.videoCount) || 0
+        })).filter(ch => ch.followers !== null && ch.followers >= min && ch.followers <= max)
+           .sort((a, b) => b.followers - a.followers);
+
+        renderSearchResults(min, max);
+    } catch (e) {
+        searchResults.innerHTML = '<div class="empty" style="color:#ff9db0;">' + esc(e.message) + '</div>';
+    } finally {
+        btn.disabled = false; btn.innerHTML = original;
+    }
+}
+
+function renderSearchResults(min, max) {
+    if (!lastResults.length) {
+        searchResults.innerHTML = '<div class="empty">No channels in the ' + fmtNum(min) + '–' + fmtNum(max) + ' range. Try broader keywords.</div>';
+        return;
+    }
+    searchResults.innerHTML = '<p class="hint" style="margin-top:14px;">' + lastResults.length + ' channel(s) in range:</p>'
+        + lastResults.map(ch => {
+        const already = state.creators.some(c => c.ytId === ch.id);
+        return `<div class="creator" style="margin-top:10px;">
+            <div class="top">
+                <div>
+                    <div class="name">${esc(ch.name)}</div>
+                    <div class="meta">${fmtNum(ch.followers)} subscribers · ${ch.videos} videos</div>
+                    <div class="meta"><a href="https://www.youtube.com/channel/${ch.id}/about" target="_blank">📧 About page (get email)</a>
+                        &nbsp;·&nbsp; <a href="https://www.youtube.com/channel/${ch.id}" target="_blank">channel</a></div>
+                </div>
+                <span class="badge ${inSweetSpot(ch.followers) ? 'sweet' : 'out'}">${fmtNum(ch.followers)}</span>
+            </div>
+            <div class="actions">
+                <button class="btn-primary btn-sm" onclick="addFromSearch('${ch.id}', this)" ${already ? 'disabled' : ''}>${already ? '✓ In pipeline' : '+ Add to pipeline'}</button>
+            </div>
+        </div>`;
+    }).join('');
+}
+
+function addFromSearch(ytId, btn) {
+    const ch = lastResults.find(c => c.id === ytId);
+    if (!ch || state.creators.some(c => c.ytId === ytId)) return;
+    state.creators.unshift({
+        id: Date.now(), ytId,
+        name: ch.name, followers: ch.followers,
+        niche: searchQuery.value.trim(), platform: 'YouTube',
+        email: '', notes: (ch.desc || '').slice(0, 200),
+        link: 'https://www.youtube.com/channel/' + ytId + '/about',
+        status: 'To contact', message: ''
+    });
+    save();
+    btn.disabled = true; btn.textContent = '✓ In pipeline';
+    render();
 }
 
 // ---- AI message generation ----
@@ -385,6 +497,10 @@ function updateMessage(id, val) {
     const c = state.creators.find(x => x.id === id);
     c.message = val; save();
 }
+function setEmail(id, val) {
+    const c = state.creators.find(x => x.id === id);
+    c.email = val.trim(); save(); render();
+}
 function copyMsg(id) {
     const c = state.creators.find(x => x.id === id);
     navigator.clipboard.writeText(c.message).then(() => toast('Copied!'));
@@ -446,7 +562,9 @@ function render() {
                 <div>
                     <div class="name">${esc(c.name)}</div>
                     <div class="meta">${c.platform} · ${c.followers ? fmtNum(c.followers) + ' followers' : 'size unknown'}${c.niche ? ' · ' + esc(c.niche) : ''}</div>
-                    ${c.email ? `<div class="meta">✉ ${esc(c.email)}</div>` : '<div class="meta" style="color:#c8a6ff;">no email — find it on their About page</div>'}
+                    ${c.email ? `<div class="meta">✉ ${esc(c.email)}</div>`
+                        : `<div class="meta" style="color:#c8a6ff;">no email${c.link ? ` — <a href="${c.link}" target="_blank">grab it from About page</a>` : ''}</div>
+                           <input type="email" placeholder="paste business email" style="margin-top:6px;font-size:12px;padding:7px 9px;" onchange="setEmail(${c.id}, this.value)">`}
                 </div>
                 <div style="text-align:right;display:flex;flex-direction:column;gap:6px;align-items:flex-end;">
                     ${sweet}
