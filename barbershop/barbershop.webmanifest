@@ -2,7 +2,7 @@
   "name": "Chair Cash — Barbershop Manager",
   "short_name": "Chair Cash",
   "description": "Appointments, clients, cash flow and one-tap reminders for a barbershop.",
-  "start_url": "barbershop.html",
+  "start_url": "index.html",
   "scope": "./",
   "display": "standalone",
   "orientation": "portrait",

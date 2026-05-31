@@ -1,7 +1,7 @@
 /* Chair Cash service worker — makes the app installable and usable offline.
    Cache-first for the app shell so it opens with no connection. */
 const CACHE = 'chaircash-v1';
-const ASSETS = ['barbershop.html', 'barbershop.webmanifest'];
+const ASSETS = ['index.html', 'barbershop.webmanifest'];
 
 self.addEventListener('install', (e) => {
     e.waitUntil(caches.open(CACHE).then((c) => c.addAll(ASSETS)).then(() => self.skipWaiting()));
@@ -35,7 +35,7 @@ self.addEventListener('notificationclick', (e) => {
     e.waitUntil(
         self.clients.matchAll({ type: 'window', includeUncontrolled: true }).then((list) => {
             for (const c of list) { if ('focus' in c) return c.focus(); }
-            if (self.clients.openWindow) return self.clients.openWindow('barbershop.html');
+            if (self.clients.openWindow) return self.clients.openWindow('index.html');
         })
     );
 });
