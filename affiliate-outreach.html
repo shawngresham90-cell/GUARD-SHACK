@@ -145,6 +145,10 @@
             <label>Anthropic API key <span style="color:#7d8ba6;">(stored only in this browser)</span></label>
             <input type="password" id="apiKey" placeholder="sk-ant-...">
             <p class="hint">Get one at <a href="https://console.anthropic.com/settings/keys" target="_blank">console.anthropic.com</a>. It's saved to this device only and used to generate your messages.</p>
+            <div class="btn-row" style="margin-top:6px;">
+                <button class="btn-ghost btn-sm" type="button" onclick="testAnthropic(this)">Test key</button>
+                <span id="anthropicTest" style="font-size:12px;align-self:center;color:#7d8ba6;">untested</span>
+            </div>
 
             <label>AI model</label>
             <select id="model">
@@ -156,6 +160,10 @@
             <label>YouTube Data API key <span style="color:#7d8ba6;">(for finding creators)</span></label>
             <input type="password" id="youtubeKey" placeholder="AIza...">
             <p class="hint">Create one free in <a href="https://console.cloud.google.com/apis/library/youtube.googleapis.com" target="_blank">Google Cloud Console</a>: enable "YouTube Data API v3", then make an API key. Lets the Find tab pull channels by niche.</p>
+            <div class="btn-row" style="margin-top:6px;">
+                <button class="btn-ghost btn-sm" type="button" onclick="testYouTube(this)">Test key</button>
+                <span id="youtubeTest" style="font-size:12px;align-self:center;color:#7d8ba6;">untested</span>
+            </div>
 
             <label>Google OAuth Client ID <span style="color:#7d8ba6;">(optional — for Gmail drafts)</span></label>
             <input type="password" id="googleClientId" placeholder="...apps.googleusercontent.com">
@@ -657,6 +665,44 @@ function openEmail(id) {
         + '&body=' + encodeURIComponent(body);
     window.open(url, '_blank');
     if (c.status === 'To contact') { c.status = 'Contacted'; save(); render(); }
+}
+
+// ---- connection tests (instant green-check feedback) ----
+function setTest(elId, ok, msg) {
+    const el = document.getElementById(elId);
+    el.textContent = msg;
+    el.style.color = ok === null ? '#ffd87a' : (ok ? '#7ee29a' : '#ff9db0');
+}
+async function testAnthropic(btn) {
+    const key = apiKey.value.trim();
+    if (!key) { setTest('anthropicTest', false, 'paste a key first'); return; }
+    const orig = btn.innerHTML; btn.disabled = true; btn.innerHTML = '<span class="spinner"></span>';
+    setTest('anthropicTest', null, 'testing…');
+    try {
+        const res = await fetch('https://api.anthropic.com/v1/messages', {
+            method: 'POST',
+            headers: { 'content-type': 'application/json', 'x-api-key': key,
+                'anthropic-version': '2023-06-01', 'anthropic-dangerous-direct-browser-access': 'true' },
+            body: JSON.stringify({ model: 'claude-haiku-4-5-20251001', max_tokens: 1, messages: [{ role: 'user', content: 'hi' }] })
+        });
+        if (res.ok) setTest('anthropicTest', true, '✓ working');
+        else if (res.status === 401) setTest('anthropicTest', false, '✗ invalid key');
+        else if (res.status === 400) setTest('anthropicTest', true, '✓ key OK');
+        else { const t = await res.text(); setTest('anthropicTest', false, '✗ ' + res.status + (/credit|billing/i.test(t) ? ' — add billing credit' : '')); }
+    } catch (e) { setTest('anthropicTest', false, '✗ network error'); }
+    btn.disabled = false; btn.innerHTML = orig;
+}
+async function testYouTube(btn) {
+    const key = youtubeKey.value.trim();
+    if (!key) { setTest('youtubeTest', false, 'paste a key first'); return; }
+    const orig = btn.innerHTML; btn.disabled = true; btn.innerHTML = '<span class="spinner"></span>';
+    setTest('youtubeTest', null, 'testing…');
+    try {
+        const res = await fetch('https://www.googleapis.com/youtube/v3/search?part=snippet&type=channel&maxResults=1&q=trucker&key=' + encodeURIComponent(key));
+        if (res.ok) setTest('youtubeTest', true, '✓ working');
+        else { const t = await res.text(); setTest('youtubeTest', false, /not been used|disabled|SERVICE_DISABLED/i.test(t) ? '✗ enable YouTube Data API v3' : (/API key not valid/i.test(t) ? '✗ invalid key' : '✗ ' + res.status)); }
+    } catch (e) { setTest('youtubeTest', false, '✗ network error'); }
+    btn.disabled = false; btn.innerHTML = orig;
 }
 
 // ---- Gmail draft creation (optional, via Gmail API + OAuth) ----
