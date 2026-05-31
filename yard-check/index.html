@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yard Check - Daily Trailer Inspection</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🚚 Yard Check</h1>
+            <p class="date" id="currentDate"></p>
+        </header>
+
+        <div class="controls">
+            <button id="startBtn" class="btn btn-start">START</button>
+            <button id="stopBtn" class="btn btn-stop" disabled>STOP</button>
+            <div class="status" id="status">Ready to listen</div>
+            <div class="transcript" id="transcript"></div>
+        </div>
+
+        <div class="categories-container">
+            <div class="category">
+                <h2>📦 LOADED</h2>
+                <div class="trailer-list" id="loaded"></div>
+            </div>
+
+            <div class="category">
+                <h2>📭 EMPTY</h2>
+                <div class="trailer-list" id="empty"></div>
+            </div>
+
+            <div class="category">
+                <h2>🔧 DOCKED</h2>
+                <div class="trailer-list" id="docked"></div>
+            </div>
+
+            <div class="category">
+                <h2>⚠️ REDLINE</h2>
+                <div class="trailer-list" id="redline"></div>
+            </div>
+        </div>
+
+        <div class="action-buttons">
+            <button id="clearAllBtn" class="btn btn-secondary">Clear All</button>
+            <button id="emailBtn" class="btn btn-email">📧 Email Report</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
