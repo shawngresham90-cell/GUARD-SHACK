@@ -27,7 +27,10 @@ An AI-powered affiliate-recruiting tool. It finds truck-niche creators on YouTub
 3. **🔍 Auto-find email** on each card — pulls a published business email from their channel/video descriptions. If none, use the **About page** link and paste it in.
 4. **Pick "Draft as"** — Email (YouTube) / DM opener / DM follow-up / Comment.
 5. **✨ Draft all (N)** — drafts that type for everyone without a draft yet, personalized one-by-one. Or **✨ Draft pitch** per card.
-6. **Review & edit** each draft, then **📋 Copy** (for DMs/comments) or **✉ Open email** (for emails) and **send it yourself**.
+6. **Review & edit** each draft, then send it your way:
+   - **📋 Copy** — for DMs/comments (paste into the DM yourself)
+   - **✉ Open in Gmail** — opens a pre-filled Gmail compose window; review, then Send or Save as draft. *No setup.*
+   - **📥 Create Gmail drafts** — pushes every drafted email (with an address) straight into your Gmail **Drafts** folder at once. *Optional one-time Google sign-in (see below).*
 7. **Advance status** — click the status pill: To contact → Contacted → Replied → Joined.
 8. **⬇ Export CSV** anytime to back up your pipeline.
 
@@ -47,6 +50,20 @@ An AI-powered affiliate-recruiting tool. It finds truck-niche creators on YouTub
 - **No auto-DMing / auto-emailing.** YouTube/TikTok/IG have no compliant send API; automating sends gets accounts banned. You send manually.
 - **No scraping CAPTCHA-hidden emails.** The About-page email is gated to block bots — the app only reads emails creators *publicly published*.
 - **YouTube only** for finding creators — it's the one platform with a real search API. Instagram/TikTok have none.
+
+---
+
+## 📥 Optional: bulk Gmail drafts
+
+The **Create Gmail drafts** button drops your whole day's email pitches into your Gmail Drafts folder in one click. It still **does not send** — you open Gmail, review, and hit send. One-time setup:
+
+1. In [Google Cloud Console](https://console.cloud.google.com/), **enable the Gmail API**.
+2. Create an **OAuth 2.0 Client ID → Web application**.
+3. Add your hosted page's address (e.g. `https://you.github.io`) as an **Authorized JavaScript origin**.
+4. Paste the Client ID into **Setup → Google OAuth Client ID → Save**.
+5. Click **🔗 Connect Gmail** and approve the Google sign-in.
+
+> ⚠️ This only works when the app is **hosted over https** (like GitHub Pages) — Google sign-in is blocked from a local `file://` page. If you skip this, just use **✉ Open in Gmail** per email instead.
 
 ---
 

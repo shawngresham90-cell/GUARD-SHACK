@@ -157,6 +157,14 @@
             <input type="password" id="youtubeKey" placeholder="AIza...">
             <p class="hint">Create one free in <a href="https://console.cloud.google.com/apis/library/youtube.googleapis.com" target="_blank">Google Cloud Console</a>: enable "YouTube Data API v3", then make an API key. Lets the Find tab pull channels by niche.</p>
 
+            <label>Google OAuth Client ID <span style="color:#7d8ba6;">(optional — for Gmail drafts)</span></label>
+            <input type="password" id="googleClientId" placeholder="...apps.googleusercontent.com">
+            <p class="hint">Only needed for the "Create Gmail drafts" button. In Google Cloud Console: enable "Gmail API", create an <b>OAuth 2.0 Client ID (Web application)</b>, and add this page's address as an authorized JavaScript origin. <b>Requires the app to be hosted (e.g. GitHub Pages)</b> — Gmail sign-in won't work from a local file. Skip this and use "Open in Gmail" per email if you'd rather not set it up.</p>
+            <div class="btn-row">
+                <button class="btn-ghost btn-sm" type="button" onclick="connectGmail()">🔗 Connect Gmail</button>
+                <span id="gmailStatus" style="font-size:12px;color:#ffd87a;align-self:center;">not connected</span>
+            </div>
+
             <hr style="border:0;border-top:1px solid #243450;margin:16px 0;">
 
             <label>Your name / brand (signature)</label>
@@ -260,6 +268,7 @@
         <div id="list"></div>
         <div class="btn-row">
             <button class="btn-primary btn-sm" id="bulkBtn" onclick="bulkDraft(this)">✨ Draft all</button>
+            <button class="btn-ghost btn-sm" id="gmailAllBtn" onclick="gmailDraftAll(this)">📥 Create Gmail drafts</button>
             <button class="btn-ghost btn-sm" onclick="exportCSV()">⬇ Export CSV</button>
         </div>
     </div>
@@ -269,6 +278,7 @@
     </p>
 </div>
 
+<script src="https://accounts.google.com/gsi/client" async></script>
 <script>
 const LS = 'outreachAgent.v1';
 let state = load();
@@ -296,6 +306,7 @@ function hydrateSettings() {
     const s = state.settings;
     apiKey.value = s.apiKey || '';
     youtubeKey.value = s.youtubeKey || '';
+    googleClientId.value = s.googleClientId || '';
     model.value = s.model || 'claude-sonnet-4-6';
     senderName.value = s.senderName || '';
     productName.value = s.productName || BRAND.productName;
@@ -309,7 +320,8 @@ function hydrateSettings() {
 }
 function saveSettings() {
     state.settings = {
-        apiKey: apiKey.value.trim(), youtubeKey: youtubeKey.value.trim(), model: model.value,
+        apiKey: apiKey.value.trim(), youtubeKey: youtubeKey.value.trim(),
+        googleClientId: googleClientId.value.trim(), model: model.value,
         senderName: senderName.value.trim(), productName: productName.value.trim(),
         productPitch: productPitch.value.trim(), products: products.value.trim(),
         affiliateOffer: affiliateOffer.value.trim(),
@@ -628,14 +640,104 @@ function copyMsg(id) {
     const c = state.creators.find(x => x.id === id);
     navigator.clipboard.writeText(c.message).then(() => toast('Copied!'));
 }
+// Split a drafted message into { subject, body }.
+function splitSubject(message) {
+    let subject = '', body = message;
+    const m = message.match(/^subject:\s*(.+)$/im);
+    if (m) { subject = m[1].trim(); body = message.replace(m[0], '').trim(); }
+    return { subject, body };
+}
+// Open a pre-filled Gmail compose window (no setup needed). Save-as-draft or send from there.
 function openEmail(id) {
     const c = state.creators.find(x => x.id === id);
-    let subject = '', body = c.message;
-    const m = c.message.match(/^subject:\s*(.+)$/im);
-    if (m) { subject = m[1].trim(); body = c.message.replace(m[0], '').trim(); }
-    const to = c.email || '';
-    window.location.href = `mailto:${encodeURIComponent(to)}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    const { subject, body } = splitSubject(c.message);
+    const url = 'https://mail.google.com/mail/?view=cm&fs=1'
+        + '&to=' + encodeURIComponent(c.email || '')
+        + '&su=' + encodeURIComponent(subject)
+        + '&body=' + encodeURIComponent(body);
+    window.open(url, '_blank');
     if (c.status === 'To contact') { c.status = 'Contacted'; save(); render(); }
+}
+
+// ---- Gmail draft creation (optional, via Gmail API + OAuth) ----
+let tokenClient = null, gmailToken = null;
+function initGmail() {
+    if (!(window.google && google.accounts && google.accounts.oauth2)) return false;
+    if (!state.settings.googleClientId) return false;
+    tokenClient = google.accounts.oauth2.initTokenClient({
+        client_id: state.settings.googleClientId,
+        scope: 'https://www.googleapis.com/auth/gmail.compose',
+        callback: (resp) => {
+            if (resp && resp.access_token) {
+                gmailToken = resp.access_token;
+                updateGmailStatus(true);
+                toast('Gmail connected ✓');
+            }
+        }
+    });
+    return true;
+}
+function connectGmail() {
+    if (!state.settings.googleClientId) {
+        alert('Add your Google OAuth Client ID in Setup and Save first.'); return;
+    }
+    if (!tokenClient && !initGmail()) {
+        alert('Google sign-in is still loading (or the Client ID is blank). Wait a second and try again.\n\nNote: Gmail connect only works when this page is hosted over https — not from a local file.');
+        return;
+    }
+    tokenClient.requestAccessToken();
+}
+function updateGmailStatus(connected) {
+    const el = document.getElementById('gmailStatus');
+    if (!el) return;
+    el.textContent = connected ? 'connected ✓' : 'not connected';
+    el.style.color = connected ? '#7ee29a' : '#ffd87a';
+}
+function b64url(str) {
+    return btoa(unescape(encodeURIComponent(str)))
+        .replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/, '');
+}
+async function createGmailDraft(c) {
+    const { subject, body } = splitSubject(c.message);
+    const raw = b64url(
+        'To: ' + (c.email || '') + '\r\n' +
+        'Subject: ' + subject + '\r\n' +
+        'Content-Type: text/plain; charset="UTF-8"\r\n\r\n' +
+        body
+    );
+    const res = await fetch('https://gmail.googleapis.com/gmail/v1/users/me/drafts', {
+        method: 'POST',
+        headers: { 'Authorization': 'Bearer ' + gmailToken, 'Content-Type': 'application/json' },
+        body: JSON.stringify({ message: { raw } })
+    });
+    if (!res.ok) throw new Error('Gmail ' + res.status + ': ' + (await res.text()).slice(0, 150));
+}
+async function gmailDraftAll(btn) {
+    const targets = visibleCreators().filter(c => c.message && c.email);
+    if (!targets.length) {
+        alert('No creators with BOTH a drafted message and an email in this view.\n\nDraft messages and add emails first (use 🔍 Auto-find email).');
+        return;
+    }
+    if (!state.settings.googleClientId) {
+        alert('To push drafts into Gmail you need a Google OAuth Client ID in Setup.\n\nNo setup? Use the "✉ Open in Gmail" button on each card instead.');
+        settingsCard.open = true; return;
+    }
+    if (!gmailToken) {
+        if (!tokenClient && !initGmail()) { alert('Open Setup and click "🔗 Connect Gmail" first.'); settingsCard.open = true; return; }
+        alert('Click "🔗 Connect Gmail" in Setup to authorize, then press this again.');
+        settingsCard.open = true; tokenClient.requestAccessToken(); return;
+    }
+    if (!confirm('Create ' + targets.length + ' draft(s) directly in your Gmail account?')) return;
+    const original = btn.innerHTML; btn.disabled = true;
+    let done = 0, fail = 0;
+    for (const c of targets) {
+        btn.innerHTML = '<span class="spinner"></span>' + (done + fail + 1) + '/' + targets.length;
+        try { await createGmailDraft(c); done++; if (c.status === 'To contact') c.status = 'Contacted'; save(); }
+        catch (e) { fail++; }
+    }
+    btn.disabled = false; btn.innerHTML = original; render();
+    toast(done + ' Gmail draft(s) created' + (fail ? ' · ' + fail + ' failed' : ''));
+    if (done) alert('Done — ' + done + ' draft(s) are now in your Gmail Drafts folder. Open Gmail to review and send.');
 }
 
 let toastTimer;
@@ -713,7 +815,7 @@ function render() {
             </div>
             <div class="actions">
                 <button class="btn-ghost btn-sm" onclick="copyMsg(${c.id})">📋 Copy</button>
-                <button class="btn-primary btn-sm" onclick="openEmail(${c.id})">✉ Open email</button>
+                <button class="btn-primary btn-sm" onclick="openEmail(${c.id})">✉ Open in Gmail</button>
                 <button class="btn-ghost btn-sm" onclick="genMessage(${c.id}, this)">🔄 Rewrite</button>
                 <button class="btn-danger btn-sm" onclick="delCreator(${c.id})">Delete</button>
             </div>` : `
