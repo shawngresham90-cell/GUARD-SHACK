@@ -289,6 +289,15 @@
                 <input type="file" id="importFile" accept="application/json,.json" style="display:none" onchange="importData(this)">
                 <p class="hint">Backup saves all clients, appointments &amp; money to a file you can keep safe or move to another device. Restore loads a backup file (replaces current data).</p>
                 <p class="hint" id="installHint" style="display:none;">📲 <b>Add to Home Screen</b> from your browser menu to use Chair Cash like a real app and get daily alerts.</p>
+
+                <label class="fld" style="margin-top:18px;">☁️ Cloud sync (for automatic texts)</label>
+                <input type="text" id="cloudUrl" placeholder="Supabase project URL (https://xxxx.supabase.co)">
+                <input type="text" id="cloudKey" placeholder="Supabase anon key" style="margin-top:6px;">
+                <div class="btn-row" style="margin-top:8px;">
+                    <button class="btn-gold btn-sm" style="flex:1;" onclick="saveCloudConfig()">Save &amp; connect</button>
+                    <button class="btn-green btn-sm" style="flex:1;" onclick="syncNow()">Sync now</button>
+                </div>
+                <p class="hint" id="cloudStatus">Optional. Connect a Supabase project to back up clients &amp; appointments to the cloud so automatic reminders can run. Your keys stay on this device.</p>
             </div>
         </section>
     </main>
@@ -393,8 +402,117 @@
         save('cc_appts', DB.appts);
         save('cc_money', DB.money);
         save('cc_meta', DB.meta);
+        Cloud.scheduleSync();   // best-effort push to cloud if connected (Story 1.2)
     }
     const uid = () => Date.now().toString(36) + Math.random().toString(36).slice(2, 6);
+
+    /* ---------- Cloud sync (Story 1.2) ----------
+       Pushes customers + appointments to a Supabase project so the reminder
+       backend can see them. Entirely optional and offline-safe: if not
+       configured or unreachable, the app keeps working on localStorage and
+       retries on the next change. Keys live only in this browser. */
+    const Cloud = (() => {
+        const CFG_KEY = 'cc_cloud_cfg';
+        let cfg = load(CFG_KEY, null);   // { url, key }
+        let client = null;               // lazy-loaded supabase-js client
+        let timer = null;
+        let busy = false;
+
+        const isConfigured = () => !!(cfg && cfg.url && cfg.key);
+
+        function setStatus(msg) {
+            const el = document.getElementById('cloudStatus');
+            if (el) el.textContent = msg;
+        }
+
+        async function getClient() {
+            if (!isConfigured()) return null;
+            if (client) return client;
+            // Load supabase-js from CDN on demand (no bundler needed).
+            const { createClient } = await import('https://esm.sh/@supabase/supabase-js@2');
+            client = createClient(cfg.url, cfg.key);
+            return client;
+        }
+
+        // Map app records -> cloud row shapes (architecture.md → Data Models).
+        function customerRows() {
+            return DB.customers.map(c => ({
+                id: c.id, name: c.name, phone: c.phone || null,
+                ok_to_text: !!c.okText, updated_at: new Date().toISOString()
+            }));
+        }
+        function apptRows() {
+            return DB.appts.map(a => ({
+                id: a.id, customer_id: a.custId || null,
+                start_at: a.date ? new Date(a.date + 'T' + (a.time || '00:00')).toISOString() : null,
+                service: a.service || null,
+                price: a.price ? Number(a.price) : null,
+                notes: a.notes || null,
+                status: a.status || 'booked',
+                updated_at: new Date().toISOString()
+            })).filter(r => r.start_at);
+        }
+
+        async function push() {
+            const sb = await getClient();
+            if (!sb) return;
+            if (busy) return;
+            busy = true;
+            try {
+                setStatus('Syncing…');
+                // Ensure a settings row exists for this owner (idempotent).
+                await sb.from('settings').upsert({ shop_name: DB.meta.shop || 'My Shop' }, { onConflict: 'owner_id', ignoreDuplicates: true });
+                const custs = customerRows();
+                if (custs.length) {
+                    const { error } = await sb.from('customer').upsert(custs, { onConflict: 'id' });
+                    if (error) throw error;
+                }
+                const appts = apptRows();
+                if (appts.length) {
+                    const { error } = await sb.from('appointment').upsert(appts, { onConflict: 'id' });
+                    if (error) throw error;
+                }
+                // Pull send-log back so the app can show what went out (FR11 groundwork).
+                const { data: log } = await sb.from('message_log').select('appointment_id,type,status,sent_at');
+                DB.meta.sendLog = log || [];
+                save('cc_meta', DB.meta);
+                setStatus('✓ Synced ' + new Date().toLocaleTimeString());
+            } catch (e) {
+                // Non-fatal: keep working locally, retry on next change (AC4).
+                setStatus('Offline — will retry. (' + (e.message || 'sync failed') + ')');
+            } finally {
+                busy = false;
+            }
+        }
+
+        function scheduleSync() {
+            if (!isConfigured()) return;
+            clearTimeout(timer);
+            timer = setTimeout(push, 1500);   // debounce bursts of edits
+        }
+
+        function saveConfig(url, key) {
+            cfg = { url: (url || '').trim().replace(/\/+$/, ''), key: (key || '').trim() };
+            client = null;                    // force re-create with new creds
+            save(CFG_KEY, cfg);
+        }
+
+        return { isConfigured, scheduleSync, saveConfig, syncNow: push, setStatus, get cfg() { return cfg; } };
+    })();
+
+    function saveCloudConfig() {
+        const url = document.getElementById('cloudUrl').value;
+        const key = document.getElementById('cloudKey').value;
+        if (!url || !key) { toast('Enter both the URL and anon key'); return; }
+        Cloud.saveConfig(url, key);
+        toast('Cloud connected ☁️');
+        Cloud.syncNow();
+    }
+    function syncNow() {
+        if (!Cloud.isConfigured()) { toast('Add your Supabase URL + key first'); return; }
+        toast('Syncing…');
+        Cloud.syncNow();
+    }
 
     /* ---------- Date helpers ---------- */
     const todayISO = () => new Date().toLocaleDateString('en-CA'); // YYYY-MM-DD local
@@ -1004,6 +1122,11 @@
     }
     document.getElementById('tplDayBefore').value = tpl('dayBefore');
     document.getElementById('tplLate').value = tpl('late');
+    if (Cloud.cfg) {
+        document.getElementById('cloudUrl').value = Cloud.cfg.url || '';
+        document.getElementById('cloudKey').value = Cloud.cfg.key || '';
+        if (Cloud.isConfigured()) { Cloud.setStatus('Connected — syncing on changes.'); Cloud.syncNow(); }
+    }
     if ('Notification' in window) refreshAlertUI();
     renderHome();
     maybeAlert(false);

@@ -9,12 +9,13 @@ create extension if not exists pgcrypto;
 -- customer
 -- ---------------------------------------------------------------------------
 create table if not exists public.customer (
-  id          uuid primary key default gen_random_uuid(),
+  id          text primary key,                   -- app-generated id (uid()), stable for upserts
   owner_id    uuid not null default auth.uid(),   -- shop owner (RLS scope)
   name        text not null,
-  phone       text not null,                      -- E.164, e.g. +15551234567
+  phone       text,                               -- E.164, e.g. +15551234567
   ok_to_text  boolean not null default false,     -- explicit consent (FR8)
   opted_out   boolean not null default false,     -- set by STOP webhook (FR7)
+  updated_at  timestamptz not null default now(), -- for last-write-wins (Story 1.3)
   created_at  timestamptz not null default now()
 );
 
@@ -22,16 +23,19 @@ create table if not exists public.customer (
 -- appointment
 -- ---------------------------------------------------------------------------
 create table if not exists public.appointment (
-  id                  uuid primary key default gen_random_uuid(),
+  id                  text primary key,            -- app-generated id (uid())
   owner_id            uuid not null default auth.uid(),
-  customer_id         uuid not null references public.customer(id) on delete cascade,
-  start_at            timestamptz not null,
+  customer_id         text references public.customer(id) on delete set null,
+  start_at            timestamptz not null,        -- composed from app's date + time (local)
   service             text,
+  price               numeric,
+  notes               text,
   status              text not null default 'booked'
                         check (status in ('booked','done','cancelled')),
   -- idempotency guards (FR5): non-null = already sent that reminder type
   day_before_sent_at  timestamptz,
   late_sent_at        timestamptz,
+  updated_at          timestamptz not null default now(),
   created_at          timestamptz not null default now()
 );
 
@@ -49,7 +53,7 @@ create index if not exists appointment_late_pending_idx
 create table if not exists public.message_log (
   id              uuid primary key default gen_random_uuid(),
   owner_id        uuid not null default auth.uid(),
-  appointment_id  uuid not null references public.appointment(id) on delete cascade,
+  appointment_id  text not null references public.appointment(id) on delete cascade,
   type            text not null check (type in ('day_before','late')),
   status          text not null
                     check (status in ('queued','sent','failed','skipped_optout','dry_run')),
