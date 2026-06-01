@@ -137,6 +137,10 @@
         .pill.done { background: rgba(58,167,109,0.2); color: #6fd6a0; }
         .pill.paid { background: rgba(217,164,65,0.2); color: var(--gold-soft); }
         .pill.noshow { background: rgba(192,57,43,0.2); color: #e8786b; }
+        .pill.sent { background: rgba(79,140,255,0.2); color: #8db4ff; text-transform: none; }
+        .pill.failed { background: rgba(192,57,43,0.25); color: #ff9b9b; text-transform: none; }
+        .pill.dry { background: rgba(217,164,65,0.18); color: var(--gold-soft); text-transform: none; }
+        .pill.optout { background: rgba(192,90,43,0.2); color: #ffb38a; text-transform: none; }
 
         .time-chip { font-size: 12px; font-weight: 700; color: var(--gold-soft); text-align: center; min-width: 58px; }
         .time-chip .ampm { font-size: 10px; color: var(--muted); display: block; }
@@ -779,6 +783,22 @@
         return `<div class="empty"><span class="big">${icon}</span>${title}<br><span style="font-size:12px;">${sub || ''}</span></div>`;
     }
 
+    // Story 4.1: show what reminders went out for an appointment, using the
+    // message_log + opt-out flags pulled down during cloud sync. Returns '' if nothing.
+    function sendStatusChip(a) {
+        const c = custById(a.custId);
+        if (c && c.optedOut) return `<span class="pill optout" title="Customer replied STOP">🚫 opted out</span>`;
+        const log = (DB.meta.sendLog || []).filter(r => r.appointment_id === a.id);
+        if (!log.length) return '';
+        if (log.some(r => r.status === 'failed')) return `<span class="pill failed" title="A reminder failed to send">⚠️ failed</span>`;
+        if (log.some(r => r.status === 'sent')) {
+            const types = [...new Set(log.filter(r => r.status === 'sent').map(r => r.type === 'day_before' ? 'day-before' : 'late'))];
+            return `<span class="pill sent" title="Reminder sent: ${types.join(', ')}">✓ texted</span>`;
+        }
+        if (log.some(r => r.status === 'dry_run')) return `<span class="pill dry" title="Preview only — sending is off (dry-run)">👁 preview</span>`;
+        return '';
+    }
+
     function apptRow(a, showDate) {
         const c = custById(a.custId);
         const name = c ? c.name : (a.custName || 'Walk-in');
@@ -786,9 +806,10 @@
         const timeHtml = a.time ? `<div class="time-chip">${t.h}<span class="ampm">${t.ap}</span></div>` : `<div class="time-chip">—</div>`;
         const sub = [a.service, showDate ? fmtDateLong(a.date) : null, a.price ? fmtMoney(+a.price) : null].filter(Boolean).join(' · ');
         const pill = `<span class="pill ${a.status}">${statusLabel(a.status)}</span>`;
+        const sendChip = sendStatusChip(a);
         return `<div class="row" onclick="openApptModal('${a.id}')">
             ${timeHtml}
-            <div class="grow"><div class="name">${esc(name)}</div><div class="sub">${esc(sub) || '—'}</div></div>
+            <div class="grow"><div class="name">${esc(name)}</div><div class="sub">${esc(sub) || '—'}${sendChip ? ' ' + sendChip : ''}</div></div>
             ${pill}
         </div>`;
     }
