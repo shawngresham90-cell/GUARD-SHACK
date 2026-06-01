@@ -475,8 +475,17 @@
                 // Pull send-log back so the app can show what went out (FR11 groundwork).
                 const { data: log } = await sb.from('message_log').select('appointment_id,type,status,sent_at');
                 DB.meta.sendLog = log || [];
+                // Pull opt-out flags back so the app reflects STOP replies (Story 4.1).
+                const { data: optRows } = await sb.from('customer').select('id,opted_out');
+                if (optRows) {
+                    const optMap = new Map(optRows.map(r => [r.id, r.opted_out]));
+                    DB.customers.forEach(c => { if (optMap.has(c.id)) c.optedOut = optMap.get(c.id); });
+                    save('cc_customers', DB.customers);
+                }
                 save('cc_meta', DB.meta);
                 setStatus('✓ Synced ' + new Date().toLocaleTimeString());
+                // Refresh any visible list so new send-status chips appear.
+                if (typeof refreshActiveView === 'function') refreshActiveView();
             } catch (e) {
                 // Non-fatal: keep working locally, retry on next change (AC4).
                 setStatus('Offline — will retry. (' + (e.message || 'sync failed') + ')');
@@ -513,6 +522,23 @@
         toast('Syncing…');
         Cloud.syncNow();
     }
+
+    // Re-render whichever view is currently showing (used after a cloud sync
+    // brings down fresh send-status; Story 4.1).
+    function refreshActiveView() {
+        const active = document.querySelector('.view.active');
+        if (!active) return;
+        const v = active.id.replace('view-', '');
+        if (v === 'home') renderHome();
+        else if (v === 'schedule') renderSchedule();
+        else if (v === 'customers') renderCustomers();
+        else if (v === 'money') renderMoney();
+    }
+
+    // Story 1.3: when the connection returns, reconcile by syncing; reflect
+    // connectivity in the cloud-status line.
+    window.addEventListener('online', () => { if (Cloud.isConfigured()) { Cloud.setStatus('Back online — syncing…'); Cloud.scheduleSync(); } });
+    window.addEventListener('offline', () => { if (Cloud.isConfigured()) Cloud.setStatus('Offline — changes saved locally, will sync later.'); });
 
     /* ---------- Date helpers ---------- */
     const todayISO = () => new Date().toLocaleDateString('en-CA'); // YYYY-MM-DD local
