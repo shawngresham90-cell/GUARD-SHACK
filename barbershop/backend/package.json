@@ -1,0 +1,11 @@
+{
+  "name": "chaircash-backend",
+  "private": true,
+  "description": "Backend for Chair Cash automatic SMS reminders (Supabase + Twilio).",
+  "scripts": {
+    "test": "deno test src/",
+    "deploy:scheduler": "supabase functions deploy scheduler",
+    "deploy:webhook": "supabase functions deploy sms-webhook --no-verify-jwt",
+    "db:push": "supabase db push"
+  }
+}
