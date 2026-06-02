@@ -3,93 +3,18 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Guard Shack — Apps</title>
+  <title>Chair Cash</title>
+  <!-- Single app: send visitors straight to Chair Cash. -->
+  <meta http-equiv="refresh" content="0; url=barbershop/index.html">
+  <link rel="canonical" href="barbershop/index.html">
+  <script>location.replace('barbershop/index.html');</script>
   <style>
-    :root { color-scheme: dark; }
-    * { box-sizing: border-box; }
-    body {
-      margin: 0;
-      min-height: 100vh;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-      background: radial-gradient(1200px 600px at 50% -10%, #1d2638, #0c0f16 60%);
-      color: #e8edf6;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      padding: 48px 20px 64px;
-    }
-    header { text-align: center; margin-bottom: 36px; }
-    h1 { font-size: 2rem; margin: 0 0 6px; letter-spacing: .5px; }
-    header p { margin: 0; color: #9aa6bd; }
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 18px;
-      width: 100%;
-      max-width: 880px;
-    }
-    a.card {
-      display: block;
-      text-decoration: none;
-      color: inherit;
-      background: #151b27;
-      border: 1px solid #232c3d;
-      border-radius: 16px;
-      padding: 22px 20px;
-      transition: transform .12s ease, border-color .12s ease, background .12s ease;
-    }
-    a.card:hover { transform: translateY(-3px); border-color: #3a4a66; background: #18202e; }
-    .emoji { font-size: 2rem; line-height: 1; }
-    .card h2 { margin: 12px 0 6px; font-size: 1.15rem; }
-    .card p { margin: 0; color: #93a0b8; font-size: .9rem; }
-    .badge {
-      display: inline-block; margin-top: 12px; font-size: .72rem;
-      padding: 2px 8px; border-radius: 999px; background: #243049; color: #9fc0ff;
-    }
-    .badge.wip { background: #3a2a1a; color: #ffce9f; }
-    footer { margin-top: 40px; color: #6b7689; font-size: .8rem; text-align: center; }
-    footer a { color: #9fc0ff; }
+    body { margin:0; min-height:100vh; display:flex; align-items:center; justify-content:center;
+           background:#14100a; color:#e8d9b5; font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif; }
+    a { color:#e0b651; }
   </style>
 </head>
 <body>
-  <header>
-    <h1>🛡️ Guard Shack</h1>
-    <p>A small collection of standalone apps.</p>
-  </header>
-
-  <nav class="grid">
-    <a class="card" href="barbershop/index.html">
-      <div class="emoji">💈</div>
-      <h2>Chair Cash</h2>
-      <p>Barbershop manager — appointments, clients, cash flow and one-tap reminders.</p>
-      <span class="badge">PWA · installable</span>
-    </a>
-
-    <a class="card" href="tracker/index.html">
-      <div class="emoji">📡</div>
-      <h2>Tracker Sweep</h2>
-      <p>Scan for nearby Bluetooth trackers (AirTags &amp; similar) from your phone.</p>
-      <span class="badge">web app</span>
-    </a>
-
-    <a class="card" href="dashcam/public/index.html">
-      <div class="emoji">🎥</div>
-      <h2>Dashcam</h2>
-      <p>Dashcam video tool (Node backend + browser front end).</p>
-      <span class="badge">needs server</span>
-    </a>
-
-    <a class="card" href="yard-check/index.html">
-      <div class="emoji">🚚</div>
-      <h2>Yard Check</h2>
-      <p>Daily trailer inspection by voice — loaded, empty, docked, redline.</p>
-      <span class="badge wip">work in progress</span>
-    </a>
-  </nav>
-
-  <footer>
-    Each app lives in its own folder. See
-    <a href="oauth-client-id-setup.md">oauth-client-id-setup.md</a> for Google OAuth setup.
-  </footer>
+  <p>💈 Opening Chair Cash… <a href="barbershop/index.html">tap here</a> if it doesn't load.</p>
 </body>
 </html>
