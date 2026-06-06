@@ -122,6 +122,14 @@
         .stat { flex: 1; min-width: 70px; background: #0e1828; border: 1px solid #213150; border-radius: 10px; padding: 10px; text-align: center; }
         .stat .n { font-size: 20px; font-weight: 800; }
         .stat .l { font-size: 11px; color: #93a4c0; margin-top: 2px; }
+        .tabs { display: flex; gap: 8px; margin-bottom: 16px; }
+        .tab {
+            flex: 1; background: #0e1828; color: #93a4c0; border: 1px solid #213150;
+            border-radius: 12px; padding: 12px; font-size: 14px; font-weight: 700; cursor: pointer;
+        }
+        .tab.active { background: linear-gradient(135deg, #4f8cff, #2f6bdc); color: #fff; border-color: transparent; }
+        .hashtag { display: inline-block; background: #0d1626; border: 1px solid #243450; border-radius: 20px; padding: 5px 11px; font-size: 12px; margin: 4px 4px 0 0; color: #9fb4d8; cursor: pointer; }
+        .hashtag:active { background: #1f3358; }
     </style>
 </head>
 <body>
@@ -207,11 +215,17 @@
         </div>
     </details>
 
+    <!-- TABS -->
+    <div class="tabs">
+        <button class="tab active" id="tabYouTube" onclick="setTab('YouTube')">🔎 YouTube</button>
+        <button class="tab" id="tabTikTok" onclick="setTab('TikTok')">📱 TikTok</button>
+    </div>
+
     <!-- PIPELINE STATS -->
     <div class="pipeline" id="pipeline"></div>
 
-    <!-- FIND CREATORS -->
-    <div class="card">
+    <!-- FIND CREATORS (YouTube) -->
+    <div class="card" id="findCard">
         <h2>🔎 Find creators on YouTube</h2>
         <label>Niche / keywords to search</label>
         <input type="text" id="searchQuery" placeholder="trucking vlog, dashcam, road rage" onkeydown="if(event.key==='Enter')searchYouTube()">
@@ -224,6 +238,24 @@
         </div>
         <p class="hint">Pulls channels in your niche and keeps only those in your follower range. YouTube rounds sub counts and hides some — those are skipped. Emails aren't in the API; use each result's "About page" link to grab the business email.</p>
         <div id="searchResults"></div>
+    </div>
+
+    <!-- TIKTOK HUNT -->
+    <div class="card" id="tiktokCard" style="display:none;">
+        <h2>📱 Hunt creators on TikTok</h2>
+        <p class="hint" style="margin-top:0;">TikTok has no search API, so you find creators by hand — but it's fast. Tap a hashtag to open it on TikTok, <b>sort by "Recently posted,"</b> and check profiles with <b>5k–100k</b> followers who post often.</p>
+        <div id="hashtags"></div>
+        <hr style="border:0;border-top:1px solid #243450;margin:14px 0;">
+        <p class="hint" style="margin-top:0;">Found a good one? Add them here, then hit <b>✨ Draft</b> on their card to get a ready-to-paste DM.</p>
+        <div class="row">
+            <div><label>TikTok @handle</label><input type="text" id="tkName" placeholder="@truckerjohn99"></div>
+            <div><label>Followers</label><input type="number" id="tkFollowers" placeholder="23000"></div>
+        </div>
+        <label>Notes to personalize on (a recent video, their style)</label>
+        <textarea id="tkNotes" placeholder="Posts daily about OTR life, long-haul"></textarea>
+        <div class="btn-row">
+            <button class="btn-primary" onclick="addTikTok()">Add to TikTok pipeline</button>
+        </div>
     </div>
 
     <!-- ADD CREATOR -->
@@ -305,7 +337,7 @@ const BRAND = {
     tone: 'Short & punchy'
 };
 function defaults() {
-    return { settings: { model: 'claude-sonnet-4-6', tone: BRAND.tone }, creators: [], msgType: 'Email (YouTube)' };
+    return { settings: { model: 'claude-sonnet-4-6', tone: BRAND.tone }, creators: [], msgType: 'Email (YouTube)', tab: 'YouTube' };
 }
 function save() { localStorage.setItem(LS, JSON.stringify(state)); }
 
@@ -346,7 +378,49 @@ function refreshSetupState() {
     setupState.style.color = ready ? '#7ee29a' : '#ffd87a';
 }
 
+// ---- tabs ----
+const TIKTOK_TAGS = ['#trucker', '#cdl', '#truckdriver', '#dotinspection', '#newtrucker', '#truckerlife', '#otrtrucker', '#18wheeler', '#cdltraining'];
+function setTab(tab) {
+    state.tab = tab;
+    // default the draft format to fit the platform
+    state.msgType = tab === 'TikTok' ? 'DM — opener' : 'Email (YouTube)';
+    save();
+    applyTab();
+    render();
+}
+function applyTab() {
+    const t = state.tab || 'YouTube';
+    tabYouTube.classList.toggle('active', t === 'YouTube');
+    tabTikTok.classList.toggle('active', t === 'TikTok');
+    findCard.style.display = t === 'YouTube' ? '' : 'none';
+    tiktokCard.style.display = t === 'TikTok' ? '' : 'none';
+    if (window.msgType && state.msgType) msgType.value = state.msgType;
+    // hashtag chips (open TikTok hashtag search in a new tab)
+    if (t === 'TikTok' && hashtags && !hashtags.dataset.built) {
+        hashtags.innerHTML = TIKTOK_TAGS.map(h =>
+            `<a class="hashtag" target="_blank" href="https://www.tiktok.com/tag/${h.slice(1)}">${h}</a>`).join('');
+        hashtags.dataset.built = '1';
+    }
+}
+function tabMatch(c) {
+    return (state.tab || 'YouTube') === 'YouTube' ? c.platform === 'YouTube' : c.platform !== 'YouTube';
+}
+
 // ---- creators ----
+function addTikTok() {
+    const name = tkName.value.trim();
+    if (!name) { alert('Add their @handle first.'); return; }
+    state.creators.unshift({
+        id: Date.now(),
+        name, followers: parseInt(tkFollowers.value) || 0,
+        niche: 'trucking', platform: 'TikTok',
+        email: '', notes: tkNotes.value.trim(),
+        status: 'To contact', message: ''
+    });
+    save();
+    [tkName, tkFollowers, tkNotes].forEach(el => el.value = '');
+    render();
+}
 function addCreator() {
     const name = cName.value.trim();
     if (!name) { alert('Add a name or handle first.'); return; }
@@ -815,6 +889,7 @@ function toast(t) {
 function visibleCreators() {
     const fs = filterStatus.value, fr = filterRange.value;
     return state.creators.filter(c => {
+        if (!tabMatch(c)) return false;
         if (fs && c.status !== fs) return false;
         if (fr === 'sweet' && !inSweetSpot(c.followers)) return false;
         if (fr === 'out' && inSweetSpot(c.followers)) return false;
@@ -823,9 +898,9 @@ function visibleCreators() {
 }
 
 function render() {
-    // pipeline stats
+    // pipeline stats (for the active tab)
     const counts = { 'To contact': 0, 'Contacted': 0, 'Replied': 0, 'Joined': 0 };
-    state.creators.forEach(c => counts[c.status]++);
+    state.creators.filter(tabMatch).forEach(c => counts[c.status]++);
     pipeline.innerHTML = STATUSES.map(s =>
         `<div class="stat"><div class="n">${counts[s]}</div><div class="l">${s}</div></div>`).join('');
 
@@ -900,6 +975,7 @@ function exportCSV() {
 }
 
 hydrateSettings();
+applyTab();
 render();
 </script>
 </body>
