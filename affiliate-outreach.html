@@ -489,11 +489,23 @@ async function autoFindEmail(id, btn) {
                 email = pickEmail((plData.items || []).map(i => i.snippet.description || '').join('\n'));
             }
         }
-        if (email) { c.email = email; save(); render(); }
-        else {
+        if (!email) {
             btn.disabled = false; btn.innerHTML = original;
             alert('No public email found in their description or recent videos.\n\nThey likely only show it on their About page (behind a captcha). Open that link and paste it in.');
+            return;
         }
+        c.email = email; save();
+        // Chain: automatically draft the pitch right after finding the email.
+        if (state.settings.apiKey && state.settings.productName && !c.message) {
+            btn.innerHTML = '<span class="spinner"></span>Drafting…';
+            try { c.message = await callClaude(buildPrompt(c)); save(); }
+            catch (e) {
+                render();
+                alert('Found the email ✓\n\nBut the draft step failed:\n' + e.message);
+                return;
+            }
+        }
+        render();
     } catch (e) {
         btn.disabled = false; btn.innerHTML = original;
         alert('Lookup failed: ' + e.message);
@@ -845,7 +857,7 @@ function render() {
                     ${c.email ? `<div class="meta">✉ ${esc(c.email)}</div>`
                         : `<div class="meta" style="color:#c8a6ff;">no email yet</div>
                            <div style="display:flex;gap:6px;margin-top:6px;flex-wrap:wrap;">
-                             ${c.ytId ? `<button class="btn-ghost btn-sm" onclick="autoFindEmail(${c.id}, this)">🔍 Auto-find email</button>` : ''}
+                             ${c.ytId ? `<button class="btn-ghost btn-sm" onclick="autoFindEmail(${c.id}, this)">✨ Find email + draft</button>` : ''}
                              ${c.link ? `<a class="btn-ghost btn-sm" style="text-decoration:none;" href="${c.link}" target="_blank">About page</a>` : ''}
                            </div>
                            <input type="email" placeholder="or paste business email" style="margin-top:6px;font-size:12px;padding:7px 9px;" onchange="setEmail(${c.id}, this.value)">`}
