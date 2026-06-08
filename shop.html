@@ -1,0 +1,851 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+  <meta name="theme-color" content="#0e1419" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="Rosedale Shop" />
+  <link rel="manifest" href="shop.webmanifest" />
+  <title>Rosedale Shop Scheduler</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
+    :root {
+      --bg: #0e1419;
+      --panel: #18222b;
+      --panel-2: #1f2c37;
+      --line: #2c3b48;
+      --orange: #f5872b;
+      --orange-soft: #ffb066;
+      --amber: #ffd166;
+      --red: #e5484d;
+      --green: #46c06a;
+      --blue: #4f8cff;
+      --purple: #9b7bff;
+      --text: #eef4f8;
+      --muted: #93a6b4;
+    }
+    html, body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: radial-gradient(circle at top, #16222c 0%, #0e1419 55%, #080c10 100%);
+      color: var(--text);
+      min-height: 100vh;
+      -webkit-text-size-adjust: 100%;
+    }
+    body {
+      padding: env(safe-area-inset-top) 0 calc(16px + env(safe-area-inset-bottom));
+      max-width: 720px;
+      margin: 0 auto;
+    }
+
+    header {
+      text-align: center;
+      padding: 16px 16px 12px;
+      border-bottom: 1px solid var(--line);
+      position: sticky; top: 0;
+      background: linear-gradient(180deg, #16222c, rgba(14,20,25,0.92));
+      backdrop-filter: blur(8px);
+      z-index: 20;
+    }
+    header h1 {
+      font-size: 20px; letter-spacing: 0.5px;
+      display: flex; align-items: center; justify-content: center; gap: 8px;
+    }
+    header h1 .mark {
+      background: linear-gradient(90deg, var(--orange), var(--orange-soft));
+      -webkit-background-clip: text; background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    header .sub { font-size: 12px; color: var(--muted); margin-top: 3px; }
+    header .who {
+      position: absolute; right: 12px; top: 14px;
+      font-size: 12px; color: var(--muted);
+      display: flex; gap: 8px; align-items: center;
+    }
+    header .who button { padding: 6px 10px; font-size: 12px; }
+
+    main { padding: 16px; }
+    .view { display: none; }
+    .view.active { display: block; animation: fade 0.25s ease; }
+    @keyframes fade { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+
+    h2.section { font-size: 12px; text-transform: uppercase; letter-spacing: 1px; color: var(--orange-soft); margin: 20px 0 10px; }
+    h2.section:first-child { margin-top: 0; }
+    .hint { font-size: 12px; color: var(--muted); line-height: 1.5; }
+
+    .card {
+      background: linear-gradient(180deg, var(--panel), #131c24);
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 16px;
+      margin-bottom: 12px;
+      box-shadow: 0 8px 22px rgba(0,0,0,0.35);
+    }
+
+    /* Buttons */
+    button {
+      border: 0; cursor: pointer; font-family: inherit;
+      font-size: 15px; font-weight: 600;
+      border-radius: 12px; padding: 13px 16px;
+      color: var(--text);
+      transition: transform 0.08s ease, filter 0.15s ease;
+    }
+    button:active { transform: scale(0.97); }
+    button:disabled { opacity: 0.5; cursor: default; }
+    .btn-primary { background: linear-gradient(90deg, var(--orange), #d96f1c); color: #1a1208; width: 100%; }
+    .btn-ghost { background: var(--panel-2); border: 1px solid var(--line); }
+    .btn-row { display: flex; gap: 8px; flex-wrap: wrap; }
+    .btn-sm { padding: 9px 12px; font-size: 13px; border-radius: 10px; }
+    .btn-block { width: 100%; }
+    .btn-green { background: rgba(70,192,106,0.16); color: var(--green); border: 1px solid rgba(70,192,106,0.4); }
+    .btn-red { background: rgba(229,72,77,0.16); color: #f08a8d; border: 1px solid rgba(229,72,77,0.4); }
+    .btn-blue { background: rgba(79,140,255,0.16); color: #8fb4ff; border: 1px solid rgba(79,140,255,0.4); }
+
+    /* Big role buttons on home */
+    .role-grid { display: grid; gap: 14px; margin-top: 8px; }
+    .role-btn {
+      display: flex; align-items: center; gap: 14px;
+      padding: 22px 18px; text-align: left; width: 100%;
+      background: linear-gradient(180deg, var(--panel), #131c24);
+      border: 1px solid var(--line); border-radius: 18px;
+    }
+    .role-btn .emoji { font-size: 34px; }
+    .role-btn .t { font-size: 18px; font-weight: 700; }
+    .role-btn .d { font-size: 13px; color: var(--muted); margin-top: 3px; font-weight: 400; }
+
+    /* Forms */
+    label.fld { display: block; font-size: 12px; color: var(--muted); margin: 12px 0 5px; }
+    label.fld .req { color: var(--orange); }
+    input, select, textarea {
+      width: 100%; font-family: inherit; font-size: 16px;
+      background: #0b1117; color: var(--text);
+      border: 1px solid var(--line); border-radius: 10px;
+      padding: 12px; outline: none;
+    }
+    input:focus, select:focus, textarea:focus { border-color: var(--orange); }
+    textarea { resize: vertical; min-height: 72px; }
+    .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+    .three-col { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 8px; }
+
+    /* Status chips */
+    .chip { display: inline-block; font-size: 11px; font-weight: 700; padding: 4px 9px; border-radius: 999px; text-transform: uppercase; letter-spacing: 0.4px; }
+    .chip.intake        { background: rgba(147,166,180,0.18); color: #b9c8d4; }
+    .chip.in_progress   { background: rgba(79,140,255,0.18); color: #8fb4ff; }
+    .chip.waiting_parts { background: rgba(255,209,102,0.18); color: var(--amber); }
+    .chip.completed     { background: rgba(70,192,106,0.18); color: var(--green); }
+
+    /* Ticket cards */
+    .ticket {
+      background: linear-gradient(180deg, var(--panel), #131c24);
+      border: 1px solid var(--line); border-radius: 14px;
+      padding: 14px; margin-bottom: 10px;
+    }
+    .ticket.clickable { cursor: pointer; }
+    .ticket .top { display: flex; justify-content: space-between; align-items: flex-start; gap: 10px; }
+    .ticket .truck { font-size: 16px; font-weight: 700; }
+    .ticket .meta { font-size: 12px; color: var(--muted); margin-top: 2px; }
+    .ticket .issue { font-size: 14px; margin-top: 8px; line-height: 1.45; }
+    .ticket .foot { display: flex; justify-content: space-between; align-items: center; margin-top: 10px; font-size: 12px; color: var(--muted); }
+    .ticket .needed { color: var(--amber); }
+    .ticket .needed.late { color: var(--red); }
+
+    .empty { text-align: center; color: var(--muted); font-size: 14px; padding: 28px 12px; }
+
+    /* Tabs */
+    .tabs { display: flex; gap: 6px; background: var(--panel-2); border: 1px solid var(--line); border-radius: 12px; padding: 4px; margin-bottom: 14px; overflow-x: auto; }
+    .tabs button { flex: 1; background: transparent; padding: 9px 8px; font-size: 13px; color: var(--muted); white-space: nowrap; }
+    .tabs button.active { background: var(--orange); color: #1a1208; }
+
+    /* Stat grid */
+    .stat-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; margin-bottom: 14px; }
+    .stat { background: var(--panel-2); border: 1px solid var(--line); border-radius: 12px; padding: 10px; text-align: center; }
+    .stat .v { font-size: 22px; font-weight: 700; }
+    .stat .l { font-size: 10px; text-transform: uppercase; color: var(--muted); margin-top: 2px; letter-spacing: 0.3px; }
+
+    /* List rows */
+    .row { display: flex; align-items: center; gap: 12px; padding: 12px 0; border-bottom: 1px solid var(--line); }
+    .row:last-child { border-bottom: 0; }
+    .row .grow { flex: 1; }
+    .row .name { font-weight: 600; }
+    .row .small { font-size: 12px; color: var(--muted); }
+
+    /* Toast + banner */
+    #toast {
+      position: fixed; left: 50%; bottom: calc(20px + env(safe-area-inset-bottom));
+      transform: translateX(-50%) translateY(20px);
+      background: #0b1117; border: 1px solid var(--line);
+      color: var(--text); padding: 12px 18px; border-radius: 12px;
+      font-size: 14px; box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+      opacity: 0; pointer-events: none; transition: all 0.25s ease; z-index: 100; max-width: 90%;
+    }
+    #toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+    #toast.err { border-color: var(--red); }
+
+    .banner {
+      background: rgba(245,135,43,0.12); border: 1px solid rgba(245,135,43,0.4);
+      color: var(--orange-soft); border-radius: 12px; padding: 12px 14px;
+      font-size: 13px; line-height: 1.5; margin-bottom: 14px;
+    }
+    .banner code { background: rgba(0,0,0,0.35); padding: 1px 5px; border-radius: 5px; font-size: 12px; }
+
+    .back { background: transparent; color: var(--muted); padding: 6px 0; font-size: 14px; }
+    .live-dot { display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: var(--green); margin-right: 5px; box-shadow: 0 0 0 0 rgba(70,192,106,0.6); animation: pulse 2s infinite; }
+    @keyframes pulse { 0% { box-shadow: 0 0 0 0 rgba(70,192,106,0.6); } 70% { box-shadow: 0 0 0 7px rgba(70,192,106,0); } 100% { box-shadow: 0 0 0 0 rgba(70,192,106,0); } }
+    .modal-overlay {
+      position: fixed; inset: 0; background: rgba(0,0,0,0.6); z-index: 80;
+      display: none; align-items: flex-end; justify-content: center;
+    }
+    .modal-overlay.show { display: flex; }
+    .modal {
+      background: var(--panel); border: 1px solid var(--line);
+      border-radius: 18px 18px 0 0; padding: 18px;
+      width: 100%; max-width: 720px; max-height: 88vh; overflow-y: auto;
+      animation: slideUp 0.25s ease;
+    }
+    @keyframes slideUp { from { transform: translateY(40px); } to { transform: translateY(0); } }
+  </style>
+</head>
+<body>
+  <header>
+    <h1><span>🔧</span> <span class="mark">Rosedale Shop</span></h1>
+    <div class="sub" id="headerSub">Truck repair queue</div>
+    <div class="who" id="whoBox"></div>
+  </header>
+
+  <main>
+    <!-- ============ HOME / ROLE PICKER ============ -->
+    <section id="view-home" class="view active">
+      <div id="setupBanner"></div>
+      <div class="role-grid">
+        <button class="role-btn" onclick="go('driver')">
+          <span class="emoji">🚚</span>
+          <span><span class="t">I'm a Driver</span><span class="d">Report a problem or check my ticket — no login</span></span>
+        </button>
+        <button class="role-btn" onclick="go('staff')">
+          <span class="emoji">🛠️</span>
+          <span><span class="t">Shop / Mechanic</span><span class="d">Live queue, assign work, parts &amp; cost — login required</span></span>
+        </button>
+      </div>
+    </section>
+
+    <!-- ============ DRIVER ============ -->
+    <section id="view-driver" class="view">
+      <button class="back" onclick="go('home')">← Back</button>
+      <div class="tabs">
+        <button id="dtab-new" class="active" onclick="driverTab('new')">Report a problem</button>
+        <button id="dtab-status" onclick="driverTab('status')">Check my status</button>
+      </div>
+
+      <!-- intake -->
+      <div id="driver-new">
+        <div class="card">
+          <h2 class="section">Report a truck problem</h2>
+          <form id="intakeForm">
+            <label class="fld">Truck number <span class="req">*</span></label>
+            <input id="f-truck" inputmode="text" autocomplete="off" required placeholder="e.g. 482" />
+            <div class="two-col">
+              <div>
+                <label class="fld">Trailer number</label>
+                <input id="f-trailer" autocomplete="off" placeholder="optional" />
+              </div>
+              <div>
+                <label class="fld">Third unit #</label>
+                <input id="f-unit" autocomplete="off" placeholder="optional" />
+              </div>
+            </div>
+            <label class="fld">Your name <span class="req">*</span></label>
+            <input id="f-name" autocomplete="name" required placeholder="Driver name" />
+            <label class="fld">Phone number <span class="req">*</span></label>
+            <input id="f-phone" type="tel" inputmode="tel" autocomplete="tel" required placeholder="So the shop can reach you" />
+            <label class="fld">What's wrong? <span class="req">*</span></label>
+            <textarea id="f-issue" required placeholder="Describe the problem…"></textarea>
+            <label class="fld">Needed back out by</label>
+            <input id="f-needed" type="datetime-local" />
+            <div style="margin-top:14px">
+              <button type="submit" class="btn-primary" id="intakeSubmit">Submit to shop</button>
+            </div>
+          </form>
+        </div>
+        <p class="hint">The shop sees your ticket the moment you submit. You'll get a status you can check back on anytime from the same phone.</p>
+      </div>
+
+      <!-- status -->
+      <div id="driver-status" style="display:none">
+        <div class="card">
+          <h2 class="section">Check my ticket status</h2>
+          <div class="two-col">
+            <div>
+              <label class="fld">Truck number</label>
+              <input id="s-truck" placeholder="e.g. 482" />
+            </div>
+            <div>
+              <label class="fld">Phone number</label>
+              <input id="s-phone" type="tel" inputmode="tel" placeholder="Same as you submitted" />
+            </div>
+          </div>
+          <div style="margin-top:12px"><button class="btn-primary" onclick="driverLookup()">Find my tickets</button></div>
+        </div>
+        <div id="driverResults"></div>
+      </div>
+    </section>
+
+    <!-- ============ STAFF LOGIN ============ -->
+    <section id="view-login" class="view">
+      <button class="back" onclick="go('home')">← Back</button>
+      <div class="card" style="margin-top:8px">
+        <h2 class="section">Shop login</h2>
+        <form id="loginForm">
+          <label class="fld">Username</label>
+          <input id="l-user" autocapitalize="none" autocomplete="username" placeholder="shop / cab / baf" />
+          <label class="fld">Password</label>
+          <input id="l-pass" type="password" autocomplete="current-password" placeholder="Password" />
+          <div style="margin-top:14px"><button type="submit" class="btn-primary" id="loginBtn">Log in</button></div>
+        </form>
+        <p class="hint" style="margin-top:12px">Shop staff & mechanics work from the shop tablet. Drivers don't need an account.</p>
+      </div>
+    </section>
+
+    <!-- ============ STAFF DASHBOARD ============ -->
+    <section id="view-shop" class="view">
+      <div class="tabs" id="shopTabs">
+        <button id="stab-queue" class="active" onclick="shopTab('queue')">Queue</button>
+        <button id="stab-parts" onclick="shopTab('parts')">Parts</button>
+        <button id="stab-mech" onclick="shopTab('mech')">Mechanics</button>
+      </div>
+
+      <!-- queue -->
+      <div id="shop-queue">
+        <div class="stat-grid" id="queueStats"></div>
+        <div class="btn-row" style="margin-bottom:12px">
+          <button class="btn-sm btn-ghost" id="qf-all" onclick="setQueueFilter('all')">All</button>
+          <button class="btn-sm btn-ghost" id="qf-active" onclick="setQueueFilter('active')">Active</button>
+          <button class="btn-sm btn-ghost" id="qf-mine" onclick="setQueueFilter('mine')">My work</button>
+        </div>
+        <div id="queueList"></div>
+      </div>
+
+      <!-- parts -->
+      <div id="shop-parts" style="display:none">
+        <div class="card">
+          <h2 class="section">Add a part</h2>
+          <label class="fld">Part name</label>
+          <input id="p-name" placeholder="e.g. Brake chamber" />
+          <div class="two-col">
+            <div><label class="fld">Qty on hand</label><input id="p-qty" type="number" inputmode="numeric" value="0" /></div>
+            <div><label class="fld">Unit cost ($)</label><input id="p-cost" type="number" inputmode="decimal" step="0.01" value="0" /></div>
+          </div>
+          <div style="margin-top:12px"><button class="btn-primary" onclick="addPart()">Add part</button></div>
+        </div>
+        <div class="card"><h2 class="section">Inventory</h2><div id="partsList"></div></div>
+      </div>
+
+      <!-- mechanics -->
+      <div id="shop-mech" style="display:none">
+        <div class="card">
+          <h2 class="section">Add a mechanic</h2>
+          <div class="btn-row">
+            <input id="m-name" placeholder="Mechanic name" style="flex:1" />
+            <button class="btn-primary" style="width:auto" onclick="addMechanic()">Add</button>
+          </div>
+        </div>
+        <div class="card"><h2 class="section">Mechanics</h2><div id="mechList"></div></div>
+      </div>
+    </section>
+  </main>
+
+  <div class="modal-overlay" id="ticketModal"><div class="modal" id="ticketModalBody"></div></div>
+  <div id="toast"></div>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script>
+  // ============================================================================
+  // CONFIG — paste your Supabase project values here.
+  //   Dashboard → Project Settings → API
+  //   * Project URL  → SUPABASE_URL
+  //   * anon public key → SUPABASE_ANON_KEY
+  // Then create the 3 admins under Authentication → Users with these emails:
+  //   shop@rosedale.local / cab@rosedale.local / baf@rosedale.local
+  // (username box maps "shop" -> shop@rosedale.local, using ADMIN_DOMAIN below)
+  // ============================================================================
+  const SUPABASE_URL = "YOUR_SUPABASE_URL";
+  const SUPABASE_ANON_KEY = "YOUR_SUPABASE_ANON_KEY";
+  const ADMIN_DOMAIN = "rosedale.local";
+
+  const CONFIGURED = !/^YOUR_/.test(SUPABASE_URL) && !/^YOUR_/.test(SUPABASE_ANON_KEY);
+  let sb = null;
+  if (CONFIGURED) sb = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+  const STATUS_LABEL = { intake: "Intake", in_progress: "In Progress", waiting_parts: "Waiting for Parts", completed: "Completed" };
+  const STATUS_ORDER = ["intake", "in_progress", "waiting_parts", "completed"];
+
+  // ---- state ----
+  let state = {
+    session: null,            // supabase auth session (staff)
+    tickets: [],              // staff: all tickets ; driver: own tickets
+    mechanics: [],
+    parts: [],
+    queueFilter: "active",
+    mechFilter: null,         // mechanic id for "My work" / mechanic mode
+    driver: { truck: "", phone: "" },
+  };
+  let realtimeChannel = null;
+
+  // ---- tiny helpers ----
+  const $ = (id) => document.getElementById(id);
+  const esc = (s) => (s == null ? "" : String(s).replace(/[&<>"']/g, c => ({ "&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#39;" }[c])));
+  const digits = (s) => (s || "").replace(/\D/g, "");
+  function toast(msg, isErr) {
+    const t = $("toast"); t.textContent = msg; t.className = "show" + (isErr ? " err" : "");
+    clearTimeout(t._h); t._h = setTimeout(() => (t.className = ""), 2600);
+  }
+  function fmtNeeded(ts) {
+    if (!ts) return null;
+    const d = new Date(ts), now = new Date();
+    const opts = { month: "short", day: "numeric", hour: "numeric", minute: "2-digit" };
+    return { text: d.toLocaleString([], opts), late: d < now };
+  }
+  function ago(ts) {
+    const s = Math.floor((Date.now() - new Date(ts)) / 1000);
+    if (s < 60) return "just now";
+    if (s < 3600) return Math.floor(s / 60) + "m ago";
+    if (s < 86400) return Math.floor(s / 3600) + "h ago";
+    return Math.floor(s / 86400) + "d ago";
+  }
+
+  // ---- navigation ----
+  function go(where) {
+    document.querySelectorAll(".view").forEach(v => v.classList.remove("active"));
+    if (where === "staff") where = state.session ? "shop" : "login";
+    $("view-" + where).classList.add("active");
+    if (where === "shop") renderShop();
+    if (where === "home") $("headerSub").textContent = "Truck repair queue";
+    if (where === "driver") $("headerSub").textContent = "Driver";
+    window.scrollTo(0, 0);
+    updateWho();
+  }
+  function updateWho() {
+    const box = $("whoBox");
+    if (state.session) {
+      const u = (state.session.user.email || "").split("@")[0];
+      box.innerHTML = `<span>👤 ${esc(u)}</span><button class="btn-ghost" onclick="logout()">Log out</button>`;
+    } else box.innerHTML = "";
+  }
+
+  // ---- driver tabs ----
+  function driverTab(t) {
+    $("dtab-new").classList.toggle("active", t === "new");
+    $("dtab-status").classList.toggle("active", t === "status");
+    $("driver-new").style.display = t === "new" ? "block" : "none";
+    $("driver-status").style.display = t === "status" ? "block" : "none";
+    if (t === "status" && state.driver.truck) { $("s-truck").value = state.driver.truck; $("s-phone").value = state.driver.phone; }
+  }
+
+  // ============================ DRIVER: intake ============================
+  $("intakeForm").addEventListener("submit", async (e) => {
+    e.preventDefault();
+    if (!ensureConfigured()) return;
+    const truck = $("f-truck").value.trim();
+    const name = $("f-name").value.trim();
+    const phone = $("f-phone").value.trim();
+    const issue = $("f-issue").value.trim();
+    if (!truck || !name || !phone || !issue) return toast("Fill in the required fields", true);
+    const neededRaw = $("f-needed").value;
+    const payload = {
+      truck_number: truck,
+      trailer_number: $("f-trailer").value.trim() || null,
+      unit_number: $("f-unit").value.trim() || null,
+      driver_name: name,
+      driver_phone: phone,
+      issue: issue,
+      needed_by: neededRaw ? new Date(neededRaw).toISOString() : null,
+    };
+    $("intakeSubmit").disabled = true; $("intakeSubmit").textContent = "Submitting…";
+    const { error } = await sb.from("tickets").insert(payload);
+    $("intakeSubmit").disabled = false; $("intakeSubmit").textContent = "Submit to shop";
+    if (error) return toast(error.message, true);
+    // remember driver so they can check status
+    state.driver = { truck, phone };
+    localStorage.setItem("rss_driver", JSON.stringify(state.driver));
+    $("intakeForm").reset();
+    toast("Sent to the shop ✓");
+    driverTab("status");
+    driverLookup();
+  });
+
+  async function driverLookup() {
+    if (!ensureConfigured()) return;
+    const truck = $("s-truck").value.trim();
+    const phone = $("s-phone").value.trim();
+    if (!truck || !phone) return toast("Enter your truck # and phone", true);
+    state.driver = { truck, phone };
+    localStorage.setItem("rss_driver", JSON.stringify(state.driver));
+    const { data, error } = await sb
+      .from("tickets").select("*")
+      .ilike("truck_number", truck)
+      .order("created_at", { ascending: false });
+    if (error) return toast(error.message, true);
+    // match phone client-side (digits only) so "555-1234" == "5551234"
+    state.tickets = (data || []).filter(t => digits(t.driver_phone) === digits(phone));
+    renderDriverResults();
+    subscribeDriver(truck, phone);
+  }
+
+  function renderDriverResults() {
+    const el = $("driverResults");
+    if (!state.tickets.length) { el.innerHTML = `<div class="empty">No tickets found for that truck &amp; phone yet.</div>`; return; }
+    el.innerHTML = `<div class="hint" style="margin:4px 0 10px"><span class="live-dot"></span>Live — updates automatically</div>` +
+      state.tickets.map(t => {
+        const n = fmtNeeded(t.needed_by);
+        return `<div class="ticket">
+          <div class="top">
+            <div><div class="truck">Truck ${esc(t.truck_number)}</div>
+            <div class="meta">${esc(t.driver_name)} · submitted ${ago(t.created_at)}</div></div>
+            <span class="chip ${t.status}">${STATUS_LABEL[t.status]}</span>
+          </div>
+          <div class="issue">${esc(t.issue)}</div>
+          ${n ? `<div class="foot"><span class="needed ${n.late ? "late" : ""}">Needed by ${n.text}</span></div>` : ""}
+        </div>`;
+      }).join("");
+  }
+
+  // ============================ STAFF: auth ============================
+  $("loginForm").addEventListener("submit", async (e) => {
+    e.preventDefault();
+    if (!ensureConfigured()) return;
+    const user = $("l-user").value.trim().toLowerCase();
+    const pass = $("l-pass").value;
+    if (!user || !pass) return toast("Enter username and password", true);
+    const email = user.includes("@") ? user : `${user}@${ADMIN_DOMAIN}`;
+    $("loginBtn").disabled = true; $("loginBtn").textContent = "Logging in…";
+    const { data, error } = await sb.auth.signInWithPassword({ email, password: pass });
+    $("loginBtn").disabled = false; $("loginBtn").textContent = "Log in";
+    if (error) return toast("Login failed — check username/password", true);
+    state.session = data.session;
+    $("loginForm").reset();
+    await loadShopData();
+    go("shop");
+  });
+
+  async function logout() {
+    if (sb) await sb.auth.signOut();
+    state.session = null; state.mechFilter = null;
+    if (realtimeChannel) { sb.removeChannel(realtimeChannel); realtimeChannel = null; }
+    go("home");
+  }
+
+  // ============================ STAFF: data ============================
+  async function loadShopData() {
+    const [tk, mc, pt] = await Promise.all([
+      sb.from("tickets").select("*").order("created_at", { ascending: false }),
+      sb.from("mechanics").select("*").order("name"),
+      sb.from("parts").select("*").order("name"),
+    ]);
+    if (tk.error) return toast(tk.error.message, true);
+    state.tickets = tk.data || [];
+    state.mechanics = mc.data || [];
+    state.parts = pt.data || [];
+    subscribeShop();
+  }
+
+  function shopTab(t) {
+    ["queue", "parts", "mech"].forEach(k => {
+      $("stab-" + k).classList.toggle("active", k === t);
+      $("shop-" + k).style.display = k === t ? "block" : "none";
+    });
+    if (t === "queue") renderQueue();
+    if (t === "parts") renderParts();
+    if (t === "mech") renderMechanics();
+  }
+
+  function renderShop() { renderQueue(); }
+
+  function setQueueFilter(f) {
+    state.queueFilter = f;
+    if (f === "mine" && !state.mechFilter) { pickMechanicForMine(); return; }
+    renderQueue();
+  }
+
+  function pickMechanicForMine() {
+    if (!state.mechanics.length) { toast("Add a mechanic first", true); state.queueFilter = "active"; renderQueue(); return; }
+    const opts = state.mechanics.map(m => `<button class="btn-ghost btn-block" style="margin-bottom:8px" onclick="setMine('${m.id}')">${esc(m.name)}</button>`).join("");
+    openModal(`<h2 class="section">Whose work?</h2><div class="hint" style="margin-bottom:12px">Mechanic view hides parts & cost and shows only tickets assigned to you.</div>${opts}<button class="btn-ghost btn-block" onclick="closeModal()">Cancel</button>`);
+  }
+  function setMine(id) { state.mechFilter = id; closeModal(); renderQueue(); }
+
+  function renderQueue() {
+    // stats
+    const counts = { intake: 0, in_progress: 0, waiting_parts: 0, completed: 0 };
+    state.tickets.forEach(t => counts[t.status]++);
+    $("queueStats").innerHTML = STATUS_ORDER.map(s =>
+      `<div class="stat"><div class="v">${counts[s]}</div><div class="l">${STATUS_LABEL[s]}</div></div>`).join("");
+
+    ["all", "active", "mine"].forEach(f => $("qf-" + f).classList.toggle("btn-blue", state.queueFilter === f));
+
+    let list = state.tickets.slice();
+    if (state.queueFilter === "active") list = list.filter(t => t.status !== "completed");
+    if (state.queueFilter === "mine") list = list.filter(t => t.assigned_mechanic_id === state.mechFilter);
+
+    // keep active work near the top: order by status, then needed_by, then newest
+    list.sort((a, b) => {
+      if (a.status !== b.status) return STATUS_ORDER.indexOf(a.status) - STATUS_ORDER.indexOf(b.status);
+      const an = a.needed_by ? new Date(a.needed_by) : Infinity, bn = b.needed_by ? new Date(b.needed_by) : Infinity;
+      if (an !== bn) return an - bn;
+      return new Date(b.created_at) - new Date(a.created_at);
+    });
+
+    const mineMode = state.queueFilter === "mine";
+    const el = $("queueList");
+    if (!list.length) { el.innerHTML = `<div class="empty">No tickets here.</div>`; return; }
+    el.innerHTML = `<div class="hint" style="margin:0 0 10px"><span class="live-dot"></span>Live queue${mineMode ? " · mechanic view" : ""}</div>` +
+      list.map(t => ticketCardHtml(t)).join("");
+  }
+
+  function ticketCardHtml(t) {
+    const n = fmtNeeded(t.needed_by);
+    const mech = state.mechanics.find(m => m.id === t.assigned_mechanic_id);
+    const units = [t.trailer_number && "Trlr " + t.trailer_number, t.unit_number && "Unit " + t.unit_number].filter(Boolean).join(" · ");
+    return `<div class="ticket clickable" onclick="openTicket('${t.id}')">
+      <div class="top">
+        <div><div class="truck">Truck ${esc(t.truck_number)}</div>
+        <div class="meta">${esc(t.driver_name)}${units ? " · " + esc(units) : ""} · ${ago(t.created_at)}</div></div>
+        <span class="chip ${t.status}">${STATUS_LABEL[t.status]}</span>
+      </div>
+      <div class="issue">${esc(t.issue)}</div>
+      <div class="foot">
+        <span>${mech ? "👷 " + esc(mech.name) : "<span style='color:var(--orange-soft)'>Unassigned</span>"}</span>
+        ${n ? `<span class="needed ${n.late ? "late" : ""}">⏱ ${n.text}</span>` : ""}
+      </div>
+    </div>`;
+  }
+
+  // ---- ticket detail modal ----
+  async function openTicket(id) {
+    const t = state.tickets.find(x => x.id === id);
+    if (!t) return;
+    const mineMode = state.queueFilter === "mine";  // mechanic view = hide cost/parts
+    // load time logs + ticket parts for this ticket
+    const [tl, tp] = await Promise.all([
+      sb.from("time_logs").select("*").eq("ticket_id", id).order("created_at", { ascending: false }),
+      mineMode ? Promise.resolve({ data: [] }) : sb.from("ticket_parts").select("*").eq("ticket_id", id),
+    ]);
+    const logs = tl.data || [];
+    const tparts = tp.data || [];
+    const totalMin = logs.reduce((s, l) => s + (l.minutes || 0), 0);
+
+    const mechOpts = `<option value="">— Unassigned —</option>` +
+      state.mechanics.map(m => `<option value="${m.id}" ${m.id === t.assigned_mechanic_id ? "selected" : ""}>${esc(m.name)}</option>`).join("");
+    const statusOpts = STATUS_ORDER.map(s => `<option value="${s}" ${s === t.status ? "selected" : ""}>${STATUS_LABEL[s]}</option>`).join("");
+    const n = fmtNeeded(t.needed_by);
+
+    // cost (admin only)
+    let costHtml = "";
+    if (!mineMode) {
+      const lines = tparts.map(tpart => {
+        const p = state.parts.find(pp => pp.id === tpart.part_id);
+        const cost = p ? p.unit_cost * tpart.qty : 0;
+        return { name: p ? p.name : "(deleted part)", qty: tpart.qty, cost, id: tpart.id };
+      });
+      const partsTotal = lines.reduce((s, l) => s + l.cost, 0);
+      const partOpts = state.parts.map(p => `<option value="${p.id}">${esc(p.name)} ($${p.unit_cost})</option>`).join("");
+      costHtml = `
+        <h2 class="section">Parts & cost estimate</h2>
+        ${lines.length ? lines.map(l => `<div class="row"><div class="grow"><div class="name">${esc(l.name)}</div><div class="small">${l.qty} × </div></div><div>$${l.cost.toFixed(2)}</div><button class="btn-sm btn-red" onclick="removeTicketPart('${l.id}','${t.id}')">✕</button></div>`).join("") : `<div class="small" style="padding:8px 0;color:var(--muted)">No parts added.</div>`}
+        <div class="row" style="font-weight:700"><div class="grow">Parts total</div><div style="color:var(--amber)">$${partsTotal.toFixed(2)}</div></div>
+        ${state.parts.length ? `<div class="three-col" style="margin-top:10px">
+          <select id="tp-part" style="grid-column:span 2">${partOpts}</select>
+          <input id="tp-qty" type="number" inputmode="numeric" value="1" min="1" />
+        </div><button class="btn-ghost btn-block btn-sm" style="margin-top:8px" onclick="addTicketPart('${t.id}')">Add part to ticket</button>` : `<div class="hint">Add parts in the Parts tab first.</div>`}`;
+    }
+
+    openModal(`
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px">
+        <div class="truck" style="font-size:18px">Truck ${esc(t.truck_number)}</div>
+        <span class="chip ${t.status}">${STATUS_LABEL[t.status]}</span>
+      </div>
+      <div class="meta small" style="color:var(--muted)">${esc(t.driver_name)} · <a href="tel:${esc(digits(t.driver_phone))}" style="color:var(--blue)">${esc(t.driver_phone)}</a></div>
+      ${[t.trailer_number && "Trailer "+esc(t.trailer_number), t.unit_number && "Unit "+esc(t.unit_number)].filter(Boolean).length ? `<div class="small" style="color:var(--muted);margin-top:2px">${[t.trailer_number && "Trailer "+esc(t.trailer_number), t.unit_number && "Unit "+esc(t.unit_number)].filter(Boolean).join(" · ")}</div>` : ""}
+      <div class="card" style="margin-top:12px"><div class="issue">${esc(t.issue)}</div>
+      ${n ? `<div class="foot" style="margin-top:8px"><span class="needed ${n.late?"late":""}">⏱ Needed by ${n.text}</span></div>` : ""}</div>
+
+      <h2 class="section">Status</h2>
+      <select id="td-status" onchange="updateTicket('${t.id}',{status:this.value})">${statusOpts}</select>
+
+      ${mineMode ? "" : `<h2 class="section">Assigned mechanic</h2>
+      <select id="td-mech" onchange="updateTicket('${t.id}',{assigned_mechanic_id:this.value||null})">${mechOpts}</select>`}
+
+      <h2 class="section">Time logged · ${Math.floor(totalMin/60)}h ${totalMin%60}m</h2>
+      ${logs.length ? logs.map(l => { const m = state.mechanics.find(x=>x.id===l.mechanic_id); return `<div class="row"><div class="grow"><div class="name">${l.minutes} min</div><div class="small">${m?esc(m.name)+" · ":""}${l.note?esc(l.note):"no note"} · ${ago(l.created_at)}</div></div></div>`; }).join("") : `<div class="small" style="padding:6px 0;color:var(--muted)">No time logged yet.</div>`}
+      <div class="three-col" style="margin-top:10px">
+        <input id="tl-min" type="number" inputmode="numeric" placeholder="min" />
+        <select id="tl-mech" style="grid-column:span 2">${state.mechanics.map(m=>`<option value="${m.id}" ${m.id===t.assigned_mechanic_id?"selected":""}>${esc(m.name)}</option>`).join("")||'<option value="">no mechanics</option>'}</select>
+      </div>
+      <input id="tl-note" placeholder="Note (optional)" style="margin-top:8px" />
+      <button class="btn-ghost btn-block btn-sm" style="margin-top:8px" onclick="addTimeLog('${t.id}')">Log time</button>
+
+      ${costHtml}
+
+      <button class="btn-primary" style="margin-top:18px" onclick="closeModal()">Done</button>
+      <button class="btn-red btn-block" style="margin-top:8px" onclick="deleteTicket('${t.id}')">Delete ticket</button>
+    `);
+  }
+
+  async function updateTicket(id, patch) {
+    const { error } = await sb.from("tickets").update(patch).eq("id", id);
+    if (error) return toast(error.message, true);
+    const t = state.tickets.find(x => x.id === id); if (t) Object.assign(t, patch);
+    toast("Updated ✓"); renderQueue();
+  }
+
+  async function deleteTicket(id) {
+    if (!confirm("Delete this ticket? This can't be undone.")) return;
+    const { error } = await sb.from("tickets").delete().eq("id", id);
+    if (error) return toast(error.message, true);
+    state.tickets = state.tickets.filter(t => t.id !== id);
+    closeModal(); renderQueue(); toast("Deleted");
+  }
+
+  async function addTimeLog(ticketId) {
+    const min = parseInt($("tl-min").value, 10);
+    if (!min || min <= 0) return toast("Enter minutes", true);
+    const payload = { ticket_id: ticketId, mechanic_id: $("tl-mech").value || null, minutes: min, note: $("tl-note").value.trim() || null };
+    const { error } = await sb.from("time_logs").insert(payload);
+    if (error) return toast(error.message, true);
+    toast("Time logged ✓"); openTicket(ticketId);
+  }
+
+  async function addTicketPart(ticketId) {
+    const part_id = $("tp-part").value;
+    const qty = parseInt($("tp-qty").value, 10) || 1;
+    if (!part_id) return toast("Pick a part", true);
+    const { error } = await sb.from("ticket_parts").insert({ ticket_id: ticketId, part_id, qty });
+    if (error) return toast(error.message, true);
+    toast("Part added ✓"); openTicket(ticketId);
+  }
+  async function removeTicketPart(id, ticketId) {
+    const { error } = await sb.from("ticket_parts").delete().eq("id", id);
+    if (error) return toast(error.message, true);
+    openTicket(ticketId);
+  }
+
+  // ============================ STAFF: parts ============================
+  function renderParts() {
+    const el = $("partsList");
+    if (!state.parts.length) { el.innerHTML = `<div class="empty">No parts yet.</div>`; return; }
+    el.innerHTML = state.parts.map(p => `<div class="row">
+      <div class="grow"><div class="name">${esc(p.name)}</div><div class="small">${p.qty_on_hand} on hand</div></div>
+      <div style="color:var(--amber)">$${Number(p.unit_cost).toFixed(2)}</div>
+      <button class="btn-sm btn-red" onclick="deletePart('${p.id}')">✕</button>
+    </div>`).join("");
+  }
+  async function addPart() {
+    const name = $("p-name").value.trim();
+    if (!name) return toast("Part name required", true);
+    const payload = { name, qty_on_hand: parseInt($("p-qty").value, 10) || 0, unit_cost: parseFloat($("p-cost").value) || 0 };
+    const { data, error } = await sb.from("parts").insert(payload).select().single();
+    if (error) return toast(error.message, true);
+    state.parts.push(data); state.parts.sort((a,b)=>a.name.localeCompare(b.name));
+    $("p-name").value = ""; $("p-qty").value = "0"; $("p-cost").value = "0";
+    renderParts(); toast("Part added ✓");
+  }
+  async function deletePart(id) {
+    if (!confirm("Delete this part?")) return;
+    const { error } = await sb.from("parts").delete().eq("id", id);
+    if (error) return toast(error.message + " (it may be used on a ticket)", true);
+    state.parts = state.parts.filter(p => p.id !== id); renderParts();
+  }
+
+  // ============================ STAFF: mechanics ============================
+  function renderMechanics() {
+    const el = $("mechList");
+    if (!state.mechanics.length) { el.innerHTML = `<div class="empty">No mechanics yet.</div>`; return; }
+    el.innerHTML = state.mechanics.map(m => `<div class="row">
+      <div class="grow"><div class="name">${esc(m.name)}</div></div>
+      <button class="btn-sm btn-red" onclick="deleteMechanic('${m.id}')">✕</button>
+    </div>`).join("");
+  }
+  async function addMechanic() {
+    const name = $("m-name").value.trim();
+    if (!name) return toast("Name required", true);
+    const { data, error } = await sb.from("mechanics").insert({ name }).select().single();
+    if (error) return toast(error.message, true);
+    state.mechanics.push(data); state.mechanics.sort((a,b)=>a.name.localeCompare(b.name));
+    $("m-name").value = ""; renderMechanics(); toast("Mechanic added ✓");
+  }
+  async function deleteMechanic(id) {
+    if (!confirm("Remove this mechanic?")) return;
+    const { error } = await sb.from("mechanics").delete().eq("id", id);
+    if (error) return toast(error.message, true);
+    state.mechanics = state.mechanics.filter(m => m.id !== id); renderMechanics();
+  }
+
+  // ============================ Realtime ============================
+  function subscribeShop() {
+    if (realtimeChannel) sb.removeChannel(realtimeChannel);
+    realtimeChannel = sb.channel("shop-tickets")
+      .on("postgres_changes", { event: "*", schema: "public", table: "tickets" }, (payload) => {
+        applyTicketChange(payload);
+        renderQueue();
+      })
+      .subscribe();
+  }
+  function applyTicketChange(payload) {
+    const { eventType, new: row, old } = payload;
+    if (eventType === "INSERT") {
+      if (!state.tickets.find(t => t.id === row.id)) state.tickets.unshift(row);
+    } else if (eventType === "UPDATE") {
+      const i = state.tickets.findIndex(t => t.id === row.id);
+      if (i >= 0) state.tickets[i] = row; else state.tickets.unshift(row);
+    } else if (eventType === "DELETE") {
+      state.tickets = state.tickets.filter(t => t.id !== old.id);
+    }
+  }
+  function subscribeDriver(truck, phone) {
+    // Realtime postgres_changes filters only support eq/neq/lt/lte/gt/gte/in
+    // (no ilike), so we listen to all ticket changes and re-filter on refresh.
+    // Fine for a single shop's volume; the refresh re-queries scoped to truck.
+    if (realtimeChannel) sb.removeChannel(realtimeChannel);
+    realtimeChannel = sb.channel("driver-" + digits(truck))
+      .on("postgres_changes", { event: "*", schema: "public", table: "tickets" }, () => {
+        driverRefresh(truck, phone);
+      })
+      .subscribe();
+  }
+  async function driverRefresh(truck, phone) {
+    const { data } = await sb.from("tickets").select("*").ilike("truck_number", truck).order("created_at", { ascending: false });
+    state.tickets = (data || []).filter(t => digits(t.driver_phone) === digits(phone));
+    renderDriverResults();
+  }
+
+  // ============================ modal ============================
+  function openModal(html) { $("ticketModalBody").innerHTML = html; $("ticketModal").classList.add("show"); }
+  function closeModal() { $("ticketModal").classList.remove("show"); }
+  $("ticketModal").addEventListener("click", (e) => { if (e.target === $("ticketModal")) closeModal(); });
+
+  // ============================ config gate ============================
+  function ensureConfigured() {
+    if (CONFIGURED) return true;
+    toast("App not connected to Supabase yet — see setup note", true);
+    return false;
+  }
+  function renderSetupBanner() {
+    if (CONFIGURED) return;
+    $("setupBanner").innerHTML = `<div class="banner"><b>Setup needed.</b> Open <code>shop.html</code> and paste your Supabase
+      <code>URL</code> + <code>anon key</code> into the CONFIG block near the bottom, then run
+      <code>shop-scheduler-schema.sql</code> in the Supabase SQL editor. Until then this is a preview.</div>`;
+  }
+
+  // ============================ boot ============================
+  (async function boot() {
+    renderSetupBanner();
+    try { const d = JSON.parse(localStorage.getItem("rss_driver") || "null"); if (d) state.driver = d; } catch {}
+    if (sb) {
+      const { data } = await sb.auth.getSession();
+      if (data.session) { state.session = data.session; await loadShopData(); }
+      updateWho();
+    }
+    if ("serviceWorker" in navigator) navigator.serviceWorker.register("shop-sw.js").catch(()=>{});
+  })();
+  </script>
+</body>
+</html>
