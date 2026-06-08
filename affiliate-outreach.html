@@ -517,7 +517,7 @@ function renderSearchResults(min, max) {
                 <span class="badge ${inSweetSpot(ch.followers) ? 'sweet' : 'out'}">${fmtNum(ch.followers)}</span>
             </div>
             <div class="actions">
-                <button class="btn-primary btn-sm" onclick="addFromSearch('${ch.id}', this)" ${already ? 'disabled' : ''}>${already ? '✓ In pipeline' : '+ Add to pipeline'}</button>
+                <button class="btn-primary btn-sm" onclick="addAndDraft('${ch.id}', this)" ${already ? 'disabled' : ''}>${already ? '✓ In pipeline' : '✨ Add + find email + draft'}</button>
             </div>
         </div>`;
     }).join('');
@@ -539,8 +539,62 @@ function addFromSearch(ytId, btn) {
     render();
 }
 
-// Pull a published business email from a channel's public description / recent video descriptions.
-// This only reads text the creator chose to publish via the official API — no captcha, no scraping.
+// Look up a published business email from a channel's public description / recent videos.
+async function lookupEmail(ytId, key) {
+    const chRes = await fetch('https://www.googleapis.com/youtube/v3/channels?part=snippet,contentDetails&id='
+        + ytId + '&key=' + encodeURIComponent(key));
+    const chData = await chRes.json();
+    const ch = (chData.items || [])[0] || {};
+    let email = pickEmail((ch.snippet && ch.snippet.description) || '');
+    if (!email) {
+        const uploads = ch.contentDetails && ch.contentDetails.relatedPlaylists && ch.contentDetails.relatedPlaylists.uploads;
+        if (uploads) {
+            const plRes = await fetch('https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&maxResults=15&playlistId='
+                + uploads + '&key=' + encodeURIComponent(key));
+            const plData = await plRes.json();
+            email = pickEmail((plData.items || []).map(i => i.snippet.description || '').join('\n'));
+        }
+    }
+    return email;
+}
+
+// One click on a search result: add → find email → draft pitch.
+async function addAndDraft(ytId, btn) {
+    const ch = lastResults.find(c => c.id === ytId);
+    if (!ch || state.creators.some(c => c.ytId === ytId)) return;
+    const c = {
+        id: Date.now(), ytId,
+        name: ch.name, followers: ch.followers,
+        niche: searchQuery.value.trim(), platform: 'YouTube',
+        email: '', notes: (ch.desc || '').slice(0, 200),
+        link: 'https://www.youtube.com/channel/' + ytId + '/about',
+        status: 'To contact', message: ''
+    };
+    state.creators.unshift(c);
+    save();
+    btn.disabled = true;
+    let note = '✓ Added';
+    try {
+        if (state.settings.youtubeKey) {
+            btn.innerHTML = '<span class="spinner"></span>Finding email…';
+            const email = await lookupEmail(ytId, state.settings.youtubeKey);
+            if (email) c.email = email; else note = '✓ Added (no email found)';
+            save();
+        }
+        if (state.settings.apiKey && state.settings.productName) {
+            btn.innerHTML = '<span class="spinner"></span>Writing pitch…';
+            try { c.message = await callClaude(buildPrompt(c)); save(); }
+            catch (e) { note = '✓ Added (add API credit to draft)'; }
+        }
+    } catch (e) {
+        note = '✓ Added (email lookup failed)';
+    }
+    btn.innerHTML = note;
+    render();
+    toast(note.replace('✓ ', '') + ' — see it in your pipeline below ↓');
+}
+
+// Pull a published business email + auto-draft (used by the pipeline card button).
 async function autoFindEmail(id, btn) {
     const key = state.settings.youtubeKey;
     if (!key) { alert('Add your YouTube Data API key in Setup first.'); settingsCard.open = true; return; }
@@ -549,20 +603,7 @@ async function autoFindEmail(id, btn) {
     const original = btn.innerHTML;
     btn.disabled = true; btn.innerHTML = '<span class="spinner"></span>Looking...';
     try {
-        const chRes = await fetch('https://www.googleapis.com/youtube/v3/channels?part=snippet,contentDetails&id='
-            + c.ytId + '&key=' + encodeURIComponent(key));
-        const chData = await chRes.json();
-        const ch = (chData.items || [])[0] || {};
-        let email = pickEmail((ch.snippet && ch.snippet.description) || '');
-        if (!email) {
-            const uploads = ch.contentDetails && ch.contentDetails.relatedPlaylists && ch.contentDetails.relatedPlaylists.uploads;
-            if (uploads) {
-                const plRes = await fetch('https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&maxResults=15&playlistId='
-                    + uploads + '&key=' + encodeURIComponent(key));
-                const plData = await plRes.json();
-                email = pickEmail((plData.items || []).map(i => i.snippet.description || '').join('\n'));
-            }
-        }
+        const email = await lookupEmail(c.ytId, key);
         if (!email) {
             btn.disabled = false; btn.innerHTML = original;
             alert('No public email found in their description or recent videos.\n\nThey likely only show it on their About page (behind a captcha). Open that link and paste it in.');
@@ -798,7 +839,7 @@ function initGmail() {
     if (!state.settings.googleClientId) return false;
     tokenClient = google.accounts.oauth2.initTokenClient({
         client_id: state.settings.googleClientId,
-        scope: 'https://www.googleapis.com/auth/gmail.compose',
+        scope: 'https://www.googleapis.com/auth/gmail.compose https://www.googleapis.com/auth/gmail.send',
         callback: (resp) => {
             if (resp && resp.access_token) {
                 gmailToken = resp.access_token;
@@ -843,6 +884,39 @@ async function createGmailDraft(c) {
         body: JSON.stringify({ message: { raw } })
     });
     if (!res.ok) throw new Error('Gmail ' + res.status + ': ' + (await res.text()).slice(0, 150));
+}
+
+// Send a reviewed message straight from the card via the user's Gmail.
+async function sendGmail(id, btn) {
+    const c = state.creators.find(x => x.id === id);
+    if (!c.email) { alert('No email on this creator yet — find or paste one first.'); return; }
+    if (!c.message) { alert('No message drafted yet.'); return; }
+    if (!state.settings.googleClientId) {
+        alert('Sending from the app needs a Google OAuth Client ID in Setup (one-time).\n\nNo setup yet? Use "✉ Open in Gmail" instead — it opens Gmail with everything filled in.');
+        settingsCard.open = true; return;
+    }
+    if (!gmailToken) {
+        if (!tokenClient && !initGmail()) { alert('Open Setup and click "🔗 Connect Gmail" first.'); settingsCard.open = true; return; }
+        alert('Click "🔗 Connect Gmail" in Setup to log in, then press Send again.');
+        settingsCard.open = true; tokenClient.requestAccessToken(); return;
+    }
+    if (!confirm('Send this email now to ' + c.email + ' from your Gmail?\n\n(Review it first — this sends for real.)')) return;
+    const original = btn.innerHTML; btn.disabled = true; btn.innerHTML = '<span class="spinner"></span>Sending…';
+    try {
+        const { subject, body } = splitSubject(c.message);
+        const raw = b64url('To: ' + c.email + '\r\nSubject: ' + subject + '\r\nContent-Type: text/plain; charset="UTF-8"\r\n\r\n' + body);
+        const res = await fetch('https://gmail.googleapis.com/gmail/v1/users/me/messages/send', {
+            method: 'POST',
+            headers: { 'Authorization': 'Bearer ' + gmailToken, 'Content-Type': 'application/json' },
+            body: JSON.stringify({ raw })
+        });
+        if (!res.ok) throw new Error('Gmail ' + res.status + ': ' + (await res.text()).slice(0, 150));
+        c.status = 'Contacted'; save(); render();
+        toast('Sent ✓ to ' + c.name);
+    } catch (e) {
+        btn.disabled = false; btn.innerHTML = original;
+        alert('Send failed: ' + e.message);
+    }
 }
 async function gmailDraftAll(btn) {
     const targets = visibleCreators().filter(c => c.message && c.email);
@@ -948,7 +1022,8 @@ function render() {
             </div>
             <div class="actions">
                 <button class="btn-ghost btn-sm" onclick="copyMsg(${c.id})">📋 Copy</button>
-                <button class="btn-primary btn-sm" onclick="openEmail(${c.id})">✉ Open in Gmail</button>
+                ${c.email ? `<button class="btn-primary btn-sm" onclick="sendGmail(${c.id}, this)">📤 Send via Gmail</button>
+                <button class="btn-ghost btn-sm" onclick="openEmail(${c.id})">✉ Open in Gmail</button>` : ''}
                 <button class="btn-ghost btn-sm" onclick="genMessage(${c.id}, this)">🔄 Rewrite</button>
                 <button class="btn-danger btn-sm" onclick="delCreator(${c.id})">Delete</button>
             </div>` : `
