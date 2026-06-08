@@ -297,12 +297,12 @@
         <h2 class="section">Shop login</h2>
         <form id="loginForm">
           <label class="fld">Username</label>
-          <input id="l-user" autocapitalize="none" autocomplete="username" placeholder="shop / cab / baf" />
+          <input id="l-user" autocapitalize="none" autocomplete="username" placeholder="shop / cab / baf, or your email" />
           <label class="fld">Password</label>
           <input id="l-pass" type="password" autocomplete="current-password" placeholder="Password" />
           <div style="margin-top:14px"><button type="submit" class="btn-primary" id="loginBtn">Log in</button></div>
         </form>
-        <p class="hint" style="margin-top:12px">Shop staff & mechanics work from the shop tablet. Drivers don't need an account.</p>
+        <p class="hint" style="margin-top:12px">Admins log in with <b>shop / cab / baf</b>. Mechanics with their own login enter their <b>email</b> and see only their assigned work. Drivers don't need an account.</p>
       </div>
     </section>
 
@@ -344,10 +344,12 @@
       <div id="shop-mech" style="display:none">
         <div class="card">
           <h2 class="section">Add a mechanic</h2>
-          <div class="btn-row">
-            <input id="m-name" placeholder="Mechanic name" style="flex:1" />
-            <button class="btn-primary" style="width:auto" onclick="addMechanic()">Add</button>
-          </div>
+          <label class="fld">Name</label>
+          <input id="m-name" placeholder="Mechanic name" />
+          <label class="fld">Login email <span style="color:var(--muted)">(optional)</span></label>
+          <input id="m-email" type="email" autocapitalize="none" placeholder="e.g. mike@rosedale.local — links their own login" />
+          <div style="margin-top:12px"><button class="btn-primary" onclick="addMechanic()">Add mechanic</button></div>
+          <p class="hint" style="margin-top:10px">Leave email blank for a mechanic who works off the shop tablet. To give a mechanic their own login: create their user under Supabase → Authentication, then enter the same email here. They'll see only their assigned tickets — no parts or cost.</p>
         </div>
         <div class="card"><h2 class="section">Mechanics</h2><div id="mechList"></div></div>
       </div>
@@ -382,6 +384,8 @@
   // ---- state ----
   let state = {
     session: null,            // supabase auth session (staff)
+    me: null,                 // linked mechanics row when a mechanic is logged in
+    isMechanic: false,        // true = locked-down mechanic login (no parts/cost/assign)
     tickets: [],              // staff: all tickets ; driver: own tickets
     mechanics: [],
     parts: [],
@@ -523,19 +527,43 @@
     if (error) return toast("Login failed — check username/password", true);
     state.session = data.session;
     $("loginForm").reset();
+    await resolveRole();
     await loadShopData();
     go("shop");
   });
 
   async function logout() {
     if (sb) await sb.auth.signOut();
-    state.session = null; state.mechFilter = null;
+    state.session = null; state.me = null; state.isMechanic = false; state.mechFilter = null;
     if (realtimeChannel) { sb.removeChannel(realtimeChannel); realtimeChannel = null; }
     go("home");
   }
 
+  // Figure out whether the logged-in user is a mechanic (linked mechanics row
+  // by email) or an admin. The mechanics RLS only returns a mechanic their own
+  // row, so a non-empty match here means "this is that mechanic".
+  async function resolveRole() {
+    state.me = null; state.isMechanic = false;
+    const email = state.session && state.session.user && state.session.user.email;
+    if (!email) return;
+    const { data } = await sb.from("mechanics").select("*").eq("login_email", email.toLowerCase()).limit(1);
+    if (data && data.length) { state.me = data[0]; state.isMechanic = true; }
+  }
+
   // ============================ STAFF: data ============================
   async function loadShopData() {
+    if (state.isMechanic) {
+      // Mechanic login: RLS already limits tickets to their own assignments and
+      // blocks parts/other mechanics. Keep the view locked to "my work".
+      const tk = await sb.from("tickets").select("*").order("created_at", { ascending: false });
+      state.tickets = tk.data || [];
+      state.mechanics = state.me ? [state.me] : [];
+      state.parts = [];
+      state.mechFilter = state.me ? state.me.id : null;
+      state.queueFilter = "mine";
+      subscribeShop();
+      return;
+    }
     const [tk, mc, pt] = await Promise.all([
       sb.from("tickets").select("*").order("created_at", { ascending: false }),
       sb.from("mechanics").select("*").order("name"),
@@ -558,7 +586,18 @@
     if (t === "mech") renderMechanics();
   }
 
-  function renderShop() { renderQueue(); }
+  function renderShop() { applyRoleUI(); renderQueue(); }
+
+  // Mechanic logins get a stripped-down view: no Parts/Mechanics tabs, no queue
+  // filters (locked to their own work), header marks the role.
+  function applyRoleUI() {
+    const mech = state.isMechanic;
+    $("stab-parts").style.display = mech ? "none" : "";
+    $("stab-mech").style.display = mech ? "none" : "";
+    $("qf-all").parentElement.style.display = mech ? "none" : "";
+    $("headerSub").textContent = mech ? (state.me ? state.me.name + " · mechanic" : "Mechanic") : "Shop dashboard";
+    if (mech) shopTab("queue");
+  }
 
   function setQueueFilter(f) {
     state.queueFilter = f;
@@ -594,7 +633,7 @@
       return new Date(b.created_at) - new Date(a.created_at);
     });
 
-    const mineMode = state.queueFilter === "mine";
+    const mineMode = state.isMechanic || state.queueFilter === "mine";
     const el = $("queueList");
     if (!list.length) { el.innerHTML = `<div class="empty">No tickets here.</div>`; return; }
     el.innerHTML = `<div class="hint" style="margin:0 0 10px"><span class="live-dot"></span>Live queue${mineMode ? " · mechanic view" : ""}</div>` +
@@ -623,7 +662,7 @@
   async function openTicket(id) {
     const t = state.tickets.find(x => x.id === id);
     if (!t) return;
-    const mineMode = state.queueFilter === "mine";  // mechanic view = hide cost/parts
+    const mineMode = state.isMechanic || state.queueFilter === "mine";  // hide cost/parts/assign
     // load time logs + ticket parts for this ticket
     const [tl, tp] = await Promise.all([
       sb.from("time_logs").select("*").eq("ticket_id", id).order("created_at", { ascending: false }),
@@ -686,7 +725,7 @@
       ${costHtml}
 
       <button class="btn-primary" style="margin-top:18px" onclick="closeModal()">Done</button>
-      <button class="btn-red btn-block" style="margin-top:8px" onclick="deleteTicket('${t.id}')">Delete ticket</button>
+      ${mineMode ? "" : `<button class="btn-red btn-block" style="margin-top:8px" onclick="deleteTicket('${t.id}')">Delete ticket</button>`}
     `);
   }
 
@@ -760,17 +799,19 @@
     const el = $("mechList");
     if (!state.mechanics.length) { el.innerHTML = `<div class="empty">No mechanics yet.</div>`; return; }
     el.innerHTML = state.mechanics.map(m => `<div class="row">
-      <div class="grow"><div class="name">${esc(m.name)}</div></div>
+      <div class="grow"><div class="name">${esc(m.name)}</div>
+        <div class="small">${m.login_email ? "🔑 " + esc(m.login_email) : "shop tablet — no login"}</div></div>
       <button class="btn-sm btn-red" onclick="deleteMechanic('${m.id}')">✕</button>
     </div>`).join("");
   }
   async function addMechanic() {
     const name = $("m-name").value.trim();
     if (!name) return toast("Name required", true);
-    const { data, error } = await sb.from("mechanics").insert({ name }).select().single();
+    const email = $("m-email").value.trim().toLowerCase() || null;
+    const { data, error } = await sb.from("mechanics").insert({ name, login_email: email }).select().single();
     if (error) return toast(error.message, true);
     state.mechanics.push(data); state.mechanics.sort((a,b)=>a.name.localeCompare(b.name));
-    $("m-name").value = ""; renderMechanics(); toast("Mechanic added ✓");
+    $("m-name").value = ""; $("m-email").value = ""; renderMechanics(); toast("Mechanic added ✓");
   }
   async function deleteMechanic(id) {
     if (!confirm("Remove this mechanic?")) return;
@@ -841,7 +882,7 @@
     try { const d = JSON.parse(localStorage.getItem("rss_driver") || "null"); if (d) state.driver = d; } catch {}
     if (sb) {
       const { data } = await sb.auth.getSession();
-      if (data.session) { state.session = data.session; await loadShopData(); }
+      if (data.session) { state.session = data.session; await resolveRole(); await loadShopData(); }
       updateWho();
     }
     if ("serviceWorker" in navigator) navigator.serviceWorker.register("shop-sw.js").catch(()=>{});
