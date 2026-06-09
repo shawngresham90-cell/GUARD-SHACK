@@ -1,0 +1,13 @@
+# Rosedale Shop Scheduler — standalone Netlify site.
+# Publishes the shop/ folder at the site root, so the app loads at the
+# root URL (shop/index.html redirects to shop.html). No build step — it's
+# static HTML + a service worker.
+[build]
+  publish = "shop"
+  command = ""
+
+# Never cache the service worker so updates ship immediately.
+[[headers]]
+  for = "/shop-sw.js"
+  [headers.values]
+    Cache-Control = "no-cache"
