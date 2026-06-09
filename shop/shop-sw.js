@@ -1,7 +1,7 @@
 /* Rosedale Shop Scheduler service worker — makes the app installable.
    Cache-first for the app shell so it opens fast; everything else (the
    Supabase API + the supabase-js CDN) falls through to the network. */
-const CACHE = 'rosedale-shop-v1';
+const CACHE = 'rosedale-shop-v2';
 const SHELL = ['shop.html', 'shop.webmanifest'];
 
 self.addEventListener('install', (e) => {

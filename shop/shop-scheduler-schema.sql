@@ -59,12 +59,16 @@ create table if not exists tickets (
   trailer_number       text,
   unit_number          text,
   driver_name          text not null,
+  driver_email         text not null,         -- captured at drop-off; used for "ready" email
   driver_phone         text not null,
   issue                text not null,
   needed_by            timestamptz,
+  estimated_fix        text,                  -- mechanic's ETA, shown to the driver
   status               ticket_status not null default 'intake',
   assigned_mechanic_id uuid references mechanics(id) on delete set null,
-  created_at           timestamptz not null default now(),
+  created_at           timestamptz not null default now(),   -- "dropped off" time
+  started_at           timestamptz,           -- auto-set when work starts (in_progress)
+  finished_at          timestamptz,           -- auto-set when finished (completed)
   updated_at           timestamptz not null default now()
 );
 
@@ -84,6 +88,29 @@ drop trigger if exists tickets_updated_at on tickets;
 create trigger tickets_updated_at
   before update on tickets
   for each row execute function set_updated_at();
+
+-- Stamp the work-started / finished times automatically the first time the
+-- status crosses into 'in_progress' / 'completed'. "Dropped off" is created_at.
+create or replace function set_status_timestamps()
+returns trigger language plpgsql as $$
+begin
+  if new.status = 'in_progress'
+     and old.status is distinct from 'in_progress'
+     and new.started_at is null then
+    new.started_at = now();
+  end if;
+  if new.status = 'completed'
+     and old.status is distinct from 'completed'
+     and new.finished_at is null then
+    new.finished_at = now();
+  end if;
+  return new;
+end$$;
+
+drop trigger if exists tickets_status_timestamps on tickets;
+create trigger tickets_status_timestamps
+  before update on tickets
+  for each row execute function set_status_timestamps();
 
 -- ---------------------------------------------------------------------------
 -- Time logs (admin / mechanic only)
