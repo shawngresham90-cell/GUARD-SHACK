@@ -103,8 +103,11 @@ begin
     evt := 'new_ticket';
   elsif tg_op = 'UPDATE' and new.status is distinct from old.status then
     evt := 'status_change';
+  elsif tg_op = 'UPDATE' and new.estimated_fix is distinct from old.estimated_fix
+        and coalesce(new.estimated_fix, '') <> '' then
+    evt := 'eta_update';  -- shop set/changed the ETA -> email driver + dispatch
   else
-    return new;  -- non-status edits (ETA, assignment, etc.) don't email staff
+    return new;  -- other edits (assignment, etc.) don't email anyone
   end if;
   perform net.http_post(
     url     := notify_url,
@@ -115,9 +118,11 @@ begin
     body    := jsonb_build_object(
                  'type',           evt,
                  'driver_name',    new.driver_name,
+                 'driver_email',   new.driver_email,
                  'truck_number',   new.truck_number,
                  'trailer_number', new.trailer_number,
-                 'status',         new.status::text
+                 'status',         new.status::text,
+                 'estimated_fix',  new.estimated_fix
                )
   );
   return new;
