@@ -86,16 +86,65 @@ create trigger tickets_notify_ready
   after update on tickets
   for each row execute function notify_driver_ready();
 
+-- 4) Staff notifications --------------------------------------------------
+--    Email dispatch + management when a driver submits a repair request, and
+--    on every status change after that. Calls the notify-staff Edge Function
+--    (see shop/functions/notify-staff). Separate from the driver email above.
+--
+--    >>> EDIT notify_url + notify_secret here too, then re-run. <<<
+create or replace function notify_staff()
+returns trigger language plpgsql security definer set search_path = public, extensions as $$
+declare
+  notify_url    text := 'https://YOUR_PROJECT_REF.supabase.co/functions/v1/notify-staff';
+  notify_secret text := 'YOUR_SHARED_SECRET';
+  evt text;
+begin
+  if tg_op = 'INSERT' then
+    evt := 'new_ticket';
+  elsif tg_op = 'UPDATE' and new.status is distinct from old.status then
+    evt := 'status_change';
+  else
+    return new;  -- non-status edits (ETA, assignment, etc.) don't email staff
+  end if;
+  perform net.http_post(
+    url     := notify_url,
+    headers := jsonb_build_object(
+                 'Content-Type',  'application/json',
+                 'x-shop-secret', notify_secret
+               ),
+    body    := jsonb_build_object(
+                 'type',           evt,
+                 'driver_name',    new.driver_name,
+                 'truck_number',   new.truck_number,
+                 'trailer_number', new.trailer_number,
+                 'status',         new.status::text
+               )
+  );
+  return new;
+end$$;
+
+drop trigger if exists tickets_notify_staff_insert on tickets;
+create trigger tickets_notify_staff_insert
+  after insert on tickets
+  for each row execute function notify_staff();
+
+drop trigger if exists tickets_notify_staff_update on tickets;
+create trigger tickets_notify_staff_update
+  after update on tickets
+  for each row execute function notify_staff();
+
 -- ============================================================================
 -- SETUP CHECKLIST
---   1. Deploy the Edge Function:
+--   1. Deploy the Edge Functions:
 --        supabase functions deploy notify-driver-ready --no-verify-jwt
---      (--no-verify-jwt because pg_net calls it with the shared secret, not a
---       user JWT. The function rejects anyone without the right x-shop-secret.)
---   2. Set its secrets (this build sends through Gmail SMTP):
+--        supabase functions deploy notify-staff --no-verify-jwt
+--      (--no-verify-jwt because pg_net calls them with the shared secret, not a
+--       user JWT. Each function rejects anyone without the right x-shop-secret.)
+--   2. Set their secrets (this build sends through Gmail SMTP):
 --        supabase secrets set GMAIL_USER="you@gmail.com"
 --        supabase secrets set GMAIL_APP_PASSWORD="<google app password>"   # myaccount.google.com/apppasswords
 --        supabase secrets set SHOP_NOTIFY_SECRET=<same long random string as above>
+--        supabase secrets set SHOP_STAFF_EMAILS="disp@example.com,boss@example.com"
 --        supabase secrets set SHOP_FROM_NAME="Rosedale Shop"               # optional
---   3. Edit notify_url + notify_secret above and re-run this file.
+--   3. Edit notify_url + notify_secret above (both functions) and re-run this file.
 -- ============================================================================
