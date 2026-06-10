@@ -92,9 +92,10 @@ create trigger tickets_notify_ready
 --        supabase functions deploy notify-driver-ready --no-verify-jwt
 --      (--no-verify-jwt because pg_net calls it with the shared secret, not a
 --       user JWT. The function rejects anyone without the right x-shop-secret.)
---   2. Set its secrets:
---        supabase secrets set RESEND_API_KEY=...        # your email provider key
---        supabase secrets set SHOP_FROM_EMAIL="Rosedale Shop <shop@yourdomain.com>"
+--   2. Set its secrets (this build sends through Gmail SMTP):
+--        supabase secrets set GMAIL_USER="you@gmail.com"
+--        supabase secrets set GMAIL_APP_PASSWORD="<google app password>"   # myaccount.google.com/apppasswords
 --        supabase secrets set SHOP_NOTIFY_SECRET=<same long random string as above>
+--        supabase secrets set SHOP_FROM_NAME="Rosedale Shop"               # optional
 --   3. Edit notify_url + notify_secret above and re-run this file.
 -- ============================================================================
