@@ -190,6 +190,17 @@
     .banner code { background: rgba(0,0,0,0.35); padding: 1px 5px; border-radius: 5px; font-size: 12px; }
 
     .back { background: transparent; color: var(--muted); padding: 6px 0; font-size: 14px; }
+
+    /* Calendar (shop only) */
+    .cal-head { display: flex; align-items: center; justify-content: space-between; margin-bottom: 10px; }
+    .cal-title { font-weight: 700; font-size: 16px; }
+    .cal-dow { display: grid; grid-template-columns: repeat(7, 1fr); gap: 4px; font-size: 10px; color: var(--muted); text-transform: uppercase; text-align: center; margin-bottom: 4px; letter-spacing: 0.4px; }
+    .cal-grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 4px; }
+    .cal-cell { position: relative; aspect-ratio: 1; display: flex; align-items: center; justify-content: center; border: 1px solid var(--line); border-radius: 8px; font-size: 13px; cursor: pointer; background: var(--panel-2); }
+    .cal-cell.empty { border: 0; background: transparent; cursor: default; }
+    .cal-cell.today { border-color: var(--orange-soft); }
+    .cal-cell.sel { background: rgba(245,135,43,0.18); border-color: var(--orange); font-weight: 700; }
+    .cal-dot { position: absolute; bottom: 3px; right: 4px; font-size: 9px; background: var(--orange); color: #1a1208; border-radius: 999px; padding: 0 4px; font-weight: 700; }
     .live-dot { display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: var(--green); margin-right: 5px; box-shadow: 0 0 0 0 rgba(70,192,106,0.6); animation: pulse 2s infinite; }
     @keyframes pulse { 0% { box-shadow: 0 0 0 0 rgba(70,192,106,0.6); } 70% { box-shadow: 0 0 0 7px rgba(70,192,106,0); } 100% { box-shadow: 0 0 0 0 rgba(70,192,106,0); } }
     .modal-overlay {
@@ -312,6 +323,7 @@
     <section id="view-shop" class="view">
       <div class="tabs" id="shopTabs">
         <button id="stab-queue" class="active" onclick="shopTab('queue')">Queue</button>
+        <button id="stab-cal" onclick="shopTab('cal')">Calendar</button>
         <button id="stab-parts" onclick="shopTab('parts')">Parts</button>
         <button id="stab-mech" onclick="shopTab('mech')">Mechanics</button>
       </div>
@@ -325,6 +337,25 @@
           <button class="btn-sm btn-ghost" id="qf-mine" onclick="setQueueFilter('mine')">My work</button>
         </div>
         <div id="queueList"></div>
+      </div>
+
+      <!-- calendar (admins only — the appointments table is locked at the DB:
+           no anon privileges, and the only RLS policy requires is_shop_admin()) -->
+      <div id="shop-cal" style="display:none">
+        <div class="card">
+          <div class="cal-head">
+            <button class="btn-sm btn-ghost" onclick="calNav(-1)">‹ Prev</button>
+            <div class="cal-title" id="calTitle"></div>
+            <button class="btn-sm btn-ghost" onclick="calNav(1)">Next ›</button>
+          </div>
+          <div class="cal-dow"><span>Sun</span><span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span></div>
+          <div class="cal-grid" id="calGrid"></div>
+        </div>
+        <div class="btn-row" style="margin-bottom:12px">
+          <button class="btn-sm btn-ghost" onclick="calToday()">Today</button>
+          <button class="btn-sm btn-blue" onclick="openAppt(null)">＋ Add appointment</button>
+        </div>
+        <div id="calDayList"></div>
       </div>
 
       <!-- parts -->
@@ -391,6 +422,7 @@
     tickets: [],              // staff: all tickets ; driver: own tickets
     mechanics: [],
     parts: [],
+    appointments: [],         // shop calendar (admins only; RLS blocks others)
     queueFilter: "active",
     mechFilter: null,         // mechanic id for "My work" / mechanic mode
     driver: { truck: "", phone: "" },
@@ -610,24 +642,27 @@
       subscribeShop();
       return;
     }
-    const [tk, mc, pt] = await Promise.all([
+    const [tk, mc, pt, ap] = await Promise.all([
       sb.from("tickets").select("*").order("created_at", { ascending: false }),
       sb.from("mechanics").select("*").order("name"),
       sb.from("parts").select("*").order("name"),
+      sb.from("appointments").select("*").order("starts_at"),
     ]);
     if (tk.error) return toast(tk.error.message, true);
     state.tickets = tk.data || [];
     state.mechanics = mc.data || [];
     state.parts = pt.data || [];
+    state.appointments = ap.data || [];
     subscribeShop();
   }
 
   function shopTab(t) {
-    ["queue", "parts", "mech"].forEach(k => {
+    ["queue", "cal", "parts", "mech"].forEach(k => {
       $("stab-" + k).classList.toggle("active", k === t);
       $("shop-" + k).style.display = k === t ? "block" : "none";
     });
     if (t === "queue") renderQueue();
+    if (t === "cal") renderCalendar();
     if (t === "parts") renderParts();
     if (t === "mech") renderMechanics();
   }
@@ -638,6 +673,7 @@
   // filters (locked to their own work), header marks the role.
   function applyRoleUI() {
     const mech = state.isMechanic;
+    $("stab-cal").style.display = mech ? "none" : "";
     $("stab-parts").style.display = mech ? "none" : "";
     $("stab-mech").style.display = mech ? "none" : "";
     $("qf-all").parentElement.style.display = mech ? "none" : "";
@@ -874,6 +910,120 @@
     const { error } = await sb.from("mechanics").delete().eq("id", id);
     if (error) return toast(error.message, true);
     state.mechanics = state.mechanics.filter(m => m.id !== id); renderMechanics();
+  }
+
+  // ============================ STAFF: calendar ============================
+  // Private shop calendar — admin logins only. Access is enforced by the
+  // DATABASE (no anon privileges on appointments; RLS policy requires
+  // is_shop_admin()), so hiding the tab is cosmetic, not the security.
+  let calMonth = startOfMonth(new Date());
+  let calSelected = dateKey(new Date());
+
+  function startOfMonth(d) { return new Date(d.getFullYear(), d.getMonth(), 1); }
+  function dateKey(d) { const p = n => String(n).padStart(2, "0"); return d.getFullYear() + "-" + p(d.getMonth() + 1) + "-" + p(d.getDate()); }
+
+  async function loadAppointments() {
+    const { data, error } = await sb.from("appointments").select("*").order("starts_at");
+    if (error) return toast(error.message, true);
+    state.appointments = data || [];
+  }
+
+  function calNav(n) { calMonth = new Date(calMonth.getFullYear(), calMonth.getMonth() + n, 1); renderCalendar(); }
+  function calToday() { calMonth = startOfMonth(new Date()); calSelected = dateKey(new Date()); renderCalendar(); }
+  function pickCalDay(k) { calSelected = k; renderCalendar(); }
+
+  function renderCalendar() {
+    $("calTitle").textContent = calMonth.toLocaleString([], { month: "long", year: "numeric" });
+    const byDay = {};
+    state.appointments.forEach(a => { const k = dateKey(new Date(a.starts_at)); (byDay[k] = byDay[k] || []).push(a); });
+    const firstDow = calMonth.getDay();
+    const days = new Date(calMonth.getFullYear(), calMonth.getMonth() + 1, 0).getDate();
+    const todayK = dateKey(new Date());
+    let cells = "";
+    for (let i = 0; i < firstDow; i++) cells += `<div class="cal-cell empty"></div>`;
+    for (let d = 1; d <= days; d++) {
+      const k = dateKey(new Date(calMonth.getFullYear(), calMonth.getMonth(), d));
+      const n = (byDay[k] || []).length;
+      cells += `<div class="cal-cell ${k === calSelected ? "sel" : ""} ${k === todayK ? "today" : ""}" onclick="pickCalDay('${k}')"><span>${d}</span>${n ? `<span class="cal-dot">${n}</span>` : ""}</div>`;
+    }
+    $("calGrid").innerHTML = cells;
+    renderDayList(byDay[calSelected] || []);
+  }
+
+  function renderDayList(list) {
+    const d = new Date(calSelected + "T00:00");
+    const head = `<h2 class="section">${d.toLocaleDateString([], { weekday: "long", month: "long", day: "numeric" })}</h2>`;
+    if (!list.length) { $("calDayList").innerHTML = head + `<div class="empty">No appointments this day. Tap “Add appointment”.</div>`; return; }
+    $("calDayList").innerHTML = head + list
+      .sort((a, b) => new Date(a.starts_at) - new Date(b.starts_at))
+      .map(a => {
+        const t = state.tickets.find(x => x.id === a.ticket_id);
+        const time = new Date(a.starts_at).toLocaleTimeString([], { hour: "numeric", minute: "2-digit" });
+        return `<div class="ticket clickable" onclick="openAppt('${a.id}')">
+          <div class="top"><div><div class="truck">${time} — ${esc(a.title)}</div>
+          <div class="meta">${t ? "🔗 Truck " + esc(t.truck_number) + " · " + esc(t.driver_name) : "No ticket linked"}</div></div></div>
+          ${a.notes ? `<div class="issue">${esc(a.notes)}</div>` : ""}
+        </div>`;
+      }).join("");
+  }
+
+  function openAppt(id) {
+    const a = id ? state.appointments.find(x => x.id === id) : null;
+    const d = a ? new Date(a.starts_at) : new Date(calSelected + "T09:00");
+    const p = n => String(n).padStart(2, "0");
+    const dateVal = dateKey(d), timeVal = p(d.getHours()) + ":" + p(d.getMinutes());
+    // open tickets first; keep a completed ticket selectable if already linked
+    const ticketOpts = `<option value="">— No ticket —</option>` + state.tickets
+      .filter(t => t.status !== "completed" || (a && a.ticket_id === t.id))
+      .map(t => `<option value="${t.id}" ${a && a.ticket_id === t.id ? "selected" : ""}>Truck ${esc(t.truck_number)} · ${esc(t.driver_name)} (${STATUS_LABEL[t.status]})</option>`).join("");
+    openModal(`
+      <h2 class="section">${a ? "Edit appointment" : "New appointment"}</h2>
+      <label class="fld">Title <span class="req">*</span></label>
+      <input id="a-title" value="${a ? esc(a.title) : ""}" placeholder="e.g. PM service — bay 2" />
+      <label class="fld">Notes</label>
+      <textarea id="a-notes" placeholder="optional">${a ? esc(a.notes || "") : ""}</textarea>
+      <div class="two-col">
+        <div><label class="fld">Date <span class="req">*</span></label><input id="a-date" type="date" value="${dateVal}" /></div>
+        <div><label class="fld">Time <span class="req">*</span></label><input id="a-time" type="time" value="${timeVal}" /></div>
+      </div>
+      <label class="fld">Link to repair ticket / checked-in driver</label>
+      <select id="a-ticket">${ticketOpts}</select>
+      <button class="btn-primary" style="margin-top:16px" onclick="saveAppt(${a ? `'${a.id}'` : "null"})">${a ? "Save changes" : "Add appointment"}</button>
+      ${a ? `<button class="btn-red btn-block" style="margin-top:8px" onclick="deleteAppt('${a.id}')">Delete appointment</button>` : ""}
+      <button class="btn-ghost btn-block" style="margin-top:8px" onclick="closeModal()">Cancel</button>
+    `);
+  }
+
+  async function saveAppt(id) {
+    const title = $("a-title").value.trim();
+    const date = $("a-date").value, time = $("a-time").value;
+    if (!title) return toast("Title required", true);
+    if (!date || !time) return toast("Pick a date and time", true);
+    const payload = {
+      title,
+      notes: $("a-notes").value.trim() || null,
+      starts_at: new Date(date + "T" + time).toISOString(),
+      ticket_id: $("a-ticket").value || null,
+    };
+    const q = id ? sb.from("appointments").update(payload).eq("id", id) : sb.from("appointments").insert(payload);
+    const { error } = await q;
+    if (error) return toast(error.message, true);
+    calSelected = date;
+    calMonth = startOfMonth(new Date(date + "T00:00"));
+    closeModal();
+    await loadAppointments();
+    renderCalendar();
+    toast(id ? "Appointment updated ✓" : "Appointment added ✓");
+  }
+
+  async function deleteAppt(id) {
+    if (!confirm("Delete this appointment?")) return;
+    const { error } = await sb.from("appointments").delete().eq("id", id);
+    if (error) return toast(error.message, true);
+    closeModal();
+    await loadAppointments();
+    renderCalendar();
+    toast("Appointment deleted");
   }
 
   // ============================ Realtime ============================
