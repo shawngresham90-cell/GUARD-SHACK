@@ -1,0 +1,6 @@
+# Serve the Shop Scheduler app at the site root.
+# The "!" forces the rewrite even though an index.html exists in this folder,
+# so visitors land on the app at "/" instead of having to type /shop.html.
+# Only "/" is rewritten — every other path (shop.html, shop-sw.js, the
+# manifest, Supabase calls) is served normally.
+/    /shop.html    200!
