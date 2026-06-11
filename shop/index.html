@@ -2,13 +2,15 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta http-equiv="refresh" content="0; url=shop.html" />
   <title>Rosedale Shop Scheduler</title>
   <link rel="canonical" href="shop.html" />
+  <!-- Forward to the app. The script runs first (most reliable); the meta
+       refresh is a no-JS fallback. Query string + hash are preserved so deep
+       links keep working. -->
+  <script>location.replace("shop.html" + location.search + location.hash);</script>
+  <meta http-equiv="refresh" content="0; url=shop.html" />
 </head>
 <body>
-  <!-- This folder deploys as a standalone site (e.g. its own Netlify project
-       with base/publish = shop/). Land on the app at the root URL. -->
   <p>Redirecting to <a href="shop.html">the Rosedale Shop Scheduler</a>…</p>
 </body>
 </html>
