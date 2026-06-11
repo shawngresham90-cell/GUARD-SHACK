@@ -1,0 +1,7 @@
+# The root + redirect page must never be cached, or visitors can get pinned to
+# a stale "Redirecting…" page after a deploy. The app itself (shop.html) is
+# already handled network-first by the service worker.
+/
+  Cache-Control: no-store
+/index.html
+  Cache-Control: no-store
