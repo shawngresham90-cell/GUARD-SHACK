@@ -353,6 +353,7 @@
       <!-- queue -->
       <div id="shop-queue">
         <div class="stat-grid" id="queueStats"></div>
+        <button class="btn-primary" id="qBtnAdd" style="margin-bottom:12px" onclick="openShopIntake()">+ Add Ticket</button>
         <div class="btn-row" style="margin-bottom:12px">
           <button class="btn-sm btn-ghost" id="qf-all" onclick="setQueueFilter('all')">All</button>
           <button class="btn-sm btn-ghost" id="qf-active" onclick="setQueueFilter('active')">Active</button>
@@ -783,8 +784,65 @@
     $("stab-parts").style.display = mech ? "none" : "";
     $("stab-mech").style.display = mech ? "none" : "";
     $("qf-all").parentElement.style.display = mech ? "none" : "";
+    $("qBtnAdd").style.display = mech ? "none" : "";
     $("headerSub").textContent = mech ? (state.me ? state.me.name + " · mechanic" : "Mechanic") : "Shop dashboard";
     if (mech) shopTab("queue");
+  }
+
+  // ---- Shop-side ticket intake -------------------------------------------
+  // Lets a shop admin add a truck to the queue without the driver self-reporting.
+  // Writes to the same `tickets` table; realtime drops it into the live queue.
+  function openShopIntake() {
+    if (!ensureConfigured() || state.isMechanic || state.isDispatch) return;   // shop admins only
+    const mechOpts = `<option value="">— Unassigned —</option>` +
+      state.mechanics.filter(m => m.active).map(m => `<option value="${m.id}">${esc(m.name)}</option>`).join("");
+    openModal(`
+      <h2 class="section">Add a ticket</h2>
+      <label class="fld">Truck number <span class="req">*</span></label>
+      <input id="si-truck" placeholder="e.g. 482" />
+      <div class="two-col">
+        <div><label class="fld">Trailer #</label><input id="si-trailer" placeholder="optional" /></div>
+        <div><label class="fld">Unit #</label><input id="si-unit" placeholder="optional" /></div>
+      </div>
+      <label class="fld">What's wrong? <span class="req">*</span></label>
+      <textarea id="si-issue" placeholder="Describe the problem…"></textarea>
+      <div class="two-col">
+        <div><label class="fld">Driver name</label><input id="si-name" placeholder="optional" /></div>
+        <div><label class="fld">Driver phone</label><input id="si-phone" type="tel" inputmode="tel" placeholder="optional" /></div>
+      </div>
+      <label class="fld">Needed back out by <span style="color:var(--muted)">(optional)</span></label>
+      <input id="si-needed" type="datetime-local" />
+      <label class="fld">Assign mechanic <span style="color:var(--muted)">(optional)</span></label>
+      <select id="si-mech">${mechOpts}</select>
+      <button class="btn-primary" style="margin-top:16px" id="si-submit" onclick="submitShopTicket()">Add to queue</button>
+      <button class="btn-ghost btn-block" style="margin-top:8px" onclick="closeModal()">Cancel</button>
+    `);
+  }
+
+  async function submitShopTicket() {
+    if (!ensureConfigured() || state.isMechanic || state.isDispatch) return;
+    const truck = $("si-truck").value.trim();
+    const issue = $("si-issue").value.trim();
+    if (!truck || !issue) return toast("Truck number and problem are required", true);
+    const neededRaw = $("si-needed").value;
+    const who = ((state.session && state.session.user && state.session.user.email) || "").split("@")[0] || null;
+    const payload = {
+      truck_number: truck,
+      trailer_number: $("si-trailer").value.trim() || null,
+      unit_number: $("si-unit").value.trim() || null,
+      // driver_name / driver_phone are NOT NULL in the schema; fall back to a
+      // marker so a shop entry without a driver still satisfies the constraint.
+      driver_name: $("si-name").value.trim() || "Shop-entered",
+      driver_phone: $("si-phone").value.trim() || "—",
+      issue: issue,
+      needed_by: neededRaw ? new Date(neededRaw).toISOString() : null,
+      assigned_mechanic_id: $("si-mech").value || null,
+      created_by: who,
+    };
+    $("si-submit").disabled = true; $("si-submit").textContent = "Adding…";
+    const { error } = await sb.from("tickets").insert(payload);
+    if (error) { $("si-submit").disabled = false; $("si-submit").textContent = "Add to queue"; return toast(error.message, true); }
+    closeModal(); toast("Ticket added to the queue ✓");
   }
 
   function setQueueFilter(f) {
