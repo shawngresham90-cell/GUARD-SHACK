@@ -420,6 +420,7 @@
         <button class="btn-sm btn-ghost" id="df-all" onclick="setDispFilter('all')">All in shop</button>
         <button class="btn-sm btn-ghost" id="df-overdue" onclick="setDispFilter('overdue')">Overdue</button>
         <button class="btn-sm btn-ghost" id="df-priority" onclick="setDispFilter('priority')">Priority</button>
+        <button class="btn-sm btn-ghost" id="df-history" onclick="setDispFilter('history')">History</button>
       </div>
       <div id="dispatchList"></div>
     </section>
@@ -848,40 +849,69 @@
   // ============================ DISPATCH ============================
   function setDispFilter(f) { state.dispFilter = f; renderDispatch(); }
 
+  // When a ticket was completed (trigger sets finished_at; fall back to
+  // updated_at for any older rows that predate that column).
+  const DISP_KEEP_MS = 24 * 60 * 60 * 1000;   // completed trucks stay on the main board this long
+  function completedAt(t) { return t.finished_at || t.updated_at || t.created_at; }
+  function recentlyCompleted(t) {
+    return t.status === "completed" && (Date.now() - new Date(completedAt(t)).getTime()) < DISP_KEEP_MS;
+  }
+
   function renderDispatch() {
     $("headerSub").textContent = "Dispatch · watch & flag";
-    // stats across the whole shop
+    const history = state.dispFilter === "history";
+    // stats: live shop counts on the main board; completed total on History.
     const counts = { intake: 0, in_progress: 0, waiting_parts: 0, completed: 0 };
     state.tickets.forEach(t => counts[t.status]++);
     $("dispStats").innerHTML = STATUS_ORDER.map(s =>
       `<div class="stat"><div class="v">${counts[s]}</div><div class="l">${STATUS_LABEL[s]}</div></div>`).join("");
 
-    ["all", "overdue", "priority"].forEach(f => $("df-" + f).classList.toggle("btn-blue", state.dispFilter === f));
+    ["all", "overdue", "priority", "history"].forEach(f => $("df-" + f).classList.toggle("btn-blue", state.dispFilter === f));
 
     const now = Date.now();
     const isOverdue = t => t.needed_by && t.status !== "completed" && new Date(t.needed_by).getTime() < now;
     let list = state.tickets.slice();
-    if (state.dispFilter === "overdue")  list = list.filter(isOverdue);
-    if (state.dispFilter === "priority") list = list.filter(t => t.priority);
 
-    // overdue first, then priority, then by ETA, then newest
-    list.sort((a, b) => {
-      if (isOverdue(a) !== isOverdue(b)) return isOverdue(a) ? -1 : 1;
-      if (!!a.priority !== !!b.priority) return a.priority ? -1 : 1;
-      const an = a.needed_by ? new Date(a.needed_by) : Infinity, bn = b.needed_by ? new Date(b.needed_by) : Infinity;
-      if (an !== bn) return an - bn;
-      return new Date(b.created_at) - new Date(a.created_at);
-    });
+    if (history) {
+      // Full completed history — nothing is deleted, it just lives here.
+      list = list.filter(t => t.status === "completed");
+      list.sort((a, b) => new Date(completedAt(b)) - new Date(completedAt(a)));   // most recently done first
+    } else {
+      // Main board: everything still in the shop, plus trucks completed within
+      // the last 24h (so dispatch sees the job got done), then they drop off.
+      list = list.filter(t => t.status !== "completed" || recentlyCompleted(t));
+      if (state.dispFilter === "overdue")  list = list.filter(isOverdue);
+      if (state.dispFilter === "priority") list = list.filter(t => t.priority);
+      // overdue first, then priority, completed sink to the bottom, then by ETA, then newest
+      list.sort((a, b) => {
+        if (isOverdue(a) !== isOverdue(b)) return isOverdue(a) ? -1 : 1;
+        if (!!a.priority !== !!b.priority) return a.priority ? -1 : 1;
+        const ac = a.status === "completed", bc = b.status === "completed";
+        if (ac !== bc) return ac ? 1 : -1;
+        const an = a.needed_by ? new Date(a.needed_by) : Infinity, bn = b.needed_by ? new Date(b.needed_by) : Infinity;
+        if (an !== bn) return an - bn;
+        return new Date(b.created_at) - new Date(a.created_at);
+      });
+    }
 
     const el = $("dispatchList");
-    if (!list.length) { el.innerHTML = `<div class="empty">No trucks here.</div>`; return; }
-    el.innerHTML = `<div class="hint" style="margin:0 0 10px"><span class="live-dot"></span>Live — the whole shop, read-only. Tap a truck to flag priority or add notes.</div>` +
+    if (!list.length) {
+      el.innerHTML = `<div class="empty">${history ? "No completed trucks yet." : "No trucks here."}</div>`;
+      return;
+    }
+    const hint = history
+      ? `Completed trucks — full history. Nothing is deleted.`
+      : `Live — the whole shop, read-only. Completed trucks stay 24h, then move to History. Tap a truck to flag priority or add notes.`;
+    el.innerHTML = `<div class="hint" style="margin:0 0 10px"><span class="live-dot"></span>${hint}</div>` +
       list.map(t => dispatchCardHtml(t)).join("");
     tickTimers();
   }
 
   function dispatchCardHtml(t) {
     const units = [t.trailer_number && "Trlr " + t.trailer_number, t.unit_number && "Unit " + t.unit_number].filter(Boolean).join(" · ");
+    const done = t.status === "completed"
+      ? `<div class="timers"><span class="timein">✓ completed ${ago(completedAt(t))}</span></div>`
+      : timersHtml(t);
     return `<div class="ticket clickable" onclick="openDispatch('${t.id}')">
       <div class="top">
         <div><div class="truck">${t.priority ? '<span class="pri">★</span> ' : ""}Truck ${esc(t.truck_number)}</div>
@@ -889,7 +919,7 @@
         <span class="chip ${t.status}">${STATUS_LABEL[t.status]}</span>
       </div>
       <div class="issue">${esc(t.issue)}</div>
-      ${timersHtml(t)}
+      ${done}
     </div>`;
   }
 
