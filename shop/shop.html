@@ -215,6 +215,24 @@
       animation: slideUp 0.25s ease;
     }
     @keyframes slideUp { from { transform: translateY(40px); } to { transform: translateY(0); } }
+
+    /* Live timers */
+    .timers { display: flex; gap: 14px; flex-wrap: wrap; align-items: center; margin-top: 10px; font-size: 12px; }
+    .clock { color: #8fb4ff; font-weight: 700; white-space: nowrap; }
+    .eta   { color: var(--amber); font-weight: 700; white-space: nowrap; }
+    .eta.over { color: #ff7b80; }
+    .timein { color: var(--muted); white-space: nowrap; }
+    /* Overdue ticket — turns the whole card red */
+    .ticket.overdue {
+      border-color: var(--red);
+      background: linear-gradient(180deg, #241317, #1a0f12);
+      animation: overpulse 2.2s ease-in-out infinite;
+    }
+    @keyframes overpulse { 0%,100% { box-shadow: inset 0 0 0 1px rgba(229,72,77,0.55), 0 8px 22px rgba(0,0,0,0.35); } 50% { box-shadow: inset 0 0 0 1px rgba(229,72,77,0.95), 0 8px 22px rgba(0,0,0,0.35); } }
+    /* Priority star toggle */
+    .star { background: transparent; padding: 4px 8px; font-size: 18px; line-height: 1; border-radius: 8px; }
+    .star.on { filter: drop-shadow(0 0 6px rgba(255,209,102,0.7)); }
+    .pri { color: var(--amber); }
   </style>
 </head>
 <body>
@@ -236,6 +254,10 @@
         <button class="role-btn" onclick="go('staff')">
           <span class="emoji">🛠️</span>
           <span><span class="t">Shop / Mechanic</span><span class="d">Live queue, assign work, parts &amp; cost — login required</span></span>
+        </button>
+        <button class="role-btn" onclick="go('staff')">
+          <span class="emoji">📋</span>
+          <span><span class="t">Dispatch</span><span class="d">Watch the whole shop, flag priority &amp; add notes — login required</span></span>
         </button>
       </div>
     </section>
@@ -315,7 +337,7 @@
           <input id="l-pass" type="password" autocomplete="current-password" placeholder="Password" />
           <div style="margin-top:14px"><button type="submit" class="btn-primary" id="loginBtn">Log in</button></div>
         </form>
-        <p class="hint" style="margin-top:12px">Admins log in with <b>shop / cab / baf</b>. Mechanics with their own login enter their <b>email</b> and see only their assigned work. Drivers don't need an account.</p>
+        <p class="hint" style="margin-top:12px">Admins log in with <b>shop / cab / baf</b>. <b>Dispatch</b> logs in with <b>disp</b> to watch the whole shop (flag priority &amp; add notes only). Mechanics enter their <b>email</b> and see only their assigned work. Drivers don't need an account.</p>
       </div>
     </section>
 
@@ -387,6 +409,20 @@
         <div class="card"><h2 class="section">Mechanics</h2><div id="mechList"></div></div>
       </div>
     </section>
+
+    <!-- ============ DISPATCH ============ -->
+    <!-- Read-only board across the whole shop. Dispatch can flag priority and
+         add notes only — never change repair status, and never see the private
+         shop calendar / parts / cost (blocked at the DATABASE by RLS). -->
+    <section id="view-dispatch" class="view">
+      <div class="stat-grid" id="dispStats"></div>
+      <div class="btn-row" style="margin-bottom:12px">
+        <button class="btn-sm btn-ghost" id="df-all" onclick="setDispFilter('all')">All in shop</button>
+        <button class="btn-sm btn-ghost" id="df-overdue" onclick="setDispFilter('overdue')">Overdue</button>
+        <button class="btn-sm btn-ghost" id="df-priority" onclick="setDispFilter('priority')">Priority</button>
+      </div>
+      <div id="dispatchList"></div>
+    </section>
   </main>
 
   <div class="modal-overlay" id="ticketModal"><div class="modal" id="ticketModalBody"></div></div>
@@ -419,6 +455,8 @@
     session: null,            // supabase auth session (staff)
     me: null,                 // linked mechanics row when a mechanic is logged in
     isMechanic: false,        // true = locked-down mechanic login (no parts/cost/assign)
+    isDispatch: false,        // true = dispatch login (whole-queue watcher; notes + priority only)
+    dispFilter: "all",        // dispatch board filter
     tickets: [],              // staff: all tickets ; driver: own tickets
     mechanics: [],
     parts: [],
@@ -454,6 +492,54 @@
     if (!ts) return null;
     return new Date(ts).toLocaleString([], { month: "short", day: "numeric", hour: "numeric", minute: "2-digit" });
   }
+
+  // ---- live timers (shared by driver, shop & dispatch) ----
+  // Compact duration like "3h 24m" / "2d 5h" / "12m".
+  function fmtDur(ms) {
+    const s = Math.max(0, Math.floor(ms / 1000));
+    const d = Math.floor(s / 86400), h = Math.floor((s % 86400) / 3600), m = Math.floor((s % 3600) / 60);
+    if (d > 0) return `${d}d ${h}h`;
+    if (h > 0) return `${h}h ${m}m`;
+    return `${m}m`;
+  }
+  // The two live elements a card can carry. tickTimers() updates them in place
+  // every second from their data- attributes, so re-rendering isn't required.
+  function timersHtml(t) {
+    const stamp = fmtStamp(t.created_at);
+    const clock = `<span class="clock" data-since="${t.created_at}">⏱ ${esc(fmtDur(Date.now() - new Date(t.created_at)))}</span>`;
+    const eta = t.needed_by
+      ? `<span class="eta" data-eta="${t.needed_by}" data-status="${t.status}"></span>`
+      : `<span class="timein">no ETA set</span>`;
+    return `<div class="timers"><span class="timein">in @ ${stamp}</span>${clock}${eta}</div>`;
+  }
+  // Walk every live element on screen and update it. Flips the parent card to
+  // .overdue (red) once a non-completed ticket passes its ETA.
+  function tickTimers() {
+    const now = Date.now();
+    document.querySelectorAll(".clock[data-since]").forEach(el => {
+      el.textContent = "⏱ " + fmtDur(now - new Date(el.dataset.since));
+    });
+    document.querySelectorAll(".eta[data-eta]").forEach(el => {
+      const eta = new Date(el.dataset.eta).getTime();
+      const card = el.closest(".ticket");
+      if (el.dataset.status === "completed") {
+        el.textContent = "✓ completed";
+        el.classList.remove("over");
+        if (card) card.classList.remove("overdue");
+        return;
+      }
+      if (now >= eta) {
+        el.textContent = "⚠ OVERDUE by " + fmtDur(now - eta);
+        el.classList.add("over");
+        if (card) card.classList.add("overdue");
+      } else {
+        el.textContent = "⏳ ETA in " + fmtDur(eta - now);
+        el.classList.remove("over");
+        if (card) card.classList.remove("overdue");
+      }
+    });
+  }
+  setInterval(tickTimers, 1000);
   // Progress steps the driver sees. "waiting_parts" is shown as a flag on the
   // in-progress step rather than a step of its own, so the line stays linear.
   const PROGRESS_STEPS = [
@@ -489,9 +575,12 @@
   // ---- navigation ----
   function go(where) {
     document.querySelectorAll(".view").forEach(v => v.classList.remove("active"));
-    if (where === "staff") where = state.session ? "shop" : "login";
+    // staff entry routes by role: dispatch → dispatch board, everyone else → shop
+    if (where === "staff") where = state.session ? (state.isDispatch ? "dispatch" : "shop") : "login";
+    if (where === "shop" && state.isDispatch) where = "dispatch";
     $("view-" + where).classList.add("active");
     if (where === "shop") renderShop();
+    if (where === "dispatch") renderDispatch();
     if (where === "home") $("headerSub").textContent = "Truck repair queue";
     if (where === "driver") $("headerSub").textContent = "Driver";
     window.scrollTo(0, 0);
@@ -586,9 +675,10 @@
           ${waiting ? `<div class="banner" style="margin:10px 0 0;background:rgba(255,209,102,0.12);border-color:rgba(255,209,102,0.4);color:var(--amber)">⏳ Waiting on parts — the shop is sourcing what's needed.</div>` : ""}
           ${t.estimated_fix ? `<div class="foot" style="margin-top:8px"><span style="color:var(--orange-soft)">🛠 Est. time to fix: ${esc(t.estimated_fix)}</span></div>` : ""}
           ${progressHtml(t)}
-          ${n ? `<div class="foot"><span class="needed ${n.late ? "late" : ""}">Needed by ${n.text}</span></div>` : ""}
+          ${timersHtml(t)}
         </div>`;
       }).join("");
+    tickTimers();
   }
 
   // ============================ STAFF: auth ============================
@@ -607,29 +697,42 @@
     $("loginForm").reset();
     await resolveRole();
     await loadShopData();
-    go("shop");
+    go("staff");
   });
 
   async function logout() {
     if (sb) await sb.auth.signOut();
-    state.session = null; state.me = null; state.isMechanic = false; state.mechFilter = null;
+    state.session = null; state.me = null; state.isMechanic = false; state.isDispatch = false; state.mechFilter = null;
     if (realtimeChannel) { sb.removeChannel(realtimeChannel); realtimeChannel = null; }
     go("home");
   }
 
-  // Figure out whether the logged-in user is a mechanic (linked mechanics row
-  // by email) or an admin. The mechanics RLS only returns a mechanic their own
-  // row, so a non-empty match here means "this is that mechanic".
+  // Figure out whether the logged-in user is a mechanic, a dispatcher, or an
+  // admin. Each role's table is RLS-scoped to return only the caller's own row,
+  // so a non-empty match means "this is that role".
   async function resolveRole() {
-    state.me = null; state.isMechanic = false;
+    state.me = null; state.isMechanic = false; state.isDispatch = false;
     const email = state.session && state.session.user && state.session.user.email;
     if (!email) return;
     const { data } = await sb.from("mechanics").select("*").eq("login_email", email.toLowerCase()).limit(1);
-    if (data && data.length) { state.me = data[0]; state.isMechanic = true; }
+    if (data && data.length) { state.me = data[0]; state.isMechanic = true; return; }
+    const dp = await sb.from("dispatchers").select("id").eq("login_email", email.toLowerCase()).limit(1);
+    if (dp.data && dp.data.length) state.isDispatch = true;
   }
 
   // ============================ STAFF: data ============================
   async function loadShopData() {
+    if (state.isDispatch) {
+      // Dispatch sees the whole queue (RLS: read-only on tickets) and the
+      // dispatch notes log. Parts / cost / mechanics / the shop calendar are
+      // denied at the database, so we never query them here.
+      const tk = await sb.from("tickets").select("*").order("created_at", { ascending: false });
+      if (tk.error) return toast(tk.error.message, true);
+      state.tickets = tk.data || [];
+      state.mechanics = []; state.parts = []; state.appointments = [];
+      subscribeShop();
+      return;
+    }
     if (state.isMechanic) {
       // Mechanic login: RLS already limits tickets to their own assignments and
       // blocks parts/other mechanics. Keep the view locked to "my work".
@@ -720,6 +823,7 @@
     if (!list.length) { el.innerHTML = `<div class="empty">No tickets here.</div>`; return; }
     el.innerHTML = `<div class="hint" style="margin:0 0 10px"><span class="live-dot"></span>Live queue${mineMode ? " · mechanic view" : ""}</div>` +
       list.map(t => ticketCardHtml(t)).join("");
+    tickTimers();
   }
 
   function ticketCardHtml(t) {
@@ -728,7 +832,7 @@
     const units = [t.trailer_number && "Trlr " + t.trailer_number, t.unit_number && "Unit " + t.unit_number].filter(Boolean).join(" · ");
     return `<div class="ticket clickable" onclick="openTicket('${t.id}')">
       <div class="top">
-        <div><div class="truck">Truck ${esc(t.truck_number)}</div>
+        <div><div class="truck">${t.priority ? '<span class="pri">★</span> ' : ""}Truck ${esc(t.truck_number)}</div>
         <div class="meta">${esc(t.driver_name)}${units ? " · " + esc(units) : ""} · ${ago(t.created_at)}</div></div>
         <span class="chip ${t.status}">${STATUS_LABEL[t.status]}</span>
       </div>
@@ -737,7 +841,109 @@
         <span>${mech ? "👷 " + esc(mech.name) : "<span style='color:var(--orange-soft)'>Unassigned</span>"}</span>
         ${n ? `<span class="needed ${n.late ? "late" : ""}">⏱ ${n.text}</span>` : ""}
       </div>
+      ${timersHtml(t)}
     </div>`;
+  }
+
+  // ============================ DISPATCH ============================
+  function setDispFilter(f) { state.dispFilter = f; renderDispatch(); }
+
+  function renderDispatch() {
+    $("headerSub").textContent = "Dispatch · watch & flag";
+    // stats across the whole shop
+    const counts = { intake: 0, in_progress: 0, waiting_parts: 0, completed: 0 };
+    state.tickets.forEach(t => counts[t.status]++);
+    $("dispStats").innerHTML = STATUS_ORDER.map(s =>
+      `<div class="stat"><div class="v">${counts[s]}</div><div class="l">${STATUS_LABEL[s]}</div></div>`).join("");
+
+    ["all", "overdue", "priority"].forEach(f => $("df-" + f).classList.toggle("btn-blue", state.dispFilter === f));
+
+    const now = Date.now();
+    const isOverdue = t => t.needed_by && t.status !== "completed" && new Date(t.needed_by).getTime() < now;
+    let list = state.tickets.slice();
+    if (state.dispFilter === "overdue")  list = list.filter(isOverdue);
+    if (state.dispFilter === "priority") list = list.filter(t => t.priority);
+
+    // overdue first, then priority, then by ETA, then newest
+    list.sort((a, b) => {
+      if (isOverdue(a) !== isOverdue(b)) return isOverdue(a) ? -1 : 1;
+      if (!!a.priority !== !!b.priority) return a.priority ? -1 : 1;
+      const an = a.needed_by ? new Date(a.needed_by) : Infinity, bn = b.needed_by ? new Date(b.needed_by) : Infinity;
+      if (an !== bn) return an - bn;
+      return new Date(b.created_at) - new Date(a.created_at);
+    });
+
+    const el = $("dispatchList");
+    if (!list.length) { el.innerHTML = `<div class="empty">No trucks here.</div>`; return; }
+    el.innerHTML = `<div class="hint" style="margin:0 0 10px"><span class="live-dot"></span>Live — the whole shop, read-only. Tap a truck to flag priority or add notes.</div>` +
+      list.map(t => dispatchCardHtml(t)).join("");
+    tickTimers();
+  }
+
+  function dispatchCardHtml(t) {
+    const units = [t.trailer_number && "Trlr " + t.trailer_number, t.unit_number && "Unit " + t.unit_number].filter(Boolean).join(" · ");
+    return `<div class="ticket clickable" onclick="openDispatch('${t.id}')">
+      <div class="top">
+        <div><div class="truck">${t.priority ? '<span class="pri">★</span> ' : ""}Truck ${esc(t.truck_number)}</div>
+        <div class="meta">${esc(t.driver_name)}${units ? " · " + esc(units) : ""}</div></div>
+        <span class="chip ${t.status}">${STATUS_LABEL[t.status]}</span>
+      </div>
+      <div class="issue">${esc(t.issue)}</div>
+      ${timersHtml(t)}
+    </div>`;
+  }
+
+  // Dispatch detail: priority toggle + notes only. No status / assign / parts.
+  async function openDispatch(id) {
+    const t = state.tickets.find(x => x.id === id);
+    if (!t) return;
+    const units = [t.trailer_number && "Trailer " + t.trailer_number, t.unit_number && "Unit " + t.unit_number].filter(Boolean).join(" · ");
+    const { data: notes } = await sb.from("dispatch_notes").select("*").eq("ticket_id", id).order("created_at", { ascending: false });
+    const notesHtml = (notes && notes.length)
+      ? notes.map(nt => `<div class="row"><div class="grow"><div class="name">${esc(nt.note)}</div><div class="small">${nt.author_email ? esc(nt.author_email.split("@")[0]) + " · " : ""}${ago(nt.created_at)}</div></div></div>`).join("")
+      : `<div class="small" style="padding:6px 0;color:var(--muted)">No dispatch notes yet.</div>`;
+
+    openModal(`
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px">
+        <div class="truck" style="font-size:18px">${t.priority ? '<span class="pri">★</span> ' : ""}Truck ${esc(t.truck_number)}</div>
+        <span class="chip ${t.status}">${STATUS_LABEL[t.status]}</span>
+      </div>
+      <div class="meta small" style="color:var(--muted)">${esc(t.driver_name)} · <a href="tel:${esc(digits(t.driver_phone))}" style="color:var(--blue)">${esc(t.driver_phone)}</a>${units ? " · " + esc(units) : ""}</div>
+      <div class="card" style="margin-top:12px">
+        <div class="issue">${esc(t.issue)}</div>
+        ${timersHtml(t)}
+      </div>
+
+      <h2 class="section">Priority</h2>
+      <button class="btn-block ${t.priority ? "btn-red" : "btn-ghost"}" onclick="togglePriority('${t.id}')">
+        ${t.priority ? "★ Priority flag ON — tap to clear" : "☆ Flag as priority"}
+      </button>
+
+      <h2 class="section">Dispatch notes</h2>
+      ${notesHtml}
+      <input id="dn-note" placeholder="Add a note for the shop…" style="margin-top:10px" />
+      <button class="btn-ghost btn-block btn-sm" style="margin-top:8px" onclick="addDispatchNote('${t.id}')">Add note</button>
+
+      <button class="btn-primary" style="margin-top:18px" onclick="closeModal()">Done</button>
+    `);
+  }
+
+  async function togglePriority(id) {
+    const t = state.tickets.find(x => x.id === id); if (!t) return;
+    const { error } = await sb.rpc("set_ticket_priority", { p_ticket: id, p_on: !t.priority });
+    if (error) return toast(error.message, true);
+    t.priority = !t.priority;            // optimistic; realtime will confirm
+    toast(t.priority ? "Flagged priority ★" : "Priority cleared");
+    openDispatch(id); renderDispatch();
+  }
+
+  async function addDispatchNote(id) {
+    const note = $("dn-note").value.trim();
+    if (!note) return toast("Type a note first", true);
+    const author = state.session && state.session.user ? state.session.user.email : null;
+    const { error } = await sb.from("dispatch_notes").insert({ ticket_id: id, note, author_email: author });
+    if (error) return toast(error.message, true);
+    toast("Note added ✓"); openDispatch(id);
   }
 
   // ---- ticket detail modal ----
@@ -1029,10 +1235,17 @@
   // ============================ Realtime ============================
   function subscribeShop() {
     if (realtimeChannel) sb.removeChannel(realtimeChannel);
+    // Dispatch re-renders its own board; shop/mechanic re-render the queue.
+    const rerender = () => state.isDispatch ? renderDispatch() : renderQueue();
     realtimeChannel = sb.channel("shop-tickets")
       .on("postgres_changes", { event: "*", schema: "public", table: "tickets" }, (payload) => {
         applyTicketChange(payload);
-        renderQueue();
+        rerender();
+      })
+      .on("postgres_changes", { event: "*", schema: "public", table: "dispatch_notes" }, () => {
+        // refresh the open dispatch note thread, if any
+        const open = $("dn-note");
+        if (open && state.isDispatch) { /* notes reloaded when modal reopens */ }
       })
       .subscribe();
   }
