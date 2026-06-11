@@ -401,6 +401,8 @@
           <h2 class="section">Add a mechanic</h2>
           <label class="fld">Name</label>
           <input id="m-name" placeholder="Mechanic name" />
+          <label class="fld">Contact <span style="color:var(--muted)">(optional)</span></label>
+          <input id="m-contact" autocomplete="off" placeholder="Phone, radio channel, etc." />
           <label class="fld">Login email <span style="color:var(--muted)">(optional)</span></label>
           <input id="m-email" type="email" autocapitalize="none" placeholder="e.g. mike@rosedale.local — links their own login" />
           <div style="margin-top:12px"><button class="btn-primary" onclick="addMechanic()">Add mechanic</button></div>
@@ -792,8 +794,9 @@
   }
 
   function pickMechanicForMine() {
-    if (!state.mechanics.length) { toast("Add a mechanic first", true); state.queueFilter = "active"; renderQueue(); return; }
-    const opts = state.mechanics.map(m => `<button class="btn-ghost btn-block" style="margin-bottom:8px" onclick="setMine('${m.id}')">${esc(m.name)}</button>`).join("");
+    const active = state.mechanics.filter(m => m.active);
+    if (!active.length) { toast("Add a mechanic first", true); state.queueFilter = "active"; renderQueue(); return; }
+    const opts = active.map(m => `<button class="btn-ghost btn-block" style="margin-bottom:8px" onclick="setMine('${m.id}')">${esc(m.name)}</button>`).join("");
     openModal(`<h2 class="section">Whose work?</h2><div class="hint" style="margin-bottom:12px">Mechanic view hides parts & cost and shows only tickets assigned to you.</div>${opts}<button class="btn-ghost btn-block" onclick="closeModal()">Cancel</button>`);
   }
   function setMine(id) { state.mechFilter = id; closeModal(); renderQueue(); }
@@ -811,18 +814,28 @@
     if (state.queueFilter === "active") list = list.filter(t => t.status !== "completed");
     if (state.queueFilter === "mine") list = list.filter(t => t.assigned_mechanic_id === state.mechFilter);
 
-    // keep active work near the top: order by status, then needed_by, then newest
-    list.sort((a, b) => {
-      if (a.status !== b.status) return STATUS_ORDER.indexOf(a.status) - STATUS_ORDER.indexOf(b.status);
-      const an = a.needed_by ? new Date(a.needed_by) : Infinity, bn = b.needed_by ? new Date(b.needed_by) : Infinity;
-      if (an !== bn) return an - bn;
-      return new Date(b.created_at) - new Date(a.created_at);
-    });
+    if (state.queueFilter === "active") {
+      // Open tickets, oldest-first (FIFO) so the longest-waiting job sits on top;
+      // priority tickets still float above the rest.
+      list.sort((a, b) => {
+        if (!!a.priority !== !!b.priority) return a.priority ? -1 : 1;
+        return new Date(a.created_at) - new Date(b.created_at);
+      });
+    } else {
+      // All / mine: keep active work near the top — status, then needed_by, then newest.
+      list.sort((a, b) => {
+        if (a.status !== b.status) return STATUS_ORDER.indexOf(a.status) - STATUS_ORDER.indexOf(b.status);
+        const an = a.needed_by ? new Date(a.needed_by) : Infinity, bn = b.needed_by ? new Date(b.needed_by) : Infinity;
+        if (an !== bn) return an - bn;
+        return new Date(b.created_at) - new Date(a.created_at);
+      });
+    }
 
     const mineMode = state.isMechanic || state.queueFilter === "mine";
     const el = $("queueList");
     if (!list.length) { el.innerHTML = `<div class="empty">No tickets here.</div>`; return; }
-    el.innerHTML = `<div class="hint" style="margin:0 0 10px"><span class="live-dot"></span>Live queue${mineMode ? " · mechanic view" : ""}</div>` +
+    const sortNote = state.queueFilter === "active" ? " · open · oldest first" : "";
+    el.innerHTML = `<div class="hint" style="margin:0 0 10px"><span class="live-dot"></span>Live queue${mineMode ? " · mechanic view" : ""}${sortNote}</div>` +
       list.map(t => ticketCardHtml(t)).join("");
     tickTimers();
   }
@@ -991,7 +1004,7 @@
     const totalMin = logs.reduce((s, l) => s + (l.minutes || 0), 0);
 
     const mechOpts = `<option value="">— Unassigned —</option>` +
-      state.mechanics.map(m => `<option value="${m.id}" ${m.id === t.assigned_mechanic_id ? "selected" : ""}>${esc(m.name)}</option>`).join("");
+      assignableMechanics(t.assigned_mechanic_id).map(m => `<option value="${m.id}" ${m.id === t.assigned_mechanic_id ? "selected" : ""}>${esc(m.name)}</option>`).join("");
     const statusOpts = STATUS_ORDER.map(s => `<option value="${s}" ${s === t.status ? "selected" : ""}>${STATUS_LABEL[s]}</option>`).join("");
     const n = fmtNeeded(t.needed_by);
 
@@ -1045,7 +1058,7 @@
       ${logs.length ? logs.map(l => { const m = state.mechanics.find(x=>x.id===l.mechanic_id); return `<div class="row"><div class="grow"><div class="name">${l.minutes} min</div><div class="small">${m?esc(m.name)+" · ":""}${l.note?esc(l.note):"no note"} · ${ago(l.created_at)}</div></div></div>`; }).join("") : `<div class="small" style="padding:6px 0;color:var(--muted)">No time logged yet.</div>`}
       <div class="three-col" style="margin-top:10px">
         <input id="tl-min" type="number" inputmode="numeric" placeholder="min" />
-        <select id="tl-mech" style="grid-column:span 2">${state.mechanics.map(m=>`<option value="${m.id}" ${m.id===t.assigned_mechanic_id?"selected":""}>${esc(m.name)}</option>`).join("")||'<option value="">no mechanics</option>'}</select>
+        <select id="tl-mech" style="grid-column:span 2">${assignableMechanics(t.assigned_mechanic_id).map(m=>`<option value="${m.id}" ${m.id===t.assigned_mechanic_id?"selected":""}>${esc(m.name)}</option>`).join("")||'<option value="">no mechanics</option>'}</select>
       </div>
       <input id="tl-note" placeholder="Note (optional)" style="margin-top:8px" />
       <button class="btn-ghost btn-block btn-sm" style="margin-top:8px" onclick="addTimeLog('${t.id}')">Log time</button>
@@ -1126,9 +1139,10 @@
   function renderMechanics() {
     const el = $("mechList");
     if (!state.mechanics.length) { el.innerHTML = `<div class="empty">No mechanics yet.</div>`; return; }
-    el.innerHTML = state.mechanics.map(m => `<div class="row">
-      <div class="grow"><div class="name">${esc(m.name)}</div>
-        <div class="small">${m.login_email ? "🔑 " + esc(m.login_email) : "shop tablet — no login"}</div></div>
+    el.innerHTML = state.mechanics.map(m => `<div class="row" style="${m.active ? "" : "opacity:.55"}">
+      <div class="grow"><div class="name">${esc(m.name)}${m.active ? "" : ` <span class="small" style="color:var(--muted)">· inactive</span>`}</div>
+        <div class="small">${m.contact ? "📞 " + esc(m.contact) : "no contact"} · ${m.login_email ? "🔑 " + esc(m.login_email) : "shop tablet — no login"}</div></div>
+      <button class="btn-sm ${m.active ? "btn-ghost" : "btn-blue"}" onclick="toggleMechanicActive('${m.id}')">${m.active ? "Deactivate" : "Activate"}</button>
       <button class="btn-sm btn-red" onclick="deleteMechanic('${m.id}')">✕</button>
     </div>`).join("");
   }
@@ -1136,10 +1150,26 @@
     const name = $("m-name").value.trim();
     if (!name) return toast("Name required", true);
     const email = $("m-email").value.trim().toLowerCase() || null;
-    const { data, error } = await sb.from("mechanics").insert({ name, login_email: email }).select().single();
+    const contact = $("m-contact").value.trim() || null;
+    const { data, error } = await sb.from("mechanics").insert({ name, contact, login_email: email }).select().single();
     if (error) return toast(error.message, true);
     state.mechanics.push(data); state.mechanics.sort((a,b)=>a.name.localeCompare(b.name));
-    $("m-name").value = ""; $("m-email").value = ""; renderMechanics(); toast("Mechanic added ✓");
+    $("m-name").value = ""; $("m-contact").value = ""; $("m-email").value = ""; renderMechanics(); toast("Mechanic added ✓");
+  }
+  // Flip a mechanic active/inactive. Inactive mechanics stay in the list and
+  // keep any existing assignments, but drop out of the assignment pickers.
+  async function toggleMechanicActive(id) {
+    const m = state.mechanics.find(x => x.id === id);
+    if (!m) return;
+    const next = !m.active;
+    const { error } = await sb.from("mechanics").update({ active: next }).eq("id", id);
+    if (error) return toast(error.message, true);
+    m.active = next; renderMechanics(); toast(next ? "Mechanic activated ✓" : "Mechanic set inactive ✓");
+  }
+  // Mechanics offered in assignment dropdowns: active ones, plus whoever is
+  // already assigned (so an assignment to a now-inactive mechanic still shows).
+  function assignableMechanics(currentId) {
+    return state.mechanics.filter(m => m.active || m.id === currentId);
   }
   async function deleteMechanic(id) {
     if (!confirm("Remove this mechanic?")) return;
