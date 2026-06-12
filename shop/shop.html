@@ -330,6 +330,22 @@
     }
     .ticket.offsite { border-color: var(--orange); }
     .maplink { color: var(--blue); font-weight: 600; }
+    /* Truck / Trailer segmented toggle */
+    .seg { display: flex; gap: 8px; margin: 2px 0 4px; }
+    .seg-btn {
+      flex: 1; padding: 12px; border-radius: 12px; border: 1px solid var(--line);
+      background: var(--panel-2); color: var(--muted); font-weight: 700; font-size: 15px; cursor: pointer;
+    }
+    .seg-btn.active { background: var(--blue); border-color: var(--blue); color: #fff; }
+    .badge-eq {
+      display: inline-block; font-size: 11px; font-weight: 700; letter-spacing: .3px;
+      border-radius: 999px; padding: 2px 8px; margin-left: 6px; vertical-align: middle;
+      background: var(--panel-2); border: 1px solid var(--line); color: var(--text);
+    }
+    /* Repair-performed section (distinct from the driver's complaint) */
+    .repair-box { background: rgba(70,192,106,0.06); border: 1px solid rgba(70,192,106,0.35); border-radius: 12px; padding: 12px; margin-top: 6px; }
+    .reported-box { background: var(--panel-2); border: 1px solid var(--line); border-radius: 12px; padding: 12px; }
+    .box-label { font-size: 11px; font-weight: 700; letter-spacing: .4px; text-transform: uppercase; color: var(--muted); }
   </style>
 </head>
 <body>
@@ -371,20 +387,18 @@
       <!-- intake -->
       <div id="driver-new">
         <div class="card">
-          <h2 class="section">Report a truck problem</h2>
+          <h2 class="section">Report a problem</h2>
           <form id="intakeForm">
-            <label class="fld">Truck number <span class="req">*</span></label>
-            <input id="f-truck" inputmode="text" autocomplete="off" required placeholder="e.g. 482" />
-            <div class="two-col">
-              <div>
-                <label class="fld">Trailer number</label>
-                <input id="f-trailer" autocomplete="off" placeholder="optional" />
-              </div>
-              <div>
-                <label class="fld">Third unit #</label>
-                <input id="f-unit" autocomplete="off" placeholder="optional" />
-              </div>
+            <label class="fld">What's in the shop? <span class="req">*</span></label>
+            <div class="seg" id="f-seg">
+              <button type="button" class="seg-btn active" data-v="truck" onclick="setEquip('f','truck')">🚛 Truck</button>
+              <button type="button" class="seg-btn" data-v="trailer" onclick="setEquip('f','trailer')">🚚 Trailer</button>
             </div>
+            <input type="hidden" id="f-equip" value="truck" />
+            <label class="fld" id="f-unitlabel">Truck number <span class="req">*</span></label>
+            <input id="f-unit" inputmode="text" autocomplete="off" required placeholder="e.g. 482" />
+            <label class="fld">Other unit # <span style="color:var(--muted)">(trailer/dolly, optional)</span></label>
+            <input id="f-unit2" autocomplete="off" placeholder="optional" />
             <label class="fld">Your name <span class="req">*</span></label>
             <input id="f-name" autocomplete="name" required placeholder="Driver name" />
             <label class="fld">Email <span class="req">*</span></label>
@@ -413,8 +427,14 @@
           <h2 class="section">Report off-site equipment</h2>
           <p class="hint" style="margin:-4px 0 12px">For equipment you're leaving in the field — not an emergency. The shop gets the location so they can recover or repair it.</p>
           <form id="offsiteForm">
-            <label class="fld">Unit / trailer # <span class="req">*</span></label>
-            <input id="o-unit" autocomplete="off" required placeholder="e.g. trailer 6043" />
+            <label class="fld">Equipment type <span class="req">*</span></label>
+            <div class="seg" id="o-seg">
+              <button type="button" class="seg-btn" data-v="truck" onclick="setEquip('o','truck')">🚛 Truck</button>
+              <button type="button" class="seg-btn active" data-v="trailer" onclick="setEquip('o','trailer')">🚚 Trailer</button>
+            </div>
+            <input type="hidden" id="o-equip" value="trailer" />
+            <label class="fld" id="o-unitlabel">Trailer number <span class="req">*</span></label>
+            <input id="o-unit" autocomplete="off" required placeholder="e.g. 6043" />
             <label class="fld">Your name <span class="req">*</span></label>
             <input id="o-name" autocomplete="name" required placeholder="Driver name" />
             <label class="fld">Phone number <span class="req">*</span></label>
@@ -478,6 +498,7 @@
     <section id="view-shop" class="view">
       <div class="tabs" id="shopTabs">
         <button id="stab-queue" class="active" onclick="shopTab('queue')">Queue</button>
+        <button id="stab-history" onclick="shopTab('history')">History</button>
         <button id="stab-cal" onclick="shopTab('cal')">Calendar</button>
         <button id="stab-parts" onclick="shopTab('parts')">Parts</button>
         <button id="stab-mech" onclick="shopTab('mech')">Mechanics</button>
@@ -495,6 +516,13 @@
           <button class="btn-sm btn-ghost" id="qf-offsite" onclick="setQueueFilter('offsite')">📍 Off-site</button>
         </div>
         <div id="queueList"></div>
+      </div>
+
+      <!-- completed history: the permanent maintenance record. Completed tickets
+           live here (out of the live queue), searchable by unit #. -->
+      <div id="shop-history" style="display:none">
+        <input id="hist-search" placeholder="🔎 Search by unit #…" oninput="renderHistory()" style="margin-bottom:12px" />
+        <div id="historyList"></div>
       </div>
 
       <!-- calendar (admins only — the appointments table is locked at the DB:
@@ -793,7 +821,7 @@
   $("intakeForm").addEventListener("submit", async (e) => {
     e.preventDefault();
     if (!ensureConfigured()) return;
-    const truck = $("f-truck").value.trim();
+    const truck = $("f-unit").value.trim();
     const name = $("f-name").value.trim();
     const email = $("f-email").value.trim();
     const phone = $("f-phone").value.trim();
@@ -803,8 +831,8 @@
     const neededRaw = $("f-needed").value;
     const payload = {
       truck_number: truck,
-      trailer_number: $("f-trailer").value.trim() || null,
-      unit_number: $("f-unit").value.trim() || null,
+      equipment_type: $("f-equip").value,
+      unit_number: $("f-unit2").value.trim() || null,
       driver_name: name,
       driver_email: email,
       driver_phone: phone,
@@ -819,7 +847,7 @@
     // remember driver so they can check status
     state.driver = { truck, phone };
     localStorage.setItem("rss_driver", JSON.stringify(state.driver));
-    $("intakeForm").reset(); resetPendingPhotos();
+    $("intakeForm").reset(); resetPendingPhotos(); setEquip("f", "truck");
     toast("Sent to the shop ✓");
     driverTab("status");
     driverLookup();
@@ -840,7 +868,8 @@
     if (!unit || !name || !phone || !issue) return toast("Fill in the required fields", true);
     if (!state.offsiteGps && !landmark) return toast("Add a location — GPS or a landmark/address", true);
     const payload = {
-      truck_number: unit,           // the equipment id (required column; shown as "Unit")
+      truck_number: unit,           // the equipment id (required column)
+      equipment_type: $("o-equip").value,
       driver_name: name,
       driver_phone: phone,
       issue: issue,
@@ -856,7 +885,7 @@
     btn.disabled = false; btn.textContent = "Send off-site report";
     state.driver = { truck: unit, phone };
     localStorage.setItem("rss_driver", JSON.stringify(state.driver));
-    $("offsiteForm").reset(); resetPendingPhotos(); state.offsiteGps = null; renderGps();
+    $("offsiteForm").reset(); resetPendingPhotos(); state.offsiteGps = null; renderGps(); setEquip("o", "trailer");
     toast("Off-site report sent ✓");
     driverTab("status");
     driverLookup();
@@ -889,6 +918,21 @@
     }
   }
 
+  // Truck / Trailer segmented toggle (shared by intake, off-site, Add Ticket).
+  // Stores the choice in #<prefix>-equip and relabels the unit-number field.
+  function setEquip(prefix, v) {
+    const hid = $(prefix + "-equip"); if (hid) hid.value = v;
+    document.querySelectorAll("#" + prefix + "-seg .seg-btn").forEach(b => b.classList.toggle("active", b.dataset.v === v));
+    const lbl = $(prefix + "-unitlabel");
+    if (lbl) lbl.innerHTML = (v === "truck" ? "Truck number" : "Trailer number") + ' <span class="req">*</span>';
+    const inp = $(prefix + "-unit"); if (inp) inp.placeholder = (v === "truck" ? "e.g. 482" : "e.g. 6043");
+  }
+  function equipBadge(t) {
+    const type = t.equipment_type === "trailer" ? "trailer" : "truck";
+    return `<span class="badge-eq">${type === "trailer" ? "🚚 Trailer" : "🚛 Truck"}</span>`;
+  }
+  function equipLabel(t) { return t.equipment_type === "trailer" ? "Trailer" : "Truck"; }
+
   async function driverLookup() {
     if (!ensureConfigured()) return;
     const truck = $("s-truck").value.trim();
@@ -915,14 +959,14 @@
         const n = fmtNeeded(t.needed_by);
         const waiting = t.status === "waiting_parts";
         const ready = t.status === "completed";
-        const label = t.offsite ? "Unit" : "Truck";
         return `<div class="ticket${t.offsite ? " offsite" : ""}">
           <div class="top">
-            <div><div class="truck">${label} ${esc(t.truck_number)}${t.offsite ? '<span class="badge-offsite">📍 OFF-SITE</span>' : ""}</div>
+            <div><div class="truck">${esc(t.truck_number)} ${equipBadge(t)}${t.offsite ? '<span class="badge-offsite">📍 OFF-SITE</span>' : ""}</div>
             <div class="meta">${esc(t.driver_name)} · submitted ${ago(t.created_at)}</div></div>
             <span class="chip ${t.status}">${STATUS_LABEL[t.status]}</span>
           </div>
-          <div class="issue">${esc(t.issue)}</div>
+          <div class="reported-box" style="margin-top:6px"><div class="box-label">Reported by driver</div><div class="issue" style="margin-top:4px">${esc(t.issue)}</div></div>
+          ${t.repair_description ? `<div class="repair-box"><div class="box-label">Repair performed</div><div style="margin-top:4px">${esc(t.repair_description)}</div>${t.repair_parts ? `<div class="small" style="margin-top:6px">🔧 Parts: ${esc(t.repair_parts)}</div>` : ""}</div>` : ""}
           ${t.offsite ? `<div class="foot" style="margin-top:8px"><span>📍 ${esc(t.location_text || "location pinned")}</span>${gpsMapLink(t)}</div>` : ""}
           ${ready ? `<div class="banner" style="margin:10px 0 0;background:rgba(70,192,106,0.12);border-color:rgba(70,192,106,0.4);color:#8fe0a4">✅ Your truck is ready for pickup.</div>` : ""}
           ${waiting ? `<div class="banner" style="margin:10px 0 0;background:rgba(255,209,102,0.12);border-color:rgba(255,209,102,0.4);color:var(--amber)">⏳ Waiting on parts — the shop is sourcing what's needed.</div>` : ""}
@@ -1014,11 +1058,12 @@
   }
 
   function shopTab(t) {
-    ["queue", "cal", "parts", "mech", "forms"].forEach(k => {
+    ["queue", "history", "cal", "parts", "mech", "forms"].forEach(k => {
       $("stab-" + k).classList.toggle("active", k === t);
       $("shop-" + k).style.display = k === t ? "block" : "none";
     });
     if (t === "queue") renderQueue();
+    if (t === "history") renderHistory();
     if (t === "cal") renderCalendar();
     if (t === "parts") renderParts();
     if (t === "mech") renderMechanics();
@@ -1054,12 +1099,16 @@
       state.mechanics.filter(m => m.active).map(m => `<option value="${m.id}">${esc(m.name)}</option>`).join("");
     openModal(`
       <h2 class="section">Add a ticket</h2>
-      <label class="fld">Truck number <span class="req">*</span></label>
-      <input id="si-truck" placeholder="e.g. 482" />
-      <div class="two-col">
-        <div><label class="fld">Trailer #</label><input id="si-trailer" placeholder="optional" /></div>
-        <div><label class="fld">Unit #</label><input id="si-unit" placeholder="optional" /></div>
+      <label class="fld">Equipment type <span class="req">*</span></label>
+      <div class="seg" id="si-seg">
+        <button type="button" class="seg-btn active" data-v="truck" onclick="setEquip('si','truck')">🚛 Truck</button>
+        <button type="button" class="seg-btn" data-v="trailer" onclick="setEquip('si','trailer')">🚚 Trailer</button>
       </div>
+      <input type="hidden" id="si-equip" value="truck" />
+      <label class="fld" id="si-unitlabel">Truck number <span class="req">*</span></label>
+      <input id="si-unit" placeholder="e.g. 482" />
+      <label class="fld">Other unit # <span style="color:var(--muted)">(optional)</span></label>
+      <input id="si-unit2" placeholder="optional" />
       <label class="fld">What's wrong? <span class="req">*</span></label>
       <textarea id="si-issue" placeholder="Describe the problem…"></textarea>
       <div class="two-col">
@@ -1081,15 +1130,15 @@
 
   async function submitShopTicket() {
     if (!ensureConfigured() || state.isDispatch) return;
-    const truck = $("si-truck").value.trim();
+    const truck = $("si-unit").value.trim();
     const issue = $("si-issue").value.trim();
-    if (!truck || !issue) return toast("Truck number and problem are required", true);
+    if (!truck || !issue) return toast("Unit number and problem are required", true);
     const neededRaw = $("si-needed").value;
     const actor = currentActor();
     const payload = {
       truck_number: truck,
-      trailer_number: $("si-trailer").value.trim() || null,
-      unit_number: $("si-unit").value.trim() || null,
+      equipment_type: $("si-equip").value,
+      unit_number: $("si-unit2").value.trim() || null,
       // driver_name / driver_phone are NOT NULL in the schema; fall back to a
       // marker so a shop entry without a driver still satisfies the constraint.
       driver_name: $("si-name").value.trim() || "Shop-entered",
@@ -1129,8 +1178,9 @@
 
     ["all", "active", "mine", "offsite"].forEach(f => $("qf-" + f).classList.toggle("btn-blue", state.queueFilter === f));
 
-    let list = state.tickets.slice();
-    if (state.queueFilter === "active") list = list.filter(t => t.status !== "completed");
+    // Completed tickets move OUT of the live queue into Completed History, so the
+    // queue only ever shows open work — no matter which filter is selected.
+    let list = state.tickets.filter(t => t.status !== "completed");
     if (state.queueFilter === "mine") list = list.filter(t => t.assigned_mechanic_id === state.mechFilter);
     if (state.queueFilter === "offsite") list = list.filter(t => t.offsite);
 
@@ -1164,10 +1214,9 @@
     const n = fmtNeeded(t.needed_by);
     const mech = state.mechanics.find(m => m.id === t.assigned_mechanic_id);
     const units = [t.trailer_number && "Trlr " + t.trailer_number, t.unit_number && "Unit " + t.unit_number].filter(Boolean).join(" · ");
-    const label = t.offsite ? "Unit" : "Truck";
     return `<div class="ticket clickable${t.offsite ? " offsite" : ""}" onclick="openTicket('${t.id}')">
       <div class="top">
-        <div><div class="truck">${t.priority ? '<span class="pri">★</span> ' : ""}${label} ${esc(t.truck_number)}${t.offsite ? '<span class="badge-offsite">📍 OFF-SITE</span>' : ""}</div>
+        <div><div class="truck">${t.priority ? '<span class="pri">★</span> ' : ""}${esc(t.truck_number)} ${equipBadge(t)}${t.offsite ? '<span class="badge-offsite">📍 OFF-SITE</span>' : ""}</div>
         <div class="meta">${esc(t.driver_name)}${units ? " · " + esc(units) : ""} · ${ago(t.created_at)}</div></div>
         <span class="chip ${t.status}">${STATUS_LABEL[t.status]}</span>
       </div>
@@ -1178,6 +1227,48 @@
         ${n ? `<span class="needed ${n.late ? "late" : ""}">⏱ ${n.text}</span>` : ""}
       </div>
       ${timersHtml(t)}
+    </div>`;
+  }
+
+  // ---- Completed History: the permanent maintenance record --------------
+  // Completed tickets, searchable by unit #, with completion date, the repair
+  // performed, and photos. Mechanics see only their own completed work (RLS).
+  async function renderHistory() {
+    const el = $("historyList"); if (!el) return;
+    const q = (($("hist-search") && $("hist-search").value.trim()) || "").toLowerCase();
+    let list = state.tickets.filter(t => t.status === "completed");
+    if (q) list = list.filter(t =>
+      (t.truck_number || "").toLowerCase().includes(q) || (t.unit_number || "").toLowerCase().includes(q));
+    list.sort((a, b) => new Date(completedAt(b)) - new Date(completedAt(a)));
+    if (!list.length) { el.innerHTML = `<div class="empty">${q ? "No completed tickets match that unit #." : "No completed tickets yet."}</div>`; return; }
+    el.innerHTML = `<div class="hint" style="margin:0 0 10px">📒 Permanent maintenance record · ${list.length} completed</div>` +
+      list.map(t => historyCardHtml(t)).join("");
+    // Load thumbnails for the visible set in one query, then inject.
+    const ids = list.map(t => t.id);
+    const { data } = await sb.from("ticket_photos").select("ticket_id,storage_path").in("ticket_id", ids);
+    const byT = {}; (data || []).forEach(p => { (byT[p.ticket_id] = byT[p.ticket_id] || []).push(p); });
+    list.forEach(t => {
+      const host = $("hphotos-" + t.id); if (!host) return;
+      const ph = byT[t.id] || [];
+      host.innerHTML = ph.length
+        ? `<div class="photo-grid">` + ph.slice(0, 6).map(p => { const u = photoUrl(p.storage_path); return `<div class="thumb"><img src="${u}" onclick="event.stopPropagation();openLightbox('${u}')" /></div>`; }).join("") + `</div>`
+        : "";
+    });
+  }
+
+  function historyCardHtml(t) {
+    const done = fmtStamp(t.finished_at || t.updated_at);
+    const mech = state.mechanics.find(m => m.id === t.assigned_mechanic_id);
+    const repair = t.repair_description ? esc(t.repair_description) : `<span style="color:var(--muted)">No repair description logged</span>`;
+    return `<div class="ticket clickable${t.offsite ? " offsite" : ""}" onclick="openTicket('${t.id}')">
+      <div class="top">
+        <div><div class="truck">${esc(t.truck_number)} ${equipBadge(t)}${t.offsite ? '<span class="badge-offsite">📍 OFF-SITE</span>' : ""}</div>
+        <div class="meta">✓ Completed ${done || "—"}${mech ? " · 👷 " + esc(mech.name) : ""}</div></div>
+        <span class="chip completed">Completed</span>
+      </div>
+      <div class="reported-box" style="margin-top:8px"><div class="box-label">Reported by driver</div><div class="issue" style="margin-top:4px">${esc(t.issue)}</div></div>
+      <div class="repair-box"><div class="box-label">Repair performed</div><div style="margin-top:4px">${repair}</div>${t.repair_parts ? `<div class="small" style="margin-top:6px">🔧 Parts: ${esc(t.repair_parts)}</div>` : ""}</div>
+      <div id="hphotos-${t.id}" style="margin-top:8px"></div>
     </div>`;
   }
 
@@ -1249,7 +1340,7 @@
       : timersHtml(t);
     return `<div class="ticket clickable" onclick="openDispatch('${t.id}')">
       <div class="top">
-        <div><div class="truck">${t.priority ? '<span class="pri">★</span> ' : ""}Truck ${esc(t.truck_number)}</div>
+        <div><div class="truck">${t.priority ? '<span class="pri">★</span> ' : ""}${esc(t.truck_number)} ${equipBadge(t)}</div>
         <div class="meta">${esc(t.driver_name)}${units ? " · " + esc(units) : ""}</div></div>
         <span class="chip ${t.status}">${STATUS_LABEL[t.status]}</span>
       </div>
@@ -1270,14 +1361,16 @@
 
     openModal(`
       <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px">
-        <div class="truck" style="font-size:18px">${t.priority ? '<span class="pri">★</span> ' : ""}Truck ${esc(t.truck_number)}</div>
+        <div class="truck" style="font-size:18px">${t.priority ? '<span class="pri">★</span> ' : ""}${esc(t.truck_number)} ${equipBadge(t)}</div>
         <span class="chip ${t.status}">${STATUS_LABEL[t.status]}</span>
       </div>
       <div class="meta small" style="color:var(--muted)">${esc(t.driver_name)} · <a href="tel:${esc(digits(t.driver_phone))}" style="color:var(--blue)">${esc(t.driver_phone)}</a>${units ? " · " + esc(units) : ""}</div>
-      <div class="card" style="margin-top:12px">
-        <div class="issue">${esc(t.issue)}</div>
+      <div class="reported-box" style="margin-top:12px">
+        <div class="box-label">Reported by driver</div>
+        <div class="issue" style="margin-top:4px">${esc(t.issue)}</div>
         ${timersHtml(t)}
       </div>
+      ${t.repair_description ? `<div class="repair-box"><div class="box-label">Repair performed</div><div style="margin-top:4px">${esc(t.repair_description)}</div>${t.repair_parts ? `<div class="small" style="margin-top:6px">🔧 Parts: ${esc(t.repair_parts)}</div>` : ""}</div>` : ""}
 
       ${t.offsite ? `<div class="card" style="margin-top:12px;border-color:var(--orange)">
         <div class="name"><span class="badge-offsite">📍 OFF-SITE</span></div>
@@ -1362,19 +1455,33 @@
 
     openModal(`
       <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px">
-        <div class="truck" style="font-size:18px">Truck ${esc(t.truck_number)}</div>
+        <div class="truck" style="font-size:18px">${esc(t.truck_number)} ${equipBadge(t)}</div>
         <span class="chip ${t.status}">${STATUS_LABEL[t.status]}</span>
       </div>
       <div class="meta small" style="color:var(--muted)">${esc(t.driver_name)} · <a href="tel:${esc(digits(t.driver_phone))}" style="color:var(--blue)">${esc(t.driver_phone)}</a>${t.driver_email ? ` · <a href="mailto:${esc(t.driver_email)}" style="color:var(--blue)">${esc(t.driver_email)}</a>` : ""}</div>
       ${[t.trailer_number && "Trailer "+esc(t.trailer_number), t.unit_number && "Unit "+esc(t.unit_number)].filter(Boolean).length ? `<div class="small" style="color:var(--muted);margin-top:2px">${[t.trailer_number && "Trailer "+esc(t.trailer_number), t.unit_number && "Unit "+esc(t.unit_number)].filter(Boolean).join(" · ")}</div>` : ""}
-      <div class="card" style="margin-top:12px"><div class="issue">${esc(t.issue)}</div>
-      ${n ? `<div class="foot" style="margin-top:8px"><span class="needed ${n.late?"late":""}">⏱ Needed by ${n.text}</span></div>` : ""}</div>
+      <div class="reported-box" style="margin-top:12px">
+        <div class="box-label">Reported by driver</div>
+        <div class="issue" style="margin-top:4px">${esc(t.issue)}</div>
+        ${n ? `<div class="foot" style="margin-top:8px"><span class="needed ${n.late?"late":""}">⏱ Needed by ${n.text}</span></div>` : ""}
+      </div>
 
       ${t.offsite ? `<div class="card" style="margin-top:12px;border-color:var(--orange)">
         <div class="name"><span class="badge-offsite">📍 OFF-SITE</span></div>
         <div class="small" style="margin-top:8px">${t.location_text ? "🏷 " + esc(t.location_text) : "No landmark given"}</div>
         ${t.gps_lat != null ? `<div class="small" style="margin-top:6px">📡 ${t.gps_lat}, ${t.gps_lng} ·${gpsMapLink(t)}</div>` : ""}
       </div>` : ""}
+
+      <h2 class="section">Repair performed <span style="color:var(--muted);text-transform:none;letter-spacing:0">(mechanic / shop)</span></h2>
+      <div class="repair-box">
+        <label class="fld">What was done</label>
+        <textarea id="td-repair" placeholder="Describe the actual repair…">${esc(t.repair_description || "")}</textarea>
+        <label class="fld">Parts used</label>
+        <input id="td-rparts" placeholder="e.g. 2× brake chamber, air line" value="${esc(t.repair_parts || "")}" />
+        <label class="fld">Mechanic notes</label>
+        <textarea id="td-rnotes" placeholder="Internal notes…">${esc(t.repair_notes || "")}</textarea>
+        <button class="btn-blue btn-block btn-sm" style="margin-top:8px" onclick="saveRepair('${t.id}')">Save repair</button>
+      </div>
 
       <h2 class="section">Photos &amp; notes</h2>
       <div id="tphotos-${t.id}"></div>
@@ -1419,6 +1526,21 @@
     if (error) return toast(error.message, true);
     const t = state.tickets.find(x => x.id === id); if (t) Object.assign(t, patch);
     toast("Updated ✓"); renderQueue();
+  }
+
+  // Mechanic repair entry — kept distinct from the driver's reported complaint.
+  // Editable by mechanic + shop (both reach this modal); drivers never do, and
+  // RLS blocks anon updates anyway.
+  async function saveRepair(id) {
+    const patch = {
+      repair_description: $("td-repair").value.trim() || null,
+      repair_parts: $("td-rparts").value.trim() || null,
+      repair_notes: $("td-rnotes").value.trim() || null,
+    };
+    const { error } = await sb.from("tickets").update(patch).eq("id", id);
+    if (error) return toast(error.message, true);
+    const t = state.tickets.find(x => x.id === id); if (t) Object.assign(t, patch);
+    toast("Repair saved ✓");
   }
 
   async function deleteTicket(id) {
@@ -2094,8 +2216,13 @@
   // ============================ Realtime ============================
   function subscribeShop() {
     if (realtimeChannel) sb.removeChannel(realtimeChannel);
-    // Dispatch re-renders its own board; shop/mechanic re-render the queue.
-    const rerender = () => state.isDispatch ? renderDispatch() : renderQueue();
+    // Dispatch re-renders its own board; shop/mechanic re-render whichever of the
+    // live queue / Completed History is currently showing.
+    const rerender = () => {
+      if (state.isDispatch) return renderDispatch();
+      if ($("shop-history") && $("shop-history").style.display !== "none") return renderHistory();
+      renderQueue();
+    };
     realtimeChannel = sb.channel("shop-tickets")
       .on("postgres_changes", { event: "*", schema: "public", table: "tickets" }, (payload) => {
         applyTicketChange(payload);
