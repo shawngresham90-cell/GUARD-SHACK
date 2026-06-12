@@ -285,6 +285,51 @@
     }
     @keyframes fvspin { to { transform: rotate(360deg); } }
     .fv-hint { text-align: center; color: var(--muted); font-size: 12px; margin: 4px 0 0; }
+
+    /* ---- Repair photos: capture button, staging strip, thumbnails, lightbox ---- */
+    .filebtn {
+      display: inline-flex; align-items: center; gap: 8px; cursor: pointer;
+      background: var(--panel-2); border: 1px dashed var(--line); color: var(--text);
+      border-radius: 12px; padding: 12px 16px; font-weight: 600; font-size: 15px;
+      width: 100%; justify-content: center; margin-top: 4px;
+    }
+    .filebtn:active { background: var(--line); }
+    .filebtn input[type=file] { display: none; }
+    .photo-stage, .photo-grid { display: flex; flex-wrap: wrap; gap: 8px; }
+    .photo-stage:empty { display: none; }
+    .photo-stage .thumb, .photo-grid .thumb {
+      position: relative; width: 84px; height: 84px; border-radius: 10px;
+      overflow: hidden; background: #000; border: 1px solid var(--line); flex: 0 0 auto;
+    }
+    .photo-grid .thumb { width: 96px; height: 96px; }
+    .photo-stage .thumb img, .photo-grid .thumb img { width: 100%; height: 100%; object-fit: cover; cursor: pointer; }
+    .thumb .x {
+      position: absolute; top: 2px; right: 2px; width: 22px; height: 22px; line-height: 20px;
+      text-align: center; border-radius: 50%; background: rgba(0,0,0,0.65); color: #fff;
+      font-size: 14px; border: 0; cursor: pointer; padding: 0;
+    }
+    .photo-meta { width: 100%; }
+    .photo-card { border-top: 1px solid var(--line); padding-top: 10px; margin-top: 6px; }
+    .photo-card .pc-note { font-size: 14px; margin-top: 6px; }
+    .photo-card .pc-by { font-size: 12px; color: var(--muted); margin-top: 2px; }
+    .img-lightbox {
+      position: fixed; inset: 0; z-index: 200; background: rgba(0,0,0,0.92);
+      display: none; align-items: center; justify-content: center; padding: 12px;
+    }
+    .img-lightbox.show { display: flex; }
+    .img-lightbox img { max-width: 100%; max-height: 92vh; border-radius: 8px; }
+    .img-lightbox .x {
+      position: fixed; top: 14px; right: 16px; font-size: 30px; color: #fff;
+      background: none; border: 0; cursor: pointer;
+    }
+    /* off-site marker */
+    .gps-box { background: var(--panel-2); border: 1px solid var(--line); border-radius: 12px; padding: 12px; }
+    .badge-offsite {
+      display: inline-block; font-size: 11px; font-weight: 700; letter-spacing: .3px;
+      color: #1a1208; background: var(--orange); border-radius: 999px; padding: 2px 8px; margin-left: 6px;
+    }
+    .ticket.offsite { border-color: var(--orange); }
+    .maplink { color: var(--blue); font-weight: 600; }
   </style>
 </head>
 <body>
@@ -319,6 +364,7 @@
       <button class="back" onclick="go('home')">← Back</button>
       <div class="tabs">
         <button id="dtab-new" class="active" onclick="driverTab('new')">Report a problem</button>
+        <button id="dtab-offsite" onclick="driverTab('offsite')">Off-site</button>
         <button id="dtab-status" onclick="driverTab('status')">Check my status</button>
       </div>
 
@@ -347,6 +393,9 @@
             <input id="f-phone" type="tel" inputmode="tel" autocomplete="tel" required placeholder="So the shop can reach you" />
             <label class="fld">What's wrong? <span class="req">*</span></label>
             <textarea id="f-issue" required placeholder="Describe the problem…"></textarea>
+            <label class="fld">Photos <span style="color:var(--muted)">(optional)</span></label>
+            <div id="f-photos" class="photo-stage"></div>
+            <label class="filebtn">📷 Add photos<input type="file" accept="image/*" capture="environment" multiple onchange="stagePhotos(this,'f-photos')" /></label>
             <label class="fld">Needed back out by</label>
             <input id="f-needed" type="datetime-local" />
             <div style="margin-top:14px">
@@ -355,6 +404,38 @@
           </form>
         </div>
         <p class="hint">The shop sees your ticket the moment you submit. You'll get a status you can check back on anytime from the same phone.</p>
+      </div>
+
+      <!-- off-site report: equipment a driver is leaving out in the field
+           (dropped trailer, flat, ran into a unit) — non-emergency. -->
+      <div id="driver-offsite" style="display:none">
+        <div class="card">
+          <h2 class="section">Report off-site equipment</h2>
+          <p class="hint" style="margin:-4px 0 12px">For equipment you're leaving in the field — not an emergency. The shop gets the location so they can recover or repair it.</p>
+          <form id="offsiteForm">
+            <label class="fld">Unit / trailer # <span class="req">*</span></label>
+            <input id="o-unit" autocomplete="off" required placeholder="e.g. trailer 6043" />
+            <label class="fld">Your name <span class="req">*</span></label>
+            <input id="o-name" autocomplete="name" required placeholder="Driver name" />
+            <label class="fld">Phone number <span class="req">*</span></label>
+            <input id="o-phone" type="tel" inputmode="tel" autocomplete="tel" required placeholder="So the shop can reach you" />
+            <label class="fld">What's wrong? <span class="req">*</span></label>
+            <textarea id="o-issue" required placeholder="e.g. Flat on the right rear, dropped at the customer…"></textarea>
+            <label class="fld">Photos <span style="color:var(--muted)">(recommended)</span></label>
+            <div id="o-photos" class="photo-stage"></div>
+            <label class="filebtn">📷 Add photos<input type="file" accept="image/*" capture="environment" multiple onchange="stagePhotos(this,'o-photos')" /></label>
+            <h2 class="section" style="margin-top:18px">Location <span class="req">*</span></h2>
+            <div class="gps-box" id="o-gpsbox">
+              <button type="button" class="btn-blue btn-block" id="o-gpsbtn" onclick="captureGps()">📍 Use my current location</button>
+              <div id="o-gpsout" class="small" style="margin-top:8px;color:var(--muted)">No GPS captured yet.</div>
+            </div>
+            <label class="fld" style="margin-top:10px">Landmark / address <span style="color:var(--muted)">(so the shop can find it)</span></label>
+            <input id="o-landmark" autocomplete="off" placeholder="e.g. Behind the Pilot on Hwy 30, exit 22" />
+            <div style="margin-top:14px">
+              <button type="submit" class="btn-primary" id="offsiteSubmit">Send off-site report</button>
+            </div>
+          </form>
+        </div>
       </div>
 
       <!-- status -->
@@ -411,6 +492,7 @@
           <button class="btn-sm btn-ghost" id="qf-all" onclick="setQueueFilter('all')">All</button>
           <button class="btn-sm btn-ghost" id="qf-active" onclick="setQueueFilter('active')">Active</button>
           <button class="btn-sm btn-ghost" id="qf-mine" onclick="setQueueFilter('mine')">My work</button>
+          <button class="btn-sm btn-ghost" id="qf-offsite" onclick="setQueueFilter('offsite')">📍 Off-site</button>
         </div>
         <div id="queueList"></div>
       </div>
@@ -508,6 +590,12 @@
     </div>
   </div>
 
+  <!-- Tap-to-enlarge for repair photos -->
+  <div class="img-lightbox" id="imgLightbox" onclick="closeLightbox()">
+    <button class="x" onclick="closeLightbox()">✕</button>
+    <img id="imgLightboxImg" alt="" />
+  </div>
+
   <div id="toast"></div>
 
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
@@ -557,8 +645,12 @@
     queueFilter: "active",
     mechFilter: null,         // mechanic id for "My work" / mechanic mode
     driver: { truck: "", phone: "" },
+    pendingPhotos: [],        // photos staged in a form before the ticket exists
+    offsiteGps: null,         // { lat, lng, accuracy } captured on the off-site form
   };
   let realtimeChannel = null;
+  const PHOTO_BUCKET = "repair-photos";
+  const MAX_PHOTOS = 8;
 
   // ---- tiny helpers ----
   const $ = (id) => document.getElementById(id);
@@ -675,7 +767,7 @@
     if (where === "shop") renderShop();
     if (where === "dispatch") renderDispatch();
     if (where === "home") $("headerSub").textContent = "Truck repair queue";
-    if (where === "driver") $("headerSub").textContent = "Driver";
+    if (where === "driver") { $("headerSub").textContent = "Driver"; resetPendingPhotos(); }
     window.scrollTo(0, 0);
     updateWho();
   }
@@ -689,10 +781,11 @@
 
   // ---- driver tabs ----
   function driverTab(t) {
-    $("dtab-new").classList.toggle("active", t === "new");
-    $("dtab-status").classList.toggle("active", t === "status");
-    $("driver-new").style.display = t === "new" ? "block" : "none";
-    $("driver-status").style.display = t === "status" ? "block" : "none";
+    ["new", "offsite", "status"].forEach(k => {
+      $("dtab-" + k).classList.toggle("active", k === t);
+      $("driver-" + k).style.display = k === t ? "block" : "none";
+    });
+    resetPendingPhotos();
     if (t === "status" && state.driver.truck) { $("s-truck").value = state.driver.truck; $("s-phone").value = state.driver.phone; }
   }
 
@@ -718,18 +811,83 @@
       issue: issue,
       needed_by: neededRaw ? new Date(neededRaw).toISOString() : null,
     };
-    $("intakeSubmit").disabled = true; $("intakeSubmit").textContent = "Submitting…";
-    const { error } = await sb.from("tickets").insert(payload);
+    $("intakeSubmit").disabled = true; $("intakeSubmit").textContent = state.pendingPhotos.length ? "Uploading…" : "Submitting…";
+    const { data, error } = await sb.from("tickets").insert(payload).select("id").single();
+    if (error) { $("intakeSubmit").disabled = false; $("intakeSubmit").textContent = "Submit to shop"; return toast(error.message, true); }
+    await commitPendingPhotos(data.id, null, { role: "driver", name });
     $("intakeSubmit").disabled = false; $("intakeSubmit").textContent = "Submit to shop";
-    if (error) return toast(error.message, true);
     // remember driver so they can check status
     state.driver = { truck, phone };
     localStorage.setItem("rss_driver", JSON.stringify(state.driver));
-    $("intakeForm").reset();
+    $("intakeForm").reset(); resetPendingPhotos();
     toast("Sent to the shop ✓");
     driverTab("status");
     driverLookup();
   });
+
+  // ============================ DRIVER: off-site report ============================
+  // Equipment left in the field (dropped trailer, flat, etc.) — non-emergency.
+  // Creates an off-site-flagged ticket with GPS + a typed landmark so the shop
+  // can recover it; shows distinctly in the queue (📍 OFF-SITE).
+  $("offsiteForm").addEventListener("submit", async (e) => {
+    e.preventDefault();
+    if (!ensureConfigured()) return;
+    const unit = $("o-unit").value.trim();
+    const name = $("o-name").value.trim();
+    const phone = $("o-phone").value.trim();
+    const issue = $("o-issue").value.trim();
+    const landmark = $("o-landmark").value.trim();
+    if (!unit || !name || !phone || !issue) return toast("Fill in the required fields", true);
+    if (!state.offsiteGps && !landmark) return toast("Add a location — GPS or a landmark/address", true);
+    const payload = {
+      truck_number: unit,           // the equipment id (required column; shown as "Unit")
+      driver_name: name,
+      driver_phone: phone,
+      issue: issue,
+      offsite: true,
+      gps_lat: state.offsiteGps ? state.offsiteGps.lat : null,
+      gps_lng: state.offsiteGps ? state.offsiteGps.lng : null,
+      location_text: landmark || null,
+    };
+    const btn = $("offsiteSubmit"); btn.disabled = true; btn.textContent = state.pendingPhotos.length ? "Uploading…" : "Sending…";
+    const { data, error } = await sb.from("tickets").insert(payload).select("id").single();
+    if (error) { btn.disabled = false; btn.textContent = "Send off-site report"; return toast(error.message, true); }
+    await commitPendingPhotos(data.id, null, { role: "driver", name });
+    btn.disabled = false; btn.textContent = "Send off-site report";
+    state.driver = { truck: unit, phone };
+    localStorage.setItem("rss_driver", JSON.stringify(state.driver));
+    $("offsiteForm").reset(); resetPendingPhotos(); state.offsiteGps = null; renderGps();
+    toast("Off-site report sent ✓");
+    driverTab("status");
+    driverLookup();
+  });
+
+  // Auto-capture GPS from the phone. Landmark text is the fallback / supplement.
+  function captureGps() {
+    if (!navigator.geolocation) return toast("This device can't share GPS — type a landmark", true);
+    const btn = $("o-gpsbtn"); btn.disabled = true; btn.textContent = "📍 Getting location…";
+    navigator.geolocation.getCurrentPosition(
+      (pos) => {
+        state.offsiteGps = { lat: +pos.coords.latitude.toFixed(6), lng: +pos.coords.longitude.toFixed(6), accuracy: Math.round(pos.coords.accuracy || 0) };
+        btn.disabled = false; btn.textContent = "📍 Update my location";
+        renderGps();
+      },
+      (err) => {
+        btn.disabled = false; btn.textContent = "📍 Use my current location";
+        toast(err.code === 1 ? "Location permission denied — type a landmark instead" : "Couldn't get GPS — type a landmark", true);
+      },
+      { enableHighAccuracy: true, timeout: 12000, maximumAge: 0 }
+    );
+  }
+  function renderGps() {
+    const out = $("o-gpsout"); if (!out) return;
+    if (state.offsiteGps) {
+      const g = state.offsiteGps;
+      out.innerHTML = `✅ Captured: <b>${g.lat}, ${g.lng}</b>${g.accuracy ? ` · ±${g.accuracy}m` : ""} · <a class="maplink" target="_blank" rel="noopener" href="https://maps.google.com/?q=${g.lat},${g.lng}">preview map</a>`;
+    } else {
+      out.textContent = "No GPS captured yet.";
+    }
+  }
 
   async function driverLookup() {
     if (!ensureConfigured()) return;
@@ -757,18 +915,21 @@
         const n = fmtNeeded(t.needed_by);
         const waiting = t.status === "waiting_parts";
         const ready = t.status === "completed";
-        return `<div class="ticket">
+        const label = t.offsite ? "Unit" : "Truck";
+        return `<div class="ticket${t.offsite ? " offsite" : ""}">
           <div class="top">
-            <div><div class="truck">Truck ${esc(t.truck_number)}</div>
+            <div><div class="truck">${label} ${esc(t.truck_number)}${t.offsite ? '<span class="badge-offsite">📍 OFF-SITE</span>' : ""}</div>
             <div class="meta">${esc(t.driver_name)} · submitted ${ago(t.created_at)}</div></div>
             <span class="chip ${t.status}">${STATUS_LABEL[t.status]}</span>
           </div>
           <div class="issue">${esc(t.issue)}</div>
+          ${t.offsite ? `<div class="foot" style="margin-top:8px"><span>📍 ${esc(t.location_text || "location pinned")}</span>${gpsMapLink(t)}</div>` : ""}
           ${ready ? `<div class="banner" style="margin:10px 0 0;background:rgba(70,192,106,0.12);border-color:rgba(70,192,106,0.4);color:#8fe0a4">✅ Your truck is ready for pickup.</div>` : ""}
           ${waiting ? `<div class="banner" style="margin:10px 0 0;background:rgba(255,209,102,0.12);border-color:rgba(255,209,102,0.4);color:var(--amber)">⏳ Waiting on parts — the shop is sourcing what's needed.</div>` : ""}
           ${t.estimated_fix ? `<div class="foot" style="margin-top:8px"><span style="color:var(--orange-soft)">🛠 Est. time to fix: ${esc(t.estimated_fix)}</span></div>` : ""}
           ${progressHtml(t)}
           ${timersHtml(t)}
+          <button class="btn-ghost btn-block btn-sm" style="margin-top:10px" onclick="openDriverPhotos('${t.id}','${esc(t.driver_name)}')">📷 Photos &amp; notes</button>
         </div>`;
       }).join("");
     tickTimers();
@@ -874,16 +1035,21 @@
     $("stab-parts").style.display = mech ? "none" : "";
     $("stab-mech").style.display = mech ? "none" : "";
     $("qf-all").parentElement.style.display = mech ? "none" : "";
-    $("qBtnAdd").style.display = mech ? "none" : "";
+    // Add Ticket is available to shop AND mechanics (dispatch never reaches the
+    // shop queue — it has its own read-only board).
+    $("qBtnAdd").style.display = "";
     $("headerSub").textContent = mech ? (state.me ? state.me.name + " · mechanic" : "Mechanic") : "Shop dashboard";
     if (mech) shopTab("queue");
   }
 
-  // ---- Shop-side ticket intake -------------------------------------------
-  // Lets a shop admin add a truck to the queue without the driver self-reporting.
+  // ---- Add Ticket (shop + mechanic) --------------------------------------
+  // Adds a truck to the queue without the driver self-reporting. Available to
+  // shop admins and mechanics (both can INSERT under RLS); dispatch is excluded.
   // Writes to the same `tickets` table; realtime drops it into the live queue.
   function openShopIntake() {
-    if (!ensureConfigured() || state.isMechanic || state.isDispatch) return;   // shop admins only
+    if (!ensureConfigured() || state.isDispatch) return;   // not dispatch
+    resetPendingPhotos();
+    const canAssign = !state.isMechanic && state.mechanics.length;
     const mechOpts = `<option value="">— Unassigned —</option>` +
       state.mechanics.filter(m => m.active).map(m => `<option value="${m.id}">${esc(m.name)}</option>`).join("");
     openModal(`
@@ -900,22 +1066,26 @@
         <div><label class="fld">Driver name</label><input id="si-name" placeholder="optional" /></div>
         <div><label class="fld">Driver phone</label><input id="si-phone" type="tel" inputmode="tel" placeholder="optional" /></div>
       </div>
+      <label class="fld">Photos <span style="color:var(--muted)">(optional)</span></label>
+      <div id="si-photos" class="photo-stage"></div>
+      <label class="filebtn">📷 Add photos<input type="file" accept="image/*" capture="environment" multiple onchange="stagePhotos(this,'si-photos')" /></label>
+      <input id="si-pnote" placeholder="Photo note (optional)" style="margin-top:8px" />
       <label class="fld">Needed back out by <span style="color:var(--muted)">(optional)</span></label>
       <input id="si-needed" type="datetime-local" />
-      <label class="fld">Assign mechanic <span style="color:var(--muted)">(optional)</span></label>
-      <select id="si-mech">${mechOpts}</select>
+      ${canAssign ? `<label class="fld">Assign mechanic <span style="color:var(--muted)">(optional)</span></label>
+      <select id="si-mech">${mechOpts}</select>` : ""}
       <button class="btn-primary" style="margin-top:16px" id="si-submit" onclick="submitShopTicket()">Add to queue</button>
       <button class="btn-ghost btn-block" style="margin-top:8px" onclick="closeModal()">Cancel</button>
     `);
   }
 
   async function submitShopTicket() {
-    if (!ensureConfigured() || state.isMechanic || state.isDispatch) return;
+    if (!ensureConfigured() || state.isDispatch) return;
     const truck = $("si-truck").value.trim();
     const issue = $("si-issue").value.trim();
     if (!truck || !issue) return toast("Truck number and problem are required", true);
     const neededRaw = $("si-needed").value;
-    const who = ((state.session && state.session.user && state.session.user.email) || "").split("@")[0] || null;
+    const actor = currentActor();
     const payload = {
       truck_number: truck,
       trailer_number: $("si-trailer").value.trim() || null,
@@ -926,12 +1096,13 @@
       driver_phone: $("si-phone").value.trim() || "—",
       issue: issue,
       needed_by: neededRaw ? new Date(neededRaw).toISOString() : null,
-      assigned_mechanic_id: $("si-mech").value || null,
-      created_by: who,
+      assigned_mechanic_id: ($("si-mech") && $("si-mech").value) || (state.isMechanic && state.me ? state.me.id : null),
+      created_by: actor.name,
     };
-    $("si-submit").disabled = true; $("si-submit").textContent = "Adding…";
-    const { error } = await sb.from("tickets").insert(payload);
+    $("si-submit").disabled = true; $("si-submit").textContent = state.pendingPhotos.length ? "Uploading…" : "Adding…";
+    const { data, error } = await sb.from("tickets").insert(payload).select("id").single();
     if (error) { $("si-submit").disabled = false; $("si-submit").textContent = "Add to queue"; return toast(error.message, true); }
+    await commitPendingPhotos(data.id, ($("si-pnote") && $("si-pnote").value.trim()) || null, actor);
     closeModal(); toast("Ticket added to the queue ✓");
   }
 
@@ -956,11 +1127,12 @@
     $("queueStats").innerHTML = STATUS_ORDER.map(s =>
       `<div class="stat"><div class="v">${counts[s]}</div><div class="l">${STATUS_LABEL[s]}</div></div>`).join("");
 
-    ["all", "active", "mine"].forEach(f => $("qf-" + f).classList.toggle("btn-blue", state.queueFilter === f));
+    ["all", "active", "mine", "offsite"].forEach(f => $("qf-" + f).classList.toggle("btn-blue", state.queueFilter === f));
 
     let list = state.tickets.slice();
     if (state.queueFilter === "active") list = list.filter(t => t.status !== "completed");
     if (state.queueFilter === "mine") list = list.filter(t => t.assigned_mechanic_id === state.mechFilter);
+    if (state.queueFilter === "offsite") list = list.filter(t => t.offsite);
 
     if (state.queueFilter === "active") {
       // Open tickets, oldest-first (FIFO) so the longest-waiting job sits on top;
@@ -992,13 +1164,15 @@
     const n = fmtNeeded(t.needed_by);
     const mech = state.mechanics.find(m => m.id === t.assigned_mechanic_id);
     const units = [t.trailer_number && "Trlr " + t.trailer_number, t.unit_number && "Unit " + t.unit_number].filter(Boolean).join(" · ");
-    return `<div class="ticket clickable" onclick="openTicket('${t.id}')">
+    const label = t.offsite ? "Unit" : "Truck";
+    return `<div class="ticket clickable${t.offsite ? " offsite" : ""}" onclick="openTicket('${t.id}')">
       <div class="top">
-        <div><div class="truck">${t.priority ? '<span class="pri">★</span> ' : ""}Truck ${esc(t.truck_number)}</div>
+        <div><div class="truck">${t.priority ? '<span class="pri">★</span> ' : ""}${label} ${esc(t.truck_number)}${t.offsite ? '<span class="badge-offsite">📍 OFF-SITE</span>' : ""}</div>
         <div class="meta">${esc(t.driver_name)}${units ? " · " + esc(units) : ""} · ${ago(t.created_at)}</div></div>
         <span class="chip ${t.status}">${STATUS_LABEL[t.status]}</span>
       </div>
       <div class="issue">${esc(t.issue)}</div>
+      ${t.offsite ? `<div class="foot"><span>📍 ${esc(t.location_text || "location pinned")}</span>${gpsMapLink(t)}</div>` : ""}
       <div class="foot">
         <span>${mech ? "👷 " + esc(mech.name) : "<span style='color:var(--orange-soft)'>Unassigned</span>"}</span>
         ${n ? `<span class="needed ${n.late ? "late" : ""}">⏱ ${n.text}</span>` : ""}
@@ -1105,6 +1279,15 @@
         ${timersHtml(t)}
       </div>
 
+      ${t.offsite ? `<div class="card" style="margin-top:12px;border-color:var(--orange)">
+        <div class="name"><span class="badge-offsite">📍 OFF-SITE</span></div>
+        <div class="small" style="margin-top:8px">${t.location_text ? "🏷 " + esc(t.location_text) : "No landmark given"}</div>
+        ${t.gps_lat != null ? `<div class="small" style="margin-top:6px">📡 ${t.gps_lat}, ${t.gps_lng} ·${gpsMapLink(t)}</div>` : ""}
+      </div>` : ""}
+
+      <h2 class="section">Photos &amp; notes</h2>
+      <div id="dphotos-${t.id}"></div>
+
       <h2 class="section">Priority</h2>
       <button class="btn-block ${t.priority ? "btn-red" : "btn-ghost"}" onclick="togglePriority('${t.id}')">
         ${t.priority ? "★ Priority flag ON — tap to clear" : "☆ Flag as priority"}
@@ -1117,6 +1300,7 @@
 
       <button class="btn-primary" style="margin-top:18px" onclick="closeModal()">Done</button>
     `);
+    renderPhotosInto("dphotos-" + t.id, t.id, { canAdd: false, canDelete: false });   // dispatch = view-only
   }
 
   async function togglePriority(id) {
@@ -1186,6 +1370,15 @@
       <div class="card" style="margin-top:12px"><div class="issue">${esc(t.issue)}</div>
       ${n ? `<div class="foot" style="margin-top:8px"><span class="needed ${n.late?"late":""}">⏱ Needed by ${n.text}</span></div>` : ""}</div>
 
+      ${t.offsite ? `<div class="card" style="margin-top:12px;border-color:var(--orange)">
+        <div class="name"><span class="badge-offsite">📍 OFF-SITE</span></div>
+        <div class="small" style="margin-top:8px">${t.location_text ? "🏷 " + esc(t.location_text) : "No landmark given"}</div>
+        ${t.gps_lat != null ? `<div class="small" style="margin-top:6px">📡 ${t.gps_lat}, ${t.gps_lng} ·${gpsMapLink(t)}</div>` : ""}
+      </div>` : ""}
+
+      <h2 class="section">Photos &amp; notes</h2>
+      <div id="tphotos-${t.id}"></div>
+
       <h2 class="section">Status</h2>
       <select id="td-status" onchange="updateTicket('${t.id}',{status:this.value})">${statusOpts}</select>
       <p class="hint" style="margin-top:6px">Set to <b>Completed</b> to email the driver their truck is ready.</p>
@@ -1216,6 +1409,9 @@
       <button class="btn-primary" style="margin-top:18px" onclick="closeModal()">Done</button>
       ${mineMode ? "" : `<button class="btn-red btn-block" style="margin-top:8px" onclick="deleteTicket('${t.id}')">Delete ticket</button>`}
     `);
+    // Mechanics + shop can add/delete; the modal is never shown to dispatch.
+    resetPendingPhotos();
+    renderPhotosInto("tphotos-" + t.id, t.id, { canAdd: canAddPhotos(), canDelete: true });
   }
 
   async function updateTicket(id, patch) {
@@ -1254,6 +1450,174 @@
     const { error } = await sb.from("ticket_parts").delete().eq("id", id);
     if (error) return toast(error.message, true);
     openTicket(ticketId);
+  }
+
+  // ============================ Repair photos (shared) ============================
+  // Capture from the phone camera, compress client-side for weak signal, upload to
+  // the `repair-photos` Storage bucket, and record a row per photo in ticket_photos.
+  // Used by: driver intake, off-site report, the shop Add-Ticket form, and the
+  // "add photo" control on an existing ticket.
+
+  // Who is acting, for the uploaded_by_role/name stamp on each photo.
+  function currentActor() {
+    if (state.isMechanic) return { role: "mechanic", name: state.me ? state.me.name : "Mechanic" };
+    if (state.isDispatch) return { role: "dispatch", name: "Dispatch" };
+    if (state.session) return { role: "shop", name: ((state.session.user.email || "").split("@")[0]) || "Shop" };
+    return { role: "driver", name: "Driver" };
+  }
+  function canAddPhotos() {
+    // Drivers (anon), mechanics, and shop admins can add. Dispatch is view-only.
+    return !state.isDispatch;
+  }
+
+  // Downscale to ~maxDim and re-encode JPEG under ~maxBytes so uploads survive a
+  // weak truck-stop signal. Returns a Blob.
+  function compressImage(file, maxDim = 1600, maxBytes = 1024 * 1024) {
+    return new Promise((resolve, reject) => {
+      const url = URL.createObjectURL(file);
+      const img = new Image();
+      img.onload = () => {
+        URL.revokeObjectURL(url);
+        let { width, height } = img;
+        if (!width || !height) return reject(new Error("bad image"));
+        const scale = Math.min(1, maxDim / Math.max(width, height));
+        const w = Math.max(1, Math.round(width * scale)), h = Math.max(1, Math.round(height * scale));
+        const canvas = document.createElement("canvas");
+        canvas.width = w; canvas.height = h;
+        canvas.getContext("2d").drawImage(img, 0, 0, w, h);
+        let q = 0.82;
+        const step = () => canvas.toBlob((blob) => {
+          if (!blob) return reject(new Error("encode failed"));
+          if (blob.size > maxBytes && q > 0.4) { q -= 0.12; return step(); }
+          resolve(blob);
+        }, "image/jpeg", q);
+        step();
+      };
+      img.onerror = () => { URL.revokeObjectURL(url); reject(new Error("can't read image")); };
+      img.src = url;
+    });
+  }
+
+  // Stage picked photos in memory (before the ticket exists), show a preview strip.
+  async function stagePhotos(input, containerId) {
+    const files = Array.from(input.files || []);
+    input.value = "";
+    for (const f of files) {
+      if (state.pendingPhotos.length >= MAX_PHOTOS) { toast(`Up to ${MAX_PHOTOS} photos`, true); break; }
+      if (!/^image\//.test(f.type)) continue;
+      try {
+        const blob = await compressImage(f);
+        state.pendingPhotos.push({ blob, url: URL.createObjectURL(blob) });
+      } catch (e) { console.error(e); toast("Couldn't read one photo — try again", true); }
+    }
+    renderStage(containerId);
+  }
+  function renderStage(containerId) {
+    const el = $(containerId); if (!el) return;
+    el.innerHTML = state.pendingPhotos.map((p, i) =>
+      `<div class="thumb"><img src="${p.url}" onclick="openLightbox('${p.url}')" /><button type="button" class="x" onclick="unstagePhoto(${i},'${containerId}')">✕</button></div>`
+    ).join("");
+  }
+  function unstagePhoto(i, containerId) {
+    const p = state.pendingPhotos[i];
+    if (p && p.url) URL.revokeObjectURL(p.url);
+    state.pendingPhotos.splice(i, 1);
+    renderStage(containerId);
+  }
+  function resetPendingPhotos() {
+    state.pendingPhotos.forEach(p => p.url && URL.revokeObjectURL(p.url));
+    state.pendingPhotos = [];
+  }
+
+  // Upload all staged photos for a now-existing ticket, then clear the stage.
+  async function commitPendingPhotos(ticketId, note, actor) {
+    if (!state.pendingPhotos.length) return 0;
+    const a = actor || currentActor();
+    let ok = 0;
+    for (const p of state.pendingPhotos) {
+      try { await uploadOnePhoto(ticketId, p.blob, note, a); ok++; }
+      catch (e) { console.error("photo upload failed", e); }
+    }
+    if (ok < state.pendingPhotos.length) toast(`${ok}/${state.pendingPhotos.length} photos uploaded`, true);
+    resetPendingPhotos();
+    return ok;
+  }
+  async function uploadOnePhoto(ticketId, blob, note, actor) {
+    const path = `${ticketId}/${Date.now()}_${Math.random().toString(36).slice(2, 8)}.jpg`;
+    const up = await sb.storage.from(PHOTO_BUCKET).upload(path, blob, { contentType: "image/jpeg", upsert: false });
+    if (up.error) throw up.error;
+    const row = await sb.from("ticket_photos").insert({
+      ticket_id: ticketId, storage_path: path, note: note || null,
+      uploaded_by_role: actor.role, uploaded_by_name: actor.name,
+    });
+    if (row.error) throw row.error;
+  }
+  function photoUrl(path) {
+    return sb.storage.from(PHOTO_BUCKET).getPublicUrl(path).data.publicUrl;
+  }
+
+  // Load + render a ticket's photos into a container, with an optional add control.
+  async function renderPhotosInto(containerId, ticketId, opts) {
+    const el = $(containerId); if (!el) return;
+    opts = opts || {};
+    el.innerHTML = `<div class="small" style="color:var(--muted)">Loading photos…</div>`;
+    const { data, error } = await sb.from("ticket_photos").select("*").eq("ticket_id", ticketId).order("created_at", { ascending: true });
+    if (error) { el.innerHTML = `<div class="small" style="color:var(--muted)">Couldn't load photos.</div>`; return; }
+    const photos = data || [];
+    const grid = photos.length
+      ? `<div class="photo-grid">` + photos.map(p => {
+          const u = photoUrl(p.storage_path);
+          const del = opts.canDelete ? `<button class="x" onclick="deletePhoto('${p.id}','${containerId}','${ticketId}')">✕</button>` : "";
+          return `<div class="thumb"><img src="${u}" onclick="openLightbox('${u}')" />${del}</div>`;
+        }).join("") + `</div>`
+      : `<div class="small" style="color:var(--muted)">No photos yet.</div>`;
+    const notes = photos.filter(p => p.note).map(p =>
+      `<div class="photo-card"><div class="pc-note">📝 ${esc(p.note)}</div><div class="pc-by">${esc(p.uploaded_by_name || "")}${p.uploaded_by_role ? " · " + esc(p.uploaded_by_role) : ""} · ${ago(p.created_at)}</div></div>`
+    ).join("");
+    let add = "";
+    if (opts.canAdd) {
+      const sid = containerId + "-stage";
+      add = `<div style="margin-top:10px">
+        <div id="${sid}" class="photo-stage"></div>
+        <label class="filebtn">📷 Add photo<input type="file" accept="image/*" capture="environment" multiple onchange="stagePhotos(this,'${sid}')" /></label>
+        <textarea id="${containerId}-note" placeholder="Note (optional)" style="margin-top:8px"></textarea>
+        <button class="btn-blue btn-block btn-sm" style="margin-top:8px" onclick="addPhotosToTicket('${ticketId}','${containerId}')">Upload</button>
+      </div>`;
+    }
+    el.innerHTML = grid + notes + add;
+  }
+  async function addPhotosToTicket(ticketId, containerId) {
+    const note = ($(containerId + "-note") && $(containerId + "-note").value.trim()) || null;
+    if (!state.pendingPhotos.length) return toast("Add at least one photo", true);
+    await commitPendingPhotos(ticketId, note, currentActor());
+    toast("Photos added ✓");
+    renderPhotosInto(containerId, ticketId, { canAdd: true, canDelete: currentActor().role !== "driver" });
+  }
+  async function deletePhoto(id, containerId, ticketId) {
+    if (!confirm("Remove this photo?")) return;
+    const { data } = await sb.from("ticket_photos").select("storage_path").eq("id", id).single();
+    await sb.from("ticket_photos").delete().eq("id", id);
+    if (data && data.storage_path) { try { await sb.storage.from(PHOTO_BUCKET).remove([data.storage_path]); } catch (_) {} }
+    renderPhotosInto(containerId, ticketId, { canAdd: true, canDelete: true });
+  }
+
+  // Driver-facing photo modal (their result cards aren't modals themselves).
+  function openDriverPhotos(ticketId, driverName) {
+    const cid = "dphotos";
+    openModal(`<h2 class="section">Photos &amp; notes</h2><div id="${cid}"></div>
+      <button class="btn-primary" style="margin-top:16px" onclick="closeModal()">Done</button>`);
+    resetPendingPhotos();
+    renderPhotosInto(cid, ticketId, { canAdd: true, canDelete: false });
+  }
+
+  function openLightbox(url) { $("imgLightboxImg").src = url; $("imgLightbox").classList.add("show"); }
+  function closeLightbox() { $("imgLightbox").classList.remove("show"); $("imgLightboxImg").src = ""; }
+
+  // Google-Maps link for a ticket's captured GPS (empty if none). stopPropagation
+  // so tapping it inside a clickable card doesn't also open the ticket.
+  function gpsMapLink(t) {
+    if (t.gps_lat == null || t.gps_lng == null) return "";
+    return ` <a class="maplink" target="_blank" rel="noopener" onclick="event.stopPropagation()" href="https://maps.google.com/?q=${t.gps_lat},${t.gps_lng}">🗺 Map</a>`;
   }
 
   // ============================ STAFF: parts ============================
