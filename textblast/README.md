@@ -60,6 +60,19 @@ over the table if both exist.)
 4. Hit **Send to everyone**. It sends in batches of 50 with a progress bar;
    any failures are listed at the end so you can retry just those.
 
+## Getting replies forwarded to your cell
+
+The `sms-inbound` function forwards every reply to the Twilio number as an
+SMS to your cell ("Reply from +1404…: their message").
+
+1. Deploy it: `supabase functions deploy sms-inbound --no-verify-jwt`
+2. Add two rows to `textblast_config`:
+   - `FORWARD_TO` — your cell number
+   - `INBOUND_TOKEN` — a random string; the same one goes in the webhook URL
+3. In the Twilio console → Phone Numbers → your number → Messaging
+   Configuration → "A message comes in": set **Webhook**, method **HTTP POST**,
+   URL `https://YOUR-PROJECT.supabase.co/functions/v1/sms-inbound?token=INBOUND_TOKEN`
+
 ## Rules that keep your number alive
 - Only text people who **gave you their number** expecting texts. Blasting
   bought/cold lists gets the number blocked by carriers and can bring TCPA fines.
