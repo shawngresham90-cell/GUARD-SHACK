@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#0b1220">
+    <title>Text Blast — Bulk SMS Sender</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
+        html, body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background: radial-gradient(circle at top, #142036 0%, #0b1220 60%, #060912 100%);
+            color: #e6ecf5;
+            min-height: 100vh;
+        }
+        body { padding: 18px 16px 32px; max-width: 760px; margin: 0 auto; }
+        header { text-align: center; margin-bottom: 18px; }
+        header h1 { font-size: 24px; letter-spacing: 0.5px; }
+        header p { font-size: 13px; color: #93a4c0; margin-top: 4px; }
+
+        .card {
+            background: linear-gradient(180deg, #1a2640, #111b30);
+            border-radius: 18px;
+            padding: 18px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.45);
+            margin-bottom: 18px;
+        }
+        h2 {
+            font-size: 14px; color: #93a4c0; text-transform: uppercase;
+            letter-spacing: 1px; margin-bottom: 10px;
+        }
+        label { display: block; font-size: 13px; color: #b6c4dc; margin: 10px 0 4px; }
+        input[type="text"], input[type="password"], input[type="tel"], textarea {
+            width: 100%;
+            background: #0d1626;
+            border: 1px solid #2a3b5e;
+            border-radius: 10px;
+            color: #e6ecf5;
+            font-size: 14px;
+            padding: 11px 12px;
+            font-family: inherit;
+        }
+        textarea { resize: vertical; min-height: 110px; }
+        input:focus, textarea:focus { outline: none; border-color: #4f8cff; }
+        .hint { font-size: 12px; color: #7d8eab; margin-top: 5px; line-height: 1.45; }
+
+        .btn-row { display: flex; gap: 10px; margin-top: 14px; }
+        button {
+            flex: 1;
+            border: 0;
+            padding: 14px 16px;
+            border-radius: 12px;
+            font-size: 15px;
+            font-weight: 600;
+            color: #fff;
+            cursor: pointer;
+            transition: transform 0.08s ease, opacity 0.2s;
+        }
+        button:active { transform: scale(0.97); }
+        button:disabled { opacity: 0.45; cursor: not-allowed; }
+        .btn-primary { background: linear-gradient(135deg, #4f8cff, #2257d9); }
+        .btn-send    { background: linear-gradient(135deg, #2bbd6e, #14834a); }
+        .btn-ghost   { background: #233453; }
+
+        .pillbar { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; font-size: 12px; color: #b6c4dc; }
+        .pillbar span { background: #0d1626; border: 1px solid #2a3b5e; padding: 6px 10px; border-radius: 999px; }
+        .pillbar b { color: #e6ecf5; }
+        .pill-bad b { color: #ff8d9b; }
+
+        .progress-wrap { background: #0d1626; border-radius: 999px; height: 14px; overflow: hidden; margin-top: 12px; display: none; }
+        .progress-bar { height: 100%; width: 0%; background: linear-gradient(90deg, #4f8cff, #2bbd6e); transition: width 0.25s; }
+
+        #status { font-size: 13px; margin-top: 10px; color: #b6c4dc; white-space: pre-wrap; line-height: 1.5; }
+        #status.ok   { color: #6fe3a1; }
+        #status.err  { color: #ff8d9b; }
+
+        #failedBox { display: none; margin-top: 12px; }
+        #failedList {
+            background: #0d1626; border: 1px solid #5e2a35; border-radius: 10px;
+            padding: 10px 12px; font-size: 12px; max-height: 180px; overflow-y: auto;
+            font-family: ui-monospace, Menlo, Consolas, monospace; line-height: 1.6; color: #ffb3bd;
+        }
+        details summary { cursor: pointer; font-size: 14px; color: #93a4c0; font-weight: 600; }
+        details[open] summary { margin-bottom: 8px; }
+        .warn {
+            background: #2c2238; border: 1px solid #5e4a2a; border-radius: 10px;
+            font-size: 12px; color: #e8d49a; padding: 10px 12px; margin-top: 12px; line-height: 1.5;
+        }
+        input[type="file"] { color: #93a4c0; font-size: 13px; margin-top: 4px; }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>📣 Text Blast</h1>
+        <p>Send one message to hundreds of numbers at once, through your Twilio account.</p>
+    </header>
+
+    <!-- One-time setup: where the send-blast function lives + the shared secret -->
+    <div class="card">
+        <details id="setupDetails">
+            <summary>⚙️ Setup (one time)</summary>
+            <label for="fnUrl">Send function URL</label>
+            <input type="text" id="fnUrl" placeholder="https://YOUR-PROJECT.supabase.co/functions/v1/send-blast">
+            <label for="fnSecret">Blast secret</label>
+            <input type="password" id="fnSecret" placeholder="same value as the BLAST_SECRET you set in Supabase">
+            <div class="hint">Saved only in this browser. The Twilio account password never touches this page — it lives on the server.</div>
+            <div class="btn-row">
+                <button class="btn-primary" id="saveSetup">Save</button>
+            </div>
+        </details>
+    </div>
+
+    <div class="card">
+        <h2>1 · Numbers</h2>
+        <label for="numbers">Paste phone numbers (one per line, commas, or straight out of a spreadsheet — formatting doesn't matter)</label>
+        <textarea id="numbers" placeholder="555-867-5309&#10;(661) 555-0142&#10;+15555550199"></textarea>
+        <label>…or upload a CSV / text file</label>
+        <input type="file" id="csvFile" accept=".csv,.txt">
+        <div class="pillbar">
+            <span>Valid: <b id="countValid">0</b></span>
+            <span class="pill-bad">Skipped (not a phone #): <b id="countBad">0</b></span>
+            <span>Duplicates removed: <b id="countDupes">0</b></span>
+        </div>
+    </div>
+
+    <div class="card">
+        <h2>2 · Message</h2>
+        <textarea id="message" placeholder="Type the text everyone will get…"></textarea>
+        <div class="pillbar">
+            <span>Characters: <b id="charCount">0</b></span>
+            <span>Billed as <b id="segCount">0</b> SMS segment(s) per person</span>
+        </div>
+        <div class="warn">
+            ⚠️ Only text people who gave you their number and expect messages from you —
+            cold-blasting bought lists gets the number shut down by carriers.
+            Twilio adds STOP/opt-out handling automatically.
+        </div>
+    </div>
+
+    <div class="card">
+        <h2>3 · Send</h2>
+        <label for="testNumber">Test it on yourself first (recommended)</label>
+        <input type="tel" id="testNumber" placeholder="your cell, e.g. 661-555-0123">
+        <div class="btn-row">
+            <button class="btn-ghost" id="testBtn">Send test to me</button>
+            <button class="btn-send" id="sendBtn">🚀 Send to everyone</button>
+        </div>
+        <div class="progress-wrap" id="progressWrap"><div class="progress-bar" id="progressBar"></div></div>
+        <div id="status"></div>
+        <div id="failedBox">
+            <label>These numbers failed — fix and re-paste just these to retry:</label>
+            <div id="failedList"></div>
+            <div class="btn-row">
+                <button class="btn-ghost" id="copyFailed">Copy failed numbers</button>
+            </div>
+        </div>
+    </div>
+
+<script>
+(function () {
+    "use strict";
+
+    var BATCH_SIZE = 50; // must match MAX_BATCH in the send-blast function
+
+    var $ = function (id) { return document.getElementById(id); };
+
+    // ---- setup persistence -------------------------------------------------
+    $("fnUrl").value = localStorage.getItem("blast_fn_url") || "";
+    $("fnSecret").value = localStorage.getItem("blast_secret") || "";
+    if (!$("fnUrl").value) $("setupDetails").open = true;
+    $("saveSetup").addEventListener("click", function () {
+        localStorage.setItem("blast_fn_url", $("fnUrl").value.trim());
+        localStorage.setItem("blast_secret", $("fnSecret").value.trim());
+        $("setupDetails").open = false;
+        setStatus("Setup saved.", "ok");
+    });
+
+    // ---- number parsing ----------------------------------------------------
+    // Accepts anything: strips punctuation, keeps a leading +, assumes US (+1)
+    // for bare 10-digit numbers. Returns null if it can't make a real number.
+    function normalize(raw) {
+        var s = raw.trim();
+        if (!s) return null;
+        var plus = s.charAt(0) === "+";
+        var digits = s.replace(/\D/g, "");
+        if (plus) return digits.length >= 8 && digits.length <= 15 ? "+" + digits : null;
+        if (digits.length === 10) return "+1" + digits;
+        if (digits.length === 11 && digits.charAt(0) === "1") return "+" + digits;
+        return null;
+    }
+
+    function parseNumbers() {
+        var tokens = $("numbers").value.split(/[\n,;]+/);
+        var seen = {}, valid = [], bad = 0, dupes = 0;
+        tokens.forEach(function (t) {
+            if (!t.trim()) return;
+            var n = normalize(t);
+            if (!n) { bad++; return; }
+            if (seen[n]) { dupes++; return; }
+            seen[n] = true;
+            valid.push(n);
+        });
+        $("countValid").textContent = valid.length;
+        $("countBad").textContent = bad;
+        $("countDupes").textContent = dupes;
+        return valid;
+    }
+    $("numbers").addEventListener("input", parseNumbers);
+
+    $("csvFile").addEventListener("change", function () {
+        var file = this.files[0];
+        if (!file) return;
+        var reader = new FileReader();
+        reader.onload = function () {
+            // Pull every phone-looking token out of the file, whatever the columns are.
+            var found = String(reader.result).match(/\+?[\d][\d\s().-]{6,18}\d/g) || [];
+            var existing = $("numbers").value.trim();
+            $("numbers").value = (existing ? existing + "\n" : "") + found.join("\n");
+            parseNumbers();
+            setStatus("Loaded " + found.length + " numbers from " + file.name + ".", "ok");
+        };
+        reader.readAsText(file);
+    });
+
+    // ---- message + segment counter ------------------------------------------
+    $("message").addEventListener("input", function () {
+        var len = this.value.length;
+        $("charCount").textContent = len;
+        // GSM-7: 160 chars = 1 segment, then 153/segment. Close enough for budgeting.
+        $("segCount").textContent = len === 0 ? 0 : len <= 160 ? 1 : Math.ceil(len / 153);
+    });
+
+    // ---- sending -------------------------------------------------------------
+    function setStatus(msg, cls) {
+        $("status").textContent = msg;
+        $("status").className = cls || "";
+    }
+
+    function getConfig() {
+        var url = localStorage.getItem("blast_fn_url");
+        var secret = localStorage.getItem("blast_secret");
+        if (!url || !secret) {
+            $("setupDetails").open = true;
+            setStatus("Open Setup and save the function URL + secret first.", "err");
+            return null;
+        }
+        return { url: url, secret: secret };
+    }
+
+    function postBatch(cfg, numbers, body) {
+        return fetch(cfg.url, {
+            method: "POST",
+            headers: { "Content-Type": "application/json", "x-blast-secret": cfg.secret },
+            body: JSON.stringify({ to: numbers, body: body })
+        }).then(function (res) {
+            return res.json().catch(function () { return {}; }).then(function (data) {
+                if (!res.ok) throw new Error(data.error || ("Server error " + res.status));
+                return data;
+            });
+        });
+    }
+
+    $("testBtn").addEventListener("click", function () {
+        var cfg = getConfig();
+        if (!cfg) return;
+        var n = normalize($("testNumber").value);
+        var body = $("message").value.trim();
+        if (!n) { setStatus("Enter a real cell number to test with.", "err"); return; }
+        if (!body) { setStatus("Type the message first.", "err"); return; }
+        setStatus("Sending test…");
+        $("testBtn").disabled = true;
+        postBatch(cfg, [n], body).then(function (data) {
+            var r = (data.results && data.results[0]) || {};
+            if (r.ok) setStatus("✅ Test sent to " + n + " — check your phone.", "ok");
+            else setStatus("Test failed: " + (r.error || "unknown error"), "err");
+        }).catch(function (e) {
+            setStatus("Test failed: " + e.message, "err");
+        }).finally(function () { $("testBtn").disabled = false; });
+    });
+
+    $("sendBtn").addEventListener("click", function () {
+        var cfg = getConfig();
+        if (!cfg) return;
+        var numbers = parseNumbers();
+        var body = $("message").value.trim();
+        if (numbers.length === 0) { setStatus("No valid numbers to send to.", "err"); return; }
+        if (!body) { setStatus("Type the message first.", "err"); return; }
+        if (!confirm("Send this text to " + numbers.length + " people?\n\n\"" + body + "\"")) return;
+
+        var failed = [];
+        var sent = 0;
+        var batches = [];
+        for (var i = 0; i < numbers.length; i += BATCH_SIZE) batches.push(numbers.slice(i, i + BATCH_SIZE));
+
+        $("sendBtn").disabled = true;
+        $("testBtn").disabled = true;
+        $("failedBox").style.display = "none";
+        $("progressWrap").style.display = "block";
+        $("progressBar").style.width = "0%";
+
+        var done = 0;
+        function runBatch(idx) {
+            if (idx >= batches.length) return finish();
+            setStatus("Sending… batch " + (idx + 1) + " of " + batches.length + " (" + sent + " sent so far)");
+            postBatch(cfg, batches[idx], body).then(function (data) {
+                sent += data.sent || 0;
+                (data.results || []).forEach(function (r) {
+                    if (!r.ok) failed.push(r.to + "   — " + (r.error || "failed"));
+                });
+            }).catch(function (e) {
+                batches[idx].forEach(function (n) { failed.push(n + "   — " + e.message); });
+            }).finally(function () {
+                done += batches[idx].length;
+                $("progressBar").style.width = Math.round(done / numbers.length * 100) + "%";
+                runBatch(idx + 1);
+            });
+        }
+
+        function finish() {
+            $("sendBtn").disabled = false;
+            $("testBtn").disabled = false;
+            if (failed.length === 0) {
+                setStatus("✅ Done — " + sent + " texts handed to Twilio for delivery.", "ok");
+            } else {
+                setStatus("Finished: " + sent + " sent, " + failed.length + " failed (listed below).", "err");
+                $("failedList").textContent = failed.join("\n");
+                $("failedBox").style.display = "block";
+            }
+        }
+
+        runBatch(0);
+    });
+
+    $("copyFailed").addEventListener("click", function () {
+        var nums = $("failedList").textContent.split("\n").map(function (l) {
+            return l.split("—")[0].trim();
+        }).join("\n");
+        navigator.clipboard.writeText(nums).then(function () {
+            setStatus("Failed numbers copied — paste them back into the Numbers box to retry.", "ok");
+        });
+    });
+
+    parseNumbers();
+})();
+</script>
+</body>
+</html>
