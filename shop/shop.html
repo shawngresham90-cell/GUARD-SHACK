@@ -498,7 +498,7 @@
     <section id="view-shop" class="view">
       <div class="tabs" id="shopTabs">
         <button id="stab-queue" class="active" onclick="shopTab('queue')">Queue</button>
-        <button id="stab-history" onclick="shopTab('history')">History</button>
+        <button id="stab-history" onclick="shopTab('history')">Completed</button>
         <button id="stab-cal" onclick="shopTab('cal')">Calendar</button>
         <button id="stab-parts" onclick="shopTab('parts')">Parts</button>
         <button id="stab-mech" onclick="shopTab('mech')">Mechanics</button>
@@ -1263,7 +1263,7 @@
     return `<div class="ticket clickable${t.offsite ? " offsite" : ""}" onclick="openTicket('${t.id}')">
       <div class="top">
         <div><div class="truck">${esc(t.truck_number)} ${equipBadge(t)}${t.offsite ? '<span class="badge-offsite">📍 OFF-SITE</span>' : ""}</div>
-        <div class="meta">✓ Completed ${done || "—"}${mech ? " · 👷 " + esc(mech.name) : ""}</div></div>
+        <div class="meta">✓ Completed ${done || "—"} · 👷 ${mech ? esc(mech.name) : "Unassigned"}</div></div>
         <span class="chip completed">Completed</span>
       </div>
       <div class="reported-box" style="margin-top:8px"><div class="box-label">Reported by driver</div><div class="issue" style="margin-top:4px">${esc(t.issue)}</div></div>
