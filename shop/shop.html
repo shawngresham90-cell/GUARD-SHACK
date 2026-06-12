@@ -348,6 +348,7 @@
         <button id="stab-cal" onclick="shopTab('cal')">Calendar</button>
         <button id="stab-parts" onclick="shopTab('parts')">Parts</button>
         <button id="stab-mech" onclick="shopTab('mech')">Mechanics</button>
+        <button id="stab-forms" onclick="shopTab('forms')">Forms</button>
       </div>
 
       <!-- queue -->
@@ -410,6 +411,14 @@
           <p class="hint" style="margin-top:10px">Leave email blank for a mechanic who works off the shop tablet. To give a mechanic their own login: create their user under Supabase → Authentication, then enter the same email here. They'll see only their assigned tickets — no parts or cost.</p>
         </div>
         <div class="card"><h2 class="section">Mechanics</h2><div id="mechList"></div></div>
+      </div>
+
+      <!-- forms (PM forms + SOP manual + KPI scorecard).
+           Lives in the shop view, which only shop & mechanic roles reach
+           (drivers use the home view, dispatch uses the dispatch view), so the
+           tab is hidden from driver/dispatch by construction. -->
+      <div id="shop-forms" style="display:none">
+        <div class="card"><div id="formsList"></div></div>
       </div>
     </section>
 
@@ -764,7 +773,7 @@
   }
 
   function shopTab(t) {
-    ["queue", "cal", "parts", "mech"].forEach(k => {
+    ["queue", "cal", "parts", "mech", "forms"].forEach(k => {
       $("stab-" + k).classList.toggle("active", k === t);
       $("shop-" + k).style.display = k === t ? "block" : "none";
     });
@@ -772,6 +781,7 @@
     if (t === "cal") renderCalendar();
     if (t === "parts") renderParts();
     if (t === "mech") renderMechanics();
+    if (t === "forms") renderForms();
   }
 
   function renderShop() { applyRoleUI(); renderQueue(); }
@@ -1194,6 +1204,53 @@
   }
 
   // ============================ STAFF: mechanics ============================
+  // ============================ STAFF: forms ============================
+  // PM forms, SOP manual, and KPI scorecard — static files under shop/pm-forms/.
+  // Available to shop & mechanic roles (this tab only renders in the shop view).
+  const PM_FORM_GROUPS = [
+    { group: "Tractor PM", items: [
+      { name: "PM-A (15,000 mi)",                file: "Tractor_PM-A_Fillable.pdf" },
+      { name: "PM-B (45,000 mi)",                file: "Tractor_PM-B_Fillable.pdf" },
+      { name: "PM-C (90,000 mi)",                file: "Tractor_PM-C_Fillable.pdf" },
+      { name: "Annual Vehicle Inspection (AVI)", file: "Tractor_AVI_Fillable.pdf" },
+    ]},
+    { group: "Trailer", items: [
+      { name: "Trailer PM (every 90 days)", file: "Trailer_PM_Fillable.pdf" },
+      { name: "Trailer AVI (every 6 mo.)",  file: "Trailer_AVI_Fillable.pdf" },
+    ]},
+    { group: "APU", items: [
+      { name: "Navistar Electric APU PM", file: "Navistar_Electric_APU_PM_Fillable.pdf" },
+      { name: "Green APU PM",             file: "Green_APU_PM_Fillable.pdf" },
+      { name: "Thermo King APU PM",       file: "Thermo_King_APU_PM_Fillable.pdf" },
+    ]},
+    { group: "SOP Manual", items: [
+      { name: "Rosedale Maintenance SOP Manual", file: "Rosedale_Maintenance_SOP_Manual.pdf" },
+    ]},
+    { group: "KPI Scorecard", items: [
+      { name: "Monthly KPI Scorecard", file: "Rosedale_Monthly_KPI_Scorecard.xlsx" },
+    ]},
+  ];
+  function renderForms() {
+    const el = $("formsList");
+    el.innerHTML = `<h2 class="section">Forms &amp; checklists</h2>
+      <div class="hint" style="margin-bottom:14px">PM forms, the SOP manual, and the monthly KPI scorecard. Open views the file in a new tab; Download saves a copy.</div>` +
+      PM_FORM_GROUPS.map(g => `<h2 class="section">${esc(g.group)}</h2>` + g.items.map(it => {
+        const url = "pm-forms/" + it.file;
+        const ext = it.file.split(".").pop().toUpperCase();
+        return `<div class="row">
+          <div class="grow"><div class="name">${esc(it.name)}</div><div class="small">${ext}</div></div>
+          <button class="btn-sm btn-blue" onclick="window.open('${url}','_blank','noopener')">Open</button>
+          <button class="btn-sm btn-ghost" onclick="downloadFile('${url}','${esc(it.file)}')">Download</button>
+        </div>`;
+      }).join("")).join("");
+  }
+  // Force a download (same-origin files) rather than navigating to them.
+  function downloadFile(url, name) {
+    const a = document.createElement("a");
+    a.href = url; a.download = name || "";
+    document.body.appendChild(a); a.click(); a.remove();
+  }
+
   function renderMechanics() {
     const el = $("mechList");
     if (!state.mechanics.length) { el.innerHTML = `<div class="empty">No mechanics yet.</div>`; return; }
