@@ -8,6 +8,9 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
   <meta name="apple-mobile-web-app-title" content="Rosedale Shop" />
   <link rel="manifest" href="shop.webmanifest" />
+  <!-- PDF.js annotation-layer styles: position the editable form widgets exactly
+       over the rendered page. Pinned to the same pdfjs-dist version loaded below. -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pdfjs-dist@2.16.105/web/pdf_viewer.css" />
   <title>Rosedale Shop Scheduler</title>
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
@@ -233,6 +236,55 @@
     .star { background: transparent; padding: 4px 8px; font-size: 18px; line-height: 1; border-radius: 8px; }
     .star.on { filter: drop-shadow(0 0 6px rgba(255,209,102,0.7)); }
     .pri { color: var(--amber); }
+
+    /* ---- Fillable PM form viewer (full-screen overlay) ---- */
+    .fv-overlay {
+      position: fixed; inset: 0; z-index: 120; background: #0b1015;
+      display: none; flex-direction: column;
+    }
+    .fv-overlay.show { display: flex; }
+    .fv-bar {
+      display: flex; align-items: center; gap: 8px; padding: 10px 12px;
+      background: var(--panel); border-bottom: 1px solid var(--line);
+      position: sticky; top: 0; flex: 0 0 auto;
+    }
+    .fv-bar .fv-title {
+      flex: 1 1 auto; min-width: 0; font-weight: 700; font-size: 15px;
+      white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+    }
+    .fv-bar .small { color: var(--muted); font-weight: 400; }
+    .fv-body { flex: 1 1 auto; overflow: auto; padding: 14px 10px 40px; -webkit-overflow-scrolling: touch; }
+    .fv-pages { display: flex; flex-direction: column; align-items: center; gap: 16px; }
+    .fv-page {
+      position: relative; background: #fff; box-shadow: 0 6px 20px rgba(0,0,0,0.45);
+      border-radius: 4px; overflow: hidden; max-width: 100%;
+    }
+    .fv-page canvas { display: block; }
+    /* The PDF.js annotation layer overlays the canvas; its inputs come from the
+       PDF's own AcroForm fields. Make them legible/tappable on a tablet. */
+    .fv-page .annotationLayer { position: absolute; top: 0; left: 0; }
+    .fv-page .annotationLayer section { position: absolute; }
+    .fv-page .annotationLayer .textWidgetAnnotation input,
+    .fv-page .annotationLayer .textWidgetAnnotation textarea,
+    .fv-page .annotationLayer .choiceWidgetAnnotation select,
+    .fv-page .annotationLayer .buttonWidgetAnnotation input {
+      background: rgba(70,150,255,0.10);
+      border: 1px solid rgba(70,150,255,0.55);
+      color: #07223f; font-size: inherit; box-sizing: border-box;
+    }
+    .fv-page .annotationLayer .textWidgetAnnotation input:focus,
+    .fv-page .annotationLayer .textWidgetAnnotation textarea:focus,
+    .fv-page .annotationLayer .choiceWidgetAnnotation select:focus {
+      background: rgba(255,225,120,0.35); outline: 2px solid var(--orange);
+    }
+    .fv-loading { color: var(--muted); text-align: center; padding: 40px 12px; }
+    .fv-spin {
+      width: 26px; height: 26px; border-radius: 50%; margin: 0 auto 12px;
+      border: 3px solid var(--line); border-top-color: var(--orange);
+      animation: fvspin 0.8s linear infinite;
+    }
+    @keyframes fvspin { to { transform: rotate(360deg); } }
+    .fv-hint { text-align: center; color: var(--muted); font-size: 12px; margin: 4px 0 0; }
   </style>
 </head>
 <body>
@@ -439,9 +491,37 @@
   </main>
 
   <div class="modal-overlay" id="ticketModal"><div class="modal" id="ticketModalBody"></div></div>
+
+  <!-- Fillable PM form viewer. Renders the PDF's own AcroForm fields as editable
+       (PDF.js), fills typed values back into the PDF (pdf-lib) for Print / Email. -->
+  <div class="fv-overlay" id="fvOverlay" aria-hidden="true">
+    <div class="fv-bar">
+      <div class="fv-title" id="fvTitle">Form</div>
+      <button class="btn-sm btn-blue" id="fvPrint" onclick="fvPrint()">🖨 Print</button>
+      <button class="btn-sm btn-blue" id="fvEmail" onclick="fvEmailPrompt()">✉ Email</button>
+      <button class="btn-sm btn-ghost" onclick="fvClose()">✕ Close</button>
+    </div>
+    <div class="fv-body" id="fvBody">
+      <div class="fv-loading" id="fvLoading"><div class="fv-spin"></div>Loading form…</div>
+      <div class="fv-pages" id="fvPages"></div>
+      <p class="fv-hint" id="fvFootHint"></p>
+    </div>
+  </div>
+
   <div id="toast"></div>
 
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <!-- PDF.js (render existing AcroForm fields as editable) + pdf-lib (fill typed
+       values back into the PDF for Print/Email). If these ever fail to load, the
+       Forms tab degrades to plain Open/Download. -->
+  <script src="https://cdn.jsdelivr.net/npm/pdfjs-dist@2.16.105/legacy/build/pdf.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/pdf-lib@1.17.1/dist/pdf-lib.min.js"></script>
+  <script>
+    if (window.pdfjsLib) {
+      window.pdfjsLib.GlobalWorkerOptions.workerSrc =
+        "https://cdn.jsdelivr.net/npm/pdfjs-dist@2.16.105/legacy/build/pdf.worker.min.js";
+    }
+  </script>
   <script>
   // ============================================================================
   // CONFIG — paste your Supabase project values here.
@@ -1207,21 +1287,24 @@
   // ============================ STAFF: forms ============================
   // PM forms, SOP manual, and KPI scorecard — static files under shop/pm-forms/.
   // Available to shop & mechanic roles (this tab only renders in the shop view).
+  // `fillable: true` → the PDF has real AcroForm fields; the Forms tab offers a
+  // "Fill" button that opens the in-browser editor. The SOP manual and the KPI
+  // scorecard have no fields, so they stay view/download only.
   const PM_FORM_GROUPS = [
     { group: "Tractor PM", items: [
-      { name: "PM-A (15,000 mi)",                file: "Tractor_PM-A_Fillable.pdf" },
-      { name: "PM-B (45,000 mi)",                file: "Tractor_PM-B_Fillable.pdf" },
-      { name: "PM-C (90,000 mi)",                file: "Tractor_PM-C_Fillable.pdf" },
-      { name: "Annual Vehicle Inspection (AVI)", file: "Tractor_AVI_Fillable.pdf" },
+      { name: "PM-A (15,000 mi)",                file: "Tractor_PM-A_Fillable.pdf", fillable: true },
+      { name: "PM-B (45,000 mi)",                file: "Tractor_PM-B_Fillable.pdf", fillable: true },
+      { name: "PM-C (90,000 mi)",                file: "Tractor_PM-C_Fillable.pdf", fillable: true },
+      { name: "Annual Vehicle Inspection (AVI)", file: "Tractor_AVI_Fillable.pdf", fillable: true },
     ]},
     { group: "Trailer", items: [
-      { name: "Trailer PM (every 90 days)", file: "Trailer_PM_Fillable.pdf" },
-      { name: "Trailer AVI (every 6 mo.)",  file: "Trailer_AVI_Fillable.pdf" },
+      { name: "Trailer PM (every 90 days)", file: "Trailer_PM_Fillable.pdf", fillable: true },
+      { name: "Trailer AVI (every 6 mo.)",  file: "Trailer_AVI_Fillable.pdf", fillable: true },
     ]},
     { group: "APU", items: [
-      { name: "Navistar Electric APU PM", file: "Navistar_Electric_APU_PM_Fillable.pdf" },
-      { name: "Green APU PM",             file: "Green_APU_PM_Fillable.pdf" },
-      { name: "Thermo King APU PM",       file: "Thermo_King_APU_PM_Fillable.pdf" },
+      { name: "Navistar Electric APU PM", file: "Navistar_Electric_APU_PM_Fillable.pdf", fillable: true },
+      { name: "Green APU PM",             file: "Green_APU_PM_Fillable.pdf", fillable: true },
+      { name: "Thermo King APU PM",       file: "Thermo_King_APU_PM_Fillable.pdf", fillable: true },
     ]},
     { group: "SOP Manual", items: [
       { name: "Rosedale Maintenance SOP Manual", file: "Rosedale_Maintenance_SOP_Manual.pdf" },
@@ -1230,19 +1313,256 @@
       { name: "Monthly KPI Scorecard", file: "Rosedale_Monthly_KPI_Scorecard.xlsx" },
     ]},
   ];
+  // Flat lookup by filename — the viewer needs the display name for a given file.
+  const PM_FORM_BY_FILE = {};
+  PM_FORM_GROUPS.forEach(g => g.items.forEach(it => { PM_FORM_BY_FILE[it.file] = it; }));
+  const FORMS_FILLABLE_READY = !!(window.pdfjsLib && window.PDFLib);
+
   function renderForms() {
     const el = $("formsList");
+    const intro = FORMS_FILLABLE_READY
+      ? `Fill PM forms right on the tablet — type on the form, then Print or Email a copy. Open views the file; Download saves it.`
+      : `PM forms, the SOP manual, and the monthly KPI scorecard. Open views the file in a new tab; Download saves a copy.`;
     el.innerHTML = `<h2 class="section">Forms &amp; checklists</h2>
-      <div class="hint" style="margin-bottom:14px">PM forms, the SOP manual, and the monthly KPI scorecard. Open views the file in a new tab; Download saves a copy.</div>` +
+      <div class="hint" style="margin-bottom:14px">${intro}</div>` +
       PM_FORM_GROUPS.map(g => `<h2 class="section">${esc(g.group)}</h2>` + g.items.map(it => {
         const url = "pm-forms/" + it.file;
         const ext = it.file.split(".").pop().toUpperCase();
+        const fill = (it.fillable && FORMS_FILLABLE_READY)
+          ? `<button class="btn-sm btn-primary" onclick="openFormFiller('${esc(it.file)}')">Fill</button>`
+          : "";
         return `<div class="row">
-          <div class="grow"><div class="name">${esc(it.name)}</div><div class="small">${ext}</div></div>
+          <div class="grow"><div class="name">${esc(it.name)}</div><div class="small">${ext}${it.fillable ? " · fillable" : ""}</div></div>
+          ${fill}
           <button class="btn-sm btn-blue" onclick="window.open('${url}','_blank','noopener')">Open</button>
           <button class="btn-sm btn-ghost" onclick="downloadFile('${url}','${esc(it.file)}')">Download</button>
         </div>`;
       }).join("")).join("");
+  }
+
+  // ============================ Fillable PM form viewer ============================
+  // PDF.js renders each page to a canvas and overlays the PDF's existing AcroForm
+  // fields as editable widgets (renderInteractiveForms) — we do NOT rebuild fields.
+  // The tech types directly on the form; values live in PDF.js's annotationStorage.
+  // Print / Email then load the ORIGINAL bytes in pdf-lib, write the typed values
+  // into the same named fields, flatten, and either open the print dialog or POST
+  // the bytes to the email-form edge function.
+  const fv = { pdf: null, bytes: null, file: null, name: null, annById: {}, busy: false };
+
+  async function openFormFiller(file) {
+    const item = PM_FORM_BY_FILE[file];
+    if (!item) return;
+    if (!window.pdfjsLib || !window.PDFLib) {       // libs missing → just open the PDF
+      return window.open("pm-forms/" + file, "_blank", "noopener");
+    }
+    fv.file = file; fv.name = item.name; fv.annById = {}; fv.pdf = null; fv.bytes = null;
+    $("fvTitle").innerHTML = `${esc(item.name)} <span class="small">· tap a field and type</span>`;
+    $("fvPages").innerHTML = "";
+    $("fvFootHint").textContent = "";
+    $("fvLoading").style.display = "block";
+    $("fvOverlay").classList.add("show");
+    $("fvOverlay").setAttribute("aria-hidden", "false");
+    document.body.style.overflow = "hidden";
+    try {
+      const resp = await fetch("pm-forms/" + file, { cache: "force-cache" });
+      if (!resp.ok) throw new Error("HTTP " + resp.status);
+      fv.bytes = new Uint8Array(await resp.arrayBuffer());
+      // PDF.js consumes the buffer, so hand it a copy and keep our own for pdf-lib.
+      fv.pdf = await window.pdfjsLib.getDocument({ data: fv.bytes.slice() }).promise;
+      await fvRenderAll();
+      $("fvLoading").style.display = "none";
+      $("fvFootHint").textContent = `${fv.pdf.numPages} page${fv.pdf.numPages > 1 ? "s" : ""} · typed values save into Print / Email copies.`;
+    } catch (e) {
+      console.error("form load failed", e);
+      $("fvLoading").innerHTML = "Couldn't load this form in the editor.";
+      toast("Couldn't open the form editor — opening the file instead", true);
+      fvClose();
+      window.open("pm-forms/" + file, "_blank", "noopener");
+    }
+  }
+
+  // Minimal link service — the annotation layer only needs these for link
+  // annotations (the PM forms are fields, not links), so stubs are enough.
+  const FV_LINK_SERVICE = {
+    externalLinkTarget: 2, externalLinkRel: "noopener", externalLinkEnabled: true,
+    getDestinationHash: () => "#", getAnchorUrl: () => "#",
+    addLinkAttributes: () => {}, goToDestination: () => {}, goToPage: () => {},
+    navigateTo: () => {}, isPageVisible: () => true, isPageCached: () => true,
+  };
+
+  async function fvRenderAll() {
+    const host = $("fvPages");
+    const maxW = Math.min($("fvBody").clientWidth - 20, 900);
+    for (let n = 1; n <= fv.pdf.numPages; n++) {
+      const page = await fv.pdf.getPage(n);
+      const base = page.getViewport({ scale: 1 });
+      const scale = Math.max(0.5, Math.min(maxW / base.width, 2.2));
+      const viewport = page.getViewport({ scale });
+      const dpr = window.devicePixelRatio || 1;
+
+      const wrap = document.createElement("div");
+      wrap.className = "fv-page";
+      wrap.style.width = viewport.width + "px";
+      wrap.style.height = viewport.height + "px";
+
+      const canvas = document.createElement("canvas");
+      canvas.width = Math.floor(viewport.width * dpr);
+      canvas.height = Math.floor(viewport.height * dpr);
+      canvas.style.width = viewport.width + "px";
+      canvas.style.height = viewport.height + "px";
+      wrap.appendChild(canvas);
+
+      const layer = document.createElement("div");
+      layer.className = "annotationLayer";
+      layer.style.width = viewport.width + "px";
+      layer.style.height = viewport.height + "px";
+      wrap.appendChild(layer);
+      host.appendChild(wrap);
+
+      await page.render({
+        canvasContext: canvas.getContext("2d"),
+        viewport,
+        transform: dpr !== 1 ? [dpr, 0, 0, dpr, 0, 0] : undefined,
+      }).promise;
+
+      const annotations = await page.getAnnotations({ intent: "display" });
+      annotations.forEach(a => {
+        if (a.fieldName) fv.annById[a.id] = { name: a.fieldName, type: a.fieldType, exportValue: a.exportValue || a.buttonValue };
+      });
+      window.pdfjsLib.AnnotationLayer.render({
+        viewport: viewport.clone({ dontFlip: true }),
+        div: layer,
+        annotations,
+        page,
+        linkService: FV_LINK_SERVICE,
+        downloadManager: null,
+        // Flag that makes the fields EDITABLE. pdf.js renamed this option
+        // (renderInteractiveForms → renderForms) across 2.x; pass both so the
+        // widgets are interactive regardless of the exact build served.
+        renderForms: true,
+        renderInteractiveForms: true,
+        annotationStorage: fv.pdf.annotationStorage,
+        enableScripting: false,
+      });
+    }
+  }
+
+  // Read the typed values out of PDF.js and write them into the original PDF
+  // with pdf-lib, by field NAME (the fields already exist — we only set values).
+  async function fvBuildFilledPdf() {
+    const storage = (fv.pdf.annotationStorage && fv.pdf.annotationStorage.getAll()) || {};
+    const values = {};
+    for (const [id, v] of Object.entries(storage)) {
+      const meta = fv.annById[id];
+      if (!meta) continue;
+      values[meta.name] = { v, meta };
+    }
+    const doc = await window.PDFLib.PDFDocument.load(fv.bytes.slice());
+    const form = doc.getForm();
+    for (const [name, { v, meta }] of Object.entries(values)) {
+      try {
+        const field = form.getField(name);
+        const kind = field.constructor.name;
+        const raw = (v && typeof v === "object") ? v.value : v;
+        if (kind === "PDFTextField") {
+          field.setText(raw == null ? "" : String(raw));
+        } else if (kind === "PDFCheckBox") {
+          const on = raw === true || (raw != null && raw !== false && raw !== "Off" && raw !== "");
+          on ? field.check() : field.uncheck();
+        } else if (kind === "PDFRadioGroup" || kind === "PDFDropdown" || kind === "PDFOptionList") {
+          const sel = raw != null ? String(raw) : (meta.exportValue != null ? String(meta.exportValue) : "");
+          if (sel && sel !== "Off") field.select(sel);
+        }
+      } catch (_) { /* unknown/edge field — skip rather than abort the whole fill */ }
+    }
+    try { form.flatten(); } catch (_) { /* some forms resist flatten; ship unflattened */ }
+    return await doc.save();
+  }
+
+  function fvBaseName() {
+    return (fv.file || "form").replace(/_Fillable\.pdf$/i, "").replace(/\.pdf$/i, "") + "_filled.pdf";
+  }
+
+  async function fvPrint() {
+    if (fv.busy || !fv.pdf) return;
+    fv.busy = true; const btn = $("fvPrint"); const lbl = btn.textContent; btn.textContent = "…"; btn.disabled = true;
+    try {
+      const bytes = await fvBuildFilledPdf();
+      const url = URL.createObjectURL(new Blob([bytes], { type: "application/pdf" }));
+      // Print via a hidden iframe so we don't lose the editor; pop a tab as fallback.
+      let frame = document.getElementById("fvPrintFrame");
+      if (frame) frame.remove();
+      frame = document.createElement("iframe");
+      frame.id = "fvPrintFrame";
+      frame.style.cssText = "position:fixed;right:0;bottom:0;width:0;height:0;border:0;";
+      frame.onload = () => {
+        try { frame.contentWindow.focus(); frame.contentWindow.print(); }
+        catch (_) { window.open(url, "_blank"); }
+        setTimeout(() => URL.revokeObjectURL(url), 60000);
+      };
+      frame.src = url;
+      document.body.appendChild(frame);
+    } catch (e) {
+      console.error(e); toast("Couldn't prepare the form for print", true);
+    } finally {
+      fv.busy = false; btn.textContent = lbl; btn.disabled = false;
+    }
+  }
+
+  function fvEmailPrompt() {
+    if (!fv.pdf) return;
+    openModal(`<h2 class="section">Email this form</h2>
+      <div class="hint" style="margin-bottom:12px">Sends <b>${esc(fv.name)}</b> as a filled PDF attachment from the shop's email.</div>
+      <label class="fld">Send to <span style="color:var(--muted)">(leave blank for the shop's default)</span></label>
+      <input id="fv-to" type="email" autocapitalize="none" placeholder="name@company.com" />
+      <label class="fld">Filled by <span style="color:var(--muted)">(optional)</span></label>
+      <input id="fv-tech" autocomplete="off" placeholder="Mechanic name" value="${state.me ? esc(state.me.name) : ""}" />
+      <label class="fld">Note <span style="color:var(--muted)">(optional)</span></label>
+      <textarea id="fv-note" placeholder="Anything the recipient should know…"></textarea>
+      <div class="btn-row" style="margin-top:14px">
+        <button class="btn-primary" id="fv-send" onclick="fvEmailSend()">Send</button>
+        <button class="btn-ghost btn-sm" onclick="closeModal()">Cancel</button>
+      </div>`);
+  }
+
+  async function fvEmailSend() {
+    if (!ensureConfigured()) return;
+    const to = $("fv-to").value.trim();
+    const note = $("fv-note").value.trim();
+    const tech = $("fv-tech").value.trim();
+    const btn = $("fv-send"); btn.disabled = true; btn.textContent = "Sending…";
+    try {
+      const bytes = await fvBuildFilledPdf();
+      const pdf_base64 = bytesToBase64(bytes);
+      const { data, error } = await sb.functions.invoke("email-form", {
+        body: { form_name: fv.name, filename: fvBaseName(), pdf_base64, to: to || undefined, note: note || undefined, from_tech: tech || undefined },
+      });
+      if (error) throw error;
+      closeModal();
+      toast("Form emailed ✓" + (data && data.sent_to ? " → " + (Array.isArray(data.sent_to) ? data.sent_to.join(", ") : data.sent_to) : ""));
+    } catch (e) {
+      console.error("email-form failed", e);
+      btn.disabled = false; btn.textContent = "Send";
+      toast("Couldn't email the form — check the address and try again", true);
+    }
+  }
+
+  function fvClose() {
+    $("fvOverlay").classList.remove("show");
+    $("fvOverlay").setAttribute("aria-hidden", "true");
+    document.body.style.overflow = "";
+    $("fvPages").innerHTML = "";
+    if (fv.pdf && fv.pdf.destroy) { try { fv.pdf.destroy(); } catch (_) {} }
+    fv.pdf = null; fv.bytes = null; fv.annById = {};
+  }
+
+  // Uint8Array → base64 without blowing the call stack on large PDFs.
+  function bytesToBase64(bytes) {
+    let bin = ""; const chunk = 0x8000;
+    for (let i = 0; i < bytes.length; i += chunk) {
+      bin += String.fromCharCode.apply(null, bytes.subarray(i, i + chunk));
+    }
+    return btoa(bin);
   }
   // Force a download (same-origin files) rather than navigating to them.
   function downloadFile(url, name) {
