@@ -29,14 +29,21 @@ Cost per blast: 600 texts × ~$0.0079 + carrier fees ≈ **$5–7 per blast**.
 ### 2. Deploy the function (from this folder)
 ```bash
 supabase functions deploy send-blast --no-verify-jwt
-supabase secrets set \
-  TWILIO_ACCOUNT_SID=ACxxxxxxxx \
-  TWILIO_AUTH_TOKEN=xxxxxxxx \
-  TWILIO_FROM=MGxxxxxxxx \
-  BLAST_SECRET=pick-a-long-random-password
 ```
-`TWILIO_FROM` can be either the Messaging Service SID (`MG…`, preferred)
-or the raw phone number (`+15551234567`).
+
+Config lives in the private `textblast_config` table (key/value rows,
+RLS-locked so only the function can read it) — add or edit the rows in the
+Supabase dashboard's Table Editor, no redeploy needed:
+
+| key | value |
+|---|---|
+| `BLAST_SECRET` | a long random password; same one goes in the page's Setup panel |
+| `TWILIO_ACCOUNT_SID` | from the Twilio console (starts with `AC`) |
+| `TWILIO_AUTH_TOKEN` | same console page |
+| `TWILIO_FROM` | Messaging Service SID (`MG…`, preferred) or the raw number (`+15551234567`) |
+
+(Env secrets set via `supabase secrets set` also work and take precedence
+over the table if both exist.)
 
 ### 3. Set up the page
 1. Open `textblast.html` in a browser.

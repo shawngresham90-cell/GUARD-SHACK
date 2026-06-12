@@ -8,7 +8,8 @@
 // fast; Twilio queues the actual carrier delivery on its side.
 //
 // Deploy:  supabase functions deploy send-blast --no-verify-jwt
-// Secrets (set with `supabase secrets set ...`):
+// Config (each key read from env secrets first, then the private
+// `textblast_config` table — rows there can be edited in the Table Editor):
 //   TWILIO_ACCOUNT_SID  — from the Twilio console dashboard
 //   TWILIO_AUTH_TOKEN   — from the Twilio console dashboard
 //   TWILIO_FROM         — your Twilio number (+15551234567) OR a Messaging
@@ -34,18 +35,43 @@ function json(status: number, data: unknown): Response {
   });
 }
 
+// Env secrets win; the textblast_config table is the fallback so config can
+// be managed from the dashboard's Table Editor without redeploying.
+async function loadConfig(): Promise<Record<string, string>> {
+  const cfg: Record<string, string> = {};
+  const url = Deno.env.get("SUPABASE_URL");
+  const key = Deno.env.get("SUPABASE_SERVICE_ROLE_KEY");
+  if (url && key) {
+    try {
+      const res = await fetch(`${url}/rest/v1/textblast_config?select=key,value`, {
+        headers: { apikey: key, Authorization: `Bearer ${key}` },
+      });
+      if (res.ok) {
+        for (const row of await res.json()) cfg[row.key] = row.value;
+      }
+    } catch { /* fall through to env-only */ }
+  }
+  for (const k of ["BLAST_SECRET", "TWILIO_ACCOUNT_SID", "TWILIO_AUTH_TOKEN", "TWILIO_FROM"]) {
+    const v = Deno.env.get(k);
+    if (v) cfg[k] = v;
+  }
+  return cfg;
+}
+
 Deno.serve(async (req: Request) => {
   if (req.method === "OPTIONS") return new Response(null, { status: 204, headers: CORS });
   if (req.method !== "POST") return json(405, { error: "Method not allowed" });
 
-  const secret = Deno.env.get("BLAST_SECRET");
+  const cfg = await loadConfig();
+
+  const secret = cfg.BLAST_SECRET;
   if (!secret || req.headers.get("x-blast-secret") !== secret) {
     return json(401, { error: "Unauthorized — wrong or missing secret" });
   }
 
-  const sid = Deno.env.get("TWILIO_ACCOUNT_SID");
-  const token = Deno.env.get("TWILIO_AUTH_TOKEN");
-  const from = Deno.env.get("TWILIO_FROM");
+  const sid = cfg.TWILIO_ACCOUNT_SID;
+  const token = cfg.TWILIO_AUTH_TOKEN;
+  const from = cfg.TWILIO_FROM;
   if (!sid || !token || !from) {
     return json(500, { error: "Twilio secrets not configured (TWILIO_ACCOUNT_SID / TWILIO_AUTH_TOKEN / TWILIO_FROM)" });
   }
