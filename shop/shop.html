@@ -860,16 +860,16 @@
   }
 
   // ============================ Call Breakdown ============================
-  // On-call number is stored in the existing textblast_config table under the
-  // key on_call_number (digits only). Admins (shop/dispatch) set it; drivers tap
-  // a big red CALL BREAKDOWN button that dials it. No new table, no extra columns.
+  // On-call number is stored in the app_config table (anon-readable, staff-write)
+  // under the key on_call_number (digits only). Admins (shop/dispatch) set it;
+  // drivers tap a big red CALL BREAKDOWN button that dials it.
   const ONCALL_KEY = "on_call_number";
   let onCallNumber = null;
 
   async function loadOnCall() {
     if (!sb) { onCallNumber = null; return null; }
     try {
-      const { data, error } = await sb.from("textblast_config").select("value").eq("key", ONCALL_KEY).maybeSingle();
+      const { data, error } = await sb.from("app_config").select("value").eq("key", ONCALL_KEY).maybeSingle();
       onCallNumber = (!error && data && data.value) ? String(data.value).replace(/\D/g, "") : null;
     } catch { onCallNumber = null; }
     fillOnCallInputs();
@@ -918,7 +918,7 @@
     const value = (inp.value || "").replace(/\D/g, "");       // strip everything except digits
     const btn = $("oc-save-" + prefix), st = $("oc-status-" + prefix);
     btn.disabled = true; btn.textContent = "Saving…";
-    const { error } = await sb.from("textblast_config")
+    const { error } = await sb.from("app_config")
       .upsert({ key: ONCALL_KEY, value }, { onConflict: "key" });   // insert … on conflict (key) do update
     btn.disabled = false; btn.textContent = "Save";
     if (error) { st.style.color = "var(--amber)"; st.textContent = "Couldn't save"; return toast(error.message, true); }
@@ -928,14 +928,14 @@
     renderBreakdownButton();
   }
 
-  // Best-effort live updates: if textblast_config is in the realtime publication,
+  // Best-effort live updates: if app_config is in the realtime publication,
   // the driver button + admin inputs reflect changes without a reload. If it
   // isn't, the per-load re-read in go('driver') still keeps it current.
   let onCallChannel = null;
   function subscribeOnCall() {
     if (!sb || onCallChannel) return;
     onCallChannel = sb.channel("oncall-config")
-      .on("postgres_changes", { event: "*", schema: "public", table: "textblast_config", filter: "key=eq." + ONCALL_KEY }, (p) => {
+      .on("postgres_changes", { event: "*", schema: "public", table: "app_config", filter: "key=eq." + ONCALL_KEY }, (p) => {
         onCallNumber = (p.new && p.new.value) ? String(p.new.value).replace(/\D/g, "") : null;
         renderBreakdownButton(); fillOnCallInputs();
       })
