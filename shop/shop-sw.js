@@ -7,7 +7,7 @@
        returning users kept seeing an old shop.html after deploys.)
      * Other same-origin static files → cache-first for speed.
      * Supabase API + the supabase-js CDN → always network (never cached). */
-const CACHE = 'rosedale-shop-v12';
+const CACHE = 'rosedale-shop-v13';
 const SHELL = ['shop.html', 'shop.webmanifest'];
 
 self.addEventListener('install', (e) => {
