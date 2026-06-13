@@ -369,6 +369,19 @@
     }
     .tchip.ok   { color: var(--green); border-color: rgba(70,192,106,0.45); background: rgba(70,192,106,0.10); }
     .tchip.warn { color: var(--amber); border-color: rgba(255,209,102,0.45); background: rgba(255,209,102,0.12); }
+    /* Driver "Call Breakdown" — large, high-contrast emergency button */
+    .breakdown-btn {
+      display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px;
+      width: 100%; padding: 22px 16px; margin: 0 0 14px; border-radius: 16px; text-align: center;
+      background: #e11d1d; color: #fff; font-size: 23px; font-weight: 800; letter-spacing: .6px;
+      text-decoration: none; border: 0; box-shadow: 0 6px 22px rgba(225,29,29,0.42); cursor: pointer;
+    }
+    .breakdown-btn:active { transform: translateY(1px); }
+    .breakdown-btn.disabled {
+      background: var(--panel-2); color: var(--muted); box-shadow: none; cursor: not-allowed;
+      border: 1px solid var(--line);
+    }
+    .bd-sub { font-size: 12.5px; font-weight: 600; letter-spacing: 0; opacity: .92; }
   </style>
 </head>
 <body>
@@ -401,6 +414,8 @@
     <!-- ============ DRIVER ============ -->
     <section id="view-driver" class="view">
       <button class="back" onclick="go('home')">← Back</button>
+      <!-- emergency on-call line — number is set by shop/dispatch, read live -->
+      <div id="driver-breakdown"></div>
       <div class="tabs">
         <button id="dtab-new" class="active" onclick="driverTab('new')">Report a problem</button>
         <button id="dtab-offsite" onclick="driverTab('offsite')">Off-site</button>
@@ -531,6 +546,7 @@
       <!-- queue: Ready/Non-Ready toggle + status tabs are rendered into
            #queueControls by renderQueue() (counts stay live) -->
       <div id="shop-queue">
+        <div id="shop-oncall"></div>
         <button class="btn-primary" id="qBtnAdd" style="margin-bottom:12px" onclick="openShopIntake()">+ Add Ticket</button>
         <div id="queueControls"></div>
         <div id="queueList"></div>
@@ -607,6 +623,7 @@
          add notes only — never change repair status, and never see the private
          shop calendar / parts / cost (blocked at the DATABASE by RLS). -->
     <section id="view-dispatch" class="view">
+      <div id="disp-oncall"></div>
       <div id="dispControls"></div>
       <div id="dispatchList"></div>
     </section>
@@ -837,9 +854,92 @@
     if (where === "shop") renderShop();
     if (where === "dispatch") renderDispatch();
     if (where === "home") $("headerSub").textContent = "Truck repair queue";
-    if (where === "driver") { $("headerSub").textContent = "Driver"; resetPendingPhotos(); }
+    if (where === "driver") { $("headerSub").textContent = "Driver"; resetPendingPhotos(); renderBreakdownButton(); loadOnCall().then(renderBreakdownButton); }
     window.scrollTo(0, 0);
     updateWho();
+  }
+
+  // ============================ Call Breakdown ============================
+  // On-call number is stored in the existing textblast_config table under the
+  // key on_call_number (digits only). Admins (shop/dispatch) set it; drivers tap
+  // a big red CALL BREAKDOWN button that dials it. No new table, no extra columns.
+  const ONCALL_KEY = "on_call_number";
+  let onCallNumber = null;
+
+  async function loadOnCall() {
+    if (!sb) { onCallNumber = null; return null; }
+    try {
+      const { data, error } = await sb.from("textblast_config").select("value").eq("key", ONCALL_KEY).maybeSingle();
+      onCallNumber = (!error && data && data.value) ? String(data.value).replace(/\D/g, "") : null;
+    } catch { onCallNumber = null; }
+    fillOnCallInputs();
+    return onCallNumber;
+  }
+
+  // Driver-facing button. Empty/blank guard → disabled, no broken tel: link.
+  function renderBreakdownButton() {
+    const host = $("driver-breakdown"); if (!host) return;
+    if (onCallNumber) {
+      host.innerHTML = `<a class="breakdown-btn" href="tel:${esc(onCallNumber)}">🚨 CALL BREAKDOWN<span class="bd-sub">Tap to call the on-call tech</span></a>`;
+    } else {
+      host.innerHTML = `<div class="breakdown-btn disabled" aria-disabled="true">CALL BREAKDOWN<span class="bd-sub">No on-call number set — contact dispatch.</span></div>`;
+    }
+  }
+
+  // Admin field (shop + dispatch only). Rendered into #shop-oncall / #disp-oncall.
+  function oncallCardHtml(prefix) {
+    return `<div class="card" style="margin-bottom:12px">
+      <label class="fld" style="margin-top:0">📞 Today's On-Call Number</label>
+      <div style="display:flex;gap:8px">
+        <input id="oc-input-${prefix}" inputmode="tel" autocomplete="off" placeholder="e.g. 7062261003" style="flex:1"
+               oninput="document.getElementById('oc-status-${prefix}').textContent=''" />
+        <button class="btn-blue" id="oc-save-${prefix}" onclick="saveOnCall('${prefix}')">Save</button>
+      </div>
+      <div class="small" style="margin-top:6px">
+        <span id="oc-status-${prefix}" style="font-weight:700"></span>
+        <span style="color:var(--muted)">Drivers tap “Call Breakdown” to reach this number.</span>
+      </div>
+    </div>`;
+  }
+  function mountOncallAdmin() {
+    if (state.isMechanic) return;                 // mechanics don't manage on-call
+    const host = state.isDispatch ? $("disp-oncall") : $("shop-oncall");
+    if (host && !host.firstChild) host.innerHTML = oncallCardHtml(state.isDispatch ? "disp" : "shop");
+  }
+  function fillOnCallInputs() {
+    ["shop", "disp"].forEach(p => {
+      const i = $("oc-input-" + p);
+      if (i && document.activeElement !== i) i.value = onCallNumber || "";
+    });
+  }
+  async function saveOnCall(prefix) {
+    if (!ensureConfigured()) return;
+    const inp = $("oc-input-" + prefix);
+    const value = (inp.value || "").replace(/\D/g, "");       // strip everything except digits
+    const btn = $("oc-save-" + prefix), st = $("oc-status-" + prefix);
+    btn.disabled = true; btn.textContent = "Saving…";
+    const { error } = await sb.from("textblast_config")
+      .upsert({ key: ONCALL_KEY, value }, { onConflict: "key" });   // insert … on conflict (key) do update
+    btn.disabled = false; btn.textContent = "Save";
+    if (error) { st.style.color = "var(--amber)"; st.textContent = "Couldn't save"; return toast(error.message, true); }
+    onCallNumber = value || null;
+    inp.value = value;                                          // show normalized digits
+    st.style.color = "var(--green)"; st.textContent = "Saved ✓";
+    renderBreakdownButton();
+  }
+
+  // Best-effort live updates: if textblast_config is in the realtime publication,
+  // the driver button + admin inputs reflect changes without a reload. If it
+  // isn't, the per-load re-read in go('driver') still keeps it current.
+  let onCallChannel = null;
+  function subscribeOnCall() {
+    if (!sb || onCallChannel) return;
+    onCallChannel = sb.channel("oncall-config")
+      .on("postgres_changes", { event: "*", schema: "public", table: "textblast_config", filter: "key=eq." + ONCALL_KEY }, (p) => {
+        onCallNumber = (p.new && p.new.value) ? String(p.new.value).replace(/\D/g, "") : null;
+        renderBreakdownButton(); fillOnCallInputs();
+      })
+      .subscribe();
   }
   function updateWho() {
     const box = $("whoBox");
@@ -1071,6 +1171,7 @@
       state.tickets = tk.data || [];
       state.mechanics = []; state.parts = []; state.appointments = [];
       subscribeShop();
+      mountOncallAdmin(); loadOnCall();
       return;
     }
     if (state.isMechanic) {
@@ -1097,6 +1198,7 @@
     state.parts = pt.data || [];
     state.appointments = ap.data || [];
     subscribeShop();
+    mountOncallAdmin(); loadOnCall();
   }
 
   function shopTab(t) {
@@ -1121,6 +1223,7 @@
     $("stab-cal").style.display = mech ? "none" : "";
     $("stab-parts").style.display = mech ? "none" : "";
     $("stab-mech").style.display = mech ? "none" : "";
+    $("shop-oncall").style.display = mech ? "none" : "";   // on-call admin is shop-only
     // Add Ticket is available to shop AND mechanics (dispatch never reaches the
     // shop queue — it has its own read-only board).
     $("qBtnAdd").style.display = "";
@@ -2312,6 +2415,7 @@
     renderSetupBanner();
     try { const d = JSON.parse(localStorage.getItem("rss_driver") || "null"); if (d) state.driver = d; } catch {}
     if (sb) {
+      subscribeOnCall();                 // live on-call number for the driver button
       const { data } = await sb.auth.getSession();
       if (data.session) { state.session = data.session; await resolveRole(); await loadShopData(); }
       updateWho();
