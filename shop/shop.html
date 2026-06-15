@@ -107,7 +107,10 @@
 
     /* Big role buttons on home */
     .role-grid { display: grid; gap: 14px; margin-top: 8px; }
-    .lineup-frame { width: 100%; height: calc(100vh - 130px); min-height: 480px; border: 1px solid var(--line); border-radius: 12px; background: #0f1115; margin-top: 6px; }
+    .lineup-frame { flex: 1 1 auto; width: 100%; height: auto; min-height: 0; border: none; border-radius: 0; margin: 0; background: #0f1115; }
+    /* Daily Line Up takes over the whole screen so the board has room to breathe */
+    #view-lineup.active { position: fixed; inset: 0; z-index: 9999; margin: 0; padding: 0; background: #0f1115; display: flex; flex-direction: column; }
+    #view-lineup .back { flex: 0 0 auto; background: #13161d; color: var(--text, #e8edf5); border: none; border-bottom: 1px solid #2a3142; padding: 9px 14px; text-align: left; font-size: 14px; font-weight: 700; }
     .role-btn {
       display: flex; align-items: center; gap: 14px;
       padding: 22px 18px; text-align: left; width: 100%;
@@ -639,7 +642,7 @@
          in one app. Isolated in an iframe — its own styles/scripts can't touch
          the shop app. Same Netlify deploy, no second URL to manage. -->
     <section id="view-lineup" class="view">
-      <button class="back" onclick="go('home')">← Back</button>
+      <button class="back" onclick="go('home')">← Back to Shop</button>
       <iframe class="lineup-frame" src="lineup.html" title="Daily Line Up"></iframe>
     </section>
   </main>
