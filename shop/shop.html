@@ -107,6 +107,7 @@
 
     /* Big role buttons on home */
     .role-grid { display: grid; gap: 14px; margin-top: 8px; }
+    .lineup-frame { width: 100%; height: calc(100vh - 130px); min-height: 480px; border: 1px solid var(--line); border-radius: 12px; background: #0f1115; margin-top: 6px; }
     .role-btn {
       display: flex; align-items: center; gap: 14px;
       padding: 22px 18px; text-align: left; width: 100%;
@@ -408,6 +409,10 @@
           <span class="emoji">📋</span>
           <span><span class="t">Dispatch</span><span class="d">Watch the whole shop, flag priority &amp; add notes — login required</span></span>
         </button>
+        <button class="role-btn" onclick="go('lineup')">
+          <span class="emoji">🚛</span>
+          <span><span class="t">Daily Line Up</span><span class="d">Outbound &amp; inbound board — every load, every day</span></span>
+        </button>
       </div>
     </section>
 
@@ -623,9 +628,19 @@
          add notes only — never change repair status, and never see the private
          shop calendar / parts / cost (blocked at the DATABASE by RLS). -->
     <section id="view-dispatch" class="view">
+      <button class="btn-sm btn-blue" onclick="go('lineup')" style="margin-bottom:10px">🚛 Open Daily Line Up</button>
       <div id="disp-oncall"></div>
       <div id="dispControls"></div>
       <div id="dispatchList"></div>
+    </section>
+
+    <!-- ============ DAILY LINE UP ============ -->
+    <!-- Outbound/inbound board, embedded so the whole dispatch ecosystem lives
+         in one app. Isolated in an iframe — its own styles/scripts can't touch
+         the shop app. Same Netlify deploy, no second URL to manage. -->
+    <section id="view-lineup" class="view">
+      <button class="back" onclick="go('home')">← Back</button>
+      <iframe class="lineup-frame" src="lineup.html" title="Daily Line Up"></iframe>
     </section>
   </main>
 
