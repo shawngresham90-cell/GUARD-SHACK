@@ -1,0 +1,2445 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+  <meta name="theme-color" content="#0e1419" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="Rosedale Shop" />
+  <link rel="manifest" href="shop.webmanifest" />
+  <!-- PDF.js annotation-layer styles: position the editable form widgets exactly
+       over the rendered page. Pinned to the same pdfjs-dist version loaded below. -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pdfjs-dist@2.16.105/web/pdf_viewer.css" />
+  <title>Rosedale Shop Scheduler</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
+    :root {
+      --bg: #0e1419;
+      --panel: #18222b;
+      --panel-2: #1f2c37;
+      --line: #2c3b48;
+      --orange: #f5872b;
+      --orange-soft: #ffb066;
+      --amber: #ffd166;
+      --red: #e5484d;
+      --green: #46c06a;
+      --blue: #4f8cff;
+      --purple: #9b7bff;
+      --text: #eef4f8;
+      --muted: #93a6b4;
+    }
+    html, body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: radial-gradient(circle at top, #16222c 0%, #0e1419 55%, #080c10 100%);
+      color: var(--text);
+      min-height: 100vh;
+      -webkit-text-size-adjust: 100%;
+    }
+    body {
+      padding: env(safe-area-inset-top) 0 calc(16px + env(safe-area-inset-bottom));
+      max-width: 720px;
+      margin: 0 auto;
+    }
+
+    header {
+      text-align: center;
+      padding: 16px 16px 12px;
+      border-bottom: 1px solid var(--line);
+      position: sticky; top: 0;
+      background: linear-gradient(180deg, #16222c, rgba(14,20,25,0.92));
+      backdrop-filter: blur(8px);
+      z-index: 20;
+    }
+    header h1 {
+      font-size: 20px; letter-spacing: 0.5px;
+      display: flex; align-items: center; justify-content: center; gap: 8px;
+    }
+    header h1 .mark {
+      background: linear-gradient(90deg, var(--orange), var(--orange-soft));
+      -webkit-background-clip: text; background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    header .sub { font-size: 12px; color: var(--muted); margin-top: 3px; }
+    header .who {
+      position: absolute; right: 12px; top: 14px;
+      font-size: 12px; color: var(--muted);
+      display: flex; gap: 8px; align-items: center;
+    }
+    header .who button { padding: 6px 10px; font-size: 12px; }
+
+    main { padding: 16px; }
+    .view { display: none; }
+    .view.active { display: block; animation: fade 0.25s ease; }
+    @keyframes fade { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+
+    h2.section { font-size: 12px; text-transform: uppercase; letter-spacing: 1px; color: var(--orange-soft); margin: 20px 0 10px; }
+    h2.section:first-child { margin-top: 0; }
+    .hint { font-size: 12px; color: var(--muted); line-height: 1.5; }
+
+    .card {
+      background: linear-gradient(180deg, var(--panel), #131c24);
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 16px;
+      margin-bottom: 12px;
+      box-shadow: 0 8px 22px rgba(0,0,0,0.35);
+    }
+
+    /* Buttons */
+    button {
+      border: 0; cursor: pointer; font-family: inherit;
+      font-size: 15px; font-weight: 600;
+      border-radius: 12px; padding: 13px 16px;
+      color: var(--text);
+      transition: transform 0.08s ease, filter 0.15s ease;
+    }
+    button:active { transform: scale(0.97); }
+    button:disabled { opacity: 0.5; cursor: default; }
+    .btn-primary { background: linear-gradient(90deg, var(--orange), #d96f1c); color: #1a1208; width: 100%; }
+    .btn-ghost { background: var(--panel-2); border: 1px solid var(--line); }
+    .btn-row { display: flex; gap: 8px; flex-wrap: wrap; }
+    .btn-sm { padding: 9px 12px; font-size: 13px; border-radius: 10px; }
+    .btn-block { width: 100%; }
+    .btn-green { background: rgba(70,192,106,0.16); color: var(--green); border: 1px solid rgba(70,192,106,0.4); }
+    .btn-red { background: rgba(229,72,77,0.16); color: #f08a8d; border: 1px solid rgba(229,72,77,0.4); }
+    .btn-blue { background: rgba(79,140,255,0.16); color: #8fb4ff; border: 1px solid rgba(79,140,255,0.4); }
+
+    /* Big role buttons on home */
+    .role-grid { display: grid; gap: 14px; margin-top: 8px; }
+    .lineup-frame { flex: 1 1 auto; width: 100%; height: auto; min-height: 0; border: none; border-radius: 0; margin: 0; background: #0f1115; }
+    /* Daily Line Up takes over the whole screen so the board has room to breathe */
+    #view-lineup.active { position: fixed; inset: 0; z-index: 9999; margin: 0; padding: 0; background: #0f1115; display: flex; flex-direction: column; }
+    #view-lineup .back { flex: 0 0 auto; background: #13161d; color: var(--text, #e8edf5); border: none; border-bottom: 1px solid #2a3142; padding: 9px 14px; text-align: left; font-size: 14px; font-weight: 700; }
+    .role-btn {
+      display: flex; align-items: center; gap: 14px;
+      padding: 22px 18px; text-align: left; width: 100%;
+      background: linear-gradient(180deg, var(--panel), #131c24);
+      border: 1px solid var(--line); border-radius: 18px;
+    }
+    .role-btn .emoji { font-size: 34px; }
+    .role-btn .t { font-size: 18px; font-weight: 700; }
+    .role-btn .d { font-size: 13px; color: var(--muted); margin-top: 3px; font-weight: 400; }
+
+    /* Forms */
+    label.fld { display: block; font-size: 12px; color: var(--muted); margin: 12px 0 5px; }
+    label.fld .req { color: var(--orange); }
+    input, select, textarea {
+      width: 100%; font-family: inherit; font-size: 16px;
+      background: #0b1117; color: var(--text);
+      border: 1px solid var(--line); border-radius: 10px;
+      padding: 12px; outline: none;
+    }
+    input:focus, select:focus, textarea:focus { border-color: var(--orange); }
+    textarea { resize: vertical; min-height: 72px; }
+    .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+    .three-col { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 8px; }
+
+    /* Status chips */
+    .chip { display: inline-block; font-size: 11px; font-weight: 700; padding: 4px 9px; border-radius: 999px; text-transform: uppercase; letter-spacing: 0.4px; }
+    .chip.intake        { background: rgba(147,166,180,0.18); color: #b9c8d4; }
+    .chip.in_progress   { background: rgba(79,140,255,0.18); color: #8fb4ff; }
+    .chip.waiting_parts { background: rgba(255,209,102,0.18); color: var(--amber); }
+    .chip.completed     { background: rgba(70,192,106,0.18); color: var(--green); }
+
+    /* Ticket cards */
+    .ticket {
+      background: linear-gradient(180deg, var(--panel), #131c24);
+      border: 1px solid var(--line); border-radius: 14px;
+      padding: 14px; margin-bottom: 10px;
+    }
+    .ticket.clickable { cursor: pointer; }
+    .ticket .top { display: flex; justify-content: space-between; align-items: flex-start; gap: 10px; }
+    .ticket .truck { font-size: 16px; font-weight: 700; }
+    .ticket .meta { font-size: 12px; color: var(--muted); margin-top: 2px; }
+    .ticket .issue { font-size: 14px; margin-top: 8px; line-height: 1.45; }
+    .ticket .foot { display: flex; justify-content: space-between; align-items: center; margin-top: 10px; font-size: 12px; color: var(--muted); }
+    .ticket .needed { color: var(--amber); }
+    .ticket .needed.late { color: var(--red); }
+
+    .empty { text-align: center; color: var(--muted); font-size: 14px; padding: 28px 12px; }
+
+    /* Tabs */
+    .tabs { display: flex; gap: 6px; background: var(--panel-2); border: 1px solid var(--line); border-radius: 12px; padding: 4px; margin-bottom: 14px; overflow-x: auto; }
+    .tabs button { flex: 1; background: transparent; padding: 9px 8px; font-size: 13px; color: var(--muted); white-space: nowrap; }
+    .tabs button.active { background: var(--orange); color: #1a1208; }
+
+    /* Stat grid */
+    .stat-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; margin-bottom: 14px; }
+    .stat { background: var(--panel-2); border: 1px solid var(--line); border-radius: 12px; padding: 10px; text-align: center; }
+    .stat .v { font-size: 22px; font-weight: 700; }
+    .stat .l { font-size: 10px; text-transform: uppercase; color: var(--muted); margin-top: 2px; letter-spacing: 0.3px; }
+
+    /* List rows */
+    .row { display: flex; align-items: center; gap: 12px; padding: 12px 0; border-bottom: 1px solid var(--line); }
+    .row:last-child { border-bottom: 0; }
+    .row .grow { flex: 1; }
+    .row .name { font-weight: 600; }
+    .row .small { font-size: 12px; color: var(--muted); }
+
+    /* Toast + banner */
+    #toast {
+      position: fixed; left: 50%; bottom: calc(20px + env(safe-area-inset-bottom));
+      transform: translateX(-50%) translateY(20px);
+      background: #0b1117; border: 1px solid var(--line);
+      color: var(--text); padding: 12px 18px; border-radius: 12px;
+      font-size: 14px; box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+      opacity: 0; pointer-events: none; transition: all 0.25s ease; z-index: 100; max-width: 90%;
+    }
+    #toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+    #toast.err { border-color: var(--red); }
+
+    .banner {
+      background: rgba(245,135,43,0.12); border: 1px solid rgba(245,135,43,0.4);
+      color: var(--orange-soft); border-radius: 12px; padding: 12px 14px;
+      font-size: 13px; line-height: 1.5; margin-bottom: 14px;
+    }
+    .banner code { background: rgba(0,0,0,0.35); padding: 1px 5px; border-radius: 5px; font-size: 12px; }
+
+    .back { background: transparent; color: var(--muted); padding: 6px 0; font-size: 14px; }
+
+    /* Calendar (shop only) */
+    .cal-head { display: flex; align-items: center; justify-content: space-between; margin-bottom: 10px; }
+    .cal-title { font-weight: 700; font-size: 16px; }
+    .cal-dow { display: grid; grid-template-columns: repeat(7, 1fr); gap: 4px; font-size: 10px; color: var(--muted); text-transform: uppercase; text-align: center; margin-bottom: 4px; letter-spacing: 0.4px; }
+    .cal-grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 4px; }
+    .cal-cell { position: relative; aspect-ratio: 1; display: flex; align-items: center; justify-content: center; border: 1px solid var(--line); border-radius: 8px; font-size: 13px; cursor: pointer; background: var(--panel-2); }
+    .cal-cell.empty { border: 0; background: transparent; cursor: default; }
+    .cal-cell.today { border-color: var(--orange-soft); }
+    .cal-cell.sel { background: rgba(245,135,43,0.18); border-color: var(--orange); font-weight: 700; }
+    .cal-dot { position: absolute; bottom: 3px; right: 4px; font-size: 9px; background: var(--orange); color: #1a1208; border-radius: 999px; padding: 0 4px; font-weight: 700; }
+    .live-dot { display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: var(--green); margin-right: 5px; box-shadow: 0 0 0 0 rgba(70,192,106,0.6); animation: pulse 2s infinite; }
+    @keyframes pulse { 0% { box-shadow: 0 0 0 0 rgba(70,192,106,0.6); } 70% { box-shadow: 0 0 0 7px rgba(70,192,106,0); } 100% { box-shadow: 0 0 0 0 rgba(70,192,106,0); } }
+    .modal-overlay {
+      position: fixed; inset: 0; background: rgba(0,0,0,0.6); z-index: 80;
+      display: none; align-items: flex-end; justify-content: center;
+    }
+    .modal-overlay.show { display: flex; }
+    .modal {
+      background: var(--panel); border: 1px solid var(--line);
+      border-radius: 18px 18px 0 0; padding: 18px;
+      width: 100%; max-width: 720px; max-height: 88vh; overflow-y: auto;
+      animation: slideUp 0.25s ease;
+    }
+    @keyframes slideUp { from { transform: translateY(40px); } to { transform: translateY(0); } }
+
+    /* Live timers */
+    .timers { display: flex; gap: 14px; flex-wrap: wrap; align-items: center; margin-top: 10px; font-size: 12px; }
+    .clock { color: #8fb4ff; font-weight: 700; white-space: nowrap; }
+    .eta   { color: var(--amber); font-weight: 700; white-space: nowrap; }
+    .eta.over { color: #ff7b80; }
+    .timein { color: var(--muted); white-space: nowrap; }
+    /* Overdue ticket — turns the whole card red */
+    .ticket.overdue {
+      border-color: var(--red);
+      background: linear-gradient(180deg, #241317, #1a0f12);
+      animation: overpulse 2.2s ease-in-out infinite;
+    }
+    @keyframes overpulse { 0%,100% { box-shadow: inset 0 0 0 1px rgba(229,72,77,0.55), 0 8px 22px rgba(0,0,0,0.35); } 50% { box-shadow: inset 0 0 0 1px rgba(229,72,77,0.95), 0 8px 22px rgba(0,0,0,0.35); } }
+    /* Priority star toggle */
+    .star { background: transparent; padding: 4px 8px; font-size: 18px; line-height: 1; border-radius: 8px; }
+    .star.on { filter: drop-shadow(0 0 6px rgba(255,209,102,0.7)); }
+    .pri { color: var(--amber); }
+
+    /* ---- Fillable PM form viewer (full-screen overlay) ---- */
+    .fv-overlay {
+      position: fixed; inset: 0; z-index: 120; background: #0b1015;
+      display: none; flex-direction: column;
+    }
+    .fv-overlay.show { display: flex; }
+    .fv-bar {
+      display: flex; align-items: center; gap: 8px; padding: 10px 12px;
+      background: var(--panel); border-bottom: 1px solid var(--line);
+      position: sticky; top: 0; flex: 0 0 auto;
+    }
+    .fv-bar .fv-title {
+      flex: 1 1 auto; min-width: 0; font-weight: 700; font-size: 15px;
+      white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+    }
+    .fv-bar .small { color: var(--muted); font-weight: 400; }
+    .fv-body { flex: 1 1 auto; overflow: auto; padding: 14px 10px 40px; -webkit-overflow-scrolling: touch; }
+    .fv-pages { display: flex; flex-direction: column; align-items: center; gap: 16px; }
+    .fv-page {
+      position: relative; background: #fff; box-shadow: 0 6px 20px rgba(0,0,0,0.45);
+      border-radius: 4px; overflow: hidden; max-width: 100%;
+    }
+    .fv-page canvas { display: block; }
+    /* The PDF.js annotation layer overlays the canvas; its inputs come from the
+       PDF's own AcroForm fields. Make them legible/tappable on a tablet. */
+    .fv-page .annotationLayer { position: absolute; top: 0; left: 0; }
+    .fv-page .annotationLayer section { position: absolute; }
+    .fv-page .annotationLayer .textWidgetAnnotation input,
+    .fv-page .annotationLayer .textWidgetAnnotation textarea,
+    .fv-page .annotationLayer .choiceWidgetAnnotation select,
+    .fv-page .annotationLayer .buttonWidgetAnnotation input {
+      background: rgba(70,150,255,0.10);
+      border: 1px solid rgba(70,150,255,0.55);
+      color: #07223f; font-size: inherit; box-sizing: border-box;
+    }
+    .fv-page .annotationLayer .textWidgetAnnotation input:focus,
+    .fv-page .annotationLayer .textWidgetAnnotation textarea:focus,
+    .fv-page .annotationLayer .choiceWidgetAnnotation select:focus {
+      background: rgba(255,225,120,0.35); outline: 2px solid var(--orange);
+    }
+    .fv-loading { color: var(--muted); text-align: center; padding: 40px 12px; }
+    .fv-spin {
+      width: 26px; height: 26px; border-radius: 50%; margin: 0 auto 12px;
+      border: 3px solid var(--line); border-top-color: var(--orange);
+      animation: fvspin 0.8s linear infinite;
+    }
+    @keyframes fvspin { to { transform: rotate(360deg); } }
+    .fv-hint { text-align: center; color: var(--muted); font-size: 12px; margin: 4px 0 0; }
+
+    /* ---- Repair photos: capture button, staging strip, thumbnails, lightbox ---- */
+    .filebtn {
+      display: inline-flex; align-items: center; gap: 8px; cursor: pointer;
+      background: var(--panel-2); border: 1px dashed var(--line); color: var(--text);
+      border-radius: 12px; padding: 12px 16px; font-weight: 600; font-size: 15px;
+      width: 100%; justify-content: center; margin-top: 4px;
+    }
+    .filebtn:active { background: var(--line); }
+    .filebtn input[type=file] { display: none; }
+    .photo-stage, .photo-grid { display: flex; flex-wrap: wrap; gap: 8px; }
+    .photo-stage:empty { display: none; }
+    .photo-stage .thumb, .photo-grid .thumb {
+      position: relative; width: 84px; height: 84px; border-radius: 10px;
+      overflow: hidden; background: #000; border: 1px solid var(--line); flex: 0 0 auto;
+    }
+    .photo-grid .thumb { width: 96px; height: 96px; }
+    .photo-stage .thumb img, .photo-grid .thumb img { width: 100%; height: 100%; object-fit: cover; cursor: pointer; }
+    .thumb .x {
+      position: absolute; top: 2px; right: 2px; width: 22px; height: 22px; line-height: 20px;
+      text-align: center; border-radius: 50%; background: rgba(0,0,0,0.65); color: #fff;
+      font-size: 14px; border: 0; cursor: pointer; padding: 0;
+    }
+    .photo-meta { width: 100%; }
+    .photo-card { border-top: 1px solid var(--line); padding-top: 10px; margin-top: 6px; }
+    .photo-card .pc-note { font-size: 14px; margin-top: 6px; }
+    .photo-card .pc-by { font-size: 12px; color: var(--muted); margin-top: 2px; }
+    .img-lightbox {
+      position: fixed; inset: 0; z-index: 200; background: rgba(0,0,0,0.92);
+      display: none; align-items: center; justify-content: center; padding: 12px;
+    }
+    .img-lightbox.show { display: flex; }
+    .img-lightbox img { max-width: 100%; max-height: 92vh; border-radius: 8px; }
+    .img-lightbox .x {
+      position: fixed; top: 14px; right: 16px; font-size: 30px; color: #fff;
+      background: none; border: 0; cursor: pointer;
+    }
+    /* off-site marker */
+    .gps-box { background: var(--panel-2); border: 1px solid var(--line); border-radius: 12px; padding: 12px; }
+    .badge-offsite {
+      display: inline-block; font-size: 11px; font-weight: 700; letter-spacing: .3px;
+      color: #1a1208; background: var(--orange); border-radius: 999px; padding: 2px 8px; margin-left: 6px;
+    }
+    .ticket.offsite { border-color: var(--orange); }
+    .maplink { color: var(--blue); font-weight: 600; }
+    /* Truck / Trailer segmented toggle */
+    .seg { display: flex; gap: 8px; margin: 2px 0 4px; }
+    .seg-btn {
+      flex: 1; padding: 12px; border-radius: 12px; border: 1px solid var(--line);
+      background: var(--panel-2); color: var(--muted); font-weight: 700; font-size: 15px; cursor: pointer;
+    }
+    .seg-btn.active { background: var(--blue); border-color: var(--blue); color: #fff; }
+    .badge-eq {
+      display: inline-block; font-size: 11px; font-weight: 700; letter-spacing: .3px;
+      border-radius: 999px; padding: 2px 8px; margin-left: 6px; vertical-align: middle;
+      background: var(--panel-2); border: 1px solid var(--line); color: var(--text);
+    }
+    /* Repair-performed section (distinct from the driver's complaint) */
+    .repair-box { background: rgba(70,192,106,0.06); border: 1px solid rgba(70,192,106,0.35); border-radius: 12px; padding: 12px; margin-top: 6px; }
+    .reported-box { background: var(--panel-2); border: 1px solid var(--line); border-radius: 12px; padding: 12px; }
+    .box-label { font-size: 11px; font-weight: 700; letter-spacing: .4px; text-transform: uppercase; color: var(--muted); }
+    /* tap-to-call driver phone on unit cards */
+    .tellink { color: var(--blue); font-weight: 600; white-space: nowrap; }
+    /* Ready / Non-Ready toggle + status tabs (shop & dispatch boards) */
+    .board-toggle { margin-bottom: 10px; }
+    .board-tabs { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; margin-bottom: 12px; }
+    .board-tab {
+      white-space: nowrap; padding: 9px 8px; border-radius: 10px; border: 1px solid var(--line);
+      background: var(--panel-2); color: var(--muted); font-weight: 700; font-size: 12.5px; cursor: pointer;
+      display: flex; align-items: center; justify-content: center; gap: 6px;
+    }
+    .board-tab.active { background: var(--blue); border-color: var(--blue); color: #fff; }
+    .cnt {
+      display: inline-block; min-width: 18px; padding: 0 5px; border-radius: 999px; font-size: 11px;
+      line-height: 17px; text-align: center; background: var(--line); color: var(--text);
+    }
+    .board-tab.active .cnt, .seg-btn.active .cnt { background: rgba(255,255,255,0.22); color: #fff; }
+    /* Tamper-proof timer chip — read-only, derived only from server timestamps */
+    .tchip {
+      display: inline-block; font-weight: 700; font-size: 12px; padding: 3px 9px;
+      border-radius: 999px; border: 1px solid; letter-spacing: .3px; white-space: nowrap;
+    }
+    .tchip.ok   { color: var(--green); border-color: rgba(70,192,106,0.45); background: rgba(70,192,106,0.10); }
+    .tchip.warn { color: var(--amber); border-color: rgba(255,209,102,0.45); background: rgba(255,209,102,0.12); }
+    /* Driver "Call Breakdown" — large, high-contrast emergency button */
+    .breakdown-btn {
+      display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px;
+      width: 100%; padding: 22px 16px; margin: 0 0 14px; border-radius: 16px; text-align: center;
+      background: #e11d1d; color: #fff; font-size: 23px; font-weight: 800; letter-spacing: .6px;
+      text-decoration: none; border: 0; box-shadow: 0 6px 22px rgba(225,29,29,0.42); cursor: pointer;
+    }
+    .breakdown-btn:active { transform: translateY(1px); }
+    .breakdown-btn.disabled {
+      background: var(--panel-2); color: var(--muted); box-shadow: none; cursor: not-allowed;
+      border: 1px solid var(--line);
+    }
+    .bd-sub { font-size: 12.5px; font-weight: 600; letter-spacing: 0; opacity: .92; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1><span>🔧</span> <span class="mark">Rosedale Shop</span></h1>
+    <div class="sub" id="headerSub">Truck repair queue</div>
+    <div class="who" id="whoBox"></div>
+  </header>
+
+  <main>
+    <!-- ============ HOME / ROLE PICKER ============ -->
+    <section id="view-home" class="view active">
+      <div id="setupBanner"></div>
+      <div class="role-grid">
+        <button class="role-btn" onclick="go('driver')">
+          <span class="emoji">🚚</span>
+          <span><span class="t">I'm a Driver</span><span class="d">Report a problem or check my ticket — no login</span></span>
+        </button>
+        <button class="role-btn" onclick="go('staff')">
+          <span class="emoji">🛠️</span>
+          <span><span class="t">Shop / Mechanic</span><span class="d">Live queue, assign work, parts &amp; cost — login required</span></span>
+        </button>
+        <button class="role-btn" onclick="go('staff')">
+          <span class="emoji">📋</span>
+          <span><span class="t">Dispatch</span><span class="d">Watch the whole shop, flag priority &amp; add notes — login required</span></span>
+        </button>
+        <button class="role-btn" onclick="go('lineup')">
+          <span class="emoji">🚛</span>
+          <span><span class="t">Daily Line Up</span><span class="d">Outbound &amp; inbound board — every load, every day</span></span>
+        </button>
+      </div>
+    </section>
+
+    <!-- ============ DRIVER ============ -->
+    <section id="view-driver" class="view">
+      <button class="back" onclick="go('home')">← Back</button>
+      <!-- emergency on-call line — number is set by shop/dispatch, read live -->
+      <div id="driver-breakdown"></div>
+      <div class="tabs">
+        <button id="dtab-new" class="active" onclick="driverTab('new')">Report a problem</button>
+        <button id="dtab-offsite" onclick="driverTab('offsite')">Off-site</button>
+        <button id="dtab-status" onclick="driverTab('status')">Check my status</button>
+      </div>
+
+      <!-- intake -->
+      <div id="driver-new">
+        <div class="card">
+          <h2 class="section">Report a problem</h2>
+          <form id="intakeForm">
+            <label class="fld">What's in the shop? <span class="req">*</span></label>
+            <div class="seg" id="f-seg">
+              <button type="button" class="seg-btn active" data-v="truck" onclick="setEquip('f','truck')">🚛 Truck</button>
+              <button type="button" class="seg-btn" data-v="trailer" onclick="setEquip('f','trailer')">🚚 Trailer</button>
+            </div>
+            <input type="hidden" id="f-equip" value="truck" />
+            <label class="fld" id="f-unitlabel">Truck number <span class="req">*</span></label>
+            <input id="f-unit" inputmode="text" autocomplete="off" required placeholder="e.g. 482" />
+            <label class="fld">Other unit # <span style="color:var(--muted)">(trailer/dolly, optional)</span></label>
+            <input id="f-unit2" autocomplete="off" placeholder="optional" />
+            <label class="fld">Your name <span class="req">*</span></label>
+            <input id="f-name" autocomplete="name" required placeholder="Driver name" />
+            <label class="fld">Email <span class="req">*</span></label>
+            <input id="f-email" type="email" inputmode="email" autocapitalize="none" autocomplete="email" required placeholder="We'll email you when the truck is ready" />
+            <label class="fld">Phone number <span class="req">*</span></label>
+            <input id="f-phone" type="tel" inputmode="tel" autocomplete="tel" required placeholder="So the shop can reach you" />
+            <label class="fld">What's wrong? <span class="req">*</span></label>
+            <textarea id="f-issue" required placeholder="Describe the problem…"></textarea>
+            <label class="fld">Photos <span style="color:var(--muted)">(optional)</span></label>
+            <div id="f-photos" class="photo-stage"></div>
+            <label class="filebtn">📷 Add photos<input type="file" accept="image/*" capture="environment" multiple onchange="stagePhotos(this,'f-photos')" /></label>
+            <label class="fld">Needed back out by</label>
+            <input id="f-needed" type="datetime-local" />
+            <div style="margin-top:14px">
+              <button type="submit" class="btn-primary" id="intakeSubmit">Submit to shop</button>
+            </div>
+          </form>
+        </div>
+        <p class="hint">The shop sees your ticket the moment you submit. You'll get a status you can check back on anytime from the same phone.</p>
+      </div>
+
+      <!-- off-site report: equipment a driver is leaving out in the field
+           (dropped trailer, flat, ran into a unit) — non-emergency. -->
+      <div id="driver-offsite" style="display:none">
+        <div class="card">
+          <h2 class="section">Report off-site equipment</h2>
+          <p class="hint" style="margin:-4px 0 12px">For equipment you're leaving in the field — not an emergency. The shop gets the location so they can recover or repair it.</p>
+          <form id="offsiteForm">
+            <label class="fld">Equipment type <span class="req">*</span></label>
+            <div class="seg" id="o-seg">
+              <button type="button" class="seg-btn" data-v="truck" onclick="setEquip('o','truck')">🚛 Truck</button>
+              <button type="button" class="seg-btn active" data-v="trailer" onclick="setEquip('o','trailer')">🚚 Trailer</button>
+            </div>
+            <input type="hidden" id="o-equip" value="trailer" />
+            <label class="fld" id="o-unitlabel">Trailer number <span class="req">*</span></label>
+            <input id="o-unit" autocomplete="off" required placeholder="e.g. 6043" />
+            <label class="fld">Your name <span class="req">*</span></label>
+            <input id="o-name" autocomplete="name" required placeholder="Driver name" />
+            <label class="fld">Phone number <span class="req">*</span></label>
+            <input id="o-phone" type="tel" inputmode="tel" autocomplete="tel" required placeholder="So the shop can reach you" />
+            <label class="fld">What's wrong? <span class="req">*</span></label>
+            <textarea id="o-issue" required placeholder="e.g. Flat on the right rear, dropped at the customer…"></textarea>
+            <label class="fld">Photos <span style="color:var(--muted)">(recommended)</span></label>
+            <div id="o-photos" class="photo-stage"></div>
+            <label class="filebtn">📷 Add photos<input type="file" accept="image/*" capture="environment" multiple onchange="stagePhotos(this,'o-photos')" /></label>
+            <h2 class="section" style="margin-top:18px">Location <span class="req">*</span></h2>
+            <div class="gps-box" id="o-gpsbox">
+              <button type="button" class="btn-blue btn-block" id="o-gpsbtn" onclick="captureGps()">📍 Use my current location</button>
+              <div id="o-gpsout" class="small" style="margin-top:8px;color:var(--muted)">No GPS captured yet.</div>
+            </div>
+            <label class="fld" style="margin-top:10px">Landmark / address <span style="color:var(--muted)">(so the shop can find it)</span></label>
+            <input id="o-landmark" autocomplete="off" placeholder="e.g. Behind the Pilot on Hwy 30, exit 22" />
+            <div style="margin-top:14px">
+              <button type="submit" class="btn-primary" id="offsiteSubmit">Send off-site report</button>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <!-- status -->
+      <div id="driver-status" style="display:none">
+        <div class="card">
+          <h2 class="section">Check my ticket status</h2>
+          <div class="two-col">
+            <div>
+              <label class="fld">Truck number</label>
+              <input id="s-truck" placeholder="e.g. 482" />
+            </div>
+            <div>
+              <label class="fld">Phone number</label>
+              <input id="s-phone" type="tel" inputmode="tel" placeholder="Same as you submitted" />
+            </div>
+          </div>
+          <div style="margin-top:12px"><button class="btn-primary" onclick="driverLookup()">Find my tickets</button></div>
+        </div>
+        <div id="driverResults"></div>
+      </div>
+    </section>
+
+    <!-- ============ STAFF LOGIN ============ -->
+    <section id="view-login" class="view">
+      <button class="back" onclick="go('home')">← Back</button>
+      <div class="card" style="margin-top:8px">
+        <h2 class="section">Shop login</h2>
+        <form id="loginForm">
+          <label class="fld">Username</label>
+          <input id="l-user" autocapitalize="none" autocomplete="username" placeholder="shop / cab / baf, or your email" />
+          <label class="fld">Password</label>
+          <input id="l-pass" type="password" autocomplete="current-password" placeholder="Password" />
+          <div style="margin-top:14px"><button type="submit" class="btn-primary" id="loginBtn">Log in</button></div>
+        </form>
+        <p class="hint" style="margin-top:12px">Admins log in with <b>shop / cab / baf</b>. <b>Dispatch</b> logs in with <b>disp</b> to watch the whole shop (flag priority &amp; add notes only). Mechanics enter their <b>email</b> and see only their assigned work. Drivers don't need an account.</p>
+      </div>
+    </section>
+
+    <!-- ============ STAFF DASHBOARD ============ -->
+    <section id="view-shop" class="view">
+      <div class="tabs" id="shopTabs">
+        <button id="stab-queue" class="active" onclick="shopTab('queue')">Queue</button>
+        <button id="stab-history" onclick="shopTab('history')">Completed</button>
+        <button id="stab-cal" onclick="shopTab('cal')">Calendar</button>
+        <button id="stab-parts" onclick="shopTab('parts')">Parts</button>
+        <button id="stab-mech" onclick="shopTab('mech')">Mechanics</button>
+        <button id="stab-forms" onclick="shopTab('forms')">Forms</button>
+      </div>
+
+      <!-- queue: Ready/Non-Ready toggle + status tabs are rendered into
+           #queueControls by renderQueue() (counts stay live) -->
+      <div id="shop-queue">
+        <div id="shop-oncall"></div>
+        <button class="btn-primary" id="qBtnAdd" style="margin-bottom:12px" onclick="openShopIntake()">+ Add Ticket</button>
+        <div id="queueControls"></div>
+        <div id="queueList"></div>
+      </div>
+
+      <!-- completed history: the permanent maintenance record. Completed tickets
+           live here (out of the live queue), searchable by unit #. -->
+      <div id="shop-history" style="display:none">
+        <input id="hist-search" placeholder="🔎 Search by unit #…" oninput="renderHistory()" style="margin-bottom:12px" />
+        <div id="historyList"></div>
+      </div>
+
+      <!-- calendar (admins only — the appointments table is locked at the DB:
+           no anon privileges, and the only RLS policy requires is_shop_admin()) -->
+      <div id="shop-cal" style="display:none">
+        <div class="card">
+          <div class="cal-head">
+            <button class="btn-sm btn-ghost" onclick="calNav(-1)">‹ Prev</button>
+            <div class="cal-title" id="calTitle"></div>
+            <button class="btn-sm btn-ghost" onclick="calNav(1)">Next ›</button>
+          </div>
+          <div class="cal-dow"><span>Sun</span><span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span></div>
+          <div class="cal-grid" id="calGrid"></div>
+        </div>
+        <div class="btn-row" style="margin-bottom:12px">
+          <button class="btn-sm btn-ghost" onclick="calToday()">Today</button>
+          <button class="btn-sm btn-blue" onclick="openAppt(null)">＋ Add appointment</button>
+        </div>
+        <div id="calDayList"></div>
+      </div>
+
+      <!-- parts -->
+      <div id="shop-parts" style="display:none">
+        <div class="card">
+          <h2 class="section">Add a part</h2>
+          <label class="fld">Part name</label>
+          <input id="p-name" placeholder="e.g. Brake chamber" />
+          <div class="two-col">
+            <div><label class="fld">Qty on hand</label><input id="p-qty" type="number" inputmode="numeric" value="0" /></div>
+            <div><label class="fld">Unit cost ($)</label><input id="p-cost" type="number" inputmode="decimal" step="0.01" value="0" /></div>
+          </div>
+          <div style="margin-top:12px"><button class="btn-primary" onclick="addPart()">Add part</button></div>
+        </div>
+        <div class="card"><h2 class="section">Inventory</h2><div id="partsList"></div></div>
+      </div>
+
+      <!-- mechanics -->
+      <div id="shop-mech" style="display:none">
+        <div class="card">
+          <h2 class="section">Add a mechanic</h2>
+          <label class="fld">Name</label>
+          <input id="m-name" placeholder="Mechanic name" />
+          <label class="fld">Contact <span style="color:var(--muted)">(optional)</span></label>
+          <input id="m-contact" autocomplete="off" placeholder="Phone, radio channel, etc." />
+          <label class="fld">Login email <span style="color:var(--muted)">(optional)</span></label>
+          <input id="m-email" type="email" autocapitalize="none" placeholder="e.g. mike@rosedale.local — links their own login" />
+          <div style="margin-top:12px"><button class="btn-primary" onclick="addMechanic()">Add mechanic</button></div>
+          <p class="hint" style="margin-top:10px">Leave email blank for a mechanic who works off the shop tablet. To give a mechanic their own login: create their user under Supabase → Authentication, then enter the same email here. They'll see only their assigned tickets — no parts or cost.</p>
+        </div>
+        <div class="card"><h2 class="section">Mechanics</h2><div id="mechList"></div></div>
+      </div>
+
+      <!-- forms (PM forms + SOP manual + KPI scorecard).
+           Lives in the shop view, which only shop & mechanic roles reach
+           (drivers use the home view, dispatch uses the dispatch view), so the
+           tab is hidden from driver/dispatch by construction. -->
+      <div id="shop-forms" style="display:none">
+        <div class="card"><div id="formsList"></div></div>
+      </div>
+    </section>
+
+    <!-- ============ DISPATCH ============ -->
+    <!-- Read-only board across the whole shop. Dispatch can flag priority and
+         add notes only — never change repair status, and never see the private
+         shop calendar / parts / cost (blocked at the DATABASE by RLS). -->
+    <section id="view-dispatch" class="view">
+      <button class="btn-sm btn-blue" onclick="go('lineup')" style="margin-bottom:10px">🚛 Open Daily Line Up</button>
+      <div id="disp-oncall"></div>
+      <div id="dispControls"></div>
+      <div id="dispatchList"></div>
+    </section>
+
+    <!-- ============ DAILY LINE UP ============ -->
+    <!-- Outbound/inbound board, embedded so the whole dispatch ecosystem lives
+         in one app. Isolated in an iframe — its own styles/scripts can't touch
+         the shop app. Same Netlify deploy, no second URL to manage. -->
+    <section id="view-lineup" class="view">
+      <button class="back" onclick="go('home')">← Back to Shop</button>
+      <iframe class="lineup-frame" src="lineup.html" title="Daily Line Up"></iframe>
+    </section>
+  </main>
+
+  <div class="modal-overlay" id="ticketModal"><div class="modal" id="ticketModalBody"></div></div>
+
+  <!-- Fillable PM form viewer. Renders the PDF's own AcroForm fields as editable
+       (PDF.js), fills typed values back into the PDF (pdf-lib) for Print / Email. -->
+  <div class="fv-overlay" id="fvOverlay" aria-hidden="true">
+    <div class="fv-bar">
+      <div class="fv-title" id="fvTitle">Form</div>
+      <button class="btn-sm btn-blue" id="fvPrint" onclick="fvPrint()">🖨 Print</button>
+      <button class="btn-sm btn-blue" id="fvEmail" onclick="fvEmailPrompt()">✉ Email</button>
+      <button class="btn-sm btn-ghost" onclick="fvClose()">✕ Close</button>
+    </div>
+    <div class="fv-body" id="fvBody">
+      <div class="fv-loading" id="fvLoading"><div class="fv-spin"></div>Loading form…</div>
+      <div class="fv-pages" id="fvPages"></div>
+      <p class="fv-hint" id="fvFootHint"></p>
+    </div>
+  </div>
+
+  <!-- Tap-to-enlarge for repair photos -->
+  <div class="img-lightbox" id="imgLightbox" onclick="closeLightbox()">
+    <button class="x" onclick="closeLightbox()">✕</button>
+    <img id="imgLightboxImg" alt="" />
+  </div>
+
+  <div id="toast"></div>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <!-- PDF.js (render existing AcroForm fields as editable) + pdf-lib (fill typed
+       values back into the PDF for Print/Email). If these ever fail to load, the
+       Forms tab degrades to plain Open/Download. -->
+  <script src="https://cdn.jsdelivr.net/npm/pdfjs-dist@2.16.105/legacy/build/pdf.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/pdf-lib@1.17.1/dist/pdf-lib.min.js"></script>
+  <script>
+    if (window.pdfjsLib) {
+      window.pdfjsLib.GlobalWorkerOptions.workerSrc =
+        "https://cdn.jsdelivr.net/npm/pdfjs-dist@2.16.105/legacy/build/pdf.worker.min.js";
+    }
+  </script>
+  <script>
+  // ============================================================================
+  // CONFIG — paste your Supabase project values here.
+  //   Dashboard → Project Settings → API
+  //   * Project URL  → SUPABASE_URL
+  //   * anon public key → SUPABASE_ANON_KEY
+  // Then create the 3 admins under Authentication → Users with these emails:
+  //   shop@rosedale.local / cab@rosedale.local / baf@rosedale.local
+  // (username box maps "shop" -> shop@rosedale.local, using ADMIN_DOMAIN below)
+  // ============================================================================
+  const SUPABASE_URL = "https://mmnvcbejjdweetnxncfi.supabase.co";
+  const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im1tbnZjYmVqamR3ZWV0bnhuY2ZpIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODA5NTM3MzMsImV4cCI6MjA5NjUyOTczM30.PSzPFqTAiv0GHv0DBpAOREUE7BvrbHHgetQSYpeSajA";
+  const ADMIN_DOMAIN = "rosedale.local";
+
+  const CONFIGURED = !/^YOUR_/.test(SUPABASE_URL) && !/^YOUR_/.test(SUPABASE_ANON_KEY);
+  let sb = null;
+  if (CONFIGURED) sb = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+  const STATUS_LABEL = { intake: "Intake", in_progress: "In Progress", waiting_parts: "Waiting for Parts", completed: "Completed" };
+  const STATUS_ORDER = ["intake", "in_progress", "waiting_parts", "completed"];
+
+  // ---- state ----
+  let state = {
+    session: null,            // supabase auth session (staff)
+    me: null,                 // linked mechanics row when a mechanic is logged in
+    isMechanic: false,        // true = locked-down mechanic login (no parts/cost/assign)
+    isDispatch: false,        // true = dispatch login (whole-queue watcher; notes + priority only)
+    boardReady: false,        // Ready (completed) vs Non-Ready (everything else); default Non-Ready
+    boardStatus: null,        // selected status tab (intake|in_progress|waiting_parts|completed) or null = whole group
+    tickets: [],              // staff: all tickets ; driver: own tickets
+    mechanics: [],
+    parts: [],
+    appointments: [],         // shop calendar (admins only; RLS blocks others)
+    queueFilter: "active",
+    mechFilter: null,         // mechanic id for "My work" / mechanic mode
+    driver: { truck: "", phone: "" },
+    pendingPhotos: [],        // photos staged in a form before the ticket exists
+    offsiteGps: null,         // { lat, lng, accuracy } captured on the off-site form
+  };
+  let realtimeChannel = null;
+  const PHOTO_BUCKET = "repair-photos";
+  const MAX_PHOTOS = 8;
+
+  // ---- tiny helpers ----
+  const $ = (id) => document.getElementById(id);
+  const esc = (s) => (s == null ? "" : String(s).replace(/[&<>"']/g, c => ({ "&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#39;" }[c])));
+  const digits = (s) => (s || "").replace(/\D/g, "");
+  function toast(msg, isErr) {
+    const t = $("toast"); t.textContent = msg; t.className = "show" + (isErr ? " err" : "");
+    clearTimeout(t._h); t._h = setTimeout(() => (t.className = ""), 2600);
+  }
+  function fmtNeeded(ts) {
+    if (!ts) return null;
+    const d = new Date(ts), now = new Date();
+    const opts = { month: "short", day: "numeric", hour: "numeric", minute: "2-digit" };
+    return { text: d.toLocaleString([], opts), late: d < now };
+  }
+  function ago(ts) {
+    const s = Math.floor((Date.now() - new Date(ts)) / 1000);
+    if (s < 60) return "just now";
+    if (s < 3600) return Math.floor(s / 60) + "m ago";
+    if (s < 86400) return Math.floor(s / 3600) + "h ago";
+    return Math.floor(s / 86400) + "d ago";
+  }
+  function fmtStamp(ts) {
+    if (!ts) return null;
+    return new Date(ts).toLocaleString([], { month: "short", day: "numeric", hour: "numeric", minute: "2-digit" });
+  }
+
+  // ---- live timers (shared by driver, shop & dispatch) ----
+  // Compact duration like "3h 24m" / "2d 5h" / "12m".
+  function fmtDur(ms) {
+    const s = Math.max(0, Math.floor(ms / 1000));
+    const d = Math.floor(s / 86400), h = Math.floor((s % 86400) / 3600), m = Math.floor((s % 3600) / 60);
+    if (d > 0) return `${d}d ${h}h`;
+    if (h > 0) return `${h}h ${m}m`;
+    return `${m}m`;
+  }
+
+  // ---- tamper-proof "time in shop" chip ----
+  // Read-only, derived ONLY from server timestamps (created_at / finished_at).
+  // There is no input and no setter: open tickets tick live from data-start;
+  // completed tickets are frozen at finished_at − created_at and never updated.
+  const TIMER_WARN_MS = 4 * 60 * 60 * 1000;            // 4h: green under, amber over
+  function fmtElapsed(ms) {
+    const s = Math.max(0, Math.floor(ms / 1000));
+    const d = Math.floor(s / 86400), h = Math.floor((s % 86400) / 3600), m = Math.floor((s % 3600) / 60);
+    const hh = String(h).padStart(2, "0"), mm = String(m).padStart(2, "0");
+    return d > 0 ? `${d}d ${hh}h ${mm}m` : `${hh}h ${mm}m`;
+  }
+  function timerChip(t) {
+    const startMs = new Date(t.created_at).getTime();
+    const frozen = t.status === "completed" && t.finished_at;
+    const endMs = frozen ? new Date(t.finished_at).getTime() : Date.now();
+    const elapsed = endMs - startMs;
+    const cls = "tchip " + (elapsed >= TIMER_WARN_MS ? "warn" : "ok");
+    // frozen chips carry no data-start, so tickTimers() leaves them untouched
+    const data = frozen ? "" : ` data-start="${startMs}"`;
+    return `<span class="${cls}"${data}>${frozen ? "✓ " : "⏱ "}${fmtElapsed(elapsed)}</span>`;
+  }
+  // The two live elements a card can carry. tickTimers() updates them in place
+  // every second from their data- attributes, so re-rendering isn't required.
+  function timersHtml(t) {
+    const stamp = fmtStamp(t.created_at);
+    const clock = `<span class="clock" data-since="${t.created_at}">⏱ ${esc(fmtDur(Date.now() - new Date(t.created_at)))}</span>`;
+    const eta = t.needed_by
+      ? `<span class="eta" data-eta="${t.needed_by}" data-status="${t.status}"></span>`
+      : `<span class="timein">no ETA set</span>`;
+    return `<div class="timers"><span class="timein">in @ ${stamp}</span>${clock}${eta}</div>`;
+  }
+  // Walk every live element on screen and update it. Flips the parent card to
+  // .overdue (red) once a non-completed ticket passes its ETA.
+  function tickTimers() {
+    const now = Date.now();
+    document.querySelectorAll(".clock[data-since]").forEach(el => {
+      el.textContent = "⏱ " + fmtDur(now - new Date(el.dataset.since));
+    });
+    // live timer chips (completed chips have no data-start → stay frozen)
+    document.querySelectorAll(".tchip[data-start]").forEach(el => {
+      const elapsed = now - Number(el.dataset.start);
+      el.classList.toggle("warn", elapsed >= TIMER_WARN_MS);
+      el.classList.toggle("ok", elapsed < TIMER_WARN_MS);
+      el.textContent = "⏱ " + fmtElapsed(elapsed);
+    });
+    document.querySelectorAll(".eta[data-eta]").forEach(el => {
+      const eta = new Date(el.dataset.eta).getTime();
+      const card = el.closest(".ticket");
+      if (el.dataset.status === "completed") {
+        el.textContent = "✓ completed";
+        el.classList.remove("over");
+        if (card) card.classList.remove("overdue");
+        return;
+      }
+      if (now >= eta) {
+        el.textContent = "⚠ OVERDUE by " + fmtDur(now - eta);
+        el.classList.add("over");
+        if (card) card.classList.add("overdue");
+      } else {
+        el.textContent = "⏳ ETA in " + fmtDur(eta - now);
+        el.classList.remove("over");
+        if (card) card.classList.remove("overdue");
+      }
+    });
+  }
+  setInterval(tickTimers, 1000);
+  // Progress steps the driver sees. "waiting_parts" is shown as a flag on the
+  // in-progress step rather than a step of its own, so the line stays linear.
+  const PROGRESS_STEPS = [
+    { key: "intake",      label: "Dropped off",  stamp: t => t.created_at },
+    { key: "in_progress", label: "Work started", stamp: t => t.started_at },
+    { key: "completed",   label: "Ready",        stamp: t => t.finished_at },
+  ];
+  // How far along a ticket is on the 3-step line (waiting_parts counts as started).
+  function progressIndex(status) {
+    if (status === "completed") return 2;
+    if (status === "in_progress" || status === "waiting_parts") return 1;
+    return 0;
+  }
+  function progressHtml(t) {
+    const reached = progressIndex(t.status);
+    const steps = PROGRESS_STEPS.map((s, i) => {
+      const done = i <= reached;
+      const stampTs = s.stamp(t);
+      const when = fmtStamp(stampTs);
+      const dot = i < reached ? "✓" : (i === reached ? "●" : "○");
+      const color = done ? "var(--green)" : "var(--muted)";
+      return `<div style="display:flex;align-items:flex-start;gap:10px;padding:5px 0">
+        <span style="color:${color};font-size:15px;line-height:1.3;width:16px;text-align:center">${dot}</span>
+        <div style="flex:1">
+          <div style="font-weight:600;color:${done ? "var(--text)" : "var(--muted)"}">${s.label}</div>
+          ${when ? `<div class="small" style="color:var(--muted)">${when}</div>` : ""}
+        </div>
+      </div>`;
+    }).join("");
+    return `<div style="margin-top:10px">${steps}</div>`;
+  }
+
+  // ---- navigation ----
+  function go(where) {
+    document.querySelectorAll(".view").forEach(v => v.classList.remove("active"));
+    // staff entry routes by role: dispatch → dispatch board, everyone else → shop
+    if (where === "staff") where = state.session ? (state.isDispatch ? "dispatch" : "shop") : "login";
+    if (where === "shop" && state.isDispatch) where = "dispatch";
+    $("view-" + where).classList.add("active");
+    if (where === "shop") renderShop();
+    if (where === "dispatch") renderDispatch();
+    if (where === "home") $("headerSub").textContent = "Truck repair queue";
+    if (where === "driver") { $("headerSub").textContent = "Driver"; resetPendingPhotos(); renderBreakdownButton(); loadOnCall().then(renderBreakdownButton); }
+    window.scrollTo(0, 0);
+    updateWho();
+  }
+
+  // ============================ Call Breakdown ============================
+  // On-call number is stored in the app_config table (anon-readable, staff-write)
+  // under the key on_call_number (digits only). Admins (shop/dispatch) set it;
+  // drivers tap a big red CALL BREAKDOWN button that dials it.
+  const ONCALL_KEY = "on_call_number";
+  let onCallNumber = null;
+
+  async function loadOnCall() {
+    if (!sb) { onCallNumber = null; return null; }
+    try {
+      const { data, error } = await sb.from("app_config").select("value").eq("key", ONCALL_KEY).maybeSingle();
+      onCallNumber = (!error && data && data.value) ? String(data.value).replace(/\D/g, "") : null;
+    } catch { onCallNumber = null; }
+    fillOnCallInputs();
+    return onCallNumber;
+  }
+
+  // Driver-facing button. Empty/blank guard → disabled, no broken tel: link.
+  function renderBreakdownButton() {
+    const host = $("driver-breakdown"); if (!host) return;
+    if (onCallNumber) {
+      host.innerHTML = `<a class="breakdown-btn" href="tel:${esc(onCallNumber)}">🚨 CALL BREAKDOWN<span class="bd-sub">Tap to call the on-call tech</span></a>`;
+    } else {
+      host.innerHTML = `<div class="breakdown-btn disabled" aria-disabled="true">CALL BREAKDOWN<span class="bd-sub">No on-call number set — contact dispatch.</span></div>`;
+    }
+  }
+
+  // Admin field (shop + dispatch only). Rendered into #shop-oncall / #disp-oncall.
+  function oncallCardHtml(prefix) {
+    return `<div class="card" style="margin-bottom:12px">
+      <label class="fld" style="margin-top:0">📞 Today's On-Call Number</label>
+      <div style="display:flex;gap:8px">
+        <input id="oc-input-${prefix}" inputmode="tel" autocomplete="off" placeholder="e.g. 7062261003" style="flex:1"
+               oninput="document.getElementById('oc-status-${prefix}').textContent=''" />
+        <button class="btn-blue" id="oc-save-${prefix}" onclick="saveOnCall('${prefix}')">Save</button>
+      </div>
+      <div class="small" style="margin-top:6px">
+        <span id="oc-status-${prefix}" style="font-weight:700"></span>
+        <span style="color:var(--muted)">Drivers tap “Call Breakdown” to reach this number.</span>
+      </div>
+    </div>`;
+  }
+  function mountOncallAdmin() {
+    if (state.isMechanic) return;                 // mechanics don't manage on-call
+    const host = state.isDispatch ? $("disp-oncall") : $("shop-oncall");
+    if (host && !host.firstChild) host.innerHTML = oncallCardHtml(state.isDispatch ? "disp" : "shop");
+  }
+  function fillOnCallInputs() {
+    ["shop", "disp"].forEach(p => {
+      const i = $("oc-input-" + p);
+      if (i && document.activeElement !== i) i.value = onCallNumber || "";
+    });
+  }
+  async function saveOnCall(prefix) {
+    if (!ensureConfigured()) return;
+    const inp = $("oc-input-" + prefix);
+    const value = (inp.value || "").replace(/\D/g, "");       // strip everything except digits
+    const btn = $("oc-save-" + prefix), st = $("oc-status-" + prefix);
+    btn.disabled = true; btn.textContent = "Saving…";
+    const { error } = await sb.from("app_config")
+      .upsert({ key: ONCALL_KEY, value }, { onConflict: "key" });   // insert … on conflict (key) do update
+    btn.disabled = false; btn.textContent = "Save";
+    if (error) { st.style.color = "var(--amber)"; st.textContent = "Couldn't save"; return toast(error.message, true); }
+    onCallNumber = value || null;
+    inp.value = value;                                          // show normalized digits
+    st.style.color = "var(--green)"; st.textContent = "Saved ✓";
+    renderBreakdownButton();
+  }
+
+  // Best-effort live updates: if app_config is in the realtime publication,
+  // the driver button + admin inputs reflect changes without a reload. If it
+  // isn't, the per-load re-read in go('driver') still keeps it current.
+  let onCallChannel = null;
+  function subscribeOnCall() {
+    if (!sb || onCallChannel) return;
+    onCallChannel = sb.channel("oncall-config")
+      .on("postgres_changes", { event: "*", schema: "public", table: "app_config", filter: "key=eq." + ONCALL_KEY }, (p) => {
+        onCallNumber = (p.new && p.new.value) ? String(p.new.value).replace(/\D/g, "") : null;
+        renderBreakdownButton(); fillOnCallInputs();
+      })
+      .subscribe();
+  }
+  function updateWho() {
+    const box = $("whoBox");
+    if (state.session) {
+      const u = (state.session.user.email || "").split("@")[0];
+      box.innerHTML = `<span>👤 ${esc(u)}</span><button class="btn-ghost" onclick="logout()">Log out</button>`;
+    } else box.innerHTML = "";
+  }
+
+  // ---- driver tabs ----
+  function driverTab(t) {
+    ["new", "offsite", "status"].forEach(k => {
+      $("dtab-" + k).classList.toggle("active", k === t);
+      $("driver-" + k).style.display = k === t ? "block" : "none";
+    });
+    resetPendingPhotos();
+    if (t === "status" && state.driver.truck) { $("s-truck").value = state.driver.truck; $("s-phone").value = state.driver.phone; }
+  }
+
+  // ============================ DRIVER: intake ============================
+  $("intakeForm").addEventListener("submit", async (e) => {
+    e.preventDefault();
+    if (!ensureConfigured()) return;
+    const truck = $("f-unit").value.trim();
+    const name = $("f-name").value.trim();
+    const email = $("f-email").value.trim();
+    const phone = $("f-phone").value.trim();
+    const issue = $("f-issue").value.trim();
+    if (!truck || !name || !email || !phone || !issue) return toast("Fill in the required fields", true);
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) return toast("Enter a valid email address", true);
+    const neededRaw = $("f-needed").value;
+    const payload = {
+      truck_number: truck,
+      equipment_type: $("f-equip").value,
+      unit_number: $("f-unit2").value.trim() || null,
+      driver_name: name,
+      driver_email: email,
+      driver_phone: phone,
+      issue: issue,
+      needed_by: neededRaw ? new Date(neededRaw).toISOString() : null,
+    };
+    $("intakeSubmit").disabled = true; $("intakeSubmit").textContent = state.pendingPhotos.length ? "Uploading…" : "Submitting…";
+    const { data, error } = await sb.from("tickets").insert(payload).select("id").single();
+    if (error) { $("intakeSubmit").disabled = false; $("intakeSubmit").textContent = "Submit to shop"; return toast(error.message, true); }
+    await commitPendingPhotos(data.id, null, { role: "driver", name });
+    $("intakeSubmit").disabled = false; $("intakeSubmit").textContent = "Submit to shop";
+    // remember driver so they can check status
+    state.driver = { truck, phone };
+    localStorage.setItem("rss_driver", JSON.stringify(state.driver));
+    $("intakeForm").reset(); resetPendingPhotos(); setEquip("f", "truck");
+    toast("Sent to the shop ✓");
+    driverTab("status");
+    driverLookup();
+  });
+
+  // ============================ DRIVER: off-site report ============================
+  // Equipment left in the field (dropped trailer, flat, etc.) — non-emergency.
+  // Creates an off-site-flagged ticket with GPS + a typed landmark so the shop
+  // can recover it; shows distinctly in the queue (📍 OFF-SITE).
+  $("offsiteForm").addEventListener("submit", async (e) => {
+    e.preventDefault();
+    if (!ensureConfigured()) return;
+    const unit = $("o-unit").value.trim();
+    const name = $("o-name").value.trim();
+    const phone = $("o-phone").value.trim();
+    const issue = $("o-issue").value.trim();
+    const landmark = $("o-landmark").value.trim();
+    if (!unit || !name || !phone || !issue) return toast("Fill in the required fields", true);
+    if (!state.offsiteGps && !landmark) return toast("Add a location — GPS or a landmark/address", true);
+    const payload = {
+      truck_number: unit,           // the equipment id (required column)
+      equipment_type: $("o-equip").value,
+      driver_name: name,
+      driver_phone: phone,
+      issue: issue,
+      offsite: true,
+      gps_lat: state.offsiteGps ? state.offsiteGps.lat : null,
+      gps_lng: state.offsiteGps ? state.offsiteGps.lng : null,
+      location_text: landmark || null,
+    };
+    const btn = $("offsiteSubmit"); btn.disabled = true; btn.textContent = state.pendingPhotos.length ? "Uploading…" : "Sending…";
+    const { data, error } = await sb.from("tickets").insert(payload).select("id").single();
+    if (error) { btn.disabled = false; btn.textContent = "Send off-site report"; return toast(error.message, true); }
+    await commitPendingPhotos(data.id, null, { role: "driver", name });
+    btn.disabled = false; btn.textContent = "Send off-site report";
+    state.driver = { truck: unit, phone };
+    localStorage.setItem("rss_driver", JSON.stringify(state.driver));
+    $("offsiteForm").reset(); resetPendingPhotos(); state.offsiteGps = null; renderGps(); setEquip("o", "trailer");
+    toast("Off-site report sent ✓");
+    driverTab("status");
+    driverLookup();
+  });
+
+  // Auto-capture GPS from the phone. Landmark text is the fallback / supplement.
+  function captureGps() {
+    if (!navigator.geolocation) return toast("This device can't share GPS — type a landmark", true);
+    const btn = $("o-gpsbtn"); btn.disabled = true; btn.textContent = "📍 Getting location…";
+    navigator.geolocation.getCurrentPosition(
+      (pos) => {
+        state.offsiteGps = { lat: +pos.coords.latitude.toFixed(6), lng: +pos.coords.longitude.toFixed(6), accuracy: Math.round(pos.coords.accuracy || 0) };
+        btn.disabled = false; btn.textContent = "📍 Update my location";
+        renderGps();
+      },
+      (err) => {
+        btn.disabled = false; btn.textContent = "📍 Use my current location";
+        toast(err.code === 1 ? "Location permission denied — type a landmark instead" : "Couldn't get GPS — type a landmark", true);
+      },
+      { enableHighAccuracy: true, timeout: 12000, maximumAge: 0 }
+    );
+  }
+  function renderGps() {
+    const out = $("o-gpsout"); if (!out) return;
+    if (state.offsiteGps) {
+      const g = state.offsiteGps;
+      out.innerHTML = `✅ Captured: <b>${g.lat}, ${g.lng}</b>${g.accuracy ? ` · ±${g.accuracy}m` : ""} · <a class="maplink" target="_blank" rel="noopener" href="https://maps.google.com/?q=${g.lat},${g.lng}">preview map</a>`;
+    } else {
+      out.textContent = "No GPS captured yet.";
+    }
+  }
+
+  // Truck / Trailer segmented toggle (shared by intake, off-site, Add Ticket).
+  // Stores the choice in #<prefix>-equip and relabels the unit-number field.
+  function setEquip(prefix, v) {
+    const hid = $(prefix + "-equip"); if (hid) hid.value = v;
+    document.querySelectorAll("#" + prefix + "-seg .seg-btn").forEach(b => b.classList.toggle("active", b.dataset.v === v));
+    const lbl = $(prefix + "-unitlabel");
+    if (lbl) lbl.innerHTML = (v === "truck" ? "Truck number" : "Trailer number") + ' <span class="req">*</span>';
+    const inp = $(prefix + "-unit"); if (inp) inp.placeholder = (v === "truck" ? "e.g. 482" : "e.g. 6043");
+  }
+  function equipBadge(t) {
+    const type = t.equipment_type === "trailer" ? "trailer" : "truck";
+    return `<span class="badge-eq">${type === "trailer" ? "🚚 Trailer" : "🚛 Truck"}</span>`;
+  }
+  function equipLabel(t) { return t.equipment_type === "trailer" ? "Trailer" : "Truck"; }
+
+  async function driverLookup() {
+    if (!ensureConfigured()) return;
+    const truck = $("s-truck").value.trim();
+    const phone = $("s-phone").value.trim();
+    if (!truck || !phone) return toast("Enter your truck # and phone", true);
+    state.driver = { truck, phone };
+    localStorage.setItem("rss_driver", JSON.stringify(state.driver));
+    const { data, error } = await sb
+      .from("tickets").select("*")
+      .ilike("truck_number", truck)
+      .order("created_at", { ascending: false });
+    if (error) return toast(error.message, true);
+    // match phone client-side (digits only) so "555-1234" == "5551234"
+    state.tickets = (data || []).filter(t => digits(t.driver_phone) === digits(phone));
+    renderDriverResults();
+    subscribeDriver(truck, phone);
+  }
+
+  function renderDriverResults() {
+    const el = $("driverResults");
+    if (!state.tickets.length) { el.innerHTML = `<div class="empty">No tickets found for that truck &amp; phone yet.</div>`; return; }
+    el.innerHTML = `<div class="hint" style="margin:4px 0 10px"><span class="live-dot"></span>Live — updates automatically</div>` +
+      state.tickets.map(t => {
+        const n = fmtNeeded(t.needed_by);
+        const waiting = t.status === "waiting_parts";
+        const ready = t.status === "completed";
+        return `<div class="ticket${t.offsite ? " offsite" : ""}">
+          <div class="top">
+            <div><div class="truck">${esc(t.truck_number)} ${equipBadge(t)}${t.offsite ? '<span class="badge-offsite">📍 OFF-SITE</span>' : ""}</div>
+            <div class="meta">${esc(t.driver_name)} · submitted ${ago(t.created_at)}</div></div>
+            <span class="chip ${t.status}">${STATUS_LABEL[t.status]}</span>
+          </div>
+          <div class="reported-box" style="margin-top:6px"><div class="box-label">Reported by driver</div><div class="issue" style="margin-top:4px">${esc(t.issue)}</div></div>
+          ${t.repair_description ? `<div class="repair-box"><div class="box-label">Repair performed</div><div style="margin-top:4px">${esc(t.repair_description)}</div>${t.repair_parts ? `<div class="small" style="margin-top:6px">🔧 Parts: ${esc(t.repair_parts)}</div>` : ""}</div>` : ""}
+          ${t.offsite ? `<div class="foot" style="margin-top:8px"><span>📍 ${esc(t.location_text || "location pinned")}</span>${gpsMapLink(t)}</div>` : ""}
+          ${ready ? `<div class="banner" style="margin:10px 0 0;background:rgba(70,192,106,0.12);border-color:rgba(70,192,106,0.4);color:#8fe0a4">✅ Your truck is ready for pickup.</div>` : ""}
+          ${waiting ? `<div class="banner" style="margin:10px 0 0;background:rgba(255,209,102,0.12);border-color:rgba(255,209,102,0.4);color:var(--amber)">⏳ Waiting on parts — the shop is sourcing what's needed.</div>` : ""}
+          ${t.estimated_fix ? `<div class="foot" style="margin-top:8px"><span style="color:var(--orange-soft)">🛠 Est. time to fix: ${esc(t.estimated_fix)}</span></div>` : ""}
+          ${progressHtml(t)}
+          ${timersHtml(t)}
+          <button class="btn-ghost btn-block btn-sm" style="margin-top:10px" onclick="openDriverPhotos('${t.id}','${esc(t.driver_name)}')">📷 Photos &amp; notes</button>
+        </div>`;
+      }).join("");
+    tickTimers();
+  }
+
+  // ============================ STAFF: auth ============================
+  $("loginForm").addEventListener("submit", async (e) => {
+    e.preventDefault();
+    if (!ensureConfigured()) return;
+    const user = $("l-user").value.trim().toLowerCase();
+    const pass = $("l-pass").value;
+    if (!user || !pass) return toast("Enter username and password", true);
+    const email = user.includes("@") ? user : `${user}@${ADMIN_DOMAIN}`;
+    $("loginBtn").disabled = true; $("loginBtn").textContent = "Logging in…";
+    const { data, error } = await sb.auth.signInWithPassword({ email, password: pass });
+    $("loginBtn").disabled = false; $("loginBtn").textContent = "Log in";
+    if (error) return toast("Login failed — check username/password", true);
+    state.session = data.session;
+    $("loginForm").reset();
+    await resolveRole();
+    await loadShopData();
+    go("staff");
+  });
+
+  async function logout() {
+    if (sb) await sb.auth.signOut();
+    state.session = null; state.me = null; state.isMechanic = false; state.isDispatch = false; state.mechFilter = null;
+    if (realtimeChannel) { sb.removeChannel(realtimeChannel); realtimeChannel = null; }
+    go("home");
+  }
+
+  // Figure out whether the logged-in user is a mechanic, a dispatcher, or an
+  // admin. Each role's table is RLS-scoped to return only the caller's own row,
+  // so a non-empty match means "this is that role".
+  async function resolveRole() {
+    state.me = null; state.isMechanic = false; state.isDispatch = false;
+    const email = state.session && state.session.user && state.session.user.email;
+    if (!email) return;
+    const { data } = await sb.from("mechanics").select("*").eq("login_email", email.toLowerCase()).limit(1);
+    if (data && data.length) { state.me = data[0]; state.isMechanic = true; return; }
+    const dp = await sb.from("dispatchers").select("id").eq("login_email", email.toLowerCase()).limit(1);
+    if (dp.data && dp.data.length) state.isDispatch = true;
+  }
+
+  // ============================ STAFF: data ============================
+  async function loadShopData() {
+    if (state.isDispatch) {
+      // Dispatch sees the whole queue (RLS: read-only on tickets) and the
+      // dispatch notes log. Parts / cost / mechanics / the shop calendar are
+      // denied at the database, so we never query them here.
+      const tk = await sb.from("tickets").select("*").order("created_at", { ascending: false });
+      if (tk.error) return toast(tk.error.message, true);
+      state.tickets = tk.data || [];
+      state.mechanics = []; state.parts = []; state.appointments = [];
+      subscribeShop();
+      mountOncallAdmin(); loadOnCall();
+      return;
+    }
+    if (state.isMechanic) {
+      // Mechanic login: RLS already limits tickets to their own assignments and
+      // blocks parts/other mechanics. Keep the view locked to "my work".
+      const tk = await sb.from("tickets").select("*").order("created_at", { ascending: false });
+      state.tickets = tk.data || [];
+      state.mechanics = state.me ? [state.me] : [];
+      state.parts = [];
+      state.mechFilter = state.me ? state.me.id : null;
+      state.queueFilter = "mine";
+      subscribeShop();
+      return;
+    }
+    const [tk, mc, pt, ap] = await Promise.all([
+      sb.from("tickets").select("*").order("created_at", { ascending: false }),
+      sb.from("mechanics").select("*").order("name"),
+      sb.from("parts").select("*").order("name"),
+      sb.from("appointments").select("*").order("starts_at"),
+    ]);
+    if (tk.error) return toast(tk.error.message, true);
+    state.tickets = tk.data || [];
+    state.mechanics = mc.data || [];
+    state.parts = pt.data || [];
+    state.appointments = ap.data || [];
+    subscribeShop();
+    mountOncallAdmin(); loadOnCall();
+  }
+
+  function shopTab(t) {
+    ["queue", "history", "cal", "parts", "mech", "forms"].forEach(k => {
+      $("stab-" + k).classList.toggle("active", k === t);
+      $("shop-" + k).style.display = k === t ? "block" : "none";
+    });
+    if (t === "queue") renderQueue();
+    if (t === "history") renderHistory();
+    if (t === "cal") renderCalendar();
+    if (t === "parts") renderParts();
+    if (t === "mech") renderMechanics();
+    if (t === "forms") renderForms();
+  }
+
+  function renderShop() { applyRoleUI(); renderQueue(); }
+
+  // Mechanic logins get a stripped-down view: no Parts/Mechanics tabs, no queue
+  // filters (locked to their own work), header marks the role.
+  function applyRoleUI() {
+    const mech = state.isMechanic;
+    $("stab-cal").style.display = mech ? "none" : "";
+    $("stab-parts").style.display = mech ? "none" : "";
+    $("stab-mech").style.display = mech ? "none" : "";
+    $("shop-oncall").style.display = mech ? "none" : "";   // on-call admin is shop-only
+    // Add Ticket is available to shop AND mechanics (dispatch never reaches the
+    // shop queue — it has its own read-only board).
+    $("qBtnAdd").style.display = "";
+    $("headerSub").textContent = mech ? (state.me ? state.me.name + " · mechanic" : "Mechanic") : "Shop dashboard";
+    if (mech) shopTab("queue");
+  }
+
+  // ---- Add Ticket (shop + mechanic) --------------------------------------
+  // Adds a truck to the queue without the driver self-reporting. Available to
+  // shop admins and mechanics (both can INSERT under RLS); dispatch is excluded.
+  // Writes to the same `tickets` table; realtime drops it into the live queue.
+  function openShopIntake() {
+    if (!ensureConfigured() || state.isDispatch) return;   // not dispatch
+    resetPendingPhotos();
+    const canAssign = !state.isMechanic && state.mechanics.length;
+    const mechOpts = `<option value="">— Unassigned —</option>` +
+      state.mechanics.filter(m => m.active).map(m => `<option value="${m.id}">${esc(m.name)}</option>`).join("");
+    openModal(`
+      <h2 class="section">Add a ticket</h2>
+      <label class="fld">Equipment type <span class="req">*</span></label>
+      <div class="seg" id="si-seg">
+        <button type="button" class="seg-btn active" data-v="truck" onclick="setEquip('si','truck')">🚛 Truck</button>
+        <button type="button" class="seg-btn" data-v="trailer" onclick="setEquip('si','trailer')">🚚 Trailer</button>
+      </div>
+      <input type="hidden" id="si-equip" value="truck" />
+      <label class="fld" id="si-unitlabel">Truck number <span class="req">*</span></label>
+      <input id="si-unit" placeholder="e.g. 482" />
+      <label class="fld">Other unit # <span style="color:var(--muted)">(optional)</span></label>
+      <input id="si-unit2" placeholder="optional" />
+      <label class="fld">What's wrong? <span class="req">*</span></label>
+      <textarea id="si-issue" placeholder="Describe the problem…"></textarea>
+      <div class="two-col">
+        <div><label class="fld">Driver name</label><input id="si-name" placeholder="optional" /></div>
+        <div><label class="fld">Driver phone</label><input id="si-phone" type="tel" inputmode="tel" placeholder="optional" /></div>
+      </div>
+      <label class="fld">Photos <span style="color:var(--muted)">(optional)</span></label>
+      <div id="si-photos" class="photo-stage"></div>
+      <label class="filebtn">📷 Add photos<input type="file" accept="image/*" capture="environment" multiple onchange="stagePhotos(this,'si-photos')" /></label>
+      <input id="si-pnote" placeholder="Photo note (optional)" style="margin-top:8px" />
+      <label class="fld">Needed back out by <span style="color:var(--muted)">(optional)</span></label>
+      <input id="si-needed" type="datetime-local" />
+      ${canAssign ? `<label class="fld">Assign mechanic <span style="color:var(--muted)">(optional)</span></label>
+      <select id="si-mech">${mechOpts}</select>` : ""}
+      <button class="btn-primary" style="margin-top:16px" id="si-submit" onclick="submitShopTicket()">Add to queue</button>
+      <button class="btn-ghost btn-block" style="margin-top:8px" onclick="closeModal()">Cancel</button>
+    `);
+  }
+
+  async function submitShopTicket() {
+    if (!ensureConfigured() || state.isDispatch) return;
+    const truck = $("si-unit").value.trim();
+    const issue = $("si-issue").value.trim();
+    if (!truck || !issue) return toast("Unit number and problem are required", true);
+    const neededRaw = $("si-needed").value;
+    const actor = currentActor();
+    const payload = {
+      truck_number: truck,
+      equipment_type: $("si-equip").value,
+      unit_number: $("si-unit2").value.trim() || null,
+      // driver_name / driver_phone are NOT NULL in the schema; fall back to a
+      // marker so a shop entry without a driver still satisfies the constraint.
+      driver_name: $("si-name").value.trim() || "Shop-entered",
+      driver_phone: $("si-phone").value.trim() || "—",
+      issue: issue,
+      needed_by: neededRaw ? new Date(neededRaw).toISOString() : null,
+      assigned_mechanic_id: ($("si-mech") && $("si-mech").value) || (state.isMechanic && state.me ? state.me.id : null),
+      created_by: actor.name,
+    };
+    $("si-submit").disabled = true; $("si-submit").textContent = state.pendingPhotos.length ? "Uploading…" : "Adding…";
+    const { data, error } = await sb.from("tickets").insert(payload).select("id").single();
+    if (error) { $("si-submit").disabled = false; $("si-submit").textContent = "Add to queue"; return toast(error.message, true); }
+    await commitPendingPhotos(data.id, ($("si-pnote") && $("si-pnote").value.trim()) || null, actor);
+    closeModal(); toast("Ticket added to the queue ✓");
+  }
+
+  // ---- shared board controls (Ready/Non-Ready toggle + status tabs) ----------
+  // Used by BOTH the shop queue and the dispatch board so the two never drift.
+  // Counts are recomputed from state.tickets every render, so they stay live.
+  function boardCounts() {
+    const c = { intake: 0, in_progress: 0, waiting_parts: 0, completed: 0 };
+    state.tickets.forEach(t => { if (c[t.status] != null) c[t.status]++; });
+    c.ready = c.completed;
+    c.nonready = c.intake + c.in_progress + c.waiting_parts;
+    return c;
+  }
+  // showReady gates the front-line Ready/Non-Ready toggle (shop & dispatch only).
+  function boardControlsHtml(showReady) {
+    const c = boardCounts(), sf = state.boardStatus;
+    const toggle = showReady ? `<div class="seg board-toggle">
+        <button type="button" class="seg-btn ${!state.boardReady ? "active" : ""}" onclick="setBoardReady(false)">🔧 Non-Ready <span class="cnt">${c.nonready}</span></button>
+        <button type="button" class="seg-btn ${state.boardReady ? "active" : ""}" onclick="setBoardReady(true)">✅ Ready <span class="cnt">${c.ready}</span></button>
+      </div>` : "";
+    const tab = (st, label) =>
+      `<button class="board-tab ${sf === st ? "active" : ""}" onclick="setBoardStatus('${st}')">${label} <span class="cnt">${c[st]}</span></button>`;
+    return toggle + `<div class="board-tabs">
+      ${tab("intake", "Intake")}${tab("in_progress", "In Progress")}${tab("waiting_parts", "Waiting Parts")}${tab("completed", "Completed")}
+    </div>`;
+  }
+  function setBoardReady(v) { state.boardReady = v; state.boardStatus = null; renderBoard(); }
+  function setBoardStatus(s) {
+    state.boardStatus = (state.boardStatus === s) ? null : s;   // click active tab → back to whole group
+    state.boardReady = (state.boardStatus === "completed");
+    renderBoard();
+  }
+  function renderBoard() { state.isDispatch ? renderDispatch() : renderQueue(); }
+  // Selected slice: a specific status tab, else the Ready (completed) / Non-Ready group.
+  function boardFilter(list) {
+    if (state.boardStatus) return list.filter(t => t.status === state.boardStatus);
+    return list.filter(t => state.boardReady ? t.status === "completed" : t.status !== "completed");
+  }
+  function boardCompletedView() { return state.boardReady || state.boardStatus === "completed"; }
+
+  // tap-to-call driver phone (hidden gracefully when no number). stopPropagation
+  // so tapping the number dials instead of opening the ticket card.
+  function phoneLink(t) {
+    if (!t.driver_phone) return "";
+    return ` · <a href="tel:${esc(digits(t.driver_phone))}" class="tellink" onclick="event.stopPropagation()">📞 ${esc(t.driver_phone)}</a>`;
+  }
+
+  function renderQueue() {
+    // mechanic logins don't get the Ready/Non-Ready toggle (shop-only control);
+    // their tickets are already RLS-limited to their own assignments.
+    $("queueControls").innerHTML = boardControlsHtml(!state.isMechanic);
+
+    let list = boardFilter(state.tickets.slice());
+    if (boardCompletedView()) {
+      list.sort((a, b) => new Date(completedAt(b)) - new Date(completedAt(a)));   // newest done first
+    } else {
+      // open work, oldest-first (FIFO); priority floats to the top
+      list.sort((a, b) => {
+        if (!!a.priority !== !!b.priority) return a.priority ? -1 : 1;
+        return new Date(a.created_at) - new Date(b.created_at);
+      });
+    }
+    const el = $("queueList");
+    if (!list.length) { el.innerHTML = `<div class="empty">No trucks here.</div>`; return; }
+    el.innerHTML = `<div class="hint" style="margin:0 0 10px"><span class="live-dot"></span>Live${state.isMechanic ? " · your work" : ""}</div>` +
+      list.map(t => ticketCardHtml(t)).join("");
+    tickTimers();
+  }
+
+  function ticketCardHtml(t) {
+    const n = fmtNeeded(t.needed_by);
+    const mech = state.mechanics.find(m => m.id === t.assigned_mechanic_id);
+    const units = [t.trailer_number && "Trlr " + t.trailer_number, t.unit_number && "Unit " + t.unit_number].filter(Boolean).join(" · ");
+    return `<div class="ticket clickable${t.offsite ? " offsite" : ""}" onclick="openTicket('${t.id}')">
+      <div class="top">
+        <div><div class="truck">${t.priority ? '<span class="pri">★</span> ' : ""}${esc(t.truck_number)} ${equipBadge(t)}${t.offsite ? '<span class="badge-offsite">📍 OFF-SITE</span>' : ""}</div>
+        <div class="meta">${esc(t.driver_name)}${phoneLink(t)}${units ? " · " + esc(units) : ""}</div></div>
+        <div style="text-align:right;flex:none">
+          <span class="chip ${t.status}">${STATUS_LABEL[t.status]}</span>
+          <div style="margin-top:6px">${timerChip(t)}</div>
+        </div>
+      </div>
+      <div class="issue">${esc(t.issue)}</div>
+      ${t.offsite ? `<div class="foot"><span>📍 ${esc(t.location_text || "location pinned")}</span>${gpsMapLink(t)}</div>` : ""}
+      <div class="foot">
+        <span>${mech ? "👷 " + esc(mech.name) : "<span style='color:var(--orange-soft)'>Unassigned</span>"}</span>
+        ${n ? `<span class="needed ${n.late ? "late" : ""}">⏱ ${n.text}</span>` : ""}
+      </div>
+    </div>`;
+  }
+
+  // ---- Completed History: the permanent maintenance record --------------
+  // Completed tickets, searchable by unit #, with completion date, the repair
+  // performed, and photos. Mechanics see only their own completed work (RLS).
+  async function renderHistory() {
+    const el = $("historyList"); if (!el) return;
+    const q = (($("hist-search") && $("hist-search").value.trim()) || "").toLowerCase();
+    let list = state.tickets.filter(t => t.status === "completed");
+    if (q) list = list.filter(t =>
+      (t.truck_number || "").toLowerCase().includes(q) || (t.unit_number || "").toLowerCase().includes(q));
+    list.sort((a, b) => new Date(completedAt(b)) - new Date(completedAt(a)));
+    if (!list.length) { el.innerHTML = `<div class="empty">${q ? "No completed tickets match that unit #." : "No completed tickets yet."}</div>`; return; }
+    el.innerHTML = `<div class="hint" style="margin:0 0 10px">📒 Permanent maintenance record · ${list.length} completed</div>` +
+      list.map(t => historyCardHtml(t)).join("");
+    // Load thumbnails for the visible set in one query, then inject.
+    const ids = list.map(t => t.id);
+    const { data } = await sb.from("ticket_photos").select("ticket_id,storage_path").in("ticket_id", ids);
+    const byT = {}; (data || []).forEach(p => { (byT[p.ticket_id] = byT[p.ticket_id] || []).push(p); });
+    list.forEach(t => {
+      const host = $("hphotos-" + t.id); if (!host) return;
+      const ph = byT[t.id] || [];
+      host.innerHTML = ph.length
+        ? `<div class="photo-grid">` + ph.slice(0, 6).map(p => { const u = photoUrl(p.storage_path); return `<div class="thumb"><img src="${u}" onclick="event.stopPropagation();openLightbox('${u}')" /></div>`; }).join("") + `</div>`
+        : "";
+    });
+  }
+
+  function historyCardHtml(t) {
+    const done = fmtStamp(t.finished_at || t.updated_at);
+    const mech = state.mechanics.find(m => m.id === t.assigned_mechanic_id);
+    const repair = t.repair_description ? esc(t.repair_description) : `<span style="color:var(--muted)">No repair description logged</span>`;
+    return `<div class="ticket clickable${t.offsite ? " offsite" : ""}" onclick="openTicket('${t.id}')">
+      <div class="top">
+        <div><div class="truck">${esc(t.truck_number)} ${equipBadge(t)}${t.offsite ? '<span class="badge-offsite">📍 OFF-SITE</span>' : ""}</div>
+        <div class="meta">✓ Completed ${done || "—"} · 👷 ${mech ? esc(mech.name) : "Unassigned"}</div></div>
+        <span class="chip completed">Completed</span>
+      </div>
+      <div class="reported-box" style="margin-top:8px"><div class="box-label">Reported by driver</div><div class="issue" style="margin-top:4px">${esc(t.issue)}</div></div>
+      <div class="repair-box"><div class="box-label">Repair performed</div><div style="margin-top:4px">${repair}</div>${t.repair_parts ? `<div class="small" style="margin-top:6px">🔧 Parts: ${esc(t.repair_parts)}</div>` : ""}</div>
+      <div id="hphotos-${t.id}" style="margin-top:8px"></div>
+    </div>`;
+  }
+
+  // ============================ DISPATCH ============================
+  // When a ticket was completed (trigger sets finished_at; fall back to
+  // updated_at for any older rows that predate that column).
+  function completedAt(t) { return t.finished_at || t.updated_at || t.created_at; }
+
+  function renderDispatch() {
+    $("headerSub").textContent = "Dispatch · watch & flag";
+    // same Ready/Non-Ready toggle + status tabs as the shop board (no drift)
+    $("dispControls").innerHTML = boardControlsHtml(true);
+
+    const now = Date.now();
+    const isOverdue = t => t.needed_by && t.status !== "completed" && new Date(t.needed_by).getTime() < now;
+    let list = boardFilter(state.tickets.slice());
+
+    if (boardCompletedView()) {
+      list.sort((a, b) => new Date(completedAt(b)) - new Date(completedAt(a)));   // most recently done first
+    } else {
+      // overdue first, then priority, then by ETA, then newest
+      list.sort((a, b) => {
+        if (isOverdue(a) !== isOverdue(b)) return isOverdue(a) ? -1 : 1;
+        if (!!a.priority !== !!b.priority) return a.priority ? -1 : 1;
+        const an = a.needed_by ? new Date(a.needed_by) : Infinity, bn = b.needed_by ? new Date(b.needed_by) : Infinity;
+        if (an !== bn) return an - bn;
+        return new Date(b.created_at) - new Date(a.created_at);
+      });
+    }
+
+    const el = $("dispatchList");
+    if (!list.length) { el.innerHTML = `<div class="empty">No trucks here.</div>`; return; }
+    el.innerHTML = `<div class="hint" style="margin:0 0 10px"><span class="live-dot"></span>Live — the whole shop, read-only. Tap a truck to flag priority or add notes.</div>` +
+      list.map(t => dispatchCardHtml(t)).join("");
+    tickTimers();
+  }
+
+  function dispatchCardHtml(t) {
+    const units = [t.trailer_number && "Trlr " + t.trailer_number, t.unit_number && "Unit " + t.unit_number].filter(Boolean).join(" · ");
+    return `<div class="ticket clickable" onclick="openDispatch('${t.id}')">
+      <div class="top">
+        <div><div class="truck">${t.priority ? '<span class="pri">★</span> ' : ""}${esc(t.truck_number)} ${equipBadge(t)}</div>
+        <div class="meta">${esc(t.driver_name)}${phoneLink(t)}${units ? " · " + esc(units) : ""}</div></div>
+        <div style="text-align:right;flex:none">
+          <span class="chip ${t.status}">${STATUS_LABEL[t.status]}</span>
+          <div style="margin-top:6px">${timerChip(t)}</div>
+        </div>
+      </div>
+      <div class="issue">${esc(t.issue)}</div>
+    </div>`;
+  }
+
+  // Dispatch detail: priority toggle + notes only. No status / assign / parts.
+  async function openDispatch(id) {
+    const t = state.tickets.find(x => x.id === id);
+    if (!t) return;
+    const units = [t.trailer_number && "Trailer " + t.trailer_number, t.unit_number && "Unit " + t.unit_number].filter(Boolean).join(" · ");
+    const { data: notes } = await sb.from("dispatch_notes").select("*").eq("ticket_id", id).order("created_at", { ascending: false });
+    const notesHtml = (notes && notes.length)
+      ? notes.map(nt => `<div class="row"><div class="grow"><div class="name">${esc(nt.note)}</div><div class="small">${nt.author_email ? esc(nt.author_email.split("@")[0]) + " · " : ""}${ago(nt.created_at)}</div></div></div>`).join("")
+      : `<div class="small" style="padding:6px 0;color:var(--muted)">No dispatch notes yet.</div>`;
+
+    openModal(`
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px">
+        <div class="truck" style="font-size:18px">${t.priority ? '<span class="pri">★</span> ' : ""}${esc(t.truck_number)} ${equipBadge(t)}</div>
+        <span class="chip ${t.status}">${STATUS_LABEL[t.status]}</span>
+      </div>
+      <div class="meta small" style="color:var(--muted)">${esc(t.driver_name)} · <a href="tel:${esc(digits(t.driver_phone))}" style="color:var(--blue)">${esc(t.driver_phone)}</a>${units ? " · " + esc(units) : ""}</div>
+      <div class="reported-box" style="margin-top:12px">
+        <div class="box-label">Reported by driver</div>
+        <div class="issue" style="margin-top:4px">${esc(t.issue)}</div>
+        ${timersHtml(t)}
+      </div>
+      ${t.repair_description ? `<div class="repair-box"><div class="box-label">Repair performed</div><div style="margin-top:4px">${esc(t.repair_description)}</div>${t.repair_parts ? `<div class="small" style="margin-top:6px">🔧 Parts: ${esc(t.repair_parts)}</div>` : ""}</div>` : ""}
+
+      ${t.offsite ? `<div class="card" style="margin-top:12px;border-color:var(--orange)">
+        <div class="name"><span class="badge-offsite">📍 OFF-SITE</span></div>
+        <div class="small" style="margin-top:8px">${t.location_text ? "🏷 " + esc(t.location_text) : "No landmark given"}</div>
+        ${t.gps_lat != null ? `<div class="small" style="margin-top:6px">📡 ${t.gps_lat}, ${t.gps_lng} ·${gpsMapLink(t)}</div>` : ""}
+      </div>` : ""}
+
+      <h2 class="section">Photos &amp; notes</h2>
+      <div id="dphotos-${t.id}"></div>
+
+      <h2 class="section">Priority</h2>
+      <button class="btn-block ${t.priority ? "btn-red" : "btn-ghost"}" onclick="togglePriority('${t.id}')">
+        ${t.priority ? "★ Priority flag ON — tap to clear" : "☆ Flag as priority"}
+      </button>
+
+      <h2 class="section">Dispatch notes</h2>
+      ${notesHtml}
+      <input id="dn-note" placeholder="Add a note for the shop…" style="margin-top:10px" />
+      <button class="btn-ghost btn-block btn-sm" style="margin-top:8px" onclick="addDispatchNote('${t.id}')">Add note</button>
+
+      <button class="btn-primary" style="margin-top:18px" onclick="closeModal()">Done</button>
+    `);
+    renderPhotosInto("dphotos-" + t.id, t.id, { canAdd: false, canDelete: false });   // dispatch = view-only
+  }
+
+  async function togglePriority(id) {
+    const t = state.tickets.find(x => x.id === id); if (!t) return;
+    const { error } = await sb.rpc("set_ticket_priority", { p_ticket: id, p_on: !t.priority });
+    if (error) return toast(error.message, true);
+    t.priority = !t.priority;            // optimistic; realtime will confirm
+    toast(t.priority ? "Flagged priority ★" : "Priority cleared");
+    openDispatch(id); renderDispatch();
+  }
+
+  async function addDispatchNote(id) {
+    const note = $("dn-note").value.trim();
+    if (!note) return toast("Type a note first", true);
+    const author = state.session && state.session.user ? state.session.user.email : null;
+    const { error } = await sb.from("dispatch_notes").insert({ ticket_id: id, note, author_email: author });
+    if (error) return toast(error.message, true);
+    toast("Note added ✓"); openDispatch(id);
+  }
+
+  // ---- ticket detail modal ----
+  async function openTicket(id) {
+    const t = state.tickets.find(x => x.id === id);
+    if (!t) return;
+    const mineMode = state.isMechanic || state.queueFilter === "mine";  // hide cost/parts/assign
+    // load time logs + ticket parts for this ticket
+    const [tl, tp] = await Promise.all([
+      sb.from("time_logs").select("*").eq("ticket_id", id).order("created_at", { ascending: false }),
+      mineMode ? Promise.resolve({ data: [] }) : sb.from("ticket_parts").select("*").eq("ticket_id", id),
+    ]);
+    const logs = tl.data || [];
+    const tparts = tp.data || [];
+    const totalMin = logs.reduce((s, l) => s + (l.minutes || 0), 0);
+
+    const mechOpts = `<option value="">— Unassigned —</option>` +
+      assignableMechanics(t.assigned_mechanic_id).map(m => `<option value="${m.id}" ${m.id === t.assigned_mechanic_id ? "selected" : ""}>${esc(m.name)}</option>`).join("");
+    const statusOpts = STATUS_ORDER.map(s => `<option value="${s}" ${s === t.status ? "selected" : ""}>${STATUS_LABEL[s]}</option>`).join("");
+    const n = fmtNeeded(t.needed_by);
+
+    // cost (admin only)
+    let costHtml = "";
+    if (!mineMode) {
+      const lines = tparts.map(tpart => {
+        const p = state.parts.find(pp => pp.id === tpart.part_id);
+        const cost = p ? p.unit_cost * tpart.qty : 0;
+        return { name: p ? p.name : "(deleted part)", qty: tpart.qty, cost, id: tpart.id };
+      });
+      const partsTotal = lines.reduce((s, l) => s + l.cost, 0);
+      const partOpts = state.parts.map(p => `<option value="${p.id}">${esc(p.name)} ($${p.unit_cost})</option>`).join("");
+      costHtml = `
+        <h2 class="section">Parts & cost estimate</h2>
+        ${lines.length ? lines.map(l => `<div class="row"><div class="grow"><div class="name">${esc(l.name)}</div><div class="small">${l.qty} × </div></div><div>$${l.cost.toFixed(2)}</div><button class="btn-sm btn-red" onclick="removeTicketPart('${l.id}','${t.id}')">✕</button></div>`).join("") : `<div class="small" style="padding:8px 0;color:var(--muted)">No parts added.</div>`}
+        <div class="row" style="font-weight:700"><div class="grow">Parts total</div><div style="color:var(--amber)">$${partsTotal.toFixed(2)}</div></div>
+        ${state.parts.length ? `<div class="three-col" style="margin-top:10px">
+          <select id="tp-part" style="grid-column:span 2">${partOpts}</select>
+          <input id="tp-qty" type="number" inputmode="numeric" value="1" min="1" />
+        </div><button class="btn-ghost btn-block btn-sm" style="margin-top:8px" onclick="addTicketPart('${t.id}')">Add part to ticket</button>` : `<div class="hint">Add parts in the Parts tab first.</div>`}`;
+    }
+
+    openModal(`
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px">
+        <div class="truck" style="font-size:18px">${esc(t.truck_number)} ${equipBadge(t)}</div>
+        <span class="chip ${t.status}">${STATUS_LABEL[t.status]}</span>
+      </div>
+      <div class="meta small" style="color:var(--muted)">${esc(t.driver_name)} · <a href="tel:${esc(digits(t.driver_phone))}" style="color:var(--blue)">${esc(t.driver_phone)}</a>${t.driver_email ? ` · <a href="mailto:${esc(t.driver_email)}" style="color:var(--blue)">${esc(t.driver_email)}</a>` : ""}</div>
+      ${[t.trailer_number && "Trailer "+esc(t.trailer_number), t.unit_number && "Unit "+esc(t.unit_number)].filter(Boolean).length ? `<div class="small" style="color:var(--muted);margin-top:2px">${[t.trailer_number && "Trailer "+esc(t.trailer_number), t.unit_number && "Unit "+esc(t.unit_number)].filter(Boolean).join(" · ")}</div>` : ""}
+      <div class="reported-box" style="margin-top:12px">
+        <div class="box-label">Reported by driver</div>
+        <div class="issue" style="margin-top:4px">${esc(t.issue)}</div>
+        ${n ? `<div class="foot" style="margin-top:8px"><span class="needed ${n.late?"late":""}">⏱ Needed by ${n.text}</span></div>` : ""}
+      </div>
+
+      ${t.offsite ? `<div class="card" style="margin-top:12px;border-color:var(--orange)">
+        <div class="name"><span class="badge-offsite">📍 OFF-SITE</span></div>
+        <div class="small" style="margin-top:8px">${t.location_text ? "🏷 " + esc(t.location_text) : "No landmark given"}</div>
+        ${t.gps_lat != null ? `<div class="small" style="margin-top:6px">📡 ${t.gps_lat}, ${t.gps_lng} ·${gpsMapLink(t)}</div>` : ""}
+      </div>` : ""}
+
+      <h2 class="section">Repair performed <span style="color:var(--muted);text-transform:none;letter-spacing:0">(mechanic / shop)</span></h2>
+      <div class="repair-box">
+        <label class="fld">What was done</label>
+        <textarea id="td-repair" placeholder="Describe the actual repair…">${esc(t.repair_description || "")}</textarea>
+        <label class="fld">Parts used</label>
+        <input id="td-rparts" placeholder="e.g. 2× brake chamber, air line" value="${esc(t.repair_parts || "")}" />
+        <label class="fld">Mechanic notes</label>
+        <textarea id="td-rnotes" placeholder="Internal notes…">${esc(t.repair_notes || "")}</textarea>
+        <button class="btn-blue btn-block btn-sm" style="margin-top:8px" onclick="saveRepair('${t.id}')">Save repair</button>
+      </div>
+
+      <h2 class="section">Photos &amp; notes</h2>
+      <div id="tphotos-${t.id}"></div>
+
+      <h2 class="section">Status</h2>
+      <select id="td-status" onchange="updateTicket('${t.id}',{status:this.value})">${statusOpts}</select>
+      <p class="hint" style="margin-top:6px">Set to <b>Completed</b> to email the driver their truck is ready.</p>
+
+      <h2 class="section">Est. time to fix <span style="color:var(--muted);text-transform:none;letter-spacing:0">(driver can see this)</span></h2>
+      <input id="td-eta" placeholder="e.g. About 2 hours, or Tomorrow AM" value="${esc(t.estimated_fix || "")}" />
+      <button class="btn-ghost btn-block btn-sm" style="margin-top:8px" onclick="updateTicket('${t.id}',{estimated_fix:$('td-eta').value.trim()||null})">Save ETA</button>
+
+      ${mineMode ? "" : `<h2 class="section">Assigned mechanic</h2>
+      <select id="td-mech" onchange="updateTicket('${t.id}',{assigned_mechanic_id:this.value||null})">${mechOpts}</select>`}
+
+      <h2 class="section">Timeline</h2>
+      <div class="row"><div class="grow"><div class="name">Dropped off</div></div><div class="small">${fmtStamp(t.created_at) || "—"}</div></div>
+      <div class="row"><div class="grow"><div class="name">Work started</div></div><div class="small">${fmtStamp(t.started_at) || "—"}</div></div>
+      <div class="row"><div class="grow"><div class="name">Finished</div></div><div class="small">${fmtStamp(t.finished_at) || "—"}</div></div>
+
+      <h2 class="section">Time logged · ${Math.floor(totalMin/60)}h ${totalMin%60}m</h2>
+      ${logs.length ? logs.map(l => { const m = state.mechanics.find(x=>x.id===l.mechanic_id); return `<div class="row"><div class="grow"><div class="name">${l.minutes} min</div><div class="small">${m?esc(m.name)+" · ":""}${l.note?esc(l.note):"no note"} · ${ago(l.created_at)}</div></div></div>`; }).join("") : `<div class="small" style="padding:6px 0;color:var(--muted)">No time logged yet.</div>`}
+      <div class="three-col" style="margin-top:10px">
+        <input id="tl-min" type="number" inputmode="numeric" placeholder="min" />
+        <select id="tl-mech" style="grid-column:span 2">${assignableMechanics(t.assigned_mechanic_id).map(m=>`<option value="${m.id}" ${m.id===t.assigned_mechanic_id?"selected":""}>${esc(m.name)}</option>`).join("")||'<option value="">no mechanics</option>'}</select>
+      </div>
+      <input id="tl-note" placeholder="Note (optional)" style="margin-top:8px" />
+      <button class="btn-ghost btn-block btn-sm" style="margin-top:8px" onclick="addTimeLog('${t.id}')">Log time</button>
+
+      ${costHtml}
+
+      <button class="btn-primary" style="margin-top:18px" onclick="closeModal()">Done</button>
+      ${mineMode ? "" : `<button class="btn-red btn-block" style="margin-top:8px" onclick="deleteTicket('${t.id}')">Delete ticket</button>`}
+    `);
+    // Mechanics + shop can add/delete; the modal is never shown to dispatch.
+    resetPendingPhotos();
+    renderPhotosInto("tphotos-" + t.id, t.id, { canAdd: canAddPhotos(), canDelete: true });
+  }
+
+  async function updateTicket(id, patch) {
+    const { error } = await sb.from("tickets").update(patch).eq("id", id);
+    if (error) return toast(error.message, true);
+    const t = state.tickets.find(x => x.id === id); if (t) Object.assign(t, patch);
+    toast("Updated ✓"); renderQueue();
+  }
+
+  // Mechanic repair entry — kept distinct from the driver's reported complaint.
+  // Editable by mechanic + shop (both reach this modal); drivers never do, and
+  // RLS blocks anon updates anyway.
+  async function saveRepair(id) {
+    const patch = {
+      repair_description: $("td-repair").value.trim() || null,
+      repair_parts: $("td-rparts").value.trim() || null,
+      repair_notes: $("td-rnotes").value.trim() || null,
+    };
+    const { error } = await sb.from("tickets").update(patch).eq("id", id);
+    if (error) return toast(error.message, true);
+    const t = state.tickets.find(x => x.id === id); if (t) Object.assign(t, patch);
+    toast("Repair saved ✓");
+  }
+
+  async function deleteTicket(id) {
+    if (!confirm("Delete this ticket? This can't be undone.")) return;
+    const { error } = await sb.from("tickets").delete().eq("id", id);
+    if (error) return toast(error.message, true);
+    state.tickets = state.tickets.filter(t => t.id !== id);
+    closeModal(); renderQueue(); toast("Deleted");
+  }
+
+  async function addTimeLog(ticketId) {
+    const min = parseInt($("tl-min").value, 10);
+    if (!min || min <= 0) return toast("Enter minutes", true);
+    const payload = { ticket_id: ticketId, mechanic_id: $("tl-mech").value || null, minutes: min, note: $("tl-note").value.trim() || null };
+    const { error } = await sb.from("time_logs").insert(payload);
+    if (error) return toast(error.message, true);
+    toast("Time logged ✓"); openTicket(ticketId);
+  }
+
+  async function addTicketPart(ticketId) {
+    const part_id = $("tp-part").value;
+    const qty = parseInt($("tp-qty").value, 10) || 1;
+    if (!part_id) return toast("Pick a part", true);
+    const { error } = await sb.from("ticket_parts").insert({ ticket_id: ticketId, part_id, qty });
+    if (error) return toast(error.message, true);
+    toast("Part added ✓"); openTicket(ticketId);
+  }
+  async function removeTicketPart(id, ticketId) {
+    const { error } = await sb.from("ticket_parts").delete().eq("id", id);
+    if (error) return toast(error.message, true);
+    openTicket(ticketId);
+  }
+
+  // ============================ Repair photos (shared) ============================
+  // Capture from the phone camera, compress client-side for weak signal, upload to
+  // the `repair-photos` Storage bucket, and record a row per photo in ticket_photos.
+  // Used by: driver intake, off-site report, the shop Add-Ticket form, and the
+  // "add photo" control on an existing ticket.
+
+  // Who is acting, for the uploaded_by_role/name stamp on each photo.
+  function currentActor() {
+    if (state.isMechanic) return { role: "mechanic", name: state.me ? state.me.name : "Mechanic" };
+    if (state.isDispatch) return { role: "dispatch", name: "Dispatch" };
+    if (state.session) return { role: "shop", name: ((state.session.user.email || "").split("@")[0]) || "Shop" };
+    return { role: "driver", name: "Driver" };
+  }
+  function canAddPhotos() {
+    // Drivers (anon), mechanics, and shop admins can add. Dispatch is view-only.
+    return !state.isDispatch;
+  }
+
+  // Downscale to ~maxDim and re-encode JPEG under ~maxBytes so uploads survive a
+  // weak truck-stop signal. Returns a Blob.
+  function compressImage(file, maxDim = 1600, maxBytes = 1024 * 1024) {
+    return new Promise((resolve, reject) => {
+      const url = URL.createObjectURL(file);
+      const img = new Image();
+      img.onload = () => {
+        URL.revokeObjectURL(url);
+        let { width, height } = img;
+        if (!width || !height) return reject(new Error("bad image"));
+        const scale = Math.min(1, maxDim / Math.max(width, height));
+        const w = Math.max(1, Math.round(width * scale)), h = Math.max(1, Math.round(height * scale));
+        const canvas = document.createElement("canvas");
+        canvas.width = w; canvas.height = h;
+        canvas.getContext("2d").drawImage(img, 0, 0, w, h);
+        let q = 0.82;
+        const step = () => canvas.toBlob((blob) => {
+          if (!blob) return reject(new Error("encode failed"));
+          if (blob.size > maxBytes && q > 0.4) { q -= 0.12; return step(); }
+          resolve(blob);
+        }, "image/jpeg", q);
+        step();
+      };
+      img.onerror = () => { URL.revokeObjectURL(url); reject(new Error("can't read image")); };
+      img.src = url;
+    });
+  }
+
+  // Stage picked photos in memory (before the ticket exists), show a preview strip.
+  async function stagePhotos(input, containerId) {
+    const files = Array.from(input.files || []);
+    input.value = "";
+    for (const f of files) {
+      if (state.pendingPhotos.length >= MAX_PHOTOS) { toast(`Up to ${MAX_PHOTOS} photos`, true); break; }
+      if (!/^image\//.test(f.type)) continue;
+      try {
+        const blob = await compressImage(f);
+        state.pendingPhotos.push({ blob, url: URL.createObjectURL(blob) });
+      } catch (e) { console.error(e); toast("Couldn't read one photo — try again", true); }
+    }
+    renderStage(containerId);
+  }
+  function renderStage(containerId) {
+    const el = $(containerId); if (!el) return;
+    el.innerHTML = state.pendingPhotos.map((p, i) =>
+      `<div class="thumb"><img src="${p.url}" onclick="openLightbox('${p.url}')" /><button type="button" class="x" onclick="unstagePhoto(${i},'${containerId}')">✕</button></div>`
+    ).join("");
+  }
+  function unstagePhoto(i, containerId) {
+    const p = state.pendingPhotos[i];
+    if (p && p.url) URL.revokeObjectURL(p.url);
+    state.pendingPhotos.splice(i, 1);
+    renderStage(containerId);
+  }
+  function resetPendingPhotos() {
+    state.pendingPhotos.forEach(p => p.url && URL.revokeObjectURL(p.url));
+    state.pendingPhotos = [];
+  }
+
+  // Upload all staged photos for a now-existing ticket, then clear the stage.
+  async function commitPendingPhotos(ticketId, note, actor) {
+    if (!state.pendingPhotos.length) return 0;
+    const a = actor || currentActor();
+    let ok = 0;
+    for (const p of state.pendingPhotos) {
+      try { await uploadOnePhoto(ticketId, p.blob, note, a); ok++; }
+      catch (e) { console.error("photo upload failed", e); }
+    }
+    if (ok < state.pendingPhotos.length) toast(`${ok}/${state.pendingPhotos.length} photos uploaded`, true);
+    resetPendingPhotos();
+    return ok;
+  }
+  async function uploadOnePhoto(ticketId, blob, note, actor) {
+    const path = `${ticketId}/${Date.now()}_${Math.random().toString(36).slice(2, 8)}.jpg`;
+    const up = await sb.storage.from(PHOTO_BUCKET).upload(path, blob, { contentType: "image/jpeg", upsert: false });
+    if (up.error) throw up.error;
+    const row = await sb.from("ticket_photos").insert({
+      ticket_id: ticketId, storage_path: path, note: note || null,
+      uploaded_by_role: actor.role, uploaded_by_name: actor.name,
+    });
+    if (row.error) throw row.error;
+  }
+  function photoUrl(path) {
+    return sb.storage.from(PHOTO_BUCKET).getPublicUrl(path).data.publicUrl;
+  }
+
+  // Load + render a ticket's photos into a container, with an optional add control.
+  async function renderPhotosInto(containerId, ticketId, opts) {
+    const el = $(containerId); if (!el) return;
+    opts = opts || {};
+    el.innerHTML = `<div class="small" style="color:var(--muted)">Loading photos…</div>`;
+    const { data, error } = await sb.from("ticket_photos").select("*").eq("ticket_id", ticketId).order("created_at", { ascending: true });
+    if (error) { el.innerHTML = `<div class="small" style="color:var(--muted)">Couldn't load photos.</div>`; return; }
+    const photos = data || [];
+    const grid = photos.length
+      ? `<div class="photo-grid">` + photos.map(p => {
+          const u = photoUrl(p.storage_path);
+          const del = opts.canDelete ? `<button class="x" onclick="deletePhoto('${p.id}','${containerId}','${ticketId}')">✕</button>` : "";
+          return `<div class="thumb"><img src="${u}" onclick="openLightbox('${u}')" />${del}</div>`;
+        }).join("") + `</div>`
+      : `<div class="small" style="color:var(--muted)">No photos yet.</div>`;
+    const notes = photos.filter(p => p.note).map(p =>
+      `<div class="photo-card"><div class="pc-note">📝 ${esc(p.note)}</div><div class="pc-by">${esc(p.uploaded_by_name || "")}${p.uploaded_by_role ? " · " + esc(p.uploaded_by_role) : ""} · ${ago(p.created_at)}</div></div>`
+    ).join("");
+    let add = "";
+    if (opts.canAdd) {
+      const sid = containerId + "-stage";
+      add = `<div style="margin-top:10px">
+        <div id="${sid}" class="photo-stage"></div>
+        <label class="filebtn">📷 Add photo<input type="file" accept="image/*" capture="environment" multiple onchange="stagePhotos(this,'${sid}')" /></label>
+        <textarea id="${containerId}-note" placeholder="Note (optional)" style="margin-top:8px"></textarea>
+        <button class="btn-blue btn-block btn-sm" style="margin-top:8px" onclick="addPhotosToTicket('${ticketId}','${containerId}')">Upload</button>
+      </div>`;
+    }
+    el.innerHTML = grid + notes + add;
+  }
+  async function addPhotosToTicket(ticketId, containerId) {
+    const note = ($(containerId + "-note") && $(containerId + "-note").value.trim()) || null;
+    if (!state.pendingPhotos.length) return toast("Add at least one photo", true);
+    await commitPendingPhotos(ticketId, note, currentActor());
+    toast("Photos added ✓");
+    renderPhotosInto(containerId, ticketId, { canAdd: true, canDelete: currentActor().role !== "driver" });
+  }
+  async function deletePhoto(id, containerId, ticketId) {
+    if (!confirm("Remove this photo?")) return;
+    const { data } = await sb.from("ticket_photos").select("storage_path").eq("id", id).single();
+    await sb.from("ticket_photos").delete().eq("id", id);
+    if (data && data.storage_path) { try { await sb.storage.from(PHOTO_BUCKET).remove([data.storage_path]); } catch (_) {} }
+    renderPhotosInto(containerId, ticketId, { canAdd: true, canDelete: true });
+  }
+
+  // Driver-facing photo modal (their result cards aren't modals themselves).
+  function openDriverPhotos(ticketId, driverName) {
+    const cid = "dphotos";
+    openModal(`<h2 class="section">Photos &amp; notes</h2><div id="${cid}"></div>
+      <button class="btn-primary" style="margin-top:16px" onclick="closeModal()">Done</button>`);
+    resetPendingPhotos();
+    renderPhotosInto(cid, ticketId, { canAdd: true, canDelete: false });
+  }
+
+  function openLightbox(url) { $("imgLightboxImg").src = url; $("imgLightbox").classList.add("show"); }
+  function closeLightbox() { $("imgLightbox").classList.remove("show"); $("imgLightboxImg").src = ""; }
+
+  // Google-Maps link for a ticket's captured GPS (empty if none). stopPropagation
+  // so tapping it inside a clickable card doesn't also open the ticket.
+  function gpsMapLink(t) {
+    if (t.gps_lat == null || t.gps_lng == null) return "";
+    return ` <a class="maplink" target="_blank" rel="noopener" onclick="event.stopPropagation()" href="https://maps.google.com/?q=${t.gps_lat},${t.gps_lng}">🗺 Map</a>`;
+  }
+
+  // ============================ STAFF: parts ============================
+  function renderParts() {
+    const el = $("partsList");
+    if (!state.parts.length) { el.innerHTML = `<div class="empty">No parts yet.</div>`; return; }
+    el.innerHTML = state.parts.map(p => `<div class="row">
+      <div class="grow"><div class="name">${esc(p.name)}</div><div class="small">${p.qty_on_hand} on hand</div></div>
+      <div style="color:var(--amber)">$${Number(p.unit_cost).toFixed(2)}</div>
+      <button class="btn-sm btn-red" onclick="deletePart('${p.id}')">✕</button>
+    </div>`).join("");
+  }
+  async function addPart() {
+    const name = $("p-name").value.trim();
+    if (!name) return toast("Part name required", true);
+    const payload = { name, qty_on_hand: parseInt($("p-qty").value, 10) || 0, unit_cost: parseFloat($("p-cost").value) || 0 };
+    const { data, error } = await sb.from("parts").insert(payload).select().single();
+    if (error) return toast(error.message, true);
+    state.parts.push(data); state.parts.sort((a,b)=>a.name.localeCompare(b.name));
+    $("p-name").value = ""; $("p-qty").value = "0"; $("p-cost").value = "0";
+    renderParts(); toast("Part added ✓");
+  }
+  async function deletePart(id) {
+    if (!confirm("Delete this part?")) return;
+    const { error } = await sb.from("parts").delete().eq("id", id);
+    if (error) return toast(error.message + " (it may be used on a ticket)", true);
+    state.parts = state.parts.filter(p => p.id !== id); renderParts();
+  }
+
+  // ============================ STAFF: mechanics ============================
+  // ============================ STAFF: forms ============================
+  // PM forms, SOP manual, and KPI scorecard — static files under shop/pm-forms/.
+  // Available to shop & mechanic roles (this tab only renders in the shop view).
+  // `fillable: true` → the PDF has real AcroForm fields; the Forms tab offers a
+  // "Fill" button that opens the in-browser editor. The SOP manual and the KPI
+  // scorecard have no fields, so they stay view/download only.
+  const PM_FORM_GROUPS = [
+    { group: "Tractor PM", items: [
+      { name: "PM-A (15,000 mi)",                file: "Tractor_PM-A_Fillable.pdf", fillable: true },
+      { name: "PM-B (45,000 mi)",                file: "Tractor_PM-B_Fillable.pdf", fillable: true },
+      { name: "PM-C (90,000 mi)",                file: "Tractor_PM-C_Fillable.pdf", fillable: true },
+      { name: "Annual Vehicle Inspection (AVI)", file: "Tractor_AVI_Fillable.pdf", fillable: true },
+    ]},
+    { group: "Trailer", items: [
+      { name: "Trailer PM (every 90 days)", file: "Trailer_PM_Fillable.pdf", fillable: true },
+      { name: "Trailer AVI (every 6 mo.)",  file: "Trailer_AVI_Fillable.pdf", fillable: true },
+    ]},
+    { group: "APU", items: [
+      { name: "Navistar Electric APU PM", file: "Navistar_Electric_APU_PM_Fillable.pdf", fillable: true },
+      { name: "Green APU PM",             file: "Green_APU_PM_Fillable.pdf", fillable: true },
+      { name: "Thermo King APU PM",       file: "Thermo_King_APU_PM_Fillable.pdf", fillable: true },
+    ]},
+    { group: "SOP Manual", items: [
+      { name: "Rosedale Maintenance SOP Manual", file: "Rosedale_Maintenance_SOP_Manual.pdf" },
+    ]},
+    { group: "KPI Scorecard", items: [
+      { name: "Monthly KPI Scorecard", file: "Rosedale_Monthly_KPI_Scorecard.xlsx" },
+    ]},
+  ];
+  // Flat lookup by filename — the viewer needs the display name for a given file.
+  const PM_FORM_BY_FILE = {};
+  PM_FORM_GROUPS.forEach(g => g.items.forEach(it => { PM_FORM_BY_FILE[it.file] = it; }));
+  const FORMS_FILLABLE_READY = !!(window.pdfjsLib && window.PDFLib);
+
+  function renderForms() {
+    const el = $("formsList");
+    const intro = FORMS_FILLABLE_READY
+      ? `Fill PM forms right on the tablet — type on the form, then Print or Email a copy. Open views the file; Download saves it.`
+      : `PM forms, the SOP manual, and the monthly KPI scorecard. Open views the file in a new tab; Download saves a copy.`;
+    el.innerHTML = `<h2 class="section">Forms &amp; checklists</h2>
+      <div class="hint" style="margin-bottom:14px">${intro}</div>` +
+      PM_FORM_GROUPS.map(g => `<h2 class="section">${esc(g.group)}</h2>` + g.items.map(it => {
+        const url = "pm-forms/" + it.file;
+        const ext = it.file.split(".").pop().toUpperCase();
+        const fill = (it.fillable && FORMS_FILLABLE_READY)
+          ? `<button class="btn-sm btn-primary" onclick="openFormFiller('${esc(it.file)}')">Fill</button>`
+          : "";
+        return `<div class="row">
+          <div class="grow"><div class="name">${esc(it.name)}</div><div class="small">${ext}${it.fillable ? " · fillable" : ""}</div></div>
+          ${fill}
+          <button class="btn-sm btn-blue" onclick="window.open('${url}','_blank','noopener')">Open</button>
+          <button class="btn-sm btn-ghost" onclick="downloadFile('${url}','${esc(it.file)}')">Download</button>
+        </div>`;
+      }).join("")).join("");
+  }
+
+  // ============================ Fillable PM form viewer ============================
+  // PDF.js renders each page to a canvas and overlays the PDF's existing AcroForm
+  // fields as editable widgets (renderInteractiveForms) — we do NOT rebuild fields.
+  // The tech types directly on the form; values live in PDF.js's annotationStorage.
+  // Print / Email then load the ORIGINAL bytes in pdf-lib, write the typed values
+  // into the same named fields, flatten, and either open the print dialog or POST
+  // the bytes to the email-form edge function.
+  const fv = { pdf: null, bytes: null, file: null, name: null, annById: {}, busy: false };
+
+  async function openFormFiller(file) {
+    const item = PM_FORM_BY_FILE[file];
+    if (!item) return;
+    if (!window.pdfjsLib || !window.PDFLib) {       // libs missing → just open the PDF
+      return window.open("pm-forms/" + file, "_blank", "noopener");
+    }
+    fv.file = file; fv.name = item.name; fv.annById = {}; fv.pdf = null; fv.bytes = null;
+    $("fvTitle").innerHTML = `${esc(item.name)} <span class="small">· tap a field and type</span>`;
+    $("fvPages").innerHTML = "";
+    $("fvFootHint").textContent = "";
+    $("fvLoading").style.display = "block";
+    $("fvOverlay").classList.add("show");
+    $("fvOverlay").setAttribute("aria-hidden", "false");
+    document.body.style.overflow = "hidden";
+    try {
+      const resp = await fetch("pm-forms/" + file, { cache: "force-cache" });
+      if (!resp.ok) throw new Error("HTTP " + resp.status);
+      fv.bytes = new Uint8Array(await resp.arrayBuffer());
+      // PDF.js consumes the buffer, so hand it a copy and keep our own for pdf-lib.
+      fv.pdf = await window.pdfjsLib.getDocument({ data: fv.bytes.slice() }).promise;
+      await fvRenderAll();
+      $("fvLoading").style.display = "none";
+      $("fvFootHint").textContent = `${fv.pdf.numPages} page${fv.pdf.numPages > 1 ? "s" : ""} · typed values save into Print / Email copies.`;
+    } catch (e) {
+      console.error("form load failed", e);
+      $("fvLoading").innerHTML = "Couldn't load this form in the editor.";
+      toast("Couldn't open the form editor — opening the file instead", true);
+      fvClose();
+      window.open("pm-forms/" + file, "_blank", "noopener");
+    }
+  }
+
+  // Minimal link service — the annotation layer only needs these for link
+  // annotations (the PM forms are fields, not links), so stubs are enough.
+  const FV_LINK_SERVICE = {
+    externalLinkTarget: 2, externalLinkRel: "noopener", externalLinkEnabled: true,
+    getDestinationHash: () => "#", getAnchorUrl: () => "#",
+    addLinkAttributes: () => {}, goToDestination: () => {}, goToPage: () => {},
+    navigateTo: () => {}, isPageVisible: () => true, isPageCached: () => true,
+  };
+
+  async function fvRenderAll() {
+    const host = $("fvPages");
+    const maxW = Math.min($("fvBody").clientWidth - 20, 900);
+    for (let n = 1; n <= fv.pdf.numPages; n++) {
+      const page = await fv.pdf.getPage(n);
+      const base = page.getViewport({ scale: 1 });
+      const scale = Math.max(0.5, Math.min(maxW / base.width, 2.2));
+      const viewport = page.getViewport({ scale });
+      const dpr = window.devicePixelRatio || 1;
+
+      const wrap = document.createElement("div");
+      wrap.className = "fv-page";
+      wrap.style.width = viewport.width + "px";
+      wrap.style.height = viewport.height + "px";
+
+      const canvas = document.createElement("canvas");
+      canvas.width = Math.floor(viewport.width * dpr);
+      canvas.height = Math.floor(viewport.height * dpr);
+      canvas.style.width = viewport.width + "px";
+      canvas.style.height = viewport.height + "px";
+      wrap.appendChild(canvas);
+
+      const layer = document.createElement("div");
+      layer.className = "annotationLayer";
+      layer.style.width = viewport.width + "px";
+      layer.style.height = viewport.height + "px";
+      wrap.appendChild(layer);
+      host.appendChild(wrap);
+
+      await page.render({
+        canvasContext: canvas.getContext("2d"),
+        viewport,
+        transform: dpr !== 1 ? [dpr, 0, 0, dpr, 0, 0] : undefined,
+      }).promise;
+
+      const annotations = await page.getAnnotations({ intent: "display" });
+      annotations.forEach(a => {
+        if (a.fieldName) fv.annById[a.id] = { name: a.fieldName, type: a.fieldType, exportValue: a.exportValue || a.buttonValue };
+      });
+      window.pdfjsLib.AnnotationLayer.render({
+        viewport: viewport.clone({ dontFlip: true }),
+        div: layer,
+        annotations,
+        page,
+        linkService: FV_LINK_SERVICE,
+        downloadManager: null,
+        // Flag that makes the fields EDITABLE. pdf.js renamed this option
+        // (renderInteractiveForms → renderForms) across 2.x; pass both so the
+        // widgets are interactive regardless of the exact build served.
+        renderForms: true,
+        renderInteractiveForms: true,
+        annotationStorage: fv.pdf.annotationStorage,
+        enableScripting: false,
+      });
+    }
+  }
+
+  // Read the typed values out of PDF.js and write them into the original PDF
+  // with pdf-lib, by field NAME (the fields already exist — we only set values).
+  async function fvBuildFilledPdf() {
+    const storage = (fv.pdf.annotationStorage && fv.pdf.annotationStorage.getAll()) || {};
+    const values = {};
+    for (const [id, v] of Object.entries(storage)) {
+      const meta = fv.annById[id];
+      if (!meta) continue;
+      values[meta.name] = { v, meta };
+    }
+    const doc = await window.PDFLib.PDFDocument.load(fv.bytes.slice());
+    const form = doc.getForm();
+    for (const [name, { v, meta }] of Object.entries(values)) {
+      try {
+        const field = form.getField(name);
+        const kind = field.constructor.name;
+        const raw = (v && typeof v === "object") ? v.value : v;
+        if (kind === "PDFTextField") {
+          field.setText(raw == null ? "" : String(raw));
+        } else if (kind === "PDFCheckBox") {
+          const on = raw === true || (raw != null && raw !== false && raw !== "Off" && raw !== "");
+          on ? field.check() : field.uncheck();
+        } else if (kind === "PDFRadioGroup" || kind === "PDFDropdown" || kind === "PDFOptionList") {
+          const sel = raw != null ? String(raw) : (meta.exportValue != null ? String(meta.exportValue) : "");
+          if (sel && sel !== "Off") field.select(sel);
+        }
+      } catch (_) { /* unknown/edge field — skip rather than abort the whole fill */ }
+    }
+    try { form.flatten(); } catch (_) { /* some forms resist flatten; ship unflattened */ }
+    return await doc.save();
+  }
+
+  function fvBaseName() {
+    return (fv.file || "form").replace(/_Fillable\.pdf$/i, "").replace(/\.pdf$/i, "") + "_filled.pdf";
+  }
+
+  async function fvPrint() {
+    if (fv.busy || !fv.pdf) return;
+    fv.busy = true; const btn = $("fvPrint"); const lbl = btn.textContent; btn.textContent = "…"; btn.disabled = true;
+    try {
+      const bytes = await fvBuildFilledPdf();
+      const url = URL.createObjectURL(new Blob([bytes], { type: "application/pdf" }));
+      // Print via a hidden iframe so we don't lose the editor; pop a tab as fallback.
+      let frame = document.getElementById("fvPrintFrame");
+      if (frame) frame.remove();
+      frame = document.createElement("iframe");
+      frame.id = "fvPrintFrame";
+      frame.style.cssText = "position:fixed;right:0;bottom:0;width:0;height:0;border:0;";
+      frame.onload = () => {
+        try { frame.contentWindow.focus(); frame.contentWindow.print(); }
+        catch (_) { window.open(url, "_blank"); }
+        setTimeout(() => URL.revokeObjectURL(url), 60000);
+      };
+      frame.src = url;
+      document.body.appendChild(frame);
+    } catch (e) {
+      console.error(e); toast("Couldn't prepare the form for print", true);
+    } finally {
+      fv.busy = false; btn.textContent = lbl; btn.disabled = false;
+    }
+  }
+
+  function fvEmailPrompt() {
+    if (!fv.pdf) return;
+    openModal(`<h2 class="section">Email this form</h2>
+      <div class="hint" style="margin-bottom:12px">Sends <b>${esc(fv.name)}</b> as a filled PDF attachment from the shop's email.</div>
+      <label class="fld">Send to <span style="color:var(--muted)">(leave blank for the shop's default)</span></label>
+      <input id="fv-to" type="email" autocapitalize="none" placeholder="name@company.com" />
+      <label class="fld">Filled by <span style="color:var(--muted)">(optional)</span></label>
+      <input id="fv-tech" autocomplete="off" placeholder="Mechanic name" value="${state.me ? esc(state.me.name) : ""}" />
+      <label class="fld">Note <span style="color:var(--muted)">(optional)</span></label>
+      <textarea id="fv-note" placeholder="Anything the recipient should know…"></textarea>
+      <div class="btn-row" style="margin-top:14px">
+        <button class="btn-primary" id="fv-send" onclick="fvEmailSend()">Send</button>
+        <button class="btn-ghost btn-sm" onclick="closeModal()">Cancel</button>
+      </div>`);
+  }
+
+  async function fvEmailSend() {
+    if (!ensureConfigured()) return;
+    const to = $("fv-to").value.trim();
+    const note = $("fv-note").value.trim();
+    const tech = $("fv-tech").value.trim();
+    const btn = $("fv-send"); btn.disabled = true; btn.textContent = "Sending…";
+    try {
+      const bytes = await fvBuildFilledPdf();
+      const pdf_base64 = bytesToBase64(bytes);
+      const { data, error } = await sb.functions.invoke("email-form", {
+        body: { form_name: fv.name, filename: fvBaseName(), pdf_base64, to: to || undefined, note: note || undefined, from_tech: tech || undefined },
+      });
+      if (error) throw error;
+      closeModal();
+      toast("Form emailed ✓" + (data && data.sent_to ? " → " + (Array.isArray(data.sent_to) ? data.sent_to.join(", ") : data.sent_to) : ""));
+    } catch (e) {
+      console.error("email-form failed", e);
+      btn.disabled = false; btn.textContent = "Send";
+      toast("Couldn't email the form — check the address and try again", true);
+    }
+  }
+
+  function fvClose() {
+    $("fvOverlay").classList.remove("show");
+    $("fvOverlay").setAttribute("aria-hidden", "true");
+    document.body.style.overflow = "";
+    $("fvPages").innerHTML = "";
+    if (fv.pdf && fv.pdf.destroy) { try { fv.pdf.destroy(); } catch (_) {} }
+    fv.pdf = null; fv.bytes = null; fv.annById = {};
+  }
+
+  // Uint8Array → base64 without blowing the call stack on large PDFs.
+  function bytesToBase64(bytes) {
+    let bin = ""; const chunk = 0x8000;
+    for (let i = 0; i < bytes.length; i += chunk) {
+      bin += String.fromCharCode.apply(null, bytes.subarray(i, i + chunk));
+    }
+    return btoa(bin);
+  }
+  // Force a download (same-origin files) rather than navigating to them.
+  function downloadFile(url, name) {
+    const a = document.createElement("a");
+    a.href = url; a.download = name || "";
+    document.body.appendChild(a); a.click(); a.remove();
+  }
+
+  function renderMechanics() {
+    const el = $("mechList");
+    if (!state.mechanics.length) { el.innerHTML = `<div class="empty">No mechanics yet.</div>`; return; }
+    el.innerHTML = state.mechanics.map(m => `<div class="row" style="${m.active ? "" : "opacity:.55"}">
+      <div class="grow"><div class="name">${esc(m.name)}${m.active ? "" : ` <span class="small" style="color:var(--muted)">· inactive</span>`}</div>
+        <div class="small">${m.contact ? "📞 " + esc(m.contact) : "no contact"} · ${m.login_email ? "🔑 " + esc(m.login_email) : "shop tablet — no login"}</div></div>
+      <button class="btn-sm ${m.active ? "btn-ghost" : "btn-blue"}" onclick="toggleMechanicActive('${m.id}')">${m.active ? "Deactivate" : "Activate"}</button>
+      <button class="btn-sm btn-red" onclick="deleteMechanic('${m.id}')">✕</button>
+    </div>`).join("");
+  }
+  async function addMechanic() {
+    const name = $("m-name").value.trim();
+    if (!name) return toast("Name required", true);
+    const email = $("m-email").value.trim().toLowerCase() || null;
+    const contact = $("m-contact").value.trim() || null;
+    const { data, error } = await sb.from("mechanics").insert({ name, contact, login_email: email }).select().single();
+    if (error) return toast(error.message, true);
+    state.mechanics.push(data); state.mechanics.sort((a,b)=>a.name.localeCompare(b.name));
+    $("m-name").value = ""; $("m-contact").value = ""; $("m-email").value = ""; renderMechanics(); toast("Mechanic added ✓");
+  }
+  // Flip a mechanic active/inactive. Inactive mechanics stay in the list and
+  // keep any existing assignments, but drop out of the assignment pickers.
+  async function toggleMechanicActive(id) {
+    const m = state.mechanics.find(x => x.id === id);
+    if (!m) return;
+    const next = !m.active;
+    const { error } = await sb.from("mechanics").update({ active: next }).eq("id", id);
+    if (error) return toast(error.message, true);
+    m.active = next; renderMechanics(); toast(next ? "Mechanic activated ✓" : "Mechanic set inactive ✓");
+  }
+  // Mechanics offered in assignment dropdowns: active ones, plus whoever is
+  // already assigned (so an assignment to a now-inactive mechanic still shows).
+  function assignableMechanics(currentId) {
+    return state.mechanics.filter(m => m.active || m.id === currentId);
+  }
+  async function deleteMechanic(id) {
+    if (!confirm("Remove this mechanic?")) return;
+    const { error } = await sb.from("mechanics").delete().eq("id", id);
+    if (error) return toast(error.message, true);
+    state.mechanics = state.mechanics.filter(m => m.id !== id); renderMechanics();
+  }
+
+  // ============================ STAFF: calendar ============================
+  // Private shop calendar — admin logins only. Access is enforced by the
+  // DATABASE (no anon privileges on appointments; RLS policy requires
+  // is_shop_admin()), so hiding the tab is cosmetic, not the security.
+  let calMonth = startOfMonth(new Date());
+  let calSelected = dateKey(new Date());
+
+  function startOfMonth(d) { return new Date(d.getFullYear(), d.getMonth(), 1); }
+  function dateKey(d) { const p = n => String(n).padStart(2, "0"); return d.getFullYear() + "-" + p(d.getMonth() + 1) + "-" + p(d.getDate()); }
+
+  async function loadAppointments() {
+    const { data, error } = await sb.from("appointments").select("*").order("starts_at");
+    if (error) return toast(error.message, true);
+    state.appointments = data || [];
+  }
+
+  function calNav(n) { calMonth = new Date(calMonth.getFullYear(), calMonth.getMonth() + n, 1); renderCalendar(); }
+  function calToday() { calMonth = startOfMonth(new Date()); calSelected = dateKey(new Date()); renderCalendar(); }
+  function pickCalDay(k) { calSelected = k; renderCalendar(); }
+
+  function renderCalendar() {
+    $("calTitle").textContent = calMonth.toLocaleString([], { month: "long", year: "numeric" });
+    const byDay = {};
+    state.appointments.forEach(a => { const k = dateKey(new Date(a.starts_at)); (byDay[k] = byDay[k] || []).push(a); });
+    const firstDow = calMonth.getDay();
+    const days = new Date(calMonth.getFullYear(), calMonth.getMonth() + 1, 0).getDate();
+    const todayK = dateKey(new Date());
+    let cells = "";
+    for (let i = 0; i < firstDow; i++) cells += `<div class="cal-cell empty"></div>`;
+    for (let d = 1; d <= days; d++) {
+      const k = dateKey(new Date(calMonth.getFullYear(), calMonth.getMonth(), d));
+      const n = (byDay[k] || []).length;
+      cells += `<div class="cal-cell ${k === calSelected ? "sel" : ""} ${k === todayK ? "today" : ""}" onclick="pickCalDay('${k}')"><span>${d}</span>${n ? `<span class="cal-dot">${n}</span>` : ""}</div>`;
+    }
+    $("calGrid").innerHTML = cells;
+    renderDayList(byDay[calSelected] || []);
+  }
+
+  function renderDayList(list) {
+    const d = new Date(calSelected + "T00:00");
+    const head = `<h2 class="section">${d.toLocaleDateString([], { weekday: "long", month: "long", day: "numeric" })}</h2>`;
+    if (!list.length) { $("calDayList").innerHTML = head + `<div class="empty">No appointments this day. Tap “Add appointment”.</div>`; return; }
+    $("calDayList").innerHTML = head + list
+      .sort((a, b) => new Date(a.starts_at) - new Date(b.starts_at))
+      .map(a => {
+        const t = state.tickets.find(x => x.id === a.ticket_id);
+        const time = new Date(a.starts_at).toLocaleTimeString([], { hour: "numeric", minute: "2-digit" });
+        return `<div class="ticket clickable" onclick="openAppt('${a.id}')">
+          <div class="top"><div><div class="truck">${time} — ${esc(a.title)}</div>
+          <div class="meta">${t ? "🔗 Truck " + esc(t.truck_number) + " · " + esc(t.driver_name) : "No ticket linked"}</div></div></div>
+          ${a.notes ? `<div class="issue">${esc(a.notes)}</div>` : ""}
+        </div>`;
+      }).join("");
+  }
+
+  function openAppt(id) {
+    const a = id ? state.appointments.find(x => x.id === id) : null;
+    const d = a ? new Date(a.starts_at) : new Date(calSelected + "T09:00");
+    const p = n => String(n).padStart(2, "0");
+    const dateVal = dateKey(d), timeVal = p(d.getHours()) + ":" + p(d.getMinutes());
+    // open tickets first; keep a completed ticket selectable if already linked
+    const ticketOpts = `<option value="">— No ticket —</option>` + state.tickets
+      .filter(t => t.status !== "completed" || (a && a.ticket_id === t.id))
+      .map(t => `<option value="${t.id}" ${a && a.ticket_id === t.id ? "selected" : ""}>Truck ${esc(t.truck_number)} · ${esc(t.driver_name)} (${STATUS_LABEL[t.status]})</option>`).join("");
+    openModal(`
+      <h2 class="section">${a ? "Edit appointment" : "New appointment"}</h2>
+      <label class="fld">Title <span class="req">*</span></label>
+      <input id="a-title" value="${a ? esc(a.title) : ""}" placeholder="e.g. PM service — bay 2" />
+      <label class="fld">Notes</label>
+      <textarea id="a-notes" placeholder="optional">${a ? esc(a.notes || "") : ""}</textarea>
+      <div class="two-col">
+        <div><label class="fld">Date <span class="req">*</span></label><input id="a-date" type="date" value="${dateVal}" /></div>
+        <div><label class="fld">Time <span class="req">*</span></label><input id="a-time" type="time" value="${timeVal}" /></div>
+      </div>
+      <label class="fld">Link to repair ticket / checked-in driver</label>
+      <select id="a-ticket">${ticketOpts}</select>
+      <button class="btn-primary" style="margin-top:16px" onclick="saveAppt(${a ? `'${a.id}'` : "null"})">${a ? "Save changes" : "Add appointment"}</button>
+      ${a ? `<button class="btn-red btn-block" style="margin-top:8px" onclick="deleteAppt('${a.id}')">Delete appointment</button>` : ""}
+      <button class="btn-ghost btn-block" style="margin-top:8px" onclick="closeModal()">Cancel</button>
+    `);
+  }
+
+  async function saveAppt(id) {
+    const title = $("a-title").value.trim();
+    const date = $("a-date").value, time = $("a-time").value;
+    if (!title) return toast("Title required", true);
+    if (!date || !time) return toast("Pick a date and time", true);
+    const payload = {
+      title,
+      notes: $("a-notes").value.trim() || null,
+      starts_at: new Date(date + "T" + time).toISOString(),
+      ticket_id: $("a-ticket").value || null,
+    };
+    const q = id ? sb.from("appointments").update(payload).eq("id", id) : sb.from("appointments").insert(payload);
+    const { error } = await q;
+    if (error) return toast(error.message, true);
+    calSelected = date;
+    calMonth = startOfMonth(new Date(date + "T00:00"));
+    closeModal();
+    await loadAppointments();
+    renderCalendar();
+    toast(id ? "Appointment updated ✓" : "Appointment added ✓");
+  }
+
+  async function deleteAppt(id) {
+    if (!confirm("Delete this appointment?")) return;
+    const { error } = await sb.from("appointments").delete().eq("id", id);
+    if (error) return toast(error.message, true);
+    closeModal();
+    await loadAppointments();
+    renderCalendar();
+    toast("Appointment deleted");
+  }
+
+  // ============================ Realtime ============================
+  function subscribeShop() {
+    if (realtimeChannel) sb.removeChannel(realtimeChannel);
+    // Dispatch re-renders its own board; shop/mechanic re-render whichever of the
+    // live queue / Completed History is currently showing.
+    const rerender = () => {
+      if (state.isDispatch) return renderDispatch();
+      if ($("shop-history") && $("shop-history").style.display !== "none") return renderHistory();
+      renderQueue();
+    };
+    realtimeChannel = sb.channel("shop-tickets")
+      .on("postgres_changes", { event: "*", schema: "public", table: "tickets" }, (payload) => {
+        applyTicketChange(payload);
+        rerender();
+      })
+      .on("postgres_changes", { event: "*", schema: "public", table: "dispatch_notes" }, () => {
+        // refresh the open dispatch note thread, if any
+        const open = $("dn-note");
+        if (open && state.isDispatch) { /* notes reloaded when modal reopens */ }
+      })
+      .subscribe();
+  }
+  function applyTicketChange(payload) {
+    const { eventType, new: row, old } = payload;
+    if (eventType === "INSERT") {
+      if (!state.tickets.find(t => t.id === row.id)) state.tickets.unshift(row);
+    } else if (eventType === "UPDATE") {
+      const i = state.tickets.findIndex(t => t.id === row.id);
+      if (i >= 0) state.tickets[i] = row; else state.tickets.unshift(row);
+    } else if (eventType === "DELETE") {
+      state.tickets = state.tickets.filter(t => t.id !== old.id);
+    }
+  }
+  function subscribeDriver(truck, phone) {
+    // Realtime postgres_changes filters only support eq/neq/lt/lte/gt/gte/in
+    // (no ilike), so we listen to all ticket changes and re-filter on refresh.
+    // Fine for a single shop's volume; the refresh re-queries scoped to truck.
+    if (realtimeChannel) sb.removeChannel(realtimeChannel);
+    realtimeChannel = sb.channel("driver-" + digits(truck))
+      .on("postgres_changes", { event: "*", schema: "public", table: "tickets" }, () => {
+        driverRefresh(truck, phone);
+      })
+      .subscribe();
+  }
+  async function driverRefresh(truck, phone) {
+    const { data } = await sb.from("tickets").select("*").ilike("truck_number", truck).order("created_at", { ascending: false });
+    state.tickets = (data || []).filter(t => digits(t.driver_phone) === digits(phone));
+    renderDriverResults();
+  }
+
+  // ============================ modal ============================
+  function openModal(html) { $("ticketModalBody").innerHTML = html; $("ticketModal").classList.add("show"); }
+  function closeModal() { $("ticketModal").classList.remove("show"); }
+  $("ticketModal").addEventListener("click", (e) => { if (e.target === $("ticketModal")) closeModal(); });
+
+  // ============================ config gate ============================
+  function ensureConfigured() {
+    if (CONFIGURED) return true;
+    toast("App not connected to Supabase yet — see setup note", true);
+    return false;
+  }
+  function renderSetupBanner() {
+    if (CONFIGURED) return;
+    $("setupBanner").innerHTML = `<div class="banner"><b>Setup needed.</b> Open <code>shop.html</code> and paste your Supabase
+      <code>URL</code> + <code>anon key</code> into the CONFIG block near the bottom, then run
+      <code>shop-scheduler-schema.sql</code> in the Supabase SQL editor. Until then this is a preview.</div>`;
+  }
+
+  // ============================ boot ============================
+  (async function boot() {
+    renderSetupBanner();
+    try { const d = JSON.parse(localStorage.getItem("rss_driver") || "null"); if (d) state.driver = d; } catch {}
+    if (sb) {
+      subscribeOnCall();                 // live on-call number for the driver button
+      const { data } = await sb.auth.getSession();
+      if (data.session) { state.session = data.session; await resolveRole(); await loadShopData(); }
+      updateWho();
+    }
+    if ("serviceWorker" in navigator) navigator.serviceWorker.register("shop-sw.js").catch(()=>{});
+  })();
+  </script>
+</body>
+</html>
