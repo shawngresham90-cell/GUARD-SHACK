@@ -1,53 +1,406 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Yard Check - Daily Trailer Inspection</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+  <meta name="theme-color" content="#0e1419" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="Yard Check" />
+  <title>Yard Check · Rosedale</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
+    :root {
+      --bg: #0e1419;
+      --panel: #18222b;
+      --panel-2: #1f2c37;
+      --line: #2c3b48;
+      --orange: #f5872b;
+      --orange-soft: #ffb066;
+      --amber: #ffd166;
+      --red: #e5484d;
+      --green: #46c06a;
+      --blue: #4f8cff;
+      --text: #eef4f8;
+      --muted: #93a6b4;
+    }
+    html, body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: radial-gradient(circle at top, #16222c 0%, #0e1419 55%, #080c10 100%);
+      color: var(--text);
+      min-height: 100vh;
+      -webkit-text-size-adjust: 100%;
+    }
+    body {
+      padding: env(safe-area-inset-top) 0 calc(24px + env(safe-area-inset-bottom));
+      max-width: 720px;
+      margin: 0 auto;
+    }
+
+    header {
+      text-align: center;
+      padding: 18px 16px 14px;
+      border-bottom: 1px solid var(--line);
+      position: sticky; top: 0;
+      background: linear-gradient(180deg, #16222c, rgba(14,20,25,0.92));
+      backdrop-filter: blur(8px);
+      z-index: 20;
+    }
+    header h1 {
+      font-size: 21px; letter-spacing: 0.5px;
+      display: flex; align-items: center; justify-content: center; gap: 9px;
+    }
+    header h1 .mark {
+      background: linear-gradient(90deg, var(--orange), var(--orange-soft));
+      -webkit-background-clip: text; background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    header .sub { font-size: 12px; color: var(--muted); margin-top: 4px; }
+
+    main { padding: 16px; }
+
+    .card {
+      background: linear-gradient(180deg, var(--panel), #131c24);
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 16px;
+      margin-bottom: 14px;
+      box-shadow: 0 8px 22px rgba(0,0,0,0.35);
+    }
+
+    /* Mic / listen control */
+    .mic-wrap { display: flex; flex-direction: column; align-items: center; gap: 12px; }
+    .mic-btn {
+      width: 96px; height: 96px; border-radius: 50%;
+      border: 0; cursor: pointer; color: #1a1208;
+      font-size: 38px; display: grid; place-items: center;
+      background: linear-gradient(180deg, var(--orange), #d96f1c);
+      box-shadow: 0 10px 30px rgba(245,135,43,0.35);
+      transition: transform 0.1s ease, filter 0.15s ease;
+    }
+    .mic-btn:active { transform: scale(0.95); }
+    .mic-btn.listening {
+      background: linear-gradient(180deg, var(--red), #c23a3e); color: #fff;
+      animation: pulse 1.4s ease-out infinite;
+    }
+    @keyframes pulse {
+      0% { box-shadow: 0 0 0 0 rgba(229,72,77,0.55); }
+      70% { box-shadow: 0 0 0 22px rgba(229,72,77,0); }
+      100% { box-shadow: 0 0 0 0 rgba(229,72,77,0); }
+    }
+    .status { font-size: 13px; color: var(--muted); min-height: 18px; text-align: center; }
+    .status.live { color: var(--orange-soft); font-weight: 600; }
+    .transcript {
+      width: 100%; min-height: 20px; font-size: 13px; color: var(--text);
+      background: var(--panel-2); border: 1px solid var(--line); border-radius: 10px;
+      padding: 9px 12px; text-align: center; opacity: 0; transition: opacity 0.2s;
+    }
+    .transcript.show { opacity: 1; }
+
+    .hint { font-size: 12px; color: var(--muted); line-height: 1.6; text-align: center; }
+    .hint b { color: var(--orange-soft); font-weight: 600; }
+
+    /* Manual entry */
+    .entry { display: flex; gap: 8px; }
+    .entry input {
+      flex: 1; min-width: 0; font-family: inherit; font-size: 16px;
+      background: var(--panel-2); border: 1px solid var(--line); border-radius: 12px;
+      color: var(--text); padding: 12px 14px;
+    }
+    .entry input::placeholder { color: var(--muted); }
+    .entry select {
+      font-family: inherit; font-size: 14px; font-weight: 600;
+      background: var(--panel-2); border: 1px solid var(--line); border-radius: 12px;
+      color: var(--text); padding: 0 10px;
+    }
+    .entry button {
+      border: 0; cursor: pointer; font-family: inherit; font-weight: 700; font-size: 22px;
+      border-radius: 12px; padding: 0 16px; color: #1a1208;
+      background: linear-gradient(90deg, var(--orange), #d96f1c);
+    }
+    .entry button:active { transform: scale(0.96); }
+
+    /* Category cards */
+    .cat-head {
+      display: flex; align-items: center; justify-content: space-between;
+      margin-bottom: 10px;
+    }
+    .cat-head h2 { font-size: 14px; letter-spacing: 0.4px; display: flex; align-items: center; gap: 8px; }
+    .count {
+      font-size: 12px; font-weight: 700; min-width: 26px; text-align: center;
+      padding: 3px 9px; border-radius: 999px; color: var(--text);
+      background: var(--panel-2); border: 1px solid var(--line);
+    }
+    .cat.loaded  { border-left: 3px solid var(--green); }
+    .cat.empty   { border-left: 3px solid var(--blue); }
+    .cat.docked  { border-left: 3px solid var(--amber); }
+    .cat.redline { border-left: 3px solid var(--red); }
+
+    .chips { display: flex; flex-wrap: wrap; gap: 8px; }
+    .chip {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-size: 15px; font-weight: 600; font-variant-numeric: tabular-nums;
+      background: var(--panel-2); border: 1px solid var(--line);
+      border-radius: 999px; padding: 8px 8px 8px 14px; cursor: pointer;
+      transition: transform 0.08s ease;
+    }
+    .chip:active { transform: scale(0.96); }
+    .chip .x {
+      width: 22px; height: 22px; border-radius: 50%; display: grid; place-items: center;
+      font-size: 13px; color: var(--muted); background: rgba(255,255,255,0.05);
+    }
+    .loaded  .chip { border-color: rgba(70,192,106,0.45); }
+    .empty   .chip { border-color: rgba(79,140,255,0.45); }
+    .docked  .chip { border-color: rgba(255,209,102,0.45); }
+    .redline .chip { border-color: rgba(229,72,77,0.45); }
+    .muted-empty { font-size: 13px; color: var(--muted); font-style: italic; }
+
+    /* Action buttons */
+    .actions { display: flex; gap: 10px; margin-top: 4px; }
+    .actions button {
+      flex: 1; border: 0; cursor: pointer; font-family: inherit;
+      font-size: 15px; font-weight: 700; border-radius: 12px; padding: 14px;
+      transition: transform 0.08s ease;
+    }
+    .actions button:active { transform: scale(0.97); }
+    .btn-email { background: linear-gradient(90deg, var(--orange), #d96f1c); color: #1a1208; }
+    .btn-clear { background: var(--panel-2); color: #f08a8d; border: 1px solid rgba(229,72,77,0.4) !important; }
+
+    .total-bar { text-align: center; font-size: 12px; color: var(--muted); margin: 2px 0 14px; }
+    .total-bar b { color: var(--text); }
+  </style>
 </head>
 <body>
-    <div class="container">
-        <header>
-            <h1>🚚 Yard Check</h1>
-            <p class="date" id="currentDate"></p>
-        </header>
+  <header>
+    <h1>🚚 <span class="mark">Yard Check</span></h1>
+    <p class="sub" id="currentDate"></p>
+  </header>
 
-        <div class="controls">
-            <button id="startBtn" class="btn btn-start">START</button>
-            <button id="stopBtn" class="btn btn-stop" disabled>STOP</button>
-            <div class="status" id="status">Ready to listen</div>
-            <div class="transcript" id="transcript"></div>
-        </div>
-
-        <div class="categories-container">
-            <div class="category">
-                <h2>📦 LOADED</h2>
-                <div class="trailer-list" id="loaded"></div>
-            </div>
-
-            <div class="category">
-                <h2>📭 EMPTY</h2>
-                <div class="trailer-list" id="empty"></div>
-            </div>
-
-            <div class="category">
-                <h2>🔧 DOCKED</h2>
-                <div class="trailer-list" id="docked"></div>
-            </div>
-
-            <div class="category">
-                <h2>⚠️ REDLINE</h2>
-                <div class="trailer-list" id="redline"></div>
-            </div>
-        </div>
-
-        <div class="action-buttons">
-            <button id="clearAllBtn" class="btn btn-secondary">Clear All</button>
-            <button id="emailBtn" class="btn btn-email">📧 Email Report</button>
-        </div>
+  <main>
+    <!-- Voice capture -->
+    <div class="card mic-wrap">
+      <button id="micBtn" class="mic-btn" aria-label="Start listening">🎤</button>
+      <div class="status" id="status">Tap the mic and call out trailers</div>
+      <div class="transcript" id="transcript"></div>
+      <p class="hint">Say a number and a status — e.g.<br>
+        <b>“53201 loaded”</b> · <b>“48817 empty”</b> · <b>“door 5 docked”</b> · <b>“redline 33019”</b></p>
     </div>
 
-    <script src="script.js"></script>
+    <!-- Manual entry -->
+    <div class="card">
+      <form class="entry" id="entryForm">
+        <input id="numInput" inputmode="numeric" autocomplete="off" placeholder="Trailer #" />
+        <select id="catSelect">
+          <option value="loaded">Loaded</option>
+          <option value="empty">Empty</option>
+          <option value="docked">Docked</option>
+          <option value="redline">Redline</option>
+        </select>
+        <button type="submit" aria-label="Add">+</button>
+      </form>
+    </div>
+
+    <div class="total-bar" id="totalBar"></div>
+
+    <!-- Categories -->
+    <div class="card cat loaded">
+      <div class="cat-head"><h2>📦 LOADED</h2><span class="count" id="count-loaded">0</span></div>
+      <div class="chips" id="loaded"></div>
+    </div>
+    <div class="card cat empty">
+      <div class="cat-head"><h2>📭 EMPTY</h2><span class="count" id="count-empty">0</span></div>
+      <div class="chips" id="empty"></div>
+    </div>
+    <div class="card cat docked">
+      <div class="cat-head"><h2>🔧 DOCKED</h2><span class="count" id="count-docked">0</span></div>
+      <div class="chips" id="docked"></div>
+    </div>
+    <div class="card cat redline">
+      <div class="cat-head"><h2>⚠️ REDLINE</h2><span class="count" id="count-redline">0</span></div>
+      <div class="chips" id="redline"></div>
+    </div>
+
+    <div class="actions">
+      <button class="btn-clear" id="clearBtn">Clear All</button>
+      <button class="btn-email" id="emailBtn">📧 Email Report</button>
+    </div>
+  </main>
+
+  <script>
+    "use strict";
+    const CATS = ["loaded", "empty", "docked", "redline"];
+    const CAT_LABEL = { loaded: "LOADED", empty: "EMPTY", docked: "DOCKED", redline: "REDLINE" };
+    const STORE_KEY = "yardcheck.v1";
+
+    // state: { loaded: ["53201", ...], ... }
+    let state = load();
+
+    function load() {
+      try {
+        const raw = JSON.parse(localStorage.getItem(STORE_KEY) || "{}");
+        const s = {};
+        CATS.forEach(c => { s[c] = Array.isArray(raw[c]) ? raw[c].map(String) : []; });
+        return s;
+      } catch (e) {
+        const s = {}; CATS.forEach(c => s[c] = []); return s;
+      }
+    }
+    function save() { try { localStorage.setItem(STORE_KEY, JSON.stringify(state)); } catch (e) {} }
+
+    // ---- date ----
+    document.getElementById("currentDate").textContent =
+      new Date().toLocaleDateString(undefined, { weekday: "long", month: "long", day: "numeric", year: "numeric" });
+
+    // ---- add / move / remove ----
+    function addTrailer(num, cat) {
+      num = String(num).replace(/\D/g, "");
+      if (!num || !CATS.includes(cat)) return false;
+      // a trailer has one status — drop it from any other category first
+      CATS.forEach(c => { state[c] = state[c].filter(n => n !== num); });
+      state[cat].unshift(num);
+      save(); render();
+      return true;
+    }
+    function removeTrailer(num, cat) {
+      state[cat] = state[cat].filter(n => n !== num);
+      save(); render();
+    }
+
+    // ---- render ----
+    function render() {
+      let total = 0;
+      CATS.forEach(cat => {
+        const wrap = document.getElementById(cat);
+        const list = state[cat];
+        document.getElementById("count-" + cat).textContent = list.length;
+        total += list.length;
+        wrap.innerHTML = "";
+        if (!list.length) {
+          const e = document.createElement("span");
+          e.className = "muted-empty";
+          e.textContent = "—";
+          wrap.appendChild(e);
+          return;
+        }
+        list.forEach(num => {
+          const chip = document.createElement("div");
+          chip.className = "chip";
+          chip.innerHTML = '<span>' + num + '</span><span class="x">✕</span>';
+          chip.title = "Tap to remove";
+          chip.addEventListener("click", () => removeTrailer(num, cat));
+          wrap.appendChild(chip);
+        });
+      });
+      document.getElementById("totalBar").innerHTML =
+        "<b>" + total + "</b> trailer" + (total === 1 ? "" : "s") + " logged";
+    }
+
+    // ---- manual entry ----
+    document.getElementById("entryForm").addEventListener("submit", e => {
+      e.preventDefault();
+      const input = document.getElementById("numInput");
+      const cat = document.getElementById("catSelect").value;
+      if (addTrailer(input.value, cat)) input.value = "";
+      input.focus();
+    });
+
+    // ---- clear ----
+    document.getElementById("clearBtn").addEventListener("click", () => {
+      const total = CATS.reduce((n, c) => n + state[c].length, 0);
+      if (!total || confirm("Clear all " + total + " trailers?")) {
+        CATS.forEach(c => state[c] = []);
+        save(); render();
+      }
+    });
+
+    // ---- email report ----
+    document.getElementById("emailBtn").addEventListener("click", () => {
+      const dateStr = new Date().toLocaleDateString(undefined, { month: "long", day: "numeric", year: "numeric" });
+      let body = "YARD CHECK — " + dateStr + "\n";
+      CATS.forEach(cat => {
+        const list = state[cat];
+        body += "\n" + CAT_LABEL[cat] + " (" + list.length + ")\n";
+        body += list.length ? list.map(n => "  • " + n).join("\n") : "  —";
+        body += "\n";
+      });
+      const total = CATS.reduce((n, c) => n + state[c].length, 0);
+      body += "\nTotal: " + total + " trailers\n";
+      const subject = "Yard Check — " + dateStr;
+      window.location.href = "mailto:?subject=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(body);
+    });
+
+    // ---- voice recognition ----
+    const micBtn = document.getElementById("micBtn");
+    const statusEl = document.getElementById("status");
+    const transcriptEl = document.getElementById("transcript");
+    const SR = window.SpeechRecognition || window.webkitSpeechRecognition;
+    let recognition = null, listening = false;
+
+    function parsePhrase(text) {
+      const t = " " + text.toLowerCase().replace(/[^a-z0-9\s]/g, " ") + " ";
+      // collapse spelled-out single digit runs: "5 3 2 0 1" -> "53201"
+      const collapsed = t.replace(/(\d(\s+\d){2,})/g, m => m.replace(/\s+/g, ""));
+      const numMatch = collapsed.match(/\d{3,6}/);
+      let cat = null;
+      if (/\bredline|\bred line|\brepair|\bbroke|\bbad\b/.test(t)) cat = "redline";
+      else if (/\bdock|\bdoor\b/.test(t)) cat = "docked";
+      else if (/\bempty|\bmt\b/.test(t)) cat = "empty";
+      else if (/\bload/.test(t)) cat = "loaded";
+      return { num: numMatch ? numMatch[0] : null, cat };
+    }
+
+    function setListening(on) {
+      listening = on;
+      micBtn.classList.toggle("listening", on);
+      micBtn.textContent = on ? "⏹" : "🎤";
+      statusEl.classList.toggle("live", on);
+      statusEl.textContent = on ? "Listening… call out trailers" : "Tap the mic and call out trailers";
+      if (!on) transcriptEl.classList.remove("show");
+    }
+
+    if (!SR) {
+      micBtn.disabled = true;
+      micBtn.style.opacity = "0.5";
+      statusEl.textContent = "Voice not supported here — use manual entry below";
+    } else {
+      recognition = new SR();
+      recognition.continuous = true;
+      recognition.interimResults = true;
+      recognition.lang = "en-US";
+
+      recognition.onresult = ev => {
+        let interim = "", final = "";
+        for (let i = ev.resultIndex; i < ev.results.length; i++) {
+          const txt = ev.results[i][0].transcript;
+          if (ev.results[i].isFinal) final += txt; else interim += txt;
+        }
+        const show = (final || interim).trim();
+        if (show) { transcriptEl.textContent = "“" + show + "”"; transcriptEl.classList.add("show"); }
+        if (final) {
+          const { num, cat } = parsePhrase(final);
+          if (num && cat) {
+            addTrailer(num, cat);
+            statusEl.textContent = "Added " + num + " → " + CAT_LABEL[cat];
+          } else if (num) {
+            statusEl.textContent = "Heard " + num + " — say a status (loaded/empty/docked/redline)";
+          }
+        }
+      };
+      recognition.onerror = ev => {
+        if (ev.error === "not-allowed" || ev.error === "service-not-allowed") {
+          statusEl.textContent = "Microphone blocked — allow mic access";
+          setListening(false);
+        }
+      };
+      recognition.onend = () => { if (listening) { try { recognition.start(); } catch (e) {} } };
+
+      micBtn.addEventListener("click", () => {
+        if (listening) { setListening(false); try { recognition.stop(); } catch (e) {} }
+        else { setListening(true); try { recognition.start(); } catch (e) {} }
+      });
+    }
+
+    render();
+  </script>
 </body>
 </html>
