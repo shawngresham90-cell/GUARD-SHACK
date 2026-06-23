@@ -274,45 +274,31 @@ def gather_files(target):
     return xmls, dbs
 
 
-def main():
-    print("=" * 64)
-    print("  Android Text Rescue  --  free SMS recovery (incl. deleted)")
-    print("=" * 64)
-
-    if len(sys.argv) > 1:
-        target = sys.argv[1]
-    else:
-        target = input("\nPaste the folder (or file) with your backup .xml / mmssms.db:\n> ").strip().strip('"')
-
-    if not target or not os.path.exists(target):
-        print("\n[!] That path doesn't exist. Check it and try again.")
-        input("\nPress Enter to close...")
-        return
-
+def recover_texts(target):
+    """Recover SMS from backups/databases under `target`. Returns count."""
     xmls, dbs = gather_files(target)
     if not xmls and not dbs:
         print("\n[!] No SMS backup (.xml) or message database (mmssms.db) found there.")
         print("    - Backup .xml: make one with the free 'SMS Backup & Restore' app.")
         print("    - mmssms.db:  needs an ADB/phone backup or a rooted phone to extract.")
-        input("\nPress Enter to close...")
-        return
+        return 0
 
     all_msgs = []
     for x in xmls:
-        print(f"  reading backup: {os.path.basename(x)}")
+        print(f"  reading SMS backup: {os.path.basename(x)}")
         all_msgs += parse_backup_xml(x)
     for d in dbs:
-        print(f"  reading database: {os.path.basename(d)}")
+        print(f"  reading message database: {os.path.basename(d)}")
         existing, bodies = read_db_messages(d)
         all_msgs += existing
         deleted = carve_deleted_text(d, bodies)
-        print(f"     -> {len(existing)} existing, {len(deleted)} possibly-deleted recovered")
+        if existing or deleted:
+            print(f"     -> {len(existing)} existing, {len(deleted)} possibly-deleted recovered")
         all_msgs += deleted
 
     if not all_msgs:
-        print("\nNothing readable was recovered from those files.")
-        input("\nPress Enter to close...")
-        return
+        print("\nNo readable text messages were recovered from those files.")
+        return 0
 
     out_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), OUT_NAME)
     csv_path, html_path = write_outputs(all_msgs, out_dir)
@@ -320,10 +306,26 @@ def main():
     deleted = len(all_msgs) - saved
 
     print("\n" + "=" * 64)
-    print(f"  DONE. {len(all_msgs)} messages  ({saved} existing, {deleted} possibly deleted).")
+    print(f"  TEXTS: {len(all_msgs)} messages  ({saved} existing, {deleted} possibly deleted).")
     print(f"  Open this to read them:\n    {html_path}")
     print(f"  Spreadsheet version:\n    {csv_path}")
     print("=" * 64)
+    return len(all_msgs)
+
+
+def main():
+    print("=" * 64)
+    print("  Android Text Rescue  --  free SMS recovery (incl. deleted)")
+    print("=" * 64)
+    if len(sys.argv) > 1:
+        target = sys.argv[1]
+    else:
+        target = input("\nPaste the folder (or file) with your backup .xml / mmssms.db:\n> ").strip().strip('"')
+    if not target or not os.path.exists(target):
+        print("\n[!] That path doesn't exist. Check it and try again.")
+        input("\nPress Enter to close...")
+        return
+    recover_texts(target)
     input("\nPress Enter to close...")
 
 

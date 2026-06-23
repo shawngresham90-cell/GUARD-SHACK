@@ -7,8 +7,28 @@ do on a **non-rooted** Android phone:
   photos) out of the phone's leftover data.
 - **Text Rescue** — recovers SMS/text messages, including **deleted** ones still
   lingering in the message database, plus reads any SMS backup file.
+- **Call-Log Rescue** — recovers your call history (incoming / outgoing / missed)
+  from a backup or the `contacts2.db` database.
 
 No internet. Nothing is uploaded. Everything stays on your PC.
+
+---
+
+# ⭐ Easiest way: the one menu
+
+Don't want to think about which tool? **Double-click `RUN_ME_MENU.bat`.**
+It asks for the folder where you copied your phone's data, then lets you pick:
+
+```
+  1) Photos
+  2) Texts / SMS
+  3) Call log
+  4) Everything
+```
+
+Results land in the `Recovered`, `RecoveredTexts`, and `RecoveredCalls` folders
+next to the program. (The individual `RUN_ME_*.bat` launchers below still work
+if you prefer running one tool at a time.)
 
 ---
 
@@ -86,13 +106,35 @@ bin** / carrier message backup.
 
 ---
 
+# 📞 Call-Log Rescue
+
+Recovers your call history (incoming, outgoing, missed) from two real sources:
+
+1. **A call-log backup `.xml`** — the free **“SMS Backup & Restore”** app also
+   backs up call logs (often a `calls-*.xml`). Works without root.
+2. **The `contacts2.db` database** — Android stores call history here (table
+   `calls`). Same catch as texts: getting this file off a **non-rooted** phone
+   needs an ADB/phone backup or root. Existing history recovers cleanly;
+   fully-deleted call rows are often overwritten quickly, so those are limited.
+
+### ▶️ How to use
+1. Put your `calls-*.xml` and/or `contacts2.db` into a folder.
+2. Double-click **`RUN_ME_CALLS.bat`** (or run `python android_call_rescue.py`).
+3. Paste the folder path → open the **`RecoveredCalls`** folder for a readable
+   **`.html`** page and a **`.csv`** spreadsheet.
+
+---
+
 ## Files
 
 | File | What it is |
 |------|------------|
-| `android_photo_rescue.py` | Photo recovery program (pure Python, no installs) |
-| `RUN_ME.bat` | Double-click launcher for photo recovery |
-| `android_text_rescue.py` | Text/SMS recovery program (pure Python, no installs) |
-| `RUN_ME_TEXTS.bat` | Double-click launcher for text recovery |
-| `Recovered/` | Created automatically — rescued images go here |
-| `RecoveredTexts/` | Created automatically — recovered messages go here |
+| `rescue_menu.py` / `RUN_ME_MENU.bat` | ⭐ One menu that runs all three tools |
+| `android_photo_rescue.py` / `RUN_ME.bat` | Photo recovery (deleted-photo thumbnails + existing) |
+| `android_text_rescue.py` / `RUN_ME_TEXTS.bat` | Text/SMS recovery (deleted + existing) |
+| `android_call_rescue.py` / `RUN_ME_CALLS.bat` | Call-log recovery (incoming/outgoing/missed) |
+| `Recovered/` | Created automatically — rescued images |
+| `RecoveredTexts/` | Created automatically — recovered messages |
+| `RecoveredCalls/` | Created automatically — recovered call history |
+
+All tools are pure Python (no extra installs beyond Python itself).

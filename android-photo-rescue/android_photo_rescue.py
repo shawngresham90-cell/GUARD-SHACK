@@ -100,22 +100,8 @@ def read_file(path):
         return None
 
 
-def main():
-    print("=" * 64)
-    print("  Android Photo Rescue  --  free thumbnail & photo recovery")
-    print("=" * 64)
-
-    # folder to scan: from arg or prompt
-    if len(sys.argv) > 1:
-        target = sys.argv[1]
-    else:
-        target = input("\nPaste the folder to scan (the one you copied off the phone):\n> ").strip().strip('"')
-
-    if not target or not os.path.isdir(target):
-        print("\n[!] That folder doesn't exist. Double-check the path and try again.")
-        input("\nPress Enter to close...")
-        return
-
+def recover_photos(target):
+    """Scan `target` for recoverable images. Returns number saved."""
     out_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "Recovered")
     os.makedirs(out_dir, exist_ok=True)
 
@@ -124,7 +110,7 @@ def main():
     scanned = 0
     thumb_hits = 0
 
-    print(f"\nScanning: {target}")
+    print(f"\nScanning for photos: {target}")
     print(f"Saving recovered images to: {out_dir}\n")
 
     for root, _dirs, files in os.walk(target):
@@ -163,7 +149,7 @@ def main():
                     pass
 
     print("\n" + "=" * 64)
-    print(f"  DONE. Scanned {scanned} files.")
+    print(f"  PHOTOS: scanned {scanned} files.")
     print(f"  Recovered {saved} images  ({thumb_hits} from thumbnail caches).")
     print(f"  Open this folder to see them:\n    {out_dir}")
     print("=" * 64)
@@ -171,6 +157,22 @@ def main():
         print("\nNothing was recovered from this folder. Tips:")
         print("  - Make sure you copied the '.thumbnails' folder (it's hidden).")
         print("  - Also check Google Photos > Trash and your phone's Recycle bin.")
+    return saved
+
+
+def main():
+    print("=" * 64)
+    print("  Android Photo Rescue  --  free thumbnail & photo recovery")
+    print("=" * 64)
+    if len(sys.argv) > 1:
+        target = sys.argv[1]
+    else:
+        target = input("\nPaste the folder to scan (the one you copied off the phone):\n> ").strip().strip('"')
+    if not target or not os.path.isdir(target):
+        print("\n[!] That folder doesn't exist. Double-check the path and try again.")
+        input("\nPress Enter to close...")
+        return
+    recover_photos(target)
     input("\nPress Enter to close...")
 
 
