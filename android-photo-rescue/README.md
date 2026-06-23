@@ -9,6 +9,8 @@ do on a **non-rooted** Android phone:
   lingering in the message database, plus reads any SMS backup file.
 - **Call-Log Rescue** — recovers your call history (incoming / outgoing / missed)
   from a backup or the `contacts2.db` database.
+- **Contacts Rescue** — recovers names, phone numbers and emails from a `.vcf`
+  backup or `contacts2.db`, and writes a ready-to-import `.vcf`.
 
 No internet. Nothing is uploaded. Everything stays on your PC.
 
@@ -23,12 +25,13 @@ It asks for the folder where you copied your phone's data, then lets you pick:
   1) Photos
   2) Texts / SMS
   3) Call log
-  4) Everything
+  4) Contacts
+  5) Everything
 ```
 
-Results land in the `Recovered`, `RecoveredTexts`, and `RecoveredCalls` folders
-next to the program. (The individual `RUN_ME_*.bat` launchers below still work
-if you prefer running one tool at a time.)
+Results land in the `Recovered`, `RecoveredTexts`, `RecoveredCalls`, and
+`RecoveredContacts` folders next to the program. (The individual `RUN_ME_*.bat`
+launchers below still work if you prefer running one tool at a time.)
 
 ---
 
@@ -125,16 +128,43 @@ Recovers your call history (incoming, outgoing, missed) from two real sources:
 
 ---
 
+# 👥 Contacts Rescue
+
+Recovers names, phone numbers and emails from two real sources:
+
+1. **A vCard `.vcf` backup** — exported from the Contacts app or
+   **contacts.google.com → Export**. Works without root.
+2. **The `contacts2.db` database** — Android stores contacts here. Same catch:
+   getting this file off a **non-rooted** phone needs an ADB/phone backup or
+   root. Existing contacts recover cleanly.
+
+It de-duplicates (merging entries that share a name or number) and writes a
+fresh **`RecoveredContacts.vcf`** you can import straight back into any phone.
+
+> 💡 **Try this first:** most contacts auto-sync to Google. Go to
+> **contacts.google.com → Settings → Undo changes** to roll your contacts back
+> up to 30 days — often the fastest fix of all.
+
+### ▶️ How to use
+1. Put your `.vcf` and/or `contacts2.db` into a folder.
+2. Double-click **`RUN_ME_CONTACTS.bat`** (or `python android_contacts_rescue.py`).
+3. Paste the folder path → open the **`RecoveredContacts`** folder for the
+   `.html` page, `.csv` spreadsheet, and the importable `.vcf`.
+
+---
+
 ## Files
 
 | File | What it is |
 |------|------------|
-| `rescue_menu.py` / `RUN_ME_MENU.bat` | ⭐ One menu that runs all three tools |
+| `rescue_menu.py` / `RUN_ME_MENU.bat` | ⭐ One menu that runs all the tools |
 | `android_photo_rescue.py` / `RUN_ME.bat` | Photo recovery (deleted-photo thumbnails + existing) |
 | `android_text_rescue.py` / `RUN_ME_TEXTS.bat` | Text/SMS recovery (deleted + existing) |
 | `android_call_rescue.py` / `RUN_ME_CALLS.bat` | Call-log recovery (incoming/outgoing/missed) |
+| `android_contacts_rescue.py` / `RUN_ME_CONTACTS.bat` | Contacts recovery (names/numbers/emails → .vcf) |
 | `Recovered/` | Created automatically — rescued images |
 | `RecoveredTexts/` | Created automatically — recovered messages |
 | `RecoveredCalls/` | Created automatically — recovered call history |
+| `RecoveredContacts/` | Created automatically — recovered contacts (+ importable .vcf) |
 
 All tools are pure Python (no extra installs beyond Python itself).

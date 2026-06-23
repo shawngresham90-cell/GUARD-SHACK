@@ -7,11 +7,12 @@ A single menu that runs all the free recovery tools:
   1. Photos        (deleted-photo thumbnails + existing photos)
   2. Texts / SMS   (deleted + existing messages, from backup or mmssms.db)
   3. Call log      (incoming/outgoing/missed calls, from backup or contacts2.db)
-  4. Everything
+  4. Contacts      (names/numbers/emails, from .vcf or contacts2.db)
+  5. Everything
 
 Just point it at the folder where you copied your phone's data, pick what to
 recover, and the results land in the Recovered / RecoveredTexts / RecoveredCalls
-folders next to this script.
+/ RecoveredContacts folders next to this script.
 
 Nothing is uploaded. Everything stays on your PC.
 
@@ -24,6 +25,7 @@ import sys
 from android_photo_rescue import recover_photos
 from android_text_rescue import recover_texts
 from android_call_rescue import recover_calls
+from android_contacts_rescue import recover_contacts
 
 
 def ask_folder():
@@ -52,8 +54,9 @@ def main():
     print("  1) Photos")
     print("  2) Texts / SMS")
     print("  3) Call log")
-    print("  4) Everything")
-    choice = input("Type 1, 2, 3 or 4 and press Enter: ").strip()
+    print("  4) Contacts")
+    print("  5) Everything")
+    choice = input("Type 1, 2, 3, 4 or 5 and press Enter: ").strip()
 
     if choice == "1":
         recover_photos(target)
@@ -61,15 +64,18 @@ def main():
         recover_texts(target)
     elif choice == "3":
         recover_calls(target)
+    elif choice == "4":
+        recover_contacts(target)
     else:
-        if choice != "4":
+        if choice != "5":
             print("\n(Not sure what you picked -- running EVERYTHING.)")
         recover_photos(target)
         recover_texts(target)
         recover_calls(target)
+        recover_contacts(target)
 
-    print("\nAll done. Open the Recovered / RecoveredTexts / RecoveredCalls")
-    print("folders (next to this program) to see what came back.")
+    print("\nAll done. Open the Recovered / RecoveredTexts / RecoveredCalls /")
+    print("RecoveredContacts folders (next to this program) to see what came back.")
     input("\nPress Enter to close...")
 
 

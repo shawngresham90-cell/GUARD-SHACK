@@ -5,6 +5,7 @@
 android-photo-rescue/Recovered/
 android-photo-rescue/RecoveredTexts/
 android-photo-rescue/RecoveredCalls/
+android-photo-rescue/RecoveredContacts/
 
 # Python bytecode cache
 __pycache__/
