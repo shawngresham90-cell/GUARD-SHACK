@@ -159,6 +159,21 @@
       Stick to the built-in trash folders above. For deep recovery, only a trusted <b>computer</b> tool
       (EaseUS, Dr.Fone, PhoneRescue) with your phone plugged in has any real chance.</p>
     </div>
+
+    <div class="card">
+      <h2>🔑 Recover my passwords</h2>
+      <p class="sub">Apps don’t store your real password, so it can’t be “dug out” of the phone — but your
+      <b>saved</b> passwords are easy to get back the right way. Try these in order.</p>
+      <div class="step"><div class="num">1</div><div class="body"><strong>Google Password Manager</strong><span>Open <b>passwords.google.com</b> and sign in — every password saved on Chrome/Android is listed there.</span></div></div>
+      <div class="step"><div class="num">2</div><div class="body"><strong>On the phone</strong><span>Settings → Google → Autofill → Passwords (Android), or Settings → Passwords (iPhone, iCloud Keychain).</span></div></div>
+      <div class="step"><div class="num">3</div><div class="body"><strong>Samsung Pass</strong><span>Samsung phones: open the Samsung Pass app to see saved logins.</span></div></div>
+      <div class="step"><div class="num">4</div><div class="body"><strong>“Forgot password” in each app</strong><span>Always works — resets through your email or phone number. The universal fallback.</span></div></div>
+      <button class="btn" id="openGooglePw">🔑 Open passwords.google.com</button>
+      <div class="banner ok" style="margin:12px 0 0">
+        ⚠️ No legit app can pull passwords out of another app’s storage — anything that claims to is malware.
+        These front-door methods are faster and actually work.
+      </div>
+    </div>
   </section>
 
   <!-- PHOTOS VAULT -->
@@ -239,6 +254,7 @@ $$('.tab').forEach(tab=>tab.addEventListener('click',()=>{
 }));
 $('#pickIphone').addEventListener('click',()=>{$('#iphoneCard').classList.remove('hide');$('#androidCard').classList.add('hide');});
 $('#pickAndroid').addEventListener('click',()=>{$('#androidCard').classList.remove('hide');$('#iphoneCard').classList.add('hide');});
+$('#openGooglePw').addEventListener('click',()=>window.open('https://passwords.google.com','_blank','noopener'));
 
 /* ---------- IndexedDB ---------- */
 const DB_NAME='rescueVault', DB_VER=1;
