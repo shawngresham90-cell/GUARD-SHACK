@@ -4,3 +4,7 @@
 # Android Rescue tool output (recovered user data stays local)
 android-photo-rescue/Recovered/
 android-photo-rescue/RecoveredTexts/
+
+# Python bytecode cache
+__pycache__/
+*.pyc
