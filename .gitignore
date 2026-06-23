@@ -1,5 +1,6 @@
 # Deploy artifacts (built locally / sent to user, not source)
 *.zip
 
-# Android Photo Rescue output (recovered user images stay local)
+# Android Rescue tool output (recovered user data stays local)
 android-photo-rescue/Recovered/
+android-photo-rescue/RecoveredTexts/
