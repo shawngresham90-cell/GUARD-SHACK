@@ -134,6 +134,51 @@
     .chip.in_progress   { background: rgba(79,140,255,0.18); color: #8fb4ff; }
     .chip.waiting_parts { background: rgba(255,209,102,0.18); color: var(--amber); }
     .chip.completed     { background: rgba(70,192,106,0.18); color: var(--green); }
+    /* Breakdown statuses */
+    .chip.reported       { background: rgba(147,166,180,0.18); color: #b9c8d4; }
+    .chip.vendor_assigned{ background: rgba(155,123,255,0.20); color: #c3b0ff; }
+    .chip.en_route       { background: rgba(79,140,255,0.18); color: #8fb4ff; }
+    .chip.repairing      { background: rgba(255,209,102,0.18); color: var(--amber); }
+    .chip.priority       { background: rgba(229,72,77,0.22); color: #ff9a9d; }
+
+    /* Quick buttons (no-typing) + emergency */
+    .quick-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+    .quick-btn {
+      display: flex; flex-direction: column; align-items: center; gap: 6px;
+      padding: 18px 10px; background: var(--panel-2); border: 1px solid var(--line);
+      border-radius: 14px; font-size: 14px; text-align: center; line-height: 1.2;
+    }
+    .quick-btn .qe { font-size: 26px; }
+    .quick-btn.sel { border-color: var(--orange); background: rgba(245,135,43,0.14); }
+    .emergency-btn {
+      width: 100%; padding: 18px; border-radius: 16px; font-size: 18px; font-weight: 800;
+      background: linear-gradient(180deg, #e5484d, #b3252a); color: #fff;
+      letter-spacing: 0.3px; box-shadow: 0 8px 22px rgba(229,72,77,0.35);
+    }
+    .emergency-btn .em-sub { display: block; font-size: 12px; font-weight: 500; opacity: 0.9; margin-top: 3px; }
+
+    /* Status tracker (driver) */
+    .tracker { display: flex; flex-direction: column; gap: 0; margin-top: 4px; }
+    .tracker .step { display: flex; align-items: center; gap: 12px; padding: 4px 0; }
+    .tracker .dot { width: 22px; height: 22px; border-radius: 50%; border: 2px solid var(--line); display: flex; align-items: center; justify-content: center; font-size: 12px; flex-shrink: 0; background: var(--panel-2); }
+    .tracker .step.done .dot { background: var(--green); border-color: var(--green); color: #062; }
+    .tracker .step.current .dot { background: var(--orange); border-color: var(--orange); color: #1a1208; }
+    .tracker .step .lbl { font-size: 14px; color: var(--muted); }
+    .tracker .step.done .lbl, .tracker .step.current .lbl { color: var(--text); font-weight: 600; }
+    .tracker .bar { width: 2px; height: 14px; background: var(--line); margin-left: 10px; }
+    .tracker .bar.done { background: var(--green); }
+
+    /* Photo upload tiles */
+    .photo-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 6px; }
+    .photo-tile { position: relative; }
+    .photo-tile label {
+      display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px;
+      min-height: 84px; background: #0b1117; border: 1px dashed var(--line); border-radius: 12px;
+      font-size: 12px; color: var(--muted); cursor: pointer; padding: 8px; text-align: center;
+    }
+    .photo-tile.has label { border-style: solid; border-color: var(--green); color: var(--green); }
+    .photo-tile input { display: none; }
+    .photo-thumb { width: 100%; height: 80px; object-fit: cover; border-radius: 10px; border: 1px solid var(--line); }
 
     /* Ticket cards */
     .ticket {
@@ -218,9 +263,13 @@
     <section id="view-home" class="view active">
       <div id="setupBanner"></div>
       <div class="role-grid">
+        <button class="role-btn" onclick="go('breakdown')" style="border-color:rgba(229,72,77,0.45)">
+          <span class="emoji">🚨</span>
+          <span><span class="t">Roadside Breakdown</span><span class="d">Broke down on the road? Report it with GPS &amp; photos — no login</span></span>
+        </button>
         <button class="role-btn" onclick="go('driver')">
           <span class="emoji">🚚</span>
-          <span><span class="t">I'm a Driver</span><span class="d">Report a problem or check my ticket — no login</span></span>
+          <span><span class="t">I'm a Driver</span><span class="d">Report a shop problem or check my ticket — no login</span></span>
         </button>
         <button class="role-btn" onclick="go('staff')">
           <span class="emoji">🛠️</span>
@@ -290,6 +339,133 @@
       </div>
     </section>
 
+    <!-- ============ ROADSIDE BREAKDOWN (driver) ============ -->
+    <section id="view-breakdown" class="view">
+      <button class="back" onclick="go('home')">← Back</button>
+      <div class="tabs">
+        <button id="btab-new" class="active" onclick="breakdownTab('new')">Report breakdown</button>
+        <button id="btab-status" onclick="breakdownTab('status')">Check my status</button>
+      </div>
+
+      <!-- report -->
+      <div id="break-new">
+        <button class="emergency-btn" style="margin-bottom:14px" onclick="emergencyBreakdown()">
+          🚨 UNSAFE LOCATION
+          <span class="em-sub">Sends an immediate priority alert with your GPS</span>
+        </button>
+
+        <div class="card">
+          <h2 class="section">Tap what happened</h2>
+          <div class="quick-grid" id="quickGrid"></div>
+        </div>
+
+        <div class="card">
+          <h2 class="section">Breakdown details</h2>
+          <form id="breakdownForm">
+            <div class="two-col">
+              <div>
+                <label class="fld">Truck number <span class="req">*</span></label>
+                <input id="b-truck" autocomplete="off" required placeholder="e.g. 482" />
+              </div>
+              <div>
+                <label class="fld">Trailer number</label>
+                <input id="b-trailer" autocomplete="off" placeholder="optional" />
+              </div>
+            </div>
+            <label class="fld">Your name <span class="req">*</span></label>
+            <input id="b-name" autocomplete="name" required placeholder="Driver name" />
+            <div class="two-col">
+              <div>
+                <label class="fld">Phone <span class="req">*</span></label>
+                <input id="b-phone" type="tel" inputmode="tel" autocomplete="tel" required placeholder="Call-back number" />
+              </div>
+              <div>
+                <label class="fld">Email <span style="color:var(--muted)">(for confirmation)</span></label>
+                <input id="b-email" type="email" autocapitalize="none" placeholder="optional" />
+              </div>
+            </div>
+
+            <label class="fld">Location</label>
+            <button type="button" class="btn-ghost btn-block btn-sm" id="gpsBtn" onclick="grabGPS()">📍 Use my GPS location</button>
+            <div class="hint" id="gpsStatus" style="margin-top:6px">Tap to attach your exact coordinates — saves a phone call.</div>
+            <div class="two-col" style="margin-top:8px">
+              <div>
+                <label class="fld">Highway / Exit</label>
+                <input id="b-highway" autocomplete="off" placeholder="e.g. I-70 Exit 42" />
+              </div>
+              <div>
+                <label class="fld">City / State</label>
+                <input id="b-city" autocomplete="off" placeholder="e.g. Topeka, KS" />
+              </div>
+            </div>
+            <input id="b-location" autocomplete="off" placeholder="Anything else about where you are" style="margin-top:8px" />
+            <div class="two-col" style="margin-top:8px">
+              <div>
+                <label class="fld">Direction of travel</label>
+                <select id="b-direction">
+                  <option value="">—</option>
+                  <option value="N">North</option><option value="S">South</option>
+                  <option value="E">East</option><option value="W">West</option>
+                </select>
+              </div>
+              <div>
+                <label class="fld">Loaded or empty</label>
+                <select id="b-loaded">
+                  <option value="">—</option>
+                  <option value="true">Loaded</option>
+                  <option value="false">Empty</option>
+                </select>
+              </div>
+            </div>
+
+            <label class="fld">Issue type <span class="req">*</span></label>
+            <select id="b-issue" required>
+              <option value="tire">Tire</option>
+              <option value="engine">Engine</option>
+              <option value="coolant_leak">Coolant Leak</option>
+              <option value="air_leak">Air Leak</option>
+              <option value="electrical">Electrical</option>
+              <option value="def_issue">DEF Issue</option>
+              <option value="dpf_regen">DPF Regen</option>
+              <option value="trailer_repair">Trailer Repair</option>
+              <option value="accident">Accident</option>
+              <option value="tow">Need Tow</option>
+              <option value="other">Other</option>
+            </select>
+            <label class="fld">Notes</label>
+            <textarea id="b-notes" placeholder="Describe what's happening…"></textarea>
+
+            <label class="fld" style="margin-top:14px">Photos <span class="req">*</span> <span style="color:var(--muted)">(truck, trailer, dash lights, damaged part)</span></label>
+            <div class="photo-grid" id="photoGrid"></div>
+
+            <div style="margin-top:16px">
+              <button type="submit" class="btn-primary" id="breakdownSubmit">Send breakdown to team</button>
+            </div>
+          </form>
+        </div>
+        <p class="hint">The breakdown team is emailed the second you submit — with your GPS and photos, so they can send the right help without calling you back.</p>
+      </div>
+
+      <!-- status -->
+      <div id="break-status" style="display:none">
+        <div class="card">
+          <h2 class="section">Check my breakdown status</h2>
+          <div class="two-col">
+            <div>
+              <label class="fld">Truck number</label>
+              <input id="bs-truck" placeholder="e.g. 482" />
+            </div>
+            <div>
+              <label class="fld">Phone number</label>
+              <input id="bs-phone" type="tel" inputmode="tel" placeholder="Same as you submitted" />
+            </div>
+          </div>
+          <div style="margin-top:12px"><button class="btn-primary" onclick="breakdownLookup()">Find my breakdowns</button></div>
+        </div>
+        <div id="breakdownResults"></div>
+      </div>
+    </section>
+
     <!-- ============ STAFF LOGIN ============ -->
     <section id="view-login" class="view">
       <button class="back" onclick="go('home')">← Back</button>
@@ -310,6 +486,7 @@
     <section id="view-shop" class="view">
       <div class="tabs" id="shopTabs">
         <button id="stab-queue" class="active" onclick="shopTab('queue')">Queue</button>
+        <button id="stab-break" onclick="shopTab('break')">Breakdowns</button>
         <button id="stab-parts" onclick="shopTab('parts')">Parts</button>
         <button id="stab-mech" onclick="shopTab('mech')">Mechanics</button>
       </div>
@@ -323,6 +500,18 @@
           <button class="btn-sm btn-ghost" id="qf-mine" onclick="setQueueFilter('mine')">My work</button>
         </div>
         <div id="queueList"></div>
+      </div>
+
+      <!-- breakdowns -->
+      <div id="shop-break" style="display:none">
+        <div class="stat-grid" id="breakStats"></div>
+        <div class="btn-row" style="margin-bottom:10px">
+          <button class="btn-sm btn-ghost" id="bf-open" onclick="setBreakFilter('open')">Active</button>
+          <button class="btn-sm btn-ghost" id="bf-all" onclick="setBreakFilter('all')">All / history</button>
+          <button class="btn-sm btn-ghost" onclick="openBreakReport()">📊 Report</button>
+        </div>
+        <input id="breakSearch" placeholder="Search driver, truck, trailer, type…" oninput="renderBreakdowns()" style="margin-bottom:12px" />
+        <div id="breakList"></div>
       </div>
 
       <!-- parts -->
@@ -381,6 +570,23 @@
   const STATUS_LABEL = { intake: "Intake", in_progress: "In Progress", waiting_parts: "Waiting for Parts", completed: "Completed" };
   const STATUS_ORDER = ["intake", "in_progress", "waiting_parts", "completed"];
 
+  // ---- breakdown constants ----
+  const PHOTO_BUCKET = "breakdown-photos";
+  const BREAKDOWN_STATUS_LABEL = { reported: "Reported", vendor_assigned: "Vendor Assigned", en_route: "En Route", repairing: "Repair In Progress", completed: "Completed" };
+  const BREAKDOWN_STATUS_ORDER = ["reported", "vendor_assigned", "en_route", "repairing", "completed"];
+  const ISSUE_LABEL = { tire: "Tire", engine: "Engine", coolant_leak: "Coolant Leak", air_leak: "Air Leak", electrical: "Electrical", def_issue: "DEF Issue", dpf_regen: "DPF Regen", trailer_repair: "Trailer Repair", accident: "Accident", tow: "Need Tow", other: "Other" };
+  const QUICK_BUTTONS = [
+    { e: "🛞", t: "Flat Tire", v: "tire" }, { e: "🔌", t: "No Start", v: "engine" },
+    { e: "⚠️", t: "Check Engine", v: "engine" }, { e: "💧", t: "Coolant Leak", v: "coolant_leak" },
+    { e: "💨", t: "Air Leak", v: "air_leak" }, { e: "🚛", t: "Trailer Problem", v: "trailer_repair" },
+    { e: "💥", t: "Accident", v: "accident" }, { e: "🪝", t: "Need Tow", v: "tow" },
+  ];
+  const PHOTO_CATS = [
+    { k: "truck", t: "Truck" }, { k: "trailer", t: "Trailer" },
+    { k: "dash", t: "Dash lights" }, { k: "damaged_part", t: "Damaged part" },
+    { k: "tire", t: "Tire" },
+  ];
+
   // ---- state ----
   let state = {
     session: null,            // supabase auth session (staff)
@@ -392,6 +598,11 @@
     queueFilter: "active",
     mechFilter: null,         // mechanic id for "My work" / mechanic mode
     driver: { truck: "", phone: "" },
+    breakdowns: [],           // staff: all ; driver: own
+    breakFilter: "open",
+    bIssue: "",               // selected issue from quick buttons / form
+    bPhotos: {},              // category -> File (driver's selected photos)
+    bGps: null,               // {lat,lng}
   };
   let realtimeChannel = null;
 
@@ -425,6 +636,7 @@
     if (where === "shop") renderShop();
     if (where === "home") $("headerSub").textContent = "Truck repair queue";
     if (where === "driver") $("headerSub").textContent = "Driver";
+    if (where === "breakdown") { $("headerSub").textContent = "Roadside breakdown"; initBreakdownForm(); }
     window.scrollTo(0, 0);
     updateWho();
   }
@@ -513,6 +725,201 @@
       }).join("");
   }
 
+  // ============================ DRIVER: breakdown ============================
+  let breakdownInited = false;
+  function initBreakdownForm() {
+    if (breakdownInited) return;
+    breakdownInited = true;
+    // quick buttons
+    $("quickGrid").innerHTML = QUICK_BUTTONS.map((q, i) =>
+      `<button type="button" class="quick-btn" id="qb-${i}" onclick="selectIssue('${q.v}',${i})"><span class="qe">${q.e}</span>${q.t}</button>`).join("");
+    // photo tiles
+    $("photoGrid").innerHTML = PHOTO_CATS.map(c =>
+      `<div class="photo-tile" id="pt-${c.k}"><label for="ph-${c.k}"><span id="pl-${c.k}">📷 ${c.t}</span></label>
+        <input id="ph-${c.k}" type="file" accept="image/*" capture="environment" onchange="onPhotoPick('${c.k}', this)" /></div>`).join("");
+    // prefill truck/phone from a prior visit
+    if (state.driver.truck) { $("b-truck").value = state.driver.truck; $("b-phone").value = state.driver.phone; }
+  }
+
+  function breakdownTab(t) {
+    $("btab-new").classList.toggle("active", t === "new");
+    $("btab-status").classList.toggle("active", t === "status");
+    $("break-new").style.display = t === "new" ? "block" : "none";
+    $("break-status").style.display = t === "status" ? "block" : "none";
+    if (t === "status" && state.driver.truck) { $("bs-truck").value = state.driver.truck; $("bs-phone").value = state.driver.phone; }
+  }
+
+  function selectIssue(v, i) {
+    state.bIssue = v;
+    $("b-issue").value = v;
+    QUICK_BUTTONS.forEach((q, idx) => $("qb-" + idx).classList.toggle("sel", idx === i));
+    $("breakdownForm").scrollIntoView({ behavior: "smooth", block: "start" });
+  }
+
+  // Returns a promise so the Emergency button can wait for coordinates before
+  // it submits (the whole point of "push my GPS").
+  function grabGPS() {
+    return new Promise((resolve) => {
+      const btn = $("gpsBtn");
+      if (!navigator.geolocation) { $("gpsStatus").textContent = "GPS not available on this device — type your location below."; return resolve(null); }
+      if (btn) btn.disabled = true;
+      $("gpsStatus").textContent = "Getting your location…";
+      navigator.geolocation.getCurrentPosition(
+        (pos) => {
+          state.bGps = { lat: +pos.coords.latitude.toFixed(6), lng: +pos.coords.longitude.toFixed(6) };
+          if (btn) btn.disabled = false;
+          $("gpsStatus").innerHTML = `✅ Location attached — <a href="https://www.google.com/maps?q=${state.bGps.lat},${state.bGps.lng}" target="_blank" style="color:var(--blue)">${state.bGps.lat}, ${state.bGps.lng}</a>`;
+          resolve(state.bGps);
+        },
+        () => { if (btn) btn.disabled = false; $("gpsStatus").textContent = "Couldn't get GPS (permission denied?) — type your location below."; resolve(null); },
+        { enableHighAccuracy: true, timeout: 10000 }
+      );
+    });
+  }
+
+  function onPhotoPick(cat, input) {
+    const file = input.files && input.files[0];
+    const tile = $("pt-" + cat);
+    if (!file) { delete state.bPhotos[cat]; tile.classList.remove("has"); $("pl-" + cat).textContent = "📷 " + (PHOTO_CATS.find(c=>c.k===cat).t); return; }
+    state.bPhotos[cat] = file;
+    tile.classList.add("has");
+    const url = URL.createObjectURL(file);
+    $("pl-" + cat).innerHTML = `<img class="photo-thumb" src="${url}" alt="${cat}" /><div style="margin-top:4px">✓ ${PHOTO_CATS.find(c=>c.k===cat).t}</div>`;
+  }
+
+  $("breakdownForm").addEventListener("submit", (e) => { e.preventDefault(); submitBreakdown(false); });
+
+  async function emergencyBreakdown() {
+    if (!ensureConfigured()) return;
+    const truck = $("b-truck").value.trim(), name = $("b-name").value.trim(), phone = $("b-phone").value.trim();
+    if (!truck || !name || !phone) {
+      toast("Quick — add your truck #, name and phone, then hit it again", true);
+      $("breakdownForm").scrollIntoView({ behavior: "smooth", block: "start" });
+      return;
+    }
+    toast("Getting your GPS…");
+    if (!state.bGps) await grabGPS();   // wait for coordinates before sending
+    submitBreakdown(true);
+  }
+
+  async function submitBreakdown(priority) {
+    if (!ensureConfigured()) return;
+    const truck = $("b-truck").value.trim();
+    const name = $("b-name").value.trim();
+    const phone = $("b-phone").value.trim();
+    if (!truck || !name || !phone) {
+      toast("Add your truck #, name and phone", true);
+      $("breakdownForm").scrollIntoView({ behavior: "smooth", block: "start" });
+      return;
+    }
+    const issue = $("b-issue").value;
+    // photo requirement (skipped for emergencies — speed matters)
+    if (!priority) {
+      const have = Object.keys(state.bPhotos);
+      if (!have.length) return toast("Add at least one photo (truck / damage)", true);
+      if (issue === "tire" && !state.bPhotos.tire) return toast("Add a photo of the tire", true);
+    }
+    const loadedVal = $("b-loaded").value;
+    const payload = {
+      driver_name: name, truck_number: truck,
+      trailer_number: $("b-trailer").value.trim() || null,
+      driver_phone: phone, driver_email: $("b-email").value.trim() || null,
+      gps_lat: state.bGps ? state.bGps.lat : null,
+      gps_lng: state.bGps ? state.bGps.lng : null,
+      location_text: $("b-location").value.trim() || null,
+      highway_exit: $("b-highway").value.trim() || null,
+      city_state: $("b-city").value.trim() || null,
+      direction: $("b-direction").value || null,
+      loaded: loadedVal === "" ? null : loadedVal === "true",
+      issue_type: issue, issue_notes: $("b-notes").value.trim() || null,
+      priority: !!priority,
+    };
+    const btn = priority ? null : $("breakdownSubmit");
+    if (btn) { btn.disabled = true; btn.textContent = "Sending…"; }
+    const { data, error } = await sb.from("breakdowns").insert(payload).select().single();
+    if (btn) { btn.disabled = false; btn.textContent = "Send breakdown to team"; }
+    if (error) return toast(error.message, true);
+
+    await uploadBreakdownPhotos(data.id);
+
+    state.driver = { truck, phone };
+    localStorage.setItem("rss_driver", JSON.stringify(state.driver));
+    $("breakdownForm").reset();
+    state.bPhotos = {}; state.bGps = null; state.bIssue = "";
+    breakdownInited = false; initBreakdownForm();  // reset tiles/quick buttons
+    toast(priority ? "🚨 Priority alert sent — help is being dispatched" : "Sent to the breakdown team ✓");
+    breakdownTab("status");
+    breakdownLookup();
+  }
+
+  async function uploadBreakdownPhotos(breakdownId) {
+    const cats = Object.keys(state.bPhotos);
+    for (const cat of cats) {
+      const file = state.bPhotos[cat];
+      const ext = (file.name.split(".").pop() || "jpg").toLowerCase();
+      const path = `${breakdownId}/${cat}.${ext}`;
+      const up = await sb.storage.from(PHOTO_BUCKET).upload(path, file, { upsert: true, contentType: file.type });
+      if (up.error) { console.error("photo upload", cat, up.error); continue; }
+      await sb.from("breakdown_photos").insert({ breakdown_id: breakdownId, category: cat, storage_path: path });
+    }
+  }
+
+  async function breakdownLookup() {
+    if (!ensureConfigured()) return;
+    const truck = $("bs-truck").value.trim();
+    const phone = $("bs-phone").value.trim();
+    if (!truck || !phone) return toast("Enter your truck # and phone", true);
+    state.driver = { truck, phone };
+    localStorage.setItem("rss_driver", JSON.stringify(state.driver));
+    const { data, error } = await sb.from("breakdowns").select("*").ilike("truck_number", truck).order("created_at", { ascending: false });
+    if (error) return toast(error.message, true);
+    state.breakdowns = (data || []).filter(b => digits(b.driver_phone) === digits(phone));
+    renderBreakdownResults();
+    subscribeBreakdownDriver(truck, phone);
+  }
+
+  function statusTrackerHtml(b) {
+    const cur = BREAKDOWN_STATUS_ORDER.indexOf(b.status);
+    return `<div class="tracker">` + BREAKDOWN_STATUS_ORDER.map((s, i) => {
+      const cls = i < cur ? "done" : i === cur ? "current" : "";
+      const bar = i < BREAKDOWN_STATUS_ORDER.length - 1 ? `<div class="bar ${i < cur ? "done" : ""}"></div>` : "";
+      return `<div class="step ${cls}"><div class="dot">${i < cur ? "✓" : i + 1}</div><div class="lbl">${BREAKDOWN_STATUS_LABEL[s]}</div></div>${bar}`;
+    }).join("") + `</div>`;
+  }
+
+  function renderBreakdownResults() {
+    const el = $("breakdownResults");
+    if (!state.breakdowns.length) { el.innerHTML = `<div class="empty">No breakdowns found for that truck &amp; phone yet.</div>`; return; }
+    el.innerHTML = `<div class="hint" style="margin:4px 0 10px"><span class="live-dot"></span>Live — updates automatically</div>` +
+      state.breakdowns.map(b => {
+        const vendor = b.vendor_name ? `<div class="card" style="margin-top:10px"><div class="small" style="color:var(--muted)">Vendor</div>
+          <div class="name">${esc(b.vendor_name)}</div>
+          ${b.vendor_contact ? `<div class="small"><a href="tel:${esc(digits(b.vendor_contact))}" style="color:var(--blue)">${esc(b.vendor_contact)}</a></div>` : ""}
+          ${b.vendor_eta ? `<div class="small">ETA: ${esc(b.vendor_eta)}</div>` : ""}</div>` : "";
+        return `<div class="ticket">
+          <div class="top">
+            <div><div class="truck">Truck ${esc(b.truck_number)}</div>
+            <div class="meta">${esc(ISSUE_LABEL[b.issue_type] || b.issue_type)} · ${ago(b.created_at)}</div></div>
+            <span class="chip ${b.priority ? "priority" : b.status}">${b.priority ? "Priority" : BREAKDOWN_STATUS_LABEL[b.status]}</span>
+          </div>
+          <div style="margin-top:12px">${statusTrackerHtml(b)}</div>
+          ${vendor}
+        </div>`;
+      }).join("");
+  }
+
+  function subscribeBreakdownDriver(truck, phone) {
+    if (realtimeChannel) sb.removeChannel(realtimeChannel);
+    realtimeChannel = sb.channel("bd-driver-" + digits(truck))
+      .on("postgres_changes", { event: "*", schema: "public", table: "breakdowns" }, () => breakdownDriverRefresh(truck, phone))
+      .subscribe();
+  }
+  async function breakdownDriverRefresh(truck, phone) {
+    const { data } = await sb.from("breakdowns").select("*").ilike("truck_number", truck).order("created_at", { ascending: false });
+    state.breakdowns = (data || []).filter(b => digits(b.driver_phone) === digits(phone));
+    renderBreakdownResults();
+  }
+
   // ============================ STAFF: auth ============================
   $("loginForm").addEventListener("submit", async (e) => {
     e.preventDefault();
@@ -564,24 +971,27 @@
       subscribeShop();
       return;
     }
-    const [tk, mc, pt] = await Promise.all([
+    const [tk, mc, pt, bd] = await Promise.all([
       sb.from("tickets").select("*").order("created_at", { ascending: false }),
       sb.from("mechanics").select("*").order("name"),
       sb.from("parts").select("*").order("name"),
+      sb.from("breakdowns").select("*").order("created_at", { ascending: false }),
     ]);
     if (tk.error) return toast(tk.error.message, true);
     state.tickets = tk.data || [];
     state.mechanics = mc.data || [];
     state.parts = pt.data || [];
+    state.breakdowns = bd.data || [];
     subscribeShop();
   }
 
   function shopTab(t) {
-    ["queue", "parts", "mech"].forEach(k => {
+    ["queue", "break", "parts", "mech"].forEach(k => {
       $("stab-" + k).classList.toggle("active", k === t);
       $("shop-" + k).style.display = k === t ? "block" : "none";
     });
     if (t === "queue") renderQueue();
+    if (t === "break") renderBreakdowns();
     if (t === "parts") renderParts();
     if (t === "mech") renderMechanics();
   }
@@ -592,6 +1002,7 @@
   // filters (locked to their own work), header marks the role.
   function applyRoleUI() {
     const mech = state.isMechanic;
+    $("stab-break").style.display = mech ? "none" : "";
     $("stab-parts").style.display = mech ? "none" : "";
     $("stab-mech").style.display = mech ? "none" : "";
     $("qf-all").parentElement.style.display = mech ? "none" : "";
@@ -820,15 +1231,240 @@
     state.mechanics = state.mechanics.filter(m => m.id !== id); renderMechanics();
   }
 
+  // ============================ STAFF: breakdowns ============================
+  function setBreakFilter(f) { state.breakFilter = f; renderBreakdowns(); }
+
+  function isToday(ts) { if (!ts) return false; const d = new Date(ts), n = new Date(); return d.toDateString() === n.toDateString(); }
+
+  function renderBreakdowns() {
+    // dashboard counts
+    let open = 0, waiting = 0, repairing = 0, doneToday = 0;
+    state.breakdowns.forEach(b => {
+      if (b.status === "reported") open++;
+      else if (b.status === "vendor_assigned" || b.status === "en_route") waiting++;
+      else if (b.status === "repairing") repairing++;
+      if (b.status === "completed" && isToday(b.completed_at)) doneToday++;
+    });
+    $("breakStats").innerHTML =
+      `<div class="stat"><div class="v">${open}</div><div class="l">Open</div></div>
+       <div class="stat"><div class="v">${waiting}</div><div class="l">Waiting Vendor</div></div>
+       <div class="stat"><div class="v">${repairing}</div><div class="l">Repairing</div></div>
+       <div class="stat"><div class="v">${doneToday}</div><div class="l">Done Today</div></div>`;
+
+    ["open", "all"].forEach(f => { const el = $("bf-" + f); if (el) el.classList.toggle("btn-blue", state.breakFilter === f); });
+
+    const q = ($("breakSearch").value || "").trim().toLowerCase();
+    let list = state.breakdowns.slice();
+    if (state.breakFilter === "open") list = list.filter(b => b.status !== "completed");
+    if (q) list = list.filter(b => [b.driver_name, b.truck_number, b.trailer_number, ISSUE_LABEL[b.issue_type], b.city_state]
+      .filter(Boolean).join(" ").toLowerCase().includes(q));
+
+    // priority first, then newest
+    list.sort((a, b) => (b.priority - a.priority) || (new Date(b.created_at) - new Date(a.created_at)));
+
+    const el = $("breakList");
+    if (!list.length) { el.innerHTML = `<div class="empty">No breakdowns${state.breakFilter === "open" ? " active" : ""}.</div>`; return; }
+    el.innerHTML = `<div class="hint" style="margin:0 0 10px"><span class="live-dot"></span>Live breakdowns</div>` +
+      list.map(b => breakdownCardHtml(b)).join("");
+  }
+
+  function breakdownCardHtml(b) {
+    const where = [b.highway_exit, b.city_state].filter(Boolean).join(" · ");
+    return `<div class="ticket clickable" onclick="openBreakdown('${b.id}')" ${b.priority ? 'style="border-color:rgba(229,72,77,0.5)"' : ""}>
+      <div class="top">
+        <div><div class="truck">${b.priority ? "🚨 " : ""}Truck ${esc(b.truck_number)}</div>
+        <div class="meta">${esc(b.driver_name)} · ${ago(b.created_at)}</div></div>
+        <span class="chip ${b.priority && b.status === "reported" ? "priority" : b.status}">${b.priority && b.status === "reported" ? "Priority" : BREAKDOWN_STATUS_LABEL[b.status]}</span>
+      </div>
+      <div class="issue">${esc(ISSUE_LABEL[b.issue_type] || b.issue_type)}${b.issue_notes ? " — " + esc(b.issue_notes) : ""}</div>
+      <div class="foot">
+        <span>${where ? "📍 " + esc(where) : (b.gps_lat ? "📍 GPS attached" : "No location")}</span>
+        <span>${b.vendor_name ? "🔧 " + esc(b.vendor_name) : ""}</span>
+      </div>
+    </div>`;
+  }
+
+  async function openBreakdown(id) {
+    const b = state.breakdowns.find(x => x.id === id);
+    if (!b) return;
+    openModal(`<div class="empty">Loading…</div>`);
+    const [ph, pv] = await Promise.all([
+      sb.from("breakdown_photos").select("*").eq("breakdown_id", id),
+      sb.from("breakdown_private").select("*").eq("breakdown_id", id).maybeSingle(),
+    ]);
+    const photos = ph.data || [];
+    const priv = (pv && pv.data) || {};
+    // signed URLs for the private bucket
+    let signed = [];
+    if (photos.length) {
+      const sg = await sb.storage.from(PHOTO_BUCKET).createSignedUrls(photos.map(p => p.storage_path), 3600);
+      signed = sg.data || [];
+    }
+    const photoHtml = photos.length ? `<div class="photo-grid">` + photos.map(p => {
+      const s = signed.find(x => x.path === p.storage_path);
+      const cat = (PHOTO_CATS.find(c => c.k === p.category) || {}).t || p.category;
+      return s && s.signedUrl ? `<a href="${s.signedUrl}" target="_blank" class="photo-tile"><img class="photo-thumb" src="${s.signedUrl}" alt="${esc(cat)}" /><div class="small" style="text-align:center">${esc(cat)}</div></a>` : "";
+    }).join("") + `</div>` : `<div class="small" style="color:var(--muted)">No photos uploaded.</div>`;
+
+    const maps = (b.gps_lat != null && b.gps_lng != null) ? `https://www.google.com/maps?q=${b.gps_lat},${b.gps_lng}` : null;
+    const statusOpts = BREAKDOWN_STATUS_ORDER.map(s => `<option value="${s}" ${s === b.status ? "selected" : ""}>${BREAKDOWN_STATUS_LABEL[s]}</option>`).join("");
+    const loc = [b.location_text, b.highway_exit, b.city_state, b.direction && b.direction + "-bound"].filter(Boolean).join(" · ");
+
+    openModal(`
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px">
+        <div class="truck" style="font-size:18px">${b.priority ? "🚨 " : ""}Truck ${esc(b.truck_number)}</div>
+        <span class="chip ${b.status}">${BREAKDOWN_STATUS_LABEL[b.status]}</span>
+      </div>
+      <div class="small" style="color:var(--muted)">${esc(b.driver_name)} · <a href="tel:${esc(digits(b.driver_phone))}" style="color:var(--blue)">${esc(b.driver_phone)}</a>${b.driver_email ? " · " + esc(b.driver_email) : ""}</div>
+      ${b.trailer_number ? `<div class="small" style="color:var(--muted)">Trailer ${esc(b.trailer_number)}</div>` : ""}
+
+      <div class="card" style="margin-top:12px">
+        <div class="issue"><b>${esc(ISSUE_LABEL[b.issue_type] || b.issue_type)}</b>${b.loaded != null ? " · " + (b.loaded ? "Loaded" : "Empty") : ""}</div>
+        ${b.issue_notes ? `<div style="margin-top:6px">${esc(b.issue_notes)}</div>` : ""}
+        ${loc ? `<div class="small" style="color:var(--muted);margin-top:8px">📍 ${esc(loc)}</div>` : ""}
+        ${maps ? `<a href="${maps}" target="_blank" class="btn-ghost btn-block btn-sm" style="margin-top:10px;display:block;text-align:center;text-decoration:none">📍 Open in Google Maps</a>` : ""}
+      </div>
+
+      <h2 class="section">Photos</h2>
+      ${photoHtml}
+
+      <h2 class="section">Status</h2>
+      <select id="bd-status" onchange="updateBreakdown('${b.id}',{status:this.value})">${statusOpts}</select>
+
+      <h2 class="section">Vendor</h2>
+      <input id="bd-vname" placeholder="Vendor name" value="${esc(b.vendor_name || "")}" />
+      <div class="two-col" style="margin-top:8px">
+        <input id="bd-vcontact" placeholder="Contact #" value="${esc(b.vendor_contact || "")}" />
+        <input id="bd-veta" placeholder="ETA (e.g. 45 min)" value="${esc(b.vendor_eta || "")}" />
+      </div>
+      <button class="btn-ghost btn-block btn-sm" style="margin-top:8px" onclick="saveVendor('${b.id}')">Save vendor (driver sees this)</button>
+
+      <h2 class="section">Internal — staff only 🔒</h2>
+      <div class="two-col">
+        <div><label class="fld">Service order #</label><input id="bd-so" value="${esc(priv.service_order_number || "")}" /></div>
+        <div><label class="fld">Estimated cost ($)</label><input id="bd-est" type="number" inputmode="decimal" step="0.01" value="${priv.estimated_cost != null ? priv.estimated_cost : ""}" /></div>
+      </div>
+      <div class="two-col" style="margin-top:8px">
+        <div><label class="fld">Authorized by</label><input id="bd-auth" value="${esc(priv.authorized_by || "")}" /></div>
+        <div><label class="fld">Approval amount ($)</label><input id="bd-appr" type="number" inputmode="decimal" step="0.01" value="${priv.repair_approval_amount != null ? priv.repair_approval_amount : ""}" /></div>
+      </div>
+      <label class="fld">Chargeback notes</label>
+      <textarea id="bd-charge">${esc(priv.chargeback_notes || "")}</textarea>
+      <div class="btn-row" style="margin-top:10px">
+        <button class="btn-sm ${priv.follow_up_required ? "btn-blue" : "btn-ghost"}" id="bd-follow" onclick="this.classList.toggle('btn-blue');this.classList.toggle('btn-ghost')">Follow-up required</button>
+        <button class="btn-sm ${priv.warranty_claim ? "btn-blue" : "btn-ghost"}" id="bd-warr" onclick="this.classList.toggle('btn-blue');this.classList.toggle('btn-ghost')">Warranty claim</button>
+      </div>
+      <button class="btn-ghost btn-block btn-sm" style="margin-top:10px" onclick="savePrivate('${b.id}')">Save internal notes</button>
+
+      <button class="btn-primary" style="margin-top:18px" onclick="closeModal()">Done</button>
+      <button class="btn-red btn-block" style="margin-top:8px" onclick="deleteBreakdown('${b.id}')">Delete breakdown</button>
+    `);
+  }
+
+  async function updateBreakdown(id, patch) {
+    const { error } = await sb.from("breakdowns").update(patch).eq("id", id);
+    if (error) return toast(error.message, true);
+    const b = state.breakdowns.find(x => x.id === id);
+    if (b) { Object.assign(b, patch); if (patch.status === "completed" && !b.completed_at) b.completed_at = new Date().toISOString(); }
+    toast("Updated ✓"); renderBreakdowns();
+  }
+  function saveVendor(id) {
+    updateBreakdown(id, {
+      vendor_name: $("bd-vname").value.trim() || null,
+      vendor_contact: $("bd-vcontact").value.trim() || null,
+      vendor_eta: $("bd-veta").value.trim() || null,
+    });
+  }
+  async function savePrivate(id) {
+    const payload = {
+      breakdown_id: id,
+      service_order_number: $("bd-so").value.trim() || null,
+      estimated_cost: $("bd-est").value === "" ? null : parseFloat($("bd-est").value),
+      authorized_by: $("bd-auth").value.trim() || null,
+      repair_approval_amount: $("bd-appr").value === "" ? null : parseFloat($("bd-appr").value),
+      chargeback_notes: $("bd-charge").value.trim() || null,
+      follow_up_required: $("bd-follow").classList.contains("btn-blue"),
+      warranty_claim: $("bd-warr").classList.contains("btn-blue"),
+    };
+    const { error } = await sb.from("breakdown_private").upsert(payload, { onConflict: "breakdown_id" });
+    if (error) return toast(error.message, true);
+    toast("Internal notes saved ✓");
+  }
+  async function deleteBreakdown(id) {
+    if (!confirm("Delete this breakdown? This can't be undone.")) return;
+    const { error } = await sb.from("breakdowns").delete().eq("id", id);
+    if (error) return toast(error.message, true);
+    state.breakdowns = state.breakdowns.filter(b => b.id !== id);
+    closeModal(); renderBreakdowns(); toast("Deleted");
+  }
+
+  // ---- on-demand breakdown report ----
+  async function openBreakReport() {
+    openModal(`<div class="empty">Building report…</div>`);
+    const pv = await sb.from("breakdown_private").select("breakdown_id,estimated_cost");
+    const costById = {}; (pv.data || []).forEach(r => { if (r.estimated_cost != null) costById[r.breakdown_id] = Number(r.estimated_cost); });
+    const all = state.breakdowns;
+    const total = all.length;
+    const byType = {}; all.forEach(b => byType[b.issue_type] = (byType[b.issue_type] || 0) + 1);
+    // average downtime (completed)
+    const done = all.filter(b => b.status === "completed" && b.completed_at);
+    const avgMs = done.length ? done.reduce((s, b) => s + (new Date(b.completed_at) - new Date(b.created_at)), 0) / done.length : 0;
+    const avgH = avgMs ? (avgMs / 3600000) : 0;
+    // most frequent trucks
+    const byTruck = {}; all.forEach(b => byTruck[b.truck_number] = (byTruck[b.truck_number] || 0) + 1);
+    const topTrucks = Object.entries(byTruck).sort((a, b) => b[1] - a[1]).slice(0, 6);
+    // cost per truck
+    const costPerTruck = {}; all.forEach(b => { const c = costById[b.id]; if (c) costPerTruck[b.truck_number] = (costPerTruck[b.truck_number] || 0) + c; });
+    const costRows = Object.entries(costPerTruck).sort((a, b) => b[1] - a[1]).slice(0, 6);
+
+    const stat = (v, l) => `<div class="stat"><div class="v">${v}</div><div class="l">${l}</div></div>`;
+    openModal(`
+      <h2 class="section" style="margin-top:0">Breakdown report</h2>
+      <div class="stat-grid">
+        ${stat(total, "Total")}
+        ${stat(byType.tire || 0, "Tire")}
+        ${stat(byType.engine || 0, "Engine")}
+        ${stat(byType.tow || 0, "Tows")}
+      </div>
+      <div class="stat-grid">
+        ${stat(byType.trailer_repair || 0, "Trailer")}
+        ${stat(byType.accident || 0, "Accident")}
+        ${stat(done.length, "Completed")}
+        ${stat(avgH ? avgH.toFixed(1) + "h" : "—", "Avg downtime")}
+      </div>
+      <h2 class="section">Most frequent trucks</h2>
+      ${topTrucks.length ? topTrucks.map(([tr, c]) => `<div class="row"><div class="grow"><div class="name">Truck ${esc(tr)}</div></div><div>${c} breakdown${c > 1 ? "s" : ""}</div></div>`).join("") : `<div class="small" style="color:var(--muted)">No data yet.</div>`}
+      <h2 class="section">Cost per truck</h2>
+      ${costRows.length ? costRows.map(([tr, c]) => `<div class="row"><div class="grow"><div class="name">Truck ${esc(tr)}</div></div><div style="color:var(--amber)">$${c.toFixed(2)}</div></div>`).join("") : `<div class="small" style="color:var(--muted)">Add estimated costs on breakdowns to see this.</div>`}
+      <p class="hint" style="margin-top:14px">Cost-per-mile needs odometer/mileage data, which isn't captured yet — add a mileage field later to enable it.</p>
+      <button class="btn-primary" style="margin-top:14px" onclick="closeModal()">Close</button>
+    `);
+  }
+
   // ============================ Realtime ============================
   function subscribeShop() {
     if (realtimeChannel) sb.removeChannel(realtimeChannel);
-    realtimeChannel = sb.channel("shop-tickets")
+    realtimeChannel = sb.channel("shop-live")
       .on("postgres_changes", { event: "*", schema: "public", table: "tickets" }, (payload) => {
         applyTicketChange(payload);
         renderQueue();
       })
+      .on("postgres_changes", { event: "*", schema: "public", table: "breakdowns" }, (payload) => {
+        applyBreakdownChange(payload);
+        renderBreakdowns();
+      })
       .subscribe();
+  }
+  function applyBreakdownChange(payload) {
+    const { eventType, new: row, old } = payload;
+    if (eventType === "INSERT") {
+      if (!state.breakdowns.find(b => b.id === row.id)) state.breakdowns.unshift(row);
+    } else if (eventType === "UPDATE") {
+      const i = state.breakdowns.findIndex(b => b.id === row.id);
+      if (i >= 0) state.breakdowns[i] = row; else state.breakdowns.unshift(row);
+    } else if (eventType === "DELETE") {
+      state.breakdowns = state.breakdowns.filter(b => b.id !== old.id);
+    }
   }
   function applyTicketChange(payload) {
     const { eventType, new: row, old } = payload;
@@ -872,8 +1508,8 @@
   function renderSetupBanner() {
     if (CONFIGURED) return;
     $("setupBanner").innerHTML = `<div class="banner"><b>Setup needed.</b> Open <code>shop.html</code> and paste your Supabase
-      <code>URL</code> + <code>anon key</code> into the CONFIG block near the bottom, then run
-      <code>shop-scheduler-schema.sql</code> in the Supabase SQL editor. Until then this is a preview.</div>`;
+      <code>URL</code> + <code>anon key</code> into the CONFIG block near the bottom, then run the SQL files
+      (see <code>SETUP.md</code>). Until then this is a preview.</div>`;
   }
 
   // ============================ boot ============================
