@@ -40,14 +40,16 @@ const TYPE_LABEL = {
 };
 
 // Title hook patterns. {t}=topic (title case), {type}=type label.
-// Honest and descriptive — no all-caps, no bait. Just what the video is.
+// "real" matches Shawn's signature voice: CAPS hook word + subject + en-dash
+// + a curiosity/stakes payoff (e.g. "INSIDE a Real Weigh Station – What DOT
+// Sees Will Blow Your Mind!"). chill/educational stay lower-key by design.
 const TITLE_PATTERNS = {
   real: [
-    "{t} | Trucking Life With Shawn",
-    "{t} — Day In The Life Of A Truck Driver",
-    "{t} | A Real Day On The Road",
-    "{t}: How It Actually Goes Out Here",
-    "Riding Along For {t} 🚛",
+    "INSIDE {t} – What I Saw Will Blow Your Mind!",
+    "WHY {t} Is Nothing Like You Think 🚛",
+    "Nobody Talks About {t}... Here's The Truth!",
+    "{t} – What Really Happens Out Here!",
+    "What DOT Sees During {t} Will Shock You!",
   ],
   chill: [
     "{t} | A Relaxed Day On The Road 🚛",
@@ -143,7 +145,7 @@ function buildHashtags(topic, type, extra) {
 function buildDescription(topic, type, tone, hashtags) {
   const t = titleCase(topic);
   const intro = {
-    real: `In this one I'm taking you along for ${t.toLowerCase()} — no filters, just real trucking life out here on the road.`,
+    real: `You're going INSIDE ${t.toLowerCase()} — and what really goes on out here might just blow your mind. No filters, no fluff, just the real side of trucking most people never get to see.`,
     chill: `Pull up a seat and ride shotgun for ${t.toLowerCase()}. Sit back, relax, and enjoy the miles.`,
     educational: `Everything you need to know about ${t.toLowerCase()} — straight from the driver's seat. If you're new to trucking, this one's for you.`,
   }[tone];
