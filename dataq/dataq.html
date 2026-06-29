@@ -51,8 +51,20 @@
         .btn-primary { background: linear-gradient(135deg, #4f8cff, #2257d9); }
         .btn-danger  { background: linear-gradient(135deg, #ff5d6f, #c0273a); }
         .btn-ghost   { background: #233453; }
+        .btn-paid    { background: linear-gradient(135deg, #4cd6a0, #1f9c6e); color: #04140d; }
         .btn-row { display: flex; gap: 10px; margin: 14px 0; }
         .btn-row button { flex: 1; }
+
+        /* Paid-filing upsell banner */
+        .upsell {
+            display: flex; align-items: center; gap: 12px;
+            background: linear-gradient(135deg, #143a2c, #0f2a20);
+            border: 1px solid #2a6a4f; border-radius: 16px; padding: 14px 16px; margin: 4px 0 4px;
+        }
+        .upsell .u-txt { flex: 1; }
+        .upsell .u-txt b { display: block; font-size: 14.5px; color: #d8ffe9; }
+        .upsell .u-txt span { font-size: 12px; color: #9fd9bf; line-height: 1.45; }
+        .upsell button { flex-shrink: 0; white-space: nowrap; }
 
         /* Filter chips */
         .filters { display: flex; flex-wrap: wrap; gap: 7px; margin-bottom: 10px; }
@@ -89,11 +101,14 @@
         .badge.s-approved { background: #16402f; color: #4cd6a0; }
         .badge.s-partial { background: #1c3358; color: #9cc4ff; }
         .badge.s-denied { background: #4a1a26; color: #ff8b9a; }
+        .tags { margin-top: 8px; display: flex; flex-wrap: wrap; gap: 6px; }
         .pts {
-            display: inline-block; margin-top: 8px; font-size: 11.5px; color: #b6c4dc;
+            display: inline-block; font-size: 11.5px; color: #b6c4dc;
             background: #1a2640; padding: 4px 9px; border-radius: 8px;
         }
         .pts.weighted { color: #ff8b9a; }
+        .pts.paid { background: #143a2c; color: #4cd6a0; }
+        .pts.unsynced { background: #3a2a16; color: #f5b13b; }
 
         .empty { text-align: center; color: #6b7c99; font-size: 13px; padding: 28px 14px; }
 
@@ -111,6 +126,10 @@
             box-shadow: 0 20px 60px rgba(0,0,0,0.6); margin: auto 0;
         }
         .modal h3 { font-size: 18px; margin-bottom: 14px; }
+        .section-label {
+            font-size: 11px; color: #6ea7ff; margin: 16px 0 2px; text-transform: uppercase;
+            letter-spacing: 0.8px; font-weight: 700;
+        }
         label { display: block; font-size: 12px; color: #93a4c0; margin: 12px 0 5px; text-transform: uppercase; letter-spacing: 0.5px; }
         input, select, textarea {
             width: 100%; background: #0d1626; border: 1px solid #2a3a5c; border-radius: 10px;
@@ -137,6 +156,7 @@
             padding: 12px 14px; font-size: 12px; color: #b6c4dc; line-height: 1.55; margin-top: 12px;
         }
         .note strong { color: #e6ecf5; }
+        .note.paid { background: #122a20; border-left-color: #4cd6a0; }
         .rdr {
             background: #0d1626; border: 1px solid #2a3a5c; border-radius: 10px;
             padding: 12px; font-size: 12.5px; line-height: 1.6; white-space: pre-wrap;
@@ -152,6 +172,7 @@
             background: #16402f; color: #4cd6a0; border: 1px solid #2a6a4f;
             padding: 11px 18px; border-radius: 12px; font-size: 13px; font-weight: 600;
             opacity: 0; pointer-events: none; transition: opacity 0.25s; z-index: 100;
+            max-width: 90%; text-align: center;
         }
         .toast.show { opacity: 1; }
     </style>
@@ -174,6 +195,14 @@
         <button class="btn-ghost" id="exportBtn">⤓ Backup</button>
     </div>
 
+    <div class="upsell" id="upsell">
+        <div class="u-txt">
+            <b>Don't want to fight it yourself?</b>
+            <span id="upsellSub">GoDataQ's team will prepare and file your Request for Data Review for you.</span>
+        </div>
+        <button class="btn-paid" id="upsellBtn">File it for me</button>
+    </div>
+
     <div class="filters" id="filters"></div>
 
     <div class="list" id="list">
@@ -183,7 +212,7 @@
     <div class="footer-note">
         Submit your finished Request for Data Review at the official FMCSA portal:<br>
         <a href="https://dataqs.fmcsa.dot.gov/" target="_blank" rel="noopener">dataqs.fmcsa.dot.gov</a>
-        &nbsp;·&nbsp; All data stays on this device (offline-first).
+        &nbsp;·&nbsp; Your copy stays on this device; saving also sends your details to GoDataQ so we can help.
     </div>
 
     <!-- Add / Edit modal -->
@@ -192,6 +221,17 @@
             <button class="close-x" id="editClose">✕</button>
             <h3 id="editTitle">New Dispute</h3>
 
+            <div class="section-label">Your contact info</div>
+            <div class="grid2">
+                <div><label>Full name</label><input id="fName" placeholder="Driver / owner name" autocomplete="name"></div>
+                <div><label>Email</label><input id="fEmail" type="email" placeholder="you@email.com" autocomplete="email"></div>
+            </div>
+            <div class="grid2">
+                <div><label>Phone</label><input id="fPhone" type="tel" placeholder="(555) 555-5555" autocomplete="tel"></div>
+                <div><label>DOT or MC #</label><input id="fDot" placeholder="e.g. 1234567" autocomplete="off"></div>
+            </div>
+
+            <div class="section-label">The violation</div>
             <div class="grid2">
                 <div><label>Event type</label>
                     <select id="fType">
@@ -247,6 +287,9 @@
             <label>Notes / follow-up</label>
             <textarea id="fNotes" placeholder="RDR confirmation #, deadlines, who to call."></textarea>
 
+            <div style="margin-top:16px;">
+                <button class="btn-paid" id="paidBtn" style="width:100%;">📨 Let GoDataQ file this for me</button>
+            </div>
             <div class="btn-row">
                 <button class="btn-primary" id="saveBtn">Save</button>
                 <button class="btn-ghost" id="rdrBtn">📄 Build RDR</button>
@@ -275,12 +318,52 @@
         </div>
     </div>
 
+    <!-- Paid filing confirmation modal -->
+    <div class="overlay" id="paidOverlay">
+        <div class="modal">
+            <button class="close-x" id="paidClose">✕</button>
+            <h3>📨 Done-for-you filing</h3>
+            <div class="note paid" id="paidBody">
+                <strong>Request received.</strong> GoDataQ will review this violation and prepare &amp; file your
+                Request for Data Review for you. We'll reach out using the contact info you entered.
+            </div>
+            <div class="btn-row" id="paidActions"></div>
+        </div>
+    </div>
+
     <div class="toast" id="toast"></div>
 
+    <!-- Supabase client (CDN). App still works fully offline if this fails to load. -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <script>
     (() => {
+        // ====================== CONFIG ======================
+        // Reuses the existing GoDataQ / Rosedale Supabase project. To point at a
+        // different project, swap these two values. To stop syncing entirely,
+        // blank out SUPABASE_URL.
+        const CFG = {
+            SUPABASE_URL: "https://mmnvcbejjdweetnxncfi.supabase.co",
+            SUPABASE_ANON_KEY: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im1tbnZjYmVqamR3ZWV0bnhuY2ZpIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODA5NTM3MzMsImV4cCI6MjA5NjUyOTczM30.PSzPFqTAiv0GHv0DBpAOREUE7BvrbHHgetQSYpeSajA",
+            // Shown on the paid-filing buttons. Leave price as "" to hide it.
+            PAID_FILING_PRICE: "$49",
+            // Optional. A Stripe Payment Link, Calendly, or mailto: link. If set,
+            // tapping "file it for me" opens it. If blank, a confirmation shows
+            // instead — the lead is still captured with wants_paid_filing = true.
+            PAID_FILING_URL: ""
+        };
+        // ====================================================
+
         const KEY = "guardshack_dataq_v1";
+        const PKEY = "guardshack_dataq_profile_v1";
         const $ = (id) => document.getElementById(id);
+
+        // ---- Supabase client (best-effort; app works without it) ----
+        let sb = null;
+        const SB_CONFIGURED = !!(CFG.SUPABASE_URL && CFG.SUPABASE_ANON_KEY && !/^YOUR_/.test(CFG.SUPABASE_URL));
+        if (SB_CONFIGURED && window.supabase) {
+            try { sb = window.supabase.createClient(CFG.SUPABASE_URL, CFG.SUPABASE_ANON_KEY); }
+            catch (e) { console.warn("Supabase init failed", e); }
+        }
 
         // Common, legitimate grounds for an FMCSA DataQ Request for Data Review.
         const GROUNDS = [
@@ -304,6 +387,7 @@
         const WON_STATES = ["approved", "partial"];
 
         let disputes = load();
+        let profile = loadProfile();
         let editingId = null;
         let filter = "all";
 
@@ -312,6 +396,11 @@
             catch { return []; }
         }
         function save() { localStorage.setItem(KEY, JSON.stringify(disputes)); }
+        function loadProfile() {
+            try { return JSON.parse(localStorage.getItem(PKEY)) || {}; }
+            catch { return {}; }
+        }
+        function saveProfile(p) { profile = p; localStorage.setItem(PKEY, JSON.stringify(p)); }
 
         function uid() {
             return "d" + Math.random().toString(36).slice(2, 9) + Date.now().toString(36).slice(-4);
@@ -322,7 +411,49 @@
         }
         function toast(msg) {
             const t = $("toast"); t.textContent = msg; t.classList.add("show");
-            clearTimeout(toast._t); toast._t = setTimeout(() => t.classList.remove("show"), 1900);
+            clearTimeout(toast._t); toast._t = setTimeout(() => t.classList.remove("show"), 2100);
+        }
+
+        // ---------- Supabase lead capture ----------
+        function leadRow(d) {
+            const groundNames = (d.grounds || [])
+                .map((id) => (GROUNDS.find((g) => g.id === id) || {}).t || id).join(", ");
+            return {
+                local_id: d.id,
+                full_name: d.full_name || null,
+                email: d.email || null,
+                phone: d.phone || null,
+                dot_or_mc: d.dot_or_mc || null,
+                inspection_number: d.report || null,
+                violation_code: d.code || null,
+                violation_description: d.desc || null,
+                state: d.state || null,
+                event_date: d.date || null,
+                grounds: groundNames || null,
+                dispute_status: d.status || null,
+                rdr_text: buildRDR(d),
+                wants_paid_filing: !!d.wants_paid_filing,
+                source: "dataq_app"
+            };
+        }
+
+        // Best-effort push of one dispute to Supabase as a lead. Marks d.synced
+        // on success so we can retry the rest on next load. Never throws.
+        async function syncLead(d) {
+            if (!sb) return false;
+            try {
+                const { error } = await sb.from("dataq_leads")
+                    .upsert(leadRow(d), { onConflict: "local_id" });
+                if (error) { console.warn("lead sync error", error); return false; }
+                d.synced = true; save(); renderList();
+                return true;
+            } catch (e) { console.warn("lead sync threw", e); return false; }
+        }
+
+        // Retry any disputes that never made it to Supabase (offline first save, etc.)
+        function syncPending() {
+            if (!sb) return;
+            disputes.filter((d) => !d.synced).forEach((d) => syncLead(d));
         }
 
         // ---------- Dashboard + list ----------
@@ -366,6 +497,10 @@
                 const meta = [d.state, d.date, d.report].filter(Boolean).join(" · ");
                 const title = d.code ? `${d.code} — ${d.desc || "Violation"}` : (d.desc || "Untitled event");
                 const w = Number(d.weight) || 0;
+                const tags = [];
+                if (w) tags.push(`<span class="pts ${OPEN_STATES.includes(d.status) ? "weighted" : ""}">${w} severity pts</span>`);
+                if (d.wants_paid_filing) tags.push(`<span class="pts paid">📨 Filing requested</span>`);
+                if (sb && !d.synced) tags.push(`<span class="pts unsynced">⏳ not synced</span>`);
                 return `
                 <div class="card s-${d.status}" data-id="${d.id}">
                     <div class="card-top">
@@ -375,7 +510,7 @@
                         </div>
                         <span class="badge s-${d.status}">${STATUS_LABEL[d.status]}</span>
                     </div>
-                    ${w ? `<span class="pts ${OPEN_STATES.includes(d.status) ? "weighted" : ""}">${w} severity pts</span>` : ""}
+                    ${tags.length ? `<div class="tags">${tags.join("")}</div>` : ""}
                 </div>`;
             }).join("");
             list.querySelectorAll(".card").forEach((c) =>
@@ -401,7 +536,9 @@
         function blank() {
             return { id: null, type: "violation", status: "draft", report: "", date: "",
                 state: "", driver: "", unit: "", trailer: "", code: "", weight: "",
-                desc: "", grounds: [], narrative: "", evidence: "", notes: "" };
+                desc: "", grounds: [], narrative: "", evidence: "", notes: "",
+                full_name: "", email: "", phone: "", dot_or_mc: "",
+                wants_paid_filing: false, synced: false };
         }
 
         function openEdit(id) {
@@ -409,6 +546,11 @@
             if (!d) return;
             editingId = id;
             $("editTitle").textContent = id ? "Edit Dispute" : "New Dispute";
+            // Contact: prefill from the dispute, falling back to the saved profile.
+            $("fName").value = d.full_name || profile.full_name || "";
+            $("fEmail").value = d.email || profile.email || "";
+            $("fPhone").value = d.phone || profile.phone || "";
+            $("fDot").value = d.dot_or_mc || profile.dot_or_mc || "";
             $("fType").value = d.type; $("fStatus").value = d.status;
             $("fReport").value = d.report; $("fDate").value = d.date;
             $("fState").value = d.state; $("fDriver").value = d.driver;
@@ -419,12 +561,21 @@
             renderGrounds(d.grounds);
             $("deleteBtn").style.display = id ? "block" : "none";
             $("editOverlay").classList.add("open");
+            $("editOverlay").scrollTop = 0;
+        }
+
+        function readContact() {
+            return {
+                full_name: $("fName").value.trim(), email: $("fEmail").value.trim(),
+                phone: $("fPhone").value.trim(), dot_or_mc: $("fDot").value.trim()
+            };
         }
 
         function readForm() {
             const grounds = Array.from($("grounds").querySelectorAll(".ground"))
                 .filter((el) => el.querySelector("input").checked).map((el) => el.dataset.g);
             return {
+                ...readContact(),
                 type: $("fType").value, status: $("fStatus").value,
                 report: $("fReport").value.trim(), date: $("fDate").value,
                 state: $("fState").value.trim().toUpperCase(), driver: $("fDriver").value.trim(),
@@ -436,35 +587,95 @@
             };
         }
 
-        function saveForm() {
+        // Persist the form to localStorage and return the saved dispute (or null).
+        function commit(opts = {}) {
             const data = readForm();
             if (!data.desc && !data.code && !data.report) {
                 toast("Add a code, report #, or description first");
-                return;
+                return null;
             }
+            // Remember contact info as the profile so it prefills next time.
+            const contact = readContact();
+            if (contact.full_name || contact.email || contact.phone || contact.dot_or_mc) saveProfile(contact);
+
+            let d;
             if (editingId) {
                 const i = disputes.findIndex((x) => x.id === editingId);
-                disputes[i] = { ...disputes[i], ...data };
+                d = disputes[i] = { ...disputes[i], ...data, ...opts, synced: false };
             } else {
-                disputes.push({ id: uid(), created: Date.now(), ...data });
+                d = { id: uid(), created: Date.now(), ...data, ...opts, synced: false };
+                disputes.push(d);
+                editingId = d.id;
             }
             save(); renderAll();
+            return d;
+        }
+
+        function saveForm() {
+            const d = commit();
+            if (!d) return;
             $("editOverlay").classList.remove("open");
-            toast("Saved");
+            toast(sb ? "Saved — sent to GoDataQ" : "Saved on this device");
+            syncLead(d);
         }
 
         function deleteCurrent() {
             if (!editingId) return;
-            if (!confirm("Delete this dispute permanently?")) return;
+            if (!confirm("Delete this dispute permanently? (This only removes your local copy.)")) return;
             disputes = disputes.filter((x) => x.id !== editingId);
             save(); renderAll();
             $("editOverlay").classList.remove("open");
             toast("Deleted");
         }
 
+        // ---------- Paid done-for-you filing ----------
+        function priceSuffix() { return CFG.PAID_FILING_PRICE ? ` — ${CFG.PAID_FILING_PRICE}` : ""; }
+
+        // Triggered from inside the edit modal: save the dispute, flag the upsell,
+        // capture the lead, then open the pay link or show a confirmation.
+        function requestPaidFromForm() {
+            const d = commit({ wants_paid_filing: true });
+            if (!d) { toast("Add the violation details first"); return; }
+            $("editOverlay").classList.remove("open");
+            finishPaid(d);
+        }
+
+        // Triggered from the home banner: act on the most recent dispute, or open
+        // a new one if there are none yet.
+        function requestPaidFromBanner() {
+            if (disputes.length === 0) {
+                openEdit(null);
+                toast("Add your violation, then tap “Let GoDataQ file this for me”");
+                return;
+            }
+            const newest = disputes.slice().sort((a, b) => (b.created || 0) - (a.created || 0))[0];
+            newest.wants_paid_filing = true; newest.synced = false;
+            save(); renderAll();
+            finishPaid(newest);
+        }
+
+        function finishPaid(d) {
+            syncLead(d);
+            if (CFG.PAID_FILING_URL) {
+                window.open(CFG.PAID_FILING_URL, "_blank", "noopener");
+                toast("Opening secure filing…");
+                return;
+            }
+            // No pay link configured yet → show a confirmation, capture is done.
+            const who = d.email || d.phone;
+            $("paidBody").innerHTML =
+                `<strong>Request received.</strong> GoDataQ will review this violation` +
+                ` and prepare &amp; file your Request for Data Review for you` +
+                (who ? `. We'll reach out at <strong>${escapeHtml(who)}</strong>.` : `. Add your email or phone so we can reach you.`);
+            const acts = $("paidActions");
+            acts.innerHTML = `<button class="btn-paid" id="paidOk">Got it</button>`;
+            $("paidOk").addEventListener("click", () => $("paidOverlay").classList.remove("open"));
+            $("paidOverlay").classList.add("open");
+        }
+
         // ---------- RDR builder ----------
         function buildRDR(d) {
-            const typeLabel = { violation: "inspection violation", crash: "crash record", inspection: "inspection report" }[d.type];
+            const typeLabel = { violation: "inspection violation", crash: "crash record", inspection: "inspection report" }[d.type] || "record";
             const groundText = (d.grounds || []).map((id) => {
                 const g = GROUNDS.find((x) => x.id === id); return g ? g.t : id;
             });
@@ -493,7 +704,9 @@
         }
 
         function showRDR() {
-            const d = editingId ? { ...disputes.find((x) => x.id === editingId), ...readForm() } : readForm();
+            const d = editingId
+                ? { ...disputes.find((x) => x.id === editingId), ...readForm() }
+                : readForm();
             $("rdrText").textContent = buildRDR(d);
             $("rdrOverlay").classList.add("open");
         }
@@ -515,8 +728,11 @@
         $("saveBtn").addEventListener("click", saveForm);
         $("deleteBtn").addEventListener("click", deleteCurrent);
         $("rdrBtn").addEventListener("click", showRDR);
+        $("paidBtn").addEventListener("click", requestPaidFromForm);
+        $("upsellBtn").addEventListener("click", requestPaidFromBanner);
         $("editClose").addEventListener("click", () => $("editOverlay").classList.remove("open"));
         $("rdrClose").addEventListener("click", () => $("rdrOverlay").classList.remove("open"));
+        $("paidClose").addEventListener("click", () => $("paidOverlay").classList.remove("open"));
         $("copyRdr").addEventListener("click", async () => {
             const text = $("rdrText").textContent;
             try { await navigator.clipboard.writeText(text); toast("Copied to clipboard"); }
@@ -529,10 +745,16 @@
         $("openPortal").addEventListener("click", () => window.open("https://dataqs.fmcsa.dot.gov/", "_blank", "noopener"));
 
         // Close overlays by tapping the dim backdrop
-        [["editOverlay"], ["rdrOverlay"]].forEach(([id]) =>
+        ["editOverlay", "rdrOverlay", "paidOverlay"].forEach((id) =>
             $(id).addEventListener("click", (e) => { if (e.target === $(id)) $(id).classList.remove("open"); }));
 
+        // Apply configurable price labels
+        $("paidBtn").textContent = "📨 Let GoDataQ file this for me" + priceSuffix();
+        $("upsellSub").textContent = "GoDataQ's team will prepare and file your Request for Data Review for you"
+            + (CFG.PAID_FILING_PRICE ? ` — ${CFG.PAID_FILING_PRICE}.` : ".");
+
         renderAll();
+        syncPending();   // retry any leads that didn't make it to Supabase before
     })();
     </script>
 </body>
