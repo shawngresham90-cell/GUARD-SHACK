@@ -49,13 +49,6 @@ const TITLE_PATTERNS = {
     "{t}: How It Actually Goes Out Here",
     "Riding Along For {t} 🚛",
   ],
-  hype: [
-    "{t} | Trucking Life With Shawn",
-    "{t} — One Of Those Days On The Road",
-    "{t}: The Part Of Trucking Nobody Talks About",
-    "Out Here Dealing With {t} 🚛",
-    "{t} — Real Footage From The Cab",
-  ],
   chill: [
     "{t} | A Relaxed Day On The Road 🚛",
     "{t} — Just Me And The Truck",
@@ -151,7 +144,6 @@ function buildDescription(topic, type, tone, hashtags) {
   const t = titleCase(topic);
   const intro = {
     real: `In this one I'm taking you along for ${t.toLowerCase()} — no filters, just real trucking life out here on the road.`,
-    hype: `🔥 ${t} like you've never seen it! Buckle up, because this one gets wild.`,
     chill: `Pull up a seat and ride shotgun for ${t.toLowerCase()}. Sit back, relax, and enjoy the miles.`,
     educational: `Everything you need to know about ${t.toLowerCase()} — straight from the driver's seat. If you're new to trucking, this one's for you.`,
   }[tone];
