@@ -145,7 +145,7 @@ function buildHashtags(topic, type, extra) {
 function buildDescription(topic, type, tone, hashtags) {
   const t = titleCase(topic);
   const intro = {
-    real: `You're going INSIDE ${t.toLowerCase()} — and what really goes on out here might just blow your mind. No filters, no fluff, just the real side of trucking most people never get to see.`,
+    real: `Ever wondered what really goes on with ${t.toLowerCase()}? In this exclusive behind-the-scenes video, I take you along and get the full breakdown — the stuff most drivers never get to see. From the small details to why so many people get flagged, this is a must-watch for all truckers.`,
     chill: `Pull up a seat and ride shotgun for ${t.toLowerCase()}. Sit back, relax, and enjoy the miles.`,
     educational: `Everything you need to know about ${t.toLowerCase()} — straight from the driver's seat. If you're new to trucking, this one's for you.`,
   }[tone];
