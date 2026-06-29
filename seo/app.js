@@ -39,35 +39,36 @@ const TYPE_LABEL = {
   "repair": "Breakdown",
 };
 
-// Title hook patterns. {t}=topic (title case), {type}=type label
+// Title hook patterns. {t}=topic (title case), {type}=type label.
+// Honest and descriptive — no all-caps, no bait. Just what the video is.
 const TITLE_PATTERNS = {
   real: [
     "{t} | Trucking Life With Shawn",
-    "This Is What {t} Really Looks Like 🚛",
     "{t} — Day In The Life Of A Truck Driver",
-    "Nobody Warned Me About {t}",
-    "{t}... And Why Trucking Isn't For Everyone",
+    "{t} | A Real Day On The Road",
+    "{t}: How It Actually Goes Out Here",
+    "Riding Along For {t} 🚛",
   ],
   hype: [
-    "INSANE! {t} 🚛💨",
-    "You WON'T Believe {t}!",
-    "{t} GONE WRONG 😳",
-    "I Can't Believe This Happened — {t}",
-    "WATCH THIS Before You Try {t}!",
+    "{t} | Trucking Life With Shawn",
+    "{t} — One Of Those Days On The Road",
+    "{t}: The Part Of Trucking Nobody Talks About",
+    "Out Here Dealing With {t} 🚛",
+    "{t} — Real Footage From The Cab",
   ],
   chill: [
-    "{t} | Relaxing Day On The Road 🚛",
-    "Just Me, The Truck & {t}",
-    "{t} — Cruising Down The Highway",
-    "A Calm Day Of {t} 🎧",
+    "{t} | A Relaxed Day On The Road 🚛",
+    "{t} — Just Me And The Truck",
+    "Cruising Through {t}",
     "{t} | Trucking Life With Shawn",
+    "An Easy Day Of {t} 🎧",
   ],
   educational: [
-    "How To Handle {t} (Truck Driver Tips)",
-    "{t} Explained — For New Truck Drivers",
-    "Everything You Need To Know About {t}",
-    "{t}: Rookie Mistakes To Avoid 🚛",
-    "5 Things About {t} Every Trucker Should Know",
+    "How To Handle {t} | Truck Driver Tips",
+    "{t} — What New Truck Drivers Should Know",
+    "{t}, Explained From The Driver's Seat",
+    "{t}: What I've Learned Out Here 🚛",
+    "A Straight Guide To {t} For Truckers",
   ],
 };
 
