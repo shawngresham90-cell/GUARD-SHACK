@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SEO Generator — Trucking Life With Shawn</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="hero">
+    <h1>🚛 SEO Generator</h1>
+    <p>YouTube titles, descriptions, tags &amp; hashtags for <strong>Trucking Life With Shawn</strong></p>
+  </header>
+
+  <main>
+    <!-- 1. Video details -->
+    <section class="card">
+      <h2>1 — What's the video about?</h2>
+
+      <label class="field">
+        <span>Video topic / main keyword</span>
+        <input id="topic" type="text" placeholder="e.g. winter driving on I-80, backing into a tight dock, day in the life OTR" />
+      </label>
+
+      <div class="grid-2">
+        <label class="field">
+          <span>Video type</span>
+          <select id="vtype">
+            <option value="day in the life">Day in the Life / Vlog</option>
+            <option value="dashcam">Dashcam / Road Footage</option>
+            <option value="how-to">How-To / Tips</option>
+            <option value="truck tour">Truck Tour / Walkaround</option>
+            <option value="review">Gear / Truck Review</option>
+            <option value="story time">Story Time / Q&amp;A</option>
+            <option value="loading">Loading / Unloading</option>
+            <option value="repair">Breakdown / Repair</option>
+          </select>
+        </label>
+
+        <label class="field">
+          <span>Tone</span>
+          <select id="tone">
+            <option value="real">Real &amp; Raw</option>
+            <option value="hype">High Energy / Hype</option>
+            <option value="chill">Chill / Relaxed</option>
+            <option value="educational">Educational</option>
+          </select>
+        </label>
+      </div>
+
+      <label class="field">
+        <span>Extra keywords (optional, comma separated)</span>
+        <input id="extra" type="text" placeholder="e.g. Peterbilt 389, Texas, night drive, owner operator" />
+      </label>
+
+      <div class="row">
+        <button id="generateBtn" class="primary">⚡ Generate SEO Pack</button>
+        <button id="clearBtn" class="ghost">Clear</button>
+      </div>
+      <div id="status" class="status"></div>
+    </section>
+
+    <!-- 2. Results -->
+    <section class="card" id="results" hidden>
+      <h2>2 — Your SEO pack</h2>
+
+      <div class="block">
+        <h3>Titles <span class="hint">pick your favorite</span></h3>
+        <div id="titles" class="title-list"></div>
+      </div>
+
+      <div class="block">
+        <h3>Description <button class="copy" data-copy="description">Copy</button></h3>
+        <textarea id="description" rows="14" spellcheck="false"></textarea>
+      </div>
+
+      <div class="block">
+        <h3>Tags <span class="hint" id="tagCount"></span> <button class="copy" data-copy="tags">Copy</button></h3>
+        <textarea id="tags" rows="4" spellcheck="false"></textarea>
+      </div>
+
+      <div class="block">
+        <h3>Hashtags <button class="copy" data-copy="hashtags">Copy</button></h3>
+        <textarea id="hashtags" rows="2" spellcheck="false"></textarea>
+      </div>
+
+      <div class="block">
+        <h3>Pinned comment <button class="copy" data-copy="pinned">Copy</button></h3>
+        <textarea id="pinned" rows="3" spellcheck="false"></textarea>
+      </div>
+    </section>
+
+    <footer class="foot">
+      Runs 100% in your browser — nothing is uploaded. Edit anything before you post.
+    </footer>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
