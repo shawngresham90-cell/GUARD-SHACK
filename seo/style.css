@@ -127,3 +127,5 @@ button:active { transform: translateY(1px); }
 .title-opt .copy { margin-left: 0; }
 
 .foot { text-align: center; color: var(--muted); font-size: .8rem; margin-top: 24px; }
+.foot-link { display: inline-block; margin-top: 8px; color: var(--accent); text-decoration: none; }
+.foot-link:hover { text-decoration: underline; }
