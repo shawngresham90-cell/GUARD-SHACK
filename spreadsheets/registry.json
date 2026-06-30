@@ -1,0 +1,61 @@
+{
+  "version": 1,
+  "updated": "2026-06-30",
+  "description": "Registry of Google Sheets that Claude tracks and auto-updates through chat. See README.md for how this works.",
+  "sheets": [
+    {
+      "key": "cdl-founders",
+      "title": "CDL School Founder Text Tracker",
+      "id": "1Bo9ydrlI4sTTJGSf9WXE8CN6--fIdZQesY1thnZGg14",
+      "format": "google-sheet",
+      "owner": "shawngresham90@gmail.com",
+      "url": "https://docs.google.com/spreadsheets/d/1Bo9ydrlI4sTTJGSf9WXE8CN6--fIdZQesY1thnZGg14/edit",
+      "worksheet": "Sheet1",
+      "purpose": "Outreach tracker for CDL school founders: who got texted/called and how they responded.",
+      "key_column": "Phone Number",
+      "columns": ["Name", "Phone Number", "Text Sent", "called", "Response"],
+      "update_rules": "Match a person by Phone Number (or Name if no phone). When a founder replies, fill the Response column. Mark Text Sent / called with 'y' when done. Add a new row for any new contact.",
+      "editable": true
+    },
+    {
+      "key": "rosedale-vendors",
+      "title": "Rosedale-Vendors",
+      "id": "1kdbTtBhc15xKvfa_YUGs0t-I8IYwSILdl-dQbfn4n6M",
+      "format": "google-sheet",
+      "owner": "shawngresham90@gmail.com",
+      "url": "https://docs.google.com/spreadsheets/d/1kdbTtBhc15xKvfa_YUGs0t-I8IYwSILdl-dQbfn4n6M/edit",
+      "worksheet": "Sheet1",
+      "purpose": "Vendor / sponsor contact list for the CDL school and Rosedale shop, with sponsorship angle and verification status.",
+      "key_column": "Company",
+      "columns": ["Company", "Contact", "Title", "Category", "Phone (Office/Direct)", "Cell", "Other (Fax/2nd)", "Email", "Website", "Address", "City / State / ZIP", "School Sponsor Angle", "Status / Notes"],
+      "update_rules": "Match a vendor by Company. Update Status / Notes as contact is verified or cards are reshot. 'CHECK' means a field still needs confirming. Add a new row per new vendor.",
+      "editable": true
+    },
+    {
+      "key": "rosedale-weekly-briefing",
+      "title": "Rosedale_Weekly_Briefing",
+      "id": "1yuA1knIi6UezCkRs1jvhb7oc9E_vZJmj",
+      "format": "xlsx",
+      "owner": "shawngresham90@gmail.com",
+      "url": "https://drive.google.com/file/d/1yuA1knIi6UezCkRs1jvhb7oc9E_vZJmj/view",
+      "worksheet": "Weekly Briefing",
+      "purpose": "One row per week: fleet idle %, MPG, and shop-tracker activity (reported down / scheduled / missed / fixed).",
+      "key_column": "Week Ending",
+      "columns": ["Week Ending", "Fleet Idle %", "Fleet MPG", "Reported Down (APU/Unit)", "Scheduled for Maint.", "Missed Appt.", "Fixed"],
+      "update_rules": "Add a new row under the latest week every Sunday. Keep the TOTAL / AVG row at the bottom. NOTE: this file is an .xlsx upload, not a native Google Sheet, so the Sheets write actions can't edit it directly. Convert it to a Google Sheet first (open in Sheets > File > Save as Google Sheets) and update its id/format/url here, then it becomes editable.",
+      "editable": false
+    }
+  ],
+  "ignored": [
+    {
+      "title": "JUNE OB SHEET",
+      "id": "1Np58iQHIn5MXr_KYmUkyqu9jGYfbKMJ8ovbsK4uHjeU",
+      "reason": "Shared with you but owned by another person (hyndmankimberly3@gmail.com). Read-only by default — add to sheets[] only if you want Claude to edit it and you have write access."
+    },
+    {
+      "title": "Untitled spreadsheet",
+      "id": "1QhsnGsZfVc4vT2js-9q0A8MisnT9LbDFL8E_ipw9PY8",
+      "reason": "Empty placeholder. Give it a name and purpose, then move it into sheets[]."
+    }
+  ]
+}
