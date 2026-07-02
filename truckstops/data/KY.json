@@ -31,6 +31,7 @@
       "stops": [
         {"mm": 2, "exit": "2", "name": "Flying J Travel Center", "brand": "Flying J", "type": "truck_stop", "city": "Franklin", "approx": false, "notes": "US-31W; Franklin truck stop cluster", "parking": 90},
         {"mm": 3, "exit": "3", "name": "Kentucky Welcome Center (northbound)", "brand": "State", "type": "rest_area", "city": "Franklin", "approx": true, "notes": "Serves northbound entering from TN; truck parking", "parking": 20},
+        {"mm": 4, "exit": "4", "name": "Weigh Station (NB)", "brand": "State", "type": "weigh_station", "city": "Franklin", "approx": false, "notes": "Simpson County scales near TN line, MM 4 northbound; PrePass"},
         {"mm": 6, "exit": "6", "name": "Love's Travel Stop", "brand": "Love's", "type": "truck_stop", "city": "Franklin", "approx": true, "notes": "KY-100", "parking": 85},
         {"mm": 28, "exit": "28", "name": "Pilot Travel Center", "brand": "Pilot", "type": "truck_stop", "city": "Bowling Green", "approx": true, "notes": "KY-446", "parking": 85},
         {"mm": 38, "exit": "38", "name": "Buc-ee's", "brand": "Buc-ee's", "type": "truck_stop", "city": "Smiths Grove", "approx": false, "notes": "No semi-truck parking", "parking": 0},
@@ -47,7 +48,8 @@
     "I-71": {
       "maxMM": 77,
       "stops": [
-        {"mm": 28, "exit": "28", "name": "Pilot Travel Center", "brand": "Pilot", "type": "truck_stop", "city": "Pendleton", "approx": true, "notes": "KY-153", "parking": 85}
+        {"mm": 28, "exit": "28", "name": "Pilot Travel Center", "brand": "Pilot", "type": "truck_stop", "city": "Pendleton", "approx": true, "notes": "KY-153", "parking": 85},
+        {"mm": 75, "exit": "75", "name": "Weigh Station (SB)", "brand": "State", "type": "weigh_station", "city": "Walton", "approx": true, "notes": "Walton scales just south of I-71/I-75 split; PrePass"}
       ]
     },
     "I-75": {
