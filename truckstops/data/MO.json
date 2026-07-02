@@ -1,84 +1,454 @@
 {
-  "state": "Missouri",
-  "abbr": "MO",
-  "interstates": {
-    "I-29": {
-      "maxMM": 124,
-      "stops": [
-        {"mm": 30, "exit": "30", "name": "Love's Travel Stop", "brand": "Love's", "type": "truck_stop", "city": "Dearborn", "approx": true, "notes": "US-59 exit, south of St. Joseph", "parking": 80},
-        {"mm": 109, "exit": "109", "name": "Rock Port Welcome Center Rest Area (SB only)", "brand": "State", "type": "rest_area", "city": "Rock Port", "approx": true, "parking": 25},
-        {"mm": 110, "exit": "110", "name": "Love's Travel Stop", "brand": "Love's", "type": "truck_stop", "city": "Rock Port", "approx": true, "notes": "US-136 exit, near Iowa/Nebraska corner", "parking": 80}
-      ]
+ "state": "Missouri",
+ "abbr": "MO",
+ "interstates": {
+  "I-29": {
+   "maxMM": 124,
+   "stops": [
+    {
+     "mm": 30,
+     "exit": "30",
+     "name": "Love's Travel Stop",
+     "brand": "Love's",
+     "type": "truck_stop",
+     "city": "Dearborn",
+     "approx": true,
+     "notes": "US-59 exit, south of St. Joseph",
+     "parking": 80
     },
-    "I-35": {
-      "maxMM": 114,
-      "stops": [
-        {"mm": 110, "exit": "", "name": "Missouri Welcome Center", "brand": "State", "type": "rest_area", "city": "Eagleville", "approx": true, "notes": "Southbound; welcome center near Iowa line; truck parking", "parking": 25}
-      ]
+    {
+     "mm": 35,
+     "exit": "35",
+     "name": "Pilot Travel Center #1323",
+     "brand": "Pilot",
+     "type": "truck_stop",
+     "city": "Faucett",
+     "approx": false,
+     "notes": "Opened November 2025 (ribbon cutting Dec 9, 2025) at former Ferris Truck Stop site; Taco Bell",
+     "parking": 55
     },
-    "I-44": {
-      "maxMM": 291,
-      "stops": [
-        {"mm": 1, "exit": "", "name": "Missouri Welcome Center", "brand": "State", "type": "rest_area", "city": "Joplin", "approx": true, "notes": "Eastbound; welcome center near Oklahoma line; truck parking", "parking": 25},
-        {"mm": 4, "exit": "4", "name": "Petro Stopping Center", "brand": "Petro", "type": "truck_stop", "city": "Joplin", "approx": false, "notes": "MO-43 exit, west Joplin; full-service stop", "parking": 200},
-        {"mm": 4, "exit": "4", "name": "Pilot Travel Center", "brand": "Pilot", "type": "truck_stop", "city": "Joplin", "approx": true, "notes": "MO-43 exit, across from the Petro", "parking": 80},
-        {"mm": 8, "exit": "8", "name": "Flying J Travel Center", "brand": "Flying J", "type": "truck_stop", "city": "Joplin", "approx": true, "notes": "US-71/Rangeline Rd area", "parking": 90},
-        {"mm": 8, "exit": "8", "name": "QuikTrip Travel Center", "brand": "QuikTrip", "type": "truck_stop", "city": "Joplin", "approx": true, "notes": "QT full-size travel center, Rangeline Rd area", "parking": 60},
-        {"mm": 84, "exit": "84", "name": "Buc-ee's", "brand": "Buc-ee's", "type": "truck_stop", "city": "Springfield", "approx": true, "notes": "Opened 2023; NOTE: no overnight semi parking at Buc-ee's", "parking": 0},
-        {"mm": 88, "exit": "88", "name": "TA Springfield", "brand": "TA", "type": "truck_stop", "city": "Strafford", "approx": true, "notes": "MO-125/Strafford exit east of Springfield", "parking": 180},
-        {"mm": 88, "exit": "88", "name": "Flying J Travel Center", "brand": "Flying J", "type": "truck_stop", "city": "Strafford", "approx": true, "notes": "Same interchange as the TA", "parking": 90},
-        {"mm": 111, "exit": "", "name": "Conway Rest Area / Route 66 Welcome Center", "brand": "State", "type": "rest_area", "city": "Conway", "approx": true, "notes": "Serves both directions; Route 66-themed; truck parking", "parking": 40},
-        {"mm": 161, "exit": "161", "name": "Love's Travel Stop", "brand": "Love's", "type": "truck_stop", "city": "St. Robert", "approx": true, "notes": "Fort Leonard Wood area", "parking": 90},
-        {"mm": 208, "exit": "208", "name": "Love's Travel Stop", "brand": "Love's", "type": "truck_stop", "city": "Cuba", "approx": true, "notes": "", "parking": 80},
-        {"mm": 226, "exit": "226", "name": "Love's Travel Stop", "brand": "Love's", "type": "truck_stop", "city": "Sullivan", "approx": true, "notes": "", "parking": 80}
-      ]
+    {
+     "mm": 109,
+     "exit": "109",
+     "name": "Rock Port Welcome Center Rest Area (SB only)",
+     "brand": "State",
+     "type": "rest_area",
+     "city": "Rock Port",
+     "approx": true,
+     "parking": 25
     },
-    "I-49": {
-      "maxMM": 184,
-      "stops": [
-        {"mm": 101, "exit": "101", "name": "Love's Travel Stop", "brand": "Love's", "type": "truck_stop", "city": "Nevada", "approx": true, "notes": "", "parking": 80},
-        {"mm": 167, "exit": "167", "name": "Flying J Travel Center", "brand": "Flying J", "type": "truck_stop", "city": "Peculiar", "approx": true, "notes": "South KC metro", "parking": 90}
-      ]
-    },
-    "I-55": {
-      "maxMM": 209,
-      "stops": [
-        {"mm": 8, "exit": "8", "name": "Love's Travel Stop", "brand": "Love's", "type": "truck_stop", "city": "Steele", "approx": true, "notes": "Near Arkansas line", "parking": 80},
-        {"mm": 19, "exit": "19", "name": "Pilot Travel Center", "brand": "Pilot", "type": "truck_stop", "city": "Hayti", "approx": true, "notes": "US-412 junction", "parking": 80},
-        {"mm": 42, "exit": "", "name": "Marston Welcome Center", "brand": "State", "type": "rest_area", "city": "Marston", "approx": true, "notes": "Northbound; welcome center; truck parking", "parking": 30},
-        {"mm": 58, "exit": "58", "name": "Love's Travel Stop", "brand": "Love's", "type": "truck_stop", "city": "Matthews", "approx": true, "notes": "", "parking": 80},
-        {"mm": 66, "exit": "66", "name": "Flying J Travel Center", "brand": "Flying J", "type": "truck_stop", "city": "Sikeston", "approx": true, "notes": "US-60/I-57 hub area", "parking": 90},
-        {"mm": 80, "exit": "80", "name": "Boomland Travel Center", "brand": "Independent", "type": "truck_stop", "city": "Benton", "approx": true, "notes": "Large independent stop with fireworks superstore", "parking": 75},
-        {"mm": 160, "exit": "", "name": "Rest Area (Ste. Genevieve area)", "brand": "State", "type": "rest_area", "city": "Ste. Genevieve", "approx": true, "notes": "Serves both directions; truck parking", "parking": 25}
-      ]
-    },
-    "I-57": {
-      "maxMM": 22,
-      "stops": [
-        {"mm": 10, "exit": "10", "name": "Boomland Travel Center", "brand": "Independent", "type": "truck_stop", "city": "Charleston", "approx": true, "notes": "US-60/62 exit", "parking": 60}
-      ]
-    },
-    "I-64": {
-      "maxMM": 41,
-      "stops": []
-    },
-    "I-70": {
-      "maxMM": 252,
-      "stops": [
-        {"mm": 28, "exit": "28", "name": "TA Kansas City", "brand": "TA", "type": "truck_stop", "city": "Oak Grove", "approx": false, "notes": "Longtime full-service stop east of KC", "parking": 200},
-        {"mm": 58, "exit": "58", "name": "Concordia Rest Area (both directions)", "brand": "State", "type": "rest_area", "city": "Concordia", "approx": true, "parking": 30},
-        {"mm": 101, "exit": "101", "name": "Pilot Travel Center", "brand": "Pilot", "type": "truck_stop", "city": "Boonville", "approx": true, "notes": "MO-5 exit", "parking": 80},
-        {"mm": 121, "exit": "121", "name": "Midway Truck Stop", "brand": "Independent", "type": "truck_stop", "city": "Columbia (Midway)", "approx": false, "notes": "Historic independent US-40 travel plaza west of Columbia", "parking": 100},
-        {"mm": 148, "exit": "148", "name": "Petro Stopping Center", "brand": "Petro", "type": "truck_stop", "city": "Kingdom City", "approx": false, "notes": "US-54 junction; major full-service stop", "parking": 250},
-        {"mm": 169, "exit": "", "name": "Rest Area (Danville area)", "brand": "State", "type": "rest_area", "city": "Danville", "approx": true, "notes": "Serves both directions; truck parking", "parking": 30},
-        {"mm": 188, "exit": "188", "name": "Love's Travel Stop", "brand": "Love's", "type": "truck_stop", "city": "Warrenton", "approx": true, "notes": "", "parking": 80},
-        {"mm": 203, "exit": "203", "name": "TA Foristell", "brand": "TA", "type": "truck_stop", "city": "Foristell", "approx": false, "notes": "West of Wentzville; full-service stop", "parking": 200},
-        {"mm": 203, "exit": "203", "name": "Pilot Travel Center", "brand": "Pilot", "type": "truck_stop", "city": "Foristell", "approx": true, "notes": "Same interchange as the TA", "parking": 80}
-      ]
-    },
-    "I-72": {
-      "maxMM": 4,
-      "stops": []
+    {
+     "mm": 110,
+     "exit": "110",
+     "name": "Love's Travel Stop",
+     "brand": "Love's",
+     "type": "truck_stop",
+     "city": "Rock Port",
+     "approx": true,
+     "notes": "US-136 exit, near Iowa/Nebraska corner",
+     "parking": 80
     }
+   ]
+  },
+  "I-35": {
+   "maxMM": 114,
+   "stops": [
+    {
+     "mm": 110,
+     "exit": "",
+     "name": "Missouri Welcome Center",
+     "brand": "State",
+     "type": "rest_area",
+     "city": "Eagleville",
+     "approx": true,
+     "notes": "Southbound; welcome center near Iowa line; truck parking",
+     "parking": 25
+    }
+   ]
+  },
+  "I-44": {
+   "maxMM": 291,
+   "stops": [
+    {
+     "mm": 1,
+     "exit": "",
+     "name": "Missouri Welcome Center",
+     "brand": "State",
+     "type": "rest_area",
+     "city": "Joplin",
+     "approx": true,
+     "notes": "Eastbound; welcome center near Oklahoma line; truck parking",
+     "parking": 25
+    },
+    {
+     "mm": 4,
+     "exit": "4",
+     "name": "Petro Stopping Center",
+     "brand": "Petro",
+     "type": "truck_stop",
+     "city": "Joplin",
+     "approx": false,
+     "notes": "MO-43 exit, west Joplin; full-service stop",
+     "parking": 200
+    },
+    {
+     "mm": 4,
+     "exit": "4",
+     "name": "Pilot Travel Center",
+     "brand": "Pilot",
+     "type": "truck_stop",
+     "city": "Joplin",
+     "approx": true,
+     "notes": "MO-43 exit, across from the Petro",
+     "parking": 80
+    },
+    {
+     "mm": 8,
+     "exit": "8",
+     "name": "Flying J Travel Center",
+     "brand": "Flying J",
+     "type": "truck_stop",
+     "city": "Joplin",
+     "approx": true,
+     "notes": "US-71/Rangeline Rd area",
+     "parking": 90
+    },
+    {
+     "mm": 8,
+     "exit": "8",
+     "name": "QuikTrip Travel Center",
+     "brand": "QuikTrip",
+     "type": "truck_stop",
+     "city": "Joplin",
+     "approx": true,
+     "notes": "QT full-size travel center, Rangeline Rd area",
+     "parking": 60
+    },
+    {
+     "mm": 84,
+     "exit": "84",
+     "name": "Buc-ee's",
+     "brand": "Buc-ee's",
+     "type": "truck_stop",
+     "city": "Springfield",
+     "approx": true,
+     "notes": "Opened 2023; NOTE: no overnight semi parking at Buc-ee's",
+     "parking": 0
+    },
+    {
+     "mm": 88,
+     "exit": "88",
+     "name": "TA Springfield",
+     "brand": "TA",
+     "type": "truck_stop",
+     "city": "Strafford",
+     "approx": true,
+     "notes": "MO-125/Strafford exit east of Springfield",
+     "parking": 180
+    },
+    {
+     "mm": 88,
+     "exit": "88",
+     "name": "Flying J Travel Center",
+     "brand": "Flying J",
+     "type": "truck_stop",
+     "city": "Strafford",
+     "approx": true,
+     "notes": "Same interchange as the TA",
+     "parking": 90
+    },
+    {
+     "mm": 111,
+     "exit": "",
+     "name": "Conway Rest Area / Route 66 Welcome Center",
+     "brand": "State",
+     "type": "rest_area",
+     "city": "Conway",
+     "approx": true,
+     "notes": "Serves both directions; Route 66-themed; truck parking",
+     "parking": 40
+    },
+    {
+     "mm": 161,
+     "exit": "161",
+     "name": "Love's Travel Stop",
+     "brand": "Love's",
+     "type": "truck_stop",
+     "city": "St. Robert",
+     "approx": true,
+     "notes": "Fort Leonard Wood area",
+     "parking": 90
+    },
+    {
+     "mm": 208,
+     "exit": "208",
+     "name": "Love's Travel Stop",
+     "brand": "Love's",
+     "type": "truck_stop",
+     "city": "Cuba",
+     "approx": true,
+     "notes": "",
+     "parking": 80
+    },
+    {
+     "mm": 226,
+     "exit": "226",
+     "name": "Love's Travel Stop",
+     "brand": "Love's",
+     "type": "truck_stop",
+     "city": "Sullivan",
+     "approx": true,
+     "notes": "",
+     "parking": 80
+    }
+   ]
+  },
+  "I-49": {
+   "maxMM": 184,
+   "stops": [
+    {
+     "mm": 101,
+     "exit": "101",
+     "name": "Love's Travel Stop",
+     "brand": "Love's",
+     "type": "truck_stop",
+     "city": "Nevada",
+     "approx": true,
+     "notes": "",
+     "parking": 80
+    },
+    {
+     "mm": 167,
+     "exit": "167",
+     "name": "Flying J Travel Center",
+     "brand": "Flying J",
+     "type": "truck_stop",
+     "city": "Peculiar",
+     "approx": true,
+     "notes": "South KC metro",
+     "parking": 90
+    }
+   ]
+  },
+  "I-55": {
+   "maxMM": 209,
+   "stops": [
+    {
+     "mm": 8,
+     "exit": "8",
+     "name": "Love's Travel Stop",
+     "brand": "Love's",
+     "type": "truck_stop",
+     "city": "Steele",
+     "approx": true,
+     "notes": "Near Arkansas line",
+     "parking": 80
+    },
+    {
+     "mm": 19,
+     "exit": "19",
+     "name": "Pilot Travel Center",
+     "brand": "Pilot",
+     "type": "truck_stop",
+     "city": "Hayti",
+     "approx": true,
+     "notes": "US-412 junction",
+     "parking": 80
+    },
+    {
+     "mm": 42,
+     "exit": "",
+     "name": "Marston Welcome Center",
+     "brand": "State",
+     "type": "rest_area",
+     "city": "Marston",
+     "approx": true,
+     "notes": "Northbound; welcome center; truck parking",
+     "parking": 30
+    },
+    {
+     "mm": 58,
+     "exit": "58",
+     "name": "Love's Travel Stop",
+     "brand": "Love's",
+     "type": "truck_stop",
+     "city": "Matthews",
+     "approx": true,
+     "notes": "",
+     "parking": 80
+    },
+    {
+     "mm": 66,
+     "exit": "66",
+     "name": "Flying J Travel Center",
+     "brand": "Flying J",
+     "type": "truck_stop",
+     "city": "Sikeston",
+     "approx": true,
+     "notes": "US-60/I-57 hub area",
+     "parking": 90
+    },
+    {
+     "mm": 80,
+     "exit": "80",
+     "name": "Boomland Travel Center",
+     "brand": "Independent",
+     "type": "truck_stop",
+     "city": "Benton",
+     "approx": true,
+     "notes": "Large independent stop with fireworks superstore",
+     "parking": 75
+    },
+    {
+     "mm": 160,
+     "exit": "",
+     "name": "Rest Area (Ste. Genevieve area)",
+     "brand": "State",
+     "type": "rest_area",
+     "city": "Ste. Genevieve",
+     "approx": true,
+     "notes": "Serves both directions; truck parking",
+     "parking": 25
+    }
+   ]
+  },
+  "I-57": {
+   "maxMM": 22,
+   "stops": [
+    {
+     "mm": 10,
+     "exit": "10",
+     "name": "Boomland Travel Center",
+     "brand": "Independent",
+     "type": "truck_stop",
+     "city": "Charleston",
+     "approx": true,
+     "notes": "US-60/62 exit",
+     "parking": 60
+    },
+    {
+     "mm": 12,
+     "exit": "12",
+     "name": "Love's Travel Stop",
+     "brand": "Love's",
+     "type": "truck_stop",
+     "city": "Charleston",
+     "approx": false,
+     "notes": "Opened April 2025; I-57 Exit 12 at US 62",
+     "parking": 76
+    }
+   ]
+  },
+  "I-64": {
+   "maxMM": 41,
+   "stops": []
+  },
+  "I-70": {
+   "maxMM": 252,
+   "stops": [
+    {
+     "mm": 28,
+     "exit": "28",
+     "name": "TA Kansas City",
+     "brand": "TA",
+     "type": "truck_stop",
+     "city": "Oak Grove",
+     "approx": false,
+     "notes": "Longtime full-service stop east of KC",
+     "parking": 200
+    },
+    {
+     "mm": 58,
+     "exit": "58",
+     "name": "Concordia Rest Area (both directions)",
+     "brand": "State",
+     "type": "rest_area",
+     "city": "Concordia",
+     "approx": true,
+     "parking": 30
+    },
+    {
+     "mm": 101,
+     "exit": "101",
+     "name": "Pilot Travel Center",
+     "brand": "Pilot",
+     "type": "truck_stop",
+     "city": "Boonville",
+     "approx": true,
+     "notes": "MO-5 exit",
+     "parking": 80
+    },
+    {
+     "mm": 121,
+     "exit": "121",
+     "name": "Midway Truck Stop",
+     "brand": "Independent",
+     "type": "truck_stop",
+     "city": "Columbia (Midway)",
+     "approx": false,
+     "notes": "Historic independent US-40 travel plaza west of Columbia",
+     "parking": 100
+    },
+    {
+     "mm": 148,
+     "exit": "148",
+     "name": "Petro Stopping Center",
+     "brand": "Petro",
+     "type": "truck_stop",
+     "city": "Kingdom City",
+     "approx": false,
+     "notes": "US-54 junction; major full-service stop",
+     "parking": 250
+    },
+    {
+     "mm": 169,
+     "exit": "",
+     "name": "Rest Area (Danville area)",
+     "brand": "State",
+     "type": "rest_area",
+     "city": "Danville",
+     "approx": true,
+     "notes": "Serves both directions; truck parking",
+     "parking": 30
+    },
+    {
+     "mm": 188,
+     "exit": "188",
+     "name": "Love's Travel Stop",
+     "brand": "Love's",
+     "type": "truck_stop",
+     "city": "Warrenton",
+     "approx": true,
+     "notes": "",
+     "parking": 80
+    },
+    {
+     "mm": 203,
+     "exit": "203",
+     "name": "TA Foristell",
+     "brand": "TA",
+     "type": "truck_stop",
+     "city": "Foristell",
+     "approx": false,
+     "notes": "West of Wentzville; full-service stop",
+     "parking": 200
+    },
+    {
+     "mm": 203,
+     "exit": "203",
+     "name": "Pilot Travel Center",
+     "brand": "Pilot",
+     "type": "truck_stop",
+     "city": "Foristell",
+     "approx": true,
+     "notes": "Same interchange as the TA",
+     "parking": 80
+    }
+   ]
+  },
+  "I-72": {
+   "maxMM": 4,
+   "stops": []
   }
+ }
 }

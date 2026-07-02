@@ -1,57 +1,439 @@
 {
-  "state": "New Mexico",
-  "abbr": "NM",
-  "interstates": {
-    "I-10": {
-      "maxMM": 164,
-      "stops": [
-        {"mm": 20, "exit": "20", "name": "Lordsburg Welcome Center", "brand": "State", "type": "rest_area", "city": "Lordsburg", "approx": true, "notes": "Eastbound; NM welcome center; truck parking", "parking": 20},
-        {"mm": 22, "exit": "22", "name": "Pilot Travel Center", "brand": "Pilot", "type": "truck_stop", "city": "Lordsburg", "approx": false, "notes": "", "parking": 70},
-        {"mm": 24, "exit": "24", "name": "Love's Travel Stop", "brand": "Love's", "type": "truck_stop", "city": "Lordsburg", "approx": true, "notes": "Main St exit", "parking": 80},
-        {"mm": 51, "exit": "", "name": "Rest Area (Separ area)", "brand": "State", "type": "rest_area", "city": "Separ", "approx": true, "notes": "Serves both directions; truck parking; between Lordsburg and Deming", "parking": 15},
-        {"mm": 61, "exit": "61", "name": "Gage Rest Area (both directions)", "brand": "State", "type": "rest_area", "city": "Gage", "approx": true, "notes": "NMDOT rest area west of Deming", "parking": 20},
-        {"mm": 85, "exit": "85", "name": "Love's Travel Stop", "brand": "Love's", "type": "truck_stop", "city": "Deming", "approx": true, "notes": "East side of Deming", "parking": 80},
-        {"mm": 102, "exit": "102", "name": "Bowlin's Akela Flats Trading Post", "brand": "Independent", "type": "truck_stop", "city": "Akela", "approx": true, "notes": "Bowlin's Travel Centers; fuel and store", "parking": 25},
-        {"mm": 139, "exit": "139", "name": "TA Las Cruces", "brand": "TA", "type": "truck_stop", "city": "Las Cruces", "approx": false, "notes": "Motel Blvd exit; full-service stop", "parking": 175},
-        {"mm": 155, "exit": "155", "name": "Love's Travel Stop", "brand": "Love's", "type": "truck_stop", "city": "Vado", "approx": true, "notes": "Between Las Cruces and the Texas line", "parking": 90},
-        {"mm": 162, "exit": "162", "name": "Anthony Welcome Center Rest Area (WB only)", "brand": "State", "type": "rest_area", "city": "Anthony", "approx": true, "notes": "NM welcome center near the Texas line", "parking": 25}
-      ]
+ "state": "New Mexico",
+ "abbr": "NM",
+ "interstates": {
+  "I-10": {
+   "maxMM": 164,
+   "stops": [
+    {
+     "mm": 20,
+     "exit": "20",
+     "name": "Lordsburg Welcome Center",
+     "brand": "State",
+     "type": "rest_area",
+     "city": "Lordsburg",
+     "approx": true,
+     "notes": "Eastbound; NM welcome center; truck parking",
+     "parking": 20
     },
-    "I-25": {
-      "maxMM": 460,
-      "stops": [
-        {"mm": 75, "exit": "75", "name": "Love's Travel Stop", "brand": "Love's", "type": "truck_stop", "city": "Williamsburg", "approx": true, "notes": "Truth or Consequences area", "parking": 75},
-        {"mm": 114, "exit": "", "name": "Fort Craig Rest Area", "brand": "State", "type": "rest_area", "city": "San Marcial (south of Socorro)", "approx": true, "notes": "Serves both directions; truck parking", "parking": 20},
-        {"mm": 203, "exit": "203", "name": "Love's Travel Stop", "brand": "Love's", "type": "truck_stop", "city": "Los Lunas", "approx": true, "notes": "NM-6 interchange", "parking": 85},
-        {"mm": 227, "exit": "227", "name": "TA Albuquerque", "brand": "TA", "type": "truck_stop", "city": "Albuquerque", "approx": true, "notes": "University Blvd, north of the Big I", "parking": 175},
-        {"mm": 269, "exit": "269", "name": "La Bajada Rest Area (NB only)", "brand": "State", "type": "rest_area", "city": "Santa Fe (south of)", "approx": true, "notes": "Atop La Bajada Hill between Albuquerque and Santa Fe", "parking": 15},
-        {"mm": 450, "exit": "450", "name": "Raton Welcome Center", "brand": "State", "type": "rest_area", "city": "Raton", "approx": true, "notes": "Southbound; NM welcome center near Raton Pass; truck parking", "parking": 20}
-      ]
+    {
+     "mm": 22,
+     "exit": "22",
+     "name": "Pilot Travel Center",
+     "brand": "Pilot",
+     "type": "truck_stop",
+     "city": "Lordsburg",
+     "approx": false,
+     "notes": "",
+     "parking": 70
     },
-    "I-40": {
-      "maxMM": 373,
-      "stops": [
-        {"mm": 4, "exit": "4", "name": "Manuelito Rest Area (EB only)", "brand": "State", "type": "rest_area", "city": "Manuelito (west of Gallup)", "approx": true, "notes": "Serves eastbound traffic entering NM from Arizona", "parking": 15},
-        {"mm": 16, "exit": "16", "name": "Pilot Travel Center", "brand": "Pilot", "type": "truck_stop", "city": "Gallup", "approx": false, "notes": "West side of Gallup, Historic Route 66", "parking": 75},
-        {"mm": 16, "exit": "16", "name": "Love's Travel Stop", "brand": "Love's", "type": "truck_stop", "city": "Gallup", "approx": true, "notes": "", "parking": 80},
-        {"mm": 39, "exit": "39", "name": "Giant Travel Center", "brand": "Independent", "type": "truck_stop", "city": "Jamestown", "approx": false, "notes": "Giant/Speedway travel center near Gallup refinery; very large truck facility", "parking": 200},
-        {"mm": 79, "exit": "79", "name": "Love's Travel Stop", "brand": "Love's", "type": "truck_stop", "city": "Milan", "approx": false, "notes": "Grants/Milan area", "parking": 90},
-        {"mm": 102, "exit": "102", "name": "Sky City Travel Center", "brand": "Independent", "type": "truck_stop", "city": "Acoma", "approx": true, "notes": "Acoma Pueblo-operated; fuel, casino, truck parking", "parking": 50},
-        {"mm": 108, "exit": "108", "name": "Dancing Eagle Travel Center", "brand": "Independent", "type": "truck_stop", "city": "Casa Blanca", "approx": true, "notes": "Laguna Pueblo-operated", "parking": 40},
-        {"mm": 140, "exit": "140", "name": "Route 66 Travel Center", "brand": "Independent", "type": "truck_stop", "city": "Rio Puerco", "approx": true, "notes": "Laguna-operated; casino adjacent; west of Albuquerque", "parking": 60},
-        {"mm": 153, "exit": "153", "name": "Pilot Travel Center", "brand": "Pilot", "type": "truck_stop", "city": "Albuquerque", "approx": false, "notes": "98th St, west Albuquerque", "parking": 75},
-        {"mm": 153, "exit": "153", "name": "Love's Travel Stop", "brand": "Love's", "type": "truck_stop", "city": "Albuquerque", "approx": true, "notes": "98th St / Central Ave area", "parking": 70},
-        {"mm": 194, "exit": "194", "name": "TA Moriarty", "brand": "TA", "type": "truck_stop", "city": "Moriarty", "approx": true, "notes": "Former Rip Griffin Travel Center", "parking": 150},
-        {"mm": 196, "exit": "196", "name": "Lisa's Truck Center", "brand": "Independent", "type": "truck_stop", "city": "Moriarty", "approx": true, "notes": "Independent full-service truck stop", "parking": 100},
-        {"mm": 218, "exit": "218", "name": "Clines Corners Travel Center", "brand": "Independent", "type": "truck_stop", "city": "Clines Corners", "approx": false, "notes": "Historic Route 66 travel center at US-285 junction", "parking": 75},
-        {"mm": 234, "exit": "234", "name": "Bowlin's Flying C Ranch", "brand": "Independent", "type": "truck_stop", "city": "Encino (north of)", "approx": true, "notes": "Bowlin's Travel Centers; fuel, store, Dairy Queen", "parking": 25},
-        {"mm": 275, "exit": "275", "name": "TA Express Santa Rosa", "brand": "TA Express", "type": "truck_stop", "city": "Santa Rosa", "approx": true, "notes": "", "parking": 60},
-        {"mm": 277, "exit": "277", "name": "Love's Travel Stop", "brand": "Love's", "type": "truck_stop", "city": "Santa Rosa", "approx": true, "notes": "", "parking": 80},
-        {"mm": 333, "exit": "333", "name": "Love's Travel Stop", "brand": "Love's", "type": "truck_stop", "city": "Tucumcari", "approx": true, "notes": "Mountain Rd exit, east side of Tucumcari", "parking": 80},
-        {"mm": 356, "exit": "356", "name": "San Jon Rest Area (both directions)", "brand": "State", "type": "rest_area", "city": "San Jon", "approx": true, "notes": "East of Tucumcari, near the Texas line", "parking": 20},
-        {"mm": 369, "exit": "369", "name": "Russell's Truck & Travel Center", "brand": "Independent", "type": "truck_stop", "city": "Glenrio/Endee", "approx": false, "notes": "Large independent stop with free car museum, near Texas line", "parking": 100},
-        {"mm": 373, "exit": "", "name": "Glenrio Welcome Center", "brand": "State", "type": "rest_area", "city": "Glenrio", "approx": true, "notes": "Westbound; NM welcome center at Texas line; truck parking", "parking": 20}
-      ]
+    {
+     "mm": 24,
+     "exit": "24",
+     "name": "Love's Travel Stop",
+     "brand": "Love's",
+     "type": "truck_stop",
+     "city": "Lordsburg",
+     "approx": true,
+     "notes": "Main St exit",
+     "parking": 80
+    },
+    {
+     "mm": 51,
+     "exit": "",
+     "name": "Rest Area (Separ area)",
+     "brand": "State",
+     "type": "rest_area",
+     "city": "Separ",
+     "approx": true,
+     "notes": "Serves both directions; truck parking; between Lordsburg and Deming",
+     "parking": 15
+    },
+    {
+     "mm": 61,
+     "exit": "61",
+     "name": "Gage Rest Area (both directions)",
+     "brand": "State",
+     "type": "rest_area",
+     "city": "Gage",
+     "approx": true,
+     "notes": "NMDOT rest area west of Deming",
+     "parking": 20
+    },
+    {
+     "mm": 85,
+     "exit": "85",
+     "name": "Love's Travel Stop",
+     "brand": "Love's",
+     "type": "truck_stop",
+     "city": "Deming",
+     "approx": true,
+     "notes": "East side of Deming",
+     "parking": 80
+    },
+    {
+     "mm": 102,
+     "exit": "102",
+     "name": "Bowlin's Akela Flats Trading Post",
+     "brand": "Independent",
+     "type": "truck_stop",
+     "city": "Akela",
+     "approx": true,
+     "notes": "Bowlin's Travel Centers; fuel and store",
+     "parking": 25
+    },
+    {
+     "mm": 139,
+     "exit": "139",
+     "name": "TA Las Cruces",
+     "brand": "TA",
+     "type": "truck_stop",
+     "city": "Las Cruces",
+     "approx": false,
+     "notes": "Motel Blvd exit; full-service stop",
+     "parking": 175
+    },
+    {
+     "mm": 155,
+     "exit": "155",
+     "name": "Love's Travel Stop",
+     "brand": "Love's",
+     "type": "truck_stop",
+     "city": "Vado",
+     "approx": true,
+     "notes": "Between Las Cruces and the Texas line",
+     "parking": 90
+    },
+    {
+     "mm": 162,
+     "exit": "162",
+     "name": "Anthony Welcome Center Rest Area (WB only)",
+     "brand": "State",
+     "type": "rest_area",
+     "city": "Anthony",
+     "approx": true,
+     "notes": "NM welcome center near the Texas line",
+     "parking": 25
     }
+   ]
+  },
+  "I-25": {
+   "maxMM": 460,
+   "stops": [
+    {
+     "mm": 75,
+     "exit": "75",
+     "name": "Love's Travel Stop",
+     "brand": "Love's",
+     "type": "truck_stop",
+     "city": "Williamsburg",
+     "approx": true,
+     "notes": "Truth or Consequences area",
+     "parking": 75
+    },
+    {
+     "mm": 79,
+     "exit": "79",
+     "name": "Love's Travel Stop",
+     "brand": "Love's",
+     "type": "truck_stop",
+     "city": "Truth or Consequences",
+     "approx": false,
+     "notes": "Opened May 2026; Exit 79",
+     "parking": 63
+    },
+    {
+     "mm": 114,
+     "exit": "",
+     "name": "Fort Craig Rest Area",
+     "brand": "State",
+     "type": "rest_area",
+     "city": "San Marcial (south of Socorro)",
+     "approx": true,
+     "notes": "Serves both directions; truck parking",
+     "parking": 20
+    },
+    {
+     "mm": 203,
+     "exit": "203",
+     "name": "Love's Travel Stop",
+     "brand": "Love's",
+     "type": "truck_stop",
+     "city": "Los Lunas",
+     "approx": true,
+     "notes": "NM-6 interchange",
+     "parking": 85
+    },
+    {
+     "mm": 220,
+     "exit": "220",
+     "name": "Love's Travel Stop",
+     "brand": "Love's",
+     "type": "truck_stop",
+     "city": "Albuquerque",
+     "approx": true,
+     "notes": "Opened April 2026; off I-25/I-40, nearest exit 220 (Rio Bravo)",
+     "parking": 39
+    },
+    {
+     "mm": 227,
+     "exit": "227",
+     "name": "TA Albuquerque",
+     "brand": "TA",
+     "type": "truck_stop",
+     "city": "Albuquerque",
+     "approx": true,
+     "notes": "University Blvd, north of the Big I",
+     "parking": 175
+    },
+    {
+     "mm": 269,
+     "exit": "269",
+     "name": "La Bajada Rest Area (NB only)",
+     "brand": "State",
+     "type": "rest_area",
+     "city": "Santa Fe (south of)",
+     "approx": true,
+     "notes": "Atop La Bajada Hill between Albuquerque and Santa Fe",
+     "parking": 15
+    },
+    {
+     "mm": 450,
+     "exit": "450",
+     "name": "Raton Welcome Center",
+     "brand": "State",
+     "type": "rest_area",
+     "city": "Raton",
+     "approx": true,
+     "notes": "Southbound; NM welcome center near Raton Pass; truck parking",
+     "parking": 20
+    }
+   ]
+  },
+  "I-40": {
+   "maxMM": 373,
+   "stops": [
+    {
+     "mm": 4,
+     "exit": "4",
+     "name": "Manuelito Rest Area (EB only)",
+     "brand": "State",
+     "type": "rest_area",
+     "city": "Manuelito (west of Gallup)",
+     "approx": true,
+     "notes": "Serves eastbound traffic entering NM from Arizona",
+     "parking": 15
+    },
+    {
+     "mm": 16,
+     "exit": "16",
+     "name": "Pilot Travel Center",
+     "brand": "Pilot",
+     "type": "truck_stop",
+     "city": "Gallup",
+     "approx": false,
+     "notes": "West side of Gallup, Historic Route 66",
+     "parking": 75
+    },
+    {
+     "mm": 16,
+     "exit": "16",
+     "name": "Love's Travel Stop",
+     "brand": "Love's",
+     "type": "truck_stop",
+     "city": "Gallup",
+     "approx": true,
+     "notes": "",
+     "parking": 80
+    },
+    {
+     "mm": 39,
+     "exit": "39",
+     "name": "Giant Travel Center",
+     "brand": "Independent",
+     "type": "truck_stop",
+     "city": "Jamestown",
+     "approx": false,
+     "notes": "Giant/Speedway travel center near Gallup refinery; very large truck facility",
+     "parking": 200
+    },
+    {
+     "mm": 79,
+     "exit": "79",
+     "name": "Love's Travel Stop",
+     "brand": "Love's",
+     "type": "truck_stop",
+     "city": "Milan",
+     "approx": false,
+     "notes": "Grants/Milan area",
+     "parking": 90
+    },
+    {
+     "mm": 102,
+     "exit": "102",
+     "name": "Sky City Travel Center",
+     "brand": "Independent",
+     "type": "truck_stop",
+     "city": "Acoma",
+     "approx": true,
+     "notes": "Acoma Pueblo-operated; fuel, casino, truck parking",
+     "parking": 50
+    },
+    {
+     "mm": 108,
+     "exit": "108",
+     "name": "Dancing Eagle Travel Center",
+     "brand": "Independent",
+     "type": "truck_stop",
+     "city": "Casa Blanca",
+     "approx": true,
+     "notes": "Laguna Pueblo-operated",
+     "parking": 40
+    },
+    {
+     "mm": 140,
+     "exit": "140",
+     "name": "Route 66 Travel Center",
+     "brand": "Independent",
+     "type": "truck_stop",
+     "city": "Rio Puerco",
+     "approx": true,
+     "notes": "Laguna-operated; casino adjacent; west of Albuquerque",
+     "parking": 60
+    },
+    {
+     "mm": 153,
+     "exit": "153",
+     "name": "Pilot Travel Center",
+     "brand": "Pilot",
+     "type": "truck_stop",
+     "city": "Albuquerque",
+     "approx": false,
+     "notes": "98th St, west Albuquerque",
+     "parking": 75
+    },
+    {
+     "mm": 153,
+     "exit": "153",
+     "name": "Love's Travel Stop",
+     "brand": "Love's",
+     "type": "truck_stop",
+     "city": "Albuquerque",
+     "approx": true,
+     "notes": "98th St / Central Ave area",
+     "parking": 70
+    },
+    {
+     "mm": 194,
+     "exit": "194",
+     "name": "TA Moriarty",
+     "brand": "TA",
+     "type": "truck_stop",
+     "city": "Moriarty",
+     "approx": true,
+     "notes": "Former Rip Griffin Travel Center",
+     "parking": 150
+    },
+    {
+     "mm": 196,
+     "exit": "196",
+     "name": "Lisa's Truck Center",
+     "brand": "Independent",
+     "type": "truck_stop",
+     "city": "Moriarty",
+     "approx": true,
+     "notes": "Independent full-service truck stop",
+     "parking": 100
+    },
+    {
+     "mm": 218,
+     "exit": "218",
+     "name": "Clines Corners Travel Center",
+     "brand": "Independent",
+     "type": "truck_stop",
+     "city": "Clines Corners",
+     "approx": false,
+     "notes": "Historic Route 66 travel center at US-285 junction",
+     "parking": 75
+    },
+    {
+     "mm": 234,
+     "exit": "234",
+     "name": "Bowlin's Flying C Ranch",
+     "brand": "Independent",
+     "type": "truck_stop",
+     "city": "Encino (north of)",
+     "approx": true,
+     "notes": "Bowlin's Travel Centers; fuel, store, Dairy Queen",
+     "parking": 25
+    },
+    {
+     "mm": 275,
+     "exit": "275",
+     "name": "TA Express Santa Rosa",
+     "brand": "TA Express",
+     "type": "truck_stop",
+     "city": "Santa Rosa",
+     "approx": true,
+     "notes": "",
+     "parking": 60
+    },
+    {
+     "mm": 277,
+     "exit": "277",
+     "name": "Love's Travel Stop",
+     "brand": "Love's",
+     "type": "truck_stop",
+     "city": "Santa Rosa",
+     "approx": true,
+     "notes": "",
+     "parking": 80
+    },
+    {
+     "mm": 333,
+     "exit": "333",
+     "name": "Love's Travel Stop",
+     "brand": "Love's",
+     "type": "truck_stop",
+     "city": "Tucumcari",
+     "approx": true,
+     "notes": "Mountain Rd exit, east side of Tucumcari",
+     "parking": 80
+    },
+    {
+     "mm": 356,
+     "exit": "356",
+     "name": "San Jon Rest Area (both directions)",
+     "brand": "State",
+     "type": "rest_area",
+     "city": "San Jon",
+     "approx": true,
+     "notes": "East of Tucumcari, near the Texas line",
+     "parking": 20
+    },
+    {
+     "mm": 369,
+     "exit": "369",
+     "name": "Russell's Truck & Travel Center",
+     "brand": "Independent",
+     "type": "truck_stop",
+     "city": "Glenrio/Endee",
+     "approx": false,
+     "notes": "Large independent stop with free car museum, near Texas line",
+     "parking": 100
+    },
+    {
+     "mm": 373,
+     "exit": "",
+     "name": "Glenrio Welcome Center",
+     "brand": "State",
+     "type": "rest_area",
+     "city": "Glenrio",
+     "approx": true,
+     "notes": "Westbound; NM welcome center at Texas line; truck parking",
+     "parking": 20
+    }
+   ]
   }
+ }
 }

@@ -1,57 +1,379 @@
 {
-  "state": "Utah",
-  "abbr": "UT",
-  "note": "Exit numbers equal mileposts statewide. WARNING: I-70 has no services for 100+ miles between Salina (exit 56 area) and Green River (exit 160 area) - the longest stretch of interstate in the US with no services. Fuel up at Salina/Richfield or Green River.",
-  "interstates": {
-    "I-15": {
-      "maxMM": 401,
-      "stops": [
-        {"mm": 4, "exit": "4", "name": "Love's Travel Stop", "brand": "Love's", "type": "truck_stop", "city": "St. George", "approx": true, "notes": "South St. George area", "parking": 70},
-        {"mm": 62, "exit": "62", "name": "Love's Travel Stop", "brand": "Love's", "type": "truck_stop", "city": "Cedar City", "approx": true, "notes": "", "parking": 75},
-        {"mm": 112, "exit": "112", "name": "Flying J Travel Center", "brand": "Flying J", "type": "truck_stop", "city": "Beaver", "approx": false, "notes": "North Beaver exit", "parking": 90},
-        {"mm": 112, "exit": "112", "name": "Love's Travel Stop", "brand": "Love's", "type": "truck_stop", "city": "Beaver", "approx": true, "notes": "Beaver services cluster (exits 109/112)", "parking": 70},
-        {"mm": 167, "exit": "167", "name": "Flying J Travel Center", "brand": "Flying J", "type": "truck_stop", "city": "Fillmore", "approx": true, "notes": "North Fillmore exit", "parking": 80},
-        {"mm": 188, "exit": "188", "name": "Flying J Travel Center", "brand": "Flying J", "type": "truck_stop", "city": "Scipio", "approx": false, "notes": "Near I-15/US-50 split toward I-70; petting zoo landmark", "parking": 80},
-        {"mm": 222, "exit": "222", "name": "Flying J Travel Center", "brand": "Flying J", "type": "truck_stop", "city": "Nephi", "approx": false, "notes": "South Nephi (UT-28)", "parking": 90},
-        {"mm": 225, "exit": "225", "name": "Love's Travel Stop", "brand": "Love's", "type": "truck_stop", "city": "Nephi", "approx": true, "notes": "UT-132 exit", "parking": 75},
-        {"mm": 261, "exit": "261", "name": "Flying J Travel Center", "brand": "Flying J", "type": "truck_stop", "city": "Springville", "approx": false, "notes": "South Provo metro", "parking": 90},
-        {"mm": 305, "exit": "305", "name": "Flying J Travel Center", "brand": "Flying J", "type": "truck_stop", "city": "Salt Lake City", "approx": true, "notes": "900 W area, south of downtown", "parking": 90},
-        {"mm": 305, "exit": "305", "name": "Pilot Travel Center", "brand": "Pilot", "type": "truck_stop", "city": "Salt Lake City", "approx": true, "notes": "Downtown-south SLC area", "parking": 70},
-        {"mm": 339, "exit": "339", "name": "Pilot Travel Center", "brand": "Pilot", "type": "truck_stop", "city": "Ogden (Riverdale)", "approx": true, "notes": "Riverdale Rd area", "parking": 75},
-        {"mm": 342, "exit": "342", "name": "Flying J Travel Center", "brand": "Flying J", "type": "truck_stop", "city": "Ogden", "approx": true, "notes": "21st St area, west Ogden", "parking": 90},
-        {"mm": 360, "exit": "360", "name": "Perry Rest Area / Utah Welcome Center (SB only)", "brand": "State", "type": "rest_area", "city": "Perry (Brigham City)", "approx": true, "notes": "Serves southbound traffic entering from Idaho; truck parking", "parking": 15}
-      ]
+ "state": "Utah",
+ "abbr": "UT",
+ "note": "Exit numbers equal mileposts statewide. WARNING: I-70 has no services for 100+ miles between Salina (exit 56 area) and Green River (exit 160 area) - the longest stretch of interstate in the US with no services. Fuel up at Salina/Richfield or Green River.",
+ "interstates": {
+  "I-15": {
+   "maxMM": 401,
+   "stops": [
+    {
+     "mm": 4,
+     "exit": "4",
+     "name": "Love's Travel Stop",
+     "brand": "Love's",
+     "type": "truck_stop",
+     "city": "St. George",
+     "approx": true,
+     "notes": "South St. George area",
+     "parking": 70
     },
-    "I-70": {
-      "maxMM": 232,
-      "stops": [
-        {"mm": 40, "exit": "40", "name": "Flying J Travel Center", "brand": "Flying J", "type": "truck_stop", "city": "Richfield", "approx": true, "notes": "Last full-service truck stop westbound before the no-services gap", "parking": 90},
-        {"mm": 102, "exit": "102", "name": "Ghost Rocks View Area", "brand": "State", "type": "rest_area", "city": "San Rafael Swell", "approx": true, "notes": "Both directions; parking only, no fuel - inside the no-services gap", "parking": 15},
-        {"mm": 121, "exit": "121", "name": "Salt Wash View Area Rest Area (both directions)", "brand": "State", "type": "rest_area", "city": "San Rafael Swell", "approx": true, "notes": "Scenic-view rest area; parking and restrooms only, no fuel - inside the no-services gap", "parking": 15},
-        {"mm": 143, "exit": "143", "name": "Devils Canyon View Area Rest Area (both directions)", "brand": "State", "type": "rest_area", "city": "San Rafael Swell (east side)", "approx": true, "notes": "Scenic-view parking area; no fuel - inside the no-services gap", "parking": 10},
-        {"mm": 160, "exit": "160", "name": "Love's Travel Stop", "brand": "Love's", "type": "truck_stop", "city": "Green River", "approx": true, "notes": "First services eastbound after 100+ mile gap from Salina", "parking": 75},
-        {"mm": 227, "exit": "227", "name": "Harley Dome Rest Area / Utah Welcome Center (WB only)", "brand": "State", "type": "rest_area", "city": "Westwater (Thompson Springs)", "approx": true, "notes": "Serves westbound traffic entering from Colorado; truck parking", "parking": 12}
-      ]
+    {
+     "mm": 27,
+     "exit": "27",
+     "name": "Sapp Bros Toquerville",
+     "brand": "Sapp Bros",
+     "type": "truck_stop",
+     "city": "Toquerville",
+     "approx": false,
+     "notes": "Opened Oct 16, 2025; 20-acre site, showers, CAT scale, truck repair, RV island",
+     "parking": 60
     },
-    "I-80": {
-      "maxMM": 197,
-      "stops": [
-        {"mm": 2, "exit": "2", "name": "Pilot Travel Center", "brand": "Pilot", "type": "truck_stop", "city": "Wendover", "approx": true, "notes": "Nevada state line; last/first services at the Salt Flats", "parking": 80},
-        {"mm": 10, "exit": "10", "name": "Bonneville Salt Flats Rest Area", "brand": "State", "type": "rest_area", "city": "Bonneville Salt Flats", "approx": true, "notes": "Both directions; truck parking, no fuel", "parking": 25},
-        {"mm": 54, "exit": "54", "name": "Grassy Mountain Rest Area (both directions)", "brand": "State", "type": "rest_area", "city": "Knolls (Delle)", "approx": true, "notes": "Only stop on the desert stretch between Wendover and Lake Point; sizable truck parking, no fuel", "parking": 30},
-        {"mm": 99, "exit": "99", "name": "Flying J Travel Center", "brand": "Flying J", "type": "truck_stop", "city": "Lake Point", "approx": false, "notes": "UT-36 exit toward Tooele", "parking": 90},
-        {"mm": 99, "exit": "99", "name": "TA Salt Lake City", "brand": "TA", "type": "truck_stop", "city": "Lake Point", "approx": false, "notes": "UT-36 exit toward Tooele, across from Flying J", "parking": 150},
-        {"mm": 118, "exit": "118", "name": "Sapp Bros Travel Center", "brand": "Sapp Bros", "type": "truck_stop", "city": "Salt Lake City", "approx": true, "notes": "North Temple/airport area, west SLC", "parking": 90},
-        {"mm": 162, "exit": "162", "name": "Sinclair Truck Stop", "brand": "Sinclair", "type": "truck_stop", "city": "Coalville", "approx": true, "notes": "Coalville/Echo area", "parking": 30},
-        {"mm": 170, "exit": "170", "name": "Echo Canyon Rest Area", "brand": "State", "type": "rest_area", "city": "Echo Canyon", "approx": true, "notes": "Both directions; welcome center for westbound from Wyoming, truck parking", "parking": 20}
-      ]
+    {
+     "mm": 62,
+     "exit": "62",
+     "name": "Love's Travel Stop",
+     "brand": "Love's",
+     "type": "truck_stop",
+     "city": "Cedar City",
+     "approx": true,
+     "notes": "",
+     "parking": 75
     },
-    "I-84": {
-      "maxMM": 120,
-      "stops": [
-        {"mm": 7, "exit": "7", "name": "Flying J Travel Center", "brand": "Flying J", "type": "truck_stop", "city": "Snowville", "approx": false, "notes": "Last services southbound before Tremonton; near Idaho line", "parking": 80},
-        {"mm": 40, "exit": "40", "name": "Love's Travel Stop", "brand": "Love's", "type": "truck_stop", "city": "Tremonton", "approx": true, "notes": "UT-102 exit, near I-15/I-84 junction", "parking": 75}
-      ]
+    {
+     "mm": 112,
+     "exit": "112",
+     "name": "Flying J Travel Center",
+     "brand": "Flying J",
+     "type": "truck_stop",
+     "city": "Beaver",
+     "approx": false,
+     "notes": "North Beaver exit",
+     "parking": 90
+    },
+    {
+     "mm": 112,
+     "exit": "112",
+     "name": "Love's Travel Stop",
+     "brand": "Love's",
+     "type": "truck_stop",
+     "city": "Beaver",
+     "approx": true,
+     "notes": "Beaver services cluster (exits 109/112)",
+     "parking": 70
+    },
+    {
+     "mm": 163,
+     "exit": "163",
+     "name": "TA Express Fillmore",
+     "brand": "TA Express",
+     "type": "truck_stop",
+     "city": "Fillmore",
+     "approx": false,
+     "notes": "Opened Nov 2025; 885 S Park Ave, Miss J's Cafe, 6 diesel lanes",
+     "parking": 25
+    },
+    {
+     "mm": 167,
+     "exit": "167",
+     "name": "Flying J Travel Center",
+     "brand": "Flying J",
+     "type": "truck_stop",
+     "city": "Fillmore",
+     "approx": true,
+     "notes": "North Fillmore exit",
+     "parking": 80
+    },
+    {
+     "mm": 188,
+     "exit": "188",
+     "name": "Flying J Travel Center",
+     "brand": "Flying J",
+     "type": "truck_stop",
+     "city": "Scipio",
+     "approx": false,
+     "notes": "Near I-15/US-50 split toward I-70; petting zoo landmark",
+     "parking": 80
+    },
+    {
+     "mm": 222,
+     "exit": "222",
+     "name": "Flying J Travel Center",
+     "brand": "Flying J",
+     "type": "truck_stop",
+     "city": "Nephi",
+     "approx": false,
+     "notes": "South Nephi (UT-28)",
+     "parking": 90
+    },
+    {
+     "mm": 225,
+     "exit": "225",
+     "name": "Love's Travel Stop",
+     "brand": "Love's",
+     "type": "truck_stop",
+     "city": "Nephi",
+     "approx": true,
+     "notes": "UT-132 exit",
+     "parking": 75
+    },
+    {
+     "mm": 261,
+     "exit": "261",
+     "name": "Flying J Travel Center",
+     "brand": "Flying J",
+     "type": "truck_stop",
+     "city": "Springville",
+     "approx": false,
+     "notes": "South Provo metro",
+     "parking": 90
+    },
+    {
+     "mm": 305,
+     "exit": "305",
+     "name": "Flying J Travel Center",
+     "brand": "Flying J",
+     "type": "truck_stop",
+     "city": "Salt Lake City",
+     "approx": true,
+     "notes": "900 W area, south of downtown",
+     "parking": 90
+    },
+    {
+     "mm": 305,
+     "exit": "305",
+     "name": "Pilot Travel Center",
+     "brand": "Pilot",
+     "type": "truck_stop",
+     "city": "Salt Lake City",
+     "approx": true,
+     "notes": "Downtown-south SLC area",
+     "parking": 70
+    },
+    {
+     "mm": 339,
+     "exit": "339",
+     "name": "Pilot Travel Center",
+     "brand": "Pilot",
+     "type": "truck_stop",
+     "city": "Ogden (Riverdale)",
+     "approx": true,
+     "notes": "Riverdale Rd area",
+     "parking": 75
+    },
+    {
+     "mm": 342,
+     "exit": "342",
+     "name": "Flying J Travel Center",
+     "brand": "Flying J",
+     "type": "truck_stop",
+     "city": "Ogden",
+     "approx": true,
+     "notes": "21st St area, west Ogden",
+     "parking": 90
+    },
+    {
+     "mm": 360,
+     "exit": "360",
+     "name": "Perry Rest Area / Utah Welcome Center (SB only)",
+     "brand": "State",
+     "type": "rest_area",
+     "city": "Perry (Brigham City)",
+     "approx": true,
+     "notes": "Serves southbound traffic entering from Idaho; truck parking",
+     "parking": 15
     }
+   ]
+  },
+  "I-70": {
+   "maxMM": 232,
+   "stops": [
+    {
+     "mm": 40,
+     "exit": "40",
+     "name": "Flying J Travel Center",
+     "brand": "Flying J",
+     "type": "truck_stop",
+     "city": "Richfield",
+     "approx": true,
+     "notes": "Last full-service truck stop westbound before the no-services gap",
+     "parking": 90
+    },
+    {
+     "mm": 102,
+     "exit": "102",
+     "name": "Ghost Rocks View Area",
+     "brand": "State",
+     "type": "rest_area",
+     "city": "San Rafael Swell",
+     "approx": true,
+     "notes": "Both directions; parking only, no fuel - inside the no-services gap",
+     "parking": 15
+    },
+    {
+     "mm": 121,
+     "exit": "121",
+     "name": "Salt Wash View Area Rest Area (both directions)",
+     "brand": "State",
+     "type": "rest_area",
+     "city": "San Rafael Swell",
+     "approx": true,
+     "notes": "Scenic-view rest area; parking and restrooms only, no fuel - inside the no-services gap",
+     "parking": 15
+    },
+    {
+     "mm": 143,
+     "exit": "143",
+     "name": "Devils Canyon View Area Rest Area (both directions)",
+     "brand": "State",
+     "type": "rest_area",
+     "city": "San Rafael Swell (east side)",
+     "approx": true,
+     "notes": "Scenic-view parking area; no fuel - inside the no-services gap",
+     "parking": 10
+    },
+    {
+     "mm": 160,
+     "exit": "160",
+     "name": "Love's Travel Stop",
+     "brand": "Love's",
+     "type": "truck_stop",
+     "city": "Green River",
+     "approx": true,
+     "notes": "First services eastbound after 100+ mile gap from Salina",
+     "parking": 75
+    },
+    {
+     "mm": 227,
+     "exit": "227",
+     "name": "Harley Dome Rest Area / Utah Welcome Center (WB only)",
+     "brand": "State",
+     "type": "rest_area",
+     "city": "Westwater (Thompson Springs)",
+     "approx": true,
+     "notes": "Serves westbound traffic entering from Colorado; truck parking",
+     "parking": 12
+    }
+   ]
+  },
+  "I-80": {
+   "maxMM": 197,
+   "stops": [
+    {
+     "mm": 2,
+     "exit": "2",
+     "name": "Pilot Travel Center",
+     "brand": "Pilot",
+     "type": "truck_stop",
+     "city": "Wendover",
+     "approx": true,
+     "notes": "Nevada state line; last/first services at the Salt Flats",
+     "parking": 80
+    },
+    {
+     "mm": 10,
+     "exit": "10",
+     "name": "Bonneville Salt Flats Rest Area",
+     "brand": "State",
+     "type": "rest_area",
+     "city": "Bonneville Salt Flats",
+     "approx": true,
+     "notes": "Both directions; truck parking, no fuel",
+     "parking": 25
+    },
+    {
+     "mm": 54,
+     "exit": "54",
+     "name": "Grassy Mountain Rest Area (both directions)",
+     "brand": "State",
+     "type": "rest_area",
+     "city": "Knolls (Delle)",
+     "approx": true,
+     "notes": "Only stop on the desert stretch between Wendover and Lake Point; sizable truck parking, no fuel",
+     "parking": 30
+    },
+    {
+     "mm": 99,
+     "exit": "99",
+     "name": "Flying J Travel Center",
+     "brand": "Flying J",
+     "type": "truck_stop",
+     "city": "Lake Point",
+     "approx": false,
+     "notes": "UT-36 exit toward Tooele",
+     "parking": 90
+    },
+    {
+     "mm": 99,
+     "exit": "99",
+     "name": "TA Salt Lake City",
+     "brand": "TA",
+     "type": "truck_stop",
+     "city": "Lake Point",
+     "approx": false,
+     "notes": "UT-36 exit toward Tooele, across from Flying J",
+     "parking": 150
+    },
+    {
+     "mm": 118,
+     "exit": "118",
+     "name": "Sapp Bros Travel Center",
+     "brand": "Sapp Bros",
+     "type": "truck_stop",
+     "city": "Salt Lake City",
+     "approx": true,
+     "notes": "North Temple/airport area, west SLC",
+     "parking": 90
+    },
+    {
+     "mm": 162,
+     "exit": "162",
+     "name": "Sinclair Truck Stop",
+     "brand": "Sinclair",
+     "type": "truck_stop",
+     "city": "Coalville",
+     "approx": true,
+     "notes": "Coalville/Echo area",
+     "parking": 30
+    },
+    {
+     "mm": 170,
+     "exit": "170",
+     "name": "Echo Canyon Rest Area",
+     "brand": "State",
+     "type": "rest_area",
+     "city": "Echo Canyon",
+     "approx": true,
+     "notes": "Both directions; welcome center for westbound from Wyoming, truck parking",
+     "parking": 20
+    }
+   ]
+  },
+  "I-84": {
+   "maxMM": 120,
+   "stops": [
+    {
+     "mm": 7,
+     "exit": "7",
+     "name": "Flying J Travel Center",
+     "brand": "Flying J",
+     "type": "truck_stop",
+     "city": "Snowville",
+     "approx": false,
+     "notes": "Last services southbound before Tremonton; near Idaho line",
+     "parking": 80
+    },
+    {
+     "mm": 40,
+     "exit": "40",
+     "name": "Love's Travel Stop",
+     "brand": "Love's",
+     "type": "truck_stop",
+     "city": "Tremonton",
+     "approx": true,
+     "notes": "UT-102 exit, near I-15/I-84 junction",
+     "parking": 75
+    }
+   ]
   }
+ }
 }
