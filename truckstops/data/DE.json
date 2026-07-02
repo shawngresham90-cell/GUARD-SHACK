@@ -6,7 +6,7 @@
     "I-95": {
       "maxMM": 23,
       "stops": [
-        {"mm": 5, "exit": "", "name": "Delaware Welcome Center (Biden Welcome Center)", "brand": "State", "type": "service_plaza", "city": "Newark", "approx": true, "notes": "Both directions between exits 1 and 3 on the Delaware Turnpike; fuel, food, limited truck parking"}
+        {"mm": 5, "exit": "", "name": "Delaware Welcome Center (Biden Welcome Center)", "brand": "State", "type": "service_plaza", "city": "Newark", "approx": true, "notes": "Both directions between exits 1 and 3 on the Delaware Turnpike; fuel, food, limited truck parking", "parking": 30}
       ]
     },
     "I-295": {
