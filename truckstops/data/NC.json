@@ -151,6 +151,16 @@
      "parking": 60
     },
     {
+     "mm": 102,
+     "exit": "102",
+     "name": "Weigh Station (both directions)",
+     "brand": "State",
+     "type": "weigh_station",
+     "city": "Mount Airy",
+     "approx": true,
+     "notes": "SHP Mount Airy scales about 3 mi south of VA line, two fixed scales; PrePass"
+    },
+    {
      "mm": 103,
      "exit": "103",
      "name": "North Carolina Welcome Center (southbound)",
@@ -189,6 +199,16 @@
      "parking": 85
     },
     {
+     "mm": 28,
+     "exit": "28",
+     "name": "Weigh Station (both directions)",
+     "brand": "State",
+     "type": "weigh_station",
+     "city": "Charlotte (Mount Holly)",
+     "approx": true,
+     "notes": "SHP Charlotte scales, four fixed scales, NB at MM 28 east of NC-273; PrePass"
+    },
+    {
      "mm": 71,
      "exit": "71",
      "name": "Speedway Travel Plaza (former WilcoHess)",
@@ -220,6 +240,16 @@
      "approx": true,
      "notes": "On I-85/I-40 overlap; legacy WilcoHess site",
      "parking": 60
+    },
+    {
+     "mm": 160,
+     "exit": "160",
+     "name": "Weigh Station (both directions)",
+     "brand": "State",
+     "type": "weigh_station",
+     "city": "Efland (Hillsborough)",
+     "approx": true,
+     "notes": "SHP Hillsborough scales on I-40/I-85 overlap, four fixed scales plus ramp/highway weigh-in-motion; PrePass"
     },
     {
      "mm": 191,
@@ -258,6 +288,16 @@
      "approx": true,
      "notes": "Serves northbound entering from SC; truck parking",
      "parking": 20
+    },
+    {
+     "mm": 24,
+     "exit": "24",
+     "name": "Weigh Station (both directions)",
+     "brand": "State",
+     "type": "weigh_station",
+     "city": "Lumberton",
+     "approx": false,
+     "notes": "SHP Lumberton scales, MM 24, two fixed scales; PrePass"
     },
     {
      "mm": 33,
@@ -323,6 +363,16 @@
      "approx": false,
      "notes": "NC-4, Gold Rock",
      "parking": 190
+    },
+    {
+     "mm": 151,
+     "exit": "151",
+     "name": "Weigh Station (both directions)",
+     "brand": "State",
+     "type": "weigh_station",
+     "city": "Enfield (Halifax County)",
+     "approx": false,
+     "notes": "SHP Halifax scales, NB and SB at MM 151, two fixed scales each; PrePass"
     },
     {
      "mm": 154,
