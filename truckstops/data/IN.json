@@ -119,6 +119,16 @@
      "parking": 80
     },
     {
+     "mm": 52,
+     "exit": "52",
+     "name": "Weigh Station (both directions)",
+     "brand": "State",
+     "type": "weigh_station",
+     "city": "Seymour",
+     "approx": true,
+     "notes": "ISP scales NB and SB, about 1-2 mi north of US-50 (exit 50)"
+    },
+    {
      "mm": 71,
      "exit": "71",
      "name": "Taylorsville Rest Area (both directions)",
@@ -234,6 +244,16 @@
      "city": "Lowell",
      "approx": true,
      "parking": 20
+    },
+    {
+     "mm": 243,
+     "exit": "243",
+     "name": "Weigh Station (SB)",
+     "brand": "State",
+     "type": "weigh_station",
+     "city": "Lowell",
+     "approx": true,
+     "notes": "ISP scale with inspection bay; old NB scale is closed"
     }
    ]
   },
@@ -271,6 +291,16 @@
      "approx": true,
      "notes": "SR-22",
      "parking": 85
+    },
+    {
+     "mm": 288,
+     "exit": "288",
+     "name": "Weigh Station (SB)",
+     "brand": "State",
+     "type": "weigh_station",
+     "city": "Warren",
+     "approx": true,
+     "notes": "ISP scale, Huntington County (post-2016 renumbered mileage)"
     },
     {
      "mm": 309,
@@ -330,6 +360,16 @@
      "approx": false,
      "parking": 128,
      "notes": "Opened Nov 2025; new Indy 500-themed INDOT welcome center, EB mm 2 near IL line; 128 truck spaces (up from 78)"
+    },
+    {
+     "mm": 1,
+     "exit": "1",
+     "name": "Weigh Station (EB)",
+     "brand": "State",
+     "type": "weigh_station",
+     "city": "West Terre Haute",
+     "approx": true,
+     "notes": "ISP scale just east of Illinois line, Sugar Creek Township"
     },
     {
      "mm": 7,
@@ -442,6 +482,16 @@
      "parking": 90
     },
     {
+     "mm": 148,
+     "exit": "148",
+     "name": "Weigh Station (WB)",
+     "brand": "State",
+     "type": "weigh_station",
+     "city": "Richmond",
+     "approx": true,
+     "notes": "ISP scale just west of US-35/Williamsburg Pike (exit 149); WB right lane becomes scale ramp"
+    },
+    {
      "mm": 151,
      "exit": "151",
      "name": "Indiana Welcome Center Rest Area (WB only)",
@@ -497,6 +547,16 @@
      "city": "West Harrison",
      "approx": true,
      "parking": 20
+    },
+    {
+     "mm": 170,
+     "exit": "170",
+     "name": "Weigh Station (WB)",
+     "brand": "State",
+     "type": "weigh_station",
+     "city": "West Harrison",
+     "approx": true,
+     "notes": "ISP scale near Ohio state line"
     }
    ]
   },
@@ -628,6 +688,16 @@
      "approx": true,
      "notes": "US-20",
      "parking": 175
+    },
+    {
+     "mm": 29,
+     "exit": "29",
+     "name": "Weigh Station (both directions)",
+     "brand": "State",
+     "type": "weigh_station",
+     "city": "Chesterton",
+     "approx": true,
+     "notes": "ISP scales EB and WB"
     }
    ]
   }

@@ -26,6 +26,16 @@
      "approx": true,
      "notes": "US-441",
      "parking": 80
+    },
+    {
+     "mm": 144,
+     "exit": "144",
+     "name": "Weigh Station (both directions)",
+     "brand": "State",
+     "type": "weigh_station",
+     "city": "Blichton",
+     "approx": true,
+     "notes": "Georgia DPS scales west of I-95, Savannah area; EB side at MM 144, WB counterpart nearby"
     }
    ]
   },
@@ -55,6 +65,26 @@
      "parking": 80
     },
     {
+     "mm": 13,
+     "exit": "13",
+     "name": "Weigh Station (WB)",
+     "brand": "State",
+     "type": "weigh_station",
+     "city": "Bremen (Waco)",
+     "approx": true,
+     "notes": "Georgia DPS scales between exits 9 and 19; sometimes called Tallapoosa/Bremen scales; serves westbound toward AL"
+    },
+    {
+     "mm": 42,
+     "exit": "42",
+     "name": "Weigh Station (EB)",
+     "brand": "State",
+     "type": "weigh_station",
+     "city": "Lithia Springs",
+     "approx": true,
+     "notes": "Georgia DPS scales just east of exit 41, west side of Atlanta"
+    },
+    {
      "mm": 108,
      "exit": "108",
      "name": "Rest Area (both directions)",
@@ -75,6 +105,16 @@
      "approx": true,
      "notes": "US-441",
      "parking": 80
+    },
+    {
+     "mm": 190,
+     "exit": "190",
+     "name": "Weigh Station (WB)",
+     "brand": "State",
+     "type": "weigh_station",
+     "city": "Grovetown (Columbia County)",
+     "approx": true,
+     "notes": "Georgia DPS scales near exit 190, Augusta west side; serves westbound entering from SC"
     },
     {
      "mm": 194,
@@ -143,6 +183,16 @@
      "approx": true,
      "notes": "US-84",
      "parking": 80
+    },
+    {
+     "mm": 23,
+     "exit": "23",
+     "name": "Weigh Station (both directions)",
+     "brand": "State",
+     "type": "weigh_station",
+     "city": "Valdosta (Lowndes County)",
+     "approx": false,
+     "notes": "Georgia DPS Lowndes County scales north of Valdosta; NB and SB sides"
     },
     {
      "mm": 60,
@@ -222,6 +272,16 @@
      "parking": 30
     },
     {
+     "mm": 190,
+     "exit": "190",
+     "name": "Weigh Station (both directions)",
+     "brand": "State",
+     "type": "weigh_station",
+     "city": "Forsyth",
+     "approx": true,
+     "notes": "Georgia DPS Monroe County scales northwest of Forsyth; NB side at MM 190, SB counterpart nearby"
+    },
+    {
      "mm": 201,
      "exit": "201",
      "name": "Flying J Travel Center",
@@ -288,6 +348,16 @@
      "parking": 80
     },
     {
+     "mm": 345,
+     "exit": "345",
+     "name": "Weigh Station (both directions)",
+     "brand": "State",
+     "type": "weigh_station",
+     "city": "Ringgold",
+     "approx": true,
+     "notes": "Georgia DPS Catoosa County scales; NB and SB sides south of the TN line"
+    },
+    {
      "mm": 353,
      "exit": "353",
      "name": "Georgia Welcome Center (southbound)",
@@ -326,6 +396,16 @@
      "parking": 80
     },
     {
+     "mm": 26,
+     "exit": "26",
+     "name": "Weigh Station (both directions)",
+     "brand": "State",
+     "type": "weigh_station",
+     "city": "Hogansville (Troup County)",
+     "approx": true,
+     "notes": "Georgia DPS scales near Mountville/Hogansville between exits 18 and 28; often called the West Point/LaGrange scales; NB and SB sides"
+    },
+    {
      "mm": 149,
      "exit": "149",
      "name": "Pilot Travel Center",
@@ -346,6 +426,16 @@
      "approx": false,
      "notes": "GA-51",
      "parking": 200
+    },
+    {
+     "mm": 169,
+     "exit": "169",
+     "name": "Weigh Station (both directions)",
+     "brand": "State",
+     "type": "weigh_station",
+     "city": "Carnesville (Franklin County)",
+     "approx": true,
+     "notes": "Georgia DPS Franklin County scales between exits 160 and 173; NB and SB sides"
     },
     {
      "mm": 173,
@@ -452,6 +542,16 @@
      "parking": 80
     },
     {
+     "mm": 48,
+     "exit": "48",
+     "name": "Weigh Station (both directions)",
+     "brand": "State",
+     "type": "weigh_station",
+     "city": "Darien (McIntosh County)",
+     "approx": true,
+     "notes": "Georgia DPS scales near exit 49; NB and SB sides"
+    },
+    {
      "mm": 87,
      "exit": "87",
      "name": "TA Savannah",
@@ -472,6 +572,16 @@
      "approx": true,
      "notes": "GA-21, Savannah area",
      "parking": 90
+    },
+    {
+     "mm": 110,
+     "exit": "110",
+     "name": "Weigh Station (SB)",
+     "brand": "State",
+     "type": "weigh_station",
+     "city": "Port Wentworth",
+     "approx": true,
+     "notes": "Georgia DPS scales at MM 110.5, just south of the SC line; serves southbound; no PrePass"
     },
     {
      "mm": 111,

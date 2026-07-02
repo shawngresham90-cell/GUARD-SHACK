@@ -60,6 +60,16 @@
      "parking": 30
     },
     {
+     "mm": 140,
+     "exit": "140",
+     "name": "Weigh Station (SB)",
+     "brand": "State",
+     "type": "weigh_station",
+     "city": "Salix",
+     "approx": true,
+     "notes": "Iowa DOT Salix (Lakeport) scale; SB side active, former opposite-side scale converted to truck parking; PrePass"
+    },
+    {
      "mm": 141,
      "exit": "141",
      "name": "Pilot Travel Center",
@@ -128,6 +138,16 @@
      "approx": true,
      "notes": "I-35 x US-18",
      "parking": 80
+    },
+    {
+     "mm": 213,
+     "exit": "213",
+     "name": "Weigh Station (SB)",
+     "brand": "State",
+     "type": "weigh_station",
+     "city": "Northwood",
+     "approx": true,
+     "notes": "Iowa DOT Worth County scale for SB traffic entering from Minnesota; PrePass"
     },
     {
      "mm": 214,
@@ -235,6 +255,16 @@
      "parking": 25
     },
     {
+     "mm": 115,
+     "exit": "115",
+     "name": "Weigh Station (EB)",
+     "brand": "State",
+     "type": "weigh_station",
+     "city": "Van Meter",
+     "approx": false,
+     "notes": "Iowa DOT Dallas County scale east of Van Meter, near De Soto; PrePass"
+    },
+    {
      "mm": 142,
      "exit": "142",
      "name": "Flying J Travel Center",
@@ -276,6 +306,16 @@
      "approx": true,
      "notes": "EB and WB, truck parking",
      "parking": 35
+    },
+    {
+     "mm": 151,
+     "exit": "151",
+     "name": "Weigh Station (WB)",
+     "brand": "State",
+     "type": "weigh_station",
+     "city": "Mitchellville",
+     "approx": false,
+     "notes": "Iowa DOT Jasper County scale; PrePass"
     },
     {
      "mm": 180,
@@ -331,6 +371,16 @@
      "approx": true,
      "notes": "EB mm 268, WB mm 270, truck parking",
      "parking": 30
+    },
+    {
+     "mm": 268,
+     "exit": "268",
+     "name": "Weigh Station (WB)",
+     "brand": "State",
+     "type": "weigh_station",
+     "city": "Wilton",
+     "approx": true,
+     "notes": "Iowa DOT Cedar County scale between exits 265 and 270; reported closed with scale house removed - verify status"
     },
     {
      "mm": 284,

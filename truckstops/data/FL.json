@@ -66,6 +66,16 @@
      "parking": 40
     },
     {
+     "mm": 3,
+     "exit": "3",
+     "name": "Weigh Station & Agricultural Inspection Station (both directions)",
+     "brand": "State",
+     "type": "weigh_station",
+     "city": "Pensacola",
+     "approx": true,
+     "notes": "Combined FDOT weigh station and FDACS Agricultural Inspection Station No. 6 near the AL line; PrePass"
+    },
+    {
      "mm": 5,
      "exit": "5",
      "name": "Pilot Travel Center",
@@ -152,6 +162,16 @@
      "approx": false,
      "notes": "SR-71",
      "parking": 150
+    },
+    {
+     "mm": 155,
+     "exit": "155",
+     "name": "Weigh Station (WB)",
+     "brand": "State",
+     "type": "weigh_station",
+     "city": "Sneads (Marianna area)",
+     "approx": false,
+     "notes": "Westbound only; FDOT scales at MM 155 between exits 142 and 166; PrePass"
     },
     {
      "mm": 161,
@@ -357,6 +377,16 @@
      "parking": 80
     },
     {
+     "mm": 159,
+     "exit": "159",
+     "name": "Weigh Station (both directions)",
+     "brand": "State",
+     "type": "weigh_station",
+     "city": "Punta Gorda",
+     "approx": true,
+     "notes": "FDOT scales; NB and SB facilities near MM 159-160 (Charlotte County); PrePass"
+    },
+    {
      "mm": 161,
      "exit": "161",
      "name": "Pilot Travel Center",
@@ -500,6 +530,16 @@
      "parking": 160
     },
     {
+     "mm": 460,
+     "exit": "460",
+     "name": "Weigh Station & Agricultural Inspection Station (both directions)",
+     "brand": "State",
+     "type": "weigh_station",
+     "city": "White Springs",
+     "approx": false,
+     "notes": "Combined FDOT weigh station and FDACS Agricultural Inspection Station No. 9 (9A/9B) at MM 460, south of the GA line; PrePass"
+    },
+    {
      "mm": 469,
      "exit": "469",
      "name": "Florida Welcome Center (southbound)",
@@ -637,6 +677,16 @@
      "parking": 40
     },
     {
+     "mm": 286,
+     "exit": "286",
+     "name": "Weigh Station (both directions)",
+     "brand": "State",
+     "type": "weigh_station",
+     "city": "Flagler Beach (Palm Coast)",
+     "approx": false,
+     "notes": "FDOT Flagler scales at MM 286; NB and SB sides; PrePass"
+    },
+    {
      "mm": 302,
      "exit": "302",
      "name": "St. Johns County Rest Area (both directions)",
@@ -668,6 +718,16 @@
      "approx": true,
      "notes": "Serves southbound entering from GA; truck parking",
      "parking": 50
+    },
+    {
+     "mm": 381,
+     "exit": "381",
+     "name": "Weigh Station & Agricultural Inspection Station (both directions)",
+     "brand": "State",
+     "type": "weigh_station",
+     "city": "Yulee",
+     "approx": false,
+     "notes": "Combined FDOT weigh station and FDACS Agricultural Inspection Station No. 16 (16A/16B) at MM 381, south of the GA line; PrePass"
     }
    ]
   }

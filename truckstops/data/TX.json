@@ -241,6 +241,26 @@
      "parking": 40
     },
     {
+     "mm": 615,
+     "exit": "615",
+     "name": "Weigh Station (WB)",
+     "brand": "State",
+     "type": "weigh_station",
+     "city": "Seguin",
+     "approx": true,
+     "notes": "TxDPS fixed scale about 3 miles east of Seguin; westbound side of paired facility"
+    },
+    {
+     "mm": 616,
+     "exit": "616",
+     "name": "Weigh Station (EB)",
+     "brand": "State",
+     "type": "weigh_station",
+     "city": "Seguin",
+     "approx": true,
+     "notes": "TxDPS fixed scale east of Seguin; eastbound side of paired facility"
+    },
+    {
      "mm": 628,
      "exit": "628",
      "name": "Buc-ee's",
@@ -250,6 +270,16 @@
      "approx": false,
      "notes": "TX 80 exit; no semi-truck parking permitted",
      "parking": 0
+    },
+    {
+     "mm": 729,
+     "exit": "729",
+     "name": "Weigh Station (both directions)",
+     "brand": "State",
+     "type": "weigh_station",
+     "city": "Sealy",
+     "approx": true,
+     "notes": "Houston West (Sealy) paired EB/WB TxDPS scales just east of the Brazos River, between exits 723 and 732"
     },
     {
      "mm": 740,
@@ -285,6 +315,16 @@
      "parking": 80
     },
     {
+     "mm": 797,
+     "exit": "797",
+     "name": "Weigh Station (EB)",
+     "brand": "State",
+     "type": "weigh_station",
+     "city": "Baytown",
+     "approx": true,
+     "notes": "Houston East eastbound TxDPS scale at FM 1405 (exit 797)"
+    },
+    {
      "mm": 800,
      "exit": "800",
      "name": "Buc-ee's",
@@ -294,6 +334,16 @@
      "approx": true,
      "notes": "No semi-truck parking permitted",
      "parking": 0
+    },
+    {
+     "mm": 815,
+     "exit": "815",
+     "name": "Weigh Station (WB)",
+     "brand": "State",
+     "type": "weigh_station",
+     "city": "Winnie",
+     "approx": true,
+     "notes": "Houston East westbound TxDPS scale, about 14 miles west of Winnie"
     },
     {
      "mm": 848,
@@ -380,6 +430,16 @@
      "approx": true,
      "notes": "TX 18 exit",
      "parking": 80
+    },
+    {
+     "mm": 103,
+     "exit": "103",
+     "name": "Weigh Station (both directions)",
+     "brand": "State",
+     "type": "weigh_station",
+     "city": "Penwell",
+     "approx": true,
+     "notes": "Penwell paired EB/WB TxDPS scales west of Odessa; Drivewyze PreClear bypass site"
     },
     {
      "mm": 108,

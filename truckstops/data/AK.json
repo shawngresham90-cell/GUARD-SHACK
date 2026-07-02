@@ -6,6 +6,7 @@
     "A-1": {
       "maxMM": 328,
       "stops": [
+        {"mm": 13, "exit": "", "name": "Weigh Station (SB)", "brand": "State", "type": "weigh_station", "city": "Eagle River", "approx": true, "notes": "Alaska DOT&PF CVE scale on the Glenn Hwy at Eagle River (~MP 13); serves Anchorage-bound traffic"},
         {"mm": 187, "exit": "", "name": "The Hub of Alaska", "brand": "Independent", "type": "truck_stop", "city": "Glennallen", "approx": true, "notes": "Glenn Hwy milepost 189 at Richardson Hwy junction; fuel, parking, store", "parking": 20},
         {"mm": 328, "exit": "", "name": "Tok junction fuel stops (Young's Chevron / Three Bears Outpost)", "brand": "Independent", "type": "truck_stop", "city": "Tok", "approx": true, "notes": "Alaska Hwy milepost ~1314; main fuel/parking hub between the border and Fairbanks", "parking": 25}
       ]
@@ -19,11 +20,15 @@
     },
     "A-3": {
       "maxMM": 148,
-      "stops": []
+      "stops": [
+        {"mm": 13, "exit": "", "name": "Potter Weigh Station (both directions)", "brand": "State", "type": "weigh_station", "city": "Anchorage", "approx": true, "notes": "Alaska DOT&PF CVE scale at Seward Hwy milepost 114.5 (Potter, south edge of Anchorage); mm is route-relative from Anchorage"}
+      ]
     },
     "A-4": {
       "maxMM": 324,
-      "stops": []
+      "stops": [
+        {"mm": 316, "exit": "", "name": "Ester Weigh Station (both directions)", "brand": "State", "type": "weigh_station", "city": "Ester", "approx": true, "notes": "Alaska DOT&PF scale on the Parks Hwy near Ester (~MP 351), west of Fairbanks; operation reported intermittent"}
+      ]
     }
   }
 }

@@ -143,6 +143,16 @@
      "parking": 80
     },
     {
+     "mm": 203,
+     "exit": "203",
+     "name": "Weigh Station (WB)",
+     "brand": "State",
+     "type": "weigh_station",
+     "city": "Heflin",
+     "approx": true,
+     "notes": "Westbound only; ALEA scale near New Hopewell, Alabama's only permanent interstate scale house; Drivewyze PreClear site"
+    },
+    {
      "mm": 213,
      "exit": "213",
      "name": "Alabama Welcome Center (westbound)",
