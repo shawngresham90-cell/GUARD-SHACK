@@ -16,6 +16,16 @@
      "parking": 15
     },
     {
+     "mm": 46,
+     "exit": "46",
+     "name": "Weigh Station (both directions)",
+     "brand": "State",
+     "type": "weigh_station",
+     "city": "Hendersonville",
+     "approx": true,
+     "notes": "SHP Hendersonville scales north of US-64, two fixed scales; PrePass"
+    },
+    {
      "mm": 68,
      "exit": "68",
      "name": "North Carolina Welcome Center (westbound)",

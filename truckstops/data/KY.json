@@ -58,6 +58,7 @@
         {"mm": 1, "exit": "1", "name": "Kentucky Welcome Center (northbound)", "brand": "State", "type": "rest_area", "city": "Williamsburg", "approx": true, "notes": "Serves northbound entering from TN; truck parking", "parking": 20},
         {"mm": 11, "exit": "11", "name": "Pilot Travel Center", "brand": "Pilot", "type": "truck_stop", "city": "Williamsburg", "approx": true, "notes": "KY-92", "parking": 85},
         {"mm": 29, "exit": "29", "name": "Love's Travel Stop", "brand": "Love's", "type": "truck_stop", "city": "Corbin", "approx": true, "notes": "US-25E", "parking": 85},
+        {"mm": 34, "exit": "34", "name": "Weigh Station (both directions)", "brand": "State", "type": "weigh_station", "city": "London", "approx": false, "notes": "Laurel County scales, MM 34; PrePass"},
         {"mm": 38, "exit": "38", "name": "Pilot Travel Center", "brand": "Pilot", "type": "truck_stop", "city": "London", "approx": true, "notes": "KY-192", "parking": 85},
         {"mm": 41, "exit": "41", "name": "Flying J Travel Center", "brand": "Flying J", "type": "truck_stop", "city": "London", "approx": true, "notes": "KY-80", "parking": 90},
         {"mm": 76, "exit": "76", "name": "Pilot Travel Center", "brand": "Pilot", "type": "truck_stop", "city": "Berea", "approx": true, "notes": "KY-21", "parking": 85},
@@ -65,6 +66,7 @@
         {"mm": 126, "exit": "126", "name": "Pilot Travel Center", "brand": "Pilot", "type": "truck_stop", "city": "Georgetown", "approx": true, "notes": "US-62 / Triport Rd", "parking": 85},
         {"mm": 127, "exit": "127", "name": "Scott County Rest Area (both directions)", "brand": "State", "type": "rest_area", "city": "Sadieville", "approx": true, "parking": 35},
         {"mm": 136, "exit": "136", "name": "Love's Travel Stop", "brand": "Love's", "type": "truck_stop", "city": "Sadieville", "approx": true, "notes": "", "parking": 85},
+        {"mm": 168, "exit": "168", "name": "Weigh Station (SB)", "brand": "State", "type": "weigh_station", "city": "Crittenden (Kenton County)", "approx": false, "notes": "Kenton County scales on I-71/I-75 overlap, MM 168 southbound; weigh-in-motion added 2023; PrePass"},
         {"mm": 171, "exit": "171", "name": "Pilot Travel Center", "brand": "Pilot", "type": "truck_stop", "city": "Walton", "approx": true, "notes": "KY-14", "parking": 85},
         {"mm": 177, "exit": "177", "name": "Rest Area (southbound)", "brand": "State", "type": "rest_area", "city": "Richwood/Walton", "approx": true, "notes": "Serves southbound leaving Cincinnati area; truck parking", "parking": 25}
       ]
