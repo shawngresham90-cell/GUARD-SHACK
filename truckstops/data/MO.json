@@ -28,6 +28,16 @@
      "parking": 55
     },
     {
+     "mm": 24,
+     "exit": "24",
+     "name": "Weigh Station (NB)",
+     "brand": "State",
+     "type": "weigh_station",
+     "city": "Platte City",
+     "approx": false,
+     "notes": "MoDOT/MSHP scale at milepost 24; northbound only"
+    },
+    {
      "mm": 109,
      "exit": "109",
      "name": "Rock Port Welcome Center Rest Area (SB only)",
@@ -79,6 +89,16 @@
      "approx": true,
      "notes": "Eastbound; welcome center near Oklahoma line; truck parking",
      "parking": 25
+    },
+    {
+     "mm": 3,
+     "exit": "3",
+     "name": "Weigh Station (both directions)",
+     "brand": "State",
+     "type": "weigh_station",
+     "city": "Joplin",
+     "approx": false,
+     "notes": "MoDOT/MSHP Joplin scales; EB and WB facilities at milepost 3, near Oklahoma line"
     },
     {
      "mm": 4,

@@ -11,12 +11,14 @@
         {"mm": 127, "exit": "127", "name": "Flying J Travel Center", "brand": "Flying J", "type": "truck_stop", "city": "Emporia", "approx": true, "notes": "US-50 at turnpike exit 127, where I-35 leaves the turnpike", "parking": 90},
         {"mm": 155, "exit": "155", "name": "TA Beto Junction", "brand": "TA", "type": "truck_stop", "city": "Lebo", "approx": false, "notes": "US-75 junction; longtime Beto Junction stop", "parking": 200},
         {"mm": 183, "exit": "183", "name": "Love's Travel Stop", "brand": "Love's", "type": "truck_stop", "city": "Ottawa", "approx": true, "notes": "US-59 exit", "parking": 80},
-        {"mm": 210, "exit": "210", "name": "QuikTrip Travel Center", "brand": "QuikTrip", "type": "truck_stop", "city": "Gardner", "approx": true, "notes": "QT full-size travel center, KC metro southwest", "parking": 60}
+        {"mm": 210, "exit": "210", "name": "QuikTrip Travel Center", "brand": "QuikTrip", "type": "truck_stop", "city": "Gardner", "approx": true, "notes": "QT full-size travel center, KC metro southwest", "parking": 60},
+        {"mm": 213, "exit": "213", "name": "Weigh Station (both directions)", "brand": "State", "type": "weigh_station", "city": "Olathe", "approx": false, "notes": "KHP Olathe scales; separate NB and SB facilities at milepost 213, about 1 mile south of Olathe"}
       ]
     },
     "I-70": {
       "maxMM": 424,
       "stops": [
+        {"mm": 1, "exit": "1", "name": "Weigh Station (EB)", "brand": "State", "type": "weigh_station", "city": "Kanorado", "approx": false, "notes": "KHP Kanorado scales; eastbound only, just inside the Colorado line"},
         {"mm": 7, "exit": "", "name": "Kansas Travel Information Center", "brand": "State", "type": "rest_area", "city": "Goodland", "approx": true, "notes": "Eastbound; welcome center near Colorado line; truck parking", "parking": 25},
         {"mm": 17, "exit": "17", "name": "24/7 Travel Store", "brand": "Independent", "type": "truck_stop", "city": "Goodland", "approx": true, "notes": "Kansas-based 24/7 Travel Stores chain", "parking": 50},
         {"mm": 54, "exit": "54", "name": "Love's Travel Stop", "brand": "Love's", "type": "truck_stop", "city": "Colby", "approx": true, "notes": "", "parking": 90},

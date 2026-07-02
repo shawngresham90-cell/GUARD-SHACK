@@ -28,6 +28,16 @@
      "parking": 70
     },
     {
+     "mm": 23,
+     "exit": "23",
+     "name": "Lordsburg Port of Entry (EB)",
+     "brand": "State",
+     "type": "weigh_station",
+     "city": "Lordsburg",
+     "approx": false,
+     "notes": "NM MTD port, eastbound entering from Arizona; commercial vehicles must stop for clearance unless bypassed; PrePass equipped"
+    },
+    {
      "mm": 24,
      "exit": "24",
      "name": "Love's Travel Stop",
@@ -103,6 +113,16 @@
      "approx": true,
      "notes": "Between Las Cruces and the Texas line",
      "parking": 90
+    },
+    {
+     "mm": 159,
+     "exit": "159",
+     "name": "Anthony Port of Entry (WB)",
+     "brand": "State",
+     "type": "weigh_station",
+     "city": "Anthony",
+     "approx": true,
+     "notes": "NM MTD port, westbound entering from Texas (north of El Paso); PrePass equipped"
     },
     {
      "mm": 162,
@@ -207,6 +227,16 @@
      "approx": true,
      "notes": "Southbound; NM welcome center near Raton Pass; truck parking",
      "parking": 20
+    },
+    {
+     "mm": 460,
+     "exit": "460",
+     "name": "Raton Port of Entry (SB)",
+     "brand": "State",
+     "type": "weigh_station",
+     "city": "Raton",
+     "approx": false,
+     "notes": "NM MTD port just south of Raton Pass / Colorado line, southbound entering from Colorado; PrePass equipped"
     }
    ]
   },
@@ -223,6 +253,16 @@
      "approx": true,
      "notes": "Serves eastbound traffic entering NM from Arizona",
      "parking": 15
+    },
+    {
+     "mm": 12,
+     "exit": "12",
+     "name": "Gallup Port of Entry (EB)",
+     "brand": "State",
+     "type": "weigh_station",
+     "city": "Gallup",
+     "approx": false,
+     "notes": "NM MTD port, eastbound entering from Arizona; open 24 hours; PrePass equipped"
     },
     {
      "mm": 16,
@@ -410,6 +450,16 @@
      "approx": true,
      "notes": "East of Tucumcari, near the Texas line",
      "parking": 20
+    },
+    {
+     "mm": 356,
+     "exit": "356",
+     "name": "San Jon Port of Entry (WB)",
+     "brand": "State",
+     "type": "weigh_station",
+     "city": "San Jon",
+     "approx": true,
+     "notes": "NM MTD port, westbound entering from Texas; PrePass equipped"
     },
     {
      "mm": 369,

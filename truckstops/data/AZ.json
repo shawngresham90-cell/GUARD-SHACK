@@ -88,6 +88,16 @@
      "parking": 125
     },
     {
+     "mm": 4,
+     "exit": "4",
+     "name": "Ehrenberg Port of Entry (EB)",
+     "brand": "State",
+     "type": "weigh_station",
+     "city": "Ehrenberg",
+     "approx": false,
+     "notes": "ADOT commercial port at MP 3.8, eastbound entering from California; PrePass/Drivewyze bypass available"
+    },
+    {
      "mm": 17,
      "exit": "17",
      "name": "Love's Travel Stop",
@@ -297,6 +307,16 @@
      "parking": 75
     },
     {
+     "mm": 387,
+     "exit": "387",
+     "name": "San Simon Port of Entry (WB)",
+     "brand": "State",
+     "type": "weigh_station",
+     "city": "San Simon",
+     "approx": true,
+     "notes": "ADOT commercial port, westbound about 4 miles west of the NM line; weigh-in-motion; PrePass/Drivewyze bypass available"
+    },
+    {
      "mm": 389,
      "exit": "",
      "name": "San Simon Rest Area",
@@ -374,6 +394,16 @@
   "I-40": {
    "maxMM": 359,
    "stops": [
+    {
+     "mm": 4,
+     "exit": "4",
+     "name": "Topock Port of Entry (EB)",
+     "brand": "State",
+     "type": "weigh_station",
+     "city": "Topock",
+     "approx": false,
+     "notes": "ADOT commercial port at MP 3.8, eastbound entering from California; PrePass/Drivewyze bypass available"
+    },
     {
      "mm": 23,
      "exit": "",
@@ -516,6 +546,16 @@
      "approx": true,
      "notes": "Tribal-operated travel plaza",
      "parking": 75
+    },
+    {
+     "mm": 340,
+     "exit": "340",
+     "name": "Sanders Port of Entry (WB)",
+     "brand": "State",
+     "type": "weigh_station",
+     "city": "Sanders",
+     "approx": false,
+     "notes": "ADOT commercial port at MP 340, westbound entering from New Mexico; PrePass/Drivewyze bypass available"
     },
     {
      "mm": 359,
