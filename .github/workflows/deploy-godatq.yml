@@ -37,6 +37,16 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      # nwtgck/actions-netlify exits GREEN when credentials are missing
+      # ("not deployable"), which reads as a successful deploy that never
+      # happened. Fail loudly instead so a green run always means deployed.
+      - name: Require NETLIFY_AUTH_TOKEN secret
+        run: |
+          if [ -z "${{ secrets.NETLIFY_AUTH_TOKEN }}" ]; then
+            echo "::error::The NETLIFY_AUTH_TOKEN repo secret is missing, so nothing can deploy. Create a token at https://app.netlify.com/user/applications#personal-access-tokens and add it at https://github.com/${{ github.repository }}/settings/secrets/actions/new with the name NETLIFY_AUTH_TOKEN, then re-run this workflow."
+            exit 1
+          fi
+
       - name: Deploy dataq/ to Netlify (production)
         uses: nwtgck/actions-netlify@v3.0
         with:
