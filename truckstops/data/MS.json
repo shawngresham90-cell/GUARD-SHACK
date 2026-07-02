@@ -1,0 +1,55 @@
+{
+  "state": "Mississippi",
+  "abbr": "MS",
+  "interstates": {
+    "I-10": {
+      "maxMM": 77,
+      "stops": [
+        {"mm": 2, "exit": "", "name": "Mississippi Welcome Center (Pearlington)", "brand": "State", "type": "rest_area", "city": "Pearlington", "approx": true, "notes": "Eastbound entering from Louisiana; truck parking"},
+        {"mm": 31, "exit": "31", "name": "Flying J Travel Center", "brand": "Flying J", "type": "truck_stop", "city": "Gulfport", "approx": true, "notes": "Canal Rd exit"},
+        {"mm": 31, "exit": "31", "name": "Love's Travel Stop", "brand": "Love's", "type": "truck_stop", "city": "Gulfport", "approx": true, "notes": "Canal Rd cluster"},
+        {"mm": 69, "exit": "69", "name": "Love's Travel Stop", "brand": "Love's", "type": "truck_stop", "city": "Moss Point", "approx": true, "notes": "MS 63 interchange"},
+        {"mm": 75, "exit": "", "name": "Mississippi Welcome Center (Moss Point)", "brand": "State", "type": "rest_area", "city": "Moss Point", "approx": true, "notes": "Westbound entering from Alabama; truck parking"}
+      ]
+    },
+    "I-20": {
+      "maxMM": 154,
+      "stops": [
+        {"mm": 1, "exit": "", "name": "Mississippi Welcome Center (Vicksburg)", "brand": "State", "type": "rest_area", "city": "Vicksburg", "approx": true, "notes": "Eastbound entering from Louisiana; truck parking"},
+        {"mm": 19, "exit": "19", "name": "Love's Travel Stop", "brand": "Love's", "type": "truck_stop", "city": "Edwards", "approx": true, "notes": "Between Vicksburg and Jackson"},
+        {"mm": 36, "exit": "36", "name": "Pilot Travel Center", "brand": "Pilot", "type": "truck_stop", "city": "Clinton", "approx": true, "notes": "Springridge Rd exit, west of Jackson"},
+        {"mm": 48, "exit": "48", "name": "Pilot Travel Center", "brand": "Pilot", "type": "truck_stop", "city": "Pearl", "approx": true, "notes": "Pearson Rd exit, east side of Jackson"},
+        {"mm": 151, "exit": "151", "name": "Love's Travel Stop", "brand": "Love's", "type": "truck_stop", "city": "Meridian", "approx": true, "notes": "On the I-20/I-59 concurrency through Meridian"},
+        {"mm": 153, "exit": "153", "name": "Queen City Truck Stop", "brand": "Independent", "type": "truck_stop", "city": "Meridian", "approx": true, "notes": "Independent stop; I-20/I-59 concurrency"},
+        {"mm": 154, "exit": "154", "name": "Pilot Travel Center", "brand": "Pilot", "type": "truck_stop", "city": "Meridian", "approx": true, "notes": "East Meridian; I-20/I-59 concurrency"}
+      ]
+    },
+    "I-22": {
+      "maxMM": 113,
+      "stops": [],
+      "notes": "Byhalia (I-269) to the Alabama line via New Albany and Tupelo; mileposts begin around mm 14 to match the future extension toward Memphis. No confirmed major chain truck stops directly on I-22 in Mississippi."
+    },
+    "I-55": {
+      "maxMM": 291,
+      "stops": [
+        {"mm": 3, "exit": "", "name": "Mississippi Welcome Center (Magnolia)", "brand": "State", "type": "rest_area", "city": "Magnolia", "approx": true, "notes": "Northbound entering from Louisiana; truck parking"},
+        {"mm": 119, "exit": "119", "name": "Love's Travel Stop", "brand": "Love's", "type": "truck_stop", "city": "Canton", "approx": true, "notes": "North of Jackson"},
+        {"mm": 185, "exit": "185", "name": "Love's Travel Stop", "brand": "Love's", "type": "truck_stop", "city": "Winona", "approx": true, "notes": "US 82 junction"},
+        {"mm": 243, "exit": "243", "name": "Love's Travel Stop", "brand": "Love's", "type": "truck_stop", "city": "Batesville", "approx": true, "notes": "MS 6 interchange"},
+        {"mm": 280, "exit": "", "name": "Mississippi Welcome Center (Hernando)", "brand": "State", "type": "rest_area", "city": "Hernando", "approx": true, "notes": "Southbound entering from Tennessee; truck parking"}
+      ]
+    },
+    "I-59": {
+      "maxMM": 172,
+      "stops": [
+        {"mm": 2, "exit": "", "name": "Mississippi Welcome Center (Picayune)", "brand": "State", "type": "rest_area", "city": "Picayune", "approx": true, "notes": "Northbound entering from Louisiana; truck parking"},
+        {"mm": 165, "exit": "165", "name": "Mississippi Welcome Center (Toomsuba)", "brand": "State", "type": "rest_area", "city": "Toomsuba", "approx": true, "notes": "Westbound/southbound entering from Alabama on the I-20/I-59 concurrency; truck parking"}
+      ]
+    },
+    "I-69": {
+      "maxMM": 12,
+      "stops": [],
+      "notes": "Short segment near Tunica/Robinsonville and Hernando; no known truck stops directly on the route."
+    }
+  }
+}

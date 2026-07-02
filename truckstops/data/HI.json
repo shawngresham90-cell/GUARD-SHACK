@@ -1,0 +1,19 @@
+{
+  "state": "Hawaii",
+  "abbr": "HI",
+  "note": "Hawaii has no traditional truck stops on its H-route interstates (H-1, H-2, H-3, all on Oahu). Routes are short urban/military corridors with no travel centers, truck-stop chains, or rest areas with overnight truck parking. Commercial fueling is handled at cardlock/harbor-area facilities off the interstates (e.g., near Honolulu Harbor and Campbell Industrial Park).",
+  "interstates": {
+    "H-1": {
+      "maxMM": 27,
+      "stops": []
+    },
+    "H-2": {
+      "maxMM": 8,
+      "stops": []
+    },
+    "H-3": {
+      "maxMM": 15,
+      "stops": []
+    }
+  }
+}

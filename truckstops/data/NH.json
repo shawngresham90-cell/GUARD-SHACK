@@ -1,0 +1,26 @@
+{
+  "state": "New Hampshire",
+  "abbr": "NH",
+  "note": "New Hampshire has no national chain truck stops on its interstates. The rebuilt Hooksett Welcome Centers on I-93 (Irving fuel, Common Man food) are the main fuel point but have limited truck parking. Plan overnight parking in Maine (Kennebunk plaza) or at Willington CT / Mass Pike plazas.",
+  "interstates": {
+    "I-89": {
+      "maxMM": 61,
+      "stops": [
+        {"mm": 39, "exit": "", "name": "Springfield Rest Area", "brand": "State", "type": "rest_area", "city": "Springfield", "approx": true, "notes": "Northbound; truck parking, no fuel. No truck stops on I-89 in NH"}
+      ]
+    },
+    "I-93": {
+      "maxMM": 132,
+      "stops": [
+        {"mm": 26, "exit": "", "name": "Hooksett Welcome Centers", "brand": "Irving", "type": "service_plaza", "city": "Hooksett", "approx": true, "notes": "NB and SB; state welcome centers rebuilt 2015 with Irving fuel, food court, state liquor store; limited truck parking"},
+        {"mm": 43, "exit": "", "name": "Canterbury Rest Areas", "brand": "State", "type": "rest_area", "city": "Canterbury", "approx": true, "notes": "NB and SB; truck parking, no fuel"}
+      ]
+    },
+    "I-95": {
+      "maxMM": 16,
+      "stops": [
+        {"mm": 2, "exit": "", "name": "Hampton Welcome Centers / State Liquor Stores", "brand": "State", "type": "rest_area", "city": "Hampton (Seabrook)", "approx": true, "notes": "NB and SB facilities near the Hampton tolls; car-oriented but some truck parking, no diesel islands"}
+      ]
+    }
+  }
+}

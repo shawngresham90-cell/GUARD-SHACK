@@ -1,0 +1,72 @@
+{
+  "state": "Alabama",
+  "abbr": "AL",
+  "interstates": {
+    "I-10": {
+      "maxMM": 66,
+      "stops": [
+        {"mm": 1, "exit": "1", "name": "Alabama Welcome Center (eastbound)", "brand": "State", "type": "rest_area", "city": "Grand Bay", "approx": true, "notes": "Serves eastbound entering from MS; truck parking"},
+        {"mm": 4, "exit": "4", "name": "Love's Travel Stop", "brand": "Love's", "type": "truck_stop", "city": "Grand Bay", "approx": false, "notes": ""},
+        {"mm": 13, "exit": "13", "name": "Pilot Travel Center", "brand": "Pilot", "type": "truck_stop", "city": "Theodore", "approx": false, "notes": "Theodore Dawes Rd"},
+        {"mm": 44, "exit": "44", "name": "Love's Travel Stop", "brand": "Love's", "type": "truck_stop", "city": "Loxley", "approx": false, "notes": "AL-59"},
+        {"mm": 49, "exit": "49", "name": "Buc-ee's", "brand": "Buc-ee's", "type": "truck_stop", "city": "Loxley", "approx": false, "notes": "Baldwin Beach Express; no semi-truck parking"},
+        {"mm": 53, "exit": "53", "name": "Oasis Travel Center", "brand": "AmBest", "type": "truck_stop", "city": "Robertsdale", "approx": false, "notes": "Independent AmBest member; Wilcox Rd"},
+        {"mm": 65, "exit": "65", "name": "Alabama Welcome Center (westbound)", "brand": "State", "type": "rest_area", "city": "Seminole", "approx": true, "notes": "Serves westbound entering from FL; truck parking"}
+      ]
+    },
+    "I-20": {
+      "maxMM": 215,
+      "stops": [
+        {"mm": 1, "exit": "1", "name": "Alabama Welcome Center (eastbound)", "brand": "State", "type": "rest_area", "city": "Cuba", "approx": true, "notes": "On I-20/I-59 overlap; serves eastbound entering from MS; truck parking"},
+        {"mm": 40, "exit": "40", "name": "Love's Travel Stop", "brand": "Love's", "type": "truck_stop", "city": "Livingston", "approx": true, "notes": "On I-20/I-59 overlap"},
+        {"mm": 77, "exit": "77", "name": "TA Tuscaloosa", "brand": "TA", "type": "truck_stop", "city": "Cottondale", "approx": false, "notes": "On I-20/I-59 overlap; Buttermilk Rd/US-11"},
+        {"mm": 100, "exit": "100", "name": "Petro Stopping Center", "brand": "Petro", "type": "truck_stop", "city": "McCalla", "approx": false, "notes": "On I-20/I-59 overlap"},
+        {"mm": 199, "exit": "199", "name": "Love's Travel Stop", "brand": "Love's", "type": "truck_stop", "city": "Heflin", "approx": true, "notes": ""}
+      ]
+    },
+    "I-22": {
+      "maxMM": 95,
+      "stops": [
+        {"mm": 14, "exit": "14", "name": "Love's Travel Stop", "brand": "Love's", "type": "truck_stop", "city": "Hamilton", "approx": true, "notes": "US-278 area"}
+      ]
+    },
+    "I-59": {
+      "maxMM": 241,
+      "stops": [
+        {"mm": 1, "exit": "1", "name": "Alabama Welcome Center (eastbound)", "brand": "State", "type": "rest_area", "city": "Cuba", "approx": true, "notes": "On I-20/I-59 overlap; serves northbound/eastbound entering from MS; truck parking"},
+        {"mm": 40, "exit": "40", "name": "Love's Travel Stop", "brand": "Love's", "type": "truck_stop", "city": "Livingston", "approx": true, "notes": "On I-20/I-59 overlap"},
+        {"mm": 77, "exit": "77", "name": "TA Tuscaloosa", "brand": "TA", "type": "truck_stop", "city": "Cottondale", "approx": false, "notes": "On I-20/I-59 overlap; Buttermilk Rd/US-11"},
+        {"mm": 100, "exit": "100", "name": "Petro Stopping Center", "brand": "Petro", "type": "truck_stop", "city": "McCalla", "approx": false, "notes": "On I-20/I-59 overlap"},
+        {"mm": 174, "exit": "174", "name": "Love's Travel Stop", "brand": "Love's", "type": "truck_stop", "city": "Steele", "approx": true, "notes": ""},
+        {"mm": 183, "exit": "183", "name": "Pilot Travel Center", "brand": "Pilot", "type": "truck_stop", "city": "Attalla", "approx": true, "notes": "US-431, Gadsden area"},
+        {"mm": 205, "exit": "205", "name": "Love's Travel Stop", "brand": "Love's", "type": "truck_stop", "city": "Collinsville", "approx": true, "notes": ""},
+        {"mm": 240, "exit": "240", "name": "Alabama Welcome Center (southbound)", "brand": "State", "type": "rest_area", "city": "Valley Head", "approx": true, "notes": "Serves southbound entering from GA; truck parking"}
+      ]
+    },
+    "I-65": {
+      "maxMM": 366,
+      "stops": [
+        {"mm": 19, "exit": "19", "name": "Love's Travel Stop", "brand": "Love's", "type": "truck_stop", "city": "Creola", "approx": true, "notes": ""},
+        {"mm": 89, "exit": "89", "name": "Rest Area (both directions)", "brand": "State", "type": "rest_area", "city": "Evergreen", "approx": true, "notes": "Truck parking; serves NB and SB"},
+        {"mm": 96, "exit": "96", "name": "Love's Travel Stop", "brand": "Love's", "type": "truck_stop", "city": "Evergreen", "approx": true, "notes": ""},
+        {"mm": 114, "exit": "114", "name": "Love's Travel Stop", "brand": "Love's", "type": "truck_stop", "city": "Georgiana", "approx": true, "notes": ""},
+        {"mm": 158, "exit": "158", "name": "Pilot Travel Center", "brand": "Pilot", "type": "truck_stop", "city": "Hope Hull", "approx": false, "notes": "Hope Hull truck stop cluster, Montgomery south side"},
+        {"mm": 158, "exit": "158", "name": "Love's Travel Stop", "brand": "Love's", "type": "truck_stop", "city": "Hope Hull", "approx": true, "notes": "Hope Hull truck stop cluster"},
+        {"mm": 208, "exit": "208", "name": "Love's Travel Stop", "brand": "Love's", "type": "truck_stop", "city": "Clanton", "approx": true, "notes": ""},
+        {"mm": 264, "exit": "264", "name": "Pilot Travel Center", "brand": "Pilot", "type": "truck_stop", "city": "Birmingham", "approx": false, "notes": "Daniel Payne Dr"},
+        {"mm": 264, "exit": "264", "name": "Love's Travel Stop", "brand": "Love's", "type": "truck_stop", "city": "Birmingham", "approx": true, "notes": "Daniel Payne Dr area"},
+        {"mm": 304, "exit": "304", "name": "Love's Travel Stop", "brand": "Love's", "type": "truck_stop", "city": "Cullman (Good Hope)", "approx": true, "notes": "AL-69"},
+        {"mm": 334, "exit": "334", "name": "Pilot Travel Center", "brand": "Pilot", "type": "truck_stop", "city": "Priceville", "approx": true, "notes": "Decatur area"},
+        {"mm": 351, "exit": "351", "name": "Pilot Travel Center", "brand": "Pilot", "type": "truck_stop", "city": "Athens", "approx": true, "notes": "US-72"},
+        {"mm": 364, "exit": "364", "name": "Ardmore Welcome Center (southbound)", "brand": "State", "type": "rest_area", "city": "Ardmore", "approx": true, "notes": "Serves southbound entering from TN; truck parking"}
+      ]
+    },
+    "I-85": {
+      "maxMM": 80,
+      "stops": [
+        {"mm": 22, "exit": "22", "name": "Love's Travel Stop", "brand": "Love's", "type": "truck_stop", "city": "Shorter", "approx": true, "notes": "US-80"},
+        {"mm": 79, "exit": "79", "name": "Alabama Welcome Center (southbound)", "brand": "State", "type": "rest_area", "city": "Lanett", "approx": true, "notes": "Serves southbound entering from GA; truck parking"}
+      ]
+    }
+  }
+}

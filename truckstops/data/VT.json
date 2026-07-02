@@ -1,0 +1,30 @@
+{
+  "state": "Vermont",
+  "abbr": "VT",
+  "note": "Vermont has no national chain truck stops. The historic P&H Truck Stop at Wells River (now Maplefields) on I-91 is the main full-service stop in the state. Interstate rest areas and welcome centers offer limited truck parking, no fuel.",
+  "interstates": {
+    "I-89": {
+      "maxMM": 130,
+      "stops": [
+        {"mm": 5, "exit": "", "name": "Sharon Welcome Center (VT Vietnam Veterans Memorial)", "brand": "State", "type": "rest_area", "city": "Sharon", "approx": true, "notes": "Northbound; welcome center with truck parking, no fuel"},
+        {"mm": 30, "exit": "", "name": "Randolph Rest Areas", "brand": "State", "type": "rest_area", "city": "Randolph", "approx": true, "notes": "NB and SB; truck parking, no fuel"},
+        {"mm": 82, "exit": "", "name": "Williston Rest Areas", "brand": "State", "type": "rest_area", "city": "Williston", "approx": true, "notes": "NB and SB near Burlington; truck parking, no fuel"},
+        {"mm": 128, "exit": "", "name": "Highgate Welcome Center", "brand": "State", "type": "rest_area", "city": "Highgate", "approx": true, "notes": "Southbound, just below the Canadian border; truck parking, no fuel"}
+      ]
+    },
+    "I-91": {
+      "maxMM": 178,
+      "stops": [
+        {"mm": 1, "exit": "", "name": "Guilford Welcome Center", "brand": "State", "type": "rest_area", "city": "Guilford", "approx": true, "notes": "Northbound, just past MA line; large welcome center with truck parking, no fuel"},
+        {"mm": 100, "exit": "17", "name": "P&H Truck Stop (Maplefields Wells River)", "brand": "Independent", "type": "truck_stop", "city": "Wells River", "approx": true, "notes": "Legendary P&H Truck Stop, acquired by Maplefields; 24-hour fuel, restaurant, overnight truck parking, at US-302"},
+        {"mm": 177, "exit": "", "name": "Derby Line Welcome Center", "brand": "State", "type": "rest_area", "city": "Derby Line", "approx": true, "notes": "Southbound, at the Canadian border; truck parking, no fuel"}
+      ]
+    },
+    "I-93": {
+      "maxMM": 11,
+      "stops": [
+        {"mm": 8, "exit": "", "name": "Waterford Welcome Center", "brand": "State", "type": "rest_area", "city": "Waterford", "approx": true, "notes": "Serves traffic entering VT from NH; truck parking, no fuel. No truck stops on this short segment"}
+      ]
+    }
+  }
+}
