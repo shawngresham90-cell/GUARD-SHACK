@@ -8,6 +8,7 @@
       "stops": [
         {"mm": 10, "exit": "", "name": "Huntington Welcome Center", "brand": "State", "type": "rest_area", "city": "Huntington", "approx": true, "notes": "Eastbound entering from KY, truck parking", "parking": 20},
         {"mm": 28, "exit": "28", "name": "Love's Travel Stop", "brand": "Love's", "type": "truck_stop", "city": "Milton", "approx": true, "notes": "US-60 interchange", "parking": 90},
+        {"mm": 37, "exit": "37", "name": "Weigh Station (both directions)", "brand": "State", "type": "weigh_station", "city": "Hurricane", "approx": true, "notes": "Teays Valley/Hurricane scales, WB near mm 37.5 with EB counterpart nearby; Drivewyze bypass site"},
         {"mm": 179, "exit": "", "name": "White Sulphur Springs Welcome Center", "brand": "State", "type": "rest_area", "city": "White Sulphur Springs", "approx": true, "notes": "Westbound entering from VA, truck parking. Beckley-Charleston segment overlaps WV Turnpike; see I-77 plazas", "parking": 20}
       ]
     },
@@ -20,6 +21,7 @@
     "I-70": {
       "maxMM": 15,
       "stops": [
+        {"mm": 4, "exit": "4", "name": "Weigh Station (WB)", "brand": "State", "type": "weigh_station", "city": "Wheeling", "approx": true, "notes": "Westbound near mm 3.5 west of Wheeling; reported rarely open"},
         {"mm": 11, "exit": "11", "name": "TA Wheeling", "brand": "TA", "type": "truck_stop", "city": "Valley Grove", "approx": false, "notes": "Dallas Pike", "parking": 150},
         {"mm": 13, "exit": "13", "name": "Valley Grove Welcome Center (WB only)", "brand": "State", "type": "rest_area", "city": "Valley Grove", "approx": true, "parking": 20}
       ]
@@ -28,10 +30,12 @@
       "maxMM": 187,
       "stops": [
         {"mm": 9, "exit": "9", "name": "Love's Travel Stop", "brand": "Love's", "type": "truck_stop", "city": "Princeton", "approx": true, "notes": "US-460, southern end of WV Turnpike", "parking": 90},
+        {"mm": 14, "exit": "14", "name": "Weigh Station (SB)", "brand": "State", "type": "weigh_station", "city": "Princeton", "approx": true, "notes": "Eads Mill scales on WV Turnpike southbound, north of Princeton"},
         {"mm": 20, "exit": "", "name": "Bluestone Travel Plaza", "brand": "Independent", "type": "service_plaza", "city": "Camp Creek", "approx": true, "notes": "WV Turnpike toll plaza, northbound side", "parking": 20},
         {"mm": 45, "exit": "45", "name": "Beckley Travel Plaza", "brand": "Independent", "type": "service_plaza", "city": "Beckley", "approx": true, "notes": "WV Turnpike toll plaza at Tamarack, serves both directions", "parking": 40},
         {"mm": 69, "exit": "", "name": "Morton Travel Plaza", "brand": "Independent", "type": "service_plaza", "city": "Chelyan", "approx": true, "notes": "WV Turnpike toll plaza, both directions", "parking": 25},
         {"mm": 138, "exit": "138", "name": "Love's Travel Stop", "brand": "Love's", "type": "truck_stop", "city": "Ripley", "approx": true, "notes": "US-33 interchange", "parking": 90},
+        {"mm": 169, "exit": "169", "name": "Weigh Station (SB)", "brand": "State", "type": "weigh_station", "city": "Mineral Wells", "approx": true, "notes": "Southbound scales south of Parkersburg"},
         {"mm": 170, "exit": "170", "name": "Pilot Travel Center", "brand": "Pilot", "type": "truck_stop", "city": "Mineral Wells", "approx": false, "notes": "South of Parkersburg", "parking": 80},
         {"mm": 185, "exit": "", "name": "Williamstown Welcome Center", "brand": "State", "type": "rest_area", "city": "Williamstown", "approx": true, "notes": "Southbound entering from OH, truck parking", "parking": 20}
       ]

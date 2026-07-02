@@ -52,6 +52,7 @@
     "I-90": {
       "maxMM": 496,
       "stops": [
+        {"mm": 10, "exit": "10", "name": "Weigh Station (WB)", "brand": "State", "type": "weigh_station", "city": "Schodack", "approx": true, "notes": "NYSDOT/NYSP commercial vehicle inspection station with electronic screening and weigh-in-motion; I-90 free section east of Albany (own mileposts)"},
         {"mm": 12, "exit": "12", "name": "Love's Travel Stop", "brand": "Love's", "type": "truck_stop", "city": "Schodack", "approx": true, "notes": "US 9, I-90 free section east of Albany (own mileposts)", "parking": 80},
         {"mm": 153, "exit": "", "name": "Guilderland Service Area", "brand": "State", "type": "service_plaza", "city": "Guilderland", "approx": true, "notes": "NY Thruway milepost; westbound", "parking": 35},
         {"mm": 168, "exit": "", "name": "Pattersonville Service Area", "brand": "State", "type": "service_plaza", "city": "Pattersonville", "approx": true, "notes": "NY Thruway milepost; westbound", "parking": 30},
