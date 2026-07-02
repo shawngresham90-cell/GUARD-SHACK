@@ -1,5 +1,3 @@
-# Serve the DataQ Tracker at the site root.
-# The "!" forces the rewrite even though an index.html could exist here,
-# so visitors land on the app at "/" instead of typing /dataq.html.
-# Every other path (dataq.html, the manifest, Supabase calls) serves normally.
-/    /dataq.html    200!
+# The app is index.html, so "/" serves it natively — no root rewrite needed.
+# Keep old links to /dataq.html working after the rename.
+/dataq.html    /    301

@@ -2,7 +2,7 @@
   "name": "DataQ Tracker",
   "short_name": "DataQ",
   "description": "Log DOT roadside violations and crashes, build your FMCSA Request for Data Review, and track every dispute. Works offline.",
-  "start_url": "dataq.html",
+  "start_url": "./",
   "scope": "./",
   "display": "standalone",
   "orientation": "portrait",

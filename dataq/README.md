@@ -9,7 +9,7 @@ place, helps you decide *why* it's wrong, and writes the **Request for Data Revi
 
 | File | What it is |
 |---|---|
-| `dataq.html` | The whole app. Open it in any browser (double-click, or host it). |
+| `index.html` | The whole app. Open it in any browser (double-click, or host it). |
 | `dataq.webmanifest` | Lets you "Add to Home Screen" so it opens like a native app. |
 | `dataq-leads.sql` | Supabase schema for the lead-capture table (`dataq_leads`). |
 
@@ -45,7 +45,7 @@ paid-filing button.
   Supabase dashboard or service-role key) reads the leads.
 
 **Setup:** run `dataq-leads.sql` once in the Supabase SQL editor (it's additive and safe to
-re-run). The app's `CONFIG` block at the bottom of `dataq.html` already points at the project;
+re-run). The app's `CONFIG` block at the bottom of `index.html` already points at the project;
 swap `SUPABASE_URL` / `SUPABASE_ANON_KEY` there to use a different project, or blank the URL to
 turn syncing off.
 
