@@ -284,6 +284,16 @@
    "maxMM": 172,
    "stops": [
     {
+     "mm": 1,
+     "exit": "1",
+     "name": "Weigh Station (SB)",
+     "brand": "State",
+     "type": "weigh_station",
+     "city": "Nicholson",
+     "approx": true,
+     "notes": "MDOT scale near the Louisiana line south of Picayune; milepost estimated"
+    },
+    {
      "mm": 2,
      "exit": "",
      "name": "Mississippi Welcome Center (Picayune)",
@@ -304,6 +314,16 @@
      "approx": true,
      "notes": "Westbound/southbound entering from Alabama on the I-20/I-59 concurrency; truck parking",
      "parking": 20
+    },
+    {
+     "mm": 170,
+     "exit": "170",
+     "name": "Weigh Station (both directions)",
+     "brand": "State",
+     "type": "weigh_station",
+     "city": "Kewanee",
+     "approx": true,
+     "notes": "MDOT Meridian scales on the I-20/I-59 concurrency about 2 miles west of the Alabama line; WB scale at mm 170.5; PrePass/Drivewyze bypass"
     }
    ]
   },
