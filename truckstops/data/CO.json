@@ -6,38 +6,43 @@
     "I-25": {
       "maxMM": 299,
       "stops": [
-        {"mm": 15, "exit": "15", "name": "Love's Travel Stop", "brand": "Love's", "type": "truck_stop", "city": "Trinidad", "approx": true, "notes": "South end of Trinidad"},
-        {"mm": 52, "exit": "52", "name": "Love's Travel Stop", "brand": "Love's", "type": "truck_stop", "city": "Walsenburg", "approx": true, "notes": "US-160 junction"},
-        {"mm": 94, "exit": "94", "name": "Pilot Travel Center", "brand": "Pilot", "type": "truck_stop", "city": "Pueblo", "approx": false, "notes": "Lake Ave, south Pueblo"},
-        {"mm": 94, "exit": "94", "name": "Love's Travel Stop", "brand": "Love's", "type": "truck_stop", "city": "Pueblo", "approx": true, "notes": "Lake Ave area near Pilot"},
-        {"mm": 254, "exit": "254", "name": "Johnson's Corner", "brand": "Independent", "type": "truck_stop", "city": "Johnstown", "approx": false, "notes": "Famous landmark truck stop, 24-hr restaurant known for cinnamon rolls"},
-        {"mm": 254, "exit": "254", "name": "Love's Travel Stop", "brand": "Love's", "type": "truck_stop", "city": "Johnstown", "approx": true, "notes": "CO-60 area south of Fort Collins"}
+        {"mm": 15, "exit": "15", "name": "Love's Travel Stop", "brand": "Love's", "type": "truck_stop", "city": "Trinidad", "approx": true, "notes": "South end of Trinidad", "parking": 75},
+        {"mm": 52, "exit": "52", "name": "Love's Travel Stop", "brand": "Love's", "type": "truck_stop", "city": "Walsenburg", "approx": true, "notes": "US-160 junction", "parking": 80},
+        {"mm": 94, "exit": "94", "name": "Pilot Travel Center", "brand": "Pilot", "type": "truck_stop", "city": "Pueblo", "approx": false, "notes": "Lake Ave, south Pueblo", "parking": 75},
+        {"mm": 94, "exit": "94", "name": "Love's Travel Stop", "brand": "Love's", "type": "truck_stop", "city": "Pueblo", "approx": true, "notes": "Lake Ave area near Pilot", "parking": 70},
+        {"mm": 254, "exit": "254", "name": "Johnson's Corner", "brand": "Independent", "type": "truck_stop", "city": "Johnstown", "approx": false, "notes": "Famous landmark truck stop, 24-hr restaurant known for cinnamon rolls", "parking": 100},
+        {"mm": 254, "exit": "254", "name": "Love's Travel Stop", "brand": "Love's", "type": "truck_stop", "city": "Johnstown", "approx": true, "notes": "CO-60 area south of Fort Collins", "parking": 80},
+        {"mm": 268, "exit": "268", "name": "Colorado Welcome Center - Fort Collins Rest Area (both directions via exit)", "brand": "State", "type": "rest_area", "city": "Fort Collins", "approx": true, "notes": "Prospect Rd exit; welcome center for southbound traffic entering from Wyoming; limited truck parking", "parking": 10}
       ]
     },
     "I-70": {
       "maxMM": 449,
       "stops": [
-        {"mm": 19, "exit": "19", "name": "Colorado Welcome Center - Fruita", "brand": "State", "type": "rest_area", "city": "Fruita", "approx": false, "notes": "Serves both directions; truck parking"},
-        {"mm": 26, "exit": "26", "name": "Pilot Travel Center", "brand": "Pilot", "type": "truck_stop", "city": "Grand Junction", "approx": true, "notes": "West side of Grand Junction"},
-        {"mm": 90, "exit": "90", "name": "Rifle Rest Area", "brand": "State", "type": "rest_area", "city": "Rifle", "approx": true, "notes": "Both directions; truck parking"},
-        {"mm": 163, "exit": "163", "name": "Edwards Rest Area", "brand": "State", "type": "rest_area", "city": "Edwards", "approx": false, "notes": "Both directions via exit; truck parking"},
-        {"mm": 190, "exit": "190", "name": "Vail Pass Rest Area", "brand": "State", "type": "rest_area", "city": "Vail Pass", "approx": false, "notes": "Both directions; summit of Vail Pass, chain-up season staging"},
-        {"mm": 275, "exit": "275", "name": "Pilot Travel Center", "brand": "Pilot", "type": "truck_stop", "city": "Denver", "approx": false, "notes": "Exit 275A, Steele St/Vasquez Blvd"},
-        {"mm": 285, "exit": "285", "name": "TA Denver East", "brand": "TA", "type": "truck_stop", "city": "Aurora", "approx": false, "notes": "Airport Blvd, east Denver metro"},
-        {"mm": 285, "exit": "285", "name": "Sapp Bros Travel Center", "brand": "Sapp Bros", "type": "truck_stop", "city": "Denver", "approx": true, "notes": "Tower Rd area (exit 285/286); coffee-pot water tower landmark"},
-        {"mm": 310, "exit": "310", "name": "Love's Travel Stop", "brand": "Love's", "type": "truck_stop", "city": "Strasburg", "approx": true, "notes": ""},
-        {"mm": 359, "exit": "359", "name": "Flying J Travel Center", "brand": "Flying J", "type": "truck_stop", "city": "Limon", "approx": false, "notes": "Major junction cluster (I-70/US-24/US-40/US-287)"},
-        {"mm": 359, "exit": "359", "name": "TA Limon", "brand": "TA", "type": "truck_stop", "city": "Limon", "approx": false, "notes": "Same junction cluster as Flying J"},
-        {"mm": 437, "exit": "437", "name": "Colorado Welcome Center - Burlington", "brand": "State", "type": "rest_area", "city": "Burlington", "approx": true, "notes": "Serves westbound traffic entering from Kansas; truck parking"}
+        {"mm": 19, "exit": "19", "name": "Colorado Welcome Center - Fruita", "brand": "State", "type": "rest_area", "city": "Fruita", "approx": false, "notes": "Serves both directions; truck parking", "parking": 20},
+        {"mm": 26, "exit": "26", "name": "Pilot Travel Center", "brand": "Pilot", "type": "truck_stop", "city": "Grand Junction", "approx": true, "notes": "West side of Grand Junction", "parking": 80},
+        {"mm": 90, "exit": "90", "name": "Rifle Rest Area", "brand": "State", "type": "rest_area", "city": "Rifle", "approx": true, "notes": "Both directions; truck parking", "parking": 15},
+        {"mm": 119, "exit": "119", "name": "No Name Rest Area (both directions)", "brand": "State", "type": "rest_area", "city": "Glenwood Springs", "approx": false, "notes": "Glenwood Canyon; limited truck spaces", "parking": 8},
+        {"mm": 121, "exit": "121", "name": "Grizzly Creek Rest Area (both directions)", "brand": "State", "type": "rest_area", "city": "Glenwood Canyon", "approx": true, "notes": "Glenwood Canyon recreation access; very limited truck parking", "parking": 4},
+        {"mm": 129, "exit": "129", "name": "Bair Ranch Rest Area (both directions)", "brand": "State", "type": "rest_area", "city": "Glenwood Canyon (east end)", "approx": false, "notes": "East end of Glenwood Canyon; truck parking", "parking": 10},
+        {"mm": 163, "exit": "163", "name": "Edwards Rest Area", "brand": "State", "type": "rest_area", "city": "Edwards", "approx": false, "notes": "Both directions via exit; truck parking", "parking": 20},
+        {"mm": 190, "exit": "190", "name": "Vail Pass Rest Area", "brand": "State", "type": "rest_area", "city": "Vail Pass", "approx": false, "notes": "Both directions; summit of Vail Pass, chain-up season staging", "parking": 15},
+        {"mm": 275, "exit": "275", "name": "Pilot Travel Center", "brand": "Pilot", "type": "truck_stop", "city": "Denver", "approx": false, "notes": "Exit 275A, Steele St/Vasquez Blvd", "parking": 60},
+        {"mm": 285, "exit": "285", "name": "TA Denver East", "brand": "TA", "type": "truck_stop", "city": "Aurora", "approx": false, "notes": "Airport Blvd, east Denver metro", "parking": 175},
+        {"mm": 285, "exit": "285", "name": "Sapp Bros Travel Center", "brand": "Sapp Bros", "type": "truck_stop", "city": "Denver", "approx": true, "notes": "Tower Rd area (exit 285/286); coffee-pot water tower landmark", "parking": 90},
+        {"mm": 310, "exit": "310", "name": "Love's Travel Stop", "brand": "Love's", "type": "truck_stop", "city": "Strasburg", "approx": true, "notes": "", "parking": 80},
+        {"mm": 328, "exit": "328", "name": "Deer Trail Rest Area (both directions)", "brand": "State", "type": "rest_area", "city": "Deer Trail", "approx": true, "notes": "Eastern plains rest area between Denver and Limon; truck parking", "parking": 15},
+        {"mm": 359, "exit": "359", "name": "Flying J Travel Center", "brand": "Flying J", "type": "truck_stop", "city": "Limon", "approx": false, "notes": "Major junction cluster (I-70/US-24/US-40/US-287)", "parking": 90},
+        {"mm": 359, "exit": "359", "name": "TA Limon", "brand": "TA", "type": "truck_stop", "city": "Limon", "approx": false, "notes": "Same junction cluster as Flying J", "parking": 150},
+        {"mm": 437, "exit": "437", "name": "Colorado Welcome Center - Burlington", "brand": "State", "type": "rest_area", "city": "Burlington", "approx": true, "notes": "Serves westbound traffic entering from Kansas; truck parking", "parking": 15}
       ]
     },
     "I-76": {
       "maxMM": 184,
       "stops": [
-        {"mm": 31, "exit": "31", "name": "Love's Travel Stop", "brand": "Love's", "type": "truck_stop", "city": "Hudson", "approx": false, "notes": "CO-52 junction"},
-        {"mm": 80, "exit": "80", "name": "Love's Travel Stop", "brand": "Love's", "type": "truck_stop", "city": "Fort Morgan", "approx": true, "notes": "Fort Morgan/Brush area services"},
-        {"mm": 125, "exit": "125", "name": "Sterling Rest Area", "brand": "State", "type": "rest_area", "city": "Sterling", "approx": true, "notes": "Both directions; truck parking"},
-        {"mm": 180, "exit": "180", "name": "Colorado Welcome Center - Julesburg", "brand": "State", "type": "rest_area", "city": "Julesburg", "approx": false, "notes": "Serves westbound traffic entering from Nebraska; truck parking"}
+        {"mm": 31, "exit": "31", "name": "Love's Travel Stop", "brand": "Love's", "type": "truck_stop", "city": "Hudson", "approx": false, "notes": "CO-52 junction", "parking": 80},
+        {"mm": 80, "exit": "80", "name": "Love's Travel Stop", "brand": "Love's", "type": "truck_stop", "city": "Fort Morgan", "approx": true, "notes": "Fort Morgan/Brush area services", "parking": 75},
+        {"mm": 125, "exit": "125", "name": "Sterling Rest Area", "brand": "State", "type": "rest_area", "city": "Sterling", "approx": true, "notes": "Both directions; truck parking", "parking": 20},
+        {"mm": 180, "exit": "180", "name": "Colorado Welcome Center - Julesburg", "brand": "State", "type": "rest_area", "city": "Julesburg", "approx": false, "notes": "Serves westbound traffic entering from Nebraska; truck parking", "parking": 15}
       ]
     }
   }
