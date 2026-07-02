@@ -1,0 +1,74 @@
+{
+  "state": "Virginia",
+  "abbr": "VA",
+  "note": "I-77 and I-81 overlap near Wytheville; the Wytheville/Fort Chiswell truck stop cluster is listed under I-81 (exits 72-84). Mile markers on rest areas without numbered exits use the milepost.",
+  "interstates": {
+    "I-64": {
+      "maxMM": 299,
+      "stops": [
+        {"mm": 1, "exit": "", "name": "Covington Welcome Center", "brand": "State", "type": "rest_area", "city": "Covington", "approx": true, "notes": "Eastbound; welcome center entering VA from WV, truck parking"},
+        {"mm": 169, "exit": "", "name": "Goochland Safety Rest Area", "brand": "State", "type": "rest_area", "city": "Goochland", "approx": true, "notes": "Both directions, truck parking"},
+        {"mm": 213, "exit": "", "name": "New Kent Safety Rest Area", "brand": "State", "type": "rest_area", "city": "New Kent", "approx": true, "notes": "Both directions, truck parking"}
+      ]
+    },
+    "I-66": {
+      "maxMM": 76,
+      "stops": [
+        {"mm": 48, "exit": "", "name": "Manassas Rest Area", "brand": "State", "type": "rest_area", "city": "Manassas", "approx": true, "notes": "Westbound; limited truck parking. No major truck stops directly on I-66"}
+      ]
+    },
+    "I-77": {
+      "maxMM": 67,
+      "stops": [
+        {"mm": 1, "exit": "", "name": "Lambsburg Welcome Center", "brand": "State", "type": "rest_area", "city": "Lambsburg", "approx": true, "notes": "Northbound entering from NC, truck parking. Wytheville truck stops are on the I-77/I-81 overlap; see I-81 exits 72-84"}
+      ]
+    },
+    "I-81": {
+      "maxMM": 325,
+      "stops": [
+        {"mm": 1, "exit": "", "name": "Bristol Welcome Center", "brand": "State", "type": "rest_area", "city": "Bristol", "approx": true, "notes": "Northbound entering from TN, truck parking"},
+        {"mm": 7, "exit": "7", "name": "Petro Stopping Center", "brand": "Petro", "type": "truck_stop", "city": "Bristol", "approx": false, "notes": ""},
+        {"mm": 72, "exit": "72", "name": "TA Wytheville", "brand": "TA", "type": "truck_stop", "city": "Wytheville", "approx": false, "notes": "At I-77/I-81 junction"},
+        {"mm": 77, "exit": "77", "name": "Pilot Travel Center", "brand": "Pilot", "type": "truck_stop", "city": "Wytheville", "approx": true, "notes": "Wytheville exit 72/77 cluster"},
+        {"mm": 80, "exit": "80", "name": "Love's Travel Stop", "brand": "Love's", "type": "truck_stop", "city": "Fort Chiswell", "approx": true, "notes": "US-52 / Fort Chiswell"},
+        {"mm": 84, "exit": "84", "name": "Flying J Travel Center", "brand": "Flying J", "type": "truck_stop", "city": "Max Meadows", "approx": true, "notes": ""},
+        {"mm": 108, "exit": "", "name": "Ironto Safety Rest Area", "brand": "State", "type": "rest_area", "city": "Ironto", "approx": true, "notes": "Both directions, truck parking"},
+        {"mm": 150, "exit": "150", "name": "TA Roanoke", "brand": "TA", "type": "truck_stop", "city": "Troutville", "approx": false, "notes": "US-11/US-220 interchange"},
+        {"mm": 158, "exit": "", "name": "Troutville Safety Rest Area", "brand": "State", "type": "rest_area", "city": "Troutville", "approx": true, "notes": "Both directions, truck parking"},
+        {"mm": 195, "exit": "195", "name": "Lee Hi Travel Plaza", "brand": "AmBest", "type": "truck_stop", "city": "Lexington", "approx": false, "notes": "Independent AmBest full-service plaza"},
+        {"mm": 205, "exit": "205", "name": "White's Travel Center", "brand": "Independent", "type": "truck_stop", "city": "Raphine", "approx": false, "notes": "One of the largest truck stops in America; 800+ truck spaces"},
+        {"mm": 205, "exit": "205", "name": "Petro Stopping Center", "brand": "Petro", "type": "truck_stop", "city": "Raphine", "approx": false, "notes": "Across from White's Travel Center"},
+        {"mm": 232, "exit": "", "name": "Mount Sidney Safety Rest Area", "brand": "State", "type": "rest_area", "city": "Mount Sidney", "approx": true, "notes": "Both directions, truck parking"},
+        {"mm": 240, "exit": "240", "name": "Pilot Travel Center", "brand": "Pilot", "type": "truck_stop", "city": "Mount Crawford", "approx": true, "notes": "South of Harrisonburg"},
+        {"mm": 262, "exit": "", "name": "New Market Safety Rest Area", "brand": "State", "type": "rest_area", "city": "New Market", "approx": true, "notes": "Both directions, truck parking"},
+        {"mm": 273, "exit": "273", "name": "Love's Travel Stop", "brand": "Love's", "type": "truck_stop", "city": "Mount Jackson", "approx": true, "notes": ""},
+        {"mm": 291, "exit": "291", "name": "Pilot Travel Center", "brand": "Pilot", "type": "truck_stop", "city": "Toms Brook", "approx": false, "notes": ""},
+        {"mm": 320, "exit": "", "name": "Clearbrook Welcome Center", "brand": "State", "type": "rest_area", "city": "Clear Brook", "approx": true, "notes": "Southbound entering from WV, truck parking"},
+        {"mm": 323, "exit": "323", "name": "Flying J Travel Center", "brand": "Flying J", "type": "truck_stop", "city": "Winchester", "approx": false, "notes": "Clear Brook / Rest Church Rd, north of Winchester"}
+      ]
+    },
+    "I-85": {
+      "maxMM": 69,
+      "stops": [
+        {"mm": 1, "exit": "", "name": "Bracey Welcome Center", "brand": "State", "type": "rest_area", "city": "Bracey", "approx": true, "notes": "Northbound entering from NC, truck parking"},
+        {"mm": 12, "exit": "12", "name": "Flying J Travel Center", "brand": "Flying J", "type": "truck_stop", "city": "South Hill", "approx": true, "notes": "US-58 interchange"},
+        {"mm": 32, "exit": "", "name": "Alberta Safety Rest Area", "brand": "State", "type": "rest_area", "city": "Alberta", "approx": true, "notes": "Both directions, truck parking"}
+      ]
+    },
+    "I-95": {
+      "maxMM": 179,
+      "stops": [
+        {"mm": 1, "exit": "", "name": "Skippers Welcome Center", "brand": "State", "type": "rest_area", "city": "Skippers", "approx": true, "notes": "Northbound entering from NC, truck parking"},
+        {"mm": 11, "exit": "11", "name": "Sadler Travel Plaza", "brand": "AmBest", "type": "truck_stop", "city": "Emporia", "approx": false, "notes": "US-58 interchange, Emporia area"},
+        {"mm": 33, "exit": "33", "name": "Davis Travel Center", "brand": "Independent", "type": "truck_stop", "city": "Stony Creek", "approx": true, "notes": ""},
+        {"mm": 41, "exit": "41", "name": "Pilot Travel Center", "brand": "Pilot", "type": "truck_stop", "city": "Carson", "approx": true, "notes": ""},
+        {"mm": 98, "exit": "98", "name": "Flying J Travel Center", "brand": "Flying J", "type": "truck_stop", "city": "Doswell", "approx": true, "notes": "VA-30, near Kings Dominion"},
+        {"mm": 104, "exit": "104", "name": "Pilot Travel Center", "brand": "Pilot", "type": "truck_stop", "city": "Ruther Glen", "approx": true, "notes": "VA-207"},
+        {"mm": 104, "exit": "104", "name": "Love's Travel Stop", "brand": "Love's", "type": "truck_stop", "city": "Ruther Glen", "approx": true, "notes": "VA-207"},
+        {"mm": 107, "exit": "", "name": "Ladysmith Safety Rest Area", "brand": "State", "type": "rest_area", "city": "Ladysmith", "approx": true, "notes": "Both directions, truck parking"},
+        {"mm": 132, "exit": "", "name": "Fredericksburg Safety Rest Area", "brand": "State", "type": "rest_area", "city": "Fredericksburg", "approx": true, "notes": "Southbound, truck parking"},
+        {"mm": 154, "exit": "", "name": "Dale City Safety Rest Area", "brand": "State", "type": "rest_area", "city": "Dale City", "approx": true, "notes": "Both directions, truck parking"}
+      ]
+    }
+  }
+}

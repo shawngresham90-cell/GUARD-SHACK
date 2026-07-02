@@ -1,0 +1,50 @@
+{
+  "state": "Idaho",
+  "abbr": "ID",
+  "interstates": {
+    "I-15": {
+      "maxMM": 196,
+      "stops": [
+        {"mm": 25, "exit": "", "name": "Cherry Creek Rest Area", "brand": "State", "type": "rest_area", "city": "Inkom", "approx": true, "notes": "Serves both directions; truck parking"},
+        {"mm": 47, "exit": "47", "name": "Flying J Travel Center", "brand": "Flying J", "type": "truck_stop", "city": "McCammon", "approx": false, "notes": "US-30 junction"},
+        {"mm": 71, "exit": "71", "name": "Petro Stopping Center", "brand": "Petro", "type": "truck_stop", "city": "Pocatello", "approx": true, "notes": "Pocatello area near I-15/I-86 junction; Flying J is on I-86 exit 61"},
+        {"mm": 80, "exit": "80", "name": "Sage Hill Travel Center & Casino", "brand": "Independent", "type": "truck_stop", "city": "Fort Hall", "approx": true, "notes": "Shoshone-Bannock tribal travel center"},
+        {"mm": 113, "exit": "113", "name": "Love's Travel Stop", "brand": "Love's", "type": "truck_stop", "city": "Idaho Falls", "approx": true, "notes": "US-20/Broadway interchange area"},
+        {"mm": 119, "exit": "119", "name": "Pilot Travel Center", "brand": "Pilot", "type": "truck_stop", "city": "Idaho Falls", "approx": true, "notes": "North Idaho Falls"},
+        {"mm": 167, "exit": "167", "name": "Dubois Rest Area", "brand": "State", "type": "rest_area", "city": "Dubois", "approx": true, "notes": "Serves both directions; truck parking"}
+      ]
+    },
+    "I-84": {
+      "maxMM": 276,
+      "stops": [
+        {"mm": 29, "exit": "29", "name": "TA Boise", "brand": "TA", "type": "truck_stop", "city": "Caldwell", "approx": false, "notes": "Franklin Rd"},
+        {"mm": 54, "exit": "54", "name": "Flying J Travel Center", "brand": "Flying J", "type": "truck_stop", "city": "Boise", "approx": false, "notes": "Federal Way"},
+        {"mm": 62, "exit": "", "name": "Blacks Creek Rest Area", "brand": "State", "type": "rest_area", "city": "Boise", "approx": false, "notes": "Serves both directions; truck parking"},
+        {"mm": 71, "exit": "71", "name": "Boise Stage Stop", "brand": "Independent", "type": "truck_stop", "city": "Boise", "approx": false, "notes": "Historic independent stop SE of Boise"},
+        {"mm": 95, "exit": "95", "name": "Pilot Travel Center", "brand": "Pilot", "type": "truck_stop", "city": "Mountain Home", "approx": false, "notes": ""},
+        {"mm": 95, "exit": "95", "name": "Love's Travel Stop", "brand": "Love's", "type": "truck_stop", "city": "Mountain Home", "approx": false, "notes": ""},
+        {"mm": 133, "exit": "", "name": "Bliss Rest Area", "brand": "State", "type": "rest_area", "city": "Bliss", "approx": true, "notes": "Serves both directions; truck parking"},
+        {"mm": 173, "exit": "173", "name": "Flying J Travel Center", "brand": "Flying J", "type": "truck_stop", "city": "Twin Falls", "approx": false, "notes": "US-93 junction north of Twin Falls"},
+        {"mm": 182, "exit": "182", "name": "Travelers Oasis Truck Plaza", "brand": "AmBest", "type": "truck_stop", "city": "Eden", "approx": false, "notes": "Independent AmBest plaza, Eden/Hazelton"},
+        {"mm": 208, "exit": "208", "name": "Love's Travel Stop", "brand": "Love's", "type": "truck_stop", "city": "Burley", "approx": true, "notes": "ID-27 interchange"},
+        {"mm": 208, "exit": "208", "name": "Flying J Travel Center", "brand": "Flying J", "type": "truck_stop", "city": "Burley", "approx": true, "notes": "Burley area"},
+        {"mm": 229, "exit": "", "name": "Cotterell Rest Area", "brand": "State", "type": "rest_area", "city": "Declo", "approx": true, "notes": "Serves both directions; truck parking and port-of-entry area"},
+        {"mm": 269, "exit": "", "name": "Juniper Rest Area", "brand": "State", "type": "rest_area", "city": "Juniper", "approx": true, "notes": "Westbound welcome center near Utah line"}
+      ]
+    },
+    "I-86": {
+      "maxMM": 63,
+      "stops": [
+        {"mm": 19, "exit": "", "name": "Coldwater Rest Area (Massacre Rocks)", "brand": "State", "type": "rest_area", "city": "American Falls", "approx": true, "notes": "Serves both directions; truck parking"},
+        {"mm": 61, "exit": "61", "name": "Flying J Travel Center", "brand": "Flying J", "type": "truck_stop", "city": "Pocatello", "approx": false, "notes": "US-30/Highway 30 W, west Pocatello near I-15 junction"}
+      ]
+    },
+    "I-90": {
+      "maxMM": 74,
+      "stops": [
+        {"mm": 2, "exit": "2", "name": "Flying J Travel Center", "brand": "Flying J", "type": "truck_stop", "city": "Post Falls", "approx": false, "notes": "Pleasant View Rd, just east of Washington line"},
+        {"mm": 8, "exit": "", "name": "Huetter Rest Area", "brand": "State", "type": "rest_area", "city": "Coeur d'Alene", "approx": false, "notes": "Serves both directions; truck parking"}
+      ]
+    }
+  }
+}

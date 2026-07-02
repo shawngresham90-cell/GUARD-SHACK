@@ -1,0 +1,41 @@
+{
+  "state": "Nevada",
+  "abbr": "NV",
+  "interstates": {
+    "I-11": {
+      "maxMM": 23,
+      "stops": [
+        {"mm": 18, "exit": "18", "name": "Railroad Pass Travel Center", "brand": "Independent", "type": "truck_stop", "city": "Henderson (Railroad Pass)", "approx": true, "notes": "At Railroad Pass Casino, US-93/95 junction"}
+      ]
+    },
+    "I-15": {
+      "maxMM": 123,
+      "stops": [
+        {"mm": 1, "exit": "1", "name": "Whiskey Pete's", "brand": "Independent", "type": "truck_stop", "city": "Primm", "approx": false, "notes": "Casino truck plaza at CA/NV state line"},
+        {"mm": 12, "exit": "12", "name": "Terrible's Road House", "brand": "Independent", "type": "truck_stop", "city": "Jean", "approx": false, "notes": "Terrible Herbst mega travel center"},
+        {"mm": 33, "exit": "33", "name": "TA Las Vegas", "brand": "TA", "type": "truck_stop", "city": "Las Vegas", "approx": true, "notes": "Blue Diamond Rd/Dean Martin Dr"},
+        {"mm": 46, "exit": "46", "name": "Love's Travel Stop", "brand": "Love's", "type": "truck_stop", "city": "North Las Vegas", "approx": true, "notes": "N Las Vegas Blvd"},
+        {"mm": 54, "exit": "54", "name": "Petro Stopping Center", "brand": "Petro", "type": "truck_stop", "city": "North Las Vegas", "approx": true, "notes": "Speedway Blvd/N Hollywood Blvd"},
+        {"mm": 75, "exit": "75", "name": "Moapa Paiute Travel Plaza", "brand": "Independent", "type": "truck_stop", "city": "Moapa", "approx": false, "notes": "Moapa River Indian Reservation"}
+      ]
+    },
+    "I-80": {
+      "maxMM": 411,
+      "stops": [
+        {"mm": 18, "exit": "18", "name": "Sapp Bros Travel Center (Sierra Sid's)", "brand": "Sapp Bros", "type": "truck_stop", "city": "Sparks", "approx": true, "notes": "McCarran Blvd"},
+        {"mm": 19, "exit": "19", "name": "Alamo Casino & Travel Center", "brand": "Independent", "type": "truck_stop", "city": "Sparks", "approx": true, "notes": "E Greg St; TA-affiliated"},
+        {"mm": 32, "exit": "32", "name": "Love's Travel Stop", "brand": "Love's", "type": "truck_stop", "city": "Patrick (USA Pkwy)", "approx": true, "notes": "Serves Tahoe-Reno Industrial Center"},
+        {"mm": 46, "exit": "46", "name": "Love's Travel Stop", "brand": "Love's", "type": "truck_stop", "city": "Fernley", "approx": true, "notes": "West Fernley exit"},
+        {"mm": 48, "exit": "48", "name": "Pilot Travel Center", "brand": "Pilot", "type": "truck_stop", "city": "Fernley", "approx": true, "notes": "East Fernley/US-95A"},
+        {"mm": 158, "exit": "", "name": "Cosgrave Rest Area", "brand": "State", "type": "rest_area", "city": "Mill City (east of Lovelock)", "approx": true, "notes": "Both directions"},
+        {"mm": 176, "exit": "176", "name": "Pilot Travel Center", "brand": "Pilot", "type": "truck_stop", "city": "Winnemucca", "approx": true, "notes": "W Winnemucca Blvd"},
+        {"mm": 262, "exit": "", "name": "Valmy Rest Area", "brand": "State", "type": "rest_area", "city": "Valmy", "approx": true, "notes": "Both directions"},
+        {"mm": 280, "exit": "280", "name": "Pilot Travel Center", "brand": "Pilot", "type": "truck_stop", "city": "Carlin", "approx": true, "notes": "West of Elko"},
+        {"mm": 351, "exit": "351", "name": "Love's Travel Stop", "brand": "Love's", "type": "truck_stop", "city": "Wells", "approx": true, "notes": ""},
+        {"mm": 352, "exit": "352", "name": "Flying J Travel Center", "brand": "Flying J", "type": "truck_stop", "city": "Wells", "approx": true, "notes": "US-93 junction"},
+        {"mm": 373, "exit": "", "name": "Pequop Summit Rest Area", "brand": "State", "type": "rest_area", "city": "Pequop Summit", "approx": true, "notes": "Both directions"},
+        {"mm": 410, "exit": "410", "name": "Pilot Travel Center", "brand": "Pilot", "type": "truck_stop", "city": "West Wendover", "approx": true, "notes": "At UT state line"}
+      ]
+    }
+  }
+}

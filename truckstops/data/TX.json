@@ -1,0 +1,165 @@
+{
+  "state": "Texas",
+  "abbr": "TX",
+  "interstates": {
+    "I-2": {
+      "maxMM": 47,
+      "stops": []
+    },
+    "I-10": {
+      "maxMM": 880,
+      "stops": [
+        {"mm": 0, "exit": "0", "name": "Love's Travel Stop", "brand": "Love's", "type": "truck_stop", "city": "Anthony", "approx": true, "notes": "At NM state line"},
+        {"mm": 0, "exit": "0", "name": "Flying J Travel Center", "brand": "Flying J", "type": "truck_stop", "city": "Anthony", "approx": true, "notes": "At NM state line"},
+        {"mm": 1, "exit": "0", "name": "Texas Travel Information Center - Anthony", "brand": "State", "type": "rest_area", "city": "Anthony", "approx": true, "notes": "Welcome center, serves eastbound traffic entering from New Mexico"},
+        {"mm": 37, "exit": "37", "name": "Flying J Travel Center", "brand": "Flying J", "type": "truck_stop", "city": "El Paso", "approx": false, "notes": "Horizon Blvd exit"},
+        {"mm": 37, "exit": "37", "name": "Petro Stopping Center", "brand": "Petro", "type": "truck_stop", "city": "El Paso", "approx": false, "notes": "Horizon Blvd exit"},
+        {"mm": 37, "exit": "37", "name": "Love's Travel Stop", "brand": "Love's", "type": "truck_stop", "city": "El Paso", "approx": true, "notes": "Horizon Blvd area"},
+        {"mm": 138, "exit": "138", "name": "Pilot Travel Center", "brand": "Pilot", "type": "truck_stop", "city": "Van Horn", "approx": true, "notes": ""},
+        {"mm": 140, "exit": "140", "name": "Love's Travel Stop", "brand": "Love's", "type": "truck_stop", "city": "Van Horn", "approx": true, "notes": ""},
+        {"mm": 257, "exit": "257", "name": "Love's Travel Stop", "brand": "Love's", "type": "truck_stop", "city": "Fort Stockton", "approx": true, "notes": "US 285 exit"},
+        {"mm": 372, "exit": "372", "name": "Circle Bar Truck Corral", "brand": "Independent", "type": "truck_stop", "city": "Ozona", "approx": true, "notes": "Long-running independent full-service truck stop"},
+        {"mm": 394, "exit": "394", "name": "Sutton County Safety Rest Area", "brand": "State", "type": "rest_area", "city": "Sonora", "approx": true, "notes": "Serves both directions"},
+        {"mm": 456, "exit": "456", "name": "Love's Travel Stop", "brand": "Love's", "type": "truck_stop", "city": "Junction", "approx": true, "notes": ""},
+        {"mm": 543, "exit": "543", "name": "Buc-ee's", "brand": "Buc-ee's", "type": "truck_stop", "city": "Boerne", "approx": true, "notes": "No semi-truck parking permitted"},
+        {"mm": 581, "exit": "581", "name": "TA San Antonio", "brand": "TA", "type": "truck_stop", "city": "San Antonio", "approx": true, "notes": "Ackerman Rd, east side"},
+        {"mm": 583, "exit": "583", "name": "Flying J Travel Center", "brand": "Flying J", "type": "truck_stop", "city": "San Antonio", "approx": true, "notes": "Foster Rd, east side"},
+        {"mm": 583, "exit": "583", "name": "Pilot Travel Center", "brand": "Pilot", "type": "truck_stop", "city": "San Antonio", "approx": true, "notes": "Foster Rd, east side"},
+        {"mm": 593, "exit": "593", "name": "Guadalupe County Safety Rest Area", "brand": "State", "type": "rest_area", "city": "Seguin", "approx": true, "notes": "Serves both directions"},
+        {"mm": 628, "exit": "628", "name": "Buc-ee's", "brand": "Buc-ee's", "type": "truck_stop", "city": "Luling", "approx": false, "notes": "TX 80 exit; no semi-truck parking permitted"},
+        {"mm": 740, "exit": "740", "name": "Buc-ee's", "brand": "Buc-ee's", "type": "truck_stop", "city": "Katy", "approx": false, "notes": "Cane Island Pkwy; no semi-truck parking permitted"},
+        {"mm": 789, "exit": "789", "name": "TA Baytown", "brand": "TA", "type": "truck_stop", "city": "Baytown", "approx": false, "notes": "Thompson Rd exit"},
+        {"mm": 797, "exit": "797", "name": "Love's Travel Stop", "brand": "Love's", "type": "truck_stop", "city": "Baytown", "approx": true, "notes": ""},
+        {"mm": 800, "exit": "800", "name": "Buc-ee's", "brand": "Buc-ee's", "type": "truck_stop", "city": "Baytown", "approx": true, "notes": "No semi-truck parking permitted"},
+        {"mm": 848, "exit": "848", "name": "TA Beaumont", "brand": "TA", "type": "truck_stop", "city": "Beaumont", "approx": true, "notes": "Walden Rd exit"},
+        {"mm": 873, "exit": "873", "name": "Pilot Travel Center", "brand": "Pilot", "type": "truck_stop", "city": "Orange", "approx": true, "notes": ""},
+        {"mm": 878, "exit": "878", "name": "Texas Travel Information Center - Orange", "brand": "State", "type": "rest_area", "city": "Orange", "approx": true, "notes": "Welcome center, serves westbound traffic entering from Louisiana"}
+      ]
+    },
+    "I-14": {
+      "maxMM": 26,
+      "stops": []
+    },
+    "I-20": {
+      "maxMM": 636,
+      "stops": [
+        {"mm": 42, "exit": "42", "name": "Love's Travel Stop", "brand": "Love's", "type": "truck_stop", "city": "Pecos", "approx": true, "notes": ""},
+        {"mm": 42, "exit": "42", "name": "TA Express Pecos", "brand": "TA Express", "type": "truck_stop", "city": "Pecos", "approx": true, "notes": ""},
+        {"mm": 80, "exit": "80", "name": "Love's Travel Stop", "brand": "Love's", "type": "truck_stop", "city": "Monahans", "approx": true, "notes": "TX 18 exit"},
+        {"mm": 108, "exit": "108", "name": "Pilot Travel Center", "brand": "Pilot", "type": "truck_stop", "city": "Odessa", "approx": true, "notes": ""},
+        {"mm": 138, "exit": "138", "name": "Love's Travel Stop", "brand": "Love's", "type": "truck_stop", "city": "Midland", "approx": true, "notes": ""},
+        {"mm": 177, "exit": "177", "name": "TA Big Spring", "brand": "TA", "type": "truck_stop", "city": "Big Spring", "approx": false, "notes": ""},
+        {"mm": 218, "exit": "218", "name": "Mitchell County Safety Rest Area", "brand": "State", "type": "rest_area", "city": "Colorado City", "approx": true, "notes": "Serves both directions"},
+        {"mm": 242, "exit": "242", "name": "TA Sweetwater", "brand": "TA", "type": "truck_stop", "city": "Sweetwater", "approx": true, "notes": ""},
+        {"mm": 306, "exit": "306", "name": "Love's Travel Stop", "brand": "Love's", "type": "truck_stop", "city": "Baird", "approx": true, "notes": ""},
+        {"mm": 406, "exit": "406", "name": "Love's Travel Stop", "brand": "Love's", "type": "truck_stop", "city": "Weatherford", "approx": true, "notes": ""},
+        {"mm": 470, "exit": "470", "name": "TA Dallas South", "brand": "TA", "type": "truck_stop", "city": "Dallas", "approx": false, "notes": "Bonnie View Rd exit"},
+        {"mm": 470, "exit": "470", "name": "Flying J Travel Center", "brand": "Flying J", "type": "truck_stop", "city": "Dallas", "approx": false, "notes": "Bonnie View Rd exit"},
+        {"mm": 506, "exit": "506", "name": "Buc-ee's", "brand": "Buc-ee's", "type": "truck_stop", "city": "Terrell", "approx": true, "notes": "No semi-truck parking permitted"},
+        {"mm": 527, "exit": "527", "name": "Love's Travel Stop", "brand": "Love's", "type": "truck_stop", "city": "Canton", "approx": true, "notes": ""},
+        {"mm": 595, "exit": "595", "name": "Pilot Travel Center", "brand": "Pilot", "type": "truck_stop", "city": "Longview", "approx": true, "notes": ""},
+        {"mm": 633, "exit": "633", "name": "Texas Travel Information Center - Waskom", "brand": "State", "type": "rest_area", "city": "Waskom", "approx": true, "notes": "Welcome center, serves westbound traffic entering from Louisiana"}
+      ]
+    },
+    "I-27": {
+      "maxMM": 124,
+      "stops": []
+    },
+    "I-30": {
+      "maxMM": 224,
+      "stops": [
+        {"mm": 87, "exit": "87", "name": "Love's Travel Stop", "brand": "Love's", "type": "truck_stop", "city": "Caddo Mills", "approx": true, "notes": ""},
+        {"mm": 122, "exit": "122", "name": "Love's Travel Stop", "brand": "Love's", "type": "truck_stop", "city": "Sulphur Springs", "approx": true, "notes": ""},
+        {"mm": 147, "exit": "147", "name": "Love's Travel Stop", "brand": "Love's", "type": "truck_stop", "city": "Mount Vernon", "approx": true, "notes": ""},
+        {"mm": 162, "exit": "162", "name": "Pilot Travel Center", "brand": "Pilot", "type": "truck_stop", "city": "Mount Pleasant", "approx": true, "notes": ""},
+        {"mm": 201, "exit": "201", "name": "Love's Travel Stop", "brand": "Love's", "type": "truck_stop", "city": "New Boston", "approx": true, "notes": ""},
+        {"mm": 223, "exit": "223", "name": "Texas Travel Information Center - Texarkana", "brand": "State", "type": "rest_area", "city": "Texarkana", "approx": true, "notes": "Welcome center, serves westbound traffic entering from Arkansas"}
+      ]
+    },
+    "I-35": {
+      "maxMM": 504,
+      "stops": [
+        {"mm": 3, "exit": "3", "name": "Texas Travel Information Center - Laredo", "brand": "State", "type": "rest_area", "city": "Laredo", "approx": true, "notes": "Welcome center, serves northbound traffic entering from Mexico"},
+        {"mm": 13, "exit": "13", "name": "Flying J Travel Center", "brand": "Flying J", "type": "truck_stop", "city": "Laredo", "approx": false, "notes": "Uniroyal Dr; major border-freight cluster"},
+        {"mm": 13, "exit": "13", "name": "TA Laredo", "brand": "TA", "type": "truck_stop", "city": "Laredo", "approx": true, "notes": ""},
+        {"mm": 13, "exit": "13", "name": "Love's Travel Stop", "brand": "Love's", "type": "truck_stop", "city": "Laredo", "approx": true, "notes": ""},
+        {"mm": 39, "exit": "39", "name": "Love's Travel Stop", "brand": "Love's", "type": "truck_stop", "city": "Encinal", "approx": true, "notes": ""},
+        {"mm": 68, "exit": "68", "name": "Love's Travel Stop", "brand": "Love's", "type": "truck_stop", "city": "Cotulla", "approx": true, "notes": ""},
+        {"mm": 124, "exit": "124", "name": "Love's Travel Stop", "brand": "Love's", "type": "truck_stop", "city": "Devine", "approx": true, "notes": ""},
+        {"mm": 140, "exit": "140", "name": "Petro Stopping Center", "brand": "Petro", "type": "truck_stop", "city": "San Antonio", "approx": true, "notes": "South side of San Antonio, Fischer Rd area"},
+        {"mm": 191, "exit": "191", "name": "Buc-ee's", "brand": "Buc-ee's", "type": "truck_stop", "city": "New Braunfels", "approx": false, "notes": "One of the largest convenience stores in the world; no semi-truck parking permitted"},
+        {"mm": 287, "exit": "287", "name": "Bell County Safety Rest Area", "brand": "State", "type": "rest_area", "city": "Salado", "approx": true, "notes": "Serves both directions"},
+        {"mm": 300, "exit": "300", "name": "Buc-ee's", "brand": "Buc-ee's", "type": "truck_stop", "city": "Temple", "approx": true, "notes": "No semi-truck parking permitted"},
+        {"mm": 342, "exit": "342", "name": "Flying J Travel Center", "brand": "Flying J", "type": "truck_stop", "city": "Waco", "approx": true, "notes": "North Waco / Lacy Lakeview area"},
+        {"mm": 368, "exit": "368", "name": "Love's Travel Stop", "brand": "Love's", "type": "truck_stop", "city": "Hillsboro", "approx": true, "notes": "Near I-35E/I-35W split"},
+        {"mm": 502, "exit": "502", "name": "Texas Travel Information Center - Gainesville", "brand": "State", "type": "rest_area", "city": "Gainesville", "approx": true, "notes": "Welcome center, serves southbound traffic entering from Oklahoma"}
+      ]
+    },
+    "I-35E": {
+      "maxMM": 467,
+      "stops": [
+        {"mm": 462, "exit": "462", "name": "Buc-ee's", "brand": "Buc-ee's", "type": "truck_stop", "city": "Denton", "approx": true, "notes": "No semi-truck parking permitted"}
+      ]
+    },
+    "I-35W": {
+      "maxMM": 85,
+      "stops": [
+        {"mm": 26, "exit": "26", "name": "Love's Travel Stop", "brand": "Love's", "type": "truck_stop", "city": "Alvarado", "approx": true, "notes": "US 67 exit"},
+        {"mm": 56, "exit": "56", "name": "Petro Stopping Center", "brand": "Petro", "type": "truck_stop", "city": "Fort Worth", "approx": true, "notes": "North Fort Worth, Meacham Blvd area"}
+      ]
+    },
+    "I-37": {
+      "maxMM": 143,
+      "stops": [
+        {"mm": 34, "exit": "34", "name": "Love's Travel Stop", "brand": "Love's", "type": "truck_stop", "city": "Mathis", "approx": true, "notes": ""},
+        {"mm": 72, "exit": "72", "name": "Love's Travel Stop", "brand": "Love's", "type": "truck_stop", "city": "Three Rivers", "approx": true, "notes": ""}
+      ]
+    },
+    "I-40": {
+      "maxMM": 177,
+      "stops": [
+        {"mm": 74, "exit": "74", "name": "TA Amarillo", "brand": "TA", "type": "truck_stop", "city": "Amarillo", "approx": false, "notes": "Whitaker Rd exit"},
+        {"mm": 74, "exit": "74", "name": "Love's Travel Stop", "brand": "Love's", "type": "truck_stop", "city": "Amarillo", "approx": true, "notes": ""},
+        {"mm": 75, "exit": "75", "name": "Petro Stopping Center", "brand": "Petro", "type": "truck_stop", "city": "Amarillo", "approx": false, "notes": "Lakeside Dr exit"},
+        {"mm": 75, "exit": "75", "name": "Flying J Travel Center", "brand": "Flying J", "type": "truck_stop", "city": "Amarillo", "approx": false, "notes": "Lakeside Dr exit"},
+        {"mm": 76, "exit": "76", "name": "Pilot Travel Center", "brand": "Pilot", "type": "truck_stop", "city": "Amarillo", "approx": true, "notes": ""},
+        {"mm": 76, "exit": "76", "name": "Texas Travel Information Center - Amarillo", "brand": "State", "type": "rest_area", "city": "Amarillo", "approx": true, "notes": "Welcome center on east side of Amarillo, serves both directions"},
+        {"mm": 142, "exit": "142", "name": "Gray County Safety Rest Area", "brand": "State", "type": "rest_area", "city": "McLean", "approx": true, "notes": "Serves both directions; includes tornado shelter"}
+      ]
+    },
+    "I-44": {
+      "maxMM": 15,
+      "stops": [
+        {"mm": 1, "exit": "1", "name": "Texas Travel Information Center - Wichita Falls", "brand": "State", "type": "rest_area", "city": "Wichita Falls", "approx": true, "notes": "Welcome center on Central Freeway, serves traffic entering from Oklahoma"}
+      ]
+    },
+    "I-45": {
+      "maxMM": 285,
+      "stops": [
+        {"mm": 17, "exit": "17", "name": "Buc-ee's", "brand": "Buc-ee's", "type": "truck_stop", "city": "Texas City", "approx": true, "notes": "No semi-truck parking permitted"},
+        {"mm": 102, "exit": "102", "name": "Love's Travel Stop", "brand": "Love's", "type": "truck_stop", "city": "New Waverly", "approx": true, "notes": ""},
+        {"mm": 142, "exit": "142", "name": "Buc-ee's", "brand": "Buc-ee's", "type": "truck_stop", "city": "Madisonville", "approx": false, "notes": "No semi-truck parking permitted"},
+        {"mm": 142, "exit": "142", "name": "Love's Travel Stop", "brand": "Love's", "type": "truck_stop", "city": "Madisonville", "approx": true, "notes": ""},
+        {"mm": 197, "exit": "197", "name": "Love's Travel Stop", "brand": "Love's", "type": "truck_stop", "city": "Fairfield", "approx": true, "notes": ""},
+        {"mm": 226, "exit": "226", "name": "Navarro County Safety Rest Area", "brand": "State", "type": "rest_area", "city": "Richland", "approx": true, "notes": "Serves both directions"},
+        {"mm": 274, "exit": "274", "name": "Love's Travel Stop", "brand": "Love's", "type": "truck_stop", "city": "Hutchins", "approx": true, "notes": "South Dallas metro"}
+      ]
+    },
+    "I-69": {
+      "maxMM": 165,
+      "stops": []
+    },
+    "I-69C": {
+      "maxMM": 15,
+      "stops": []
+    },
+    "I-69E": {
+      "maxMM": 55,
+      "stops": []
+    },
+    "I-69W": {
+      "maxMM": 6,
+      "stops": []
+    }
+  }
+}
