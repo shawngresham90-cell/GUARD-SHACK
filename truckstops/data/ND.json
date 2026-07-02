@@ -1,0 +1,29 @@
+{
+  "state": "North Dakota",
+  "abbr": "ND",
+  "interstates": {
+    "I-29": {
+      "maxMM": 218,
+      "stops": [
+        {"mm": 62, "exit": "62", "name": "Stamart Travel Center", "brand": "Independent", "type": "truck_stop", "city": "Fargo", "approx": true, "notes": "Main Ave area; regional independent chain"},
+        {"mm": 100, "exit": "100", "name": "Cenex Hillsboro", "brand": "Cenex", "type": "truck_stop", "city": "Hillsboro", "approx": true},
+        {"mm": 141, "exit": "141", "name": "Simonson Travel Center", "brand": "Independent", "type": "truck_stop", "city": "Grand Forks", "approx": true, "notes": "Gateway Dr / US-2 area"}
+      ]
+    },
+    "I-94": {
+      "maxMM": 352,
+      "stops": [
+        {"mm": 1, "exit": "1", "name": "Flying J Travel Plaza", "brand": "Flying J", "type": "truck_stop", "city": "Beach", "approx": false, "notes": "First/last stop at MT line"},
+        {"mm": 32, "exit": "32", "name": "Painted Canyon Rest Area & Visitor Center", "brand": "State", "type": "rest_area", "city": "Medora", "approx": true, "notes": "Both directions via exit 32; Theodore Roosevelt NP badlands overlook; truck parking"},
+        {"mm": 42, "exit": "42", "name": "Cenex Belfield", "brand": "Cenex", "type": "truck_stop", "city": "Belfield", "approx": true, "notes": "US-85 interchange (Bakken route)"},
+        {"mm": 61, "exit": "61", "name": "TA Express Dickinson", "brand": "TA Express", "type": "truck_stop", "city": "Dickinson", "approx": true, "notes": "Former Tiger Truck Stop"},
+        {"mm": 161, "exit": "161", "name": "Stamart Travel Center", "brand": "Independent", "type": "truck_stop", "city": "Bismarck", "approx": true, "notes": "East Bismarck; regional independent chain"},
+        {"mm": 168, "exit": "168", "name": "McKenzie Rest Area", "brand": "State", "type": "rest_area", "city": "Menoken", "approx": true, "notes": "EB and WB, truck parking"},
+        {"mm": 257, "exit": "257", "name": "Love's Travel Stop", "brand": "Love's", "type": "truck_stop", "city": "Jamestown", "approx": true, "notes": "US-281 interchange"},
+        {"mm": 342, "exit": "342", "name": "Love's Travel Stop", "brand": "Love's", "type": "truck_stop", "city": "West Fargo", "approx": true},
+        {"mm": 348, "exit": "348", "name": "Petro Stopping Center", "brand": "Petro", "type": "truck_stop", "city": "Fargo", "approx": false, "notes": "45th St exit, west Fargo"},
+        {"mm": 348, "exit": "348", "name": "Flying J Travel Center", "brand": "Flying J", "type": "truck_stop", "city": "Fargo", "approx": true, "notes": "39th St S, near I-94/I-29 junction"}
+      ]
+    }
+  }
+}

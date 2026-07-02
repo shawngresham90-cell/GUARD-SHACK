@@ -1,0 +1,59 @@
+{
+  "state": "Massachusetts",
+  "abbr": "MA",
+  "note": "Severe overnight truck parking shortage statewide. Mass Pike (I-90) service plazas are the backbone; the main independent full-service stops are Flynn's Truck Plaza (Shrewsbury, via I-90/I-290 area), Pride Travel Center (Chicopee, Pike Exit 51) and the Whately Diner truck stop on I-91. No truck stops on I-93, I-95, I-195, I-290, I-395 or I-495. Mass Pike and I-91 exits were renumbered to milepost-based in 2020-21; old sequential exits shown where known.",
+  "interstates": {
+    "I-84": {
+      "maxMM": 8,
+      "stops": [
+        {"mm": 6, "exit": "3B", "name": "Pilot Travel Center", "brand": "Pilot", "type": "truck_stop", "city": "Sturbridge", "approx": true, "notes": "400 Route 15, just off I-84 near the I-90 interchange; busy, fills early"}
+      ]
+    },
+    "I-90": {
+      "maxMM": 138,
+      "stops": [
+        {"mm": 8, "exit": "", "name": "Lee Service Plaza", "brand": "State", "type": "service_plaza", "city": "Lee", "approx": true, "notes": "Westernmost Pike plaza; fuel and food, truck parking"},
+        {"mm": 29, "exit": "", "name": "Blandford Service Plazas", "brand": "State", "type": "service_plaza", "city": "Blandford", "approx": true, "notes": "EB and WB plazas; fuel and food, truck parking"},
+        {"mm": 51, "exit": "51 (old 6)", "name": "Pride Travel Center", "brand": "Independent", "type": "truck_stop", "city": "Chicopee", "approx": true, "notes": "Burnett Rd off Exit 51 (I-291); fuel, restaurant, truck parking"},
+        {"mm": 56, "exit": "", "name": "Ludlow Service Plazas", "brand": "State", "type": "service_plaza", "city": "Ludlow", "approx": true, "notes": "EB and WB plazas; fuel and food, truck parking"},
+        {"mm": 80, "exit": "", "name": "Charlton Service Plazas", "brand": "State", "type": "service_plaza", "city": "Charlton", "approx": true, "notes": "EB and WB; largest Pike plazas, most truck parking on I-90"},
+        {"mm": 94, "exit": "94 (old 10A)", "name": "Flynn's Truck Plaza", "brand": "AmBest", "type": "truck_stop", "city": "Shrewsbury", "approx": true, "notes": "307 Hartford Tpke (US-20), off-Pike via I-290/MA-146 interchange; full-service independent, diner, overnight parking"},
+        {"mm": 105, "exit": "", "name": "Westborough Service Plaza", "brand": "State", "type": "service_plaza", "city": "Westborough", "approx": true, "notes": "Westbound; fuel and food, truck parking"},
+        {"mm": 111, "exit": "", "name": "Framingham Service Plaza", "brand": "State", "type": "service_plaza", "city": "Framingham", "approx": true, "notes": "Eastbound; last plaza before Boston, fuel and food, truck parking"}
+      ]
+    },
+    "I-91": {
+      "maxMM": 55,
+      "stops": [
+        {"mm": 35, "exit": "35 (old 24)", "name": "Whately Diner / Fillin' Station Truck Stop", "brand": "Independent", "type": "truck_stop", "city": "Whately", "approx": true, "notes": "US-5/MA-10 between Northampton and Greenfield; 24-hour diner, fuel, truck parking"}
+      ]
+    },
+    "I-93": {
+      "maxMM": 47,
+      "stops": []
+    },
+    "I-95": {
+      "maxMM": 92,
+      "stops": [
+        {"mm": 6, "exit": "", "name": "Mansfield Rest Area", "brand": "State", "type": "rest_area", "city": "Mansfield", "approx": true, "notes": "Northbound; truck parking, no fuel"},
+        {"mm": 42, "exit": "", "name": "Lexington Rest Area", "brand": "State", "type": "rest_area", "city": "Lexington", "approx": true, "notes": "Southbound on the Route 128 stretch; truck parking, no fuel"}
+      ]
+    },
+    "I-195": {
+      "maxMM": 37,
+      "stops": []
+    },
+    "I-290": {
+      "maxMM": 20,
+      "stops": []
+    },
+    "I-395": {
+      "maxMM": 11,
+      "stops": []
+    },
+    "I-495": {
+      "maxMM": 120,
+      "stops": []
+    }
+  }
+}

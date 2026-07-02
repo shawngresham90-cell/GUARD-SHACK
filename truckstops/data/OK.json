@@ -1,0 +1,58 @@
+{
+  "state": "Oklahoma",
+  "abbr": "OK",
+  "interstates": {
+    "I-35": {
+      "maxMM": 236,
+      "stops": [
+        {"mm": 1, "exit": "1", "name": "Love's Travel Stop", "brand": "Love's", "type": "truck_stop", "city": "Thackerville", "approx": false, "notes": "Just north of the Red River / Texas line, WinStar casino area"},
+        {"mm": 2, "exit": "", "name": "Oklahoma Welcome Center", "brand": "State", "type": "rest_area", "city": "Thackerville", "approx": true, "notes": "Northbound; welcome center near Texas line; truck parking"},
+        {"mm": 15, "exit": "15", "name": "Love's Travel Stop", "brand": "Love's", "type": "truck_stop", "city": "Marietta", "approx": true, "notes": ""},
+        {"mm": 31, "exit": "31", "name": "Love's Travel Stop", "brand": "Love's", "type": "truck_stop", "city": "Ardmore", "approx": true, "notes": "South Ardmore"},
+        {"mm": 55, "exit": "55", "name": "Love's Travel Stop", "brand": "Love's", "type": "truck_stop", "city": "Davis", "approx": true, "notes": "OK-7, Arbuckle Mountains area"},
+        {"mm": 72, "exit": "72", "name": "Love's Travel Stop", "brand": "Love's", "type": "truck_stop", "city": "Pauls Valley", "approx": true, "notes": ""},
+        {"mm": 121, "exit": "121", "name": "Pilot Travel Center", "brand": "Pilot", "type": "truck_stop", "city": "Oklahoma City", "approx": true, "notes": "SE 89th St, south OKC"},
+        {"mm": 185, "exit": "185", "name": "Love's Travel Stop", "brand": "Love's", "type": "truck_stop", "city": "Perry", "approx": true, "notes": ""},
+        {"mm": 214, "exit": "214", "name": "Love's Travel Stop", "brand": "Love's", "type": "truck_stop", "city": "Tonkawa", "approx": true, "notes": "US-60 junction"},
+        {"mm": 231, "exit": "231", "name": "Kanza Travel Plaza", "brand": "Independent", "type": "truck_stop", "city": "Braman", "approx": true, "notes": "Kaw Nation-operated; last stop before Kansas line"}
+      ]
+    },
+    "I-40": {
+      "maxMM": 331,
+      "stops": [
+        {"mm": 7, "exit": "7", "name": "Love's Travel Stop", "brand": "Love's", "type": "truck_stop", "city": "Erick", "approx": false, "notes": ""},
+        {"mm": 20, "exit": "20", "name": "Flying J Travel Center", "brand": "Flying J", "type": "truck_stop", "city": "Sayre", "approx": true, "notes": "OK-152 exit"},
+        {"mm": 38, "exit": "38", "name": "Love's Travel Stop", "brand": "Love's", "type": "truck_stop", "city": "Elk City", "approx": true, "notes": ""},
+        {"mm": 41, "exit": "41", "name": "Hutch's Travel Stop", "brand": "Independent", "type": "truck_stop", "city": "Elk City", "approx": true, "notes": "Western Oklahoma independent chain"},
+        {"mm": 84, "exit": "84", "name": "Love's Travel Stop", "brand": "Love's", "type": "truck_stop", "city": "Weatherford", "approx": true, "notes": ""},
+        {"mm": 101, "exit": "101", "name": "Love's Travel Stop", "brand": "Love's", "type": "truck_stop", "city": "Hinton", "approx": false, "notes": "Hinton Junction, US-281"},
+        {"mm": 108, "exit": "108", "name": "Love's Travel Stop", "brand": "Love's", "type": "truck_stop", "city": "Calumet", "approx": true, "notes": ""},
+        {"mm": 140, "exit": "140", "name": "TA Oklahoma City West", "brand": "TA", "type": "truck_stop", "city": "Oklahoma City", "approx": true, "notes": "Morgan Rd, west OKC"},
+        {"mm": 142, "exit": "142", "name": "Flying J Travel Center", "brand": "Flying J", "type": "truck_stop", "city": "Oklahoma City", "approx": true, "notes": "Council Rd area, west OKC"},
+        {"mm": 166, "exit": "166", "name": "Love's Travel Stop", "brand": "Love's", "type": "truck_stop", "city": "Oklahoma City (Choctaw)", "approx": true, "notes": "Choctaw Rd, east OKC metro"},
+        {"mm": 185, "exit": "185", "name": "Love's Travel Stop", "brand": "Love's", "type": "truck_stop", "city": "Shawnee", "approx": true, "notes": ""},
+        {"mm": 221, "exit": "221", "name": "Love's Travel Stop", "brand": "Love's", "type": "truck_stop", "city": "Okemah", "approx": true, "notes": ""},
+        {"mm": 237, "exit": "237", "name": "Love's Country Store", "brand": "Love's", "type": "truck_stop", "city": "Henryetta", "approx": true, "notes": "US-75 junction"},
+        {"mm": 264, "exit": "264", "name": "Love's Travel Stop", "brand": "Love's", "type": "truck_stop", "city": "Checotah", "approx": true, "notes": "US-69 junction"},
+        {"mm": 287, "exit": "287", "name": "Love's Country Store", "brand": "Love's", "type": "truck_stop", "city": "Webbers Falls", "approx": true, "notes": ""},
+        {"mm": 308, "exit": "308", "name": "Love's Travel Stop", "brand": "Love's", "type": "truck_stop", "city": "Sallisaw", "approx": false, "notes": "US-59 exit"},
+        {"mm": 325, "exit": "325", "name": "Cherokee Travel Plaza", "brand": "Independent", "type": "truck_stop", "city": "Roland", "approx": false, "notes": "Cherokee Nation-operated; last stop before Arkansas line"}
+      ]
+    },
+    "I-44": {
+      "maxMM": 329,
+      "stops": [
+        {"mm": 5, "exit": "5", "name": "Love's Travel Stop", "brand": "Love's", "type": "truck_stop", "city": "Randlett", "approx": true, "notes": "US-70, just north of Texas line"},
+        {"mm": 76, "exit": "", "name": "H.E. Bailey Turnpike Service Plaza", "brand": "Independent", "type": "service_plaza", "city": "Chickasha (south of)", "approx": true, "notes": "H.E. Bailey Turnpike; serves both directions; turnpike milepost"},
+        {"mm": 172, "exit": "", "name": "Stroud Service Plaza", "brand": "Independent", "type": "service_plaza", "city": "Stroud", "approx": true, "notes": "Turner Turnpike midpoint plaza; serves both directions; turnpike milepost"},
+        {"mm": 236, "exit": "236", "name": "Pilot Travel Center", "brand": "Pilot", "type": "truck_stop", "city": "Tulsa", "approx": true, "notes": "129th E Ave, east Tulsa (free section)"},
+        {"mm": 283, "exit": "283", "name": "Big Cabin Travel Plaza", "brand": "AmBest", "type": "truck_stop", "city": "Big Cabin", "approx": false, "notes": "US-69 exit off Will Rogers Turnpike; large independent AmBest plaza"},
+        {"mm": 289, "exit": "", "name": "Vinita Service Plaza", "brand": "Independent", "type": "service_plaza", "city": "Vinita", "approx": true, "notes": "Will Rogers Turnpike; McDonald's spanning the roadway; serves both directions; turnpike milepost"}
+      ]
+    },
+    "I-240": {
+      "maxMM": 16,
+      "stops": []
+    }
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "state": "Nebraska",
+  "abbr": "NE",
+  "interstates": {
+    "I-76": {
+      "maxMM": 3,
+      "stops": []
+    },
+    "I-80": {
+      "maxMM": 455,
+      "stops": [
+        {"mm": 59, "exit": "59", "name": "Love's Travel Stop", "brand": "Love's", "type": "truck_stop", "city": "Sidney", "approx": false, "notes": "US-385 interchange"},
+        {"mm": 59, "exit": "59", "name": "Sapp Bros Travel Center", "brand": "Sapp Bros", "type": "truck_stop", "city": "Sidney", "approx": false},
+        {"mm": 107, "exit": "107", "name": "Flying J Travel Plaza", "brand": "Flying J", "type": "truck_stop", "city": "Big Springs", "approx": false, "notes": "Near I-76 split"},
+        {"mm": 107, "exit": "107", "name": "Pilot Travel Center", "brand": "Pilot", "type": "truck_stop", "city": "Big Springs", "approx": true, "notes": "Former Bosselman location"},
+        {"mm": 126, "exit": "126", "name": "TA Ogallala", "brand": "TA", "type": "truck_stop", "city": "Ogallala", "approx": false, "notes": "US-26/NE-61 interchange"},
+        {"mm": 126, "exit": "126", "name": "Love's Travel Stop", "brand": "Love's", "type": "truck_stop", "city": "Ogallala", "approx": true},
+        {"mm": 177, "exit": "177", "name": "Love's Travel Stop", "brand": "Love's", "type": "truck_stop", "city": "North Platte", "approx": true},
+        {"mm": 179, "exit": "179", "name": "Flying J Travel Center", "brand": "Flying J", "type": "truck_stop", "city": "North Platte", "approx": false, "notes": "US-83 interchange"},
+        {"mm": 194, "exit": "194", "name": "Brady Rest Area", "brand": "State", "type": "rest_area", "city": "Brady", "approx": true, "notes": "EB and WB, truck parking"},
+        {"mm": 272, "exit": "272", "name": "Pump & Pantry (Bosselman)", "brand": "Bosselman", "type": "truck_stop", "city": "Kearney", "approx": true, "notes": "NE-44 interchange; limited truck amenities"},
+        {"mm": 300, "exit": "300", "name": "Love's Travel Stop", "brand": "Love's", "type": "truck_stop", "city": "Wood River", "approx": false},
+        {"mm": 312, "exit": "312", "name": "Bosselman Travel Center", "brand": "Bosselman", "type": "truck_stop", "city": "Grand Island", "approx": false, "notes": "Boss Truck Shop on site; affiliated with TA network; US-281 interchange"},
+        {"mm": 332, "exit": "332", "name": "Love's Travel Stop", "brand": "Love's", "type": "truck_stop", "city": "Aurora", "approx": true, "notes": "NE-14 interchange"},
+        {"mm": 353, "exit": "353", "name": "Petro Stopping Center", "brand": "Petro", "type": "truck_stop", "city": "York", "approx": false, "notes": "US-81 interchange"},
+        {"mm": 353, "exit": "353", "name": "Love's Travel Stop", "brand": "Love's", "type": "truck_stop", "city": "York", "approx": true},
+        {"mm": 395, "exit": "395", "name": "Shoemaker's Travel Center", "brand": "Independent", "type": "truck_stop", "city": "Lincoln", "approx": true, "notes": "West O St / US-6, longtime Lincoln independent"},
+        {"mm": 420, "exit": "420", "name": "Pilot Travel Center", "brand": "Pilot", "type": "truck_stop", "city": "Greenwood", "approx": true},
+        {"mm": 431, "exit": "431", "name": "Platte River (Melia Hill) Rest Area", "brand": "State", "type": "rest_area", "city": "Gretna", "approx": true, "notes": "EB and WB, truck parking"},
+        {"mm": 432, "exit": "432", "name": "Flying J Travel Center", "brand": "Flying J", "type": "truck_stop", "city": "Gretna", "approx": false, "notes": "NE-31 interchange"},
+        {"mm": 439, "exit": "439", "name": "Pilot Travel Center", "brand": "Pilot", "type": "truck_stop", "city": "Gretna", "approx": true},
+        {"mm": 440, "exit": "440", "name": "Sapp Bros Travel Center", "brand": "Sapp Bros", "type": "truck_stop", "city": "Omaha", "approx": false, "notes": "NE-50 interchange; landmark coffee-pot water tower"}
+      ]
+    },
+    "I-129": {
+      "maxMM": 3,
+      "stops": []
+    }
+  }
+}

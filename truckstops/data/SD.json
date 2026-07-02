@@ -1,0 +1,41 @@
+{
+  "state": "South Dakota",
+  "abbr": "SD",
+  "interstates": {
+    "I-29": {
+      "maxMM": 253,
+      "stops": [
+        {"mm": 1, "exit": "1", "name": "North Sioux City Welcome Center", "brand": "State", "type": "rest_area", "city": "North Sioux City", "approx": true, "notes": "NB welcome center, truck parking"},
+        {"mm": 26, "exit": "26", "name": "Coffee Cup Fuel Stop", "brand": "AmBest", "type": "truck_stop", "city": "Vermillion", "approx": false, "notes": "SD-50 interchange"},
+        {"mm": 177, "exit": "177", "name": "Stone's Truck Stop", "brand": "Independent", "type": "truck_stop", "city": "Watertown", "approx": true, "notes": "US-212 interchange"},
+        {"mm": 207, "exit": "207", "name": "Coffee Cup Fuel Stop", "brand": "AmBest", "type": "truck_stop", "city": "Summit", "approx": false, "notes": "SD-20 interchange, atop Coteau des Prairies"},
+        {"mm": 232, "exit": "232", "name": "Dakota Connection Travel Plaza", "brand": "Independent", "type": "truck_stop", "city": "Sisseton", "approx": true, "notes": "Tribal casino and travel plaza, SD-10"},
+        {"mm": 251, "exit": "251", "name": "New Effington Welcome Center", "brand": "State", "type": "rest_area", "city": "New Effington", "approx": true, "notes": "SB welcome center near ND line, truck parking"}
+      ]
+    },
+    "I-90": {
+      "maxMM": 413,
+      "stops": [
+        {"mm": 30, "exit": "30", "name": "Cenex Sturgis", "brand": "Cenex", "type": "truck_stop", "city": "Sturgis", "approx": true, "notes": "Rally-town stop; limited truck parking outside August"},
+        {"mm": 55, "exit": "55", "name": "Pilot Travel Center", "brand": "Pilot", "type": "truck_stop", "city": "Rapid City", "approx": true, "notes": "Deadwood Ave exit"},
+        {"mm": 61, "exit": "61", "name": "Flying J Travel Center", "brand": "Flying J", "type": "truck_stop", "city": "Rapid City", "approx": false, "notes": "North I-90 service road"},
+        {"mm": 67, "exit": "67", "name": "Love's Travel Stop", "brand": "Love's", "type": "truck_stop", "city": "Box Elder", "approx": true, "notes": "Near Ellsworth AFB"},
+        {"mm": 98, "exit": "98", "name": "Wasta Rest Area", "brand": "State", "type": "rest_area", "city": "Wasta", "approx": true, "notes": "EB and WB, truck parking"},
+        {"mm": 110, "exit": "110", "name": "Cenex Wall", "brand": "Cenex", "type": "truck_stop", "city": "Wall", "approx": true, "notes": "Near Wall Drug / Badlands"},
+        {"mm": 150, "exit": "150", "name": "Kadoka Fuel Stop", "brand": "Independent", "type": "truck_stop", "city": "Kadoka", "approx": true},
+        {"mm": 192, "exit": "192", "name": "Triple H Truck Stop", "brand": "Independent", "type": "truck_stop", "city": "Murdo", "approx": true, "notes": "US-83 interchange"},
+        {"mm": 260, "exit": "260", "name": "Al's Oasis", "brand": "Independent", "type": "truck_stop", "city": "Oacoma", "approx": false, "notes": "Landmark stop west of Missouri River crossing at Chamberlain"},
+        {"mm": 264, "exit": "264", "name": "Chamberlain Rest Area / Lewis & Clark Welcome Center", "brand": "State", "type": "rest_area", "city": "Chamberlain", "approx": true, "notes": "EB and WB, truck parking; Dignity statue overlook"},
+        {"mm": 332, "exit": "332", "name": "Love's Travel Stop", "brand": "Love's", "type": "truck_stop", "city": "Mitchell", "approx": true, "notes": "SD-37 interchange, Corn Palace town"},
+        {"mm": 396, "exit": "396", "name": "Pilot Travel Center", "brand": "Pilot", "type": "truck_stop", "city": "Sioux Falls", "approx": true, "notes": "Marion Rd area"},
+        {"mm": 399, "exit": "399", "name": "Flying J Travel Center", "brand": "Flying J", "type": "truck_stop", "city": "Sioux Falls", "approx": false, "notes": "Cliff Ave exit, near I-229"},
+        {"mm": 402, "exit": "402", "name": "Love's Travel Stop", "brand": "Love's", "type": "truck_stop", "city": "Sioux Falls", "approx": true, "notes": "East side, SD-11 area"},
+        {"mm": 412, "exit": "412", "name": "Valley Springs Welcome Center", "brand": "State", "type": "rest_area", "city": "Valley Springs", "approx": true, "notes": "WB welcome center near MN line, truck parking"}
+      ]
+    },
+    "I-190": {
+      "maxMM": 2,
+      "stops": []
+    }
+  }
+}
