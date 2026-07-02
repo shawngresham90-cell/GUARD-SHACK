@@ -6,6 +6,16 @@
    "maxMM": 226,
    "stops": [
     {
+     "mm": 1,
+     "exit": "1",
+     "name": "Weigh Station (EB)",
+     "brand": "State",
+     "type": "weigh_station",
+     "city": "New Paris (Preble County)",
+     "approx": true,
+     "notes": "OSHP scale at EB mm 0.8, just east of Indiana state line"
+    },
+    {
      "mm": 10,
      "exit": "10",
      "name": "Pilot Travel Center",
@@ -125,6 +135,16 @@
      "approx": true,
      "notes": "",
      "parking": 85
+    },
+    {
+     "mm": 173,
+     "exit": "173",
+     "name": "Weigh Station (WB)",
+     "brand": "State",
+     "type": "weigh_station",
+     "city": "Cambridge area",
+     "approx": true,
+     "notes": "OSHP scale, Guernsey County, west of Cambridge"
     },
     {
      "mm": 178,
@@ -618,6 +638,16 @@
      "parking": 175
     },
     {
+     "mm": 232,
+     "exit": "232",
+     "name": "Weigh Station (WB)",
+     "brand": "State",
+     "type": "weigh_station",
+     "city": "Hubbard/Girard area",
+     "approx": true,
+     "notes": "OSHP scale 2.5 mi west of OH-7; truck stops at exit 234 are east of scale"
+    },
+    {
      "mm": 234,
      "exit": "234",
      "name": "Flying J Travel Center",
@@ -687,6 +717,16 @@
      "approx": true,
      "notes": "SR-45",
      "parking": 160
+    },
+    {
+     "mm": 236,
+     "exit": "236",
+     "name": "Weigh Station (WB)",
+     "brand": "State",
+     "type": "weigh_station",
+     "city": "Kingsville (Ashtabula County)",
+     "approx": true,
+     "notes": "OSHP scale for WB traffic entering from Pennsylvania"
     },
     {
      "mm": 240,
