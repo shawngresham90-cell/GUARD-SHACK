@@ -197,8 +197,8 @@
 
     <div class="upsell" id="upsell">
         <div class="u-txt">
-            <b>Don't want to fight it yourself?</b>
-            <span id="upsellSub">GoDataQ's team will prepare and file your Request for Data Review for you.</span>
+            <b>One bad violation can cost thousands a year</b>
+            <span id="upsellSub">It drags your CSA score, your insurance rate, and your loads until it's removed. GoDataQ preps &amp; files the dispute for you.</span>
         </div>
         <button class="btn-paid" id="upsellBtn">File it for me</button>
     </div>
@@ -311,6 +311,7 @@
                 <button class="btn-primary" id="copyRdr">📋 Copy</button>
                 <button class="btn-ghost" id="openPortal">↗ Open DataQs</button>
             </div>
+            <button class="btn-paid" id="rdrPaidBtn" style="width:100%;">📨 Skip the paperwork — we file it</button>
             <div class="note">
                 <strong>Tip:</strong> File within the data's window (don't wait — inspection data hits your CSA score in days),
                 attach your evidence as PDFs, and keep your wording factual and specific. One RDR per inspection report.
@@ -331,6 +332,25 @@
         </div>
     </div>
 
+    <!-- Email unlock gate (one-time; the app is free, the RDR unlocks with an email) -->
+    <div class="overlay" id="gateOverlay">
+        <div class="modal">
+            <button class="close-x" id="gateClose">✕</button>
+            <h3>🔓 Your dispute letter is ready</h3>
+            <p style="font-size:13px; color:#93a4c0; line-height:1.55; margin-bottom:4px;">
+                The RDR builder is <b style="color:#4cd6a0;">100% free</b> — enter your email once to unlock it
+                and we'll also keep a copy of your dispute safe on our side.
+            </p>
+            <label>Full name</label><input id="gName" placeholder="Driver / owner name" autocomplete="name">
+            <label>Email *</label><input id="gEmail" type="email" placeholder="you@email.com" autocomplete="email">
+            <label>Phone (optional)</label><input id="gPhone" type="tel" placeholder="(555) 555-5555" autocomplete="tel">
+            <div class="btn-row">
+                <button class="btn-primary" id="gateGo" style="width:100%;">Unlock my free RDR</button>
+            </div>
+            <div class="note">No spam — we only reach out about <strong>your</strong> disputes.</div>
+        </div>
+    </div>
+
     <div class="toast" id="toast"></div>
 
     <!-- Supabase client (CDN). App still works fully offline if this fails to load. -->
@@ -345,7 +365,7 @@
             SUPABASE_URL: "https://mmnvcbejjdweetnxncfi.supabase.co",
             SUPABASE_ANON_KEY: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im1tbnZjYmVqamR3ZWV0bnhuY2ZpIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODA5NTM3MzMsImV4cCI6MjA5NjUyOTczM30.PSzPFqTAiv0GHv0DBpAOREUE7BvrbHHgetQSYpeSajA",
             // Shown on the paid-filing buttons. Leave price as "" to hide it.
-            PAID_FILING_PRICE: "$49",
+            PAID_FILING_PRICE: "$99",
             // Optional. A Stripe Payment Link, Calendly, or mailto: link. If set,
             // tapping "file it for me" opens it. If blank, a confirmation shows
             // instead — the lead is still captured with wants_paid_filing = true.
@@ -401,6 +421,49 @@
             catch { return {}; }
         }
         function saveProfile(p) { profile = p; localStorage.setItem(PKEY, JSON.stringify(p)); }
+
+        // Stable per-device id so the gate's contact-only lead upserts one row.
+        const DKEY = "guardshack_dataq_device_v1";
+        let deviceId = localStorage.getItem(DKEY);
+        if (!deviceId) { deviceId = "dev" + Math.random().toString(36).slice(2, 12); localStorage.setItem(DKEY, deviceId); }
+
+        // ---- Email gate: the app is free; the RDR unlocks once with an email ----
+        let gateNext = null;
+        function unlocked() { return !!(profile.email && profile.email.includes("@")); }
+        function gate(next) {
+            if (unlocked()) { next(); return; }
+            gateNext = next;
+            $("gName").value = profile.full_name || "";
+            $("gEmail").value = profile.email || "";
+            $("gPhone").value = profile.phone || "";
+            $("gateOverlay").classList.add("open");
+        }
+        function gateSubmit() {
+            const email = $("gEmail").value.trim();
+            if (!email.includes("@") || email.length < 5) { toast("Enter a valid email to unlock"); return; }
+            saveProfile({ ...profile, full_name: $("gName").value.trim(), email, phone: $("gPhone").value.trim() });
+            syncProfileLead();
+            $("gateOverlay").classList.remove("open");
+            toast("Unlocked — the RDR builder is yours, free");
+            const next = gateNext; gateNext = null;
+            if (next) next();
+        }
+
+        // Contact-only lead pushed the moment the gate is completed, even if the
+        // dispute is never saved. Upserts on a per-device id so it stays one row.
+        async function syncProfileLead() {
+            if (!sb || !profile.email) return;
+            try {
+                await sb.from("dataq_leads").upsert({
+                    local_id: "profile-" + deviceId,
+                    full_name: profile.full_name || null,
+                    email: profile.email,
+                    phone: profile.phone || null,
+                    dot_or_mc: profile.dot_or_mc || null,
+                    source: "dataq_app_gate"
+                }, { onConflict: "local_id" });
+            } catch (e) { console.warn("profile lead sync failed", e); }
+        }
 
         function uid() {
             return "d" + Math.random().toString(36).slice(2, 9) + Date.now().toString(36).slice(-4);
@@ -664,8 +727,9 @@
             // No pay link configured yet → show a confirmation, capture is done.
             const who = d.email || d.phone;
             $("paidBody").innerHTML =
-                `<strong>Request received.</strong> GoDataQ will review this violation` +
-                ` and prepare &amp; file your Request for Data Review for you` +
+                `<strong>Request received.</strong> For a flat ${escapeHtml(CFG.PAID_FILING_PRICE || "fee")},` +
+                ` GoDataQ preps the argument, writes the letter, and files the Request for Data Review` +
+                ` on the FMCSA portal for you — one removed violation can save thousands in insurance` +
                 (who ? `. We'll reach out at <strong>${escapeHtml(who)}</strong>.` : `. Add your email or phone so we can reach you.`);
             const acts = $("paidActions");
             acts.innerHTML = `<button class="btn-paid" id="paidOk">Got it</button>`;
@@ -727,9 +791,21 @@
         $("exportBtn").addEventListener("click", exportBackup);
         $("saveBtn").addEventListener("click", saveForm);
         $("deleteBtn").addEventListener("click", deleteCurrent);
-        $("rdrBtn").addEventListener("click", showRDR);
+        $("rdrBtn").addEventListener("click", () => {
+            // If they already typed a valid email in the form, that counts — no double ask.
+            const c = readContact();
+            if (c.email && c.email.includes("@")) { saveProfile({ ...profile, ...c }); syncProfileLead(); }
+            gate(showRDR);
+        });
         $("paidBtn").addEventListener("click", requestPaidFromForm);
         $("upsellBtn").addEventListener("click", requestPaidFromBanner);
+        $("rdrPaidBtn").addEventListener("click", () => {
+            $("rdrOverlay").classList.remove("open");
+            requestPaidFromForm();
+        });
+        $("gateGo").addEventListener("click", gateSubmit);
+        $("gateClose").addEventListener("click", () => { gateNext = null; $("gateOverlay").classList.remove("open"); });
+        $("gEmail").addEventListener("keydown", (e) => { if (e.key === "Enter") gateSubmit(); });
         $("editClose").addEventListener("click", () => $("editOverlay").classList.remove("open"));
         $("rdrClose").addEventListener("click", () => $("rdrOverlay").classList.remove("open"));
         $("paidClose").addEventListener("click", () => $("paidOverlay").classList.remove("open"));
@@ -745,13 +821,13 @@
         $("openPortal").addEventListener("click", () => window.open("https://dataqs.fmcsa.dot.gov/", "_blank", "noopener"));
 
         // Close overlays by tapping the dim backdrop
-        ["editOverlay", "rdrOverlay", "paidOverlay"].forEach((id) =>
-            $(id).addEventListener("click", (e) => { if (e.target === $(id)) $(id).classList.remove("open"); }));
+        ["editOverlay", "rdrOverlay", "paidOverlay", "gateOverlay"].forEach((id) =>
+            $(id).addEventListener("click", (e) => { if (e.target === $(id)) { if (id === "gateOverlay") gateNext = null; $(id).classList.remove("open"); } }));
 
-        // Apply configurable price labels
+        // Apply configurable price labels (banner ROI copy itself lives in the HTML)
         $("paidBtn").textContent = "📨 Let GoDataQ file this for me" + priceSuffix();
-        $("upsellSub").textContent = "GoDataQ's team will prepare and file your Request for Data Review for you"
-            + (CFG.PAID_FILING_PRICE ? ` — ${CFG.PAID_FILING_PRICE}.` : ".");
+        $("upsellBtn").textContent = "File it for me" + priceSuffix();
+        $("rdrPaidBtn").textContent = "📨 Skip the paperwork, we'll file it" + priceSuffix();
 
         renderAll();
         syncPending();   // retry any leads that didn't make it to Supabase before

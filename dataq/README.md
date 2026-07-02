@@ -49,17 +49,26 @@ re-run). The app's `CONFIG` block at the bottom of `dataq.html` already points a
 swap `SUPABASE_URL` / `SUPABASE_ANON_KEY` there to use a different project, or blank the URL to
 turn syncing off.
 
-## Paid "done-for-you" filing
+## The funnel: free tool → email gate → $99 filing
 
-An upsell lets a driver hand the whole thing to GoDataQ:
+The tool is **free to everyone** — that's the hook. The business model sits on top:
 
-- A **"File it for me"** banner on the home screen and a **"Let GoDataQ file this for me"**
-  button inside each dispute.
-- Tapping it saves the dispute, marks `wants_paid_filing = true` on the lead, and then either
-  opens your payment/booking link or shows a "we'll reach out" confirmation.
-- Configure it in the `CONFIG` block: set `PAID_FILING_URL` to a **Stripe Payment Link**,
-  Calendly, or `mailto:` link, and `PAID_FILING_PRICE` to the price shown on the button
-  (e.g. `"$49"`). With no URL set, the lead is still captured and the confirmation is shown.
+1. **Email gate on the RDR.** Building the dispute is free with no login, but the first time
+   a driver taps **Build RDR** (the actual letter — the thing they came for), a one-time
+   unlock asks for their email (name + phone optional). Valid email → unlocked forever on
+   that device, and a contact-only lead is pushed to `dataq_leads` immediately (source
+   `dataq_app_gate`) — so you get the email even if they never save a dispute. If they
+   already typed an email in the dispute form, the gate never appears.
+2. **$99 done-for-you filing** everywhere intent is highest:
+   - the ROI banner on the home screen ("One bad violation can cost thousands a year"),
+   - a button inside each dispute,
+   - and a button right under the finished RDR — the moment they realize filing is work.
+   Tapping any of them marks `wants_paid_filing = true` on the lead, then opens your
+   payment/booking link or shows a "we'll reach out" confirmation.
+
+Configure in the `CONFIG` block: `PAID_FILING_PRICE` (default `"$99"`) and
+`PAID_FILING_URL` — set it to a **Stripe Payment Link**, Calendly, or `mailto:` link. With
+no URL set, the lead is still captured and the confirmation is shown.
 
 ## How it works
 
