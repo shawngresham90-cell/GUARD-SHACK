@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Interstate Truck Stop Directory</title>
+<style>
+  :root{
+    --bg:#111418; --panel:#1b2129; --panel2:#232b36; --line:#2e3947;
+    --text:#e8edf2; --muted:#93a1b3; --accent:#ff5b1f; --accent2:#ffb347;
+    --truck:#4dabf7; --rest:#69db7c; --plaza:#ffd43b;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;min-height:100vh}
+  .wrap{max-width:860px;margin:0 auto;padding:16px 14px 60px}
+  header{text-align:center;padding:18px 0 10px}
+  header h1{font-size:1.5rem;letter-spacing:.5px}
+  header h1 .hw{color:var(--accent)}
+  header p{color:var(--muted);font-size:.85rem;margin-top:6px;line-height:1.45}
+  .crumbs{display:flex;gap:6px;flex-wrap:wrap;align-items:center;margin:14px 0 10px;font-size:.9rem}
+  .crumbs a{color:var(--accent2);text-decoration:none;cursor:pointer}
+  .crumbs span.sep{color:var(--muted)}
+  .crumbs b{color:var(--text)}
+  .search{width:100%;padding:12px 14px;border-radius:10px;border:1px solid var(--line);background:var(--panel);color:var(--text);font-size:1rem;margin:8px 0 14px;outline:none}
+  .search:focus{border-color:var(--accent)}
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px}
+  .card{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:14px 12px;cursor:pointer;transition:border-color .15s, transform .05s}
+  .card:hover{border-color:var(--accent)}
+  .card:active{transform:scale(.98)}
+  .card h3{font-size:1rem;margin-bottom:3px}
+  .card .sub{color:var(--muted);font-size:.78rem}
+  .letter{grid-column:1/-1;color:var(--accent);font-size:.85rem;font-weight:700;letter-spacing:2px;margin-top:6px;border-bottom:1px solid var(--line);padding-bottom:4px}
+  .hwcard{display:flex;justify-content:space-between;align-items:center;background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:14px;margin-bottom:10px;cursor:pointer}
+  .hwcard:hover{border-color:var(--accent)}
+  .hwcard .shield{background:var(--accent);color:#fff;font-weight:800;border-radius:8px;padding:8px 12px;font-size:1rem;min-width:74px;text-align:center}
+  .hwcard .info{flex:1;padding:0 12px}
+  .hwcard .info .rng{color:var(--muted);font-size:.8rem;margin-top:2px}
+  .hwcard .cnt{color:var(--accent2);font-size:.85rem;white-space:nowrap}
+  .mmrow{display:flex;gap:10px;background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:10px 12px;margin-bottom:8px;align-items:flex-start}
+  .mmrow.rest{border-left:4px solid var(--rest)}
+  .mmrow.truck{border-left:4px solid var(--truck)}
+  .mmrow.plaza{border-left:4px solid var(--plaza)}
+  .mm{font-weight:800;font-size:1.05rem;min-width:64px;text-align:center;background:var(--panel2);border-radius:8px;padding:8px 4px;line-height:1.1}
+  .mm small{display:block;font-weight:400;color:var(--muted);font-size:.62rem;letter-spacing:1px}
+  .stopinfo{flex:1}
+  .stopinfo .nm{font-weight:600}
+  .stopinfo .meta{color:var(--muted);font-size:.8rem;margin-top:2px;line-height:1.4}
+  .badge{display:inline-block;font-size:.68rem;font-weight:700;border-radius:6px;padding:2px 7px;margin-left:6px;vertical-align:middle}
+  .badge.truck{background:rgba(77,171,247,.15);color:var(--truck)}
+  .badge.rest{background:rgba(105,219,124,.15);color:var(--rest)}
+  .badge.plaza{background:rgba(255,212,59,.15);color:var(--plaza)}
+  .legend{display:flex;gap:14px;flex-wrap:wrap;color:var(--muted);font-size:.78rem;margin:4px 0 14px}
+  .legend i{display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:5px}
+  .note{background:var(--panel2);border:1px solid var(--line);border-radius:10px;padding:10px 12px;color:var(--accent2);font-size:.85rem;margin-bottom:12px}
+  .empty{color:var(--muted);text-align:center;padding:30px 10px;font-size:.9rem}
+  .disclaimer{color:var(--muted);font-size:.72rem;text-align:center;margin-top:28px;line-height:1.5}
+  .backlink{text-align:center;margin-top:18px;font-size:.85rem}
+  .backlink a{color:var(--accent2);text-decoration:none}
+  .stats{color:var(--muted);font-size:.8rem;text-align:center;margin-bottom:10px}
+  .approx{color:var(--muted);font-size:.72rem}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <h1>🚛 <span class="hw">Interstate</span> Truck Stop Directory</h1>
+    <p>Open the book: pick your <b>state</b> (A–Z) → pick your <b>interstate</b> → read down from <b>mile marker 0</b> to the top. Truck stops, rest areas &amp; service plazas at every marker.</p>
+  </header>
+  <div id="app"></div>
+  <p class="disclaimer">Mile markers are based on exit numbers and may be approximate (marked ≈). Locations open, close and rebrand — always confirm parking &amp; fuel with your GPS or Trucker Path before counting on a stop.</p>
+  <p class="backlink"><a href="/">← Guard Shack home</a></p>
+</div>
+<script src="data.js"></script>
+<script>
+(function(){
+  var DATA = window.TRUCKSTOP_DATA || {};
+  var app = document.getElementById('app');
+  var TYPE = {
+    truck_stop:{cls:'truck', label:'TRUCK STOP'},
+    rest_area:{cls:'rest', label:'REST AREA'},
+    service_plaza:{cls:'plaza', label:'SERVICE PLAZA'}
+  };
+
+  function hwNum(name){
+    var m = name.match(/(\d+)([A-Z]*)/);
+    return m ? [parseInt(m[1],10), m[2]||''] : [9999,''];
+  }
+  function sortHw(a,b){
+    var A=hwNum(a), B=hwNum(b);
+    return A[0]-B[0] || (A[1]<B[1]?-1:A[1]>B[1]?1:0);
+  }
+  function esc(s){ return String(s==null?'':s).replace(/[&<>"']/g, function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];}); }
+
+  function route(){
+    var h = decodeURIComponent(location.hash.replace(/^#\/?/,''));
+    var parts = h ? h.split('/') : [];
+    if(parts.length >= 2 && DATA[parts[0]] && DATA[parts[0]].interstates[parts[1]]) renderHighway(parts[0], parts[1]);
+    else if(parts.length >= 1 && DATA[parts[0]]) renderState(parts[0]);
+    else renderHome();
+    window.scrollTo(0,0);
+  }
+
+  function crumbs(items){
+    var html = '<div class="crumbs">';
+    items.forEach(function(it, i){
+      if(i) html += '<span class="sep">›</span>';
+      html += it.href!=null ? '<a href="#'+esc(it.href)+'">'+esc(it.label)+'</a>' : '<b>'+esc(it.label)+'</b>';
+    });
+    return html + '</div>';
+  }
+
+  function renderHome(){
+    var abbrs = Object.keys(DATA).sort(function(a,b){ return DATA[a].state < DATA[b].state ? -1 : 1; });
+    var totalStops = 0, totalHw = 0;
+    abbrs.forEach(function(ab){
+      var iv = DATA[ab].interstates;
+      Object.keys(iv).forEach(function(h){ totalHw++; totalStops += (iv[h].stops||[]).length; });
+    });
+    var html = crumbs([{label:'All States'}]);
+    html += '<div class="stats">'+abbrs.length+' states &bull; '+totalHw+' interstate segments &bull; '+totalStops+' truck stops &amp; rest areas</div>';
+    html += '<input class="search" id="q" type="search" placeholder="Search state, city, or truck stop name…">';
+    html += '<div class="grid" id="stategrid">';
+    var lastLetter = '';
+    abbrs.forEach(function(ab){
+      var st = DATA[ab];
+      var L = st.state[0].toUpperCase();
+      if(L !== lastLetter){ html += '<div class="letter">'+L+'</div>'; lastLetter = L; }
+      var n = 0; Object.keys(st.interstates).forEach(function(h){ n += (st.interstates[h].stops||[]).length; });
+      html += '<div class="card" onclick="location.hash=\'#'+ab+'\'"><h3>'+esc(st.state)+'</h3><div class="sub">'+Object.keys(st.interstates).length+' interstates &bull; '+n+' stops</div></div>';
+    });
+    html += '</div><div id="results"></div>';
+    app.innerHTML = html;
+
+    var q = document.getElementById('q');
+    q.addEventListener('input', function(){
+      var v = q.value.trim().toLowerCase();
+      var grid = document.getElementById('stategrid');
+      var res = document.getElementById('results');
+      if(v.length < 2){ grid.style.display='grid'; res.innerHTML=''; return; }
+      grid.style.display='none';
+      var hits = [];
+      abbrs.forEach(function(ab){
+        var st = DATA[ab];
+        Object.keys(st.interstates).forEach(function(h){
+          (st.interstates[h].stops||[]).forEach(function(s){
+            var hay = (st.state+' '+ab+' '+h+' '+(s.name||'')+' '+(s.city||'')+' '+(s.brand||'')).toLowerCase();
+            if(hay.indexOf(v) !== -1) hits.push({ab:ab, hw:h, s:s});
+          });
+        });
+      });
+      if(!hits.length){ res.innerHTML = '<div class="empty">No matches. Try a city, brand (Love’s, Pilot, TA…) or state.</div>'; return; }
+      var out = '<div class="stats">'+hits.length+' match'+(hits.length===1?'':'es')+(hits.length>200?' (showing first 200)':'')+'</div>';
+      hits.slice(0,200).forEach(function(hit){
+        out += stopRow(hit.s, DATA[hit.ab].state+' &bull; '+hit.hw);
+      });
+      res.innerHTML = out;
+    });
+  }
+
+  function renderState(ab){
+    var st = DATA[ab];
+    var hws = Object.keys(st.interstates).sort(sortHw);
+    var html = crumbs([{label:'All States', href:''},{label:st.state}]);
+    if(st.note) html += '<div class="note">⚠️ '+esc(st.note)+'</div>';
+    hws.forEach(function(h){
+      var iv = st.interstates[h];
+      var n = (iv.stops||[]).length;
+      html += '<div class="hwcard" onclick="location.hash=\'#'+ab+'/'+encodeURIComponent(h)+'\'">'
+        + '<div class="shield">'+esc(h)+'</div>'
+        + '<div class="info"><div>'+esc(h)+' through '+esc(st.state)+'</div>'
+        + '<div class="rng">Mile marker 0 → '+esc(iv.maxMM!=null?iv.maxMM:'?')+'</div></div>'
+        + '<div class="cnt">'+n+' stop'+(n===1?'':'s')+' ›</div></div>';
+    });
+    if(!hws.length) html += '<div class="empty">No interstates recorded for this state.</div>';
+    app.innerHTML = html;
+  }
+
+  function stopRow(s, extraMeta){
+    var t = TYPE[s.type] || TYPE.truck_stop;
+    var meta = [];
+    if(extraMeta) meta.push(extraMeta);
+    if(s.city) meta.push(esc(s.city));
+    if(s.brand && s.brand !== 'State' && s.brand !== 'Independent') meta.push(esc(s.brand));
+    if(s.exit != null && String(s.exit) !== String(s.mm)) meta.push('Exit '+esc(s.exit));
+    if(s.notes) meta.push(esc(s.notes));
+    return '<div class="mmrow '+t.cls+'">'
+      + '<div class="mm">'+(s.approx?'≈':'')+esc(s.mm)+'<small>MM</small></div>'
+      + '<div class="stopinfo"><div class="nm">'+esc(s.name)+'<span class="badge '+t.cls+'">'+t.label+'</span></div>'
+      + '<div class="meta">'+meta.join(' &bull; ')+'</div></div></div>';
+  }
+
+  function renderHighway(ab, h){
+    var st = DATA[ab], iv = st.interstates[h];
+    var stops = (iv.stops||[]).slice().sort(function(a,b){ return (a.mm||0)-(b.mm||0); });
+    var html = crumbs([{label:'All States', href:''},{label:st.state, href:ab},{label:h}]);
+    html += '<div class="stats"><b>'+esc(h)+'</b> in '+esc(st.state)+' &mdash; mile marker 0 to '+esc(iv.maxMM!=null?iv.maxMM:'?')+' &bull; '+stops.length+' stops</div>';
+    html += '<div class="legend">'
+      + '<span><i style="background:var(--truck)"></i>Truck stop</span>'
+      + '<span><i style="background:var(--rest)"></i>Rest area</span>'
+      + '<span><i style="background:var(--plaza)"></i>Service plaza</span>'
+      + '<span>≈ approximate MM</span></div>';
+    if(iv.note) html += '<div class="note">⚠️ '+esc(iv.note)+'</div>';
+    if(!stops.length){
+      html += '<div class="empty">No truck stops or rest areas recorded on '+esc(h)+' in '+esc(st.state)+'.</div>';
+    } else {
+      stops.forEach(function(s){ html += stopRow(s); });
+    }
+    app.innerHTML = html;
+  }
+
+  window.addEventListener('hashchange', route);
+  route();
+})();
+</script>
+</body>
+</html>
