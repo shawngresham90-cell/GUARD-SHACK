@@ -6,6 +6,16 @@
    "maxMM": 77,
    "stops": [
     {
+     "mm": 1,
+     "exit": "1",
+     "name": "Weigh Station (EB)",
+     "brand": "State",
+     "type": "weigh_station",
+     "city": "Pearlington",
+     "approx": true,
+     "notes": "MDOT scale just east of the Pearl River/Louisiana line, before Exit 2 (MS 607); PrePass/Drivewyze bypass"
+    },
+    {
      "mm": 2,
      "exit": "",
      "name": "Mississippi Welcome Center (Pearlington)",
@@ -59,6 +69,16 @@
      "approx": true,
      "notes": "MS 63 interchange",
      "parking": 80
+    },
+    {
+     "mm": 74,
+     "exit": "74",
+     "name": "Weigh Station (both directions)",
+     "brand": "State",
+     "type": "weigh_station",
+     "city": "Moss Point",
+     "approx": true,
+     "notes": "MDOT EB and WB scales in the Escatawpa area near the Alabama line; milepost estimated; PrePass/Drivewyze bypass"
     },
     {
      "mm": 75,
@@ -164,6 +184,16 @@
    "maxMM": 291,
    "stops": [
     {
+     "mm": 2,
+     "exit": "2",
+     "name": "Weigh Station (both directions)",
+     "brand": "State",
+     "type": "weigh_station",
+     "city": "Magnolia",
+     "approx": true,
+     "notes": "MDOT NB and SB scales near the Louisiana line at Osyka, south of Magnolia; milepost estimated; PrePass/Drivewyze bypass"
+    },
+    {
      "mm": 3,
      "exit": "",
      "name": "Mississippi Welcome Center (Magnolia)",
@@ -237,6 +267,16 @@
      "approx": true,
      "notes": "Southbound entering from Tennessee; truck parking",
      "parking": 25
+    },
+    {
+     "mm": 284,
+     "exit": "284",
+     "name": "Weigh Station (both directions)",
+     "brand": "State",
+     "type": "weigh_station",
+     "city": "Nesbit",
+     "approx": true,
+     "notes": "MDOT NB and SB scales at Nesbit, about 7 miles south of the Tennessee line (north of the Coldwater/Hernando rest areas); milepost estimated; Drivewyze bypass"
     }
    ]
   },
