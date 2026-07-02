@@ -54,6 +54,16 @@
      "parking": 40
     },
     {
+     "mm": 13,
+     "exit": "13",
+     "name": "Weigh Station (WB)",
+     "brand": "State",
+     "type": "weigh_station",
+     "city": "Bremen (Waco)",
+     "approx": true,
+     "notes": "Georgia DPS scales between exits 9 and 19; sometimes called Tallapoosa/Bremen scales; serves westbound toward AL"
+    },
+    {
      "mm": 19,
      "exit": "19",
      "name": "Pilot Travel Center",
@@ -63,16 +73,6 @@
      "approx": false,
      "notes": "",
      "parking": 80
-    },
-    {
-     "mm": 13,
-     "exit": "13",
-     "name": "Weigh Station (WB)",
-     "brand": "State",
-     "type": "weigh_station",
-     "city": "Bremen (Waco)",
-     "approx": true,
-     "notes": "Georgia DPS scales between exits 9 and 19; sometimes called Tallapoosa/Bremen scales; serves westbound toward AL"
     },
     {
      "mm": 42,

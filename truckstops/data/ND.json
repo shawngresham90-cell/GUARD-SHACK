@@ -85,6 +85,16 @@
      "parking": 75
     },
     {
+     "mm": 1,
+     "exit": "1",
+     "name": "Weigh Station (EB)",
+     "brand": "State",
+     "type": "weigh_station",
+     "city": "Beach",
+     "approx": true,
+     "notes": "ND Highway Patrol scale for EB traffic entering from Montana"
+    },
+    {
      "mm": 32,
      "exit": "32",
      "name": "Painted Canyon Rest Area & Visitor Center",
@@ -170,6 +180,16 @@
      "city": "Tower City",
      "approx": true,
      "parking": 15
+    },
+    {
+     "mm": 340,
+     "exit": "340",
+     "name": "Weigh Station (WB)",
+     "brand": "State",
+     "type": "weigh_station",
+     "city": "West Fargo",
+     "approx": true,
+     "notes": "ND Highway Patrol scale just west of exit 342; all commercial vehicles must enter during operating hours"
     },
     {
      "mm": 342,

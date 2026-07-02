@@ -839,6 +839,16 @@
      "parking": 80
     },
     {
+     "mm": 121,
+     "exit": "121",
+     "name": "Weigh Station (both directions)",
+     "brand": "State",
+     "type": "weigh_station",
+     "city": "Devine",
+     "approx": true,
+     "notes": "Paired NB/SB TxDPS scales about 5 miles south of Devine (near Moore); Drivewyze PreClear bypass site"
+    },
+    {
      "mm": 124,
      "exit": "124",
      "name": "Love's Travel Stop",
@@ -870,6 +880,16 @@
      "approx": false,
      "notes": "One of the largest convenience stores in the world; no semi-truck parking permitted",
      "parking": 0
+    },
+    {
+     "mm": 209,
+     "exit": "209",
+     "name": "Weigh Station (both directions)",
+     "brand": "State",
+     "type": "weigh_station",
+     "city": "San Marcos",
+     "approx": true,
+     "notes": "Paired NB/SB TxDPS scales near mm 208-209, just north/south of San Marcos"
     },
     {
      "mm": 210,
@@ -1028,6 +1048,16 @@
      "approx": true,
      "notes": "",
      "parking": 90
+    },
+    {
+     "mm": 75,
+     "exit": "75",
+     "name": "Weigh Station (both directions)",
+     "brand": "State",
+     "type": "weigh_station",
+     "city": "Three Rivers",
+     "approx": true,
+     "notes": "Paired NB/SB TxDPS scales just north of the US-281 wye junction north of Three Rivers"
     }
    ]
   },
@@ -1121,6 +1151,16 @@
      "approx": true,
      "notes": "Serves both directions; includes tornado shelter",
      "parking": 30
+    },
+    {
+     "mm": 165,
+     "exit": "165",
+     "name": "Weigh Station (both directions)",
+     "brand": "State",
+     "type": "weigh_station",
+     "city": "Shamrock",
+     "approx": true,
+     "notes": "Single shared TxDPS scale just east of exit 164 serving both EB and WB traffic entering/leaving Oklahoma"
     }
    ]
   },

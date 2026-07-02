@@ -82,6 +82,16 @@
      "parking": 85
     },
     {
+     "mm": 115,
+     "exit": "115",
+     "name": "Weigh Station (WB)",
+     "brand": "State",
+     "type": "weigh_station",
+     "city": "Manchester",
+     "approx": false,
+     "notes": "THP Coffee County scale complex, MM 115 westbound; PrePass"
+    },
+    {
      "mm": 135,
      "exit": "135",
      "name": "Pilot Travel Center",
@@ -198,6 +208,16 @@
      "city": "Stanton",
      "approx": true,
      "parking": 30
+    },
+    {
+     "mm": 50,
+     "exit": "50",
+     "name": "Weigh Station (WB)",
+     "brand": "State",
+     "type": "weigh_station",
+     "city": "Brownsville",
+     "approx": false,
+     "notes": "THP Haywood County scale complex, MM 50 westbound; PrePass"
     },
     {
      "mm": 56,
@@ -396,6 +416,16 @@
      "approx": false,
      "notes": "Watt Rd cluster on I-40/I-75 overlap",
      "parking": 200
+    },
+    {
+     "mm": 372,
+     "exit": "372",
+     "name": "Weigh Station (both directions)",
+     "brand": "State",
+     "type": "weigh_station",
+     "city": "Knoxville (Farragut)",
+     "approx": false,
+     "notes": "THP Knox County scale complex, MM 372 EB and WB on I-40/I-75 overlap; PrePass"
     },
     {
      "mm": 398,
