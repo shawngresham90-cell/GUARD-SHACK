@@ -530,6 +530,16 @@
      "parking": 90
     },
     {
+     "mm": 420,
+     "exit": "420",
+     "name": "Weigh Station (both directions)",
+     "brand": "State",
+     "type": "weigh_station",
+     "city": "Weatherford",
+     "approx": true,
+     "notes": "Fort Worth west paired EB/WB TxDPS scales, about 10 miles east of Weatherford"
+    },
+    {
      "mm": 470,
      "exit": "470",
      "name": "TA Dallas South",
@@ -563,6 +573,16 @@
      "parking": 0
     },
     {
+     "mm": 512,
+     "exit": "512",
+     "name": "Weigh Station (both directions)",
+     "brand": "State",
+     "type": "weigh_station",
+     "city": "Terrell",
+     "approx": true,
+     "notes": "Paired EB/WB TxDPS scales east of Terrell; nearest fuel at exit 509 to the west"
+    },
+    {
      "mm": 523,
      "exit": "523",
      "name": "Road Ranger Canton",
@@ -594,6 +614,16 @@
      "approx": true,
      "notes": "Modern TxDOT safety rest area with tornado shelter",
      "parking": 40
+    },
+    {
+     "mm": 546,
+     "exit": "546",
+     "name": "Weigh Station (EB)",
+     "brand": "State",
+     "type": "weigh_station",
+     "city": "Tyler",
+     "approx": true,
+     "notes": "Eastbound TxDPS scale west of Tyler, near Van"
     },
     {
      "mm": 595,

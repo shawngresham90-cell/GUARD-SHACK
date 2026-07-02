@@ -1,273 +1,323 @@
 {
- "state": "Nevada",
- "abbr": "NV",
- "interstates": {
-  "I-11": {
-   "maxMM": 23,
-   "stops": [
-    {
-     "mm": 18,
-     "exit": "18",
-     "name": "Railroad Pass Travel Center",
-     "brand": "Independent",
-     "type": "truck_stop",
-     "city": "Henderson (Railroad Pass)",
-     "approx": true,
-     "notes": "At Railroad Pass Casino, US-93/95 junction",
-     "parking": 45
+  "state": "Nevada",
+  "abbr": "NV",
+  "interstates": {
+    "I-11": {
+      "maxMM": 23,
+      "stops": [
+        {
+          "mm": 18,
+          "exit": "18",
+          "name": "Railroad Pass Travel Center",
+          "brand": "Independent",
+          "type": "truck_stop",
+          "city": "Henderson (Railroad Pass)",
+          "approx": true,
+          "notes": "At Railroad Pass Casino, US-93/95 junction",
+          "parking": 45
+        }
+      ]
+    },
+    "I-15": {
+      "maxMM": 123,
+      "stops": [
+        {
+          "mm": 1,
+          "exit": "1",
+          "name": "Whiskey Pete's",
+          "brand": "Independent",
+          "type": "truck_stop",
+          "city": "Primm",
+          "approx": false,
+          "notes": "Casino truck plaza at CA/NV state line",
+          "parking": 100
+        },
+        {
+          "mm": 12,
+          "exit": "12",
+          "name": "Terrible's Road House",
+          "brand": "Independent",
+          "type": "truck_stop",
+          "city": "Jean",
+          "approx": false,
+          "notes": "Terrible Herbst mega travel center",
+          "parking": 100
+        },
+        {
+          "mm": 25,
+          "exit": "25",
+          "name": "Sloan Scales (NB)",
+          "brand": "State",
+          "type": "weigh_station",
+          "city": "Sloan (Las Vegas)",
+          "approx": true,
+          "notes": "NHP scale south of Las Vegas; rarely open, little warning; Drivewyze site"
+        },
+        {
+          "mm": 33,
+          "exit": "33",
+          "name": "TA Las Vegas",
+          "brand": "TA",
+          "type": "truck_stop",
+          "city": "Las Vegas",
+          "approx": true,
+          "notes": "Blue Diamond Rd/Dean Martin Dr",
+          "parking": 150
+        },
+        {
+          "mm": 46,
+          "exit": "46",
+          "name": "Love's Travel Stop",
+          "brand": "Love's",
+          "type": "truck_stop",
+          "city": "North Las Vegas",
+          "approx": true,
+          "notes": "N Las Vegas Blvd",
+          "parking": 80
+        },
+        {
+          "mm": 54,
+          "exit": "54",
+          "name": "Petro Stopping Center",
+          "brand": "Petro",
+          "type": "truck_stop",
+          "city": "North Las Vegas",
+          "approx": true,
+          "notes": "Speedway Blvd/N Hollywood Blvd",
+          "parking": 200
+        },
+        {
+          "mm": 61,
+          "exit": "61",
+          "name": "Apex Scales (SB)",
+          "brand": "State",
+          "type": "weigh_station",
+          "city": "Apex (North Las Vegas)",
+          "approx": false,
+          "notes": "NHP scale SB entering Las Vegas; Drivewyze site"
+        },
+        {
+          "mm": 75,
+          "exit": "75",
+          "name": "Moapa Paiute Travel Plaza",
+          "brand": "Independent",
+          "type": "truck_stop",
+          "city": "Moapa",
+          "approx": false,
+          "notes": "Moapa River Indian Reservation",
+          "parking": 60
+        }
+      ]
+    },
+    "I-80": {
+      "maxMM": 411,
+      "stops": [
+        {
+          "mm": 5,
+          "exit": "5",
+          "name": "Verdi (Garson Rd) Check Station (EB)",
+          "brand": "State",
+          "type": "weigh_station",
+          "city": "Verdi",
+          "approx": true,
+          "notes": "NHP check station near CA state line; Drivewyze site (Garson)"
+        },
+        {
+          "mm": 18,
+          "exit": "18",
+          "name": "Sapp Bros Travel Center (Sierra Sid's)",
+          "brand": "Sapp Bros",
+          "type": "truck_stop",
+          "city": "Sparks",
+          "approx": true,
+          "notes": "McCarran Blvd",
+          "parking": 60
+        },
+        {
+          "mm": 19,
+          "exit": "19",
+          "name": "Alamo Casino & Travel Center",
+          "brand": "Independent",
+          "type": "truck_stop",
+          "city": "Sparks",
+          "approx": true,
+          "notes": "E Greg St; TA-affiliated",
+          "parking": 100
+        },
+        {
+          "mm": 32,
+          "exit": "32",
+          "name": "Love's Travel Stop",
+          "brand": "Love's",
+          "type": "truck_stop",
+          "city": "Patrick (USA Pkwy)",
+          "approx": true,
+          "notes": "Serves Tahoe-Reno Industrial Center",
+          "parking": 90
+        },
+        {
+          "mm": 42,
+          "exit": "42",
+          "name": "Wadsworth Scales (EB)",
+          "brand": "State",
+          "type": "weigh_station",
+          "city": "Wadsworth (east of Fernley)",
+          "approx": false,
+          "notes": "NHP enforcement site; intermittently staffed; Drivewyze site"
+        },
+        {
+          "mm": 46,
+          "exit": "46",
+          "name": "Love's Travel Stop",
+          "brand": "Love's",
+          "type": "truck_stop",
+          "city": "Fernley",
+          "approx": true,
+          "notes": "West Fernley exit",
+          "parking": 80
+        },
+        {
+          "mm": 48,
+          "exit": "48",
+          "name": "Pilot Travel Center",
+          "brand": "Pilot",
+          "type": "truck_stop",
+          "city": "Fernley",
+          "approx": true,
+          "notes": "East Fernley/US-95A",
+          "parking": 80
+        },
+        {
+          "mm": 83,
+          "exit": "83",
+          "name": "Trinity Rest Area (both directions)",
+          "brand": "State",
+          "type": "rest_area",
+          "city": "Trinity (I-80/US-95 junction, east of Fernley)",
+          "approx": true,
+          "parking": 20
+        },
+        {
+          "mm": 158,
+          "exit": "",
+          "name": "Cosgrave Rest Area",
+          "brand": "State",
+          "type": "rest_area",
+          "city": "Mill City (east of Lovelock)",
+          "approx": true,
+          "notes": "Both directions",
+          "parking": 40
+        },
+        {
+          "mm": 176,
+          "exit": "176",
+          "name": "Pilot Travel Center",
+          "brand": "Pilot",
+          "type": "truck_stop",
+          "city": "Winnemucca",
+          "approx": true,
+          "notes": "W Winnemucca Blvd",
+          "parking": 80
+        },
+        {
+          "mm": 262,
+          "exit": "",
+          "name": "Valmy Rest Area",
+          "brand": "State",
+          "type": "rest_area",
+          "city": "Valmy",
+          "approx": true,
+          "notes": "Both directions",
+          "parking": 25
+        },
+        {
+          "mm": 280,
+          "exit": "280",
+          "name": "Pilot Travel Center",
+          "brand": "Pilot",
+          "type": "truck_stop",
+          "city": "Carlin",
+          "approx": true,
+          "notes": "West of Elko",
+          "parking": 60
+        },
+        {
+          "mm": 280,
+          "exit": "280",
+          "name": "TA Express Carlin",
+          "brand": "TA Express",
+          "type": "truck_stop",
+          "city": "Carlin",
+          "approx": false,
+          "notes": "Opened Feb 2026; 5 diesel lanes, Bojangles",
+          "parking": 50
+        },
+        {
+          "mm": 312,
+          "exit": "312",
+          "name": "Osino Scales (both directions)",
+          "brand": "State",
+          "type": "weigh_station",
+          "city": "Osino (east of Elko)",
+          "approx": false,
+          "notes": "NHP enforcement site EB and WB; intermittently staffed; Drivewyze site"
+        },
+        {
+          "mm": 351,
+          "exit": "351",
+          "name": "Love's Travel Stop",
+          "brand": "Love's",
+          "type": "truck_stop",
+          "city": "Wells",
+          "approx": true,
+          "notes": "",
+          "parking": 80
+        },
+        {
+          "mm": 352,
+          "exit": "352",
+          "name": "Flying J Travel Center",
+          "brand": "Flying J",
+          "type": "truck_stop",
+          "city": "Wells",
+          "approx": true,
+          "notes": "US-93 junction",
+          "parking": 100
+        },
+        {
+          "mm": 373,
+          "exit": "",
+          "name": "Pequop Summit Rest Area",
+          "brand": "State",
+          "type": "rest_area",
+          "city": "Pequop Summit",
+          "approx": true,
+          "notes": "Both directions",
+          "parking": 20
+        },
+        {
+          "mm": 410,
+          "exit": "410",
+          "name": "Pilot Travel Center",
+          "brand": "Pilot",
+          "type": "truck_stop",
+          "city": "West Wendover",
+          "approx": true,
+          "notes": "At UT state line",
+          "parking": 75
+        },
+        {
+          "mm": 410,
+          "exit": "410",
+          "name": "TA Express Wendover",
+          "brand": "TA Express",
+          "type": "truck_stop",
+          "city": "West Wendover",
+          "approx": false,
+          "notes": "Opened Feb 2026; 8 diesel lanes, Black Bear Diner/Del Taco/Bojangles",
+          "parking": 153
+        }
+      ]
     }
-   ]
-  },
-  "I-15": {
-   "maxMM": 123,
-   "stops": [
-    {
-     "mm": 1,
-     "exit": "1",
-     "name": "Whiskey Pete's",
-     "brand": "Independent",
-     "type": "truck_stop",
-     "city": "Primm",
-     "approx": false,
-     "notes": "Casino truck plaza at CA/NV state line",
-     "parking": 100
-    },
-    {
-     "mm": 12,
-     "exit": "12",
-     "name": "Terrible's Road House",
-     "brand": "Independent",
-     "type": "truck_stop",
-     "city": "Jean",
-     "approx": false,
-     "notes": "Terrible Herbst mega travel center",
-     "parking": 100
-    },
-    {
-     "mm": 33,
-     "exit": "33",
-     "name": "TA Las Vegas",
-     "brand": "TA",
-     "type": "truck_stop",
-     "city": "Las Vegas",
-     "approx": true,
-     "notes": "Blue Diamond Rd/Dean Martin Dr",
-     "parking": 150
-    },
-    {
-     "mm": 46,
-     "exit": "46",
-     "name": "Love's Travel Stop",
-     "brand": "Love's",
-     "type": "truck_stop",
-     "city": "North Las Vegas",
-     "approx": true,
-     "notes": "N Las Vegas Blvd",
-     "parking": 80
-    },
-    {
-     "mm": 54,
-     "exit": "54",
-     "name": "Petro Stopping Center",
-     "brand": "Petro",
-     "type": "truck_stop",
-     "city": "North Las Vegas",
-     "approx": true,
-     "notes": "Speedway Blvd/N Hollywood Blvd",
-     "parking": 200
-    },
-    {
-     "mm": 75,
-     "exit": "75",
-     "name": "Moapa Paiute Travel Plaza",
-     "brand": "Independent",
-     "type": "truck_stop",
-     "city": "Moapa",
-     "approx": false,
-     "notes": "Moapa River Indian Reservation",
-     "parking": 60
-    }
-   ]
-  },
-  "I-80": {
-   "maxMM": 411,
-   "stops": [
-    {
-     "mm": 18,
-     "exit": "18",
-     "name": "Sapp Bros Travel Center (Sierra Sid's)",
-     "brand": "Sapp Bros",
-     "type": "truck_stop",
-     "city": "Sparks",
-     "approx": true,
-     "notes": "McCarran Blvd",
-     "parking": 60
-    },
-    {
-     "mm": 19,
-     "exit": "19",
-     "name": "Alamo Casino & Travel Center",
-     "brand": "Independent",
-     "type": "truck_stop",
-     "city": "Sparks",
-     "approx": true,
-     "notes": "E Greg St; TA-affiliated",
-     "parking": 100
-    },
-    {
-     "mm": 32,
-     "exit": "32",
-     "name": "Love's Travel Stop",
-     "brand": "Love's",
-     "type": "truck_stop",
-     "city": "Patrick (USA Pkwy)",
-     "approx": true,
-     "notes": "Serves Tahoe-Reno Industrial Center",
-     "parking": 90
-    },
-    {
-     "mm": 46,
-     "exit": "46",
-     "name": "Love's Travel Stop",
-     "brand": "Love's",
-     "type": "truck_stop",
-     "city": "Fernley",
-     "approx": true,
-     "notes": "West Fernley exit",
-     "parking": 80
-    },
-    {
-     "mm": 48,
-     "exit": "48",
-     "name": "Pilot Travel Center",
-     "brand": "Pilot",
-     "type": "truck_stop",
-     "city": "Fernley",
-     "approx": true,
-     "notes": "East Fernley/US-95A",
-     "parking": 80
-    },
-    {
-     "mm": 83,
-     "exit": "83",
-     "name": "Trinity Rest Area (both directions)",
-     "brand": "State",
-     "type": "rest_area",
-     "city": "Trinity (I-80/US-95 junction, east of Fernley)",
-     "approx": true,
-     "parking": 20
-    },
-    {
-     "mm": 158,
-     "exit": "",
-     "name": "Cosgrave Rest Area",
-     "brand": "State",
-     "type": "rest_area",
-     "city": "Mill City (east of Lovelock)",
-     "approx": true,
-     "notes": "Both directions",
-     "parking": 40
-    },
-    {
-     "mm": 176,
-     "exit": "176",
-     "name": "Pilot Travel Center",
-     "brand": "Pilot",
-     "type": "truck_stop",
-     "city": "Winnemucca",
-     "approx": true,
-     "notes": "W Winnemucca Blvd",
-     "parking": 80
-    },
-    {
-     "mm": 262,
-     "exit": "",
-     "name": "Valmy Rest Area",
-     "brand": "State",
-     "type": "rest_area",
-     "city": "Valmy",
-     "approx": true,
-     "notes": "Both directions",
-     "parking": 25
-    },
-    {
-     "mm": 280,
-     "exit": "280",
-     "name": "Pilot Travel Center",
-     "brand": "Pilot",
-     "type": "truck_stop",
-     "city": "Carlin",
-     "approx": true,
-     "notes": "West of Elko",
-     "parking": 60
-    },
-    {
-     "mm": 280,
-     "exit": "280",
-     "name": "TA Express Carlin",
-     "brand": "TA Express",
-     "type": "truck_stop",
-     "city": "Carlin",
-     "approx": false,
-     "notes": "Opened Feb 2026; 5 diesel lanes, Bojangles",
-     "parking": 50
-    },
-    {
-     "mm": 351,
-     "exit": "351",
-     "name": "Love's Travel Stop",
-     "brand": "Love's",
-     "type": "truck_stop",
-     "city": "Wells",
-     "approx": true,
-     "notes": "",
-     "parking": 80
-    },
-    {
-     "mm": 352,
-     "exit": "352",
-     "name": "Flying J Travel Center",
-     "brand": "Flying J",
-     "type": "truck_stop",
-     "city": "Wells",
-     "approx": true,
-     "notes": "US-93 junction",
-     "parking": 100
-    },
-    {
-     "mm": 373,
-     "exit": "",
-     "name": "Pequop Summit Rest Area",
-     "brand": "State",
-     "type": "rest_area",
-     "city": "Pequop Summit",
-     "approx": true,
-     "notes": "Both directions",
-     "parking": 20
-    },
-    {
-     "mm": 410,
-     "exit": "410",
-     "name": "Pilot Travel Center",
-     "brand": "Pilot",
-     "type": "truck_stop",
-     "city": "West Wendover",
-     "approx": true,
-     "notes": "At UT state line",
-     "parking": 75
-    },
-    {
-     "mm": 410,
-     "exit": "410",
-     "name": "TA Express Wendover",
-     "brand": "TA Express",
-     "type": "truck_stop",
-     "city": "West Wendover",
-     "approx": false,
-     "notes": "Opened Feb 2026; 8 diesel lanes, Black Bear Diner/Del Taco/Bojangles",
-     "parking": 153
-    }
-   ]
   }
- }
 }

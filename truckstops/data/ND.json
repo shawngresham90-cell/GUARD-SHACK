@@ -6,6 +6,16 @@
    "maxMM": 218,
    "stops": [
     {
+     "mm": 23,
+     "exit": "23",
+     "name": "Weigh Station (both directions)",
+     "brand": "State",
+     "type": "weigh_station",
+     "city": "Mooreton",
+     "approx": true,
+     "notes": "ND Highway Patrol weigh/inspection station; separate NB and SB facilities at ND-13 (Wahpeton/Mooreton exit)"
+    },
+    {
      "mm": 62,
      "exit": "62",
      "name": "Stamart Travel Center",

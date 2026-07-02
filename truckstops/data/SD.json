@@ -6,11 +6,13 @@
       "maxMM": 253,
       "stops": [
         {"mm": 1, "exit": "1", "name": "North Sioux City Welcome Center", "brand": "State", "type": "rest_area", "city": "North Sioux City", "approx": true, "notes": "NB welcome center, truck parking", "parking": 15},
+        {"mm": 13, "exit": "13", "name": "Weigh Station (NB)", "brand": "State", "type": "weigh_station", "city": "Jefferson", "approx": false, "notes": "SD Highway Patrol Jefferson Port of Entry; electronic pre-screening; PrePass"},
         {"mm": 26, "exit": "26", "name": "Coffee Cup Fuel Stop", "brand": "AmBest", "type": "truck_stop", "city": "Vermillion", "approx": false, "notes": "SD-50 interchange", "parking": 60},
         {"mm": 33, "exit": "33", "name": "Vermillion Rest Area (both directions)", "brand": "State", "type": "rest_area", "city": "Vermillion", "approx": true, "parking": 15},
         {"mm": 177, "exit": "177", "name": "Stone's Truck Stop", "brand": "Independent", "type": "truck_stop", "city": "Watertown", "approx": true, "notes": "US-212 interchange", "parking": 40},
         {"mm": 207, "exit": "207", "name": "Coffee Cup Fuel Stop", "brand": "AmBest", "type": "truck_stop", "city": "Summit", "approx": false, "notes": "SD-20 interchange, atop Coteau des Prairies", "parking": 50},
         {"mm": 232, "exit": "232", "name": "Dakota Connection Travel Plaza", "brand": "Independent", "type": "truck_stop", "city": "Sisseton", "approx": true, "notes": "Tribal casino and travel plaza, SD-10", "parking": 50},
+        {"mm": 235, "exit": "235", "name": "Weigh Station (SB)", "brand": "State", "type": "weigh_station", "city": "Sisseton", "approx": false, "notes": "SD Highway Patrol Sisseton Port of Entry for SB traffic entering from North Dakota; PrePass"},
         {"mm": 251, "exit": "251", "name": "New Effington Welcome Center", "brand": "State", "type": "rest_area", "city": "New Effington", "approx": true, "notes": "SB welcome center near ND line, truck parking", "parking": 15}
       ]
     },
@@ -19,6 +21,7 @@
       "stops": [
         {"mm": 25, "exit": "25", "name": "Spearfish Rest Area (both directions)", "brand": "State", "type": "rest_area", "city": "Spearfish", "approx": true, "notes": "EB side serves as Black Hills area welcome center", "parking": 15},
         {"mm": 30, "exit": "30", "name": "Cenex Sturgis", "brand": "Cenex", "type": "truck_stop", "city": "Sturgis", "approx": true, "notes": "Rally-town stop; limited truck parking outside August", "parking": 25},
+        {"mm": 39, "exit": "39", "name": "Weigh Station (EB)", "brand": "State", "type": "weigh_station", "city": "Tilford", "approx": false, "notes": "SD Highway Patrol Tilford Port of Entry between Sturgis and Rapid City; rebuilt 2023 with electronic pre-screening; PrePass"},
         {"mm": 55, "exit": "55", "name": "Pilot Travel Center", "brand": "Pilot", "type": "truck_stop", "city": "Rapid City", "approx": true, "notes": "Deadwood Ave exit", "parking": 75},
         {"mm": 61, "exit": "61", "name": "Flying J Travel Center", "brand": "Flying J", "type": "truck_stop", "city": "Rapid City", "approx": false, "notes": "North I-90 service road", "parking": 100},
         {"mm": 67, "exit": "67", "name": "Love's Travel Stop", "brand": "Love's", "type": "truck_stop", "city": "Box Elder", "approx": true, "notes": "Near Ellsworth AFB", "parking": 80},
@@ -33,7 +36,8 @@
         {"mm": 396, "exit": "396", "name": "Pilot Travel Center", "brand": "Pilot", "type": "truck_stop", "city": "Sioux Falls", "approx": true, "notes": "Marion Rd area", "parking": 80},
         {"mm": 399, "exit": "399", "name": "Flying J Travel Center", "brand": "Flying J", "type": "truck_stop", "city": "Sioux Falls", "approx": false, "notes": "Cliff Ave exit, near I-229", "parking": 100},
         {"mm": 402, "exit": "402", "name": "Love's Travel Stop", "brand": "Love's", "type": "truck_stop", "city": "Sioux Falls", "approx": true, "notes": "East side, SD-11 area", "parking": 80},
-        {"mm": 412, "exit": "412", "name": "Valley Springs Welcome Center", "brand": "State", "type": "rest_area", "city": "Valley Springs", "approx": true, "notes": "WB welcome center near MN line, truck parking", "parking": 20}
+        {"mm": 412, "exit": "412", "name": "Valley Springs Welcome Center", "brand": "State", "type": "rest_area", "city": "Valley Springs", "approx": true, "notes": "WB welcome center near MN line, truck parking", "parking": 20},
+        {"mm": 412, "exit": "412", "name": "Weigh Station (WB)", "brand": "State", "type": "weigh_station", "city": "Valley Springs", "approx": false, "notes": "SD Highway Patrol Sioux Falls Port of Entry for WB traffic entering from Minnesota; PrePass"}
       ]
     },
     "I-190": {
