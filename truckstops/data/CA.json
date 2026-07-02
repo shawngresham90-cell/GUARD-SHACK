@@ -5,81 +5,85 @@
     "I-5": {
       "maxMM": 796,
       "stops": [
-        {"mm": 34, "exit": "", "name": "Aliso Creek Rest Area", "brand": "State", "type": "rest_area", "city": "Oceanside (Camp Pendleton)", "approx": true, "notes": "Both directions"},
-        {"mm": 176, "exit": "176", "name": "Pilot Travel Center", "brand": "Pilot", "type": "truck_stop", "city": "Castaic", "approx": false, "notes": "Lake Hughes Rd"},
-        {"mm": 205, "exit": "205", "name": "Flying J Travel Center", "brand": "Flying J", "type": "truck_stop", "city": "Lebec (Frazier Park)", "approx": false, "notes": "Frazier Mountain Park Rd"},
-        {"mm": 219, "exit": "219", "name": "TA Wheeler Ridge", "brand": "TA", "type": "truck_stop", "city": "Lebec (Wheeler Ridge)", "approx": false, "notes": "Laval Rd, base of the Grapevine"},
-        {"mm": 251, "exit": "", "name": "Buttonwillow Rest Area", "brand": "State", "type": "rest_area", "city": "Buttonwillow", "approx": true, "notes": "Both directions"},
-        {"mm": 257, "exit": "257", "name": "Love's Travel Stop", "brand": "Love's", "type": "truck_stop", "city": "Buttonwillow", "approx": false, "notes": "CA-58"},
-        {"mm": 257, "exit": "257", "name": "TA Buttonwillow", "brand": "TA", "type": "truck_stop", "city": "Buttonwillow", "approx": false, "notes": "CA-58"},
-        {"mm": 278, "exit": "278", "name": "Love's Travel Stop", "brand": "Love's", "type": "truck_stop", "city": "Lost Hills", "approx": false, "notes": "CA-46"},
-        {"mm": 309, "exit": "309", "name": "Pilot Travel Center", "brand": "Pilot", "type": "truck_stop", "city": "Kettleman City", "approx": true, "notes": "CA-41"},
-        {"mm": 322, "exit": "", "name": "Coalinga-Avenal Rest Area", "brand": "State", "type": "rest_area", "city": "Avenal", "approx": true, "notes": "Both directions"},
-        {"mm": 368, "exit": "368", "name": "Love's Travel Stop", "brand": "Love's", "type": "truck_stop", "city": "Firebaugh", "approx": true, "notes": "Panoche Rd"},
-        {"mm": 386, "exit": "", "name": "John Chuck Erreca Rest Area", "brand": "State", "type": "rest_area", "city": "Los Banos", "approx": true, "notes": "Both directions"},
-        {"mm": 407, "exit": "407", "name": "Pilot Travel Center", "brand": "Pilot", "type": "truck_stop", "city": "Santa Nella", "approx": true, "notes": "CA-33"},
-        {"mm": 441, "exit": "441", "name": "Joe's Travel Plaza", "brand": "Independent", "type": "truck_stop", "city": "Westley", "approx": true, "notes": "Howard Rd/Westley exit"},
-        {"mm": 445, "exit": "", "name": "Westley Rest Area", "brand": "State", "type": "rest_area", "city": "Westley", "approx": true, "notes": "Both directions"},
-        {"mm": 465, "exit": "465", "name": "Flying J Travel Center", "brand": "Flying J", "type": "truck_stop", "city": "Lathrop", "approx": true, "notes": "Lathrop Rd/S Harlan Rd"},
-        {"mm": 472, "exit": "472", "name": "Pilot Travel Center", "brand": "Pilot", "type": "truck_stop", "city": "Stockton", "approx": true, "notes": "CA-4/Charter Way area"},
-        {"mm": 528, "exit": "", "name": "Elkhorn Rest Area", "brand": "State", "type": "rest_area", "city": "Sacramento (airport area)", "approx": true, "notes": "Both directions"},
-        {"mm": 554, "exit": "554", "name": "Pilot Travel Center", "brand": "Pilot", "type": "truck_stop", "city": "Dunnigan", "approx": true, "notes": "Near I-505 junction, County Rd 8"},
-        {"mm": 578, "exit": "578", "name": "Love's Travel Stop", "brand": "Love's", "type": "truck_stop", "city": "Williams", "approx": true, "notes": "CA-20"},
-        {"mm": 590, "exit": "", "name": "Maxwell Rest Area", "brand": "State", "type": "rest_area", "city": "Maxwell", "approx": true, "notes": "Both directions"},
-        {"mm": 628, "exit": "628", "name": "Petro Stopping Center", "brand": "Petro", "type": "truck_stop", "city": "Corning", "approx": true, "notes": "Adjacent to Rolling Hills Casino"},
-        {"mm": 631, "exit": "631", "name": "Love's Travel Stop", "brand": "Love's", "type": "truck_stop", "city": "Corning", "approx": true, "notes": "Corning Rd"},
-        {"mm": 698, "exit": "", "name": "O'Brien (Lakehead) Rest Area", "brand": "State", "type": "rest_area", "city": "Lakehead", "approx": true, "notes": "Shasta Lake area"},
-        {"mm": 745, "exit": "745", "name": "Pilot Travel Center", "brand": "Pilot", "type": "truck_stop", "city": "Weed", "approx": true, "notes": "South Weed exit"},
-        {"mm": 757, "exit": "", "name": "Weed Airport Rest Area", "brand": "State", "type": "rest_area", "city": "Weed", "approx": true, "notes": "Both directions"},
-        {"mm": 779, "exit": "", "name": "Randolph E. Collier Rest Area", "brand": "State", "type": "rest_area", "city": "Klamath River (north of Yreka)", "approx": true, "notes": "Serves as California welcome center southbound"}
+        {"mm": 34, "exit": "", "name": "Aliso Creek Rest Area", "brand": "State", "type": "rest_area", "city": "Oceanside (Camp Pendleton)", "approx": true, "notes": "Both directions", "parking": 15},
+        {"mm": 176, "exit": "176", "name": "Pilot Travel Center", "brand": "Pilot", "type": "truck_stop", "city": "Castaic", "approx": false, "notes": "Lake Hughes Rd", "parking": 90},
+        {"mm": 205, "exit": "205", "name": "Flying J Travel Center", "brand": "Flying J", "type": "truck_stop", "city": "Lebec (Frazier Park)", "approx": false, "notes": "Frazier Mountain Park Rd", "parking": 100},
+        {"mm": 208, "exit": "208", "name": "Tejon Pass Rest Area (both directions)", "brand": "State", "type": "rest_area", "city": "Lebec", "approx": true, "parking": 20},
+        {"mm": 219, "exit": "219", "name": "TA Wheeler Ridge", "brand": "TA", "type": "truck_stop", "city": "Lebec (Wheeler Ridge)", "approx": false, "notes": "Laval Rd, base of the Grapevine", "parking": 200},
+        {"mm": 251, "exit": "", "name": "Buttonwillow Rest Area", "brand": "State", "type": "rest_area", "city": "Buttonwillow", "approx": true, "notes": "Both directions", "parking": 25},
+        {"mm": 257, "exit": "257", "name": "Love's Travel Stop", "brand": "Love's", "type": "truck_stop", "city": "Buttonwillow", "approx": false, "notes": "CA-58", "parking": 80},
+        {"mm": 257, "exit": "257", "name": "TA Buttonwillow", "brand": "TA", "type": "truck_stop", "city": "Buttonwillow", "approx": false, "notes": "CA-58", "parking": 150},
+        {"mm": 278, "exit": "278", "name": "Love's Travel Stop", "brand": "Love's", "type": "truck_stop", "city": "Lost Hills", "approx": false, "notes": "CA-46", "parking": 90},
+        {"mm": 309, "exit": "309", "name": "Pilot Travel Center", "brand": "Pilot", "type": "truck_stop", "city": "Kettleman City", "approx": true, "notes": "CA-41", "parking": 80},
+        {"mm": 322, "exit": "", "name": "Coalinga-Avenal Rest Area", "brand": "State", "type": "rest_area", "city": "Avenal", "approx": true, "notes": "Both directions", "parking": 20},
+        {"mm": 368, "exit": "368", "name": "Love's Travel Stop", "brand": "Love's", "type": "truck_stop", "city": "Firebaugh", "approx": true, "notes": "Panoche Rd", "parking": 80},
+        {"mm": 386, "exit": "", "name": "John Chuck Erreca Rest Area", "brand": "State", "type": "rest_area", "city": "Los Banos", "approx": true, "notes": "Both directions", "parking": 30},
+        {"mm": 407, "exit": "407", "name": "Pilot Travel Center", "brand": "Pilot", "type": "truck_stop", "city": "Santa Nella", "approx": true, "notes": "CA-33", "parking": 90},
+        {"mm": 441, "exit": "441", "name": "Joe's Travel Plaza", "brand": "Independent", "type": "truck_stop", "city": "Westley", "approx": true, "notes": "Howard Rd/Westley exit", "parking": 120},
+        {"mm": 445, "exit": "", "name": "Westley Rest Area", "brand": "State", "type": "rest_area", "city": "Westley", "approx": true, "notes": "Both directions", "parking": 20},
+        {"mm": 465, "exit": "465", "name": "Flying J Travel Center", "brand": "Flying J", "type": "truck_stop", "city": "Lathrop", "approx": true, "notes": "Lathrop Rd/S Harlan Rd", "parking": 90},
+        {"mm": 472, "exit": "472", "name": "Pilot Travel Center", "brand": "Pilot", "type": "truck_stop", "city": "Stockton", "approx": true, "notes": "CA-4/Charter Way area", "parking": 70},
+        {"mm": 528, "exit": "", "name": "Elkhorn Rest Area", "brand": "State", "type": "rest_area", "city": "Sacramento (airport area)", "approx": true, "notes": "Both directions", "parking": 20},
+        {"mm": 554, "exit": "554", "name": "Pilot Travel Center", "brand": "Pilot", "type": "truck_stop", "city": "Dunnigan", "approx": true, "notes": "Near I-505 junction, County Rd 8", "parking": 80},
+        {"mm": 556, "exit": "556", "name": "Dunnigan Rest Area (both directions)", "brand": "State", "type": "rest_area", "city": "Dunnigan", "approx": true, "parking": 20},
+        {"mm": 578, "exit": "578", "name": "Love's Travel Stop", "brand": "Love's", "type": "truck_stop", "city": "Williams", "approx": true, "notes": "CA-20", "parking": 80},
+        {"mm": 590, "exit": "", "name": "Maxwell Rest Area", "brand": "State", "type": "rest_area", "city": "Maxwell", "approx": true, "notes": "Both directions", "parking": 15},
+        {"mm": 628, "exit": "628", "name": "Petro Stopping Center", "brand": "Petro", "type": "truck_stop", "city": "Corning", "approx": true, "notes": "Adjacent to Rolling Hills Casino", "parking": 180},
+        {"mm": 631, "exit": "631", "name": "Love's Travel Stop", "brand": "Love's", "type": "truck_stop", "city": "Corning", "approx": true, "notes": "Corning Rd", "parking": 70},
+        {"mm": 657, "exit": "657", "name": "Herbert S. Miles Rest Area (both directions)", "brand": "State", "type": "rest_area", "city": "Red Bluff (north, near Cottonwood)", "approx": true, "parking": 15},
+        {"mm": 698, "exit": "", "name": "O'Brien (Lakehead) Rest Area", "brand": "State", "type": "rest_area", "city": "Lakehead", "approx": true, "notes": "Shasta Lake area", "parking": 10},
+        {"mm": 745, "exit": "745", "name": "Pilot Travel Center", "brand": "Pilot", "type": "truck_stop", "city": "Weed", "approx": true, "notes": "South Weed exit", "parking": 70},
+        {"mm": 757, "exit": "", "name": "Weed Airport Rest Area", "brand": "State", "type": "rest_area", "city": "Weed", "approx": true, "notes": "Both directions", "parking": 15},
+        {"mm": 779, "exit": "", "name": "Randolph E. Collier Rest Area", "brand": "State", "type": "rest_area", "city": "Klamath River (north of Yreka)", "approx": true, "notes": "Serves as California welcome center southbound", "parking": 20}
       ]
     },
     "I-8": {
       "maxMM": 172,
       "stops": [
-        {"mm": 51, "exit": "", "name": "Buckman Springs Rest Area", "brand": "State", "type": "rest_area", "city": "Campo (Buckman Springs)", "approx": false, "notes": "Both directions, at Buckman Springs Rd"},
-        {"mm": 61, "exit": "61", "name": "Golden Acorn Casino & Travel Center", "brand": "Independent", "type": "truck_stop", "city": "Campo", "approx": false, "notes": "Crestwood Rd"},
-        {"mm": 143, "exit": "", "name": "Sunbeam Rest Area", "brand": "State", "type": "rest_area", "city": "Holtville (east of El Centro)", "approx": true, "notes": "Both directions"}
+        {"mm": 51, "exit": "", "name": "Buckman Springs Rest Area", "brand": "State", "type": "rest_area", "city": "Campo (Buckman Springs)", "approx": false, "notes": "Both directions, at Buckman Springs Rd", "parking": 15},
+        {"mm": 61, "exit": "61", "name": "Golden Acorn Casino & Travel Center", "brand": "Independent", "type": "truck_stop", "city": "Campo", "approx": false, "notes": "Crestwood Rd", "parking": 50},
+        {"mm": 143, "exit": "", "name": "Sunbeam Rest Area", "brand": "State", "type": "rest_area", "city": "Holtville (east of El Centro)", "approx": true, "notes": "Both directions", "parking": 15}
       ]
     },
     "I-10": {
       "maxMM": 244,
       "stops": [
-        {"mm": 58, "exit": "58", "name": "TA Ontario", "brand": "TA", "type": "truck_stop", "city": "Ontario", "approx": true, "notes": "Milliken Ave/Guasti Rd area"},
-        {"mm": 104, "exit": "104", "name": "Morongo Travel Center", "brand": "Independent", "type": "truck_stop", "city": "Cabazon", "approx": true, "notes": "Apache Trail, at Morongo Casino"},
-        {"mm": 106, "exit": "", "name": "Whitewater Rest Area", "brand": "State", "type": "rest_area", "city": "Whitewater", "approx": true, "notes": "Both directions; subject to closures"},
-        {"mm": 146, "exit": "146", "name": "Love's Travel Stop", "brand": "Love's", "type": "truck_stop", "city": "Coachella", "approx": false, "notes": "Dillon Rd"},
-        {"mm": 146, "exit": "146", "name": "TA Coachella", "brand": "TA", "type": "truck_stop", "city": "Coachella", "approx": true, "notes": "Dillon Rd"},
-        {"mm": 159, "exit": "", "name": "Cactus City Rest Area", "brand": "State", "type": "rest_area", "city": "Coachella (east)", "approx": true, "notes": "Both directions"},
-        {"mm": 168, "exit": "168", "name": "Chiriaco Summit", "brand": "Independent", "type": "truck_stop", "city": "Chiriaco Summit", "approx": false, "notes": "Fuel, cafe, truck parking"},
-        {"mm": 223, "exit": "", "name": "Wiley's Well Rest Area", "brand": "State", "type": "rest_area", "city": "Blythe (west)", "approx": true, "notes": "Both directions"}
+        {"mm": 58, "exit": "58", "name": "TA Ontario", "brand": "TA", "type": "truck_stop", "city": "Ontario", "approx": true, "notes": "Milliken Ave/Guasti Rd area", "parking": 180},
+        {"mm": 104, "exit": "104", "name": "Morongo Travel Center", "brand": "Independent", "type": "truck_stop", "city": "Cabazon", "approx": true, "notes": "Apache Trail, at Morongo Casino", "parking": 60},
+        {"mm": 106, "exit": "", "name": "Whitewater Rest Area", "brand": "State", "type": "rest_area", "city": "Whitewater", "approx": true, "notes": "Both directions; subject to closures", "parking": 15},
+        {"mm": 146, "exit": "146", "name": "Love's Travel Stop", "brand": "Love's", "type": "truck_stop", "city": "Coachella", "approx": false, "notes": "Dillon Rd", "parking": 80},
+        {"mm": 146, "exit": "146", "name": "TA Coachella", "brand": "TA", "type": "truck_stop", "city": "Coachella", "approx": true, "notes": "Dillon Rd", "parking": 150},
+        {"mm": 159, "exit": "", "name": "Cactus City Rest Area", "brand": "State", "type": "rest_area", "city": "Coachella (east)", "approx": true, "notes": "Both directions", "parking": 25},
+        {"mm": 168, "exit": "168", "name": "Chiriaco Summit", "brand": "Independent", "type": "truck_stop", "city": "Chiriaco Summit", "approx": false, "notes": "Fuel, cafe, truck parking", "parking": 40},
+        {"mm": 223, "exit": "", "name": "Wiley's Well Rest Area", "brand": "State", "type": "rest_area", "city": "Blythe (west)", "approx": true, "notes": "Both directions", "parking": 15}
       ]
     },
     "I-15": {
       "maxMM": 291,
       "stops": [
-        {"mm": 141, "exit": "141", "name": "Pilot Travel Center", "brand": "Pilot", "type": "truck_stop", "city": "Hesperia", "approx": true, "notes": "US-395/Joshua St, top of Cajon Pass"},
-        {"mm": 178, "exit": "178", "name": "TA Barstow", "brand": "TA", "type": "truck_stop", "city": "Barstow", "approx": false, "notes": "Lenwood Rd"},
-        {"mm": 178, "exit": "178", "name": "Love's Travel Stop", "brand": "Love's", "type": "truck_stop", "city": "Barstow", "approx": true, "notes": "Lenwood Rd"},
-        {"mm": 262, "exit": "", "name": "Valley Wells Rest Area", "brand": "State", "type": "rest_area", "city": "Cima (between Baker and Mountain Pass)", "approx": true, "notes": "Both directions"}
+        {"mm": 141, "exit": "141", "name": "Pilot Travel Center", "brand": "Pilot", "type": "truck_stop", "city": "Hesperia", "approx": true, "notes": "US-395/Joshua St, top of Cajon Pass", "parking": 90},
+        {"mm": 178, "exit": "178", "name": "TA Barstow", "brand": "TA", "type": "truck_stop", "city": "Barstow", "approx": false, "notes": "Lenwood Rd", "parking": 200},
+        {"mm": 178, "exit": "178", "name": "Love's Travel Stop", "brand": "Love's", "type": "truck_stop", "city": "Barstow", "approx": true, "notes": "Lenwood Rd", "parking": 90},
+        {"mm": 217, "exit": "217", "name": "Clyde V. Kane Rest Area (both directions)", "brand": "State", "type": "rest_area", "city": "Yermo (between Barstow and Baker)", "approx": true, "parking": 20},
+        {"mm": 262, "exit": "", "name": "Valley Wells Rest Area", "brand": "State", "type": "rest_area", "city": "Cima (between Baker and Mountain Pass)", "approx": true, "notes": "Both directions", "parking": 20}
       ]
     },
     "I-40": {
       "maxMM": 155,
       "stops": [
-        {"mm": 50, "exit": "50", "name": "Ludlow Travel Stop", "brand": "Independent", "type": "truck_stop", "city": "Ludlow", "approx": true, "notes": "Fuel, cafe, truck parking"},
-        {"mm": 107, "exit": "107", "name": "Fenner (Hi Sahara Oasis)", "brand": "Independent", "type": "truck_stop", "city": "Fenner", "approx": true, "notes": "Fuel stop, limited services"},
-        {"mm": 141, "exit": "141", "name": "Love's Travel Stop", "brand": "Love's", "type": "truck_stop", "city": "Needles", "approx": true, "notes": "W Broadway"}
+        {"mm": 50, "exit": "50", "name": "Ludlow Travel Stop", "brand": "Independent", "type": "truck_stop", "city": "Ludlow", "approx": true, "notes": "Fuel, cafe, truck parking", "parking": 30},
+        {"mm": 107, "exit": "107", "name": "Fenner (Hi Sahara Oasis)", "brand": "Independent", "type": "truck_stop", "city": "Fenner", "approx": true, "notes": "Fuel stop, limited services", "parking": 30},
+        {"mm": 141, "exit": "141", "name": "Love's Travel Stop", "brand": "Love's", "type": "truck_stop", "city": "Needles", "approx": true, "notes": "W Broadway", "parking": 80}
       ]
     },
     "I-80": {
       "maxMM": 199,
       "stops": [
-        {"mm": 40, "exit": "40", "name": "Pilot Travel Center", "brand": "Pilot", "type": "truck_stop", "city": "Fairfield (Cordelia)", "approx": true, "notes": "Near I-80/I-680 junction"},
-        {"mm": 66, "exit": "66", "name": "Pilot Travel Center", "brand": "Pilot", "type": "truck_stop", "city": "Dixon", "approx": true, "notes": "Pedrick Rd"},
-        {"mm": 85, "exit": "85", "name": "49er Travel Plaza", "brand": "Independent", "type": "truck_stop", "city": "Sacramento", "approx": true, "notes": "W El Camino Ave; full-service independent, AmBest affiliated"},
-        {"mm": 146, "exit": "", "name": "Gold Run Rest Area", "brand": "State", "type": "rest_area", "city": "Gold Run", "approx": true, "notes": "Both directions"},
-        {"mm": 176, "exit": "", "name": "Donner Summit Rest Area", "brand": "State", "type": "rest_area", "city": "Norden (Donner Summit)", "approx": true, "notes": "Both directions, at Castle Peak"}
+        {"mm": 40, "exit": "40", "name": "Pilot Travel Center", "brand": "Pilot", "type": "truck_stop", "city": "Fairfield (Cordelia)", "approx": true, "notes": "Near I-80/I-680 junction", "parking": 80},
+        {"mm": 66, "exit": "66", "name": "Pilot Travel Center", "brand": "Pilot", "type": "truck_stop", "city": "Dixon", "approx": true, "notes": "Pedrick Rd", "parking": 90},
+        {"mm": 85, "exit": "85", "name": "49er Travel Plaza", "brand": "Independent", "type": "truck_stop", "city": "Sacramento", "approx": true, "notes": "W El Camino Ave; full-service independent, AmBest affiliated", "parking": 100},
+        {"mm": 146, "exit": "", "name": "Gold Run Rest Area", "brand": "State", "type": "rest_area", "city": "Gold Run", "approx": true, "notes": "Both directions", "parking": 10},
+        {"mm": 176, "exit": "", "name": "Donner Summit Rest Area", "brand": "State", "type": "rest_area", "city": "Norden (Donner Summit)", "approx": true, "notes": "Both directions, at Castle Peak", "parking": 15}
       ]
     }
   }
