@@ -7,6 +7,16 @@
    "maxMM": 299,
    "stops": [
     {
+     "mm": 10,
+     "exit": "10",
+     "name": "Trinidad Port of Entry (NB)",
+     "brand": "State",
+     "type": "weigh_station",
+     "city": "Trinidad",
+     "approx": true,
+     "notes": "CSP port of entry; northbound entering from New Mexico; PrePass"
+    },
+    {
      "mm": 15,
      "exit": "15",
      "name": "Love's Travel Stop",
@@ -73,6 +83,16 @@
      "parking": 210
     },
     {
+     "mm": 160,
+     "exit": "160",
+     "name": "Monument Port of Entry (both directions)",
+     "brand": "State",
+     "type": "weigh_station",
+     "city": "Monument",
+     "approx": true,
+     "notes": "CSP port of entry on Monument Hill between Colorado Springs and Denver; PrePass"
+    },
+    {
      "mm": 254,
      "exit": "254",
      "name": "Johnson's Corner",
@@ -104,12 +124,32 @@
      "approx": true,
      "notes": "Prospect Rd exit; welcome center for southbound traffic entering from Wyoming; limited truck parking",
      "parking": 10
+    },
+    {
+     "mm": 269,
+     "exit": "269",
+     "name": "Fort Collins Port of Entry (SB)",
+     "brand": "State",
+     "type": "weigh_station",
+     "city": "Fort Collins",
+     "approx": true,
+     "notes": "CSP port of entry; southbound entering from Wyoming; PrePass"
     }
    ]
   },
   "I-70": {
    "maxMM": 449,
    "stops": [
+    {
+     "mm": 15,
+     "exit": "15",
+     "name": "Loma Port of Entry (EB)",
+     "brand": "State",
+     "type": "weigh_station",
+     "city": "Loma (Fruita)",
+     "approx": true,
+     "notes": "CSP port of entry; eastbound entering from Utah; PrePass"
+    },
     {
      "mm": 19,
      "exit": "19",
@@ -199,6 +239,16 @@
      "parking": 15
     },
     {
+     "mm": 234,
+     "exit": "234",
+     "name": "Dumont Port of Entry (EB)",
+     "brand": "State",
+     "type": "weigh_station",
+     "city": "Dumont",
+     "approx": true,
+     "notes": "Famous mountain scales; eastbound below the Eisenhower Tunnel descent, CSP brake inspections and chain-law enforcement; PrePass"
+    },
+    {
      "mm": 275,
      "exit": "275",
      "name": "Pilot Travel Center",
@@ -252,6 +302,16 @@
      "approx": true,
      "notes": "Eastern plains rest area between Denver and Limon; truck parking",
      "parking": 15
+    },
+    {
+     "mm": 356,
+     "exit": "356",
+     "name": "Limon Port of Entry (WB)",
+     "brand": "State",
+     "type": "weigh_station",
+     "city": "Limon",
+     "approx": true,
+     "notes": "CSP port of entry; westbound entering from Kansas; PrePass"
     },
     {
      "mm": 359,
@@ -323,6 +383,16 @@
      "approx": true,
      "notes": "Fort Morgan/Brush area services",
      "parking": 75
+    },
+    {
+     "mm": 90,
+     "exit": "90",
+     "name": "Fort Morgan Port of Entry (both directions)",
+     "brand": "State",
+     "type": "weigh_station",
+     "city": "Fort Morgan",
+     "approx": true,
+     "notes": "CSP port of entry east of Fort Morgan; PrePass"
     },
     {
      "mm": 125,

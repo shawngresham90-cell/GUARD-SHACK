@@ -7,6 +7,7 @@
       "maxMM": 300,
       "stops": [
         {"mm": 7, "exit": "7", "name": "Flying J Travel Center", "brand": "Flying J", "type": "truck_stop", "city": "Cheyenne", "approx": false, "notes": "College Dr, south Cheyenne", "parking": 90},
+        {"mm": 7, "exit": "7", "name": "Cheyenne Port of Entry (both directions)", "brand": "State", "type": "weigh_station", "city": "Cheyenne", "approx": true, "notes": "WHP port of entry off College Dr; also serves I-80 traffic via the nearby I-25/I-80 junction"},
         {"mm": 54, "exit": "54", "name": "Chugwater Rest Area", "brand": "State", "type": "rest_area", "city": "Chugwater", "approx": true, "notes": "Both directions; truck parking", "parking": 15},
         {"mm": 92, "exit": "92", "name": "Dwyer Junction Rest Area (both directions)", "brand": "State", "type": "rest_area", "city": "Dwyer (Guernsey)", "approx": true, "notes": "At US-26 junction toward Guernsey/Torrington; truck parking", "parking": 20},
         {"mm": 126, "exit": "126", "name": "Orin Junction Rest Area", "brand": "State", "type": "rest_area", "city": "Orin", "approx": false, "notes": "Both directions at US-18/20 junction; truck parking", "parking": 20},
@@ -18,6 +19,7 @@
       "maxMM": 402,
       "stops": [
         {"mm": 3, "exit": "3", "name": "Pilot Travel Center", "brand": "Pilot", "type": "truck_stop", "city": "Evanston", "approx": false, "notes": "Harrison Dr", "parking": 75},
+        {"mm": 3, "exit": "3", "name": "Evanston Port of Entry (EB)", "brand": "State", "type": "weigh_station", "city": "Evanston", "approx": true, "notes": "WHP port of entry; eastbound entering from Utah"},
         {"mm": 6, "exit": "6", "name": "Flying J Travel Center", "brand": "Flying J", "type": "truck_stop", "city": "Evanston", "approx": false, "notes": "Bear River Dr", "parking": 90},
         {"mm": 6, "exit": "6", "name": "Bear River Travel Information Center Rest Area (both directions via exit)", "brand": "State", "type": "rest_area", "city": "Evanston", "approx": true, "notes": "At Bear River State Park; welcome center for eastbound traffic entering from Utah; limited truck parking", "parking": 10},
         {"mm": 41, "exit": "41", "name": "Fort Bridger Rest Area (both directions)", "brand": "State", "type": "rest_area", "city": "Fort Bridger (Lyman)", "approx": true, "notes": "Truck parking; staging point during winter closures", "parking": 20},
@@ -29,7 +31,9 @@
         {"mm": 267, "exit": "267", "name": "Wagonhound Rest Area (both directions)", "brand": "State", "type": "rest_area", "city": "Arlington (Elk Mountain)", "approx": true, "notes": "Key overnight/refuge parking on the Elk Mountain wind-closure stretch between Rawlins and Laramie", "parking": 25},
         {"mm": 310, "exit": "310", "name": "Petro Stopping Center", "brand": "Petro", "type": "truck_stop", "city": "Laramie", "approx": false, "notes": "Curtis St, west Laramie", "parking": 180},
         {"mm": 310, "exit": "310", "name": "Pilot Travel Center", "brand": "Pilot", "type": "truck_stop", "city": "Laramie", "approx": true, "notes": "Curtis St, across from Petro", "parking": 75},
+        {"mm": 310, "exit": "310", "name": "Laramie Port of Entry (both directions)", "brand": "State", "type": "weigh_station", "city": "Laramie", "approx": true, "notes": "WHP port of entry, west side of Laramie"},
         {"mm": 323, "exit": "323", "name": "Summit Rest Area", "brand": "State", "type": "rest_area", "city": "Sherman Summit (Happy Jack)", "approx": false, "notes": "Both directions; highest point on I-80 (8,640 ft), Lincoln Monument", "parking": 20},
+        {"mm": 359, "exit": "359", "name": "Cheyenne Port of Entry (both directions)", "brand": "State", "type": "weigh_station", "city": "Cheyenne", "approx": true, "notes": "WHP port of entry; facility located off College Dr (I-25 exit 7) near the I-80/I-25 junction"},
         {"mm": 367, "exit": "367", "name": "Pilot Travel Center", "brand": "Pilot", "type": "truck_stop", "city": "Cheyenne", "approx": true, "notes": "East Cheyenne cluster", "parking": 80},
         {"mm": 367, "exit": "367", "name": "TA Cheyenne", "brand": "TA", "type": "truck_stop", "city": "Cheyenne", "approx": true, "notes": "East Cheyenne cluster", "parking": 150},
         {"mm": 367, "exit": "367", "name": "Love's Travel Stop", "brand": "Love's", "type": "truck_stop", "city": "Cheyenne", "approx": true, "notes": "East Cheyenne cluster", "parking": 80},
@@ -41,8 +45,10 @@
       "maxMM": 207,
       "stops": [
         {"mm": 23, "exit": "23", "name": "Sheridan Welcome Center", "brand": "State", "type": "rest_area", "city": "Sheridan", "approx": true, "notes": "Serves both directions; truck parking", "parking": 20},
+        {"mm": 23, "exit": "23", "name": "Sheridan Port of Entry (both directions)", "brand": "State", "type": "weigh_station", "city": "Sheridan", "approx": true, "notes": "WHP port of entry"},
         {"mm": 58, "exit": "58", "name": "Big Horn Travel Plaza", "brand": "Independent", "type": "truck_stop", "city": "Buffalo", "approx": true, "notes": "Cenex; near I-25/I-90 junction, US-16", "parking": 50},
         {"mm": 126, "exit": "126", "name": "Pilot Travel Center", "brand": "Pilot", "type": "truck_stop", "city": "Gillette", "approx": true, "notes": "Douglas Hwy (WY-59)", "parking": 80},
+        {"mm": 126, "exit": "126", "name": "Gillette Port of Entry (both directions)", "brand": "State", "type": "weigh_station", "city": "Gillette", "approx": true, "notes": "WHP port of entry, Gillette area"},
         {"mm": 128, "exit": "128", "name": "Flying J Travel Center", "brand": "Flying J", "type": "truck_stop", "city": "Gillette", "approx": false, "notes": "Garner Lake Rd, east Gillette", "parking": 90},
         {"mm": 189, "exit": "189", "name": "Sundance Rest Area", "brand": "State", "type": "rest_area", "city": "Sundance", "approx": true, "notes": "Both directions; truck parking", "parking": 15},
         {"mm": 205, "exit": "205", "name": "Wyoming Welcome Center - Beulah", "brand": "State", "type": "rest_area", "city": "Beulah", "approx": true, "notes": "Serves westbound traffic entering from South Dakota; truck parking", "parking": 15}

@@ -6,6 +6,16 @@
    "maxMM": 124,
    "stops": [
     {
+     "mm": 24,
+     "exit": "24",
+     "name": "Weigh Station (NB)",
+     "brand": "State",
+     "type": "weigh_station",
+     "city": "Platte City",
+     "approx": false,
+     "notes": "MoDOT/MSHP scale at milepost 24; northbound only"
+    },
+    {
      "mm": 30,
      "exit": "30",
      "name": "Love's Travel Stop",
@@ -26,16 +36,6 @@
      "approx": false,
      "notes": "Opened November 2025 (ribbon cutting Dec 9, 2025) at former Ferris Truck Stop site; Taco Bell",
      "parking": 55
-    },
-    {
-     "mm": 24,
-     "exit": "24",
-     "name": "Weigh Station (NB)",
-     "brand": "State",
-     "type": "weigh_station",
-     "city": "Platte City",
-     "approx": false,
-     "notes": "MoDOT/MSHP scale at milepost 24; northbound only"
     },
     {
      "mm": 109,

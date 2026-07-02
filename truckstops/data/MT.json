@@ -89,6 +89,16 @@
      "parking": 15
     },
     {
+     "mm": 5,
+     "exit": "5",
+     "name": "Dena Mora Weigh Station (EB)",
+     "brand": "State",
+     "type": "weigh_station",
+     "city": "Saltese (Lookout Pass)",
+     "approx": true,
+     "notes": "MDT scale near the Idaho line; eastbound entering from Idaho; co-located with Dena Mora rest area"
+    },
+    {
      "mm": 16,
      "exit": "16",
      "name": "Lincoln's 50,000 Silver Dollar",
@@ -120,6 +130,16 @@
      "approx": true,
      "notes": "Between St. Regis and Missoula; truck parking, adjacent USFS campground",
      "parking": 20
+    },
+    {
+     "mm": 90,
+     "exit": "90",
+     "name": "Weigh Station (both directions)",
+     "brand": "State",
+     "type": "weigh_station",
+     "city": "Missoula",
+     "approx": true,
+     "notes": "MDT scale west of Missoula"
     },
     {
      "mm": 96,
@@ -287,6 +307,16 @@
      "parking": 177
     },
     {
+     "mm": 437,
+     "exit": "437",
+     "name": "Weigh Station (both directions)",
+     "brand": "State",
+     "type": "weigh_station",
+     "city": "Laurel (Billings)",
+     "approx": true,
+     "notes": "MDT scale at the Mossmain interchange west of Billings"
+    },
+    {
      "mm": 450,
      "exit": "450",
      "name": "Pilot Travel Center",
@@ -329,6 +359,16 @@
      "approx": true,
      "notes": "Last major services before Wyoming line",
      "parking": 75
+    },
+    {
+     "mm": 495,
+     "exit": "495",
+     "name": "Weigh Station (both directions)",
+     "brand": "State",
+     "type": "weigh_station",
+     "city": "Hardin",
+     "approx": true,
+     "notes": "MDT scale near Hardin"
     }
    ]
   },
