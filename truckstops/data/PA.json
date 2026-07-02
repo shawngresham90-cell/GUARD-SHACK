@@ -76,6 +76,8 @@
         {"mm": 195, "exit": "195", "name": "Mile Run Rest Area (both directions)", "brand": "State", "type": "rest_area", "city": "Loganton", "approx": true, "parking": 25},
         {"mm": 224, "exit": "224", "name": "Pilot Travel Center", "brand": "Pilot", "type": "truck_stop", "city": "Danville", "approx": true, "notes": "PA 54", "parking": 75},
         {"mm": 232, "exit": "232", "name": "Petro Stopping Center", "brand": "Petro", "type": "truck_stop", "city": "Bloomsburg (Buckhorn)", "approx": false, "notes": "US 42 Buckhorn exit", "parking": 200},
+        {"mm": 246, "exit": "246", "name": "Weigh Station (EB)", "brand": "State", "type": "weigh_station", "city": "Mifflinville", "approx": false, "notes": "Hetlerville/Berwick scales at MM 246 rest area; weigh-in-motion on ramp; PSP operated"},
+        {"mm": 246, "exit": "246", "name": "Weigh Station (WB)", "brand": "State", "type": "weigh_station", "city": "Mifflinville", "approx": false, "notes": "Hetlerville/Berwick scales at MM 246 rest area; weigh-in-motion on ramp; PSP operated"},
         {"mm": 257, "exit": "", "name": "Rest Area (White Haven)", "brand": "State", "type": "rest_area", "city": "White Haven", "approx": true, "notes": "Eastbound and westbound pair; truck parking", "parking": 30},
         {"mm": 309, "exit": "309", "name": "TA Travel Center", "brand": "TA", "type": "truck_stop", "city": "Delaware Water Gap", "approx": false, "notes": "Last services before NJ", "parking": 170},
         {"mm": 310, "exit": "310", "name": "Delaware Water Gap Welcome Center Rest Area (WB only)", "brand": "State", "type": "rest_area", "city": "Delaware Water Gap", "approx": true, "parking": 20}

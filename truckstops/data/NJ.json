@@ -9,6 +9,8 @@
     "I-78": {
       "maxMM": 68,
       "stops": [
+        {"mm": 5, "exit": "5", "name": "Weigh Station (WB)", "brand": "State", "type": "weigh_station", "city": "Greenwich Township (Bloomsbury)", "approx": true, "notes": "NJSP scales; PrePass"},
+        {"mm": 6, "exit": "6", "name": "Weigh Station (EB)", "brand": "State", "type": "weigh_station", "city": "Bloomsbury (Greenwich Township)", "approx": true, "notes": "NJSP super-coop inspection facility; PrePass"},
         {"mm": 7, "exit": "7", "name": "TA Travel Center", "brand": "TA", "type": "truck_stop", "city": "Bloomsbury", "approx": false, "notes": "", "parking": 180},
         {"mm": 7, "exit": "7", "name": "Pilot Travel Center", "brand": "Pilot", "type": "truck_stop", "city": "Bloomsbury", "approx": false, "notes": "", "parking": 80}
       ]
@@ -17,6 +19,7 @@
       "maxMM": 68,
       "stops": [
         {"mm": 2, "exit": "", "name": "Knowlton Rest Area / Welcome Center", "brand": "State", "type": "rest_area", "city": "Knowlton", "approx": true, "notes": "Eastbound; truck parking", "parking": 25},
+        {"mm": 2, "exit": "2", "name": "Weigh Station (EB)", "brand": "State", "type": "weigh_station", "city": "Knowlton", "approx": false, "notes": "NJSP scales ~1 mi east of PA line; PrePass (motion only)"},
         {"mm": 4, "exit": "4", "name": "TA Travel Center", "brand": "TA", "type": "truck_stop", "city": "Columbia", "approx": false, "notes": "NJ 94, near Delaware Water Gap", "parking": 150}
       ]
     },
@@ -47,7 +50,9 @@
     },
     "I-295": {
       "maxMM": 77,
-      "stops": []
+      "stops": [
+        {"mm": 3, "exit": "3", "name": "Weigh Station (NB)", "brand": "State", "type": "weigh_station", "city": "Carneys Point", "approx": false, "notes": "NJSP scales north of Delaware Memorial Bridge approach; PrePass (motion only)"}
+      ]
     }
   }
 }
