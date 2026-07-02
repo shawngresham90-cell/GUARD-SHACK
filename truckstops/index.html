@@ -180,6 +180,7 @@
     var meta = [];
     if(extraMeta) meta.push(extraMeta);
     if(s.city) meta.push(esc(s.city));
+    if(s.parking) meta.push('🅿️ ~'+esc(s.parking)+' truck spots');
     if(s.brand && s.brand !== 'State' && s.brand !== 'Independent') meta.push(esc(s.brand));
     if(s.exit != null && String(s.exit) !== String(s.mm)) meta.push('Exit '+esc(s.exit));
     if(s.notes) meta.push(esc(s.notes));
@@ -198,7 +199,8 @@
       + '<span><i style="background:var(--truck)"></i>Truck stop</span>'
       + '<span><i style="background:var(--rest)"></i>Rest area</span>'
       + '<span><i style="background:var(--plaza)"></i>Service plaza</span>'
-      + '<span>≈ approximate MM</span></div>';
+      + '<span>≈ approximate MM</span>'
+      + '<span>🅿️ ~ estimated truck spots</span></div>';
     if(iv.note) html += '<div class="note">⚠️ '+esc(iv.note)+'</div>';
     if(!stops.length){
       html += '<div class="empty">No truck stops or rest areas recorded on '+esc(h)+' in '+esc(st.state)+'.</div>';
