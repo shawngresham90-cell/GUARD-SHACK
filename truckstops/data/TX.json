@@ -1206,6 +1206,16 @@
      "parking": 80
     },
     {
+     "mm": 102,
+     "exit": "102",
+     "name": "Weigh Station (both directions)",
+     "brand": "State",
+     "type": "weigh_station",
+     "city": "New Waverly",
+     "approx": true,
+     "notes": "Paired scales; NB near mm 101.5, SB between Huntsville State Park and New Waverly; Drivewyze PreClear bypass site"
+    },
+    {
      "mm": 142,
      "exit": "142",
      "name": "Buc-ee's",
@@ -1226,6 +1236,16 @@
      "approx": true,
      "notes": "",
      "parking": 90
+    },
+    {
+     "mm": 165,
+     "exit": "165",
+     "name": "Weigh Station (SB)",
+     "brand": "State",
+     "type": "weigh_station",
+     "city": "Centerville",
+     "approx": true,
+     "notes": "Southbound TxDPS scale just north of Centerville"
     },
     {
      "mm": 197,
