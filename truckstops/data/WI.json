@@ -42,6 +42,16 @@
      "approx": true,
      "notes": "Near US-151 junction",
      "parking": 75
+    },
+    {
+     "mm": 152,
+     "exit": "152",
+     "name": "Weigh Station (NB)",
+     "brand": "State",
+     "type": "weigh_station",
+     "city": "Wrightstown",
+     "approx": true,
+     "notes": "Wrightstown SWEF, NB, between Appleton and De Pere; being rebuilt with weigh-in-motion as part of new WSP Northeast Region HQ (2026)"
     }
    ]
   },
@@ -58,6 +68,16 @@
      "approx": true,
      "notes": "NB and SB, truck parking",
      "parking": 20
+    },
+    {
+     "mm": 141,
+     "exit": "141",
+     "name": "Weigh Station (SB)",
+     "brand": "State",
+     "type": "weigh_station",
+     "city": "Newton (Centerville)",
+     "approx": false,
+     "notes": "Newton SWEF, SB only, 0.5 mi south of County F, Manitowoc County"
     },
     {
      "mm": 164,
@@ -153,6 +173,26 @@
      "parking": 40
     },
     {
+     "mm": 145,
+     "exit": "145",
+     "name": "Weigh Station (SB)",
+     "brand": "State",
+     "type": "weigh_station",
+     "city": "Cottage Grove (Madison area)",
+     "approx": false,
+     "notes": "Madison SWEF on I-39/90 SB (I-90 EB) southeast of Madison, serves traffic toward Janesville/Chicago"
+    },
+    {
+     "mm": 180,
+     "exit": "180",
+     "name": "Weigh Station (NB)",
+     "brand": "State",
+     "type": "weigh_station",
+     "city": "La Prairie (Beloit/Janesville area)",
+     "approx": false,
+     "notes": "Beloit SWEF, I-39/90 NB, 2.5 mi north of County S; weigh-in-motion"
+    },
+    {
      "mm": 185,
      "exit": "",
      "name": "Wisconsin Welcome Center",
@@ -189,6 +229,16 @@
      "approx": true,
      "notes": "US-12, truck diesel lanes; verify amenities",
      "parking": 30
+    },
+    {
+     "mm": 8,
+     "exit": "8",
+     "name": "Weigh Station (EB)",
+     "brand": "State",
+     "type": "weigh_station",
+     "city": "Hudson",
+     "approx": false,
+     "notes": "Hudson SWEF, EB only, about 5.5 mi east of Hudson; rebuilt 2022-2023 with automated truck monitoring"
     },
     {
      "mm": 44,
@@ -299,6 +349,16 @@
      "approx": true,
      "notes": "Serves WB/NB entering from Illinois, truck parking",
      "parking": 30
+    },
+    {
+     "mm": 348,
+     "exit": "348",
+     "name": "Weigh Station (NB)",
+     "brand": "State",
+     "type": "weigh_station",
+     "city": "Pleasant Prairie (Kenosha)",
+     "approx": true,
+     "notes": "Kenosha SWEF, NB only, 0.25 mi north of Illinois line (listed at mm ~349); indoor inspection facility"
     }
    ]
   }

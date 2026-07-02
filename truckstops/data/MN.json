@@ -23,6 +23,7 @@
         {"mm": 1, "exit": "", "name": "Minnesota Welcome Center", "brand": "State", "type": "rest_area", "city": "Beaver Creek", "approx": true, "notes": "Serves EB entering from South Dakota, truck parking", "parking": 20},
         {"mm": 43, "exit": "43", "name": "Worthington Travel Information Center (EB only)", "brand": "State", "type": "rest_area", "city": "Worthington", "approx": true, "parking": 15},
         {"mm": 45, "exit": "45", "name": "Blue Line Travel Center", "brand": "Independent", "type": "truck_stop", "city": "Worthington", "approx": true, "notes": "MN-60 area", "parking": 60},
+        {"mm": 46, "exit": "46", "name": "Weigh Station (EB)", "brand": "State", "type": "weigh_station", "city": "Worthington", "approx": false, "notes": "MN State Patrol Worthington scale, EB only, east of Worthington"},
         {"mm": 119, "exit": "", "name": "Blue Earth Rest Area (both directions)", "brand": "State", "type": "rest_area", "city": "Blue Earth area", "approx": true, "notes": "EB and WB, truck parking; Albert Lea junction cluster listed under I-35", "parking": 25},
         {"mm": 166, "exit": "166", "name": "Hayward Rest Area (EB only)", "brand": "State", "type": "rest_area", "city": "Hayward", "approx": true, "parking": 20},
         {"mm": 176, "exit": "176", "name": "Oakland Rest Area (WB only)", "brand": "State", "type": "rest_area", "city": "Oakland (Austin area)", "approx": true, "parking": 20},
@@ -36,6 +37,7 @@
       "maxMM": 259,
       "stops": [
         {"mm": 1, "exit": "", "name": "Minnesota Welcome Center", "brand": "State", "type": "rest_area", "city": "Moorhead", "approx": true, "notes": "Serves EB entering from North Dakota, truck parking", "parking": 20},
+        {"mm": 4, "exit": "4", "name": "Weigh Station (EB)", "brand": "State", "type": "weigh_station", "city": "Moorhead", "approx": true, "notes": "MN State Patrol Red River scale, EB only, entering from North Dakota (reported mm 4-5)"},
         {"mm": 54, "exit": "54", "name": "Interstate Fuel & Food", "brand": "Independent", "type": "truck_stop", "city": "Fergus Falls", "approx": true, "notes": "Independent plaza; verify current name", "parking": 50},
         {"mm": 100, "exit": "100", "name": "Lake Latoka Rest Area (both directions)", "brand": "State", "type": "rest_area", "city": "Alexandria", "approx": true, "parking": 25},
         {"mm": 103, "exit": "103", "name": "Holiday Stationstore", "brand": "Independent", "type": "truck_stop", "city": "Alexandria", "approx": true, "notes": "MN-29, truck diesel; verify truck amenities", "parking": 30},
@@ -47,6 +49,7 @@
         {"mm": 178, "exit": "178", "name": "Pilot Travel Center", "brand": "Pilot", "type": "truck_stop", "city": "Clearwater", "approx": true, "notes": "MN-24", "parking": 70},
         {"mm": 207, "exit": "207", "name": "TA Travel Center", "brand": "TA", "type": "truck_stop", "city": "Rogers", "approx": true, "notes": "MN-101 area, northwest of Twin Cities", "parking": 150},
         {"mm": 215, "exit": "", "name": "Elm Creek Rest Area (EB only)", "brand": "State", "type": "rest_area", "city": "Maple Grove", "approx": true, "notes": "EB, truck parking", "parking": 20},
+        {"mm": 257, "exit": "257", "name": "Weigh Station (WB)", "brand": "State", "type": "weigh_station", "city": "Lakeland", "approx": false, "notes": "MN State Patrol St. Croix scale, WB only, entering from Wisconsin; adjacent to St. Croix rest area"},
         {"mm": 257, "exit": "", "name": "St. Croix Rest Area (WB only)", "brand": "State", "type": "rest_area", "city": "Lakeland", "approx": true, "notes": "Serves WB entering from Wisconsin, truck parking", "parking": 25}
       ]
     }

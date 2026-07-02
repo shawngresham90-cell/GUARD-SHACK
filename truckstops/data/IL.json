@@ -154,6 +154,16 @@
      "parking": 85
     },
     {
+     "mm": 266,
+     "exit": "266",
+     "name": "Weigh Station (both directions)",
+     "brand": "State",
+     "type": "weigh_station",
+     "city": "Bolingbrook",
+     "approx": true,
+     "notes": "ISP Bolingbrook (Joliet) scales, NB and SB (SB at mm 266, NB nearby); PrePass"
+    },
+    {
      "mm": 267,
      "exit": "267",
      "name": "Pilot Travel Center",
@@ -169,6 +179,26 @@
   "I-57": {
    "maxMM": 386,
    "stops": [
+    {
+     "mm": 46,
+     "exit": "46",
+     "name": "Weigh Station (NB)",
+     "brand": "State",
+     "type": "weigh_station",
+     "city": "Marion",
+     "approx": false,
+     "notes": "ISP Marion scale (Station 14), NB, just north of I-24 junction; PrePass"
+    },
+    {
+     "mm": 47,
+     "exit": "47",
+     "name": "Weigh Station (SB)",
+     "brand": "State",
+     "type": "weigh_station",
+     "city": "Marion",
+     "approx": false,
+     "notes": "ISP Marion scale (Station 18), SB, just north of I-24 junction; PrePass"
+    },
     {
      "mm": 79,
      "exit": "",
@@ -302,6 +332,26 @@
      "parking": 85
     },
     {
+     "mm": 330,
+     "exit": "330",
+     "name": "Weigh Station (NB)",
+     "brand": "State",
+     "type": "weigh_station",
+     "city": "Peotone",
+     "approx": false,
+     "notes": "ISP Peotone scale, NB, north of Peotone; PrePass"
+    },
+    {
+     "mm": 333,
+     "exit": "333",
+     "name": "Weigh Station (SB)",
+     "brand": "State",
+     "type": "weigh_station",
+     "city": "Peotone",
+     "approx": false,
+     "notes": "ISP Peotone scale, SB; PrePass"
+    },
+    {
      "mm": 335,
      "exit": "335",
      "name": "Petro Stopping Center",
@@ -317,6 +367,16 @@
   "I-64": {
    "maxMM": 132,
    "stops": [
+    {
+     "mm": 17,
+     "exit": "17",
+     "name": "Weigh Station (EB)",
+     "brand": "State",
+     "type": "weigh_station",
+     "city": "O'Fallon",
+     "approx": false,
+     "notes": "ISP O'Fallon scale, EB only, east of the Metro East area; PrePass"
+    },
     {
      "mm": 28,
      "exit": "",
@@ -365,6 +425,16 @@
      "approx": true,
      "notes": "IL-127",
      "parking": 85
+    },
+    {
+     "mm": 75,
+     "exit": "75",
+     "name": "Weigh Station (EB)",
+     "brand": "State",
+     "type": "weigh_station",
+     "city": "Brownstown",
+     "approx": true,
+     "notes": "ISP Brownstown scale, EB only, east of Vandalia (reported mm 71.5-75); PrePass"
     },
     {
      "mm": 77,
@@ -453,6 +523,16 @@
    "maxMM": 220,
    "stops": [
     {
+     "mm": 8,
+     "exit": "8",
+     "name": "Weigh Station (both directions)",
+     "brand": "State",
+     "type": "weigh_station",
+     "city": "Coal Valley (Moline)",
+     "approx": true,
+     "notes": "ISP Moline/Coal Valley scales, EB and WB, on I-74/I-280 overlap southeast of the Quad Cities; PrePass"
+    },
+    {
      "mm": 48,
      "exit": "48",
      "name": "Love's Travel Stop",
@@ -472,6 +552,16 @@
      "city": "Deer Creek",
      "approx": true,
      "parking": 20
+    },
+    {
+     "mm": 122,
+     "exit": "122",
+     "name": "Weigh Station (both directions)",
+     "brand": "State",
+     "type": "weigh_station",
+     "city": "Carlock",
+     "approx": true,
+     "notes": "ISP Carlock scales, EB (mm 122) and WB, west of Bloomington-Normal; PrePass"
     },
     {
      "mm": 149,
@@ -510,6 +600,16 @@
   "I-80": {
    "maxMM": 163,
    "stops": [
+    {
+     "mm": 2,
+     "exit": "2",
+     "name": "Weigh Station (both directions)",
+     "brand": "State",
+     "type": "weigh_station",
+     "city": "Rapids City",
+     "approx": true,
+     "notes": "ISP scales near IL-84 / Mississippi River crossing, EB and WB; PrePass"
+    },
     {
      "mm": 51,
      "exit": "",
