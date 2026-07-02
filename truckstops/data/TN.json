@@ -658,6 +658,16 @@
      "parking": 85
     },
     {
+     "mm": 21,
+     "exit": "21",
+     "name": "Weigh Station (SB)",
+     "brand": "State",
+     "type": "weigh_station",
+     "city": "Mosheim (Greeneville)",
+     "approx": false,
+     "notes": "THP Greene County scale complex, MM 21 southbound; PrePass"
+    },
+    {
      "mm": 36,
      "exit": "36",
      "name": "Love's Travel Stop",

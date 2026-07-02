@@ -1270,6 +1270,16 @@
      "parking": 35
     },
     {
+     "mm": 272,
+     "exit": "272",
+     "name": "Weigh Station (both directions)",
+     "brand": "State",
+     "type": "weigh_station",
+     "city": "Wilmer",
+     "approx": true,
+     "notes": "Paired NB (Ferris) and SB (Wilmer) TxDPS scales at Fulghum Rd, exit 272, south of Dallas"
+    },
+    {
      "mm": 273,
      "exit": "273",
      "name": "SafeStop Dallas",

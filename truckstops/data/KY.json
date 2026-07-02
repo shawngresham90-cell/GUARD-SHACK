@@ -8,6 +8,7 @@
         {"mm": 3, "exit": "3", "name": "Pilot Travel Center", "brand": "Pilot", "type": "truck_stop", "city": "Paducah", "approx": true, "notes": "", "parking": 85},
         {"mm": 7, "exit": "7", "name": "Whitehaven Welcome Center", "brand": "State", "type": "rest_area", "city": "Paducah", "approx": true, "notes": "Historic Whitehaven mansion welcome center; serves both directions; truck parking", "parking": 20},
         {"mm": 27, "exit": "27", "name": "Love's Travel Stop", "brand": "Love's", "type": "truck_stop", "city": "Calvert City", "approx": false, "notes": "US-62", "parking": 85},
+        {"mm": 36, "exit": "36", "name": "Weigh Station (EB)", "brand": "State", "type": "weigh_station", "city": "Kuttawa (Lyon County)", "approx": false, "notes": "Lyon County scales, MM 36 eastbound; PrePass"},
         {"mm": 40, "exit": "40", "name": "Pilot Travel Center", "brand": "Pilot", "type": "truck_stop", "city": "Kuttawa", "approx": true, "notes": "US-62, Kuttawa/Eddyville", "parking": 85},
         {"mm": 86, "exit": "86", "name": "Petro Stopping Center", "brand": "Petro", "type": "truck_stop", "city": "Oak Grove", "approx": false, "notes": "US-41A, near Fort Campbell", "parking": 200},
         {"mm": 86, "exit": "86", "name": "Flying J Travel Center", "brand": "Flying J", "type": "truck_stop", "city": "Oak Grove", "approx": true, "notes": "US-41A, near Fort Campbell", "parking": 90},
