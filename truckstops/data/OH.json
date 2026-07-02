@@ -1,0 +1,94 @@
+{
+  "state": "Ohio",
+  "abbr": "OH",
+  "interstates": {
+    "I-70": {
+      "maxMM": 226,
+      "stops": [
+        {"mm": 10, "exit": "10", "name": "Pilot Travel Center", "brand": "Pilot", "type": "truck_stop", "city": "Brookville", "approx": true, "notes": "SR-49 exit"},
+        {"mm": 31, "exit": "", "name": "Preble County Rest Area", "brand": "State", "type": "rest_area", "city": "Lewisburg area", "approx": true, "notes": "Serves EB and WB, truck parking"},
+        {"mm": 85, "exit": "85", "name": "Pilot Travel Center", "brand": "Pilot", "type": "truck_stop", "city": "West Jefferson", "approx": false, "notes": "SR-142"},
+        {"mm": 85, "exit": "85", "name": "TA Travel Center", "brand": "TA", "type": "truck_stop", "city": "West Jefferson", "approx": true, "notes": "SR-142, Columbus west side"},
+        {"mm": 118, "exit": "118", "name": "Pilot Travel Center", "brand": "Pilot", "type": "truck_stop", "city": "Etna", "approx": true, "notes": "SR-310"},
+        {"mm": 126, "exit": "126", "name": "Pilot Travel Center", "brand": "Pilot", "type": "truck_stop", "city": "Hebron", "approx": false, "notes": "SR-37, large lot"},
+        {"mm": 126, "exit": "126", "name": "Flying J Travel Center", "brand": "Flying J", "type": "truck_stop", "city": "Hebron", "approx": false, "notes": "SR-37"},
+        {"mm": 152, "exit": "152", "name": "Pilot Travel Center", "brand": "Pilot", "type": "truck_stop", "city": "Zanesville", "approx": true, "notes": "US-40/National Rd"},
+        {"mm": 160, "exit": "160", "name": "Love's Travel Stop", "brand": "Love's", "type": "truck_stop", "city": "Zanesville area", "approx": true, "notes": ""},
+        {"mm": 178, "exit": "178", "name": "TA Travel Center", "brand": "TA", "type": "truck_stop", "city": "Cambridge", "approx": true, "notes": "US-40, near I-77 junction"},
+        {"mm": 178, "exit": "178", "name": "Love's Travel Stop", "brand": "Love's", "type": "truck_stop", "city": "Cambridge", "approx": true, "notes": "Near I-77 junction"}
+      ]
+    },
+    "I-71": {
+      "maxMM": 248,
+      "stops": [
+        {"mm": 65, "exit": "65", "name": "Love's Travel Stop", "brand": "Love's", "type": "truck_stop", "city": "Jeffersonville", "approx": true, "notes": "Outlet mall area"},
+        {"mm": 82, "exit": "", "name": "Rest Area", "brand": "State", "type": "rest_area", "city": "Mount Sterling area", "approx": true, "notes": "Serves NB and SB, truck parking"},
+        {"mm": 131, "exit": "131", "name": "Flying J Travel Center", "brand": "Flying J", "type": "truck_stop", "city": "Sunbury", "approx": false, "notes": "US-36/SR-37"},
+        {"mm": 169, "exit": "169", "name": "Pilot Travel Center", "brand": "Pilot", "type": "truck_stop", "city": "Mansfield", "approx": true, "notes": "SR-13"},
+        {"mm": 186, "exit": "186", "name": "Love's Travel Stop", "brand": "Love's", "type": "truck_stop", "city": "Ashland", "approx": true, "notes": "US-250"},
+        {"mm": 204, "exit": "204", "name": "Pilot Travel Center", "brand": "Pilot", "type": "truck_stop", "city": "Burbank", "approx": false, "notes": "SR-83, Lodi area"},
+        {"mm": 209, "exit": "209", "name": "TA Travel Center", "brand": "TA", "type": "truck_stop", "city": "Seville/Lodi area", "approx": false, "notes": "I-76/US-224 junction"},
+        {"mm": 209, "exit": "209", "name": "Petro Stopping Center", "brand": "Petro", "type": "truck_stop", "city": "Seville/Lodi area", "approx": false, "notes": "I-76/US-224 junction"}
+      ]
+    },
+    "I-74": {
+      "maxMM": 20,
+      "stops": []
+    },
+    "I-75": {
+      "maxMM": 211,
+      "stops": [
+        {"mm": 81, "exit": "", "name": "Rest Area", "brand": "State", "type": "rest_area", "city": "Piqua area", "approx": true, "notes": "Serves NB and SB, truck parking"},
+        {"mm": 111, "exit": "111", "name": "Pilot Travel Center", "brand": "Pilot", "type": "truck_stop", "city": "Wapakoneta", "approx": true, "notes": "Bellefontaine St"},
+        {"mm": 135, "exit": "135", "name": "Flying J Travel Center", "brand": "Flying J", "type": "truck_stop", "city": "Beaverdam", "approx": false, "notes": "US-30 junction area"},
+        {"mm": 135, "exit": "135", "name": "Love's Travel Stop", "brand": "Love's", "type": "truck_stop", "city": "Beaverdam", "approx": false, "notes": ""},
+        {"mm": 157, "exit": "157", "name": "Pilot Travel Center", "brand": "Pilot", "type": "truck_stop", "city": "Findlay", "approx": false, "notes": "US-224/SR-15"},
+        {"mm": 159, "exit": "159", "name": "Petro Stopping Center", "brand": "Petro", "type": "truck_stop", "city": "Findlay", "approx": false, "notes": "US-68/SR-15"},
+        {"mm": 167, "exit": "167", "name": "TA Express", "brand": "TA Express", "type": "truck_stop", "city": "North Baltimore", "approx": true, "notes": "SR-18"},
+        {"mm": 210, "exit": "210", "name": "Petro Stopping Center", "brand": "Petro", "type": "truck_stop", "city": "Toledo/Perrysburg area", "approx": true, "notes": "South Toledo metro"}
+      ]
+    },
+    "I-76": {
+      "maxMM": 82,
+      "stops": []
+    },
+    "I-77": {
+      "maxMM": 164,
+      "stops": [
+        {"mm": 1, "exit": "1", "name": "Pilot Travel Center", "brand": "Pilot", "type": "truck_stop", "city": "Marietta", "approx": true, "notes": "SR-7, near WV line"},
+        {"mm": 25, "exit": "25", "name": "Love's Travel Stop", "brand": "Love's", "type": "truck_stop", "city": "Caldwell", "approx": true, "notes": "SR-78"},
+        {"mm": 41, "exit": "", "name": "Rest Area", "brand": "State", "type": "rest_area", "city": "Cambridge area", "approx": true, "notes": "Serves NB and SB, truck parking"}
+      ]
+    },
+    "I-80": {
+      "maxMM": 237,
+      "stops": [
+        {"mm": 21, "exit": "", "name": "Indian Meadow / Tiffin River Service Plazas", "brand": "State", "type": "service_plaza", "city": "West Unity area", "approx": false, "notes": "Ohio Turnpike mainline pair, EB and WB, truck parking"},
+        {"mm": 49, "exit": "", "name": "Wyandot / Blue Heron Service Plazas", "brand": "State", "type": "service_plaza", "city": "Swanton area", "approx": false, "notes": "Ohio Turnpike mainline pair, EB and WB, truck parking"},
+        {"mm": 77, "exit": "", "name": "Commodore Perry / Erie Islands Service Plazas", "brand": "State", "type": "service_plaza", "city": "Genoa area", "approx": false, "notes": "Ohio Turnpike mainline pair, EB and WB, truck parking"},
+        {"mm": 100, "exit": "", "name": "Middle Ridge / Vermilion Valley Service Plazas", "brand": "State", "type": "service_plaza", "city": "Amherst area", "approx": false, "notes": "Ohio Turnpike mainline pair, EB and WB, truck parking"},
+        {"mm": 139, "exit": "", "name": "Towpath / Great Lakes Service Plazas", "brand": "State", "type": "service_plaza", "city": "Broadview Heights area", "approx": false, "notes": "Ohio Turnpike mainline pair, EB and WB, truck parking"},
+        {"mm": 170, "exit": "", "name": "Portage / Brady's Leap Service Plazas", "brand": "State", "type": "service_plaza", "city": "Mantua area", "approx": false, "notes": "Ohio Turnpike mainline pair, EB and WB, truck parking"},
+        {"mm": 197, "exit": "", "name": "Mahoning Valley / Glacier Hills Service Plazas", "brand": "State", "type": "service_plaza", "city": "Lordstown area", "approx": false, "notes": "Ohio Turnpike mainline pair, EB and WB, truck parking"},
+        {"mm": 223, "exit": "223", "name": "Pilot Travel Center", "brand": "Pilot", "type": "truck_stop", "city": "Austintown", "approx": true, "notes": "SR-46, free I-80 section"},
+        {"mm": 223, "exit": "223", "name": "TA Travel Center", "brand": "TA", "type": "truck_stop", "city": "Austintown (Youngstown)", "approx": true, "notes": "SR-46"},
+        {"mm": 234, "exit": "234", "name": "Flying J Travel Center", "brand": "Flying J", "type": "truck_stop", "city": "Hubbard/Girard area", "approx": true, "notes": ""},
+        {"mm": 234, "exit": "234", "name": "TruckWorld Travel Plaza", "brand": "Independent", "type": "truck_stop", "city": "Hubbard", "approx": true, "notes": "Large independent stop near PA line"}
+      ]
+    },
+    "I-90": {
+      "maxMM": 245,
+      "stops": [
+        {"mm": 223, "exit": "223", "name": "Flying J Travel Center", "brand": "Flying J", "type": "truck_stop", "city": "Austinburg", "approx": false, "notes": "SR-45"},
+        {"mm": 223, "exit": "223", "name": "TA Travel Center", "brand": "TA", "type": "truck_stop", "city": "Austinburg", "approx": true, "notes": "SR-45"}
+      ]
+    },
+    "I-280": {
+      "maxMM": 13,
+      "stops": [
+        {"mm": 1, "exit": "1", "name": "TA Travel Center", "brand": "TA", "type": "truck_stop", "city": "Stony Ridge (Toledo)", "approx": true, "notes": "At Ohio Turnpike exit 71 junction"},
+        {"mm": 1, "exit": "1", "name": "Pilot Travel Center", "brand": "Pilot", "type": "truck_stop", "city": "Stony Ridge (Toledo)", "approx": true, "notes": "At Ohio Turnpike exit 71 junction"}
+      ]
+    }
+  }
+}

@@ -1,0 +1,67 @@
+{
+  "state": "Florida",
+  "abbr": "FL",
+  "interstates": {
+    "I-4": {
+      "maxMM": 132,
+      "stops": [
+        {"mm": 10, "exit": "10", "name": "Flying J Travel Center", "brand": "Flying J", "type": "truck_stop", "city": "Seffner (Tampa East)", "approx": false, "notes": "McIntosh Rd"},
+        {"mm": 10, "exit": "10", "name": "TA Tampa", "brand": "TA", "type": "truck_stop", "city": "Mango", "approx": true, "notes": "US-92"},
+        {"mm": 46, "exit": "46", "name": "Rest Area (both directions)", "brand": "State", "type": "rest_area", "city": "Polk City", "approx": true, "notes": "Truck parking; serves EB and WB"},
+        {"mm": 55, "exit": "55", "name": "Pilot Travel Center", "brand": "Pilot", "type": "truck_stop", "city": "Davenport", "approx": true, "notes": "US-27"}
+      ]
+    },
+    "I-10": {
+      "maxMM": 362,
+      "stops": [
+        {"mm": 3, "exit": "3", "name": "Florida Welcome Center (eastbound)", "brand": "State", "type": "rest_area", "city": "Pensacola", "approx": true, "notes": "Serves eastbound entering from AL; truck parking"},
+        {"mm": 5, "exit": "5", "name": "Pilot Travel Center", "brand": "Pilot", "type": "truck_stop", "city": "Pensacola", "approx": true, "notes": "US-90A/Nine Mile Rd"},
+        {"mm": 22, "exit": "22", "name": "Flying J Travel Center", "brand": "Flying J", "type": "truck_stop", "city": "Milton", "approx": true, "notes": "Avalon Blvd"},
+        {"mm": 85, "exit": "85", "name": "Love's Travel Stop", "brand": "Love's", "type": "truck_stop", "city": "DeFuniak Springs", "approx": true, "notes": ""},
+        {"mm": 96, "exit": "96", "name": "Rest Area (both directions)", "brand": "State", "type": "rest_area", "city": "Ponce de Leon area", "approx": true, "notes": "Truck parking; serves EB and WB"},
+        {"mm": 142, "exit": "142", "name": "TA Marianna", "brand": "TA", "type": "truck_stop", "city": "Marianna", "approx": false, "notes": "SR-71"},
+        {"mm": 192, "exit": "192", "name": "Love's Travel Stop", "brand": "Love's", "type": "truck_stop", "city": "Midway", "approx": false, "notes": "Tallahassee west side"},
+        {"mm": 192, "exit": "192", "name": "Flying J Travel Center", "brand": "Flying J", "type": "truck_stop", "city": "Midway", "approx": true, "notes": "Tallahassee west side"},
+        {"mm": 258, "exit": "258", "name": "Pilot Travel Center", "brand": "Pilot", "type": "truck_stop", "city": "Madison", "approx": true, "notes": "SR-53"},
+        {"mm": 258, "exit": "258", "name": "Love's Travel Stop", "brand": "Love's", "type": "truck_stop", "city": "Madison", "approx": true, "notes": "SR-53"},
+        {"mm": 262, "exit": "262", "name": "Rest Area (both directions)", "brand": "State", "type": "rest_area", "city": "Madison County", "approx": true, "notes": "Truck parking; serves EB and WB"},
+        {"mm": 283, "exit": "283", "name": "Love's Travel Stop", "brand": "Love's", "type": "truck_stop", "city": "Live Oak", "approx": true, "notes": "US-129"},
+        {"mm": 301, "exit": "301", "name": "Love's Travel Stop", "brand": "Love's", "type": "truck_stop", "city": "Lake City", "approx": true, "notes": "US-90; near I-75 junction cluster (I-75 exit 427)"},
+        {"mm": 343, "exit": "343", "name": "TA Baldwin", "brand": "TA", "type": "truck_stop", "city": "Baldwin", "approx": true, "notes": "US-301, Baldwin cluster west of Jacksonville"},
+        {"mm": 343, "exit": "343", "name": "Love's Travel Stop", "brand": "Love's", "type": "truck_stop", "city": "Baldwin", "approx": true, "notes": "US-301, Baldwin cluster"}
+      ]
+    },
+    "I-75": {
+      "maxMM": 471,
+      "stops": [
+        {"mm": 49, "exit": "49", "name": "Miccosukee Service Plaza", "brand": "Independent", "type": "service_plaza", "city": "Alligator Alley (Snake Rd)", "approx": true, "notes": "Only fuel stop on Alligator Alley"},
+        {"mm": 139, "exit": "139", "name": "Pilot Travel Center", "brand": "Pilot", "type": "truck_stop", "city": "Fort Myers", "approx": false, "notes": "Luckett Rd"},
+        {"mm": 161, "exit": "161", "name": "Pilot Travel Center", "brand": "Pilot", "type": "truck_stop", "city": "Punta Gorda", "approx": false, "notes": "Jones Loop Rd"},
+        {"mm": 329, "exit": "329", "name": "TA Wildwood", "brand": "TA", "type": "truck_stop", "city": "Wildwood", "approx": false, "notes": "SR-44; Wildwood truck stop cluster"},
+        {"mm": 329, "exit": "329", "name": "Pilot Travel Center", "brand": "Pilot", "type": "truck_stop", "city": "Wildwood", "approx": false, "notes": "SR-44; Wildwood truck stop cluster"},
+        {"mm": 329, "exit": "329", "name": "Flying J Travel Center", "brand": "Flying J", "type": "truck_stop", "city": "Wildwood", "approx": false, "notes": "SR-44; Wildwood truck stop cluster"},
+        {"mm": 358, "exit": "358", "name": "Pilot Travel Center", "brand": "Pilot", "type": "truck_stop", "city": "Ocala", "approx": false, "notes": "SR-326"},
+        {"mm": 358, "exit": "358", "name": "Petro Stopping Center", "brand": "Petro", "type": "truck_stop", "city": "Ocala", "approx": false, "notes": "SR-326"},
+        {"mm": 413, "exit": "413", "name": "Rest Area (both directions)", "brand": "State", "type": "rest_area", "city": "Paynes Prairie (Micanopy)", "approx": true, "notes": "Truck parking; serves NB and SB"},
+        {"mm": 427, "exit": "427", "name": "Flying J Travel Center", "brand": "Flying J", "type": "truck_stop", "city": "Lake City", "approx": false, "notes": "US-90; Lake City cluster near I-10 junction"},
+        {"mm": 427, "exit": "427", "name": "Pilot Travel Center", "brand": "Pilot", "type": "truck_stop", "city": "Lake City", "approx": true, "notes": "US-90; Lake City cluster"},
+        {"mm": 427, "exit": "427", "name": "TA Lake City", "brand": "TA", "type": "truck_stop", "city": "Lake City", "approx": true, "notes": "US-90; Lake City cluster"},
+        {"mm": 469, "exit": "469", "name": "Florida Welcome Center (southbound)", "brand": "State", "type": "rest_area", "city": "Jennings", "approx": true, "notes": "Serves southbound entering from GA; truck parking"}
+      ]
+    },
+    "I-95": {
+      "maxMM": 382,
+      "stops": [
+        {"mm": 129, "exit": "129", "name": "Pilot Travel Center", "brand": "Pilot", "type": "truck_stop", "city": "Fort Pierce", "approx": false, "notes": "Okeechobee Rd cluster"},
+        {"mm": 129, "exit": "129", "name": "Flying J Travel Center", "brand": "Flying J", "type": "truck_stop", "city": "Fort Pierce", "approx": false, "notes": "Okeechobee Rd cluster"},
+        {"mm": 129, "exit": "129", "name": "Love's Travel Stop", "brand": "Love's", "type": "truck_stop", "city": "Fort Pierce", "approx": true, "notes": "Okeechobee Rd cluster"},
+        {"mm": 133, "exit": "133", "name": "Rest Area (both directions)", "brand": "State", "type": "rest_area", "city": "Fort Pierce (north)", "approx": true, "notes": "Truck parking; serves NB and SB"},
+        {"mm": 201, "exit": "201", "name": "Pilot Travel Center", "brand": "Pilot", "type": "truck_stop", "city": "Cocoa", "approx": false, "notes": "SR-524"},
+        {"mm": 223, "exit": "223", "name": "Love's Travel Stop", "brand": "Love's", "type": "truck_stop", "city": "Mims", "approx": true, "notes": "SR-46"},
+        {"mm": 265, "exit": "265", "name": "Buc-ee's", "brand": "Buc-ee's", "type": "truck_stop", "city": "Daytona Beach", "approx": false, "notes": "LPGA Blvd; no semi-truck parking"},
+        {"mm": 329, "exit": "329", "name": "Flying J Travel Center", "brand": "Flying J", "type": "truck_stop", "city": "Jacksonville", "approx": false, "notes": "Pecan Park Rd"},
+        {"mm": 380, "exit": "380", "name": "Florida Welcome Center (southbound)", "brand": "State", "type": "rest_area", "city": "Yulee area", "approx": true, "notes": "Serves southbound entering from GA; truck parking"}
+      ]
+    }
+  }
+}
