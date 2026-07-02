@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0a0a0b">
+<title>Fix-It Letter Generator · Reg Deck</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=DM+Mono:wght@400;500&family=Archivo:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/rd.css">
+<style>
+  .lt-field{margin-bottom:10px}
+  .lt-field label{display:block;font-family:var(--mono);font-size:10px;letter-spacing:1px;
+    color:var(--txt-dim);text-transform:uppercase;margin-bottom:5px}
+  .lt-field input,.lt-field textarea{width:100%;background:var(--panel2);border:1px solid var(--line2);
+    color:var(--txt);padding:11px 12px;font-size:15px;border-radius:6px;font-family:var(--body)}
+  .lt-field textarea{min-height:70px;resize:vertical}
+  .lt-field input:focus,.lt-field textarea:focus{outline:none;border-color:var(--orange)}
+  .lt-out{margin-top:14px}
+  .lt-actions{display:flex;gap:8px;margin-top:8px}
+</style>
+</head>
+<body>
+<div class="hazard"></div>
+<div class="rd-top">
+  <a class="rd-back" href="/">← Reg Deck</a>
+  <div class="rd-brand">Trucking Life<br>with Shawn</div>
+</div>
+
+<div class="rd-wrap">
+  <div class="rd-hero">
+    <h1>✍️ Fix-It Letters</h1>
+    <div class="sub">Got written up? The paperwork you send in the next 48 hours decides how much it costs you.
+    Fill it in once — get every letter you need.</div>
+    <div id="meterChip"></div>
+  </div>
+
+  <div class="rd-q">
+    <h3>The facts</h3>
+    <div class="hint">Stays on this device. Be plain and factual — no opinions, no apologies, no guessing.</div>
+    <div class="lt-field"><label>Your name</label><input id="fName" placeholder="e.g. John Carter"></div>
+    <div class="lt-field"><label>Company / carrier</label><input id="fCo" placeholder="e.g. Rosedale Transport"></div>
+    <div class="lt-field"><label>Truck # / Trailer #</label><input id="fUnit" placeholder="e.g. Tractor 4412 / Trailer 53201"></div>
+    <div class="lt-field"><label>Inspection or citation # · date · state</label><input id="fInsp" placeholder="e.g. #MS0123456 · 06/28/2026 · KY"></div>
+    <div class="lt-field"><label>Violation as written (code + wording)</label><input id="fVio" placeholder="e.g. 393.9 — inoperative right rear turn signal"></div>
+    <div class="lt-field"><label>What actually happened</label><textarea id="fWhat" placeholder="e.g. Lamp worked on my 06:00 pre-trip. Officer found it out at 14:30. Replaced bulb same day at TA Knoxville."></textarea></div>
+    <div class="lt-field"><label>Repair / correction made (if any)</label><input id="fFix" placeholder="e.g. Bulb replaced 06/28, receipt #8841"></div>
+  </div>
+
+  <div class="rd-q">
+    <h3>Which letter?</h3>
+    <div class="rd-opts">
+      <button data-l="statement" class="picked">📄 Driver statement (for your file)</button>
+      <button data-l="shop">🔧 Shop repair note request</button>
+      <button data-l="company">🏢 Company explanation memo</button>
+      <button data-l="dataq">⚖️ DataQ dispute draft</button>
+      <button data-l="prevent">✅ Preventive action letter</button>
+    </div>
+  </div>
+
+  <button class="rd-go" id="goLt">WRITE IT →</button>
+  <div class="lt-out" id="outLt"></div>
+
+  <a class="rd-upsell" href="https://godatq.netlify.app" target="_blank" rel="noopener">
+    ⚖️ Filing the DataQ? Track it end-to-end with the DataQ Tracker
+    <small>Free tool — logs the dispute, builds the RDR, tracks the outcome</small>
+  </a>
+
+  <div class="rd-foot">
+    <b>POWERED BY TRUCKING LIFE WITH SHAWN</b>
+    TEMPLATES — REVIEW BEFORE SENDING · NOT LEGAL ADVICE<br>
+    YOUR ENTRIES NEVER LEAVE THIS DEVICE
+  </div>
+</div>
+
+<script src="/rd.js"></script>
+<script>
+"use strict";
+document.getElementById("meterChip").innerHTML = rdMeterChip();
+
+document.querySelectorAll("[data-l]").forEach(b => {
+  b.addEventListener("click", () => {
+    document.querySelectorAll("[data-l]").forEach(x => x.classList.remove("picked"));
+    b.classList.add("picked");
+  });
+});
+
+function val(id){ return document.getElementById(id).value.trim(); }
+function today(){ return new Date().toLocaleDateString("en-US", {year:"numeric",month:"long",day:"numeric"}); }
+
+function buildLetter(kind, f){
+  const head = `${f.name}\n${f.co}\nUnit: ${f.unit}\nDate: ${today()}\n\n`;
+  switch(kind){
+    case "statement": return head +
+`DRIVER STATEMENT — ${f.insp}
+
+On the date above, unit ${f.unit} was inspected and the following was noted:
+"${f.vio}"
+
+Statement of facts:
+${f.what}
+
+${f.fix ? "Correction made: " + f.fix + "\n\n" : ""}This statement was written the same day while details were fresh. Attached: photos of the equipment, the inspection report, and ${f.fix ? "the repair receipt" : "supporting records"}.
+
+Signed,
+${f.name}`;
+    case "shop": return head +
+`TO: Shop / Maintenance Manager
+RE: Repair documentation needed — ${f.insp}
+
+During a DOT inspection, the following was written against unit ${f.unit}:
+"${f.vio}"
+
+Please provide, on shop letterhead:
+1. A work order for the repair (${f.fix || "repair performed"}), with date and time completed.
+2. The mechanic's note of what was found (root cause), and whether the defect would have been visible on a standard pre-trip inspection.
+3. Copies of the parts invoice.
+
+I need these for the carrier's file and a possible FMCSA DataQ review, so exact dates and times matter.
+
+Thank you,
+${f.name}`;
+    case "company": return head +
+`TO: Safety Department, ${f.co}
+RE: Explanation of violation — ${f.insp}
+
+Violation as recorded: "${f.vio}"
+
+What happened:
+${f.what}
+
+${f.fix ? "Corrective action already taken: " + f.fix + "\n\n" : ""}What I am doing so this does not repeat:
+- Added this item to my documented pre-trip/en-route checks.
+- Keeping the repair and inspection paperwork in the truck for 30 days.
+- Requesting a DataQ review if the facts support one.
+
+I take the record seriously — 24 months of CSA exposure is 24 months of my name on it too.
+
+${f.name}`;
+    case "dataq": return head +
+`DRAFT — FMCSA DataQs REQUEST FOR DATA REVIEW (RDR)
+Inspection: ${f.insp}
+Challenged violation: "${f.vio}"
+
+Requested action: Review and removal (or correction) of the violation above.
+
+Grounds:
+${f.what}
+
+${f.fix ? "Supporting correction: " + f.fix + "\n" : ""}Supporting documents attached:
+- Inspection report (all pages)
+- Photographs taken at the scene
+- Repair order / receipts
+- Pre-trip inspection record (DVIR) for the same day
+
+The recorded violation does not accurately reflect the facts above. I respectfully request the record be corrected so the carrier's SMS data and my PSP remain accurate.
+
+Respectfully submitted,
+${f.name}, ${f.co}
+
+>> File this at dataqs.fmcsa.dot.gov — and track it with the free DataQ Tracker: godatq.netlify.app`;
+    case "prevent": return head +
+`PREVENTIVE ACTION PLAN — following ${f.insp}
+
+Issue identified: "${f.vio}"
+
+Root cause (plain facts):
+${f.what}
+
+Actions taken:
+${f.fix ? "1. " + f.fix : "1. Immediate correction completed"}
+2. Item added to my written pre-trip routine, checked every duty day.
+3. 30-day self-audit: I will photo-log this item weekly for 4 weeks.
+4. Reviewed the governing regulation (see citation on the inspection) so the standard is clear.
+
+Requested of the carrier:
+- Please attach this plan to the violation in my driver file as evidence of proactive correction.
+
+${f.name}`;
+  }
+  return "";
+}
+
+document.getElementById("goLt").addEventListener("click", () => {
+  const out = document.getElementById("outLt");
+  const f = {name: val("fName"), co: val("fCo"), unit: val("fUnit"),
+    insp: val("fInsp"), vio: val("fVio"), what: val("fWhat"), fix: val("fFix")};
+  if (!f.name || !f.vio || !f.what){
+    out.innerHTML = `<div class="rd-note"><b>Need at least your name, the violation, and what happened.</b></div>`;
+    out.scrollIntoView({behavior:"smooth"}); return;
+  }
+  if (!rdSpend()){ rdMountGate(out, "You used your 3 free letters for today."); out.scrollIntoView({behavior:"smooth"}); return; }
+  document.getElementById("meterChip").innerHTML = rdMeterChip();
+
+  const kind = document.querySelector("[data-l].picked").dataset.l;
+  const txt = buildLetter(kind, f);
+  out.innerHTML = `<div class="rd-card">
+    <h3>Your letter — read it, fix anything, then copy</h3>
+    <div class="rd-script" id="ltText">${rdEsc(txt)}</div>
+    <div class="lt-actions">
+      <button class="rd-copy" id="copyLt">Copy letter</button>
+      <button class="rd-copy" id="shareLt">Share / send</button>
+    </div>
+  </div>`;
+  document.getElementById("copyLt").onclick = ev => {
+    navigator.clipboard.writeText(txt).then(() => {
+      ev.target.textContent = "✓ Copied"; ev.target.classList.add("done");
+    });
+  };
+  document.getElementById("shareLt").onclick = () => {
+    if (navigator.share) navigator.share({text: txt});
+    else location.href = "mailto:?subject=" + encodeURIComponent("RE: " + f.insp) + "&body=" + encodeURIComponent(txt);
+  };
+  out.scrollIntoView({behavior:"smooth"});
+});
+</script>
+</body>
+</html>

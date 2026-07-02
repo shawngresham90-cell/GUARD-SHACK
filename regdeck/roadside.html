@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0a0a0b">
+<title>Roadside Mode — Reg Deck</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    background: #0a0a0b;
+    color: #fff;
+    min-height: 100vh;
+    padding: 16px;
+    padding-bottom: 80px;
+  }
+  .top-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 16px;
+    padding: 8px 4px;
+  }
+  .back {
+    color: #fff;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 600;
+    padding: 8px 12px;
+    background: rgba(255,255,255,0.08);
+    border-radius: 8px;
+  }
+  .brand {
+    font-size: 12px;
+    opacity: 0.6;
+    text-align: right;
+  }
+  .alert-banner {
+    background: linear-gradient(135deg, #dc2626 0%, #991b1b 100%);
+    border-radius: 16px;
+    padding: 20px;
+    text-align: center;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 20px rgba(220, 38, 38, 0.3);
+  }
+  .alert-banner h1 {
+    font-size: 28px;
+    font-weight: 900;
+    letter-spacing: -0.5px;
+    margin-bottom: 6px;
+  }
+  .alert-banner p {
+    font-size: 14px;
+    opacity: 0.95;
+    font-weight: 500;
+  }
+  .stay-calm {
+    background: #1a1a1d;
+    border-left: 4px solid #fbbf24;
+    padding: 14px 16px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    font-size: 15px;
+    line-height: 1.5;
+  }
+  .stay-calm strong {
+    color: #fbbf24;
+    display: block;
+    margin-bottom: 4px;
+    font-size: 13px;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+  }
+  .section-label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.2px;
+    opacity: 0.5;
+    margin: 24px 0 10px 4px;
+    text-transform: uppercase;
+  }
+  .reg-card {
+    background: #1a1a1d;
+    border-radius: 12px;
+    padding: 16px;
+    margin-bottom: 10px;
+    border: 1px solid rgba(255,255,255,0.06);
+    cursor: pointer;
+    transition: background 0.15s;
+  }
+  .reg-card:active {
+    background: #232327;
+  }
+  .reg-card-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .reg-num {
+    font-size: 18px;
+    font-weight: 800;
+    color: #fff;
+  }
+  .reg-chevron {
+    font-size: 20px;
+    opacity: 0.4;
+    transition: transform 0.2s;
+  }
+  .reg-card.open .reg-chevron {
+    transform: rotate(90deg);
+  }
+  .reg-title {
+    font-size: 14px;
+    opacity: 0.7;
+    margin-top: 2px;
+  }
+  .reg-body {
+    display: none;
+    margin-top: 14px;
+    padding-top: 14px;
+    border-top: 1px solid rgba(255,255,255,0.08);
+    font-size: 14px;
+    line-height: 1.55;
+  }
+  .reg-card.open .reg-body {
+    display: block;
+  }
+  .reg-body h4 {
+    font-size: 11px;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+    color: #fbbf24;
+    margin-bottom: 6px;
+    margin-top: 10px;
+    font-weight: 700;
+  }
+  .reg-body h4:first-child {
+    margin-top: 0;
+  }
+  .reg-body p {
+    opacity: 0.9;
+    margin-bottom: 4px;
+  }
+  .hot-take {
+    background: rgba(34, 197, 94, 0.08);
+    border-left: 3px solid #22c55e;
+    padding: 10px 12px;
+    border-radius: 6px;
+    margin-top: 10px;
+    font-size: 13px;
+    line-height: 1.5;
+  }
+  .hot-take strong {
+    color: #22c55e;
+    display: block;
+    margin-bottom: 4px;
+    font-size: 11px;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+  }
+  .action-card {
+    background: #1a1a1d;
+    border-radius: 12px;
+    padding: 16px;
+    margin-bottom: 10px;
+    border: 1px solid rgba(255,255,255,0.06);
+  }
+  .action-card h3 {
+    font-size: 15px;
+    font-weight: 700;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .action-card ul {
+    list-style: none;
+    padding: 0;
+  }
+  .action-card li {
+    padding: 6px 0;
+    font-size: 14px;
+    opacity: 0.9;
+    padding-left: 22px;
+    position: relative;
+    line-height: 1.45;
+  }
+  .action-card li::before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    color: #22c55e;
+    font-weight: 700;
+  }
+  .dont-card li::before {
+    content: "✕";
+    color: #ef4444;
+  }
+  .cta {
+    background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%);
+    color: #0a0a0b;
+    padding: 16px;
+    border-radius: 12px;
+    text-align: center;
+    margin-top: 24px;
+    text-decoration: none;
+    display: block;
+    font-weight: 800;
+    font-size: 15px;
+    box-shadow: 0 4px 20px rgba(251, 191, 36, 0.25);
+  }
+  .cta-sub {
+    font-size: 12px;
+    font-weight: 600;
+    opacity: 0.8;
+    margin-top: 2px;
+  }
+  .footer {
+    text-align: center;
+    margin-top: 24px;
+    font-size: 11px;
+    opacity: 0.4;
+    line-height: 1.6;
+    padding: 0 8px;
+  }
+</style>
+</head>
+<body>
+
+<div class="top-bar">
+  <a href="/" class="back">← Reg Deck</a>
+  <div class="brand">Trucking Life<br>with Shawn</div>
+</div>
+
+<div class="alert-banner">
+  <h1>🚨 ROADSIDE MODE</h1>
+  <p>Pulled over by DOT? Hit this first.</p>
+</div>
+
+<div class="stay-calm">
+  <strong>Step 1 — Stay Calm</strong>
+  Hands on wheel. Window down. Be respectful. You're not in trouble until you make yourself trouble. Shut the truck off ONLY if asked.
+</div>
+
+<div class="section-label">📋 Documents to Have Ready</div>
+<div class="action-card">
+  <ul>
+    <li>CDL (with current medical card)</li>
+    <li>Logbook / ELD print-out (last 8 days)</li>
+    <li>Bill of Lading / shipping papers</li>
+    <li>Registration & insurance (cab card)</li>
+    <li>DVIR (last driver's inspection report)</li>
+    <li>Annual inspection sticker on trailer</li>
+  </ul>
+</div>
+
+<div class="section-label">🎯 Top 5 Regs DOT Will Cite</div>
+
+<div class="reg-card" onclick="this.classList.toggle('open')">
+  <div class="reg-card-head">
+    <div>
+      <div class="reg-num">§395.8</div>
+      <div class="reg-title">Driver's Record of Duty Status (Logs)</div>
+    </div>
+    <div class="reg-chevron">▶</div>
+  </div>
+  <div class="reg-body">
+    <h4>What it says</h4>
+    <p>You must keep an accurate record of duty status for every 24-hour period. ELD or paper log must show all 4 statuses with location, date, and time.</p>
+    <h4>What DOT looks for</h4>
+    <p>Missing entries. Wrong duty status. No location. Form & manner violations. Driving while logged off-duty.</p>
+    <div class="hot-take">
+      <strong>Shawn's Take — 17 yrs, 0 violations</strong>
+      Don't argue your log on the side of the road. Hand it over clean. If something's off, you fix it on paper LATER — never in front of the officer.
+    </div>
+  </div>
+</div>
+
+<div class="reg-card" onclick="this.classList.toggle('open')">
+  <div class="reg-card-head">
+    <div>
+      <div class="reg-num">§396.11</div>
+      <div class="reg-title">Driver Vehicle Inspection Report (DVIR)</div>
+    </div>
+    <div class="reg-chevron">▶</div>
+  </div>
+  <div class="reg-body">
+    <h4>What it says</h4>
+    <p>Driver must prepare a written DVIR at the end of each driving day for every vehicle operated, covering specific components.</p>
+    <h4>What DOT looks for</h4>
+    <p>Missing DVIR. Pre-trip not done. Defects not reported. Driving after a defect was found and not fixed.</p>
+    <div class="hot-take">
+      <strong>Shawn's Take</strong>
+      DOT will ask "did you do your pre-trip?" If you say yes and your DVIR is blank — you just lied on a federal form. Always log it. Always.
+    </div>
+  </div>
+</div>
+
+<div class="reg-card" onclick="this.classList.toggle('open')">
+  <div class="reg-card-head">
+    <div>
+      <div class="reg-num">§392.2</div>
+      <div class="reg-title">Driving Rules (State Laws)</div>
+    </div>
+    <div class="reg-chevron">▶</div>
+  </div>
+  <div class="reg-body">
+    <h4>What it says</h4>
+    <p>Every CMV driver must obey the traffic laws of the jurisdiction they're driving in.</p>
+    <h4>What DOT looks for</h4>
+    <p>Speeding. Following too close. Lane violations. Cell phone use. Seatbelt off. Texting.</p>
+    <div class="hot-take">
+      <strong>Shawn's Take</strong>
+      §392.2 is the catch-all. Anything you'd get a ticket for in a 4-wheeler, you get it worse in a truck. Phone down. Seatbelt on. Every mile.
+    </div>
+  </div>
+</div>
+
+<div class="reg-card" onclick="this.classList.toggle('open')">
+  <div class="reg-card-head">
+    <div>
+      <div class="reg-num">§391.41</div>
+      <div class="reg-title">Medical Qualifications</div>
+    </div>
+    <div class="reg-chevron">▶</div>
+  </div>
+  <div class="reg-body">
+    <h4>What it says</h4>
+    <p>Driver must be medically certified and carry a current medical examiner's certificate (long form or wallet card).</p>
+    <h4>What DOT looks for</h4>
+    <p>Expired medical card. No card on person. Medical condition not declared. Self-cert mismatch with state.</p>
+    <div class="hot-take">
+      <strong>Shawn's Take</strong>
+      Check your med card expiration the same day you check your insurance. Set a phone reminder 60 days out. Expired med card = out of service.
+    </div>
+  </div>
+</div>
+
+<div class="reg-card" onclick="this.classList.toggle('open')">
+  <div class="reg-card-head">
+    <div>
+      <div class="reg-num">§393 (series)</div>
+      <div class="reg-title">Equipment / Parts & Accessories</div>
+    </div>
+    <div class="reg-chevron">▶</div>
+  </div>
+  <div class="reg-body">
+    <h4>What it says</h4>
+    <p>Covers lights, brakes, tires, mirrors, horn, windshield, load securement — everything mechanical on the truck and trailer.</p>
+    <h4>What DOT looks for</h4>
+    <p>Lights out. Tire tread &lt; 4/32 (steer) or 2/32 (drive/trailer). Air leaks. Brake issues. Bad mud flaps. Loose load securement.</p>
+    <div class="hot-take">
+      <strong>Shawn's Take</strong>
+      90% of out-of-service violations come from §393. Walk around your truck like you OWN it — because that violation goes on YOUR record, not the company's.
+    </div>
+  </div>
+</div>
+
+<div class="section-label">✅ What to SAY</div>
+<div class="action-card">
+  <ul>
+    <li>"Yes sir / Yes ma'am"</li>
+    <li>"My CDL and medical card are right here"</li>
+    <li>"My logs are on my ELD — let me pull them up"</li>
+    <li>"I completed my pre-trip this morning at [time]"</li>
+    <li>"Thank you officer"</li>
+  </ul>
+</div>
+
+<div class="section-label">❌ What NOT to Say</div>
+<div class="action-card dont-card">
+  <ul>
+    <li>"I don't know" (admits lack of knowledge)</li>
+    <li>"My dispatcher told me to..." (no excuse)</li>
+    <li>"I always do it this way" (admits pattern)</li>
+    <li>"Am I in trouble?" (don't ask)</li>
+    <li>Anything sarcastic. Anything.</li>
+    <li>Don't argue the regulation on the road</li>
+  </ul>
+</div>
+
+<a href="https://stan.store/TRUCKINGLIFEWITHSHAWN/p/save-your-cdl" class="cta">
+  📕 GET THE FULL SAVE YOUR CDL GUIDE
+  <div class="cta-sub">Pass DOT • Beat Citations • Keep Your CDL</div>
+</a>
+
+<div class="footer">
+  Reference Aid — Not Legal Advice<br>
+  Confirm against eCFR.gov before any compliance decision.<br><br>
+  Built by Shawn Gresham · 17 yrs · 0 violations · Rosedale CDL Instructor
+</div>
+
+</body>
+</html>

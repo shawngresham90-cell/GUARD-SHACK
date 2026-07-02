@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0a0a0b">
+<title>DOT Inspection Cheat Sheet · Trucking Life with Shawn</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=DM+Mono:wght@400;500&family=Archivo:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/rd.css">
+<style>
+  .cs{background:#fff;color:#000;border-radius:8px;padding:26px 22px;margin-top:14px}
+  .cs h2{font-family:var(--disp);font-weight:700;font-size:22px;text-transform:uppercase;
+    letter-spacing:.5px;border-bottom:3px solid #000;padding-bottom:6px;margin:0 0 6px}
+  .cs .byline{font-size:12px;color:#333;margin-bottom:18px;line-height:1.5}
+  .cs h3{font-family:var(--disp);font-weight:700;font-size:15px;text-transform:uppercase;
+    letter-spacing:.5px;margin:18px 0 8px;background:#FFEB00;display:inline-block;padding:3px 8px}
+  .cs ul,.cs ol{margin:6px 0 6px 20px;font-size:13.5px;line-height:1.65}
+  .cs li{margin-bottom:3px}
+  .cs .check li{list-style:none;position:relative;padding-left:4px}
+  .cs .check li::before{content:"☐ ";font-weight:700}
+  .cs .split{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  @media(max-width:560px){.cs .split{grid-template-columns:1fr}}
+  .cs .say{border-left:4px solid #2a9d4a;padding-left:10px}
+  .cs .dont{border-left:4px solid #cc2222;padding-left:10px}
+  .cs .rule{background:#f4f4f4;border:1px solid #ddd;padding:10px 12px;font-size:13px;
+    line-height:1.55;margin:10px 0;border-radius:4px}
+  .cs .verse{font-style:italic;color:#444;font-size:12.5px;margin-top:16px;text-align:center}
+  .cs .fine{font-size:10.5px;color:#666;margin-top:14px;border-top:1px solid #ddd;padding-top:10px;line-height:1.6}
+  .printbar{display:flex;gap:8px;margin-top:14px}
+  .printbar button{flex:1;background:var(--panel);border:1px solid var(--line2);color:var(--txt);
+    padding:14px;border-radius:6px;cursor:pointer;font-family:var(--disp);font-weight:600;
+    font-size:14px;letter-spacing:.6px;text-transform:uppercase}
+  @media print{
+    body{background:#fff !important;padding:0}
+    body::before{display:none}
+    .hazard,.rd-top,.rd-hero,.printbar,.rd-upsell,.rd-foot{display:none !important}
+    .rd-wrap{max-width:none;padding:0}
+    .cs{border-radius:0;padding:10px}
+  }
+</style>
+</head>
+<body>
+<div class="hazard"></div>
+<div class="rd-top">
+  <a class="rd-back" href="/">← Reg Deck</a>
+  <div class="rd-brand">Trucking Life<br>with Shawn</div>
+</div>
+
+<div class="rd-wrap">
+  <div class="rd-hero">
+    <h1>✅ You're in. Here's the sheet.</h1>
+    <div class="sub">Print it. Fold it. Keep it in your cab. A copy is also headed to your inbox.</div>
+  </div>
+
+  <div class="printbar">
+    <button onclick="window.print()">🖨️ Print / Save as PDF</button>
+    <button onclick="navigator.share ? navigator.share({url:location.origin+'/cheatsheet.html',title:'DOT Inspection Cheat Sheet'}) : window.print()">📤 Share it</button>
+  </div>
+
+  <div class="cs">
+    <h2>DOT Inspection Cheat Sheet</h2>
+    <div class="byline"><b>Print this. Fold it. Keep it in your cab.</b><br>
+    Built by Shawn Gresham — 17 years driving · 0 violations · CDL Instructor at Rosedale Transport ·
+    truckinglifewithshawn.com</div>
+
+    <h3>⚡ Before the officer walks up (30 seconds)</h3>
+    <ol>
+      <li><b>Turn off your phone.</b> Face down. Don't be on a call.</li>
+      <li><b>Have your stuff ready.</b> CDL · medical card · registration · insurance · logbook/ELD · permit book — in your hand BEFORE they reach your door.</li>
+      <li><b>Cab clean.</b> No open containers. No clutter on the dash. No CB blaring.</li>
+    </ol>
+
+    <h3>✅ The 12 things DOT checks — know these cold</h3>
+    <div class="split">
+      <div>
+        <b>📋 Documents</b>
+        <ul class="check">
+          <li><b>CDL</b> — current, correct class, endorsements valid</li>
+          <li><b>Medical card</b> — not expired (most common violation)</li>
+          <li><b>Registration</b> — current, in the truck</li>
+          <li><b>Insurance card</b> — current, matches the truck</li>
+          <li><b>Permit book</b> — IFTA, IRP, fuel tax, oversize if applicable</li>
+          <li><b>Hazmat papers</b> — placards match shipping papers (if hauling)</li>
+        </ul>
+      </div>
+      <div>
+        <b>🚛 Logs</b>
+        <ul class="check">
+          <li><b>ELD displaying correctly</b> — last 7 days available, no errors</li>
+          <li><b>Log current to last duty change</b> (if paper)</li>
+          <li><b>Supporting docs</b> — BOLs, receipts match log entries</li>
+        </ul>
+        <b>🛠 Equipment</b>
+        <ul class="check">
+          <li><b>Tires</b> — no flats/cuts; 4/32" steers, 2/32" others</li>
+          <li><b>Lights</b> — ALL working: head, brake, turn, marker, clearance</li>
+          <li><b>Brakes</b> — in adjustment, no leaks, ABS light off</li>
+        </ul>
+      </div>
+    </div>
+
+    <h3>💬 What to say (and not say)</h3>
+    <div class="split">
+      <div class="say">
+        <b>✅ Say this:</b>
+        <ul>
+          <li>"Yes sir / yes ma'am."</li>
+          <li>"Here's everything you asked for."</li>
+          <li>"I just did my pre-trip — last stop was [town]."</li>
+          <li>Short. Direct. Respectful. Eye contact.</li>
+        </ul>
+      </div>
+      <div class="dont">
+        <b>❌ Don't say this:</b>
+        <ul>
+          <li>"I'm in a hurry."</li>
+          <li>"Why am I being stopped?" (Already lost.)</li>
+          <li>"My company / dispatcher told me…" (You're responsible — not them.)</li>
+          <li>"I don't know."</li>
+          <li>Any cussing. Any sarcasm. Any attitude.</li>
+        </ul>
+      </div>
+    </div>
+    <div class="rule"><b>The officer decides if you roll or sit. Make their job easy.</b></div>
+
+    <h3>🚨 5 common OOS triggers — fix before leaving the yard</h3>
+    <ol>
+      <li><b>Out-of-adjustment brakes</b> — #1 reason for OOS. Pre-trip them every single time.</li>
+      <li><b>Flat / under-inflated tire</b> — visual + thump test every stop.</li>
+      <li><b>Expired medical card</b> — set a phone alarm 60 days before expiration.</li>
+      <li><b>HOS violation in the last 7 days</b> — the ELD will tell on you. Don't drive over hours.</li>
+      <li><b>Hazmat placard mismatch</b> — papers MUST match what's on the truck.</li>
+    </ol>
+    <div class="rule"><b>Any one of these = you're parked. And it goes on your CSA score.</b></div>
+
+    <h3>🛡 If you get a violation</h3>
+    <ol>
+      <li><b>Sign it.</b> Refusing = arrest in some states. Signing is NOT admitting guilt.</li>
+      <li><b>Read it before you leave the scale.</b> Officer wrote the wrong thing? Address it NOW.</li>
+      <li><b>Photograph every page</b> of the inspection report.</li>
+      <li><b>Don't argue at the scale.</b> Fight it in court or DataQ if you need to.</li>
+      <li><b>Write down everything</b> within 30 minutes: officer name, badge #, time, location, weather, what was said.</li>
+    </ol>
+
+    <div class="verse">"For we walk by faith, not by sight." — 2 Corinthians 5:7 (KJV)<br>
+    Drive safe. Eat real food. Keep the rubber side down. 🙏 — Shawn</div>
+
+    <div class="fine">⚠ Reference aid. Not legal advice. Confirm against official FMCSR (49 CFR 350–399) at eCFR.gov.
+    · © 2026 Trucking Life with Shawn · YouTube @truckinglifewithshawn</div>
+  </div>
+
+  <a class="rd-upsell" href="https://stan.store/TRUCKINGLIFEWITHSHAWN/p/save-your-cdl" target="_blank" rel="noopener">
+    🛡️ Already got a violation? The cheat sheet won't fix that — Save Your CDL will · $27
+    <small>The complete DOT survival system from a 17-year, zero-violation driver</small>
+  </a>
+
+  <div class="rd-foot">
+    <b>POWERED BY TRUCKING LIFE WITH SHAWN</b>
+    FREE TOOLS: <a href="/">REG DECK</a> · <a href="/move.html">BEFORE YOU MOVE</a> ·
+    <a href="/roadside.html">ROADSIDE MODE</a> · <a href="/pretrip.html">PRE-TRIP CHECK</a>
+  </div>
+</div>
+</body>
+</html>

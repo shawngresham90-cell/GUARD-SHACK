@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0a0a0b">
+<title>Pre-Trip Failure Check · Reg Deck</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=DM+Mono:wght@400;500&family=Archivo:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/rd.css">
+<style>
+  .pt-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:16px}
+  .pt-grid button{background:linear-gradient(180deg,var(--panel),var(--bg2));border:1px solid var(--line);
+    border-radius:8px;padding:14px 12px;color:var(--txt);cursor:pointer;text-align:left;
+    font-family:var(--body);transition:border-color .15s}
+  .pt-grid button:hover{border-color:var(--orange)}
+  .pt-grid button.picked{border-color:var(--orange);background:rgba(255,106,26,.1)}
+  .pt-grid .ic{font-size:20px;display:block;margin-bottom:6px}
+  .pt-grid .t{font-family:var(--disp);font-weight:600;font-size:14px}
+</style>
+</head>
+<body>
+<div class="hazard"></div>
+<div class="rd-top">
+  <a class="rd-back" href="/">← Reg Deck</a>
+  <div class="rd-brand">Trucking Life<br>with Shawn</div>
+</div>
+
+<div class="rd-wrap">
+  <div class="rd-hero">
+    <h1>🔧 Pre-Trip Failure Check</h1>
+    <div class="sub">Found a problem on your walk-around? Tap it. Find out if you can roll,
+    if it's an OOS risk, and what to write down. <b>Free — always.</b></div>
+  </div>
+
+  <div class="pt-grid" id="ptGrid">
+    <button data-k="abs"><span class="ic">🟠</span><span class="t">ABS light on</span></button>
+    <button data-k="tire"><span class="ic">🛞</span><span class="t">Tire issue</span></button>
+    <button data-k="air"><span class="ic">💨</span><span class="t">Air leak</span></button>
+    <button data-k="light"><span class="ic">💡</span><span class="t">Light out</span></button>
+    <button data-k="brake"><span class="ic">🛑</span><span class="t">Brake issue</span></button>
+    <button data-k="flap"><span class="ic">🪣</span><span class="t">Mud flap missing</span></button>
+    <button data-k="glass"><span class="ic">🪟</span><span class="t">Windshield crack</span></button>
+    <button data-k="leak"><span class="ic">🛢️</span><span class="t">Oil / coolant leak</span></button>
+  </div>
+
+  <div id="outPt"></div>
+
+  <a class="rd-upsell" href="/move.html">
+    🚦 About to move it anyway? Run "Before You Move" first
+    <small>60 seconds now beats an OOS order later</small>
+  </a>
+
+  <div class="rd-foot">
+    <b>POWERED BY TRUCKING LIFE WITH SHAWN</b>
+    OOS CRITERIA PER CVSA — REFERENCE AID, NOT LEGAL ADVICE<br>
+    WHEN IN DOUBT: DVIR IT, CALL THE SHOP, DON'T ROLL
+  </div>
+</div>
+
+<script src="/rd.js"></script>
+<script>
+"use strict";
+/* move:  can you drive it?  oos: roadside OOS risk  shop: shop needed?  doc: what to document */
+const PT = {
+  abs:{name:"ABS Light On",reg:"393.55",
+    move:["warn","USUALLY YES — WITH A CATCH","A lit ABS lamp by itself is a violation but not OOS — your foundation brakes still work. BUT: if the lamp is on because of a real brake fault (dragging, air loss), that changes everything. Do a full brake check before deciding."],
+    oos:"Low as a lamp-only defect (severity ~4). High if an officer finds the underlying brake problem.",
+    shop:"Yes — schedule it now. ABS faults don't heal. Wheel-speed sensor and corroded connector are the usual suspects.",
+    doc:["Write it on the DVIR today — an unreported lamp is worse than the lamp","When it came on + any codes from the dash","Repair order when fixed"]},
+  tire:{name:"Tire Issue",reg:"393.75",
+    move:["no","DEPENDS — MEASURE IT","Flat, audible leak, fabric/cord showing, tread below 4/32 (steer) or 2/32 (drive/trailer), sidewall bulge = DO NOT MOVE, that's automatic OOS. Minor tread wear above minimums or a slow leak you've re-inflated and are monitoring = you can roll to a shop."],
+    oos:"HIGH — tires are a top-3 OOS trigger (severity 8).",
+    shop:"Road service for anything OOS-listed. Same-day shop for anything marginal.",
+    doc:["Photo of the tire + tread gauge reading","DVIR entry","Repair/replacement invoice"]},
+  air:{name:"Air Leak",reg:"393.45 / 396.7",
+    move:["no","NO — IF YOU CAN HEAR IT","An audible leak, or losing air faster than spec (more than ~3 psi/min single, applied), is OOS territory. Governor cut-in below 85 psi or the low-air warning not working = park it. A tiny fitting seep that holds pressure at spec is a shop-soon, not a park-now."],
+    oos:"HIGH — brake system defects are exactly what Level 1 inspections exist for.",
+    shop:"Yes. Glad-hand seals and fittings are cheap; a failed compressor is not — either way it doesn't fix itself.",
+    doc:["Your leak-down test numbers (that's your defense that it was within spec)","DVIR entry","Repair order"]},
+  light:{name:"Light Out",reg:"393.9",
+    move:["warn","TECHNICALLY NO — FIX IT FIRST","Every required lamp must work (headlamp, brake, turn, tail, clearance, markers). It's severity ~6 and it's also the #1 reason officers start a full inspection. Two minutes with a spare bulb saves a 45-minute Level 1."],
+    oos:"Lamp itself: low-to-moderate. The inspection it invites: that's the real risk.",
+    shop:"Usually driver-fixable — carry bulbs, fuses, and dielectric grease. Wiring/harness problems go to the shop.",
+    doc:["DVIR entry + when you fixed it","Receipt for the bulb if you bought one on the road"]},
+  brake:{name:"Brake Issue",reg:"393.40–48 / 396.7",
+    move:["no","NO — BRAKES ARE NEVER A GAMBLE","Out-of-adjustment pushrod travel, grinding, pulling hard, air loss on application, a chamber leaking — park it. 20% of brakes defective = vehicle OOS. \"It stops fine\" is what everyone says right up until it doesn't."],
+    oos:"HIGHEST — brake adjustment/components are the #1 vehicle OOS category nationwide.",
+    shop:"Yes, before it moves. If you have automatic slack adjusters, the fix is repairing the foundation brake — not re-adjusting them by hand.",
+    doc:["What you found and when (DVIR)","Shop findings + invoice","Pushrod measurements if taken"]},
+  flap:{name:"Mud Flap Missing / Damaged",reg:"393.87 (+ state laws)",
+    move:["ok","YES — FIX IT TODAY","Severity ~1 federally; some states enforce their own flap laws harder. You can roll, but it's a visual invitation for a stop. Keep a spare flap + hardware in the side box."],
+    oos:"Very low.",
+    shop:"No — 15-minute driver fix at any truck stop.",
+    doc:["DVIR entry","Photo after replacement"]},
+  glass:{name:"Windshield Crack",reg:"393.60",
+    move:["warn","USUALLY YES — CHECK THE ZONE","The rule cares about the area swept by the wipers directly in the driver's view: no crack over 1/4\" wide, no two cracks intersecting, no cloudy/discolored spots there. A star at the passenger edge = drive and schedule. A spreading crack across your sightline = fix before an inspection finds it."],
+    oos:"Low-to-moderate — but it's another full-inspection invitation.",
+    shop:"Glass shop — many come to the yard. Chips can be resin-filled cheap if you catch them early.",
+    doc:["Photo with something for scale (a coin works)","DVIR entry","Replacement invoice"]},
+  leak:{name:"Oil / Coolant Leak",reg:"396.7 / 393.83",
+    move:["warn","DEPENDS ON THE DRIP RATE","A damp spot or seep: monitor levels and drive to the shop. An active drip/puddle: that's how you end up OOS (§396.7 — likely to cause breakdown) or with a seized engine. Fuel leak of ANY kind = park it, that's automatic OOS and a fire risk."],
+    oos:"Moderate — active leaks under a truck get officers on creepers.",
+    shop:"Yes for anything active. Check levels every stop until it's fixed.",
+    doc:["Photos of the leak + the level sticks","DVIR entry","Repair order"]}
+};
+
+const out = document.getElementById("outPt");
+document.querySelectorAll("#ptGrid button").forEach(b => {
+  b.addEventListener("click", () => {
+    document.querySelectorAll("#ptGrid button").forEach(x => x.classList.remove("picked"));
+    b.classList.add("picked");
+    const d = PT[b.dataset.k];
+    const cls = {ok:"v-ok", warn:"v-warn", no:"v-no"}[d.move[0]];
+    out.innerHTML = `<div class="rd-verdict ${cls}">
+      <div class="v-head">${d.move[1]}</div>
+      <p><b>${d.name}</b> · 49 CFR §${d.reg}</p>
+      <p>${d.move[2]}</p>
+      <h4>Roadside OOS risk</h4><p>${d.oos}</p>
+      <h4>Shop needed?</h4><p>${d.shop}</p>
+      <h4>Document it</h4><ul>${d.doc.map(x => `<li>${x}</li>`).join("")}</ul>
+      <div class="cite">OOS criteria are CVSA's — officers have discretion. The DVIR is your best friend: a
+      reported defect is maintenance; an unreported one is negligence.</div>
+    </div>`;
+    out.scrollIntoView({behavior:"smooth"});
+  });
+});
+</script>
+</body>
+</html>

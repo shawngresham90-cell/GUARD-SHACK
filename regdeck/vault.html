@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0a0a0b">
+<title>Document Vault · Reg Deck</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=DM+Mono:wght@400;500&family=Archivo:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/rd.css">
+<style>
+  .vt-add{display:flex;flex-direction:column;gap:10px}
+  .vt-add input[type=file]{display:none}
+  .vt-filebtn{background:var(--panel2);border:1px dashed var(--line2);color:var(--txt-dim);
+    padding:20px;border-radius:8px;text-align:center;cursor:pointer;font-size:14px}
+  .vt-filebtn.has{border-color:var(--good);color:var(--good)}
+  .vt-list{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:14px}
+  .vt-item{background:linear-gradient(180deg,var(--panel),var(--bg2));border:1px solid var(--line);
+    border-radius:8px;overflow:hidden;cursor:pointer;position:relative}
+  .vt-item img{width:100%;height:110px;object-fit:cover;display:block;background:#000}
+  .vt-item .m{padding:9px 10px}
+  .vt-item .t{font-family:var(--disp);font-weight:600;font-size:13px}
+  .vt-item .d{font-family:var(--mono);font-size:9px;color:var(--txt-dim);margin-top:3px;letter-spacing:.5px}
+  .vt-item .exp{position:absolute;top:8px;right:8px;font-family:var(--mono);font-size:8.5px;
+    letter-spacing:.5px;padding:3px 6px;border-radius:3px;background:rgba(0,0,0,.75)}
+  .vt-item .exp.warn{color:var(--warn);border:1px solid var(--warn)}
+  .vt-item .exp.bad{color:var(--danger);border:1px solid var(--danger)}
+  .vt-item .exp.ok{color:var(--good);border:1px solid var(--good)}
+  .vt-view{position:fixed;inset:0;z-index:100;background:rgba(0,0,0,.94);display:none;
+    flex-direction:column;padding:16px}
+  .vt-view.show{display:flex}
+  .vt-view img{flex:1;object-fit:contain;min-height:0;width:100%}
+  .vt-view .bar{display:flex;gap:8px;justify-content:center;padding-top:14px}
+  .vt-view .bar button{background:var(--panel);border:1px solid var(--line2);color:var(--txt);
+    padding:12px 18px;border-radius:6px;cursor:pointer;font-family:var(--disp);font-size:13px;
+    letter-spacing:.5px;text-transform:uppercase}
+  .vt-view .bar .del{border-color:var(--danger);color:var(--danger)}
+</style>
+</head>
+<body>
+<div class="hazard"></div>
+<div class="rd-top">
+  <a class="rd-back" href="/">← Reg Deck</a>
+  <div class="rd-brand">Trucking Life<br>with Shawn</div>
+</div>
+
+<div class="rd-wrap">
+  <div class="rd-hero">
+    <h1>🗂️ Document Vault</h1>
+    <div class="sub">CDL, med card, registration, annual inspection, permits, receipts —
+    one tap away when an officer asks. Stored <b>on your phone only</b>. Nothing uploads.</div>
+    <div id="meterChip"></div>
+  </div>
+
+  <div id="gateBox"></div>
+
+  <div id="vaultApp" class="rd-hide">
+    <div class="rd-q vt-add">
+      <h3>Add a document</h3>
+      <select class="rd-sel" id="vtType">
+        <option>CDL</option><option>Medical card</option><option>Registration</option>
+        <option>Insurance</option><option>Annual inspection</option><option>Permit book page</option>
+        <option>IFTA / IRP</option><option>Repair receipt</option><option>DOT inspection report</option>
+        <option>Other</option>
+      </select>
+      <label class="vt-filebtn" id="vtFileBtn">📷 Tap to snap or pick a photo
+        <input type="file" id="vtFile" accept="image/*"></label>
+      <div>
+        <div style="font-family:var(--mono);font-size:10px;color:var(--txt-dim);letter-spacing:1px;margin-bottom:5px">EXPIRATION DATE (OPTIONAL — GET WARNED AT 60 DAYS)</div>
+        <input class="rd-num" id="vtExp" type="date">
+      </div>
+      <button class="rd-go" id="vtSave">SAVE TO VAULT</button>
+    </div>
+
+    <div class="rd-note" id="vtWarn" style="display:none"></div>
+    <div class="vt-list" id="vtList"></div>
+    <div class="rd-card" id="vtEmpty"><p>Vault's empty. Add your CDL and med card first —
+      those are the two DOT always asks for.</p></div>
+  </div>
+
+  <div class="rd-foot">
+    <b>POWERED BY TRUCKING LIFE WITH SHAWN</b>
+    DOCUMENTS STAY IN YOUR BROWSER'S LOCAL DATABASE — CLEARING SITE DATA DELETES THEM<br>
+    KEEP PAPER ORIGINALS IN THE TRUCK — DIGITAL COPIES DON'T SATISFY EVERY CARRY REQUIREMENT
+  </div>
+</div>
+
+<div class="vt-view" id="vtView">
+  <img id="vtViewImg" alt="document">
+  <div class="bar">
+    <button id="vtClose">Close</button>
+    <button class="del" id="vtDel">Delete</button>
+  </div>
+</div>
+
+<script src="/rd.js"></script>
+<script>
+"use strict";
+document.getElementById("meterChip").innerHTML = rdMeterChip();
+
+/* Vault is a Pro feature — gate the whole app. */
+const gateBox = document.getElementById("gateBox");
+const app = document.getElementById("vaultApp");
+if (rdIsPro()){ app.classList.remove("rd-hide"); }
+else { rdMountGate(gateBox, "The Document Vault is a Pro feature."); }
+
+/* ---------------- IndexedDB ---------------- */
+let db;
+function openDB(){
+  return new Promise((res, rej) => {
+    const rq = indexedDB.open("rd_vault", 1);
+    rq.onupgradeneeded = () => rq.result.createObjectStore("docs", {keyPath:"id", autoIncrement:true});
+    rq.onsuccess = () => { db = rq.result; res(); };
+    rq.onerror = () => rej(rq.error);
+  });
+}
+function tx(mode){ return db.transaction("docs", mode).objectStore("docs"); }
+function allDocs(){
+  return new Promise(res => {
+    const out = [], c = tx("readonly").openCursor();
+    c.onsuccess = () => { const cur = c.result; if (cur){ out.push(cur.value); cur.continue(); } else res(out); };
+  });
+}
+
+let fileData = null;
+const fileBtn = document.getElementById("vtFileBtn");
+document.getElementById("vtFile").addEventListener("change", ev => {
+  const f = ev.target.files[0];
+  if (!f) return;
+  const rd = new FileReader();
+  rd.onload = () => {
+    /* downscale to keep the DB light */
+    const img = new Image();
+    img.onload = () => {
+      const cv = document.createElement("canvas");
+      const scale = Math.min(1, 1600 / Math.max(img.width, img.height));
+      cv.width = img.width * scale; cv.height = img.height * scale;
+      cv.getContext("2d").drawImage(img, 0, 0, cv.width, cv.height);
+      fileData = cv.toDataURL("image/jpeg", .82);
+      fileBtn.classList.add("has");
+      fileBtn.firstChild.textContent = "✓ Photo ready — " + f.name;
+    };
+    img.src = rd.result;
+  };
+  rd.readAsDataURL(f);
+});
+
+document.getElementById("vtSave").addEventListener("click", async () => {
+  if (!fileData){ fileBtn.firstChild.textContent = "⚠ Pick a photo first"; return; }
+  const doc = {type: document.getElementById("vtType").value,
+    exp: document.getElementById("vtExp").value || null,
+    img: fileData, added: new Date().toISOString().slice(0,10)};
+  tx("readwrite").add(doc).onsuccess = () => {
+    fileData = null; fileBtn.classList.remove("has");
+    fileBtn.firstChild.textContent = "📷 Tap to snap or pick a photo";
+    document.getElementById("vtExp").value = "";
+    render();
+  };
+});
+
+function expState(exp){
+  if (!exp) return null;
+  const days = Math.floor((new Date(exp) - new Date()) / 86400000);
+  if (days < 0) return {cls:"bad", txt:"EXPIRED"};
+  if (days <= 60) return {cls:"warn", txt: days + "d LEFT"};
+  return {cls:"ok", txt: new Date(exp).toLocaleDateString("en-US",{month:"short",year:"2-digit"})};
+}
+
+let viewingId = null;
+async function render(){
+  const docs = await allDocs();
+  const list = document.getElementById("vtList");
+  document.getElementById("vtEmpty").style.display = docs.length ? "none" : "block";
+  const warn = document.getElementById("vtWarn");
+  const expiring = docs.filter(d => d.exp && (new Date(d.exp) - new Date()) / 86400000 <= 60);
+  if (expiring.length){
+    warn.style.display = "block";
+    warn.innerHTML = `<b>⏰ Heads up</b> ${expiring.map(d =>
+      `${d.type} ${new Date(d.exp) < new Date() ? "is EXPIRED" : "expires " + d.exp}`).join(" · ")}`;
+  } else warn.style.display = "none";
+  list.innerHTML = "";
+  docs.sort((a,b) => b.id - a.id).forEach(d => {
+    const st = expState(d.exp);
+    const el = document.createElement("div");
+    el.className = "vt-item";
+    el.innerHTML = `<img src="${d.img}" alt="${rdEsc(d.type)}">
+      ${st ? `<span class="exp ${st.cls}">${st.txt}</span>` : ""}
+      <div class="m"><div class="t">${rdEsc(d.type)}</div>
+      <div class="d">ADDED ${d.added}</div></div>`;
+    el.onclick = () => {
+      viewingId = d.id;
+      document.getElementById("vtViewImg").src = d.img;
+      document.getElementById("vtView").classList.add("show");
+    };
+    list.appendChild(el);
+  });
+}
+
+document.getElementById("vtClose").onclick = () => document.getElementById("vtView").classList.remove("show");
+document.getElementById("vtDel").onclick = () => {
+  if (viewingId == null) return;
+  if (!confirm("Delete this document from the vault?")) return;
+  tx("readwrite").delete(viewingId).onsuccess = () => {
+    document.getElementById("vtView").classList.remove("show");
+    render();
+  };
+};
+
+if (rdIsPro()) openDB().then(render);
+</script>
+</body>
+</html>

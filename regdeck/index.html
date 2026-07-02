@@ -1,0 +1,847 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0a0a0b">
+<title>Reg Deck — Complete Trucking Law · US + Canada</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=DM+Mono:wght@400;500&family=Archivo:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0a0a0b;--bg2:#0f0f11;--panel:#141417;--panel2:#191a1e;
+    --line:#2b2c31;--line2:#36373d;
+    --orange:#ff6a1a;--orange-deep:#d4500e;--amber:#ffb22e;--crt:#ffcaa0;
+    --us:#ff6a1a;--ca:#e8483d;
+    --txt:#ece8e1;--txt-dim:#94918a;--txt-faint:#5e5c57;
+    --good:#46c46a;--danger:#e0452e;--resv:#4a4b51;
+    --disp:'Oswald',sans-serif;--mono:'DM Mono',ui-monospace,monospace;
+    --body:'Archivo',-apple-system,sans-serif;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+  html,body{background:var(--bg);color:var(--txt);font-family:var(--body);-webkit-font-smoothing:antialiased}
+  body{min-height:100vh;display:flex;flex-direction:column;position:relative}
+  body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:0;
+    background:
+      radial-gradient(120% 90% at 50% 0%,rgba(255,106,26,.06),transparent 55%),
+      radial-gradient(140% 100% at 50% 100%,rgba(0,0,0,.55),transparent 60%),
+      repeating-linear-gradient(0deg,transparent 0 2px,rgba(255,255,255,.012) 2px 3px)}
+  body>*{position:relative;z-index:1}
+  a{color:var(--orange);text-decoration:none}
+
+  .hazard{height:7px;width:100%;
+    background:repeating-linear-gradient(135deg,var(--orange) 0 14px,#101012 14px 28px);
+    opacity:.85;transition:background .25s}
+  body.ca .hazard{background:repeating-linear-gradient(135deg,var(--ca) 0 14px,#101012 14px 28px)}
+
+  header{position:sticky;top:0;z-index:50;
+    background:linear-gradient(180deg,var(--bg) 70%,rgba(10,10,11,.85));
+    backdrop-filter:blur(6px);border-bottom:1px solid var(--line);
+    padding:max(11px,env(safe-area-inset-top)) 16px 0 16px}
+  .htop{display:flex;align-items:center;gap:12px;padding-bottom:4px}
+  .crest{width:40px;height:40px;border:2px solid var(--orange);border-radius:6px;
+    display:flex;align-items:center;justify-content:center;flex-shrink:0;
+    background:linear-gradient(160deg,#1a1a1e,#0d0d0f);
+    box-shadow:inset 0 0 12px rgba(255,106,26,.18),0 0 0 1px #000;transition:.25s}
+  body.ca .crest{border-color:var(--ca);box-shadow:inset 0 0 12px rgba(232,72,61,.2),0 0 0 1px #000}
+  .crest span{font-family:var(--disp);font-weight:700;font-size:15px;color:var(--orange);transition:.25s}
+  body.ca .crest span{color:var(--ca)}
+  .hwords h1{font-family:var(--disp);font-weight:700;font-size:17px;letter-spacing:.5px;
+    text-transform:uppercase;line-height:1;color:var(--txt)}
+  .hwords .tag{font-family:var(--mono);font-size:8px;color:var(--txt-dim);letter-spacing:1.5px;
+    margin-top:5px;text-transform:uppercase}
+  .status{margin-left:auto;text-align:right;font-family:var(--mono);font-size:8px;
+    color:var(--txt-faint);letter-spacing:1px;line-height:1.5}
+  .status .pill{display:inline-flex;align-items:center;gap:5px;border:1px solid var(--line2);
+    padding:3px 7px;border-radius:3px;color:var(--good);margin-top:3px}
+  .led{width:6px;height:6px;border-radius:50%;background:var(--good);
+    box-shadow:0 0 7px var(--good);animation:blip 2.4s infinite}
+  @keyframes blip{0%,100%{opacity:1}55%{opacity:.3}}
+
+  .brandbar{font-family:var(--disp);font-weight:600;font-size:9px;letter-spacing:3px;
+    color:var(--orange);text-transform:uppercase;padding:7px 0 9px;
+    text-align:center;border-top:1px solid var(--line);margin-top:8px;transition:color .25s}
+  body.ca .brandbar{color:var(--ca)}
+
+  .juris{display:flex;border:1px solid var(--line2);border-radius:6px;overflow:hidden;margin:11px 16px 12px}
+  .juris button{flex:1;background:var(--panel);border:none;color:var(--txt-dim);
+    padding:11px 8px;font-family:var(--disp);font-weight:600;font-size:13px;
+    letter-spacing:1px;text-transform:uppercase;cursor:pointer;transition:.18s;
+    display:flex;align-items:center;justify-content:center;gap:7px}
+  .juris button .fl{font-size:14px}
+  .juris button.on{color:#120a04;background:linear-gradient(165deg,var(--us),var(--orange-deep))}
+  body.ca .juris button.on.ca-btn{color:#fff;background:linear-gradient(165deg,var(--ca),#b5322a)}
+  .juris button:not(.on):hover{color:var(--txt);background:var(--panel2)}
+
+  .feed{flex:1;overflow-y:auto;padding:0 16px 22px;-webkit-overflow-scrolling:touch}
+
+  .notice{border:1px solid var(--line);border-left:3px solid var(--amber);
+    background:linear-gradient(180deg,var(--panel),var(--bg2));
+    padding:11px 13px;border-radius:4px;margin-bottom:14px;
+    font-size:11px;color:var(--txt-dim);line-height:1.5}
+  .notice b{color:var(--amber);font-family:var(--mono);letter-spacing:1px;font-size:9.5px;
+    display:block;margin-bottom:4px;text-transform:uppercase}
+
+  .searchbar{margin-bottom:12px}
+  .searchbar input{width:100%;background:var(--panel);border:1px solid var(--line2);
+    color:var(--txt);padding:13px 14px;font-size:16px;border-radius:5px;
+    font-family:var(--mono);letter-spacing:.3px}
+  .searchbar input:focus{outline:none;border-color:var(--orange);box-shadow:0 0 0 3px rgba(255,106,26,.12)}
+  body.ca .searchbar input:focus{border-color:var(--ca);box-shadow:0 0 0 3px rgba(232,72,61,.12)}
+  .searchbar input::placeholder{color:var(--txt-faint)}
+
+  .countbar{font-family:var(--mono);font-size:9.5px;letter-spacing:1.5px;color:var(--txt-faint);
+    text-transform:uppercase;margin:2px 0 12px;display:flex;align-items:center;gap:9px}
+  .countbar::before,.countbar::after{content:"";flex:1;height:1px;background:var(--line)}
+
+  .grid{display:flex;flex-direction:column;gap:8px}
+  .card{border:1px solid var(--line);border-radius:6px;overflow:hidden;
+    background:linear-gradient(180deg,var(--panel),var(--bg2));transition:border-color .15s}
+  .card.open{border-color:var(--line2)}
+  .card.reserved{opacity:.45}
+  .chead{display:flex;align-items:center;gap:13px;padding:14px 14px;cursor:pointer}
+  .card.reserved .chead{cursor:default}
+  .pnum{font-family:var(--disp);font-weight:700;font-size:18px;color:var(--orange);
+    min-width:52px;line-height:1.05;transition:color .2s}
+  body.ca .pnum{color:var(--ca)}
+  .card.reserved .pnum{color:var(--resv)}
+  .pmeta{flex:1;min-width:0}
+  .pmeta .t{font-family:var(--disp);font-weight:600;font-size:14px;letter-spacing:.2px;
+    margin-bottom:3px;line-height:1.2}
+  .pmeta .d{font-size:11px;color:var(--txt-dim);line-height:1.4}
+  .chev{color:var(--txt-faint);font-size:16px;transition:transform .2s;flex-shrink:0}
+  .card.open .chev{transform:rotate(90deg);color:var(--orange)}
+  body.ca .card.open .chev{color:var(--ca)}
+  .rtag{font-family:var(--mono);font-size:9px;color:var(--resv);letter-spacing:1px;
+    border:1px solid var(--resv);padding:2px 6px;border-radius:3px;flex-shrink:0}
+
+  .secs{display:none;border-top:1px solid var(--line);background:var(--bg2)}
+  .card.open .secs{display:block}
+  .opensec{display:flex;align-items:center;gap:11px;padding:13px 14px 13px 16px;
+    border-bottom:1px solid var(--line);cursor:pointer}
+  .opensec:last-child{border-bottom:none}
+  .opensec:active{background:#222}
+  .opensec .ic{font-family:var(--mono);color:var(--amber);font-size:12px;flex-shrink:0;min-width:60px}
+  .opensec .lbl{flex:1;font-size:13px;color:var(--txt);line-height:1.4}
+  .opensec .go{color:var(--txt-faint);font-size:14px}
+  .fullpart{display:flex;align-items:center;gap:9px;padding:13px 14px 13px 16px;
+    cursor:pointer;font-family:var(--mono);font-size:12px;color:var(--orange);letter-spacing:.5px}
+  body.ca .fullpart{color:var(--ca)}
+  .fullpart:active{background:#222}
+
+  .empty{padding:44px 20px;text-align:center;color:var(--txt-faint);
+    font-family:var(--mono);font-size:13px;line-height:1.7}
+
+  .sheet{position:fixed;inset:0;z-index:100;background:var(--bg);
+    transform:translateY(100%);transition:transform .26s ease;display:flex;flex-direction:column}
+  .sheet.show{transform:translateY(0)}
+  .shead{padding:max(14px,env(safe-area-inset-top)) 15px 14px;
+    border-bottom:2px solid var(--orange);display:flex;align-items:flex-start;gap:12px;background:var(--bg)}
+  body.ca .shead{border-bottom-color:var(--ca)}
+  .shead .x{background:var(--panel);border:1px solid var(--line2);color:var(--txt);
+    width:38px;height:38px;border-radius:4px;font-size:18px;flex-shrink:0;cursor:pointer}
+  .shead .info{flex:1;min-width:0}
+  .shead .cite{font-family:var(--disp);font-weight:700;font-size:16px;color:var(--orange);letter-spacing:.8px}
+  body.ca .shead .cite{color:var(--ca)}
+  .shead .ttl{font-size:13px;font-weight:600;margin-top:4px;line-height:1.3;color:var(--txt)}
+  .shead .spk{background:var(--bg2);border:1px solid var(--orange-deep);color:var(--orange);
+    width:38px;height:38px;border-radius:4px;font-size:13px;flex-shrink:0;cursor:pointer;font-family:var(--mono)}
+  body.ca .shead .spk{border-color:var(--ca);color:var(--ca)}
+  .shead .spk.playing{background:var(--orange);color:#120a04}
+  body.ca .shead .spk.playing{background:var(--ca);color:#fff}
+  .sbody{flex:1;overflow-y:auto;padding:18px 16px 30px;-webkit-overflow-scrolling:touch}
+  .readout{font-size:14px;line-height:1.78;color:var(--crt)}
+  .readout p{margin-bottom:12px}
+  .readout h4{font-family:var(--mono);font-size:10.5px;color:var(--amber);
+    margin:17px 0 8px;letter-spacing:1px;text-transform:uppercase}
+  .readout .para{color:var(--orange);font-weight:600;font-family:var(--mono);font-size:12.5px}
+  body.ca .readout .para{color:var(--ca)}
+  .srcbtn{display:flex;align-items:center;justify-content:center;gap:8px;
+    margin-top:22px;padding:14px;background:var(--panel);border:1px solid var(--orange-deep);
+    border-radius:4px;font-family:var(--mono);font-size:12px;letter-spacing:1px;
+    color:var(--orange);text-transform:uppercase}
+  body.ca .srcbtn{border-color:var(--ca);color:var(--ca)}
+  .stamp{font-family:var(--mono);font-size:8.5px;color:var(--txt-faint);
+    margin-top:16px;padding-top:14px;border-top:1px solid var(--line);
+    text-align:center;line-height:1.7;letter-spacing:.6px}
+  .stamp b{color:var(--orange);letter-spacing:1.5px;display:block;margin-bottom:4px}
+  body.ca .stamp b{color:var(--ca)}
+  .load{display:flex;flex-direction:column;align-items:center;gap:14px;padding:54px 20px;color:var(--txt-dim)}
+  .spin{width:30px;height:30px;border:3px solid var(--line);border-top-color:var(--orange);
+    border-radius:50%;animation:spin .8s linear infinite}
+  body.ca .spin{border-top-color:var(--ca)}
+  @keyframes spin{to{transform:rotate(360deg)}}
+  .load .m{font-family:var(--mono);font-size:11px;letter-spacing:1px;text-align:center}
+  .errb{padding:28px 20px;text-align:center}
+  .errb .bg{font-family:var(--disp);font-weight:700;font-size:16px;color:var(--amber);margin-bottom:10px}
+  .errb .sm{font-size:13px;color:var(--txt-dim);line-height:1.6;margin-bottom:16px}
+  .errb a{display:inline-block;margin-top:12px;font-family:var(--mono);font-size:12px}
+  .errb button{background:var(--orange);color:#120a04;border:none;padding:11px 22px;
+    font-family:var(--mono);font-weight:500;letter-spacing:1px;border-radius:3px;cursor:pointer;font-size:12px}
+
+  footer{padding:14px 16px calc(16px + env(safe-area-inset-bottom));
+    border-top:1px solid var(--line);text-align:center;line-height:1.8}
+  footer .pb{font-family:var(--disp);font-weight:700;font-size:11px;letter-spacing:2.5px;
+    color:var(--orange);text-transform:uppercase;transition:color .25s;display:inline-block}
+  body.ca footer .pb{color:var(--ca)}
+  footer .leg{font-family:var(--mono);font-size:8px;color:var(--txt-faint);
+    letter-spacing:1px;margin-top:7px}
+
+  /* ===== email capture (DOT Cheat Sheet) ===== */
+  .capture{background:#FFEB00;border:4px solid #000;padding:24px 20px;max-width:600px;
+    margin:14px 16px;text-align:center;border-radius:4px}
+  @media(min-width:640px){.capture{margin:14px auto}}
+  .capture h2{font-family:var(--disp);font-weight:700;font-size:24px;color:#000;
+    text-transform:uppercase;letter-spacing:.5px;margin:0 0 10px;line-height:1.15}
+  .capture p{font-size:14px;color:#000;margin:0 0 16px;line-height:1.5;font-weight:500}
+  .capture form{display:flex;flex-direction:column;gap:10px}
+  .capture input[type=email]{height:52px;padding:0 16px;border:2px solid #000;
+    font-size:16px;background:#fff;color:#000;border-radius:3px;font-family:var(--body)}
+  .capture input[type=email]:focus{outline:3px solid rgba(0,0,0,.35)}
+  .capture button{height:52px;background:#000;color:#fff;font-family:var(--disp);
+    font-weight:700;font-size:16px;text-transform:uppercase;letter-spacing:1px;
+    border:none;cursor:pointer;border-radius:3px}
+  .capture small{display:block;margin-top:10px;font-size:11px;color:#000;opacity:.7}
+
+  /* ===== tools hub ===== */
+  .hub{margin:4px 0 16px}
+  .hub-label{font-family:var(--mono);font-size:9.5px;letter-spacing:1.5px;color:var(--txt-faint);
+    text-transform:uppercase;margin:2px 0 10px;display:flex;align-items:center;gap:9px}
+  .hub-label::before,.hub-label::after{content:"";flex:1;height:1px;background:var(--line)}
+  .hub-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+  .hub-grid a{display:block;background:linear-gradient(180deg,var(--panel),var(--bg2));
+    border:1px solid var(--line);border-radius:8px;padding:13px 12px;color:var(--txt);
+    transition:border-color .15s;position:relative}
+  .hub-grid a:hover{border-color:var(--orange)}
+  .hub-grid a.feature{grid-column:1 / -1;border:1px solid var(--orange);
+    background:linear-gradient(180deg,#1c130b,var(--bg2))}
+  .hub .h-ic{font-size:20px;margin-bottom:6px}
+  .hub .h-t{font-family:var(--disp);font-weight:600;font-size:14px;letter-spacing:.3px;line-height:1.2;color:var(--txt)}
+  .hub .h-d{font-size:11px;color:var(--txt-dim);margin-top:3px;line-height:1.4}
+  .hub .h-pro{position:absolute;top:9px;right:9px;font-family:var(--mono);font-size:8px;
+    letter-spacing:1px;color:#000;background:#FFEB00;padding:2px 6px;border-radius:3px;font-weight:500}
+  .hub-grid a.feature .h-t{font-size:16px;color:var(--orange)}
+
+  /* ===== product CTAs (below the tool, smaller) ===== */
+  .prods{margin-top:24px}
+  .prods-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:10px}
+  .prod{background:#1a1a1b;border:1px solid #333;border-radius:8px;padding:20px}
+  .prod.hot{border:2px solid #FFEB00}
+  .prod .best{display:inline-block;background:#FFEB00;color:#000;padding:4px 8px;
+    font-size:10px;font-family:var(--disp);font-weight:700;letter-spacing:1px;
+    margin-bottom:8px;border-radius:2px}
+  .prod .p-ic{font-size:26px;margin-bottom:6px}
+  .prod h3{font-family:var(--disp);font-weight:600;color:#fff;font-size:16px;
+    margin:0 0 6px;text-transform:uppercase;letter-spacing:.4px;line-height:1.2}
+  .prod p{color:#aaa;font-size:13px;margin:0 0 12px;line-height:1.5}
+  .prod .price{color:#fff;font-size:22px;font-weight:700;margin-bottom:14px}
+  .prod .price .was{color:#888;font-size:13px;text-decoration:line-through;margin-left:8px;font-weight:400}
+  .prod a{display:inline-block;background:#FFEB00;color:#000;padding:11px 20px;
+    font-family:var(--disp);font-weight:700;font-size:13px;text-transform:uppercase;
+    letter-spacing:.6px;border-radius:4px}
+</style>
+</head>
+<body class="us">
+
+<div class="hazard"></div>
+
+<header>
+  <div class="htop">
+    <div class="crest"><span id="crestTxt">US</span></div>
+    <div class="hwords">
+      <h1>Reg Deck</h1>
+      <div class="tag">Complete Trucking Law</div>
+    </div>
+    <div class="status">OFFICIAL SOURCE<br>
+      <span class="pill"><span class="led"></span><span id="srcName">eCFR LIVE</span></span>
+    </div>
+  </div>
+  <a class="brandbar" style="display:block" href="https://truckinglifewithshawn.com" target="_blank" rel="noopener">Powered by Trucking Life with Shawn</a>
+</header>
+
+<!-- EMAIL CAPTURE — DOT Cheat Sheet lead magnet (Netlify Forms).
+     Submissions land in Netlify → Forms → "dot-cheat-sheet";
+     the driver is sent straight to /cheatsheet.html to get the goods. -->
+<div class="capture">
+  <h2>Grab the 1-Page DOT Cheat Sheet</h2>
+  <p>Print it. Fold it. Keep it in your cab. The 12 things every DOT officer checks
+  — and how to handle each one. Built by a 17-year driver with zero violations.</p>
+  <form name="dot-cheat-sheet" method="POST" action="/cheatsheet.html" data-netlify="true" netlify-honeypot="bot-field">
+    <input type="hidden" name="form-name" value="dot-cheat-sheet">
+    <p style="display:none"><label>Don't fill this out: <input name="bot-field"></label></p>
+    <input type="email" name="email" placeholder="your.email@example.com" required>
+    <button type="submit">SEND ME THE CHEAT SHEET →</button>
+  </form>
+  <small>No spam. Unsubscribe anytime.</small>
+</div>
+
+<div class="juris">
+  <button class="on us-btn" data-j="us"><span class="fl">🇺🇸</span> United States</button>
+  <button class="ca-btn" data-j="ca"><span class="fl">🇨🇦</span> Canada</button>
+</div>
+
+<div class="feed" id="feed">
+
+  <a href="/roadside.html" style="display:block;background:linear-gradient(135deg,#dc2626,#991b1b);color:#fff;padding:20px;border-radius:12px;text-align:center;font-weight:800;font-size:18px;text-decoration:none;margin:16px 0;box-shadow:0 4px 20px rgba(220,38,38,0.3);">
+    🚨 DOT JUST PULLED ME OVER →
+  </a>
+
+  <!-- DRIVER TOOLS HUB -->
+  <div class="hub">
+    <div class="hub-label">🧰 Driver Tools</div>
+    <div class="hub-grid">
+      <a href="/move.html" class="feature">
+        <div class="h-ic">🚦</div>
+        <div class="h-t">Before You Move — Is This Legal?</div>
+        <div class="h-d">Answer 60 seconds of questions. Get a straight YES / NO / RISKY before you touch the gear shift. HOS, PC, and yard moves.</div>
+      </a>
+      <a href="/violation.html">
+        <div class="h-ic">📋</div>
+        <div class="h-t">Violation Checker</div>
+        <div class="h-d">What it is, CSA points, what to fix, what to say.</div>
+      </a>
+      <a href="/violation.html#csa">
+        <div class="h-ic">📊</div>
+        <div class="h-t">CSA Points Estimator</div>
+        <div class="h-d">Severity × time weight — what it costs you.</div>
+      </a>
+      <a href="/pretrip.html">
+        <div class="h-ic">🔧</div>
+        <div class="h-t">Pre-Trip Failure Check</div>
+        <div class="h-d">ABS light? Air leak? Safe to move or OOS risk?</div>
+      </a>
+      <a href="/letters.html">
+        <div class="h-ic">✍️</div>
+        <div class="h-t">Fix-It Letters</div>
+        <div class="h-d">Driver statement, repair request, DataQ draft.</div>
+        <span class="h-pro">PRO</span>
+      </a>
+      <a href="/vault.html">
+        <div class="h-ic">🗂️</div>
+        <div class="h-t">Document Vault</div>
+        <div class="h-d">CDL, med card, inspections — on your phone.</div>
+        <span class="h-pro">PRO</span>
+      </a>
+      <a href="https://godatq.netlify.app" target="_blank" rel="noopener">
+        <div class="h-ic">⚖️</div>
+        <div class="h-t">DataQ Tracker</div>
+        <div class="h-d">Fight bad violations. Build your FMCSA dispute.</div>
+      </a>
+    </div>
+  </div>
+
+  <div class="notice" id="notice">
+    <b>⚠ Reference Aid — Not Legal Advice</b>
+    <span id="noticeTxt">Every part of the U.S. Federal Motor Carrier Safety Regulations
+    (49 CFR 350–399). Text pulls live from the official government source (eCFR.gov).
+    Confirm against the official source before any compliance decision.</span>
+  </div>
+
+  <div class="searchbar">
+    <input id="q" type="search" autocomplete="off" placeholder="Search any part, number, or topic…">
+  </div>
+
+  <div class="countbar" id="countbar">ALL FMCSR PARTS · 49 CFR 350–399</div>
+  <div class="grid" id="grid"></div>
+
+  <!-- PRODUCT CTAs — below the tool on purpose. Trust first, sales second. -->
+  <div class="prods">
+    <div class="hub-label">🛒 Shawn's Playbooks</div>
+    <div class="prods-grid">
+      <div class="prod">
+        <div class="p-ic">🛡️</div>
+        <h3>Save Your CDL — DOT Survival System</h3>
+        <p>The complete playbook: pass every inspection, beat CSA scores, protect your record.</p>
+        <div class="price">$27</div>
+        <a href="https://stan.store/TRUCKINGLIFEWITHSHAWN/p/save-your-cdl" target="_blank" rel="noopener">GET THE GUIDE →</a>
+      </div>
+      <div class="prod">
+        <div class="p-ic">🧪</div>
+        <h3>DOT Drug Test &amp; SAP Guide</h3>
+        <p>Failed — or about to be tested? Your step-by-step return-to-duty path.</p>
+        <div class="price">$24</div>
+        <a href="https://stan.store/TRUCKINGLIFEWITHSHAWN" target="_blank" rel="noopener">GET THE GUIDE →</a>
+      </div>
+      <div class="prod">
+        <div class="p-ic">🚛</div>
+        <h3>17 Years, Zero Violations</h3>
+        <p>Everything Shawn does differently — the habits that keep a record spotless.</p>
+        <div class="price">&nbsp;</div>
+        <a href="https://stan.store/TRUCKINGLIFEWITHSHAWN" target="_blank" rel="noopener">GET THE BOOK →</a>
+      </div>
+      <div class="prod">
+        <div class="p-ic">📞</div>
+        <h3>1-on-1 Coach Call</h3>
+        <p>DOT issue. CSA score. SAP. Career move. 30 minutes direct with Shawn.</p>
+        <div class="price">$79</div>
+        <a href="https://stan.store/TRUCKINGLIFEWITHSHAWN/p/book-a-11-call-with-me-wxbdizeg" target="_blank" rel="noopener">BOOK A CALL →</a>
+      </div>
+      <div class="prod hot">
+        <div class="best">BEST VALUE</div>
+        <h3>Support the Channel — 4-Book Bundle</h3>
+        <p>All 4 of Shawn's digital products in one. Best deal on the site.</p>
+        <div class="price">$40 <span class="was">$118</span></div>
+        <a href="https://stan.store/TRUCKINGLIFEWITHSHAWN" target="_blank" rel="noopener">GET THE BUNDLE →</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <a class="pb" href="https://truckinglifewithshawn.com" target="_blank" rel="noopener">Powered by Trucking Life with Shawn</a>
+  <div class="leg">COMPLETE FMCSR 49 CFR 350–399 + CANADA SOR/2005-313<br>
+  REFERENCE AID — CONFIRM AGAINST OFFICIAL SOURCE — NOT LEGAL ADVICE</div>
+</footer>
+
+<div class="sheet" id="sheet">
+  <div class="shead">
+    <button class="x" id="closeSheet">✕</button>
+    <div class="info"><div class="cite" id="sCite">—</div><div class="ttl" id="sTtl">Loading…</div></div>
+    <button class="spk" id="sSpk" title="Read aloud">▶</button>
+  </div>
+  <div class="sbody" id="sBody"></div>
+</div>
+
+<script>
+"use strict";
+
+const ECFR_BASE="https://www.ecfr.gov";
+const US_TITLE=49;
+let US_DATE=null;
+let JUR="us";
+
+/* COMPLETE 49 CFR Subchapter B — every FMCSR part, verified against
+   the official Subchapter B table of contents (parts 350–399). */
+const US_PARTS=[
+ {p:"350",t:"Motor Carrier Safety Assistance Program",d:"MCSAP & High Priority Program — state safety grants",
+  s:[["350.101","Purpose of MCSAP"],["350.201","Eligibility for funding"],["350.301","High Priority Program"]]},
+ {p:"355",t:"[Reserved]",d:"Reserved — no current regulations in this part",reserved:true},
+ {p:"356",t:"Motor Carrier Routing Regulations",d:"Routing of motor carrier traffic",
+  s:[["356.1","Scope"],["356.3","Routing of traffic"]]},
+ {p:"360",t:"Fees for Registration & Insurance",d:"Fees for carrier registration and insurance filings",
+  s:[["360.1","Fees"],["360.3","Filing fees"]]},
+ {p:"365",t:"Applications for Operating Authority",d:"How carriers apply for operating authority",
+  s:[["365.101","Starting the application"],["365.107","Types of authority"],["365.201","Protests"]]},
+ {p:"366",t:"Designation of Process Agent",d:"Carriers must designate an agent for service of process",
+  s:[["366.1","Applicability"],["366.3","Form of designation"],["366.4","Required filing"]]},
+ {p:"367",t:"Standards for Registration with States",d:"Unified carrier registration standards",
+  s:[["367.20","Standards"],["367.30","Registration"]]},
+ {p:"368",t:"Registration — Border / Commercial Zones",d:"US-Mexico border municipality certificate of registration",
+  s:[["368.1","Applicability"],["368.3","Application"],["368.4","Certificate of registration"]]},
+ {p:"369",t:"Reports of Motor Carriers",d:"Annual and other reports carriers must file",
+  s:[["369.1","Annual reports"],["369.2","Quarterly reports"]]},
+ {p:"370",t:"Loss & Damage Claims; Salvage",d:"Investigation & disposition of cargo loss/damage claims",
+  s:[["370.1","Applicability"],["370.3","Filing of claims"],["370.9","Disposition of claims"]]},
+ {p:"371",t:"Brokers of Property",d:"Property broker requirements, recordkeeping, conduct",
+  s:[["371.1","Definitions"],["371.3","Records to be kept"],["371.105","Misrepresentation"]]},
+ {p:"372",t:"Exemptions, Commercial Zones & Terminal Areas",d:"Exempt commodities & commercial zone definitions",
+  s:[["372.101","Commercial zones"],["372.103","Terminal areas"],["372.115","Exempt operations"]]},
+ {p:"373",t:"Receipts & Bills",d:"Bills of lading and freight bill requirements",
+  s:[["373.100","Bills of lading"],["373.101","Freight bills"]]},
+ {p:"374",t:"Passenger Carrier Regulations",d:"Discrimination, baggage, smoking — passenger carriers",
+  s:[["374.101","Discrimination"],["374.301","Baggage"],["374.401","Incidental charter"]]},
+ {p:"375",t:"Household Goods Moving — Consumer Protection",d:"Interstate moving company consumer rules",
+  s:[["375.101","Applicability"],["375.213","Estimates"],["375.401","Picking up shipment"],["375.701","Delivery"]]},
+ {p:"376",t:"Lease & Interchange of Vehicles",d:"Owner-operator lease requirements & equipment interchange",
+  s:[["376.11","General leasing requirements"],["376.12","Written lease requirements"],["376.21","Exemptions"]]},
+ {p:"377",t:"Payment of Transportation Charges",d:"Credit, payment & collection of transportation charges",
+  s:[["377.101","Payment terms"],["377.203","Extension of credit"]]},
+ {p:"378",t:"Overcharge / Duplicate Payment Claims",d:"Processing overcharge & duplicate payment claims",
+  s:[["378.1","Applicability"],["378.3","Investigation of claims"]]},
+ {p:"379",t:"Preservation of Records",d:"Record retention periods for motor carriers",
+  s:[["379.1","Retention of records"],["379.3","Record retention periods"]]},
+ {p:"380",t:"Special Training Requirements (ELDT)",d:"Entry-Level Driver Training; LCV driver training",
+  s:[["380.101","Purpose & scope"],["380.103","Entry-level driver requirements"],
+     ["380.107","ELDT theory & behind-the-wheel"],["380.609","LCV driver training"]]},
+ {p:"381",t:"Waivers, Exemptions & Pilot Programs",d:"How FMCSA grants waivers, exemptions & runs pilots",
+  s:[["381.100","Purpose"],["381.200","Waivers"],["381.300","Exemptions"],["381.400","Pilot programs"]]},
+ {p:"382",t:"Controlled Substances & Alcohol Testing",d:"Drug/alcohol use & testing for CDL drivers",
+  s:[["382.107","Definitions"],["382.301","Pre-employment testing"],["382.303","Post-accident testing"],
+     ["382.305","Random testing"],["382.307","Reasonable suspicion testing"],["382.309","Return-to-duty testing"],
+     ["382.311","Follow-up testing"],["382.501","Removal from safety-sensitive function"]]},
+ {p:"383",t:"Commercial Driver's License Standards",d:"CDL requirements, endorsements, disqualification, penalties",
+  s:[["383.51","Disqualification of drivers"],["383.71","Driver application procedures"],
+     ["383.91","Vehicle groups"],["383.93","Endorsements"],["383.95","Air brake restrictions"],
+     ["383.113","Required knowledge"],["383.131","Test manuals"]]},
+ {p:"384",t:"State Compliance with CDL Program",d:"State requirements to comply with the CDL program",
+  s:[["384.201","State recordkeeping"],["384.206","Notifying drivers"],["384.301","Substantial compliance"]]},
+ {p:"385",t:"Safety Fitness Procedures",d:"Safety ratings, compliance reviews, new entrant audits, OOS",
+  s:[["385.3","Definitions"],["385.5","Safety fitness standard"],["385.13","Unsatisfactory rating"],
+     ["385.301","New entrant requirements"],["385.337","Failing the new entrant audit"]]},
+ {p:"386",t:"Rules of Practice for FMCSA Proceedings",d:"Enforcement proceedings, penalties, appeals",
+  s:[["386.1","Scope"],["386.11","Commencement of proceedings"],["386.81","Penalties"]]},
+ {p:"387",t:"Minimum Levels of Financial Responsibility",d:"Required insurance / financial responsibility minimums",
+  s:[["387.7","Financial responsibility required"],["387.9","Minimum levels — property"],
+     ["387.31","Passenger carriers"],["387.303","Surety bonds & policies"]]},
+ {p:"388",t:"[Reserved]",d:"Reserved — no current regulations in this part",reserved:true},
+ {p:"389",t:"Rulemaking Procedures — FMCSR",d:"How FMCSA makes rules; petitions for rulemaking",
+  s:[["389.1","Scope"],["389.11","Petitions for rulemaking"],["389.31","Notice of proposed rulemaking"]]},
+ {p:"390",t:"FMCSR General",d:"General applicability, definitions, marking, accident records",
+  s:[["390.3","General applicability"],["390.5","Definitions"],["390.15","Accident records"],
+     ["390.19","Unified Registration / MCS-150"],["390.21","Marking of CMVs"],["390.35","Falsification"]]},
+ {p:"391",t:"Qualifications of Drivers & LCV Instructors",d:"Driver qualification, physical, DQ file",
+  s:[["391.11","General qualifications"],["391.15","Disqualification"],["391.21","Application for employment"],
+     ["391.23","Investigation & inquiries"],["391.41","Physical qualifications"],
+     ["391.45","Who must be examined"],["391.51","Driver qualification files"]]},
+ {p:"392",t:"Driving of Commercial Motor Vehicles",d:"Ill/fatigued driver, alcohol, seat belts, texting, phone",
+  s:[["392.2","Applicable laws"],["392.3","Ill or fatigued operator"],["392.4","Drugs & other substances"],
+     ["392.5","Alcohol prohibition"],["392.16","Seat belts"],["392.62","Safe loading"],
+     ["392.80","Texting prohibited"],["392.82","Hand-held phone prohibited"]]},
+ {p:"393",t:"Parts & Accessories for Safe Operation",d:"Brakes, lights, tires, emergency equipment, cargo securement",
+  s:[["393.5","Definitions"],["393.42","Brakes on all wheels"],["393.45","Brake tubing & hoses"],
+     ["393.75","Tires"],["393.95","Emergency equipment"],["393.100","Cargo securement — general"],
+     ["393.104","Securement devices"],["393.130","Heavy vehicles & equipment"]]},
+ {p:"394",t:"[Reserved]",d:"Reserved — no current regulations in this part",reserved:true},
+ {p:"395",t:"Hours of Service of Drivers",d:"11-hr driving, 14-hr rule, 30-min break, 60/70-hr, ELD",
+  s:[["395.1","Scope of rules (incl. short-haul, 150 air-mile, adverse driving, sleeper berth)"],
+     ["395.2","Definitions (on-duty time, personal conveyance, yard moves)"],
+     ["395.3","Maximum driving time — property (11-hr, 14-hr, 30-min break, 60/70-hr, 34-hr restart)"],
+     ["395.5","Maximum driving time — passenger"],["395.8","Record of duty status (logs)"],
+     ["395.11","Supporting documents"],["395.13","Out of service"],["395.15","AOBRD"],
+     ["395.22","ELD — carrier responsibilities"],["395.24","ELD — driver responsibilities"],
+     ["395.28","ELD — special provisions"]]},
+ {p:"396",t:"Inspection, Repair & Maintenance",d:"DVIR, periodic inspection, out-of-service, recordkeeping",
+  s:[["396.3","Inspection, repair & maintenance"],["396.7","Unsafe operations forbidden"],
+     ["396.9","Roadside inspection"],["396.11","Driver vehicle inspection report"],
+     ["396.13","Driver inspection"],["396.17","Periodic inspection"],["396.19","Inspector qualifications"]]},
+ {p:"397",t:"Hazmat Driving & Parking Rules",d:"Hazardous materials routing, attendance, parking, smoking",
+  s:[["397.3","State & local laws"],["397.5","Attendance & surveillance"],["397.7","Parking"],
+     ["397.13","Smoking"],["397.19","Instructions & documents"],["397.67","Carrier routing responsibility"]]},
+ {p:"398",t:"Transportation of Migrant Workers",d:"Rules for carriers transporting migrant agricultural workers",
+  s:[["398.3","Driver qualifications"],["398.4","Driving rules"],["398.5","Vehicle requirements"]]},
+ {p:"399",t:"Employee Safety & Health Standards",d:"Truck cab access — steps & handholds (entry/egress)",
+  s:[["399.201","Purpose & scope"],["399.207","Truck access requirements"],["399.211","Application"]]}
+];
+
+const CA_BASE="https://laws-lois.justice.gc.ca/eng/regulations/SOR-2005-313";
+const CA_PARTS=[
+ {p:"APPLY",t:"Interpretation & Application",d:"Definitions; which carriers/drivers the federal rules cover",
+  s:[["s.1","Definitions"],["s.2","Application — federally regulated carriers"],["s.3","Jurisdiction"]]},
+ {p:"DAILY",t:"Daily Driving & On-Duty Limits",d:"13 hr driving · 14 hr on-duty · 16 hr elapsed rule",
+  s:[["s.12","Daily driving limit — 13 hours"],["s.13","Daily on-duty limit — 14 hours"],
+     ["s.14","Required off-duty before more driving"],["s.15","16-hour elapsed-time rule"]]},
+ {p:"OFFDUTY",t:"Off-Duty & Rest Requirements",d:"Minimum 10 hr off-duty, 8 consecutive, splitting",
+  s:[["s.16","Daily off-duty — minimum 10 hours"],["s.17","8 consecutive hours"],["s.18","Splitting off-duty time"]]},
+ {p:"DEFER",t:"Deferral of Off-Duty Time",d:"Deferring up to 2 hr of daily off-duty to the next day",
+  s:[["s.16(2)","Conditions for deferral of off-duty time"]]},
+ {p:"CYCLES",t:"Cycles 1 & 2",d:"70 hr / 7 days · 120 hr / 14 days · reset & switching",
+  s:[["s.24","Cycle 1 — 70 hr / 7 days"],["s.25","Cycle 2 — 120 hr / 14 days"],
+     ["s.26","Resetting a cycle"],["s.27","Switching cycles"]]},
+ {p:"NORTH60",t:"North of Latitude 60°N",d:"Separate HOS schedule for far-northern operations",
+  s:[["s.28","Driving limit — north of 60°N"],["s.29","On/off-duty — north of 60°N"]]},
+ {p:"ADVERSE",t:"Adverse Driving & Emergencies",d:"Permitted extensions for adverse conditions / emergencies",
+  s:[["s.76","Adverse driving conditions"],["s.77","Emergencies & exemptions"]]},
+ {p:"LOGS",t:"Daily Log / RODS & ELD",d:"Record of duty status, ELD, supporting documents, retention",
+  s:[["s.82","Daily log required"],["s.83","Daily log content"],["s.84","Electronic logging device"],
+     ["s.95","Retention of records"]]},
+ {p:"NSC",t:"National Safety Code Framework",d:"NSC Standard 9 (HOS) — enforced by provinces & territories",
+  s:[["NSC 9","Hours of Service standard"],["MVTA","Motor Vehicle Transport Act — federal authority"]]},
+ {p:"PROV",t:"Provincial / Intra-Provincial Note",d:"Intra-provincial carriers may follow provincial HOS variations",
+  s:[["NOTE","When provincial rules apply instead of federal"]]}
+];
+
+const feed=document.getElementById("feed");
+const grid=document.getElementById("grid");
+const sheet=document.getElementById("sheet");
+const sBody=document.getElementById("sBody");
+const sCite=document.getElementById("sCite");
+const sTtl=document.getElementById("sTtl");
+const sSpk=document.getElementById("sSpk");
+const qEl=document.getElementById("q");
+
+function esc(s){return (s||"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));}
+
+async function usResolveDate(){
+  try{
+    const r=await fetch(`${ECFR_BASE}/api/versioner/v1/titles.json`,{cache:"no-store"});
+    if(r.ok){const j=await r.json();const t=(j.titles||[]).find(x=>x.number===US_TITLE);
+      if(t&&(t.up_to_date_as_of||t.latest_issue_date)){US_DATE=t.up_to_date_as_of||t.latest_issue_date;return;}}
+  }catch(e){}
+  US_DATE=new Date().toISOString().slice(0,10);
+}
+async function usFetch(part,section){
+  if(!US_DATE) await usResolveDate();
+  let qs=`chapter=III&subchapter=B&part=${part}`;
+  if(section) qs+=`&section=${section}`;
+  const url=`${ECFR_BASE}/api/versioner/v1/full/${US_DATE}/title-${US_TITLE}.xml?${qs}`;
+  const r=await fetch(url,{cache:"no-store"});
+  if(!r.ok) throw new Error("eCFR HTTP "+r.status);
+  return r.text();
+}
+function usRender(xmlStr){
+  const doc=new DOMParser().parseFromString(xmlStr,"application/xml");
+  if(doc.querySelector("parsererror")) throw new Error("xml parse");
+  let title="";const head=doc.querySelector("HEAD, head");if(head)title=head.textContent.trim();
+  let html="",plain="";
+  const nodes=doc.querySelectorAll("P,HD,HD1,HD2,HD3");
+  if(!nodes.length){const t=doc.documentElement?doc.documentElement.textContent.trim():"";
+    html=t?`<p>${esc(t)}</p>`:"";plain=t;}
+  else nodes.forEach(n=>{const tg=n.tagName.toUpperCase();
+    let t=n.textContent.replace(/\s+/g," ").trim();if(!t)return;plain+=t+" ";
+    if(tg.startsWith("HD"))html+=`<h4>${esc(t)}</h4>`;
+    else html+=`<p>${esc(t).replace(/^(\(\s*[a-zA-Z0-9]{1,4}\s*\)(\s*\(\s*[a-zA-Z0-9]{1,4}\s*\)){0,3})/,'<span class="para">$1</span>')}</p>`;});
+  return {html:html||"<p>No text returned.</p>",title,plain:plain.trim()};
+}
+function usSrcSection(part,section){
+  return `${ECFR_BASE}/current/title-49/subtitle-B/chapter-III/subchapter-B/part-${part}/section-${section}`;
+}
+function usSrcPart(part){
+  return `${ECFR_BASE}/current/title-49/subtitle-B/chapter-III/subchapter-B/part-${part}`;
+}
+function caSrc(){return `${CA_BASE}/FullText.html`;}
+
+let speaking=false,curBtn=null;
+function speak(text,btn){
+  if(!("speechSynthesis"in window))return;
+  if(speaking){window.speechSynthesis.cancel();speaking=false;if(curBtn)curBtn.classList.remove("playing");if(curBtn===btn){curBtn=null;return;}}
+  const u=new SpeechSynthesisUtterance(text.slice(0,4500));
+  u.rate=.98;u.onend=()=>{speaking=false;btn.classList.remove("playing");curBtn=null;};
+  u.onerror=()=>{speaking=false;btn.classList.remove("playing");curBtn=null;};
+  speaking=true;curBtn=btn;btn.classList.add("playing");window.speechSynthesis.speak(u);
+}
+
+function dataset(){return JUR==="us"?US_PARTS:CA_PARTS;}
+
+/* ============================================================
+   Real-world search — what drivers & safety managers TYPE,
+   mapped to the parts/sections that actually contain it.
+   Each entry: trigger phrase -> array of part numbers (US)
+   or CA part keys. Match is substring-based both ways.
+   ============================================================ */
+const US_SYN={
+  "personal conveyance":["395"],"pc":["395"],"yard move":["395"],"yard moves":["395"],
+  "split sleeper":["395"],"sleeper berth":["395"],"split berth":["395"],
+  "34 hour restart":["395"],"34 restart":["395"],"34hr":["395"],"restart":["395"],
+  "30 minute break":["395"],"30 min break":["395"],"half hour break":["395"],
+  "11 hour":["395"],"14 hour":["395"],"60 70 hour":["395"],"70 hour":["395"],"60 hour":["395"],
+  "10 hour break":["395"],"daily reset":["395"],
+  "short haul":["395"],"short-haul exemption":["395"],"150 air mile":["395"],"air mile":["395"],
+  "100 air mile":["395"],"adverse driving":["395"],"adverse conditions":["395"],
+  "hours of service":["395"],"hos":["395"],"log book":["395"],"logbook":["395"],"rods":["395"],
+  "eld":["395"],"electronic log":["395"],"aobrd":["395"],"exempt from eld":["395"],
+  "out of service":["395","396"],"oos":["395","396"],
+  "dot physical":["391"],"medical card":["391"],"med card":["391"],"physical exam":["391"],
+  "medical examiner":["391"],"medical certificate":["391"],"vision exemption":["391"],
+  "driver qualification":["391"],"dq file":["391"],"mvr":["391"],"motor vehicle record":["391"],
+  "road test":["391"],"previous employer":["391"],"safety performance history":["391"],
+  "disqualification":["383","391"],"disqualify":["383","391"],"cdl points":["383","384"],
+  "drug test":["382"],"alcohol test":["382"],"random test":["382"],"pre employment test":["382"],
+  "post accident test":["382"],"reasonable suspicion":["382"],"return to duty":["382"],
+  "follow up test":["382"],"sap":["382"],"substance abuse professional":["382"],
+  "clearinghouse":["382"],"hair test":["382"],"positive test":["382"],
+  "cdl":["383"],"commercial license":["383"],"endorsement":["383"],"hazmat endorsement":["383"],
+  "tanker endorsement":["383"],"doubles triples":["383"],"air brake restriction":["383"],
+  "cdl test":["383"],"knowledge test":["383"],"skills test":["383"],"clp":["383"],"permit":["383"],
+  "eldt":["380"],"entry level driver training":["380"],"training provider registry":["380"],
+  "theory training":["380"],"behind the wheel":["380"],"lcv":["380","391"],
+  "insurance":["387"],"financial responsibility":["387"],"liability minimum":["387"],
+  "bond":["387"],"bmc 91":["387"],"cargo insurance":["387"],
+  "safety rating":["385"],"compliance review":["385"],"new entrant":["385"],"audit":["385"],
+  "safety fitness":["385"],"conditional rating":["385"],"unsatisfactory":["385"],
+  "csa":["385","386"],"safety audit":["385"],
+  "inspection":["396"],"pre trip":["396"],"pretrip":["396"],"post trip":["396"],
+  "dvir":["396"],"vehicle inspection report":["396"],"annual inspection":["396"],
+  "periodic inspection":["396"],"defect":["396"],"maintenance record":["396"],"brake adjustment":["396"],
+  "roadside inspection":["396"],"level 1 inspection":["396"],
+  "tires":["393"],"brakes":["393"],"lights":["393"],"reflectors":["393"],"emergency equipment":["393"],
+  "triangles":["393"],"fire extinguisher":["393"],"cargo securement":["393"],"tie down":["393"],
+  "load securement":["393"],"chains":["393"],"straps":["393"],"mud flaps":["393"],"underride":["393"],
+  "texting":["392"],"cell phone":["392"],"hand held phone":["392"],"seat belt":["392"],
+  "ill or fatigued":["392"],"fatigued driver":["392"],"speed":["392"],"hazard warning":["392"],
+  "railroad crossing":["392"],"safe loading":["392"],"radar detector":["392"],
+  "hazmat":["397"],"placards":["397"],"dangerous goods":["397"],"hazmat parking":["397"],
+  "hazmat routing":["397"],"attendance":["397"],"smoking":["397"],
+  "marking":["390"],"usdot number":["390"],"mcs 150":["390"],"mc number":["390"],
+  "accident register":["390"],"recordable accident":["390"],"falsification":["390"],
+  "general applicability":["390"],"definitions":["390","395"],"cmv definition":["390"],
+  "broker":["371"],"freight broker":["371"],"broker bond":["371"],
+  "household goods":["375"],"moving company":["375"],"movers":["375"],"estimate":["375"],
+  "lease":["376"],"owner operator":["376"],"lease agreement":["376"],"equipment interchange":["376"],
+  "operating authority":["365"],"mc authority":["365"],"common carrier":["365"],
+  "process agent":["366"],"boc 3":["366"],"record retention":["379"],"keep records":["379"],
+  "passenger carrier":["374"],"bus":["374"],"migrant workers":["398"],
+  "cab access":["399"],"steps":["399"],"handhold":["399"],"getting in the truck":["399"],
+  "penalties":["386"],"civil penalty":["386"],"fine":["386"],"appeal":["386"],"hearing":["386"]
+};
+const CA_SYN={
+  "personal conveyance":["LOGS","APPLY"],"pc":["LOGS","APPLY"],"yard move":["LOGS"],
+  "13 hour":["DAILY"],"14 hour":["DAILY"],"16 hour":["DAILY"],"daily limit":["DAILY"],
+  "driving limit":["DAILY"],"on duty":["DAILY"],
+  "off duty":["OFFDUTY"],"10 hour":["OFFDUTY"],"8 consecutive":["OFFDUTY"],"rest":["OFFDUTY"],
+  "split sleeper":["OFFDUTY"],"sleeper berth":["OFFDUTY"],"split off duty":["OFFDUTY"],
+  "deferral":["DEFER"],"defer off duty":["DEFER"],"2 hour deferral":["DEFER"],
+  "cycle":["CYCLES"],"cycle 1":["CYCLES"],"cycle 2":["CYCLES"],"70 hour":["CYCLES"],
+  "120 hour":["CYCLES"],"reset":["CYCLES"],"switch cycle":["CYCLES"],
+  "north of 60":["NORTH60"],"northern":["NORTH60"],"latitude 60":["NORTH60"],
+  "adverse":["ADVERSE"],"emergency":["ADVERSE"],"adverse driving":["ADVERSE"],
+  "log":["LOGS"],"logbook":["LOGS"],"rods":["LOGS"],"eld":["LOGS"],"daily log":["LOGS"],
+  "record of duty status":["LOGS"],"retention":["LOGS"],
+  "nsc":["NSC"],"national safety code":["NSC"],"standard 9":["NSC"],"mvta":["NSC"],
+  "provincial":["PROV"],"intra provincial":["PROV"],"intraprovincial":["PROV"],
+  "hours of service":["DAILY","OFFDUTY","CYCLES"],"hos":["DAILY","OFFDUTY","CYCLES"],
+  "definitions":["APPLY"],"application":["APPLY"],"who applies":["APPLY"]
+};
+function synonymParts(f){
+  const map = JUR==="us"?US_SYN:CA_SYN;
+  const hits=new Set();
+  for(const key in map){
+    if(key.includes(f) || f.includes(key)){
+      map[key].forEach(p=>hits.add(p));
+    }
+  }
+  return hits;
+}
+
+function buildGrid(filter){
+  const f=(filter||"").trim().toLowerCase();
+  const synHits = f ? synonymParts(f) : new Set();
+  grid.innerHTML="";
+  let shown=0;
+  dataset().forEach(part=>{
+    if(part.reserved){
+      if(f && !((part.p+"").toLowerCase().includes(f) || "reserved".includes(f))) return;
+      const c=document.createElement("div");
+      c.className="card reserved";
+      c.innerHTML=`<div class="chead">
+        <div class="pnum">${esc(part.p)}</div>
+        <div class="pmeta"><div class="t">Part ${esc(part.p)}</div>
+          <div class="d">${esc(part.d)}</div></div>
+        <div class="rtag">RESERVED</div></div>`;
+      grid.appendChild(c);shown++;return;
+    }
+    const synMatch = synHits.has(part.p);
+    const partHit=!f || synMatch || (part.p+"").toLowerCase().includes(f) ||
+      part.t.toLowerCase().includes(f) || part.d.toLowerCase().includes(f);
+    const secM=(part.s||[]).filter(([sn,st])=>
+      !f || partHit || sn.toLowerCase().includes(f) || st.toLowerCase().includes(f));
+    if(f && !partHit && secM.length===0) return;
+    shown++;
+    const showSecs=f?secM:(part.s||[]);
+    const card=document.createElement("div");
+    card.className="card"+(f?" open":"");
+    let sHTML="";
+    showSecs.forEach(([sn,st])=>{
+      sHTML+=`<div class="opensec" data-part="${esc(part.p)}" data-sn="${esc(sn)}" data-st="${esc(st)}">
+        <span class="ic">${esc(sn)}</span><span class="lbl">${esc(st)}</span><span class="go">›</span></div>`;
+    });
+    if(JUR==="us"){
+      sHTML+=`<div class="fullpart" data-part="${esc(part.p)}" data-full="1">
+        ⬈ Open full Part ${esc(part.p)} (official text)</div>`;
+    } else {
+      sHTML+=`<div class="fullpart" data-ca="1">⬈ Open official SOR/2005-313 source</div>`;
+    }
+    card.innerHTML=`<div class="chead">
+        <div class="pnum">${esc(part.p)}</div>
+        <div class="pmeta"><div class="t">${esc(part.t)}</div><div class="d">${esc(part.d)}</div></div>
+        <div class="chev">›</div></div>
+      <div class="secs">${sHTML}</div>`;
+    card.querySelector(".chead").addEventListener("click",()=>card.classList.toggle("open"));
+    grid.appendChild(card);
+  });
+  if(!shown){
+    grid.innerHTML=`<div class="empty">NO MATCH FOR "${esc(filter)}"<br><br>
+      Try a part number (395), a topic (hours of service,<br>drug test, inspection), or a section.</div>`;
+  }
+  grid.querySelectorAll(".opensec").forEach(el=>{
+    el.addEventListener("click",()=>openReg(el.dataset.part,el.dataset.sn,el.dataset.st,false));
+  });
+  grid.querySelectorAll(".fullpart").forEach(el=>{
+    el.addEventListener("click",()=>{
+      if(el.dataset.ca){window.open(caSrc(),"_blank","noopener");return;}
+      openReg(el.dataset.part,null,"Full Part "+el.dataset.part,true);
+    });
+  });
+  document.getElementById("countbar").textContent = JUR==="us"
+    ? (f?`${shown} RESULT(S) · 49 CFR 350–399`:"ALL 39 FMCSR PARTS · 49 CFR 350–399")
+    : (f?`${shown} RESULT(S) · SOR/2005-313`:"FULL CANADA HOS · SOR/2005-313 + NSC");
+}
+
+async function openReg(part,section,label,fullPart){
+  sheet.classList.add("show");
+  document.body.style.overflow="hidden";
+  sSpk.classList.remove("playing");
+
+  if(JUR==="us"){
+    sCite.textContent = section ? `49 CFR § ${section}` : `49 CFR Part ${part}`;
+    sTtl.textContent = label||"";
+    sBody.innerHTML=`<div class="load"><div class="spin"></div>
+      <div class="m">PULLING OFFICIAL TEXT — eCFR.GOV…</div></div>`;
+    try{
+      const xml=await usFetch(part,section);
+      const r=usRender(xml);
+      const title=(r.title||"").replace(/^§?\s*[\d.]+\s*/,"")||label||"";
+      if(title) sTtl.textContent=title;
+      const speakTxt=`United States. ${section?("49 CFR section "+section):("49 CFR part "+part)}. ${title}. ${r.plain}`;
+      sBody.innerHTML=`<div class="readout">${r.html}</div>
+        <a class="srcbtn" href="${section?usSrcSection(part,section):usSrcPart(part)}" target="_blank" rel="noopener">⬈ Official Source — eCFR.gov</a>
+        <div class="stamp"><b>Powered by Trucking Life with Shawn</b>
+        OFFICIAL TEXT · 49 CFR ${section?("§"+esc(section)):("Part "+esc(part))} · SOURCE: eCFR.GOV<br>
+        REFERENCE AID — CONFIRM AGAINST SOURCE — NOT LEGAL ADVICE</div>`;
+      sSpk.onclick=()=>speak(speakTxt,sSpk);
+    }catch(e){
+      const link=section?usSrcSection(part,section):usSrcPart(part);
+      sBody.innerHTML=`<div class="errb"><div class="bg">COULDN'T LOAD LIVE TEXT</div>
+        <div class="sm">Connection to eCFR failed (${esc(e.message||"network")}).
+        Open it directly on the official site:</div>
+        <button id="rb">RETRY</button><br>
+        <a href="${link}" target="_blank" rel="noopener">⬈ Open on eCFR.gov</a></div>`;
+      const rb=document.getElementById("rb");if(rb)rb.onclick=()=>openReg(part,section,label,fullPart);
+    }
+  } else {
+    sCite.textContent=`SOR/2005-313 · ${section||""}`;
+    sTtl.textContent=label||"";
+    const link=caSrc();
+    sBody.innerHTML=`
+      <div class="readout">
+        <h4>${esc(label||"")}</h4>
+        <p>Governed by Canada's <span class="para">Commercial Vehicle Drivers Hours of
+        Service Regulations (SOR/2005-313)</span> under the National Safety Code, enforced
+        by provincial and territorial authorities.</p>
+        <p>Canadian federal baseline (south of 60°N): <span class="para">13 hr</span> max
+        driving, <span class="para">14 hr</span> max on-duty, no driving after
+        <span class="para">16 hr</span> elapsed, minimum <span class="para">10 hr</span>
+        off-duty (≥8 consecutive). Cycle 1 = 70 hr / 7 days; Cycle 2 = 120 hr / 14 days.
+        North of 60°N uses a separate schedule.</p>
+        <p>The binding, current wording is published by the Government of Canada. Open the
+        official source below for the exact regulatory text — this tool does not paraphrase
+        the controlling regulation.</p>
+      </div>
+      <a class="srcbtn" href="${link}" target="_blank" rel="noopener">⬈ Official Source — laws-lois.justice.gc.ca</a>
+      <div class="stamp"><b>Powered by Trucking Life with Shawn</b>
+      SOURCE: GOVERNMENT OF CANADA · SOR/2005-313 · NSC STANDARD 9<br>
+      REFERENCE AID — CONFIRM AGAINST OFFICIAL SOURCE — NOT LEGAL ADVICE</div>`;
+    const speakTxt=`Canada. ${label||""}. Governed by S O R 2005-313 under the National
+      Safety Code. Core federal limits: 13 hours driving, 14 hours on duty, 16 hour
+      elapsed limit, 10 hours off duty with at least 8 consecutive. Open the official
+      source for exact binding wording.`;
+    sSpk.onclick=()=>speak(speakTxt,sSpk);
+  }
+}
+function closeReg(){sheet.classList.remove("show");document.body.style.overflow="";
+  if(speaking){window.speechSynthesis.cancel();speaking=false;}}
+document.getElementById("closeSheet").addEventListener("click",closeReg);
+
+function setJur(j){
+  JUR=j;document.body.className=j;
+  document.querySelectorAll(".juris button").forEach(b=>b.classList.toggle("on",b.dataset.j===j));
+  document.getElementById("crestTxt").textContent=j==="us"?"US":"CA";
+  document.getElementById("srcName").textContent=j==="us"?"eCFR LIVE":"JUSTICE CANADA";
+  document.getElementById("noticeTxt").textContent=j==="us"
+    ? "Every part of the U.S. Federal Motor Carrier Safety Regulations (49 CFR 350–399). Text pulls live from the official government source (eCFR.gov). Confirm against the official source before any compliance decision."
+    : "Canada's federal Hours of Service framework — SOR/2005-313 under the National Safety Code. Binding text is published by the Government of Canada; open the source link for exact wording. Provinces may add intra-provincial variations.";
+  qEl.value="";
+  buildGrid("");
+  feed.scrollTop=0;
+}
+document.querySelectorAll(".juris button").forEach(b=>{
+  b.addEventListener("click",()=>setJur(b.dataset.j));});
+
+let st_;
+qEl.addEventListener("input",()=>{clearTimeout(st_);st_=setTimeout(()=>buildGrid(qEl.value),160);});
+
+buildGrid("");
+usResolveDate();
+</script>
+</body>
+</html>
