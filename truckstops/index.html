@@ -8,7 +8,7 @@
   :root{
     --bg:#111418; --panel:#1b2129; --panel2:#232b36; --line:#2e3947;
     --text:#e8edf2; --muted:#93a1b3; --accent:#ff5b1f; --accent2:#ffb347;
-    --truck:#4dabf7; --rest:#69db7c; --plaza:#ffd43b; --star:#ffd43b; --paid:#b197fc;
+    --truck:#4dabf7; --rest:#69db7c; --plaza:#ffd43b; --star:#ffd43b; --paid:#b197fc; --scale:#ff6b6b;
   }
   *{box-sizing:border-box;margin:0;padding:0}
   body{background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;min-height:100vh}
@@ -41,6 +41,7 @@
   .mmrow.truck{border-left:4px solid var(--truck)}
   .mmrow.plaza{border-left:4px solid var(--plaza)}
   .mmrow.paid{border-left:4px solid var(--paid)}
+  .mmrow.scale{border-left:4px solid var(--scale)}
   .mmtop{display:flex;gap:10px;align-items:flex-start}
   .mm{font-weight:800;font-size:1.05rem;min-width:64px;text-align:center;background:var(--panel2);border-radius:8px;padding:8px 4px;line-height:1.1}
   .mm small{display:block;font-weight:400;color:var(--muted);font-size:.62rem;letter-spacing:1px}
@@ -53,6 +54,7 @@
   .badge.plaza{background:rgba(255,212,59,.15);color:var(--plaza)}
   .badge.community{background:rgba(255,91,31,.18);color:var(--accent)}
   .badge.paid{background:rgba(177,151,252,.15);color:var(--paid)}
+  .badge.scale{background:rgba(255,107,107,.15);color:var(--scale)}
   .reserve{display:inline-block;margin-top:6px;background:var(--paid);color:#1b1230;font-weight:700;border-radius:8px;padding:5px 12px;font-size:.78rem;text-decoration:none}
   .legend{display:flex;gap:14px;flex-wrap:wrap;color:var(--muted);font-size:.78rem;margin:4px 0 14px}
   .legend i{display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:5px}
@@ -109,7 +111,8 @@
     truck_stop:{cls:'truck', label:'TRUCK STOP'},
     rest_area:{cls:'rest', label:'REST AREA'},
     service_plaza:{cls:'plaza', label:'SERVICE PLAZA'},
-    paid_parking:{cls:'paid', label:'PAID PARKING'}
+    paid_parking:{cls:'paid', label:'PAID PARKING'},
+    weigh_station:{cls:'scale', label:'⚖️ WEIGH STATION'}
   };
   var PAID_UNMAPPED = {}; // state abbr -> paid lots without an interstate/mm mapping
   var PAGE_STOPS = [];   // stops rendered on the current highway page
@@ -307,6 +310,7 @@
       + '<span><i style="background:var(--rest)"></i>Rest area</span>'
       + '<span><i style="background:var(--plaza)"></i>Service plaza</span>'
       + '<span><i style="background:var(--paid)"></i>Paid parking (reservable)</span>'
+      + '<span><i style="background:var(--scale)"></i>Weigh station</span>'
       + '<span>≈ approximate MM</span>'
       + '<span>🅿️ ~ estimated truck spots</span></div>';
     html += '<button class="btn ghost" style="margin-bottom:12px" onclick="TS.toggleAdd()">➕ Know a stop we\'re missing on '+esc(h)+'? Add it</button>';
