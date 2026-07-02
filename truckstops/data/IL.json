@@ -59,6 +59,16 @@
      "parking": 75
     },
     {
+     "mm": 13,
+     "exit": "13",
+     "name": "Weigh Station (SB)",
+     "brand": "State",
+     "type": "weigh_station",
+     "city": "Maryville",
+     "approx": true,
+     "notes": "ISP scale on I-55/70 overlap west of Troy (mm ~13.5); serves I-55 SB / I-70 WB toward St. Louis; PrePass"
+    },
+    {
      "mm": 52,
      "exit": "52",
      "name": "Love's Travel Stop",
@@ -68,6 +78,16 @@
      "approx": true,
      "notes": "IL-16, historic Route 66 town",
      "parking": 85
+    },
+    {
+     "mm": 105,
+     "exit": "105",
+     "name": "Weigh Station (SB)",
+     "brand": "State",
+     "type": "weigh_station",
+     "city": "Williamsville",
+     "approx": true,
+     "notes": "ISP Williamsville/Sherman scale, SB only, north of Springfield between Exit 109 and rest area; PrePass"
     },
     {
      "mm": 145,
