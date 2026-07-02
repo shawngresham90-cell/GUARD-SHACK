@@ -1,0 +1,21 @@
+{
+  "state": "Rhode Island",
+  "abbr": "RI",
+  "note": "Rhode Island has NO commercial truck stops. Plan fuel and overnight parking in North Stonington CT (I-95 south side) or the Mass Pike / Flynn's Shrewsbury MA area. Very limited truck parking statewide.",
+  "interstates": {
+    "I-95": {
+      "maxMM": 43,
+      "stops": [
+        {"mm": 2, "exit": "", "name": "Rhode Island Welcome Center Rest Area (NB only)", "brand": "State", "type": "rest_area", "city": "Richmond (Hope Valley)", "approx": true, "notes": "Northbound only, just past CT line; truck parking, no fuel", "parking": 15}
+      ]
+    },
+    "I-195": {
+      "maxMM": 4,
+      "stops": []
+    },
+    "I-295": {
+      "maxMM": 23,
+      "stops": []
+    }
+  }
+}

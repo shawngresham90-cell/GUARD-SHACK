@@ -1,0 +1,50 @@
+{
+  "state": "Maryland",
+  "abbr": "MD",
+  "note": "The Maryland House (mm 82) and Chesapeake House (mm 97) on I-95 northeast of Baltimore are MDTA-operated highway service plazas accessible from both directions. I-83 and I-97 have no truck stops directly on the corridor.",
+  "interstates": {
+    "I-68": {
+      "maxMM": 82,
+      "stops": [
+        {"mm": 6, "exit": "", "name": "Youghiogheny Overlook Welcome Center", "brand": "State", "type": "rest_area", "city": "Friendsville", "approx": true, "notes": "Eastbound entering from WV, truck parking", "parking": 20},
+        {"mm": 14, "exit": "14", "name": "Pilot Travel Center", "brand": "Pilot", "type": "truck_stop", "city": "Grantsville", "approx": true, "notes": "Keysers Ridge, US-219/US-40 interchange", "parking": 80},
+        {"mm": 74, "exit": "74", "name": "Sideling Hill Rest Area (both directions)", "brand": "State", "type": "rest_area", "city": "Hancock", "approx": false, "parking": 25}
+      ]
+    },
+    "I-70": {
+      "maxMM": 94,
+      "stops": [
+        {"mm": 24, "exit": "24", "name": "AC&T Truck Stop", "brand": "Independent", "type": "truck_stop", "city": "Hagerstown", "approx": true, "notes": "MD-63 interchange, west of Hagerstown", "parking": 70},
+        {"mm": 39, "exit": "", "name": "South Mountain Welcome Center", "brand": "State", "type": "rest_area", "city": "Myersville", "approx": true, "notes": "Westbound (eastbound side near mm 41), truck parking", "parking": 25}
+      ]
+    },
+    "I-81": {
+      "maxMM": 12,
+      "stops": [
+        {"mm": 1, "exit": "1", "name": "Love's Travel Stop", "brand": "Love's", "type": "truck_stop", "city": "Williamsport", "approx": true, "notes": "MD-63 interchange", "parking": 90},
+        {"mm": 5, "exit": "5", "name": "Pilot Travel Center", "brand": "Pilot", "type": "truck_stop", "city": "Hagerstown", "approx": true, "notes": "Halfway Blvd", "parking": 80}
+      ]
+    },
+    "I-83": {
+      "maxMM": 37,
+      "stops": [
+        {"mm": 36, "exit": "36", "name": "Maryland I-83 Welcome Center Rest Area (both directions)", "brand": "State", "type": "rest_area", "city": "Parkton", "approx": true, "parking": 15}
+      ]
+    },
+    "I-95": {
+      "maxMM": 110,
+      "stops": [
+        {"mm": 37, "exit": "", "name": "Maryland Welcome Center (Laurel)", "brand": "State", "type": "rest_area", "city": "Savage", "approx": true, "notes": "Both directions between DC and Baltimore, truck parking", "parking": 25},
+        {"mm": 41, "exit": "41", "name": "TA Baltimore-Jessup", "brand": "TA", "type": "truck_stop", "city": "Jessup", "approx": true, "notes": "MD-175, Jessup truck stop cluster off US-1", "parking": 200},
+        {"mm": 82, "exit": "", "name": "Maryland House Travel Plaza", "brand": "State", "type": "service_plaza", "city": "Aberdeen", "approx": false, "notes": "MDTA service plaza, both directions, fuel and truck parking", "parking": 50},
+        {"mm": 93, "exit": "93", "name": "Flying J Travel Center", "brand": "Flying J", "type": "truck_stop", "city": "Perryville", "approx": false, "notes": "", "parking": 100},
+        {"mm": 97, "exit": "", "name": "Chesapeake House Travel Plaza", "brand": "State", "type": "service_plaza", "city": "North East", "approx": false, "notes": "MDTA service plaza, both directions, fuel and truck parking", "parking": 40},
+        {"mm": 109, "exit": "109", "name": "TA Elkton", "brand": "TA", "type": "truck_stop", "city": "Elkton", "approx": true, "notes": "MD-279, last stop before DE line", "parking": 150}
+      ]
+    },
+    "I-97": {
+      "maxMM": 18,
+      "stops": []
+    }
+  }
+}

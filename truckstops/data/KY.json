@@ -1,0 +1,70 @@
+{
+  "state": "Kentucky",
+  "abbr": "KY",
+  "interstates": {
+    "I-24": {
+      "maxMM": 93,
+      "stops": [
+        {"mm": 3, "exit": "3", "name": "Pilot Travel Center", "brand": "Pilot", "type": "truck_stop", "city": "Paducah", "approx": true, "notes": "", "parking": 85},
+        {"mm": 7, "exit": "7", "name": "Whitehaven Welcome Center", "brand": "State", "type": "rest_area", "city": "Paducah", "approx": true, "notes": "Historic Whitehaven mansion welcome center; serves both directions; truck parking", "parking": 20},
+        {"mm": 27, "exit": "27", "name": "Love's Travel Stop", "brand": "Love's", "type": "truck_stop", "city": "Calvert City", "approx": false, "notes": "US-62", "parking": 85},
+        {"mm": 40, "exit": "40", "name": "Pilot Travel Center", "brand": "Pilot", "type": "truck_stop", "city": "Kuttawa", "approx": true, "notes": "US-62, Kuttawa/Eddyville", "parking": 85},
+        {"mm": 86, "exit": "86", "name": "Petro Stopping Center", "brand": "Petro", "type": "truck_stop", "city": "Oak Grove", "approx": false, "notes": "US-41A, near Fort Campbell", "parking": 200},
+        {"mm": 86, "exit": "86", "name": "Flying J Travel Center", "brand": "Flying J", "type": "truck_stop", "city": "Oak Grove", "approx": true, "notes": "US-41A, near Fort Campbell", "parking": 90},
+        {"mm": 92, "exit": "92", "name": "Kentucky Welcome Center (westbound)", "brand": "State", "type": "rest_area", "city": "Oak Grove", "approx": true, "notes": "Serves westbound entering from TN; truck parking", "parking": 20}
+      ]
+    },
+    "I-64": {
+      "maxMM": 192,
+      "stops": [
+        {"mm": 28, "exit": "28", "name": "Simpsonville Rest Area (both directions)", "brand": "State", "type": "rest_area", "city": "Simpsonville", "approx": true, "parking": 25},
+        {"mm": 35, "exit": "35", "name": "Pilot Travel Center", "brand": "Pilot", "type": "truck_stop", "city": "Shelbyville", "approx": true, "notes": "KY-53", "parking": 85},
+        {"mm": 96, "exit": "96", "name": "Love's Travel Stop", "brand": "Love's", "type": "truck_stop", "city": "Winchester", "approx": true, "notes": "KY-627", "parking": 85},
+        {"mm": 137, "exit": "137", "name": "Pilot Travel Center", "brand": "Pilot", "type": "truck_stop", "city": "Morehead", "approx": true, "notes": "KY-32", "parking": 85},
+        {"mm": 185, "exit": "185", "name": "Pilot Travel Center", "brand": "Pilot", "type": "truck_stop", "city": "Catlettsburg (Ashland)", "approx": true, "notes": "US-60 Cannonsburg", "parking": 85},
+        {"mm": 190, "exit": "190", "name": "Kentucky Welcome Center (westbound)", "brand": "State", "type": "rest_area", "city": "Catlettsburg", "approx": true, "notes": "Serves westbound entering from WV; truck parking", "parking": 20}
+      ]
+    },
+    "I-65": {
+      "maxMM": 138,
+      "stops": [
+        {"mm": 2, "exit": "2", "name": "Flying J Travel Center", "brand": "Flying J", "type": "truck_stop", "city": "Franklin", "approx": false, "notes": "US-31W; Franklin truck stop cluster", "parking": 90},
+        {"mm": 3, "exit": "3", "name": "Kentucky Welcome Center (northbound)", "brand": "State", "type": "rest_area", "city": "Franklin", "approx": true, "notes": "Serves northbound entering from TN; truck parking", "parking": 20},
+        {"mm": 6, "exit": "6", "name": "Love's Travel Stop", "brand": "Love's", "type": "truck_stop", "city": "Franklin", "approx": true, "notes": "KY-100", "parking": 85},
+        {"mm": 28, "exit": "28", "name": "Pilot Travel Center", "brand": "Pilot", "type": "truck_stop", "city": "Bowling Green", "approx": true, "notes": "KY-446", "parking": 85},
+        {"mm": 38, "exit": "38", "name": "Buc-ee's", "brand": "Buc-ee's", "type": "truck_stop", "city": "Smiths Grove", "approx": false, "notes": "No semi-truck parking", "parking": 0},
+        {"mm": 53, "exit": "53", "name": "Love's Travel Stop", "brand": "Love's", "type": "truck_stop", "city": "Cave City", "approx": true, "notes": "KY-70, Mammoth Cave area", "parking": 85},
+        {"mm": 114, "exit": "114", "name": "Kentucky Welcome Center (southbound)", "brand": "State", "type": "rest_area", "city": "Shepherdsville", "approx": true, "parking": 25},
+        {"mm": 116, "exit": "116", "name": "Pilot Travel Center", "brand": "Pilot", "type": "truck_stop", "city": "Shepherdsville", "approx": true, "notes": "KY-44", "parking": 85},
+        {"mm": 121, "exit": "121", "name": "Love's Travel Stop", "brand": "Love's", "type": "truck_stop", "city": "Brooks", "approx": true, "notes": "", "parking": 85}
+      ]
+    },
+    "I-69": {
+      "maxMM": 156,
+      "stops": []
+    },
+    "I-71": {
+      "maxMM": 77,
+      "stops": [
+        {"mm": 28, "exit": "28", "name": "Pilot Travel Center", "brand": "Pilot", "type": "truck_stop", "city": "Pendleton", "approx": true, "notes": "KY-153", "parking": 85}
+      ]
+    },
+    "I-75": {
+      "maxMM": 192,
+      "stops": [
+        {"mm": 1, "exit": "1", "name": "Kentucky Welcome Center (northbound)", "brand": "State", "type": "rest_area", "city": "Williamsburg", "approx": true, "notes": "Serves northbound entering from TN; truck parking", "parking": 20},
+        {"mm": 11, "exit": "11", "name": "Pilot Travel Center", "brand": "Pilot", "type": "truck_stop", "city": "Williamsburg", "approx": true, "notes": "KY-92", "parking": 85},
+        {"mm": 29, "exit": "29", "name": "Love's Travel Stop", "brand": "Love's", "type": "truck_stop", "city": "Corbin", "approx": true, "notes": "US-25E", "parking": 85},
+        {"mm": 38, "exit": "38", "name": "Pilot Travel Center", "brand": "Pilot", "type": "truck_stop", "city": "London", "approx": true, "notes": "KY-192", "parking": 85},
+        {"mm": 41, "exit": "41", "name": "Flying J Travel Center", "brand": "Flying J", "type": "truck_stop", "city": "London", "approx": true, "notes": "KY-80", "parking": 90},
+        {"mm": 76, "exit": "76", "name": "Pilot Travel Center", "brand": "Pilot", "type": "truck_stop", "city": "Berea", "approx": true, "notes": "KY-21", "parking": 85},
+        {"mm": 87, "exit": "87", "name": "Buc-ee's", "brand": "Buc-ee's", "type": "truck_stop", "city": "Richmond", "approx": false, "notes": "Duncannon Ln; no semi-truck parking", "parking": 0},
+        {"mm": 126, "exit": "126", "name": "Pilot Travel Center", "brand": "Pilot", "type": "truck_stop", "city": "Georgetown", "approx": true, "notes": "US-62 / Triport Rd", "parking": 85},
+        {"mm": 127, "exit": "127", "name": "Scott County Rest Area (both directions)", "brand": "State", "type": "rest_area", "city": "Sadieville", "approx": true, "parking": 35},
+        {"mm": 136, "exit": "136", "name": "Love's Travel Stop", "brand": "Love's", "type": "truck_stop", "city": "Sadieville", "approx": true, "notes": "", "parking": 85},
+        {"mm": 171, "exit": "171", "name": "Pilot Travel Center", "brand": "Pilot", "type": "truck_stop", "city": "Walton", "approx": true, "notes": "KY-14", "parking": 85},
+        {"mm": 177, "exit": "177", "name": "Rest Area (southbound)", "brand": "State", "type": "rest_area", "city": "Richwood/Walton", "approx": true, "notes": "Serves southbound leaving Cincinnati area; truck parking", "parking": 25}
+      ]
+    }
+  }
+}

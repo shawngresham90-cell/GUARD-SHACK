@@ -1,0 +1,378 @@
+{
+ "state": "Louisiana",
+ "abbr": "LA",
+ "interstates": {
+  "I-10": {
+   "maxMM": 274,
+   "stops": [
+    {
+     "mm": 1,
+     "exit": "",
+     "name": "Vinton Welcome Center",
+     "brand": "State",
+     "type": "rest_area",
+     "city": "Vinton",
+     "approx": true,
+     "notes": "Eastbound entering from Texas; LA welcome center; truck parking",
+     "parking": 20
+    },
+    {
+     "mm": 7,
+     "exit": "7",
+     "name": "Love's Travel Stop",
+     "brand": "Love's",
+     "type": "truck_stop",
+     "city": "Vinton",
+     "approx": true,
+     "notes": "",
+     "parking": 80
+    },
+    {
+     "mm": 20,
+     "exit": "20",
+     "name": "Pilot Travel Center",
+     "brand": "Pilot",
+     "type": "truck_stop",
+     "city": "Sulphur",
+     "approx": true,
+     "notes": "Ruth St exit, west of Lake Charles",
+     "parking": 75
+    },
+    {
+     "mm": 43,
+     "exit": "43",
+     "name": "Love's Travel Stop",
+     "brand": "Love's",
+     "type": "truck_stop",
+     "city": "Iowa",
+     "approx": true,
+     "notes": "LA 383 interchange, east of Lake Charles",
+     "parking": 80
+    },
+    {
+     "mm": 64,
+     "exit": "64",
+     "name": "Love's Travel Stop",
+     "brand": "Love's",
+     "type": "truck_stop",
+     "city": "Jennings",
+     "approx": true,
+     "notes": "LA 26 interchange",
+     "parking": 80
+    },
+    {
+     "mm": 87,
+     "exit": "87",
+     "name": "Frog City Travel Plaza",
+     "brand": "Independent",
+     "type": "truck_stop",
+     "city": "Rayne",
+     "approx": false,
+     "notes": "Independent truck plaza with casino; LA 35 exit",
+     "parking": 75
+    },
+    {
+     "mm": 92,
+     "exit": "92",
+     "name": "Pilot Travel Center",
+     "brand": "Pilot",
+     "type": "truck_stop",
+     "city": "Duson",
+     "approx": true,
+     "notes": "West of Lafayette",
+     "parking": 80
+    },
+    {
+     "mm": 109,
+     "exit": "109",
+     "name": "Pilot Travel Center",
+     "brand": "Pilot",
+     "type": "truck_stop",
+     "city": "Breaux Bridge",
+     "approx": true,
+     "notes": "Rees St exit",
+     "parking": 75
+    },
+    {
+     "mm": 109,
+     "exit": "109",
+     "name": "Cash Magic Truck Plaza",
+     "brand": "Independent",
+     "type": "truck_stop",
+     "city": "Breaux Bridge",
+     "approx": true,
+     "notes": "Louisiana truck plaza/casino chain",
+     "parking": 50
+    },
+    {
+     "mm": 121,
+     "exit": "121",
+     "name": "Atchafalaya Welcome Center",
+     "brand": "State",
+     "type": "rest_area",
+     "city": "Butte La Rose",
+     "approx": false,
+     "notes": "Serves both directions; on the Atchafalaya Basin bridge corridor; truck parking",
+     "parking": 25
+    },
+    {
+     "mm": 139,
+     "exit": "139",
+     "name": "Tiger Truck Stop",
+     "brand": "Independent",
+     "type": "truck_stop",
+     "city": "Grosse Tete",
+     "approx": false,
+     "notes": "Long-running independent; formerly known for its live tiger exhibit",
+     "parking": 40
+    },
+    {
+     "mm": 151,
+     "exit": "151",
+     "name": "Pilot Travel Center",
+     "brand": "Pilot",
+     "type": "truck_stop",
+     "city": "Port Allen",
+     "approx": false,
+     "notes": "New build, opened summer 2025; 420 N Lobdell Hwy, west of Baton Rouge; 6 fuel lanes, 5 showers",
+     "parking": 50
+    },
+    {
+     "mm": 151,
+     "exit": "151",
+     "name": "Love's Travel Stop",
+     "brand": "Love's",
+     "type": "truck_stop",
+     "city": "Port Allen",
+     "approx": true,
+     "notes": "LA 415 cluster",
+     "parking": 85
+    },
+    {
+     "mm": 209,
+     "exit": "209",
+     "name": "Pilot Travel Center",
+     "brand": "Pilot",
+     "type": "truck_stop",
+     "city": "LaPlace",
+     "approx": true,
+     "notes": "Belle Terre Blvd exit",
+     "parking": 75
+    },
+    {
+     "mm": 240,
+     "exit": "240",
+     "name": "Big Easy Travel Plaza",
+     "brand": "Independent",
+     "type": "truck_stop",
+     "city": "New Orleans",
+     "approx": true,
+     "notes": "New Orleans East, Michoud area; casino truck plaza",
+     "parking": 60
+    },
+    {
+     "mm": 266,
+     "exit": "266",
+     "name": "Pilot Travel Center",
+     "brand": "Pilot",
+     "type": "truck_stop",
+     "city": "Slidell",
+     "approx": true,
+     "notes": "Gause Blvd area",
+     "parking": 75
+    },
+    {
+     "mm": 270,
+     "exit": "",
+     "name": "Slidell Welcome Center",
+     "brand": "State",
+     "type": "rest_area",
+     "city": "Slidell",
+     "approx": true,
+     "notes": "Westbound entering from Mississippi; LA welcome center; truck parking",
+     "parking": 20
+    }
+   ]
+  },
+  "I-12": {
+   "maxMM": 85,
+   "stops": [
+    {
+     "mm": 68,
+     "exit": "68",
+     "name": "Love's Travel Stop",
+     "brand": "Love's",
+     "type": "truck_stop",
+     "city": "Mandeville",
+     "approx": false,
+     "notes": "Opened February 2026; Exit 68; first Love's on I-12",
+     "parking": 125
+    }
+   ],
+   "notes": "Baton Rouge to Slidell. No major chain truck stops directly on I-12; nearest full-service stops are on I-10 at Port Allen (exit 151) and Slidell (exit 266), and off I-55 near Hammond. No public rest areas directly on I-12."
+  },
+  "I-20": {
+   "maxMM": 189,
+   "stops": [
+    {
+     "mm": 1,
+     "exit": "",
+     "name": "Greenwood Welcome Center",
+     "brand": "State",
+     "type": "rest_area",
+     "city": "Greenwood",
+     "approx": true,
+     "notes": "Eastbound entering from Texas; LA welcome center; truck parking",
+     "parking": 20
+    },
+    {
+     "mm": 3,
+     "exit": "3",
+     "name": "Pilot Travel Center",
+     "brand": "Pilot",
+     "type": "truck_stop",
+     "city": "Greenwood",
+     "approx": true,
+     "notes": "Greenwood cluster west of Shreveport",
+     "parking": 80
+    },
+    {
+     "mm": 5,
+     "exit": "5",
+     "name": "TA Shreveport (Greenwood)",
+     "brand": "TA",
+     "type": "truck_stop",
+     "city": "Greenwood",
+     "approx": true,
+     "notes": "US 79/80 interchange; Greenwood cluster",
+     "parking": 200
+    },
+    {
+     "mm": 5,
+     "exit": "5",
+     "name": "Flying J Travel Center",
+     "brand": "Flying J",
+     "type": "truck_stop",
+     "city": "Greenwood",
+     "approx": true,
+     "notes": "Greenwood cluster",
+     "parking": 90
+    },
+    {
+     "mm": 5,
+     "exit": "5",
+     "name": "Love's Travel Stop",
+     "brand": "Love's",
+     "type": "truck_stop",
+     "city": "Greenwood",
+     "approx": true,
+     "notes": "Greenwood cluster",
+     "parking": 85
+    },
+    {
+     "mm": 112,
+     "exit": "112",
+     "name": "Pilot Travel Center",
+     "brand": "Pilot",
+     "type": "truck_stop",
+     "city": "West Monroe",
+     "approx": true,
+     "notes": "Well Rd exit",
+     "parking": 75
+    },
+    {
+     "mm": 138,
+     "exit": "138",
+     "name": "Love's Travel Stop",
+     "brand": "Love's",
+     "type": "truck_stop",
+     "city": "Rayville",
+     "approx": true,
+     "notes": "US 425/LA 137 area",
+     "parking": 80
+    },
+    {
+     "mm": 171,
+     "exit": "171",
+     "name": "TA Tallulah",
+     "brand": "TA",
+     "type": "truck_stop",
+     "city": "Tallulah",
+     "approx": false,
+     "notes": "US 65 interchange; Tallulah cluster",
+     "parking": 150
+    },
+    {
+     "mm": 171,
+     "exit": "171",
+     "name": "Love's Travel Stop",
+     "brand": "Love's",
+     "type": "truck_stop",
+     "city": "Tallulah",
+     "approx": false,
+     "notes": "US 65 interchange; Tallulah cluster",
+     "parking": 80
+    },
+    {
+     "mm": 184,
+     "exit": "",
+     "name": "Mound Welcome Center",
+     "brand": "State",
+     "type": "rest_area",
+     "city": "Mound",
+     "approx": true,
+     "notes": "Westbound entering from Mississippi; LA welcome center; truck parking",
+     "parking": 15
+    }
+   ]
+  },
+  "I-49": {
+   "maxMM": 206,
+   "stops": [
+    {
+     "mm": 90,
+     "exit": "90",
+     "name": "Love's Travel Stop",
+     "brand": "Love's",
+     "type": "truck_stop",
+     "city": "Alexandria",
+     "approx": true,
+     "notes": "N MacArthur Dr (US 71/165) area",
+     "parking": 80
+    }
+   ]
+  },
+  "I-55": {
+   "maxMM": 66,
+   "stops": [
+    {
+     "mm": 65,
+     "exit": "",
+     "name": "Kentwood Welcome Center",
+     "brand": "State",
+     "type": "rest_area",
+     "city": "Kentwood",
+     "approx": true,
+     "notes": "Southbound entering from Mississippi; LA welcome center; truck parking",
+     "parking": 15
+    }
+   ]
+  },
+  "I-59": {
+   "maxMM": 11,
+   "stops": [
+    {
+     "mm": 10,
+     "exit": "",
+     "name": "Pearl River Welcome Center",
+     "brand": "State",
+     "type": "rest_area",
+     "city": "Pearl River",
+     "approx": true,
+     "notes": "Southbound entering from Mississippi; LA welcome center; truck parking",
+     "parking": 15
+    }
+   ]
+  }
+ }
+}

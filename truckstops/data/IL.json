@@ -1,0 +1,665 @@
+{
+ "state": "Illinois",
+ "abbr": "IL",
+ "interstates": {
+  "I-24": {
+   "maxMM": 39,
+   "stops": []
+  },
+  "I-39": {
+   "maxMM": 122,
+   "stops": [
+    {
+     "mm": 62,
+     "exit": "",
+     "name": "Tonica Rest Area (both directions)",
+     "brand": "State",
+     "type": "rest_area",
+     "city": "Tonica area",
+     "approx": true,
+     "notes": "NB and SB, truck parking",
+     "parking": 20
+    },
+    {
+     "mm": 99,
+     "exit": "99",
+     "name": "Petro Stopping Center",
+     "brand": "Petro",
+     "type": "truck_stop",
+     "city": "Rochelle",
+     "approx": false,
+     "notes": "IL-38, large full-service travel center",
+     "parking": 200
+    }
+   ]
+  },
+  "I-55": {
+   "maxMM": 294,
+   "stops": [
+    {
+     "mm": 4,
+     "exit": "4",
+     "name": "Flying J Travel Center",
+     "brand": "Flying J",
+     "type": "truck_stop",
+     "city": "East St. Louis",
+     "approx": true,
+     "notes": "IL-203, on I-55/I-64/I-70 overlap near St. Louis",
+     "parking": 90
+    },
+    {
+     "mm": 4,
+     "exit": "4",
+     "name": "Pilot Travel Center",
+     "brand": "Pilot",
+     "type": "truck_stop",
+     "city": "East St. Louis",
+     "approx": true,
+     "notes": "On I-55/I-64/I-70 overlap near St. Louis",
+     "parking": 75
+    },
+    {
+     "mm": 52,
+     "exit": "52",
+     "name": "Love's Travel Stop",
+     "brand": "Love's",
+     "type": "truck_stop",
+     "city": "Litchfield",
+     "approx": true,
+     "notes": "IL-16, historic Route 66 town",
+     "parking": 85
+    },
+    {
+     "mm": 145,
+     "exit": "145",
+     "name": "Dixie Travel Plaza",
+     "brand": "Independent",
+     "type": "truck_stop",
+     "city": "McLean",
+     "approx": false,
+     "notes": "US-136, historic Dixie Truckers Home, since 1928",
+     "parking": 150
+    },
+    {
+     "mm": 149,
+     "exit": "149",
+     "name": "Funks Grove Rest Area (both directions)",
+     "brand": "State",
+     "type": "rest_area",
+     "city": "Funks Grove (McLean)",
+     "approx": true,
+     "parking": 25
+    },
+    {
+     "mm": 160,
+     "exit": "160",
+     "name": "Pilot Travel Center",
+     "brand": "Pilot",
+     "type": "truck_stop",
+     "city": "Bloomington",
+     "approx": true,
+     "notes": "Market St (US-150), I-55/I-74 overlap area",
+     "parking": 75
+    },
+    {
+     "mm": 196,
+     "exit": "",
+     "name": "Pontiac Rest Area (both directions)",
+     "brand": "State",
+     "type": "rest_area",
+     "city": "Pontiac area",
+     "approx": true,
+     "notes": "NB and SB, truck parking",
+     "parking": 25
+    },
+    {
+     "mm": 226,
+     "exit": "226",
+     "name": "Coalfield Rest Area (both directions)",
+     "brand": "State",
+     "type": "rest_area",
+     "city": "Gardner",
+     "approx": true,
+     "parking": 30
+    },
+    {
+     "mm": 241,
+     "exit": "241",
+     "name": "Love's Travel Stop",
+     "brand": "Love's",
+     "type": "truck_stop",
+     "city": "Wilmington",
+     "approx": true,
+     "notes": "Lorenzo Rd, RidgePort logistics area",
+     "parking": 85
+    },
+    {
+     "mm": 267,
+     "exit": "267",
+     "name": "Pilot Travel Center",
+     "brand": "Pilot",
+     "type": "truck_stop",
+     "city": "Bolingbrook",
+     "approx": true,
+     "notes": "IL-53, closest full truck stop to Chicago on I-55",
+     "parking": 75
+    }
+   ]
+  },
+  "I-57": {
+   "maxMM": 386,
+   "stops": [
+    {
+     "mm": 79,
+     "exit": "",
+     "name": "Rend Lake Rest Area (both directions)",
+     "brand": "State",
+     "type": "rest_area",
+     "city": "Whittington",
+     "approx": true,
+     "notes": "NB and SB, truck parking",
+     "parking": 30
+    },
+    {
+     "mm": 95,
+     "exit": "95",
+     "name": "TA Travel Center",
+     "brand": "TA",
+     "type": "truck_stop",
+     "city": "Mt. Vernon",
+     "approx": false,
+     "notes": "IL-15, I-57/I-64 junction cluster",
+     "parking": 180
+    },
+    {
+     "mm": 95,
+     "exit": "95",
+     "name": "Pilot Travel Center",
+     "brand": "Pilot",
+     "type": "truck_stop",
+     "city": "Mt. Vernon",
+     "approx": true,
+     "notes": "IL-15, I-57/I-64 junction cluster",
+     "parking": 75
+    },
+    {
+     "mm": 95,
+     "exit": "95",
+     "name": "Huck's Travel Center",
+     "brand": "Independent",
+     "type": "truck_stop",
+     "city": "Mt. Vernon",
+     "approx": true,
+     "notes": "IL-15, I-57/I-64 junction cluster",
+     "parking": 60
+    },
+    {
+     "mm": 159,
+     "exit": "159",
+     "name": "TA Travel Center",
+     "brand": "TA",
+     "type": "truck_stop",
+     "city": "Effingham",
+     "approx": true,
+     "notes": "Effingham cluster, I-57/I-70 overlap",
+     "parking": 180
+    },
+    {
+     "mm": 160,
+     "exit": "160",
+     "name": "Petro Stopping Center",
+     "brand": "Petro",
+     "type": "truck_stop",
+     "city": "Effingham",
+     "approx": true,
+     "notes": "Fayette Ave, Effingham cluster, I-57/I-70 overlap",
+     "parking": 200
+    },
+    {
+     "mm": 160,
+     "exit": "160",
+     "name": "Flying J Travel Center",
+     "brand": "Flying J",
+     "type": "truck_stop",
+     "city": "Effingham",
+     "approx": true,
+     "notes": "Fayette Ave, Effingham cluster, I-57/I-70 overlap",
+     "parking": 90
+    },
+    {
+     "mm": 162,
+     "exit": "162",
+     "name": "Pilot Travel Center",
+     "brand": "Pilot",
+     "type": "truck_stop",
+     "city": "Effingham",
+     "approx": true,
+     "notes": "IL-32/33, Effingham cluster, I-57/I-70 overlap",
+     "parking": 75
+    },
+    {
+     "mm": 203,
+     "exit": "203",
+     "name": "Love's Travel Stop",
+     "brand": "Love's",
+     "type": "truck_stop",
+     "city": "Arcola",
+     "approx": true,
+     "notes": "IL-133",
+     "parking": 85
+    },
+    {
+     "mm": 268,
+     "exit": "",
+     "name": "Buckley Rest Area (both directions)",
+     "brand": "State",
+     "type": "rest_area",
+     "city": "Buckley area",
+     "approx": true,
+     "notes": "NB and SB, truck parking",
+     "parking": 20
+    },
+    {
+     "mm": 283,
+     "exit": "283",
+     "name": "Love's Travel Stop",
+     "brand": "Love's",
+     "type": "truck_stop",
+     "city": "Gilman",
+     "approx": true,
+     "notes": "US-24",
+     "parking": 85
+    },
+    {
+     "mm": 322,
+     "exit": "322",
+     "name": "Love's Travel Stop",
+     "brand": "Love's",
+     "type": "truck_stop",
+     "city": "Manteno",
+     "approx": true,
+     "notes": "Manteno Rd",
+     "parking": 85
+    },
+    {
+     "mm": 335,
+     "exit": "335",
+     "name": "Petro Stopping Center",
+     "brand": "Petro",
+     "type": "truck_stop",
+     "city": "Monee",
+     "approx": false,
+     "notes": "Monee-Manhattan Rd, major Chicago-south truck stop",
+     "parking": 250
+    }
+   ]
+  },
+  "I-64": {
+   "maxMM": 132,
+   "stops": [
+    {
+     "mm": 28,
+     "exit": "",
+     "name": "Washington County Rest Area (both directions)",
+     "brand": "State",
+     "type": "rest_area",
+     "city": "Washington County",
+     "approx": true,
+     "notes": "EB and WB, truck parking",
+     "parking": 20
+    },
+    {
+     "mm": 50,
+     "exit": "50",
+     "name": "Little Nashville Truck Stop",
+     "brand": "Independent",
+     "type": "truck_stop",
+     "city": "Nashville",
+     "approx": true,
+     "notes": "IL-127; Mt. Vernon cluster is on I-57/I-64 overlap (see I-57 exit 95)",
+     "parking": 40
+    }
+   ]
+  },
+  "I-70": {
+   "maxMM": 156,
+   "stops": [
+    {
+     "mm": 24,
+     "exit": "",
+     "name": "Silver Lake Rest Area (both directions)",
+     "brand": "State",
+     "type": "rest_area",
+     "city": "Highland area",
+     "approx": true,
+     "notes": "EB and WB, truck parking",
+     "parking": 25
+    },
+    {
+     "mm": 45,
+     "exit": "45",
+     "name": "Love's Travel Stop",
+     "brand": "Love's",
+     "type": "truck_stop",
+     "city": "Greenville",
+     "approx": true,
+     "notes": "IL-127",
+     "parking": 85
+    },
+    {
+     "mm": 77,
+     "exit": "I-57 exit 159",
+     "name": "TA Travel Center",
+     "brand": "TA",
+     "type": "truck_stop",
+     "city": "Effingham",
+     "approx": true,
+     "notes": "On I-57/I-70 overlap; exits use I-57 mileposts",
+     "parking": 180
+    },
+    {
+     "mm": 78,
+     "exit": "I-57 exit 160",
+     "name": "Petro Stopping Center",
+     "brand": "Petro",
+     "type": "truck_stop",
+     "city": "Effingham",
+     "approx": true,
+     "notes": "On I-57/I-70 overlap; exits use I-57 mileposts",
+     "parking": 200
+    },
+    {
+     "mm": 78,
+     "exit": "I-57 exit 160",
+     "name": "Flying J Travel Center",
+     "brand": "Flying J",
+     "type": "truck_stop",
+     "city": "Effingham",
+     "approx": true,
+     "notes": "On I-57/I-70 overlap; exits use I-57 mileposts",
+     "parking": 90
+    },
+    {
+     "mm": 79,
+     "exit": "I-57 exit 162",
+     "name": "Pilot Travel Center",
+     "brand": "Pilot",
+     "type": "truck_stop",
+     "city": "Effingham",
+     "approx": true,
+     "notes": "On I-57/I-70 overlap; exits use I-57 mileposts",
+     "parking": 75
+    },
+    {
+     "mm": 86,
+     "exit": "86",
+     "name": "Montrose Rest Area (both directions)",
+     "brand": "State",
+     "type": "rest_area",
+     "city": "Montrose",
+     "approx": true,
+     "parking": 20
+    },
+    {
+     "mm": 147,
+     "exit": "147",
+     "name": "Pilot Travel Center",
+     "brand": "Pilot",
+     "type": "truck_stop",
+     "city": "Marshall",
+     "approx": true,
+     "notes": "IL-1, last services before Indiana",
+     "parking": 75
+    }
+   ]
+  },
+  "I-72": {
+   "maxMM": 183,
+   "stops": [
+    {
+     "mm": 103,
+     "exit": "103",
+     "name": "Pilot Travel Center",
+     "brand": "Pilot",
+     "type": "truck_stop",
+     "city": "Springfield (Riverton)",
+     "approx": false,
+     "notes": "Camp Butler Rd",
+     "parking": 75
+    }
+   ]
+  },
+  "I-74": {
+   "maxMM": 220,
+   "stops": [
+    {
+     "mm": 48,
+     "exit": "48",
+     "name": "Love's Travel Stop",
+     "brand": "Love's",
+     "type": "truck_stop",
+     "city": "Galesburg",
+     "approx": true,
+     "notes": "US-34",
+     "parking": 85
+    },
+    {
+     "mm": 112,
+     "exit": "112",
+     "name": "Mackinaw Dells Rest Area (both directions)",
+     "brand": "State",
+     "type": "rest_area",
+     "city": "Deer Creek",
+     "approx": true,
+     "parking": 20
+    },
+    {
+     "mm": 149,
+     "exit": "149",
+     "name": "Love's Travel Stop",
+     "brand": "Love's",
+     "type": "truck_stop",
+     "city": "Le Roy",
+     "approx": false,
+     "notes": "US-136; Bloomington-Normal stops on I-55/I-74 overlap use I-55 numbers",
+     "parking": 85
+    },
+    {
+     "mm": 181,
+     "exit": "181",
+     "name": "Pilot Travel Center",
+     "brand": "Pilot",
+     "type": "truck_stop",
+     "city": "Champaign",
+     "approx": true,
+     "notes": "W Anthony Dr / Prospect Ave",
+     "parking": 75
+    },
+    {
+     "mm": 208,
+     "exit": "208",
+     "name": "Salt Kettle Rest Area (both directions)",
+     "brand": "State",
+     "type": "rest_area",
+     "city": "Oakwood",
+     "approx": true,
+     "parking": 20
+    }
+   ]
+  },
+  "I-80": {
+   "maxMM": 163,
+   "stops": [
+    {
+     "mm": 51,
+     "exit": "",
+     "name": "Sheffield Rest Area (both directions)",
+     "brand": "State",
+     "type": "rest_area",
+     "city": "Sheffield area",
+     "approx": true,
+     "notes": "EB and WB, truck parking",
+     "parking": 25
+    },
+    {
+     "mm": 56,
+     "exit": "56",
+     "name": "Pilot Travel Center",
+     "brand": "Pilot",
+     "type": "truck_stop",
+     "city": "Princeton",
+     "approx": true,
+     "notes": "IL-26 / Main St",
+     "parking": 75
+    },
+    {
+     "mm": 75,
+     "exit": "75",
+     "name": "Sapp Bros Travel Center",
+     "brand": "Sapp Bros",
+     "type": "truck_stop",
+     "city": "Peru",
+     "approx": true,
+     "notes": "Plank Rd",
+     "parking": 70
+    },
+    {
+     "mm": 112,
+     "exit": "112",
+     "name": "R-Place Family Eatery / Morris Travel Plaza",
+     "brand": "Independent",
+     "type": "truck_stop",
+     "city": "Morris",
+     "approx": true,
+     "notes": "IL-47, classic full-service independent",
+     "parking": 100
+    },
+    {
+     "mm": 122,
+     "exit": "122",
+     "name": "TA Travel Center (Chicago South)",
+     "brand": "TA",
+     "type": "truck_stop",
+     "city": "Minooka",
+     "approx": false,
+     "notes": "Ridge Rd",
+     "parking": 200
+    },
+    {
+     "mm": 127,
+     "exit": "127",
+     "name": "Pilot Travel Center",
+     "brand": "Pilot",
+     "type": "truck_stop",
+     "city": "Joliet",
+     "approx": true,
+     "notes": "Houbolt Rd, near CenterPoint intermodal",
+     "parking": 75
+    },
+    {
+     "mm": 134,
+     "exit": "134",
+     "name": "Love's Travel Stop",
+     "brand": "Love's",
+     "type": "truck_stop",
+     "city": "Joliet",
+     "approx": false,
+     "notes": "Opened May 2026; Exit 134, New Lenox Rd; Hardee's",
+     "parking": 91
+    },
+    {
+     "mm": 157,
+     "exit": "157",
+     "name": "TA Travel Center (Chicago)",
+     "brand": "TA",
+     "type": "truck_stop",
+     "city": "South Holland",
+     "approx": true,
+     "notes": "Halsted St, I-80/I-294 overlap",
+     "parking": 150
+    },
+    {
+     "mm": 160,
+     "exit": "160",
+     "name": "Pilot Travel Center",
+     "brand": "Pilot",
+     "type": "truck_stop",
+     "city": "Lansing",
+     "approx": true,
+     "notes": "Torrence Ave, I-80/I-94 Kingery overlap",
+     "parking": 75
+    }
+   ]
+  },
+  "I-88": {
+   "maxMM": 141,
+   "stops": [
+    {
+     "mm": 93,
+     "exit": "",
+     "name": "DeKalb Oasis",
+     "brand": "State",
+     "type": "service_plaza",
+     "city": "DeKalb",
+     "approx": true,
+     "notes": "Illinois Tollway oasis, accessible both directions, fuel and food",
+     "parking": 50
+    }
+   ]
+  },
+  "I-90": {
+   "maxMM": 103,
+   "stops": [
+    {
+     "mm": 1,
+     "exit": "1",
+     "name": "Flying J Travel Center",
+     "brand": "Flying J",
+     "type": "truck_stop",
+     "city": "South Beloit",
+     "approx": true,
+     "notes": "Rockton Rd, just south of Wisconsin line",
+     "parking": 90
+    },
+    {
+     "mm": 1,
+     "exit": "1",
+     "name": "Road Ranger",
+     "brand": "Road Ranger",
+     "type": "truck_stop",
+     "city": "South Beloit",
+     "approx": true,
+     "notes": "Near IL-75 / Rockton Rd, just south of Wisconsin line",
+     "parking": 50
+    },
+    {
+     "mm": 24,
+     "exit": "",
+     "name": "Belvidere Oasis",
+     "brand": "State",
+     "type": "service_plaza",
+     "city": "Belvidere",
+     "approx": true,
+     "notes": "Illinois Tollway oasis, accessible both directions",
+     "parking": 40
+    }
+   ]
+  },
+  "I-94": {
+   "maxMM": 77,
+   "stops": [
+    {
+     "mm": 18,
+     "exit": "",
+     "name": "Lake Forest Oasis",
+     "brand": "State",
+     "type": "service_plaza",
+     "city": "Lake Forest",
+     "approx": true,
+     "notes": "Illinois Tollway oasis on Tri-State, accessible both directions; trucks prohibited on Edens Expy portion of I-94",
+     "parking": 30
+    }
+   ]
+  }
+ }
+}

@@ -1,0 +1,21 @@
+{
+  "state": "Delaware",
+  "abbr": "DE",
+  "note": "Delaware has no full-size branded truck stops directly on its interstates. The Delaware Welcome Center (Biden Welcome Center) on I-95 between exits 1 and 3 is a tolled-corridor service plaza with fuel and limited truck parking. Nearest full truck stops: TA Elkton, MD (I-95 exit 109 MD) and Flying J Carneys Point, NJ (off I-295 at US-40).",
+  "interstates": {
+    "I-95": {
+      "maxMM": 23,
+      "stops": [
+        {"mm": 5, "exit": "", "name": "Delaware Welcome Center (Biden Welcome Center)", "brand": "State", "type": "service_plaza", "city": "Newark", "approx": true, "notes": "Both directions between exits 1 and 3 on the Delaware Turnpike; fuel, food, limited truck parking", "parking": 30}
+      ]
+    },
+    "I-295": {
+      "maxMM": 6,
+      "stops": []
+    },
+    "I-495": {
+      "maxMM": 12,
+      "stops": []
+    }
+  }
+}

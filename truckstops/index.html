@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Interstate Truck Stop Directory</title>
+<style>
+  :root{
+    --bg:#111418; --panel:#1b2129; --panel2:#232b36; --line:#2e3947;
+    --text:#e8edf2; --muted:#93a1b3; --accent:#ff5b1f; --accent2:#ffb347;
+    --truck:#4dabf7; --rest:#69db7c; --plaza:#ffd43b; --star:#ffd43b; --paid:#b197fc;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;min-height:100vh}
+  .wrap{max-width:860px;margin:0 auto;padding:16px 14px 60px}
+  header{text-align:center;padding:18px 0 10px}
+  header h1{font-size:1.5rem;letter-spacing:.5px}
+  header h1 .hw{color:var(--accent)}
+  header p{color:var(--muted);font-size:.85rem;margin-top:6px;line-height:1.45}
+  .crumbs{display:flex;gap:6px;flex-wrap:wrap;align-items:center;margin:14px 0 10px;font-size:.9rem}
+  .crumbs a{color:var(--accent2);text-decoration:none;cursor:pointer}
+  .crumbs span.sep{color:var(--muted)}
+  .crumbs b{color:var(--text)}
+  .search{width:100%;padding:12px 14px;border-radius:10px;border:1px solid var(--line);background:var(--panel);color:var(--text);font-size:1rem;margin:8px 0 14px;outline:none}
+  .search:focus{border-color:var(--accent)}
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px}
+  .card{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:14px 12px;cursor:pointer;transition:border-color .15s, transform .05s}
+  .card:hover{border-color:var(--accent)}
+  .card:active{transform:scale(.98)}
+  .card h3{font-size:1rem;margin-bottom:3px}
+  .card .sub{color:var(--muted);font-size:.78rem}
+  .letter{grid-column:1/-1;color:var(--accent);font-size:.85rem;font-weight:700;letter-spacing:2px;margin-top:6px;border-bottom:1px solid var(--line);padding-bottom:4px}
+  .hwcard{display:flex;justify-content:space-between;align-items:center;background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:14px;margin-bottom:10px;cursor:pointer}
+  .hwcard:hover{border-color:var(--accent)}
+  .hwcard .shield{background:var(--accent);color:#fff;font-weight:800;border-radius:8px;padding:8px 12px;font-size:1rem;min-width:74px;text-align:center}
+  .hwcard .info{flex:1;padding:0 12px}
+  .hwcard .info .rng{color:var(--muted);font-size:.8rem;margin-top:2px}
+  .hwcard .cnt{color:var(--accent2);font-size:.85rem;white-space:nowrap}
+  .mmrow{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:10px 12px;margin-bottom:8px}
+  .mmrow.rest{border-left:4px solid var(--rest)}
+  .mmrow.truck{border-left:4px solid var(--truck)}
+  .mmrow.plaza{border-left:4px solid var(--plaza)}
+  .mmrow.paid{border-left:4px solid var(--paid)}
+  .mmtop{display:flex;gap:10px;align-items:flex-start}
+  .mm{font-weight:800;font-size:1.05rem;min-width:64px;text-align:center;background:var(--panel2);border-radius:8px;padding:8px 4px;line-height:1.1}
+  .mm small{display:block;font-weight:400;color:var(--muted);font-size:.62rem;letter-spacing:1px}
+  .stopinfo{flex:1}
+  .stopinfo .nm{font-weight:600}
+  .stopinfo .meta{color:var(--muted);font-size:.8rem;margin-top:2px;line-height:1.4}
+  .badge{display:inline-block;font-size:.68rem;font-weight:700;border-radius:6px;padding:2px 7px;margin-left:6px;vertical-align:middle}
+  .badge.truck{background:rgba(77,171,247,.15);color:var(--truck)}
+  .badge.rest{background:rgba(105,219,124,.15);color:var(--rest)}
+  .badge.plaza{background:rgba(255,212,59,.15);color:var(--plaza)}
+  .badge.community{background:rgba(255,91,31,.18);color:var(--accent)}
+  .badge.paid{background:rgba(177,151,252,.15);color:var(--paid)}
+  .reserve{display:inline-block;margin-top:6px;background:var(--paid);color:#1b1230;font-weight:700;border-radius:8px;padding:5px 12px;font-size:.78rem;text-decoration:none}
+  .legend{display:flex;gap:14px;flex-wrap:wrap;color:var(--muted);font-size:.78rem;margin:4px 0 14px}
+  .legend i{display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:5px}
+  .note{background:var(--panel2);border:1px solid var(--line);border-radius:10px;padding:10px 12px;color:var(--accent2);font-size:.85rem;margin-bottom:12px}
+  .empty{color:var(--muted);text-align:center;padding:30px 10px;font-size:.9rem}
+  .disclaimer{color:var(--muted);font-size:.72rem;text-align:center;margin-top:28px;line-height:1.5}
+  .backlink{text-align:center;margin-top:18px;font-size:.85rem}
+  .backlink a{color:var(--accent2);text-decoration:none}
+  .stats{color:var(--muted);font-size:.8rem;text-align:center;margin-bottom:10px}
+  .revbar{display:flex;gap:12px;align-items:center;margin-top:8px;font-size:.8rem}
+  .stars{color:var(--star);letter-spacing:1px}
+  .revtoggle{background:none;border:1px solid var(--line);color:var(--accent2);border-radius:8px;padding:4px 10px;font-size:.75rem;cursor:pointer}
+  .revtoggle:hover{border-color:var(--accent)}
+  .revpanel{display:none;margin-top:10px;border-top:1px solid var(--line);padding-top:10px}
+  .revpanel.open{display:block}
+  .review{background:var(--panel2);border-radius:8px;padding:8px 10px;margin-bottom:8px;font-size:.85rem}
+  .review .who{color:var(--muted);font-size:.72rem;margin-top:3px}
+  form.mini{display:grid;gap:8px;margin-top:8px}
+  form.mini input, form.mini textarea, form.mini select{background:var(--panel2);border:1px solid var(--line);border-radius:8px;color:var(--text);padding:9px 10px;font-size:.9rem;width:100%;font-family:inherit}
+  form.mini textarea{min-height:64px;resize:vertical}
+  form.mini label{font-size:.75rem;color:var(--muted)}
+  .btn{background:var(--accent);border:none;color:#fff;font-weight:700;border-radius:9px;padding:10px 16px;font-size:.9rem;cursor:pointer}
+  .btn:disabled{opacity:.5;cursor:default}
+  .btn.ghost{background:var(--panel);border:1px solid var(--line);color:var(--accent2)}
+  .addbox{background:var(--panel);border:1px dashed var(--accent);border-radius:12px;padding:14px;margin-bottom:14px}
+  .addbox h3{font-size:1rem;margin-bottom:6px}
+  .addbox .hint{color:var(--muted);font-size:.78rem;margin-bottom:8px}
+  .row2{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+  .okmsg{color:var(--rest);font-size:.85rem;margin-top:6px}
+  .errmsg{color:#ff6b6b;font-size:.85rem;margin-top:6px}
+  .starpick{display:flex;gap:6px;font-size:1.5rem;cursor:pointer;user-select:none}
+  .starpick span{color:#4a5462}
+  .starpick span.on{color:var(--star)}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <h1>🚛 <span class="hw">Interstate</span> Truck Stop Directory</h1>
+    <p>Open the book: pick your <b>state</b> (A–Z) → pick your <b>interstate</b> → read down from <b>mile marker 0</b> to the top. Truck stops, rest areas &amp; service plazas at every marker — with driver reviews, and you can add spots we're missing.</p>
+  </header>
+  <div id="app"></div>
+  <p class="disclaimer">Mile markers are based on exit numbers and may be approximate (marked ≈). Truck-spot counts are estimates. Locations open, close and rebrand — always confirm parking &amp; fuel with your GPS or Trucker Path before counting on a stop.</p>
+  <p class="backlink"><a href="/">← Guard Shack home</a></p>
+</div>
+<script src="data.js"></script>
+<script>
+(function(){
+  var DATA = window.TRUCKSTOP_DATA || {};
+  var app = document.getElementById('app');
+  var SB_URL = 'https://mmnvcbejjdweetnxncfi.supabase.co';
+  var SB_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im1tbnZjYmVqamR3ZWV0bnhuY2ZpIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODA5NTM3MzMsImV4cCI6MjA5NjUyOTczM30.PSzPFqTAiv0GHv0DBpAOREUE7BvrbHHgetQSYpeSajA';
+  var TYPE = {
+    truck_stop:{cls:'truck', label:'TRUCK STOP'},
+    rest_area:{cls:'rest', label:'REST AREA'},
+    service_plaza:{cls:'plaza', label:'SERVICE PLAZA'},
+    paid_parking:{cls:'paid', label:'PAID PARKING'}
+  };
+  var PAID_UNMAPPED = {}; // state abbr -> paid lots without an interstate/mm mapping
+  var PAGE_STOPS = [];   // stops rendered on the current highway page
+  var PAGE_REVIEWS = {}; // stop_key -> [reviews]
+
+  function sb(path, opts){
+    opts = opts || {};
+    opts.headers = Object.assign({
+      'apikey': SB_KEY,
+      'Authorization': 'Bearer ' + SB_KEY,
+      'Content-Type': 'application/json'
+    }, opts.headers || {});
+    return fetch(SB_URL + path, opts);
+  }
+  function stopKey(ab, hw, s){ return ab + '|' + hw + '|' + s.mm + '|' + s.name; }
+  function hwNum(name){
+    var m = name.match(/(\d+)([A-Z]*)/);
+    return m ? [parseInt(m[1],10), m[2]||''] : [9999,''];
+  }
+  function sortHw(a,b){
+    var A=hwNum(a), B=hwNum(b);
+    return A[0]-B[0] || (A[1]<B[1]?-1:A[1]>B[1]?1:0);
+  }
+  function esc(s){ return String(s==null?'':s).replace(/[&<>"']/g, function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];}); }
+  function starStr(r){ return '★★★★★'.slice(0,r) + '☆☆☆☆☆'.slice(0,5-r); }
+
+  // Merge approved driver-submitted stops into the static data
+  function loadCommunity(){
+    return sb('/rest/v1/ts_submissions?status=eq.approved&select=state,interstate,mm,name,brand,type,city,parking,notes,driver_name')
+      .then(function(r){ return r.ok ? r.json() : []; })
+      .then(function(rows){
+        rows.forEach(function(r){
+          var st = DATA[r.state]; if(!st) return;
+          var iv = st.interstates[r.interstate];
+          if(!iv) iv = st.interstates[r.interstate] = {maxMM: r.mm, stops: []};
+          var dup = iv.stops.some(function(s){ return s.mm===r.mm && s.name===r.name; });
+          if(dup) return;
+          iv.stops.push({mm:r.mm, exit:String(r.mm), name:r.name, brand:r.brand||'Independent',
+            type:r.type||'truck_stop', city:r.city||'', parking:r.parking, notes:r.notes||'',
+            approx:true, community:true, addedBy:r.driver_name||''});
+          iv.stops.sort(function(a,b){ return a.mm-b.mm; });
+          if(r.mm > (iv.maxMM||0)) iv.maxMM = r.mm;
+        });
+      }).catch(function(){});
+  }
+
+  // Merge paid parking (Truck Parking Club partnership) into the book
+  function loadPaid(){
+    return sb('/rest/v1/tpc_locations?active=eq.true&select=name,address,city,state,interstate,mm,spaces,price,book_url')
+      .then(function(r){ return r.ok ? r.json() : []; })
+      .then(function(rows){
+        rows.forEach(function(r){
+          var entry = {mm: r.mm, exit: r.mm != null ? String(r.mm) : '', name: r.name,
+            brand: 'Independent', type: 'paid_parking', city: r.city || '',
+            parking: r.spaces, notes: [r.address, r.price].filter(Boolean).join(' • '),
+            approx: true, bookUrl: r.book_url || ''};
+          var st = DATA[r.state];
+          if(st && r.interstate && st.interstates[r.interstate] && r.mm != null){
+            var iv = st.interstates[r.interstate];
+            var dup = iv.stops.some(function(s){ return s.mm===entry.mm && s.name===entry.name; });
+            if(!dup){
+              iv.stops.push(entry);
+              iv.stops.sort(function(a,b){ return (a.mm||0)-(b.mm||0); });
+            }
+          } else if(r.state){
+            (PAID_UNMAPPED[r.state] = PAID_UNMAPPED[r.state] || []).push(entry);
+          }
+        });
+      }).catch(function(){});
+  }
+
+  function route(){
+    var h = decodeURIComponent(location.hash.replace(/^#\/?/,''));
+    var parts = h ? h.split('/') : [];
+    if(parts.length >= 2 && DATA[parts[0]] && DATA[parts[0]].interstates[parts[1]]) renderHighway(parts[0], parts[1]);
+    else if(parts.length >= 1 && DATA[parts[0]]) renderState(parts[0]);
+    else renderHome();
+    window.scrollTo(0,0);
+  }
+
+  function crumbs(items){
+    var html = '<div class="crumbs">';
+    items.forEach(function(it, i){
+      if(i) html += '<span class="sep">›</span>';
+      html += it.href!=null ? '<a href="#'+esc(it.href)+'">'+esc(it.label)+'</a>' : '<b>'+esc(it.label)+'</b>';
+    });
+    return html + '</div>';
+  }
+
+  function renderHome(){
+    var abbrs = Object.keys(DATA).sort(function(a,b){ return DATA[a].state < DATA[b].state ? -1 : 1; });
+    var totalStops = 0, totalHw = 0;
+    abbrs.forEach(function(ab){
+      var iv = DATA[ab].interstates;
+      Object.keys(iv).forEach(function(h){ totalHw++; totalStops += (iv[h].stops||[]).length; });
+    });
+    var html = crumbs([{label:'All States'}]);
+    html += '<div class="stats">'+abbrs.length+' states &bull; '+totalHw+' interstate segments &bull; '+totalStops+' truck stops &amp; rest areas</div>';
+    html += '<input class="search" id="q" type="search" placeholder="Search state, city, or truck stop name…">';
+    html += '<div class="grid" id="stategrid">';
+    var lastLetter = '';
+    abbrs.forEach(function(ab){
+      var st = DATA[ab];
+      var L = st.state[0].toUpperCase();
+      if(L !== lastLetter){ html += '<div class="letter">'+L+'</div>'; lastLetter = L; }
+      var n = 0; Object.keys(st.interstates).forEach(function(h){ n += (st.interstates[h].stops||[]).length; });
+      html += '<div class="card" onclick="location.hash=\'#'+ab+'\'"><h3>'+esc(st.state)+'</h3><div class="sub">'+Object.keys(st.interstates).length+' interstates &bull; '+n+' stops</div></div>';
+    });
+    html += '</div><div id="results"></div>';
+    app.innerHTML = html;
+
+    var q = document.getElementById('q');
+    q.addEventListener('input', function(){
+      var v = q.value.trim().toLowerCase();
+      var grid = document.getElementById('stategrid');
+      var res = document.getElementById('results');
+      if(v.length < 2){ grid.style.display='grid'; res.innerHTML=''; return; }
+      grid.style.display='none';
+      var hits = [];
+      abbrs.forEach(function(ab){
+        var st = DATA[ab];
+        Object.keys(st.interstates).forEach(function(h){
+          (st.interstates[h].stops||[]).forEach(function(s){
+            var hay = (st.state+' '+ab+' '+h+' '+(s.name||'')+' '+(s.city||'')+' '+(s.brand||'')).toLowerCase();
+            if(hay.indexOf(v) !== -1) hits.push({ab:ab, hw:h, s:s});
+          });
+        });
+      });
+      if(!hits.length){ res.innerHTML = '<div class="empty">No matches. Try a city, brand (Love’s, Pilot, TA…) or state.</div>'; return; }
+      var out = '<div class="stats">'+hits.length+' match'+(hits.length===1?'':'es')+(hits.length>200?' (showing first 200)':'')+'</div>';
+      hits.slice(0,200).forEach(function(hit){
+        out += stopRow(hit.s, -1, DATA[hit.ab].state+' &bull; '+hit.hw);
+      });
+      res.innerHTML = out;
+    });
+  }
+
+  function renderState(ab){
+    var st = DATA[ab];
+    var hws = Object.keys(st.interstates).sort(sortHw);
+    var html = crumbs([{label:'All States', href:''},{label:st.state}]);
+    if(st.note) html += '<div class="note">⚠️ '+esc(st.note)+'</div>';
+    hws.forEach(function(h){
+      var iv = st.interstates[h];
+      var n = (iv.stops||[]).length;
+      html += '<div class="hwcard" onclick="location.hash=\'#'+ab+'/'+encodeURIComponent(h)+'\'">'
+        + '<div class="shield">'+esc(h)+'</div>'
+        + '<div class="info"><div>'+esc(h)+' through '+esc(st.state)+'</div>'
+        + '<div class="rng">Mile marker 0 → '+esc(iv.maxMM!=null?iv.maxMM:'?')+'</div></div>'
+        + '<div class="cnt">'+n+' stop'+(n===1?'':'s')+' ›</div></div>';
+    });
+    if(!hws.length) html += '<div class="empty">No interstates recorded for this state.</div>';
+    var paid = PAID_UNMAPPED[ab] || [];
+    if(paid.length){
+      html += '<h3 style="color:var(--paid);font-size:.95rem;margin:18px 0 8px">💲 Reservable paid parking in '+esc(st.state)+'</h3>';
+      paid.forEach(function(s){ html += stopRow(s, -1); });
+    }
+    app.innerHTML = html;
+  }
+
+  function stopRow(s, idx, extraMeta){
+    var t = TYPE[s.type] || TYPE.truck_stop;
+    var meta = [];
+    if(extraMeta) meta.push(extraMeta);
+    if(s.city) meta.push(esc(s.city));
+    if(s.parking != null) meta.push('🅿️ ~'+esc(s.parking)+' truck spots');
+    if(s.brand && s.brand !== 'State' && s.brand !== 'Independent') meta.push(esc(s.brand));
+    if(s.exit != null && String(s.exit) !== String(s.mm)) meta.push('Exit '+esc(s.exit));
+    if(s.notes) meta.push(esc(s.notes));
+    if(s.community && s.addedBy) meta.push('Added by '+esc(s.addedBy));
+    var badges = '<span class="badge '+t.cls+'">'+t.label+'</span>';
+    if(s.community) badges += '<span class="badge community">DRIVER ADDED</span>';
+    var reserve = s.bookUrl ? '<div><a class="reserve" href="'+esc(s.bookUrl)+'" target="_blank" rel="noopener">💲 Reserve a spot</a></div>' : '';
+    var rev = '';
+    if(idx >= 0){
+      rev = '<div class="revbar"><span class="stars" id="rs-'+idx+'"></span>'
+        + '<button class="revtoggle" onclick="TS.toggleReviews('+idx+')">💬 Reviews</button></div>'
+        + '<div class="revpanel" id="rp-'+idx+'"></div>';
+    }
+    return '<div class="mmrow '+t.cls+'"><div class="mmtop">'
+      + '<div class="mm">'+(s.approx?'≈':'')+esc(s.mm)+'<small>MM</small></div>'
+      + '<div class="stopinfo"><div class="nm">'+esc(s.name)+badges+'</div>'
+      + '<div class="meta">'+meta.join(' &bull; ')+'</div>'+reserve+rev+'</div></div></div>';
+  }
+
+  function renderHighway(ab, h){
+    var st = DATA[ab], iv = st.interstates[h];
+    var stops = (iv.stops||[]).slice().sort(function(a,b){ return (a.mm||0)-(b.mm||0); });
+    PAGE_STOPS = stops.map(function(s){ return {key: stopKey(ab,h,s), s:s}; });
+    PAGE_REVIEWS = {};
+    var html = crumbs([{label:'All States', href:''},{label:st.state, href:ab},{label:h}]);
+    html += '<div class="stats"><b>'+esc(h)+'</b> in '+esc(st.state)+' &mdash; mile marker 0 to '+esc(iv.maxMM!=null?iv.maxMM:'?')+' &bull; '+stops.length+' stops</div>';
+    html += '<div class="legend">'
+      + '<span><i style="background:var(--truck)"></i>Truck stop</span>'
+      + '<span><i style="background:var(--rest)"></i>Rest area</span>'
+      + '<span><i style="background:var(--plaza)"></i>Service plaza</span>'
+      + '<span><i style="background:var(--paid)"></i>Paid parking (reservable)</span>'
+      + '<span>≈ approximate MM</span>'
+      + '<span>🅿️ ~ estimated truck spots</span></div>';
+    html += '<button class="btn ghost" style="margin-bottom:12px" onclick="TS.toggleAdd()">➕ Know a stop we\'re missing on '+esc(h)+'? Add it</button>';
+    html += '<div class="addbox" id="addbox" style="display:none">'
+      + '<h3>Add a stop on '+esc(h)+' in '+esc(st.state)+'</h3>'
+      + '<div class="hint">Your submission goes to Shawn for approval before it shows up in the book.</div>'
+      + '<form class="mini" onsubmit="return TS.submitStop(event, \''+ab+'\', \''+esc(h)+'\')">'
+      + '<div class="row2"><div><label>Mile marker *</label><input name="mm" type="number" min="0" max="2000" required></div>'
+      + '<div><label>Truck spots (about how many?)</label><input name="parking" type="number" min="0" max="2000"></div></div>'
+      + '<div><label>Stop name *</label><input name="name" maxlength="120" required placeholder="e.g. Joe\'s Truck Plaza"></div>'
+      + '<div class="row2"><div><label>Type</label><select name="type"><option value="truck_stop">Truck stop</option><option value="rest_area">Rest area</option><option value="service_plaza">Service plaza</option></select></div>'
+      + '<div><label>City / town</label><input name="city" maxlength="80"></div></div>'
+      + '<div><label>Notes (fuel, food, overnight rules…)</label><textarea name="notes" maxlength="500"></textarea></div>'
+      + '<div><label>Your name / handle</label><input name="driver_name" maxlength="60" placeholder="so we can credit you"></div>'
+      + '<button class="btn" type="submit">Send for approval</button>'
+      + '<div id="addmsg"></div>'
+      + '</form></div>';
+    if(iv.note) html += '<div class="note">⚠️ '+esc(iv.note)+'</div>';
+    if(!stops.length){
+      html += '<div class="empty">No truck stops or rest areas recorded on '+esc(h)+' in '+esc(st.state)+' yet — know one? Add it above.</div>';
+    } else {
+      stops.forEach(function(s, i){ html += stopRow(s, i); });
+    }
+    app.innerHTML = html;
+    loadPageReviews(ab, h);
+  }
+
+  function loadPageReviews(ab, h){
+    var prefix = ab + '|' + h + '|';
+    sb('/rest/v1/ts_reviews?stop_key=like.' + encodeURIComponent(prefix) + '*&select=id,stop_key,rating,comment,driver_name,created_at&order=created_at.desc&limit=500')
+      .then(function(r){ return r.ok ? r.json() : []; })
+      .then(function(rows){
+        PAGE_REVIEWS = {};
+        rows.forEach(function(rv){
+          (PAGE_REVIEWS[rv.stop_key] = PAGE_REVIEWS[rv.stop_key] || []).push(rv);
+        });
+        PAGE_STOPS.forEach(function(ps, i){
+          var el = document.getElementById('rs-'+i);
+          if(!el) return;
+          var revs = PAGE_REVIEWS[ps.key] || [];
+          if(!revs.length){ el.textContent = ''; return; }
+          var avg = revs.reduce(function(a,r){ return a+r.rating; },0) / revs.length;
+          el.innerHTML = starStr(Math.round(avg)) + ' <span style="color:var(--muted)">'+avg.toFixed(1)+' ('+revs.length+')</span>';
+        });
+        // refresh any open panels
+        document.querySelectorAll('.revpanel.open').forEach(function(p){
+          var i = parseInt(p.id.slice(3),10);
+          p.innerHTML = reviewPanelHTML(i);
+        });
+      }).catch(function(){});
+  }
+
+  function reviewPanelHTML(i){
+    var ps = PAGE_STOPS[i];
+    var revs = PAGE_REVIEWS[ps.key] || [];
+    var html = '';
+    revs.forEach(function(rv){
+      html += '<div class="review"><span class="stars">'+starStr(rv.rating)+'</span> '+esc(rv.comment||'')
+        + '<div class="who">— '+esc(rv.driver_name||'Driver')+' &bull; '+esc((rv.created_at||'').slice(0,10))+'</div></div>';
+    });
+    if(!revs.length) html += '<div class="empty" style="padding:8px">No reviews yet — be the first.</div>';
+    html += '<form class="mini" onsubmit="return TS.submitReview(event,'+i+')">'
+      + '<label>Your rating</label>'
+      + '<div class="starpick" id="sp-'+i+'">'
+      + [1,2,3,4,5].map(function(n){ return '<span data-n="'+n+'" onclick="TS.pickStar('+i+','+n+')">★</span>'; }).join('')
+      + '</div><input type="hidden" name="rating" value="0">'
+      + '<div><label>Your review</label><textarea name="comment" maxlength="500" placeholder="parking, showers, food, scales…"></textarea></div>'
+      + '<div><label>Your name / handle</label><input name="driver_name" maxlength="60"></div>'
+      + '<button class="btn" type="submit">Post review</button>'
+      + '<div class="msg"></div></form>';
+    return html;
+  }
+
+  window.TS = {
+    toggleAdd: function(){
+      var b = document.getElementById('addbox');
+      b.style.display = b.style.display === 'none' ? 'block' : 'none';
+    },
+    toggleReviews: function(i){
+      var p = document.getElementById('rp-'+i);
+      if(p.classList.contains('open')){ p.classList.remove('open'); return; }
+      p.innerHTML = reviewPanelHTML(i);
+      p.classList.add('open');
+    },
+    pickStar: function(i, n){
+      var box = document.getElementById('sp-'+i);
+      box.parentNode.querySelector('input[name=rating]').value = n;
+      box.querySelectorAll('span').forEach(function(sp){
+        sp.classList.toggle('on', parseInt(sp.dataset.n,10) <= n);
+      });
+    },
+    submitStop: function(ev, ab, hw){
+      ev.preventDefault();
+      var f = ev.target, msg = f.querySelector('#addmsg');
+      var body = {
+        state: ab, interstate: hw,
+        mm: parseInt(f.mm.value,10),
+        name: f.name.value.trim(),
+        type: f.type.value,
+        city: f.city.value.trim() || null,
+        parking: f.parking.value ? parseInt(f.parking.value,10) : null,
+        notes: f.notes.value.trim() || null,
+        driver_name: f.driver_name.value.trim() || null,
+        status: 'pending'
+      };
+      if(!body.name || isNaN(body.mm)){ msg.className='errmsg'; msg.textContent='Mile marker and name are required.'; return false; }
+      var btn = f.querySelector('button[type=submit]'); btn.disabled = true;
+      sb('/rest/v1/ts_submissions', {method:'POST', headers:{'Prefer':'return=minimal'}, body: JSON.stringify(body)})
+        .then(function(r){
+          if(r.status === 201){ msg.className='okmsg'; msg.textContent='✅ Sent! Shawn will review it — once approved it shows up in the book.'; f.reset(); }
+          else { return r.text().then(function(t){ throw new Error(t); }); }
+        })
+        .catch(function(){ msg.className='errmsg'; msg.textContent='Could not send — check your connection and try again.'; })
+        .finally(function(){ btn.disabled = false; });
+      return false;
+    },
+    submitReview: function(ev, i){
+      ev.preventDefault();
+      var f = ev.target, msg = f.querySelector('.msg');
+      var rating = parseInt(f.rating.value,10);
+      if(!rating){ msg.className='errmsg'; msg.textContent='Tap a star rating first.'; return false; }
+      var body = {
+        stop_key: PAGE_STOPS[i].key,
+        rating: rating,
+        comment: f.comment.value.trim() || null,
+        driver_name: f.driver_name.value.trim() || null
+      };
+      var btn = f.querySelector('button[type=submit]'); btn.disabled = true;
+      sb('/rest/v1/ts_reviews', {method:'POST', headers:{'Prefer':'return=minimal'}, body: JSON.stringify(body)})
+        .then(function(r){
+          if(r.status === 201){
+            var parts = location.hash.replace(/^#\/?/,'').split('/');
+            loadPageReviews(parts[0], decodeURIComponent(parts[1]));
+          } else { return r.text().then(function(t){ throw new Error(t); }); }
+        })
+        .catch(function(){ msg.className='errmsg'; msg.textContent='Could not post — try again.'; btn.disabled = false; });
+      return false;
+    }
+  };
+
+  window.addEventListener('hashchange', route);
+  Promise.all([loadCommunity(), loadPaid()]).then(route, route);
+})();
+</script>
+</body>
+</html>

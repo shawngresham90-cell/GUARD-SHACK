@@ -1,0 +1,54 @@
+{
+  "state": "Minnesota",
+  "abbr": "MN",
+  "interstates": {
+    "I-35": {
+      "maxMM": 260,
+      "stops": [
+        {"mm": 11, "exit": "11", "name": "Trail's Travel Center", "brand": "AmBest", "type": "truck_stop", "city": "Albert Lea", "approx": false, "notes": "Large independent (AmBest), I-35/I-90 junction cluster", "parking": 200},
+        {"mm": 11, "exit": "11", "name": "Love's Travel Stop", "brand": "Love's", "type": "truck_stop", "city": "Albert Lea", "approx": true, "notes": "I-35/I-90 junction cluster", "parking": 85},
+        {"mm": 12, "exit": "12", "name": "Flying J Travel Center", "brand": "Flying J", "type": "truck_stop", "city": "Albert Lea", "approx": true, "notes": "I-35/I-90 junction cluster; verify exact exit", "parking": 90},
+        {"mm": 60, "exit": "", "name": "Straight River Rest Area (both directions)", "brand": "State", "type": "rest_area", "city": "Medford area", "approx": true, "notes": "NB and SB, truck parking", "parking": 25},
+        {"mm": 69, "exit": "69", "name": "Flying J Travel Center", "brand": "Flying J", "type": "truck_stop", "city": "Northfield area", "approx": true, "notes": "MN-19 west of Northfield", "parking": 90},
+        {"mm": 76, "exit": "76", "name": "Heath Creek Rest Area (SB only)", "brand": "State", "type": "rest_area", "city": "Northfield", "approx": true, "parking": 20},
+        {"mm": 131, "exit": "131", "name": "Forest Lake Rest Area (NB only)", "brand": "State", "type": "rest_area", "city": "Forest Lake", "approx": true, "parking": 25},
+        {"mm": 170, "exit": "", "name": "Goose Creek Rest Area (both directions)", "brand": "State", "type": "rest_area", "city": "Harris area", "approx": true, "notes": "NB and SB, truck parking", "parking": 25},
+        {"mm": 183, "exit": "183", "name": "Holiday Stationstore (Tobies)", "brand": "Independent", "type": "truck_stop", "city": "Hinckley", "approx": true, "notes": "MN-48, truck diesel and parking, famous Tobies restaurant", "parking": 50},
+        {"mm": 187, "exit": "187", "name": "General Andrews Rest Area (NB only)", "brand": "State", "type": "rest_area", "city": "Willow River", "approx": true, "parking": 20}
+      ]
+    },
+    "I-90": {
+      "maxMM": 276,
+      "stops": [
+        {"mm": 1, "exit": "", "name": "Minnesota Welcome Center", "brand": "State", "type": "rest_area", "city": "Beaver Creek", "approx": true, "notes": "Serves EB entering from South Dakota, truck parking", "parking": 20},
+        {"mm": 43, "exit": "43", "name": "Worthington Travel Information Center (EB only)", "brand": "State", "type": "rest_area", "city": "Worthington", "approx": true, "parking": 15},
+        {"mm": 45, "exit": "45", "name": "Blue Line Travel Center", "brand": "Independent", "type": "truck_stop", "city": "Worthington", "approx": true, "notes": "MN-60 area", "parking": 60},
+        {"mm": 119, "exit": "", "name": "Blue Earth Rest Area (both directions)", "brand": "State", "type": "rest_area", "city": "Blue Earth area", "approx": true, "notes": "EB and WB, truck parking; Albert Lea junction cluster listed under I-35", "parking": 25},
+        {"mm": 166, "exit": "166", "name": "Hayward Rest Area (EB only)", "brand": "State", "type": "rest_area", "city": "Hayward", "approx": true, "parking": 20},
+        {"mm": 176, "exit": "176", "name": "Oakland Rest Area (WB only)", "brand": "State", "type": "rest_area", "city": "Oakland (Austin area)", "approx": true, "parking": 20},
+        {"mm": 179, "exit": "179", "name": "Love's Travel Stop", "brand": "Love's", "type": "truck_stop", "city": "Austin", "approx": true, "notes": "US-218 area", "parking": 85},
+        {"mm": 193, "exit": "193", "name": "Flying J Travel Center", "brand": "Flying J", "type": "truck_stop", "city": "Dexter", "approx": true, "notes": "MN-16, between Austin and Rochester", "parking": 90},
+        {"mm": 202, "exit": "202", "name": "High Forest Rest Area (both directions)", "brand": "State", "type": "rest_area", "city": "Stewartville", "approx": true, "parking": 25},
+        {"mm": 275, "exit": "", "name": "Dresbach Travel Information Center", "brand": "State", "type": "rest_area", "city": "Dresbach", "approx": true, "notes": "Serves WB entering from Wisconsin, truck parking", "parking": 20}
+      ]
+    },
+    "I-94": {
+      "maxMM": 259,
+      "stops": [
+        {"mm": 1, "exit": "", "name": "Minnesota Welcome Center", "brand": "State", "type": "rest_area", "city": "Moorhead", "approx": true, "notes": "Serves EB entering from North Dakota, truck parking", "parking": 20},
+        {"mm": 54, "exit": "54", "name": "Interstate Fuel & Food", "brand": "Independent", "type": "truck_stop", "city": "Fergus Falls", "approx": true, "notes": "Independent plaza; verify current name", "parking": 50},
+        {"mm": 100, "exit": "100", "name": "Lake Latoka Rest Area (both directions)", "brand": "State", "type": "rest_area", "city": "Alexandria", "approx": true, "parking": 25},
+        {"mm": 103, "exit": "103", "name": "Holiday Stationstore", "brand": "Independent", "type": "truck_stop", "city": "Alexandria", "approx": true, "notes": "MN-29, truck diesel; verify truck amenities", "parking": 30},
+        {"mm": 114, "exit": "114", "name": "Enfield Rest Area (both directions)", "brand": "State", "type": "rest_area", "city": "West Union", "approx": true, "parking": 25},
+        {"mm": 127, "exit": "127", "name": "Trucker's Inn", "brand": "Independent", "type": "truck_stop", "city": "Sauk Centre", "approx": false, "notes": "US-71, full-service independent", "parking": 80},
+        {"mm": 152, "exit": "", "name": "Big Spunk Lake Rest Area (both directions)", "brand": "State", "type": "rest_area", "city": "Avon area", "approx": true, "notes": "EB and WB, truck parking", "parking": 30},
+        {"mm": 171, "exit": "171", "name": "Pilot Travel Center", "brand": "Pilot", "type": "truck_stop", "city": "St. Cloud (St. Augusta)", "approx": true, "notes": "CR-75", "parking": 75},
+        {"mm": 178, "exit": "178", "name": "Clearwater Travel Plaza", "brand": "AmBest", "type": "truck_stop", "city": "Clearwater", "approx": false, "notes": "MN-24, large independent (AmBest), known for bakery", "parking": 150},
+        {"mm": 178, "exit": "178", "name": "Pilot Travel Center", "brand": "Pilot", "type": "truck_stop", "city": "Clearwater", "approx": true, "notes": "MN-24", "parking": 70},
+        {"mm": 207, "exit": "207", "name": "TA Travel Center", "brand": "TA", "type": "truck_stop", "city": "Rogers", "approx": true, "notes": "MN-101 area, northwest of Twin Cities", "parking": 150},
+        {"mm": 215, "exit": "", "name": "Elm Creek Rest Area (EB only)", "brand": "State", "type": "rest_area", "city": "Maple Grove", "approx": true, "notes": "EB, truck parking", "parking": 20},
+        {"mm": 257, "exit": "", "name": "St. Croix Rest Area (WB only)", "brand": "State", "type": "rest_area", "city": "Lakeland", "approx": true, "notes": "Serves WB entering from Wisconsin, truck parking", "parking": 25}
+      ]
+    }
+  }
+}

@@ -1,0 +1,60 @@
+{
+  "state": "South Carolina",
+  "abbr": "SC",
+  "interstates": {
+    "I-20": {
+      "maxMM": 141,
+      "stops": [
+        {"mm": 1, "exit": "1", "name": "South Carolina Welcome Center (eastbound)", "brand": "State", "type": "rest_area", "city": "North Augusta", "approx": true, "notes": "Serves eastbound entering from GA; truck parking", "parking": 20},
+        {"mm": 51, "exit": "51", "name": "Pilot Travel Center", "brand": "Pilot", "type": "truck_stop", "city": "Lexington", "approx": true, "notes": "US-1", "parking": 85},
+        {"mm": 68, "exit": "68", "name": "Pilot Travel Center", "brand": "Pilot", "type": "truck_stop", "city": "Columbia", "approx": true, "notes": "US-321 / Fairfield Rd", "parking": 85},
+        {"mm": 93, "exit": "93", "name": "Kershaw County Rest Area (both directions)", "brand": "State", "type": "rest_area", "city": "Camden", "approx": true, "parking": 25},
+        {"mm": 116, "exit": "116", "name": "Love's Travel Stop", "brand": "Love's", "type": "truck_stop", "city": "Bishopville", "approx": true, "notes": "SC-341", "parking": 85}
+      ]
+    },
+    "I-26": {
+      "maxMM": 221,
+      "stops": [
+        {"mm": 2, "exit": "2", "name": "South Carolina Welcome Center (eastbound)", "brand": "State", "type": "rest_area", "city": "Landrum", "approx": true, "notes": "Serves eastbound entering from NC; truck parking", "parking": 20},
+        {"mm": 52, "exit": "52", "name": "Love's Travel Stop", "brand": "Love's", "type": "truck_stop", "city": "Clinton", "approx": true, "notes": "", "parking": 85},
+        {"mm": 63, "exit": "63", "name": "Newberry County Rest Area (both directions)", "brand": "State", "type": "rest_area", "city": "Joanna (Clinton)", "approx": true, "parking": 25},
+        {"mm": 136, "exit": "136", "name": "Love's Travel Stop", "brand": "Love's", "type": "truck_stop", "city": "St. Matthews", "approx": true, "notes": "US-601", "parking": 85},
+        {"mm": 152, "exit": "152", "name": "Orangeburg County Rest Area (both directions)", "brand": "State", "type": "rest_area", "city": "Bowman", "approx": true, "parking": 30},
+        {"mm": 187, "exit": "187", "name": "Love's Travel Stop", "brand": "Love's", "type": "truck_stop", "city": "Ridgeville", "approx": true, "notes": "SC-27; last major truck stop before Charleston", "parking": 85}
+      ]
+    },
+    "I-77": {
+      "maxMM": 91,
+      "stops": [
+        {"mm": 5, "exit": "5", "name": "Flying J Travel Center", "brand": "Flying J", "type": "truck_stop", "city": "Columbia", "approx": true, "notes": "Bluff Rd, near SC State Fairgrounds", "parking": 90},
+        {"mm": 65, "exit": "65", "name": "Love's Travel Stop", "brand": "Love's", "type": "truck_stop", "city": "Richburg", "approx": true, "notes": "SC-9", "parking": 85},
+        {"mm": 89, "exit": "89", "name": "South Carolina Welcome Center (southbound)", "brand": "State", "type": "rest_area", "city": "Fort Mill", "approx": true, "notes": "Serves southbound entering from NC/Charlotte; truck parking", "parking": 20}
+      ]
+    },
+    "I-85": {
+      "maxMM": 106,
+      "stops": [
+        {"mm": 1, "exit": "1", "name": "South Carolina Welcome Center (northbound)", "brand": "State", "type": "rest_area", "city": "Fair Play", "approx": true, "notes": "Serves northbound entering from GA; truck parking", "parking": 20},
+        {"mm": 90, "exit": "90", "name": "Love's Travel Stop", "brand": "Love's", "type": "truck_stop", "city": "Gaffney", "approx": true, "notes": "", "parking": 85},
+        {"mm": 103, "exit": "103", "name": "South Carolina Welcome Center (southbound)", "brand": "State", "type": "rest_area", "city": "Blacksburg", "approx": true, "notes": "Serves southbound entering from NC; truck parking", "parking": 20},
+        {"mm": 104, "exit": "104", "name": "Love's Travel Stop", "brand": "Love's", "type": "truck_stop", "city": "Blacksburg", "approx": true, "notes": "", "parking": 85}
+      ]
+    },
+    "I-95": {
+      "maxMM": 199,
+      "stops": [
+        {"mm": 5, "exit": "5", "name": "Pilot Travel Center", "brand": "Pilot", "type": "truck_stop", "city": "Hardeeville", "approx": true, "notes": "US-17; Hardeeville truck stop cluster", "parking": 85},
+        {"mm": 5, "exit": "5", "name": "South Carolina Welcome Center (northbound)", "brand": "State", "type": "rest_area", "city": "Hardeeville", "approx": true, "notes": "Serves northbound entering from GA; truck parking", "parking": 20},
+        {"mm": 8, "exit": "8", "name": "Love's Travel Stop", "brand": "Love's", "type": "truck_stop", "city": "Hardeeville", "approx": true, "notes": "US-278", "parking": 85},
+        {"mm": 47, "exit": "47", "name": "Colleton County Rest Area (both directions)", "brand": "State", "type": "rest_area", "city": "Yemassee (Walterboro)", "approx": true, "parking": 30},
+        {"mm": 98, "exit": "98", "name": "Love's Travel Stop", "brand": "Love's", "type": "truck_stop", "city": "Santee", "approx": true, "notes": "US-301; Lake Marion area", "parking": 85},
+        {"mm": 119, "exit": "119", "name": "Love's Travel Stop", "brand": "Love's", "type": "truck_stop", "city": "Manning", "approx": true, "notes": "SC-261", "parking": 85},
+        {"mm": 139, "exit": "139", "name": "Rest Area (both directions)", "brand": "State", "type": "rest_area", "city": "Turbeville area", "approx": true, "parking": 30},
+        {"mm": 157, "exit": "157", "name": "Flying J Travel Center", "brand": "Flying J", "type": "truck_stop", "city": "Florence", "approx": true, "notes": "TV Rd truck stop row", "parking": 90},
+        {"mm": 170, "exit": "170", "name": "Buc-ee's", "brand": "Buc-ee's", "type": "truck_stop", "city": "Florence", "approx": true, "notes": "No semi-truck parking", "parking": 0},
+        {"mm": 193, "exit": "193", "name": "South Carolina Welcome Center (southbound)", "brand": "State", "type": "rest_area", "city": "Dillon", "approx": true, "notes": "Serves southbound entering from NC; truck parking", "parking": 20},
+        {"mm": 198, "exit": "198", "name": "Pedro's South of the Border Truck Stop", "brand": "Independent", "type": "truck_stop", "city": "Hamer (South of the Border)", "approx": true, "notes": "US-301/501 at NC line; fuel, parking, restaurants at South of the Border complex", "parking": 100}
+      ]
+    }
+  }
+}

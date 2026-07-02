@@ -1,0 +1,199 @@
+{
+ "state": "North Dakota",
+ "abbr": "ND",
+ "interstates": {
+  "I-29": {
+   "maxMM": 218,
+   "stops": [
+    {
+     "mm": 62,
+     "exit": "62",
+     "name": "Stamart Travel Center",
+     "brand": "Independent",
+     "type": "truck_stop",
+     "city": "Fargo",
+     "approx": true,
+     "notes": "Main Ave area; regional independent chain",
+     "parking": 60
+    },
+    {
+     "mm": 100,
+     "exit": "100",
+     "name": "Cenex Hillsboro",
+     "brand": "Cenex",
+     "type": "truck_stop",
+     "city": "Hillsboro",
+     "approx": true,
+     "parking": 25
+    },
+    {
+     "mm": 141,
+     "exit": "141",
+     "name": "Simonson Travel Center",
+     "brand": "Independent",
+     "type": "truck_stop",
+     "city": "Grand Forks",
+     "approx": true,
+     "notes": "Gateway Dr / US-2 area",
+     "parking": 40
+    },
+    {
+     "mm": 179,
+     "exit": "179",
+     "name": "Drayton Rest Area (both directions)",
+     "brand": "State",
+     "type": "rest_area",
+     "city": "Drayton",
+     "approx": true,
+     "parking": 12
+    },
+    {
+     "mm": 216,
+     "exit": "216",
+     "name": "Pembina Welcome Center Rest Area (SB only)",
+     "brand": "State",
+     "type": "rest_area",
+     "city": "Pembina",
+     "approx": true,
+     "notes": "SB welcome center just south of Canadian border; Pembina State Museum adjacent",
+     "parking": 10
+    }
+   ]
+  },
+  "I-94": {
+   "maxMM": 352,
+   "stops": [
+    {
+     "mm": 1,
+     "exit": "1",
+     "name": "Flying J Travel Plaza",
+     "brand": "Flying J",
+     "type": "truck_stop",
+     "city": "Beach",
+     "approx": false,
+     "notes": "First/last stop at MT line",
+     "parking": 75
+    },
+    {
+     "mm": 32,
+     "exit": "32",
+     "name": "Painted Canyon Rest Area & Visitor Center",
+     "brand": "State",
+     "type": "rest_area",
+     "city": "Medora",
+     "approx": true,
+     "notes": "Both directions via exit 32; Theodore Roosevelt NP badlands overlook; truck parking",
+     "parking": 15
+    },
+    {
+     "mm": 42,
+     "exit": "42",
+     "name": "Cenex Belfield",
+     "brand": "Cenex",
+     "type": "truck_stop",
+     "city": "Belfield",
+     "approx": true,
+     "notes": "US-85 interchange (Bakken route)",
+     "parking": 30
+    },
+    {
+     "mm": 61,
+     "exit": "61",
+     "name": "TA Express Dickinson",
+     "brand": "TA Express",
+     "type": "truck_stop",
+     "city": "Dickinson",
+     "approx": true,
+     "notes": "Former Tiger Truck Stop",
+     "parking": 60
+    },
+    {
+     "mm": 161,
+     "exit": "161",
+     "name": "Stamart Travel Center",
+     "brand": "Independent",
+     "type": "truck_stop",
+     "city": "Bismarck",
+     "approx": true,
+     "notes": "East Bismarck; regional independent chain",
+     "parking": 80
+    },
+    {
+     "mm": 168,
+     "exit": "168",
+     "name": "McKenzie Rest Area",
+     "brand": "State",
+     "type": "rest_area",
+     "city": "Menoken",
+     "approx": true,
+     "notes": "EB and WB, truck parking",
+     "parking": 15
+    },
+    {
+     "mm": 182,
+     "exit": "182",
+     "name": "Love's Travel Stop",
+     "brand": "Love's",
+     "type": "truck_stop",
+     "city": "Sterling",
+     "approx": false,
+     "notes": "Opened November 2025; Exit 182/ND-14",
+     "parking": 59
+    },
+    {
+     "mm": 257,
+     "exit": "257",
+     "name": "Love's Travel Stop",
+     "brand": "Love's",
+     "type": "truck_stop",
+     "city": "Jamestown",
+     "approx": true,
+     "notes": "US-281 interchange",
+     "parking": 80
+    },
+    {
+     "mm": 307,
+     "exit": "307",
+     "name": "Tower City Rest Area (both directions)",
+     "brand": "State",
+     "type": "rest_area",
+     "city": "Tower City",
+     "approx": true,
+     "parking": 15
+    },
+    {
+     "mm": 342,
+     "exit": "342",
+     "name": "Love's Travel Stop",
+     "brand": "Love's",
+     "type": "truck_stop",
+     "city": "West Fargo",
+     "approx": true,
+     "parking": 80
+    },
+    {
+     "mm": 348,
+     "exit": "348",
+     "name": "Petro Stopping Center",
+     "brand": "Petro",
+     "type": "truck_stop",
+     "city": "Fargo",
+     "approx": false,
+     "notes": "45th St exit, west Fargo",
+     "parking": 200
+    },
+    {
+     "mm": 348,
+     "exit": "348",
+     "name": "Flying J Travel Center",
+     "brand": "Flying J",
+     "type": "truck_stop",
+     "city": "Fargo",
+     "approx": true,
+     "notes": "39th St S, near I-94/I-29 junction",
+     "parking": 100
+    }
+   ]
+  }
+ }
+}

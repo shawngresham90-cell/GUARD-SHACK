@@ -1,0 +1,58 @@
+{
+  "state": "Washington",
+  "abbr": "WA",
+  "interstates": {
+    "I-5": {
+      "maxMM": 277,
+      "stops": [
+        {"mm": 11, "exit": "11", "name": "Gee Creek Rest Area (both directions)", "brand": "State", "type": "rest_area", "city": "Ridgefield", "approx": false, "notes": "Both directions; truck parking, NB side is a welcome center", "parking": 20},
+        {"mm": 14, "exit": "14", "name": "Pilot Travel Center", "brand": "Pilot", "type": "truck_stop", "city": "Ridgefield", "approx": true, "notes": "North of Vancouver", "parking": 75},
+        {"mm": 32, "exit": "32", "name": "TA Kalama", "brand": "TA", "type": "truck_stop", "city": "Kalama", "approx": true, "notes": "Kalama industrial area", "parking": 100},
+        {"mm": 36, "exit": "36", "name": "Love's Travel Stop", "brand": "Love's", "type": "truck_stop", "city": "Kelso", "approx": true, "notes": "Kelso/Longview", "parking": 80},
+        {"mm": 54, "exit": "54", "name": "Toutle River Rest Area (both directions)", "brand": "State", "type": "rest_area", "city": "Castle Rock", "approx": true, "parking": 25},
+        {"mm": 72, "exit": "72", "name": "Pilot Travel Center", "brand": "Pilot", "type": "truck_stop", "city": "Napavine", "approx": false, "notes": "Rush Rd", "parking": 75},
+        {"mm": 72, "exit": "72", "name": "Love's Travel Stop", "brand": "Love's", "type": "truck_stop", "city": "Napavine", "approx": true, "notes": "Rush Rd, across from Pilot", "parking": 80},
+        {"mm": 82, "exit": "82", "name": "Flying J Travel Center", "brand": "Flying J", "type": "truck_stop", "city": "Centralia", "approx": true, "notes": "Harrison Ave area, Centralia/Chehalis", "parking": 100},
+        {"mm": 90, "exit": "90", "name": "Scatter Creek Rest Area (both directions)", "brand": "State", "type": "rest_area", "city": "Grand Mound", "approx": true, "notes": "Both directions; truck parking", "parking": 20},
+        {"mm": 136, "exit": "136", "name": "Pilot Travel Center", "brand": "Pilot", "type": "truck_stop", "city": "Fife", "approx": true, "notes": "Tacoma area, Pacific Hwy E", "parking": 75},
+        {"mm": 188, "exit": "188", "name": "Silver Lake Rest Area (SB only)", "brand": "State", "type": "rest_area", "city": "Everett", "approx": true, "parking": 10},
+        {"mm": 202, "exit": "202", "name": "Pilot Travel Center", "brand": "Pilot", "type": "truck_stop", "city": "Everett", "approx": true, "notes": "", "parking": 60},
+        {"mm": 207, "exit": "207", "name": "Smokey Point Rest Area (both directions)", "brand": "State", "type": "rest_area", "city": "Arlington", "approx": false, "notes": "Both directions; truck parking, Marysville/Arlington", "parking": 20},
+        {"mm": 238, "exit": "238", "name": "Bow Hill Rest Area (both directions)", "brand": "State", "type": "rest_area", "city": "Bow", "approx": false, "notes": "Both directions; truck parking", "parking": 15},
+        {"mm": 269, "exit": "269", "name": "Custer Rest Area / Welcome Center (both directions)", "brand": "State", "type": "rest_area", "city": "Custer", "approx": true, "notes": "SB welcome center from Canada; truck parking both directions", "parking": 20}
+      ]
+    },
+    "I-82": {
+      "maxMM": 133,
+      "stops": [
+        {"mm": 22, "exit": "22", "name": "Selah Creek Rest Area (both directions)", "brand": "State", "type": "rest_area", "city": "Selah", "approx": false, "notes": "Both directions at Fred G. Redmon Bridge; truck parking", "parking": 25},
+        {"mm": 34, "exit": "34", "name": "Gearjammer Travel Plaza", "brand": "Independent", "type": "truck_stop", "city": "Union Gap", "approx": true, "notes": "Yakima area, Rudkin Rd", "parking": 60},
+        {"mm": 67, "exit": "67", "name": "Love's Travel Stop", "brand": "Love's", "type": "truck_stop", "city": "Sunnyside", "approx": true, "notes": "", "parking": 80},
+        {"mm": 80, "exit": "80", "name": "Love's Travel Stop", "brand": "Love's", "type": "truck_stop", "city": "Prosser", "approx": true, "notes": "Wine Country Rd area", "parking": 70},
+        {"mm": 82, "exit": "82", "name": "Prosser Rest Area (both directions)", "brand": "State", "type": "rest_area", "city": "Prosser", "approx": true, "parking": 15}
+      ]
+    },
+    "I-90": {
+      "maxMM": 300,
+      "stops": [
+        {"mm": 34, "exit": "34", "name": "TA Seattle East", "brand": "TA", "type": "truck_stop", "city": "North Bend", "approx": false, "notes": "Last major stop before Snoqualmie Pass westbound staging", "parking": 150},
+        {"mm": 84, "exit": "84", "name": "Pilot Travel Center", "brand": "Pilot", "type": "truck_stop", "city": "Cle Elum", "approx": true, "notes": "", "parking": 60},
+        {"mm": 89, "exit": "89", "name": "Indian John Hill Rest Area (both directions)", "brand": "State", "type": "rest_area", "city": "Cle Elum", "approx": false, "notes": "Both directions; truck parking", "parking": 20},
+        {"mm": 106, "exit": "106", "name": "Flying J Travel Center", "brand": "Flying J", "type": "truck_stop", "city": "Ellensburg", "approx": true, "notes": "US-97 interchange area", "parking": 90},
+        {"mm": 109, "exit": "109", "name": "Love's Travel Stop", "brand": "Love's", "type": "truck_stop", "city": "Ellensburg", "approx": true, "notes": "Canyon Rd", "parking": 80},
+        {"mm": 126, "exit": "126", "name": "Ryegrass Rest Area (both directions)", "brand": "State", "type": "rest_area", "city": "Vantage area", "approx": false, "notes": "Both directions on Ryegrass summit; large truck parking", "parking": 30},
+        {"mm": 162, "exit": "162", "name": "Winchester Rest Area (both directions)", "brand": "State", "type": "rest_area", "city": "George", "approx": true, "parking": 20},
+        {"mm": 176, "exit": "176", "name": "Pilot Travel Center", "brand": "Pilot", "type": "truck_stop", "city": "Moses Lake", "approx": false, "notes": "W Broadway", "parking": 80},
+        {"mm": 179, "exit": "179", "name": "Love's Travel Stop", "brand": "Love's", "type": "truck_stop", "city": "Moses Lake", "approx": false, "notes": "", "parking": 80},
+        {"mm": 198, "exit": "198", "name": "Schrag Rest Area (both directions)", "brand": "State", "type": "rest_area", "city": "Ritzville area", "approx": true, "parking": 20},
+        {"mm": 220, "exit": "220", "name": "Flying J Travel Center", "brand": "Flying J", "type": "truck_stop", "city": "Ritzville", "approx": true, "notes": "", "parking": 90},
+        {"mm": 221, "exit": "221", "name": "Love's Travel Stop", "brand": "Love's", "type": "truck_stop", "city": "Ritzville", "approx": true, "notes": "", "parking": 80},
+        {"mm": 242, "exit": "242", "name": "Sprague Lake Rest Area (both directions)", "brand": "State", "type": "rest_area", "city": "Sprague", "approx": true, "notes": "Both directions; truck parking", "parking": 20},
+        {"mm": 245, "exit": "245", "name": "Petro Stopping Center (Templin's)", "brand": "Petro", "type": "truck_stop", "city": "Sprague", "approx": true, "notes": "Locally known as Templin's", "parking": 100},
+        {"mm": 272, "exit": "272", "name": "Flying J Travel Center", "brand": "Flying J", "type": "truck_stop", "city": "Spokane", "approx": true, "notes": "West Spokane", "parking": 90},
+        {"mm": 286, "exit": "286", "name": "Petro Stopping Center", "brand": "Petro", "type": "truck_stop", "city": "Spokane Valley", "approx": true, "notes": "Broadway Ave", "parking": 150},
+        {"mm": 286, "exit": "286", "name": "Broadway Flying J", "brand": "Flying J", "type": "truck_stop", "city": "Spokane Valley", "approx": true, "notes": "Broadway Flying J (regional operator), Broadway Ave", "parking": 80}
+      ]
+    }
+  }
+}

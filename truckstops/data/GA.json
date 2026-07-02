@@ -1,0 +1,517 @@
+{
+ "state": "Georgia",
+ "abbr": "GA",
+ "interstates": {
+  "I-16": {
+   "maxMM": 167,
+   "stops": [
+    {
+     "mm": 46,
+     "exit": "46",
+     "name": "Rest Area (both directions)",
+     "brand": "State",
+     "type": "rest_area",
+     "city": "Dudley",
+     "approx": true,
+     "notes": "Truck parking; serves EB and WB",
+     "parking": 30
+    },
+    {
+     "mm": 51,
+     "exit": "51",
+     "name": "Love's Travel Stop",
+     "brand": "Love's",
+     "type": "truck_stop",
+     "city": "Dublin",
+     "approx": true,
+     "notes": "US-441",
+     "parking": 80
+    }
+   ]
+  },
+  "I-20": {
+   "maxMM": 202,
+   "stops": [
+    {
+     "mm": 1,
+     "exit": "1",
+     "name": "Georgia Welcome Center (eastbound)",
+     "brand": "State",
+     "type": "rest_area",
+     "city": "Tallapoosa",
+     "approx": true,
+     "notes": "Serves eastbound entering from AL; truck parking",
+     "parking": 40
+    },
+    {
+     "mm": 19,
+     "exit": "19",
+     "name": "Pilot Travel Center",
+     "brand": "Pilot",
+     "type": "truck_stop",
+     "city": "Temple",
+     "approx": false,
+     "notes": "",
+     "parking": 80
+    },
+    {
+     "mm": 108,
+     "exit": "108",
+     "name": "Rest Area (both directions)",
+     "brand": "State",
+     "type": "rest_area",
+     "city": "Rutledge",
+     "approx": true,
+     "notes": "Truck parking; serves EB and WB",
+     "parking": 30
+    },
+    {
+     "mm": 114,
+     "exit": "114",
+     "name": "Pilot Travel Center",
+     "brand": "Pilot",
+     "type": "truck_stop",
+     "city": "Madison",
+     "approx": true,
+     "notes": "US-441",
+     "parking": 80
+    },
+    {
+     "mm": 194,
+     "exit": "194",
+     "name": "Pilot Travel Center",
+     "brand": "Pilot",
+     "type": "truck_stop",
+     "city": "Grovetown",
+     "approx": true,
+     "notes": "Augusta west side",
+     "parking": 80
+    },
+    {
+     "mm": 201,
+     "exit": "201",
+     "name": "Georgia Welcome Center (westbound)",
+     "brand": "State",
+     "type": "rest_area",
+     "city": "Augusta (Martinez)",
+     "approx": true,
+     "notes": "Serves westbound entering from SC; truck parking",
+     "parking": 30
+    }
+   ]
+  },
+  "I-24": {
+   "maxMM": 4,
+   "stops": []
+  },
+  "I-59": {
+   "maxMM": 20,
+   "stops": []
+  },
+  "I-75": {
+   "maxMM": 355,
+   "stops": [
+    {
+     "mm": 1,
+     "exit": "1",
+     "name": "Georgia Welcome Center (northbound)",
+     "brand": "State",
+     "type": "rest_area",
+     "city": "Lake Park",
+     "approx": true,
+     "notes": "Serves northbound entering from FL; truck parking",
+     "parking": 40
+    },
+    {
+     "mm": 2,
+     "exit": "2",
+     "name": "Flying J Travel Center",
+     "brand": "Flying J",
+     "type": "truck_stop",
+     "city": "Lake Park",
+     "approx": false,
+     "notes": "Lake Park truck stop cluster",
+     "parking": 90
+    },
+    {
+     "mm": 16,
+     "exit": "16",
+     "name": "Love's Travel Stop",
+     "brand": "Love's",
+     "type": "truck_stop",
+     "city": "Valdosta",
+     "approx": true,
+     "notes": "US-84",
+     "parking": 80
+    },
+    {
+     "mm": 60,
+     "exit": "60",
+     "name": "Flying J Travel Center",
+     "brand": "Flying J",
+     "type": "truck_stop",
+     "city": "Tifton",
+     "approx": true,
+     "notes": "",
+     "parking": 90
+    },
+    {
+     "mm": 76,
+     "exit": "76",
+     "name": "Turner County Rest Area (both directions)",
+     "brand": "State",
+     "type": "rest_area",
+     "city": "Ashburn",
+     "approx": true,
+     "notes": "Truck parking; serves NB and SB",
+     "parking": 30
+    },
+    {
+     "mm": 99,
+     "exit": "99",
+     "name": "Love's Travel Stop",
+     "brand": "Love's",
+     "type": "truck_stop",
+     "city": "Cordele",
+     "approx": true,
+     "notes": "",
+     "parking": 80
+    },
+    {
+     "mm": 101,
+     "exit": "101",
+     "name": "Pilot Travel Center",
+     "brand": "Pilot",
+     "type": "truck_stop",
+     "city": "Cordele",
+     "approx": true,
+     "notes": "US-280",
+     "parking": 80
+    },
+    {
+     "mm": 118,
+     "exit": "118",
+     "name": "Perry Rest Area (both directions)",
+     "brand": "State",
+     "type": "rest_area",
+     "city": "Perry",
+     "approx": true,
+     "notes": "Truck parking; serves NB and SB",
+     "parking": 30
+    },
+    {
+     "mm": 144,
+     "exit": "144",
+     "name": "Buc-ee's",
+     "brand": "Buc-ee's",
+     "type": "truck_stop",
+     "city": "Warner Robins",
+     "approx": false,
+     "notes": "Russell Pkwy; no semi-truck parking",
+     "parking": 0
+    },
+    {
+     "mm": 179,
+     "exit": "179",
+     "name": "Monroe County Rest Area (both directions)",
+     "brand": "State",
+     "type": "rest_area",
+     "city": "Forsyth",
+     "approx": true,
+     "notes": "Truck parking; serves NB and SB",
+     "parking": 30
+    },
+    {
+     "mm": 201,
+     "exit": "201",
+     "name": "Flying J Travel Center",
+     "brand": "Flying J",
+     "type": "truck_stop",
+     "city": "Jackson",
+     "approx": false,
+     "notes": "Bucksnort Rd",
+     "parking": 100
+    },
+    {
+     "mm": 296,
+     "exit": "296",
+     "name": "Pilot Travel Center",
+     "brand": "Pilot",
+     "type": "truck_stop",
+     "city": "Cartersville",
+     "approx": false,
+     "notes": "Cassville-White Rd cluster",
+     "parking": 80
+    },
+    {
+     "mm": 296,
+     "exit": "296",
+     "name": "TA Cartersville",
+     "brand": "TA",
+     "type": "truck_stop",
+     "city": "Cartersville",
+     "approx": false,
+     "notes": "Cassville-White Rd cluster",
+     "parking": 180
+    },
+    {
+     "mm": 306,
+     "exit": "306",
+     "name": "Buc-ee's",
+     "brand": "Buc-ee's",
+     "type": "truck_stop",
+     "city": "Calhoun",
+     "approx": false,
+     "notes": "No semi-truck parking",
+     "parking": 0
+    },
+    {
+     "mm": 318,
+     "exit": "318",
+     "name": "Love's Travel Stop",
+     "brand": "Love's",
+     "type": "truck_stop",
+     "city": "Resaca",
+     "approx": true,
+     "notes": "",
+     "parking": 80
+    },
+    {
+     "mm": 326,
+     "exit": "326",
+     "name": "Pilot Travel Center",
+     "brand": "Pilot",
+     "type": "truck_stop",
+     "city": "Dalton",
+     "approx": true,
+     "notes": "Carbondale Rd",
+     "parking": 80
+    },
+    {
+     "mm": 353,
+     "exit": "353",
+     "name": "Georgia Welcome Center (southbound)",
+     "brand": "State",
+     "type": "rest_area",
+     "city": "Ringgold",
+     "approx": true,
+     "notes": "Serves southbound entering from TN; truck parking",
+     "parking": 40
+    }
+   ]
+  },
+  "I-85": {
+   "maxMM": 179,
+   "stops": [
+    {
+     "mm": 1,
+     "exit": "1",
+     "name": "Georgia Welcome Center (northbound)",
+     "brand": "State",
+     "type": "rest_area",
+     "city": "West Point",
+     "approx": true,
+     "notes": "Serves northbound entering from AL; truck parking",
+     "parking": 40
+    },
+    {
+     "mm": 13,
+     "exit": "13",
+     "name": "Love's Travel Stop",
+     "brand": "Love's",
+     "type": "truck_stop",
+     "city": "LaGrange",
+     "approx": true,
+     "notes": "",
+     "parking": 80
+    },
+    {
+     "mm": 149,
+     "exit": "149",
+     "name": "Pilot Travel Center",
+     "brand": "Pilot",
+     "type": "truck_stop",
+     "city": "Commerce",
+     "approx": true,
+     "notes": "Banks Crossing",
+     "parking": 80
+    },
+    {
+     "mm": 160,
+     "exit": "160",
+     "name": "Petro Stopping Center",
+     "brand": "Petro",
+     "type": "truck_stop",
+     "city": "Carnesville",
+     "approx": false,
+     "notes": "GA-51",
+     "parking": 200
+    },
+    {
+     "mm": 173,
+     "exit": "173",
+     "name": "Love's Travel Stop",
+     "brand": "Love's",
+     "type": "truck_stop",
+     "city": "Lavonia",
+     "approx": false,
+     "notes": "",
+     "parking": 80
+    },
+    {
+     "mm": 176,
+     "exit": "176",
+     "name": "Georgia Welcome Center (southbound)",
+     "brand": "State",
+     "type": "rest_area",
+     "city": "Lavonia",
+     "approx": true,
+     "notes": "Serves southbound entering from SC; truck parking",
+     "parking": 35
+    }
+   ]
+  },
+  "I-95": {
+   "maxMM": 112,
+   "stops": [
+    {
+     "mm": 1,
+     "exit": "1",
+     "name": "Georgia Welcome Center (northbound)",
+     "brand": "State",
+     "type": "rest_area",
+     "city": "Kingsland",
+     "approx": true,
+     "notes": "Serves northbound entering from FL; truck parking",
+     "parking": 40
+    },
+    {
+     "mm": 3,
+     "exit": "3",
+     "name": "Pilot Travel Center",
+     "brand": "Pilot",
+     "type": "truck_stop",
+     "city": "Kingsland",
+     "approx": true,
+     "notes": "GA-40",
+     "parking": 80
+    },
+    {
+     "mm": 29,
+     "exit": "29",
+     "name": "Flying J Travel Center",
+     "brand": "Flying J",
+     "type": "truck_stop",
+     "city": "Brunswick",
+     "approx": false,
+     "notes": "US-17",
+     "parking": 90
+    },
+    {
+     "mm": 29,
+     "exit": "29",
+     "name": "TA Brunswick",
+     "brand": "TA",
+     "type": "truck_stop",
+     "city": "Brunswick",
+     "approx": true,
+     "notes": "US-17",
+     "parking": 150
+    },
+    {
+     "mm": 29,
+     "exit": "29",
+     "name": "Buc-ee's",
+     "brand": "Buc-ee's",
+     "type": "truck_stop",
+     "city": "Brunswick",
+     "approx": false,
+     "notes": "No semi parking; opened July 1, 2025; exit 29 (US-17/GA-99); 74,000 sq ft",
+     "parking": 0
+    },
+    {
+     "mm": 41,
+     "exit": "41",
+     "name": "Rest Area (both directions)",
+     "brand": "State",
+     "type": "rest_area",
+     "city": "McIntosh County",
+     "approx": true,
+     "notes": "Truck parking; serves NB and SB",
+     "parking": 35
+    },
+    {
+     "mm": 42,
+     "exit": "42",
+     "name": "Love's Travel Stop",
+     "brand": "Love's",
+     "type": "truck_stop",
+     "city": "Brunswick",
+     "approx": true,
+     "notes": "US-341, north Brunswick",
+     "parking": 80
+    },
+    {
+     "mm": 87,
+     "exit": "87",
+     "name": "TA Savannah",
+     "brand": "TA",
+     "type": "truck_stop",
+     "city": "Richmond Hill",
+     "approx": true,
+     "notes": "US-17",
+     "parking": 160
+    },
+    {
+     "mm": 109,
+     "exit": "109",
+     "name": "Flying J Travel Center",
+     "brand": "Flying J",
+     "type": "truck_stop",
+     "city": "Port Wentworth",
+     "approx": true,
+     "notes": "GA-21, Savannah area",
+     "parking": 90
+    },
+    {
+     "mm": 111,
+     "exit": "111",
+     "name": "Georgia Welcome Center (southbound)",
+     "brand": "State",
+     "type": "rest_area",
+     "city": "Port Wentworth",
+     "approx": true,
+     "notes": "Serves southbound entering from SC; truck parking",
+     "parking": 35
+    }
+   ]
+  },
+  "I-285": {
+   "maxMM": 63,
+   "stops": [
+    {
+     "mm": 48,
+     "exit": "48",
+     "name": "Petro Stopping Center Atlanta",
+     "brand": "Petro",
+     "type": "truck_stop",
+     "city": "Atlanta",
+     "approx": true,
+     "notes": "Bouldercrest Rd, southeast quadrant",
+     "parking": 250
+    },
+    {
+     "mm": 51,
+     "exit": "51",
+     "name": "TA Atlanta South",
+     "brand": "TA",
+     "type": "truck_stop",
+     "city": "Conley",
+     "approx": true,
+     "notes": "Moreland Ave/US-23, south side",
+     "parking": 200
+    }
+   ]
+  }
+ }
+}
