@@ -6,6 +6,7 @@
     "I-95": {
       "maxMM": 23,
       "stops": [
+        {"mm": 1, "exit": "1", "name": "Weigh Station (both directions)", "brand": "State", "type": "weigh_station", "city": "Newark", "approx": true, "notes": "Newark scales at the I-95 toll plaza just east of the MD line; Drivewyze bypass site"},
         {"mm": 5, "exit": "", "name": "Delaware Welcome Center (Biden Welcome Center)", "brand": "State", "type": "service_plaza", "city": "Newark", "approx": true, "notes": "Both directions between exits 1 and 3 on the Delaware Turnpike; fuel, food, limited truck parking", "parking": 30}
       ]
     },
