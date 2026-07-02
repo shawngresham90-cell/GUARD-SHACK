@@ -265,6 +265,16 @@
      "parking": 80
     },
     {
+     "mm": 10,
+     "exit": "10",
+     "name": "Weigh Station (NB)",
+     "brand": "State",
+     "type": "weigh_station",
+     "city": "Steele",
+     "approx": true,
+     "notes": "MoDOT/MSHP Steele scale, milepost ~9.8; northbound only; PrePass"
+    },
+    {
      "mm": 19,
      "exit": "19",
      "name": "Pilot Travel Center",
@@ -463,6 +473,16 @@
      "approx": true,
      "notes": "Same interchange as the TA",
      "parking": 80
+    },
+    {
+     "mm": 204,
+     "exit": "204",
+     "name": "Weigh Station (both directions)",
+     "brand": "State",
+     "type": "weigh_station",
+     "city": "Foristell",
+     "approx": true,
+     "notes": "MoDOT/MSHP Foristell scales near milepost 204, west of Wentzville; EB and WB facilities"
     }
    ]
   },
