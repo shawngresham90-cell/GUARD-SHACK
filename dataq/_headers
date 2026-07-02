@@ -1,0 +1,6 @@
+# Never cache the root rewrite target, so visitors always get the newest app
+# right after a deploy.
+/
+  Cache-Control: no-store
+/dataq.html
+  Cache-Control: no-store
