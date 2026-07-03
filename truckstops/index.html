@@ -114,7 +114,6 @@
     paid_parking:{cls:'paid', label:'PAID PARKING'},
     weigh_station:{cls:'scale', label:'⚖️ WEIGH STATION'}
   };
-  var PAID_UNMAPPED = {}; // state abbr -> paid lots without an interstate/mm mapping
   var PAGE_STOPS = [];   // stops rendered on the current highway page
   var PAGE_REVIEWS = {}; // stop_key -> [reviews]
 
@@ -159,29 +158,35 @@
       }).catch(function(){});
   }
 
-  // Merge paid parking (Truck Parking Club partnership) into the book
-  function loadPaid(){
-    return sb('/rest/v1/tpc_locations?active=eq.true&select=name,address,city,state,interstate,mm,spaces,price,book_url')
+  // Truck Parking Club referral: set to Shawn's partner ID to monetize Reserve links
+  var TPC_PARTNER_ID = '';
+  function reserveUrl(r){
+    if(TPC_PARTNER_ID && r.partner_url) return r.partner_url.split('###PARTNER_ID###').join(TPC_PARTNER_ID);
+    return r.book_url || '';
+  }
+
+  // Lazy-load reservable paid parking (Truck Parking Club) for one state
+  function loadPaidForState(ab){
+    return sb('/rest/v1/tpc_locations?state=eq.' + ab + '&active=eq.true'
+        + '&select=name,address,city,spaces,available,rating,price,book_url,partner_url&order=city.asc,name.asc')
       .then(function(r){ return r.ok ? r.json() : []; })
-      .then(function(rows){
-        rows.forEach(function(r){
-          var entry = {mm: r.mm, exit: r.mm != null ? String(r.mm) : '', name: r.name,
-            brand: 'Independent', type: 'paid_parking', city: r.city || '',
-            parking: r.spaces, notes: [r.address, r.price].filter(Boolean).join(' • '),
-            approx: true, bookUrl: r.book_url || ''};
-          var st = DATA[r.state];
-          if(st && r.interstate && st.interstates[r.interstate] && r.mm != null){
-            var iv = st.interstates[r.interstate];
-            var dup = iv.stops.some(function(s){ return s.mm===entry.mm && s.name===entry.name; });
-            if(!dup){
-              iv.stops.push(entry);
-              iv.stops.sort(function(a,b){ return (a.mm||0)-(b.mm||0); });
-            }
-          } else if(r.state){
-            (PAID_UNMAPPED[r.state] = PAID_UNMAPPED[r.state] || []).push(entry);
-          }
-        });
-      }).catch(function(){});
+      .catch(function(){ return []; });
+  }
+
+  function paidRow(r){
+    var meta = [];
+    if(r.city) meta.push(esc(r.city));
+    if(r.spaces != null) meta.push('🅿️ '+esc(r.spaces)+' spots' + (r.available != null ? ' ('+esc(r.available)+' open now)' : ''));
+    if(r.price) meta.push(esc(r.price));
+    if(r.rating != null) meta.push('★ '+esc(Number(r.rating).toFixed(1)));
+    if(r.address) meta.push(esc(r.address));
+    var url = reserveUrl(r);
+    return '<div class="mmrow paid"><div class="mmtop">'
+      + '<div class="mm">💲<small>PAID</small></div>'
+      + '<div class="stopinfo"><div class="nm">'+esc(r.name)+'<span class="badge paid">PAID PARKING</span></div>'
+      + '<div class="meta">'+meta.join(' &bull; ')+'</div>'
+      + (url ? '<div><a class="reserve" href="'+esc(url)+'" target="_blank" rel="noopener">💲 Reserve a spot</a></div>' : '')
+      + '</div></div></div>';
   }
 
   function route(){
@@ -265,12 +270,15 @@
         + '<div class="cnt">'+n+' stop'+(n===1?'':'s')+' ›</div></div>';
     });
     if(!hws.length) html += '<div class="empty">No interstates recorded for this state.</div>';
-    var paid = PAID_UNMAPPED[ab] || [];
-    if(paid.length){
-      html += '<h3 style="color:var(--paid);font-size:.95rem;margin:18px 0 8px">💲 Reservable paid parking in '+esc(st.state)+'</h3>';
-      paid.forEach(function(s){ html += stopRow(s, -1); });
-    }
+    html += '<div id="paidbox"></div>';
     app.innerHTML = html;
+    loadPaidForState(ab).then(function(rows){
+      var box = document.getElementById('paidbox');
+      if(!box || !rows.length) return;
+      var out = '<h3 style="color:var(--paid);font-size:.95rem;margin:18px 0 8px">💲 Reservable paid parking in '+esc(st.state)+' ('+rows.length+' locations)</h3>';
+      rows.forEach(function(r){ out += paidRow(r); });
+      box.innerHTML = out;
+    });
   }
 
   function stopRow(s, idx, extraMeta){
@@ -452,7 +460,7 @@
   };
 
   window.addEventListener('hashchange', route);
-  Promise.all([loadCommunity(), loadPaid()]).then(route, route);
+  loadCommunity().then(route, route);
 })();
 </script>
 </body>
