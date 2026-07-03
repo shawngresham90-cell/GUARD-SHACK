@@ -31,6 +31,8 @@
         {"mm": 104, "exit": "104", "name": "Pilot Travel Center", "brand": "Pilot", "type": "truck_stop", "city": "Rock Springs", "approx": false, "notes": "Elk St (US-191)", "parking": 80},
         {"mm": 173, "exit": "173", "name": "Love's Travel Stop", "brand": "Love's", "type": "truck_stop", "city": "Wamsutter", "approx": false, "notes": "Only major services between Rock Springs and Rawlins", "parking": 70},
         {"mm": 214, "exit": "214", "name": "Flying J Travel Center", "brand": "Flying J", "type": "truck_stop", "city": "Rawlins", "approx": false, "notes": "Higley Blvd, east Rawlins", "parking": 100},
+        {"mm": 214, "exit": "214", "name": "Wyoming Diesel Service", "brand": "Independent", "type": "repair", "city": "Rawlins", "approx": true, "notes": "2305 E Daley St near I-80 exit 214; CAT/Cummins authorized, complete heavy-duty truck & trailer repair since 1968"},
+        {"mm": 214, "exit": "214", "name": "Elk Mountain Diesel", "brand": "Independent", "type": "repair", "city": "Rawlins", "approx": false, "notes": "1102 Locust St off I-80 exit 214; Cummins & Detroit certified, truck & trailer repair, DOT, 24/7 mobile road service & towing"},
         {"mm": 267, "exit": "267", "name": "Wagonhound Rest Area (both directions)", "brand": "State", "type": "rest_area", "city": "Arlington (Elk Mountain)", "approx": true, "notes": "Key overnight/refuge parking on the Elk Mountain wind-closure stretch between Rawlins and Laramie", "parking": 25},
         {"mm": 310, "exit": "310", "name": "Petro Stopping Center", "brand": "Petro", "type": "truck_stop", "city": "Laramie", "approx": false, "notes": "Curtis St, west Laramie", "parking": 180},
         {"mm": 310, "exit": "310", "name": "Pilot Travel Center", "brand": "Pilot", "type": "truck_stop", "city": "Laramie", "approx": true, "notes": "Curtis St, across from Petro", "parking": 75},
@@ -41,6 +43,7 @@
         {"mm": 367, "exit": "367", "name": "Pilot Travel Center", "brand": "Pilot", "type": "truck_stop", "city": "Cheyenne", "approx": true, "notes": "East Cheyenne cluster", "parking": 80},
         {"mm": 367, "exit": "367", "name": "TA Cheyenne", "brand": "TA", "type": "truck_stop", "city": "Cheyenne", "approx": true, "notes": "East Cheyenne cluster", "parking": 150},
         {"mm": 367, "exit": "367", "name": "Love's Travel Stop", "brand": "Love's", "type": "truck_stop", "city": "Cheyenne", "approx": true, "notes": "East Cheyenne cluster", "parking": 80},
+        {"mm": 367, "exit": "367", "name": "MHC Kenworth - Cheyenne", "brand": "Kenworth", "type": "repair", "city": "Cheyenne", "approx": true, "notes": "11900 I-80 Service Rd, east Cheyenne; full-service Kenworth dealer, heavy-duty service & parts; near east Cheyenne truck stop cluster"},
         {"mm": 370, "exit": "370", "name": "Sapp Bros Travel Center", "brand": "Sapp Bros", "type": "truck_stop", "city": "Cheyenne", "approx": true, "notes": "Archer exit, east of Cheyenne", "parking": 90},
         {"mm": 401, "exit": "401", "name": "Wyoming Welcome Center - Pine Bluffs", "brand": "State", "type": "rest_area", "city": "Pine Bluffs", "approx": false, "notes": "Serves westbound traffic entering from Nebraska; truck parking", "parking": 20}
       ]
@@ -53,6 +56,7 @@
         {"mm": 58, "exit": "58", "name": "Big Horn Travel Plaza", "brand": "Independent", "type": "truck_stop", "city": "Buffalo", "approx": true, "notes": "Cenex; near I-25/I-90 junction, US-16", "parking": 50},
         {"mm": 126, "exit": "126", "name": "Pilot Travel Center", "brand": "Pilot", "type": "truck_stop", "city": "Gillette", "approx": true, "notes": "Douglas Hwy (WY-59)", "parking": 80},
         {"mm": 126, "exit": "126", "name": "Gillette Port of Entry (both directions)", "brand": "State", "type": "weigh_station", "city": "Gillette", "approx": true, "notes": "WHP port of entry, Gillette area"},
+        {"mm": 126, "exit": "126", "name": "Floyd's Truck Center - Gillette", "brand": "Freightliner", "type": "repair", "city": "Gillette", "approx": true, "notes": "6100 S Douglas Hwy (WY-59) near I-90 exit 126; Freightliner/Western Star dealer, all-makes heavy-duty service, parts, towing"},
         {"mm": 128, "exit": "128", "name": "Flying J Travel Center", "brand": "Flying J", "type": "truck_stop", "city": "Gillette", "approx": false, "notes": "Garner Lake Rd, east Gillette", "parking": 90},
         {"mm": 189, "exit": "189", "name": "Sundance Rest Area", "brand": "State", "type": "rest_area", "city": "Sundance", "approx": true, "notes": "Both directions; truck parking", "parking": 15},
         {"mm": 205, "exit": "205", "name": "Wyoming Welcome Center - Beulah", "brand": "State", "type": "rest_area", "city": "Beulah", "approx": true, "notes": "Serves westbound traffic entering from South Dakota; truck parking", "parking": 15}

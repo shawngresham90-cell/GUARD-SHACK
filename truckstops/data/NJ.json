@@ -12,7 +12,9 @@
         {"mm": 5, "exit": "5", "name": "Weigh Station (WB)", "brand": "State", "type": "weigh_station", "city": "Greenwich Township (Bloomsbury)", "approx": true, "notes": "NJSP scales; PrePass"},
         {"mm": 6, "exit": "6", "name": "Weigh Station (EB)", "brand": "State", "type": "weigh_station", "city": "Bloomsbury (Greenwich Township)", "approx": true, "notes": "NJSP super-coop inspection facility; PrePass"},
         {"mm": 7, "exit": "7", "name": "TA Travel Center", "brand": "TA", "type": "truck_stop", "city": "Bloomsbury", "approx": false, "notes": "", "parking": 180},
-        {"mm": 7, "exit": "7", "name": "Pilot Travel Center", "brand": "Pilot", "type": "truck_stop", "city": "Bloomsbury", "approx": false, "notes": "", "parking": 80}
+        {"mm": 7, "exit": "7", "name": "Pilot Travel Center", "brand": "Pilot", "type": "truck_stop", "city": "Bloomsbury", "approx": false, "notes": "", "parking": 80},
+        {"mm": 7, "exit": "7", "name": "TA Truck Service (Bloomsbury)", "brand": "TA", "type": "repair", "city": "Bloomsbury", "approx": false, "notes": "4-bay TA Truck Service at TA Bloomsbury, 975 Rte 173, I-78 Exit 7; tires, brakes, alignment, DOT inspections, HVAC, diagnostics; co-located with Pilot"},
+        {"mm": 7, "exit": "7", "name": "Gabrielli Truck Sales (Bloomsbury)", "brand": "Gabrielli", "type": "repair", "city": "Bloomsbury", "approx": false, "notes": "963 Rte 173 at I-78 Exit 7; Kenworth/Mack/Volvo dealer, service, parts, dedicated commercial truck collision body shop"}
       ]
     },
     "I-80": {
