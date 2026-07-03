@@ -44,6 +44,7 @@
       "maxMM": 300,
       "stops": [
         {"mm": 34, "exit": "34", "name": "TA Seattle East", "brand": "TA", "type": "truck_stop", "city": "North Bend", "approx": false, "notes": "Last major stop before Snoqualmie Pass westbound staging", "parking": 150},
+        {"mm": 34, "exit": "34", "name": "Interstate Truck Wash", "brand": "Independent", "type": "truck_wash", "city": "North Bend", "approx": false, "notes": "At TA Seattle East (468th Ave SE / Edgewick Rd)"},
         {"mm": 80, "exit": "80", "name": "Weigh Station (WB)", "brand": "State", "type": "weigh_station", "city": "Cle Elum", "approx": false, "notes": "WSP Cle Elum WB scale at MP 80"},
         {"mm": 84, "exit": "84", "name": "Pilot Travel Center", "brand": "Pilot", "type": "truck_stop", "city": "Cle Elum", "approx": true, "notes": "", "parking": 60},
         {"mm": 89, "exit": "89", "name": "Indian John Hill Rest Area (both directions)", "brand": "State", "type": "rest_area", "city": "Cle Elum", "approx": false, "notes": "Both directions; truck parking", "parking": 20},

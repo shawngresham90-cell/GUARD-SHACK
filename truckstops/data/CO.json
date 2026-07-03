@@ -260,6 +260,26 @@
      "parking": 60
     },
     {
+     "mm": 276,
+     "exit": "276A",
+     "name": "Blue Beacon Truck Wash",
+     "brand": "Independent",
+     "type": "truck_wash",
+     "city": "Denver",
+     "approx": false,
+     "notes": "Behind Pilot Travel Center; north Denver"
+    },
+    {
+     "mm": 278,
+     "exit": "278",
+     "name": "Blue Beacon Truck Wash",
+     "brand": "Independent",
+     "type": "truck_wash",
+     "city": "Commerce City",
+     "approx": false,
+     "notes": "Behind TA Denver, Quebec St (near I-270 interchange)"
+    },
+    {
      "mm": 285,
      "exit": "285",
      "name": "TA Denver East",

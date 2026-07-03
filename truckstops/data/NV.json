@@ -76,6 +76,16 @@
           "parking": 80
         },
         {
+          "mm": 46,
+          "exit": "46",
+          "name": "Blue Beacon Truck Wash",
+          "brand": "Independent",
+          "type": "truck_wash",
+          "city": "North Las Vegas",
+          "approx": false,
+          "notes": "2932 Losee Rd; Cheyenne Ave exit; near Petro/Love's"
+        },
+        {
           "mm": 54,
           "exit": "54",
           "name": "Petro Stopping Center",
@@ -175,6 +185,16 @@
           "approx": true,
           "notes": "West Fernley exit",
           "parking": 80
+        },
+        {
+          "mm": 46,
+          "exit": "46",
+          "name": "Blue Beacon Truck Wash",
+          "brand": "Independent",
+          "type": "truck_wash",
+          "city": "Fernley",
+          "approx": false,
+          "notes": "865 Pilot Rd; near Pilot/Love's Fernley"
         },
         {
           "mm": 48,

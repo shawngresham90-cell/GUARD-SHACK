@@ -21,6 +21,7 @@
       "maxMM": 276,
       "stops": [
         {"mm": 29, "exit": "29", "name": "TA Boise", "brand": "TA", "type": "truck_stop", "city": "Caldwell", "approx": false, "notes": "Franklin Rd", "parking": 150},
+        {"mm": 35, "exit": "35", "name": "Blue Beacon Truck Wash", "brand": "Independent", "type": "truck_wash", "city": "Nampa (Boise area)", "approx": true, "notes": "206 Shannon Dr; opened 2024"},
         {"mm": 54, "exit": "54", "name": "Flying J Travel Center", "brand": "Flying J", "type": "truck_stop", "city": "Boise", "approx": false, "notes": "Federal Way", "parking": 100},
         {"mm": 62, "exit": "62", "name": "Blacks Creek Rest Area (both directions)", "brand": "State", "type": "rest_area", "city": "Boise", "approx": false, "notes": "Serves both directions; truck parking", "parking": 20},
         {"mm": 66, "exit": "66", "name": "East Boise Port of Entry (EB)", "brand": "State", "type": "weigh_station", "city": "Boise", "approx": true, "notes": "ITD port of entry ~11 mi east of Boise (MP 66.5); weigh-in-motion equipped"},
@@ -29,6 +30,7 @@
         {"mm": 95, "exit": "95", "name": "Love's Travel Stop", "brand": "Love's", "type": "truck_stop", "city": "Mountain Home", "approx": false, "notes": "", "parking": 80},
         {"mm": 133, "exit": "133", "name": "Bliss Rest Area (both directions)", "brand": "State", "type": "rest_area", "city": "Bliss", "approx": true, "notes": "Serves both directions; truck parking", "parking": 15},
         {"mm": 173, "exit": "173", "name": "Flying J Travel Center", "brand": "Flying J", "type": "truck_stop", "city": "Twin Falls", "approx": false, "notes": "US-93 junction north of Twin Falls", "parking": 90},
+        {"mm": 173, "exit": "173", "name": "Blue Beacon Truck Wash", "brand": "Independent", "type": "truck_wash", "city": "Jerome (Twin Falls area)", "approx": false, "notes": "Near Flying J Travel Center, exit 173"},
         {"mm": 182, "exit": "182", "name": "Travelers Oasis Truck Plaza", "brand": "AmBest", "type": "truck_stop", "city": "Eden", "approx": false, "notes": "Independent AmBest plaza, Eden/Hazelton", "parking": 100},
         {"mm": 208, "exit": "208", "name": "Love's Travel Stop", "brand": "Love's", "type": "truck_stop", "city": "Burley", "approx": true, "notes": "ID-27 interchange", "parking": 80},
         {"mm": 208, "exit": "208", "name": "Flying J Travel Center", "brand": "Flying J", "type": "truck_stop", "city": "Burley", "approx": true, "notes": "Burley area", "parking": 80},

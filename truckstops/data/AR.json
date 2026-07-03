@@ -173,6 +173,16 @@
      "parking": 80
     },
     {
+     "mm": 161,
+     "exit": "161",
+     "name": "Blue Beacon Truck Wash",
+     "brand": "Independent",
+     "type": "truck_wash",
+     "city": "North Little Rock",
+     "approx": false,
+     "notes": "3210 Valentine Rd, exit 161; at the Petro"
+    },
+    {
      "mm": 175,
      "exit": "175",
      "name": "Love's Travel Stop",
@@ -280,6 +290,16 @@
      "approx": true,
      "notes": "West Memphis cluster",
      "parking": 80
+    },
+    {
+     "mm": 280,
+     "exit": "280",
+     "name": "Blue Beacon Truck Wash",
+     "brand": "Independent",
+     "type": "truck_wash",
+     "city": "West Memphis",
+     "approx": false,
+     "notes": "3600 Service Loop Rd, exit 280; near Petro/Flying J/Pilot; also serves I-55 exit 4"
     },
     {
      "mm": 282,

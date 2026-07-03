@@ -87,6 +87,16 @@
      "parking": 70
     },
     {
+     "mm": 37,
+     "exit": "37",
+     "name": "Blue Beacon Truck Wash",
+     "brand": "Independent",
+     "type": "truck_wash",
+     "city": "El Paso",
+     "approx": false,
+     "notes": "11480 Stockyard Dr (Socorro), exit 37 Horizon Blvd; near Petro/Flying J/Love's"
+    },
+    {
      "mm": 61,
      "exit": "61",
      "name": "Hudspeth County Rest Area (both directions)",
@@ -208,6 +218,16 @@
      "parking": 250
     },
     {
+     "mm": 582,
+     "exit": "582",
+     "name": "Blue Beacon Truck Wash",
+     "brand": "Independent",
+     "type": "truck_wash",
+     "city": "San Antonio",
+     "approx": true,
+     "notes": "1112 Ackerman Rd, exit 582; near TA exit 581"
+    },
+    {
      "mm": 583,
      "exit": "583",
      "name": "Flying J Travel Center",
@@ -228,6 +248,16 @@
      "approx": true,
      "notes": "Foster Rd, east side",
      "parking": 75
+    },
+    {
+     "mm": 583,
+     "exit": "583",
+     "name": "Blue Beacon Truck Wash",
+     "brand": "Independent",
+     "type": "truck_wash",
+     "city": "San Antonio",
+     "approx": false,
+     "notes": "San Antonio East location, 6089 IH-10 E at exit 583; near Flying J/Pilot"
     },
     {
      "mm": 593,
@@ -368,6 +398,16 @@
      "parking": 75
     },
     {
+     "mm": 873,
+     "exit": "873",
+     "name": "Blue Beacon Truck Wash",
+     "brand": "Independent",
+     "type": "truck_wash",
+     "city": "Orange",
+     "approx": false,
+     "notes": "7144 IH-10 W, exit 873; across from the Pilot/Flying J"
+    },
+    {
      "mm": 878,
      "exit": "878",
      "name": "Texas Travel Information Center - Orange",
@@ -451,6 +491,16 @@
      "approx": true,
      "notes": "",
      "parking": 80
+    },
+    {
+     "mm": 115,
+     "exit": "115",
+     "name": "Blue Beacon Truck Wash",
+     "brand": "Independent",
+     "type": "truck_wash",
+     "city": "Odessa",
+     "approx": false,
+     "notes": "2103 W I-20, exit 115"
     },
     {
      "mm": 138,
@@ -560,6 +610,26 @@
      "approx": false,
      "notes": "Bonnie View Rd exit",
      "parking": 90
+    },
+    {
+     "mm": 472,
+     "exit": "472",
+     "name": "Blue Beacon Truck Wash",
+     "brand": "Independent",
+     "type": "truck_wash",
+     "city": "Dallas",
+     "approx": true,
+     "notes": "Dallas location, 34245 LBJ Fwy frontage road, exit 472"
+    },
+    {
+     "mm": 472,
+     "exit": "472",
+     "name": "Blue Beacon Truck Wash",
+     "brand": "Independent",
+     "type": "truck_wash",
+     "city": "Dallas",
+     "approx": false,
+     "notes": "Dallas East location, 7312 Bonnie View Rd, exit 472; Flying J 1/2 mile east"
     },
     {
      "mm": 506,
@@ -806,6 +876,16 @@
      "parking": 100
     },
     {
+     "mm": 13,
+     "exit": "13",
+     "name": "Blue Beacon Truck Wash",
+     "brand": "Independent",
+     "type": "truck_wash",
+     "city": "Laredo",
+     "approx": false,
+     "notes": "1020 Beltway Pkwy, SB exit 13; near TA/Flying J/Love's"
+    },
+    {
      "mm": 39,
      "exit": "39",
      "name": "Love's Travel Stop",
@@ -958,6 +1038,16 @@
      "parking": 40
     },
     {
+     "mm": 471,
+     "exit": "471",
+     "name": "Blue Beacon Truck Wash",
+     "brand": "Independent",
+     "type": "truck_wash",
+     "city": "Denton",
+     "approx": false,
+     "notes": "4800 Barthold Rd, exit 471"
+    },
+    {
      "mm": 502,
      "exit": "502",
      "name": "Texas Travel Information Center - Gainesville",
@@ -1098,6 +1188,26 @@
      "parking": 90
     },
     {
+     "mm": 74,
+     "exit": "74",
+     "name": "Blue Beacon Truck Wash",
+     "brand": "Independent",
+     "type": "truck_wash",
+     "city": "Amarillo",
+     "approx": false,
+     "notes": "2200 Whitaker Rd, exit 74; at the TA"
+    },
+    {
+     "mm": 74,
+     "exit": "74",
+     "name": "Eagle Truck Wash",
+     "brand": "Independent",
+     "type": "truck_wash",
+     "city": "Amarillo",
+     "approx": true,
+     "notes": "Eagle United Truck Wash, 7540 E I-40 between exits 74 and 75"
+    },
+    {
      "mm": 75,
      "exit": "75",
      "name": "Petro Stopping Center",
@@ -1118,6 +1228,16 @@
      "approx": false,
      "notes": "Lakeside Dr exit",
      "parking": 100
+    },
+    {
+     "mm": 75,
+     "exit": "75",
+     "name": "Blue Beacon Truck Wash",
+     "brand": "Independent",
+     "type": "truck_wash",
+     "city": "Amarillo",
+     "approx": false,
+     "notes": "Amarillo East location, 8500 E I-40, exit 75; at the Petro/Flying J"
     },
     {
      "mm": 76,
@@ -1268,6 +1388,16 @@
      "approx": true,
      "notes": "Serves both directions",
      "parking": 35
+    },
+    {
+     "mm": 249,
+     "exit": "249",
+     "name": "Blue Beacon Truck Wash",
+     "brand": "Independent",
+     "type": "truck_wash",
+     "city": "Ennis",
+     "approx": false,
+     "notes": "3103 S Kaufman St, exit 249"
     },
     {
      "mm": 272,

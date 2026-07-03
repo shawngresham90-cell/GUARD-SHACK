@@ -287,6 +287,16 @@
      "parking": 80
     },
     {
+     "mm": 16,
+     "exit": "16",
+     "name": "Blue Beacon Truck Wash",
+     "brand": "Independent",
+     "type": "truck_wash",
+     "city": "Gallup",
+     "approx": false,
+     "notes": "Exit 16 (US-491/Hwy 66), west Gallup; near Pilot/Love's"
+    },
+    {
      "mm": 39,
      "exit": "39",
      "name": "Giant Travel Center",
@@ -362,6 +372,16 @@
      "approx": true,
      "notes": "98th St / Central Ave area",
      "parking": 70
+    },
+    {
+     "mm": 153,
+     "exit": "153",
+     "name": "Coss Truck Wash",
+     "brand": "Independent",
+     "type": "truck_wash",
+     "city": "Albuquerque",
+     "approx": true,
+     "notes": "Coss (Corning) Truck Wash, 9920 Avalon Rd NW, exit 153 (98th St); near Pilot/Love's"
     },
     {
      "mm": 194,

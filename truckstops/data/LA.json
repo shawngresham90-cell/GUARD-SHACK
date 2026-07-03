@@ -228,6 +228,16 @@
    "maxMM": 85,
    "stops": [
     {
+     "mm": 40,
+     "exit": "40",
+     "name": "Blue Beacon Truck Wash",
+     "brand": "Independent",
+     "type": "truck_wash",
+     "city": "Hammond",
+     "approx": false,
+     "notes": "2102 SW Railroad Ave, exit 40 (US-51); 1 mile east of I-55"
+    },
+    {
      "mm": 68,
      "exit": "68",
      "name": "Love's Travel Stop",
@@ -308,6 +318,16 @@
      "approx": true,
      "notes": "Greenwood cluster",
      "parking": 85
+    },
+    {
+     "mm": 8,
+     "exit": "8",
+     "name": "Blue Beacon Truck Wash",
+     "brand": "Independent",
+     "type": "truck_wash",
+     "city": "Shreveport",
+     "approx": false,
+     "notes": "6904 W Bert Kouns Industrial Loop, exit 8; next to the Flying J"
     },
     {
      "mm": 112,

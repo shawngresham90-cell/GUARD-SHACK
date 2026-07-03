@@ -164,6 +164,16 @@
      "parking": 75
     },
     {
+     "mm": 96,
+     "exit": "96",
+     "name": "Exit 96 Shine Truck & RV Wash",
+     "brand": "Independent",
+     "type": "truck_wash",
+     "city": "Missoula",
+     "approx": true,
+     "notes": "Independent truck and RV wash off exit 96"
+    },
+    {
      "mm": 101,
      "exit": "101",
      "name": "Town Pump",
@@ -328,6 +338,16 @@
      "parking": 80
     },
     {
+     "mm": 450,
+     "exit": "450",
+     "name": "Hoogies Industrial Cleaning",
+     "brand": "Independent",
+     "type": "truck_wash",
+     "city": "Billings",
+     "approx": true,
+     "notes": "Trailer washouts by appointment, State Ave"
+    },
+    {
      "mm": 455,
      "exit": "455",
      "name": "Flying J Travel Center",
@@ -348,6 +368,16 @@
      "approx": true,
      "notes": "Johnson Lane interchange cluster",
      "parking": 150
+    },
+    {
+     "mm": 455,
+     "exit": "455",
+     "name": "Fly In Lube & Wash",
+     "brand": "Independent",
+     "type": "truck_wash",
+     "city": "Billings (Lockwood)",
+     "approx": true,
+     "notes": "Johnson Ln; near Town Pump/Pilot truck stop"
     },
     {
      "mm": 495,

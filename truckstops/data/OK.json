@@ -103,6 +103,26 @@
      "parking": 80
     },
     {
+     "mm": 127,
+     "exit": "127",
+     "name": "Blue Beacon Truck Wash",
+     "brand": "Independent",
+     "type": "truck_wash",
+     "city": "Oklahoma City",
+     "approx": false,
+     "notes": "OKC South location at the Petro, 20 S Martin Luther King Ave, I-40/I-35 junction exit 127"
+    },
+    {
+     "mm": 134,
+     "exit": "134",
+     "name": "Blue Beacon Truck Wash",
+     "brand": "Independent",
+     "type": "truck_wash",
+     "city": "Oklahoma City",
+     "approx": true,
+     "notes": "OKC North location, 7720 N Bryant Ave, exit 134"
+    },
+    {
      "mm": 185,
      "exit": "185",
      "name": "Love's Travel Stop",
@@ -267,6 +287,16 @@
      "approx": true,
      "notes": "Morgan Rd, west OKC",
      "parking": 200
+    },
+    {
+     "mm": 140,
+     "exit": "140",
+     "name": "Blue Beacon Truck Wash",
+     "brand": "Independent",
+     "type": "truck_wash",
+     "city": "Oklahoma City",
+     "approx": false,
+     "notes": "OKC West location, 300 S Morgan Rd, exit 140; at the TA"
     },
     {
      "mm": 142,

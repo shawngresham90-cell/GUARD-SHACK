@@ -100,6 +100,16 @@
           "parking": 200
         },
         {
+          "mm": 219,
+          "exit": "219",
+          "name": "Blue Beacon Truck Wash",
+          "brand": "Independent",
+          "type": "truck_wash",
+          "city": "Arvin (Wheeler Ridge)",
+          "approx": false,
+          "notes": "Exit 219A Laval Rd; 5831 Santa Elena Dr; near TA/Petro Wheeler Ridge"
+        },
+        {
           "mm": 251,
           "exit": "",
           "name": "Buttonwillow Rest Area",
@@ -243,6 +253,16 @@
           "parking": 70
         },
         {
+          "mm": 485,
+          "exit": "485",
+          "name": "Blue Beacon Truck Wash",
+          "brand": "Independent",
+          "type": "truck_wash",
+          "city": "Lodi (Flag City)",
+          "approx": false,
+          "notes": "15335 N Thornton Rd; I-5 & Hwy 12; near Flying J Lodi"
+        },
+        {
           "mm": 528,
           "exit": "",
           "name": "Elkhorn Rest Area",
@@ -306,6 +326,16 @@
           "approx": true,
           "notes": "Adjacent to Rolling Hills Casino",
           "parking": 180
+        },
+        {
+          "mm": 630,
+          "exit": "630",
+          "name": "Blue Beacon Truck Wash",
+          "brand": "Independent",
+          "type": "truck_wash",
+          "city": "Corning",
+          "approx": false,
+          "notes": "2041 South Ave; near Petro/TA Corning"
         },
         {
           "mm": 631,
@@ -642,6 +672,16 @@
           "parking": 90
         },
         {
+          "mm": 178,
+          "exit": "178",
+          "name": "Blue Beacon Truck Wash",
+          "brand": "Independent",
+          "type": "truck_wash",
+          "city": "Barstow",
+          "approx": false,
+          "notes": "2540 High Point Pkwy; near TA Barstow"
+        },
+        {
           "mm": 217,
           "exit": "217",
           "name": "Clyde V. Kane Rest Area (both directions)",
@@ -777,6 +817,16 @@
           "approx": true,
           "notes": "W El Camino Ave; full-service independent, AmBest affiliated",
           "parking": 100
+        },
+        {
+          "mm": 85,
+          "exit": "85",
+          "name": "Sacramento 49er Truck Wash",
+          "brand": "Independent",
+          "type": "truck_wash",
+          "city": "Sacramento",
+          "approx": false,
+          "notes": "At Sacramento 49er Travel Plaza (W. El Camino Ave); 2828 El Centro Rd"
         },
         {
           "mm": 100,

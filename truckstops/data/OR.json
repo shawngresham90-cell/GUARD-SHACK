@@ -11,6 +11,7 @@
         {"mm": 45, "exit": "45", "name": "Valley of the Rogue Rest Area (both directions)", "brand": "State", "type": "rest_area", "city": "Gold Hill", "approx": true, "notes": "At Valley of the Rogue State Park", "parking": 20},
         {"mm": 63, "exit": "63", "name": "Manzanita Rest Area (both directions)", "brand": "State", "type": "rest_area", "city": "Grants Pass", "approx": true, "parking": 15},
         {"mm": 99, "exit": "99", "name": "Seven Feathers Truck & Travel Center", "brand": "Independent", "type": "truck_stop", "city": "Canyonville", "approx": false, "notes": "Cow Creek tribal travel center at Seven Feathers Casino", "parking": 100},
+        {"mm": 99, "exit": "99", "name": "Seven Feathers Truck Wash", "brand": "Independent", "type": "truck_wash", "city": "Canyonville", "approx": false, "notes": "At Seven Feathers Truck & Travel Center"},
         {"mm": 131, "exit": "131", "name": "Cabin Creek Rest Area (both directions)", "brand": "State", "type": "rest_area", "city": "Yoncalla", "approx": true, "parking": 15},
         {"mm": 143, "exit": "143", "name": "Oak Grove Rest Area (both directions)", "brand": "State", "type": "rest_area", "city": "Rice Hill area", "approx": true, "notes": "Serves both directions; truck parking", "parking": 20},
         {"mm": 148, "exit": "148", "name": "Pilot Travel Center", "brand": "Pilot", "type": "truck_stop", "city": "Rice Hill", "approx": false, "notes": "", "parking": 80},
@@ -25,7 +26,8 @@
         {"mm": 278, "exit": "278", "name": "TA Aurora", "brand": "TA", "type": "truck_stop", "city": "Aurora", "approx": false, "notes": "Ehlen Rd, Aurora/Donald", "parking": 150},
         {"mm": 281, "exit": "281", "name": "French Prairie (NB) / Baldock (SB) Rest Areas", "brand": "State", "type": "rest_area", "city": "Wilsonville area", "approx": true, "notes": "Paired rest areas, large truck parking", "parking": 50},
         {"mm": 282, "exit": "282", "name": "Love's Travel Stop", "brand": "Love's", "type": "truck_stop", "city": "Aurora", "approx": true, "notes": "Canby/Aurora exit", "parking": 70},
-        {"mm": 307, "exit": "307", "name": "Jubitz Travel Center", "brand": "Independent", "type": "truck_stop", "city": "Portland", "approx": false, "notes": "Famous independent; full-service with cinema, lounge, Ponderosa", "parking": 200}
+        {"mm": 307, "exit": "307", "name": "Jubitz Travel Center", "brand": "Independent", "type": "truck_stop", "city": "Portland", "approx": false, "notes": "Famous independent; full-service with cinema, lounge, Ponderosa", "parking": 200},
+        {"mm": 307, "exit": "307", "name": "Blue Beacon Truck Wash", "brand": "Independent", "type": "truck_wash", "city": "Portland", "approx": false, "notes": "10244 N Vancouver Way; at Jubitz Travel Center"}
       ]
     },
     "I-82": {

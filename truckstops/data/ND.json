@@ -222,6 +222,16 @@
      "approx": true,
      "notes": "39th St S, near I-94/I-29 junction",
      "parking": 100
+    },
+    {
+     "mm": 348,
+     "exit": "348",
+     "name": "Blue Beacon Truck Wash",
+     "brand": "Independent",
+     "type": "truck_wash",
+     "city": "Fargo",
+     "approx": false,
+     "notes": "19th Ave S off 45th St exit; west Fargo truck stop corridor"
     }
    ]
   }

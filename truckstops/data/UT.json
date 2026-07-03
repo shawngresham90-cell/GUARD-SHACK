@@ -160,6 +160,16 @@
      "parking": 70
     },
     {
+     "mm": 305,
+     "exit": "305",
+     "name": "Blue Beacon Truck Wash",
+     "brand": "Independent",
+     "type": "truck_wash",
+     "city": "Salt Lake City",
+     "approx": false,
+     "notes": "Exit 305B (2100 S); 2020 S 900 W; at Flying J"
+    },
+    {
      "mm": 339,
      "exit": "339",
      "name": "Pilot Travel Center",
@@ -342,6 +352,16 @@
      "approx": false,
      "notes": "UT-36 exit toward Tooele, across from Flying J",
      "parking": 150
+    },
+    {
+     "mm": 99,
+     "exit": "99",
+     "name": "Blue Beacon Truck Wash",
+     "brand": "Independent",
+     "type": "truck_wash",
+     "city": "Lake Point",
+     "approx": false,
+     "notes": "Near TA Tooele / Flying J, exit 99"
     },
     {
      "mm": 118,

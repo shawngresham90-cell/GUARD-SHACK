@@ -88,6 +88,16 @@
      "parking": 125
     },
     {
+     "mm": 1,
+     "exit": "1",
+     "name": "Extreme Clean Truck & RV Wash",
+     "brand": "Independent",
+     "type": "truck_wash",
+     "city": "Ehrenberg",
+     "approx": true,
+     "notes": "14190 Flying J Rd, at the Flying J exit 1"
+    },
+    {
      "mm": 4,
      "exit": "4",
      "name": "Ehrenberg Port of Entry (EB)",
@@ -186,6 +196,16 @@
      "parking": 200
     },
     {
+     "mm": 135,
+     "exit": "135",
+     "name": "Blue Beacon Truck Wash",
+     "brand": "Independent",
+     "type": "truck_wash",
+     "city": "Tolleson",
+     "approx": false,
+     "notes": "8423 W Roosevelt St, exit 135; TA Phoenix at exit 133 nearby"
+    },
+    {
      "mm": 181,
      "exit": "",
      "name": "Sacaton Rest Area",
@@ -219,6 +239,16 @@
      "parking": 80
     },
     {
+     "mm": 200,
+     "exit": "200",
+     "name": "Blue Beacon Truck Wash",
+     "brand": "Independent",
+     "type": "truck_wash",
+     "city": "Eloy",
+     "approx": false,
+     "notes": "5265 S Sunland Gin Rd, exit 200; at the Petro (listed as Casa Grande)"
+    },
+    {
      "mm": 203,
      "exit": "203",
      "name": "Love's Travel Stop",
@@ -228,6 +258,16 @@
      "approx": false,
      "notes": "Opened December 2025; Exit 203/Toltec Rd",
      "parking": 129
+    },
+    {
+     "mm": 208,
+     "exit": "208",
+     "name": "Blue Beacon Truck Wash",
+     "brand": "Independent",
+     "type": "truck_wash",
+     "city": "Eloy",
+     "approx": false,
+     "notes": "Eloy East location, 1172 S Sunshine Blvd, exit 208; near Flying J"
     },
     {
      "mm": 219,
@@ -458,6 +498,16 @@
      "approx": false,
      "notes": "Blake Ranch Rd; large full-service stop",
      "parking": 200
+    },
+    {
+     "mm": 66,
+     "exit": "66",
+     "name": "Blue Beacon Truck Wash",
+     "brand": "Independent",
+     "type": "truck_wash",
+     "city": "Kingman",
+     "approx": false,
+     "notes": "3270 E Andy Devine Ave, exit 66; at the Petro"
     },
     {
      "mm": 161,
