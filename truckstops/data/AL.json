@@ -39,6 +39,16 @@
           "parking": 75
         },
         {
+          "mm": 15,
+          "exit": "15",
+          "name": "Motel 6 Mobile (Tillmans Corner)",
+          "brand": "Motel 6",
+          "type": "hotel",
+          "city": "Mobile",
+          "approx": true,
+          "notes": "Truck parking verified: Motel 6 lists on-site truck parking; trucker review confirms; 5686 Tillmans Corner Pkwy (US 90)"
+        },
+        {
           "mm": 44,
           "exit": "44",
           "name": "Love's Travel Stop",
@@ -112,17 +122,6 @@
         {
           "mm": 77,
           "exit": "77",
-          "name": "TA Tuscaloosa",
-          "brand": "TA",
-          "type": "truck_stop",
-          "city": "Cottondale",
-          "approx": false,
-          "notes": "On I-20/I-59 overlap; Buttermilk Rd/US-11",
-          "parking": 170
-        },
-        {
-          "mm": 77,
-          "exit": "77",
           "name": "Blue Beacon Truck Wash",
           "brand": "Independent",
           "type": "truck_wash",
@@ -141,6 +140,17 @@
           "notes": "3501 Buttermilk Rd, Exit 77; independent wash near TA Tuscaloosa, since 1991"
         },
         {
+          "mm": 77,
+          "exit": "77",
+          "name": "TA Tuscaloosa",
+          "brand": "TA",
+          "type": "truck_stop",
+          "city": "Cottondale",
+          "approx": false,
+          "notes": "On I-20/I-59 overlap; Buttermilk Rd/US-11",
+          "parking": 170
+        },
+        {
           "mm": 100,
           "exit": "100",
           "name": "Petro Stopping Center",
@@ -150,6 +160,16 @@
           "approx": false,
           "notes": "On I-20/I-59 overlap",
           "parking": 200
+        },
+        {
+          "mm": 185,
+          "exit": "185",
+          "name": "Motel 6 Anniston (Oxford)",
+          "brand": "Motel 6",
+          "type": "hotel",
+          "city": "Oxford",
+          "approx": true,
+          "notes": "Truck parking verified: Motel 6 lists free RV/bus/truck parking; Allstays notes 5 truck spaces; 202 Grace St off AL-21"
         },
         {
           "mm": 199,
@@ -386,17 +406,6 @@
         {
           "mm": 158,
           "exit": "158",
-          "name": "Pilot Travel Center",
-          "brand": "Pilot",
-          "type": "truck_stop",
-          "city": "Hope Hull",
-          "approx": false,
-          "notes": "Hope Hull truck stop cluster, Montgomery south side",
-          "parking": 85
-        },
-        {
-          "mm": 158,
-          "exit": "158",
           "name": "Love's Travel Stop",
           "brand": "Love's",
           "type": "truck_stop",
@@ -404,6 +413,17 @@
           "approx": true,
           "notes": "Hope Hull truck stop cluster",
           "parking": 80
+        },
+        {
+          "mm": 158,
+          "exit": "158",
+          "name": "Pilot Travel Center",
+          "brand": "Pilot",
+          "type": "truck_stop",
+          "city": "Hope Hull",
+          "approx": false,
+          "notes": "Hope Hull truck stop cluster, Montgomery south side",
+          "parking": 85
         },
         {
           "mm": 208,
@@ -419,23 +439,23 @@
         {
           "mm": 264,
           "exit": "264",
-          "name": "Pilot Travel Center",
-          "brand": "Pilot",
-          "type": "truck_stop",
-          "city": "Birmingham",
-          "approx": false,
-          "notes": "Daniel Payne Dr",
-          "parking": 80
-        },
-        {
-          "mm": 264,
-          "exit": "264",
           "name": "Love's Travel Stop",
           "brand": "Love's",
           "type": "truck_stop",
           "city": "Birmingham",
           "approx": true,
           "notes": "Daniel Payne Dr area",
+          "parking": 80
+        },
+        {
+          "mm": 264,
+          "exit": "264",
+          "name": "Pilot Travel Center",
+          "brand": "Pilot",
+          "type": "truck_stop",
+          "city": "Birmingham",
+          "approx": false,
+          "notes": "Daniel Payne Dr",
           "parking": 80
         },
         {
@@ -450,6 +470,42 @@
           "parking": 90
         },
         {
+          "mm": 310,
+          "exit": "310",
+          "name": "Comfort Suites Cullman I-65 Exit 310",
+          "brand": "Comfort Suites",
+          "type": "hotel",
+          "city": "Cullman",
+          "notes": "Truck parking verified: Choice Hotels amenity list includes truck parking; also listed on Trucker Path hotels"
+        },
+        {
+          "mm": 310,
+          "exit": "310",
+          "name": "Quality Inn Cullman I-65 Exit 310",
+          "brand": "Quality Inn",
+          "type": "hotel",
+          "city": "Cullman",
+          "notes": "Truck parking verified: Choice Hotels amenity list includes RV/bus/truck parking"
+        },
+        {
+          "mm": 310,
+          "exit": "310",
+          "name": "Sleep Inn & Suites Cullman I-65 Exit 310",
+          "brand": "Sleep Inn",
+          "type": "hotel",
+          "city": "Cullman",
+          "notes": "Truck parking verified: Choice Hotels amenity list includes RV/bus/truck parking"
+        },
+        {
+          "mm": 334,
+          "exit": "334",
+          "name": "Days Inn Decatur Priceville I-65 Exit 334",
+          "brand": "Days Inn",
+          "type": "hotel",
+          "city": "Priceville",
+          "notes": "Truck parking verified: guest review tags cite truck parking; listed on Trucker Path hotels; adjacent to Pilot #441"
+        },
+        {
           "mm": 334,
           "exit": "334",
           "name": "Pilot Travel Center",
@@ -459,6 +515,15 @@
           "approx": true,
           "notes": "Decatur area",
           "parking": 80
+        },
+        {
+          "mm": 351,
+          "exit": "351",
+          "name": "Clarion Pointe Athens I-65",
+          "brand": "Clarion",
+          "type": "hotel",
+          "city": "Athens",
+          "notes": "Truck parking verified: property listing describes big-truck parking area; US 72 at exit 351"
         },
         {
           "mm": 351,

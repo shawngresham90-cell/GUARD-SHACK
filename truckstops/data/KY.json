@@ -17,6 +17,15 @@
           "parking": 85
         },
         {
+          "mm": 4,
+          "exit": "4",
+          "name": "Days Inn Paducah I-24 Exit 4",
+          "brand": "Days Inn",
+          "type": "hotel",
+          "city": "Paducah",
+          "notes": "Truck parking verified: Wyndham listing offers free parking with space for trucks and buses; US 60 at exit 4"
+        },
+        {
           "mm": 7,
           "exit": "7",
           "name": "Whitehaven Welcome Center",
@@ -62,13 +71,12 @@
         {
           "mm": 86,
           "exit": "86",
-          "name": "Petro Stopping Center",
-          "brand": "Petro",
-          "type": "truck_stop",
+          "name": "Blue Beacon Truck Wash",
+          "brand": "Independent",
+          "type": "truck_wash",
           "city": "Oak Grove",
           "approx": false,
-          "notes": "US-41A, near Fort Campbell",
-          "parking": 200
+          "notes": "140 JW Dickson Dr, Exit 86; near Petro and Flying J"
         },
         {
           "mm": 86,
@@ -84,12 +92,13 @@
         {
           "mm": 86,
           "exit": "86",
-          "name": "Blue Beacon Truck Wash",
-          "brand": "Independent",
-          "type": "truck_wash",
+          "name": "Petro Stopping Center",
+          "brand": "Petro",
+          "type": "truck_stop",
           "city": "Oak Grove",
           "approx": false,
-          "notes": "140 JW Dickson Dr, Exit 86; near Petro and Flying J"
+          "notes": "US-41A, near Fort Campbell",
+          "parking": 200
         },
         {
           "mm": 92,
@@ -138,6 +147,26 @@
           "approx": true,
           "notes": "KY-627",
           "parking": 85
+        },
+        {
+          "mm": 110,
+          "exit": "110",
+          "name": "Days Inn Mt. Sterling",
+          "brand": "Days Inn",
+          "type": "hotel",
+          "city": "Mount Sterling",
+          "approx": true,
+          "notes": "Truck parking verified: Wyndham listing offers truck, RV and trailer parking; US 460 exit"
+        },
+        {
+          "mm": 137,
+          "exit": "137",
+          "name": "Days Inn Morehead",
+          "brand": "Days Inn",
+          "type": "hotel",
+          "city": "Morehead",
+          "approx": true,
+          "notes": "Truck parking verified: Wyndham listing offers free truck/RV parking in spacious lot; KY 32 exit"
         },
         {
           "mm": 137,
@@ -212,6 +241,15 @@
         {
           "mm": 6,
           "exit": "6",
+          "name": "Days Inn Franklin",
+          "brand": "Days Inn",
+          "type": "hotel",
+          "city": "Franklin",
+          "notes": "Truck parking verified: multiple trucker reviews confirm paved semi parking on property; listed in truck stop directories at exit 6"
+        },
+        {
+          "mm": 6,
+          "exit": "6",
           "name": "Love's Travel Stop",
           "brand": "Love's",
           "type": "truck_stop",
@@ -219,6 +257,15 @@
           "approx": true,
           "notes": "KY-100",
           "parking": 85
+        },
+        {
+          "mm": 22,
+          "exit": "22",
+          "name": "Motel 6 Bowling Green",
+          "brand": "Motel 6",
+          "type": "hotel",
+          "city": "Bowling Green",
+          "notes": "Truck parking verified: property lists free RV/bus/truck parking; 3139 Scottsville Rd at exit 22"
         },
         {
           "mm": 28,
@@ -353,15 +400,13 @@
           "parking": 85
         },
         {
-          "mm": 29,
-          "exit": "29",
-          "name": "Love's Travel Stop",
-          "brand": "Love's",
-          "type": "truck_stop",
+          "mm": 25,
+          "exit": "25",
+          "name": "Motel 6 Corbin",
+          "brand": "Motel 6",
+          "type": "hotel",
           "city": "Corbin",
-          "approx": true,
-          "notes": "US-25E",
-          "parking": 85
+          "notes": "Truck parking verified: Motel 6 lists on-site truck parking; also on Trucker Path hotels; 1891 Cumberland Falls Hwy near exit 25"
         },
         {
           "mm": 29,
@@ -372,6 +417,17 @@
           "city": "Corbin",
           "approx": false,
           "notes": "373 W Cumberland Gap Pkwy, Exit 29; near Love's Travel Stop"
+        },
+        {
+          "mm": 29,
+          "exit": "29",
+          "name": "Love's Travel Stop",
+          "brand": "Love's",
+          "type": "truck_stop",
+          "city": "Corbin",
+          "approx": true,
+          "notes": "US-25E",
+          "parking": 85
         },
         {
           "mm": 34,
@@ -472,6 +528,16 @@
         {
           "mm": 171,
           "exit": "171",
+          "name": "Blue Beacon Truck Wash",
+          "brand": "Independent",
+          "type": "truck_wash",
+          "city": "Walton",
+          "approx": false,
+          "notes": "13085 Walton-Verona Rd, Exit 171; next to Flying J/Pilot"
+        },
+        {
+          "mm": 171,
+          "exit": "171",
           "name": "Pilot Travel Center",
           "brand": "Pilot",
           "type": "truck_stop",
@@ -479,16 +545,6 @@
           "approx": true,
           "notes": "KY-14",
           "parking": 85
-        },
-        {
-          "mm": 171,
-          "exit": "171",
-          "name": "Blue Beacon Truck Wash",
-          "brand": "Independent",
-          "type": "truck_wash",
-          "city": "Walton",
-          "approx": false,
-          "notes": "13085 Walton-Verona Rd, Exit 171; next to Flying J/Pilot"
         },
         {
           "mm": 177,

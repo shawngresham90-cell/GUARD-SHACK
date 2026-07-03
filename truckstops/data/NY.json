@@ -5,537 +5,78 @@
     "I-81": {
       "maxMM": 184,
       "stops": [
-        {
-          "mm": 2,
-          "exit": "",
-          "name": "Broome Gateway Welcome Center",
-          "brand": "State",
-          "type": "rest_area",
-          "city": "Kirkwood",
-          "approx": true,
-          "notes": "Northbound, near PA line; truck parking",
-          "parking": 20
-        },
-        {
-          "mm": 46,
-          "exit": "",
-          "name": "Preble Rest Area",
-          "brand": "State",
-          "type": "rest_area",
-          "city": "Preble",
-          "approx": true,
-          "notes": "Northbound and southbound pair; truck parking",
-          "parking": 25
-        },
-        {
-          "mm": 112,
-          "exit": "112",
-          "name": "Central Square Rest Area (both directions)",
-          "brand": "State",
-          "type": "rest_area",
-          "city": "Central Square",
-          "approx": true,
-          "parking": 20
-        },
-        {
-          "mm": 182,
-          "exit": "182",
-          "name": "Thousand Islands Welcome Center Rest Area (NB only)",
-          "brand": "State",
-          "type": "rest_area",
-          "city": "Alexandria Bay",
-          "approx": true,
-          "parking": 15
-        }
+        {"mm": 2, "exit": "", "name": "Broome Gateway Welcome Center", "brand": "State", "type": "rest_area", "city": "Kirkwood", "approx": true, "notes": "Northbound, near PA line; truck parking", "parking": 20},
+        {"mm": 46, "exit": "", "name": "Preble Rest Area", "brand": "State", "type": "rest_area", "city": "Preble", "approx": true, "notes": "Northbound and southbound pair; truck parking", "parking": 25},
+        {"mm": 112, "exit": "112", "name": "Central Square Rest Area (both directions)", "brand": "State", "type": "rest_area", "city": "Central Square", "approx": true, "parking": 20},
+        {"mm": 182, "exit": "182", "name": "Thousand Islands Welcome Center Rest Area (NB only)", "brand": "State", "type": "rest_area", "city": "Alexandria Bay", "approx": true, "parking": 15}
       ]
     },
     "I-84": {
       "maxMM": 72,
       "stops": [
-        {
-          "mm": 4,
-          "exit": "4",
-          "name": "Port Jervis Welcome Center Rest Area (EB only)",
-          "brand": "State",
-          "type": "rest_area",
-          "city": "Port Jervis",
-          "approx": true,
-          "parking": 15
-        },
-        {
-          "mm": 28,
-          "exit": "28",
-          "name": "Pilot Travel Center",
-          "brand": "Pilot",
-          "type": "truck_stop",
-          "city": "Maybrook (Montgomery)",
-          "approx": true,
-          "notes": "NY 208 / Neelytown Rd; exit 28 (old exit 5) under mileage-based renumbering",
-          "parking": 80
-        },
-        {
-          "mm": 28,
-          "exit": "28",
-          "name": "Blue Beacon Truck Wash",
-          "brand": "Independent",
-          "type": "truck_wash",
-          "city": "Montgomery (Maybrook)",
-          "approx": true,
-          "notes": "145 Neelytown Rd at TA Maybrook; mile-based Exit 28 (old Exit 5)"
-        },
-        {
-          "mm": 41,
-          "exit": "41",
-          "name": "Beacon Text Stop / Parking Area (both directions)",
-          "brand": "State",
-          "type": "rest_area",
-          "city": "Beacon",
-          "approx": true,
-          "parking": 10
-        }
+        {"mm": 4, "exit": "4", "name": "Port Jervis Welcome Center Rest Area (EB only)", "brand": "State", "type": "rest_area", "city": "Port Jervis", "approx": true, "parking": 15},
+        {"mm": 28, "exit": "28", "name": "Pilot Travel Center", "brand": "Pilot", "type": "truck_stop", "city": "Maybrook (Montgomery)", "approx": true, "notes": "NY 208 / Neelytown Rd; exit 28 (old exit 5) under mileage-based renumbering", "parking": 80},
+        {"mm": 28, "exit": "28", "name": "Blue Beacon Truck Wash", "brand": "Independent", "type": "truck_wash", "city": "Montgomery (Maybrook)", "approx": true, "notes": "145 Neelytown Rd at TA Maybrook; mile-based Exit 28 (old Exit 5)"},
+        {"mm": 41, "exit": "41", "name": "Beacon Text Stop / Parking Area (both directions)", "brand": "State", "type": "rest_area", "city": "Beacon", "approx": true, "parking": 10}
       ]
     },
     "I-86": {
       "maxMM": 385,
       "stops": [
-        {
-          "mm": 4,
-          "exit": "4",
-          "name": "Findley Lake Welcome Center Rest Area (EB only)",
-          "brand": "State",
-          "type": "rest_area",
-          "city": "Findley Lake",
-          "approx": true,
-          "parking": 20
-        },
-        {
-          "mm": 105,
-          "exit": "105",
-          "name": "Angelica Rest Area (both directions)",
-          "brand": "State",
-          "type": "rest_area",
-          "city": "Angelica",
-          "approx": true,
-          "parking": 15
-        },
-        {
-          "mm": 160,
-          "exit": "37",
-          "name": "TA Express",
-          "brand": "TA Express",
-          "type": "truck_stop",
-          "city": "Kanona (Bath)",
-          "approx": true,
-          "notes": "NY 17/I-86 uses sequential exit numbers; milepost estimated",
-          "parking": 70
-        },
-        {
-          "mm": 200,
-          "exit": "52",
-          "name": "Pilot Travel Center",
-          "brand": "Pilot",
-          "type": "truck_stop",
-          "city": "Horseheads",
-          "approx": true,
-          "notes": "Elmira area; sequential exit number, milepost estimated",
-          "parking": 75
-        }
+        {"mm": 4, "exit": "4", "name": "Findley Lake Welcome Center Rest Area (EB only)", "brand": "State", "type": "rest_area", "city": "Findley Lake", "approx": true, "parking": 20},
+        {"mm": 105, "exit": "105", "name": "Angelica Rest Area (both directions)", "brand": "State", "type": "rest_area", "city": "Angelica", "approx": true, "parking": 15},
+        {"mm": 160, "exit": "37", "name": "TA Express", "brand": "TA Express", "type": "truck_stop", "city": "Kanona (Bath)", "approx": true, "notes": "NY 17/I-86 uses sequential exit numbers; milepost estimated", "parking": 70},
+        {"mm": 200, "exit": "52", "name": "Pilot Travel Center", "brand": "Pilot", "type": "truck_stop", "city": "Horseheads", "approx": true, "notes": "Elmira area; sequential exit number, milepost estimated", "parking": 75}
       ]
     },
     "I-87": {
       "maxMM": 176,
       "stops": [
-        {
-          "mm": 6,
-          "exit": "",
-          "name": "Ardsley Service Area",
-          "brand": "State",
-          "type": "service_plaza",
-          "city": "Ardsley",
-          "approx": true,
-          "notes": "NY Thruway milepost; northbound",
-          "parking": 20
-        },
-        {
-          "mm": 18,
-          "exit": "18",
-          "name": "Glens Falls Rest Area (NB only)",
-          "brand": "State",
-          "type": "rest_area",
-          "city": "Queensbury",
-          "approx": true,
-          "notes": "Northway milepost (Albany = MM 0)",
-          "parking": 20
-        },
-        {
-          "mm": 33,
-          "exit": "",
-          "name": "Sloatsburg Service Area",
-          "brand": "State",
-          "type": "service_plaza",
-          "city": "Sloatsburg",
-          "approx": true,
-          "notes": "NY Thruway milepost; separate NB and SB plazas",
-          "parking": 40
-        },
-        {
-          "mm": 65,
-          "exit": "",
-          "name": "Plattekill Service Area",
-          "brand": "State",
-          "type": "service_plaza",
-          "city": "Plattekill",
-          "approx": true,
-          "notes": "NY Thruway milepost; southbound",
-          "parking": 30
-        },
-        {
-          "mm": 66,
-          "exit": "",
-          "name": "Modena Service Area",
-          "brand": "State",
-          "type": "service_plaza",
-          "city": "Modena",
-          "approx": true,
-          "notes": "NY Thruway milepost; northbound",
-          "parking": 35
-        },
-        {
-          "mm": 90,
-          "exit": "",
-          "name": "North Hudson (High Peaks) Rest Area",
-          "brand": "State",
-          "type": "rest_area",
-          "city": "North Hudson",
-          "approx": true,
-          "notes": "Northway milepost (Albany = MM 0); truck parking",
-          "parking": 25
-        },
-        {
-          "mm": 96,
-          "exit": "",
-          "name": "Ulster Service Area",
-          "brand": "State",
-          "type": "service_plaza",
-          "city": "Ulster",
-          "approx": true,
-          "notes": "NY Thruway milepost; northbound",
-          "parking": 30
-        },
-        {
-          "mm": 103,
-          "exit": "",
-          "name": "Malden Service Area",
-          "brand": "State",
-          "type": "service_plaza",
-          "city": "Malden-on-Hudson",
-          "approx": true,
-          "notes": "NY Thruway milepost; southbound",
-          "parking": 30
-        },
-        {
-          "mm": 127,
-          "exit": "",
-          "name": "New Baltimore Service Area",
-          "brand": "State",
-          "type": "service_plaza",
-          "city": "New Baltimore",
-          "approx": true,
-          "notes": "NY Thruway milepost; serves both directions",
-          "parking": 50
-        },
-        {
-          "mm": 158,
-          "exit": "",
-          "name": "Beekmantown Rest Area / Welcome Center",
-          "brand": "State",
-          "type": "rest_area",
-          "city": "Beekmantown",
-          "approx": true,
-          "notes": "Northway milepost; southbound, near Canadian border; truck parking",
-          "parking": 20
-        }
+        {"mm": 6, "exit": "", "name": "Ardsley Service Area", "brand": "State", "type": "service_plaza", "city": "Ardsley", "approx": true, "notes": "NY Thruway milepost; northbound", "parking": 20},
+        {"mm": 18, "exit": "18", "name": "Glens Falls Rest Area (NB only)", "brand": "State", "type": "rest_area", "city": "Queensbury", "approx": true, "notes": "Northway milepost (Albany = MM 0)", "parking": 20},
+        {"mm": 33, "exit": "", "name": "Sloatsburg Service Area", "brand": "State", "type": "service_plaza", "city": "Sloatsburg", "approx": true, "notes": "NY Thruway milepost; separate NB and SB plazas", "parking": 40},
+        {"mm": 65, "exit": "", "name": "Plattekill Service Area", "brand": "State", "type": "service_plaza", "city": "Plattekill", "approx": true, "notes": "NY Thruway milepost; southbound", "parking": 30},
+        {"mm": 66, "exit": "", "name": "Modena Service Area", "brand": "State", "type": "service_plaza", "city": "Modena", "approx": true, "notes": "NY Thruway milepost; northbound", "parking": 35},
+        {"mm": 90, "exit": "", "name": "North Hudson (High Peaks) Rest Area", "brand": "State", "type": "rest_area", "city": "North Hudson", "approx": true, "notes": "Northway milepost (Albany = MM 0); truck parking", "parking": 25},
+        {"mm": 96, "exit": "", "name": "Ulster Service Area", "brand": "State", "type": "service_plaza", "city": "Ulster", "approx": true, "notes": "NY Thruway milepost; northbound", "parking": 30},
+        {"mm": 103, "exit": "", "name": "Malden Service Area", "brand": "State", "type": "service_plaza", "city": "Malden-on-Hudson", "approx": true, "notes": "NY Thruway milepost; southbound", "parking": 30},
+        {"mm": 127, "exit": "", "name": "New Baltimore Service Area", "brand": "State", "type": "service_plaza", "city": "New Baltimore", "approx": true, "notes": "NY Thruway milepost; serves both directions", "parking": 50},
+        {"mm": 158, "exit": "", "name": "Beekmantown Rest Area / Welcome Center", "brand": "State", "type": "rest_area", "city": "Beekmantown", "approx": true, "notes": "Northway milepost; southbound, near Canadian border; truck parking", "parking": 20}
       ]
     },
     "I-88": {
       "maxMM": 118,
       "stops": [
-        {
-          "mm": 40,
-          "exit": "40",
-          "name": "Unadilla Rest Area (both directions)",
-          "brand": "State",
-          "type": "rest_area",
-          "city": "Unadilla",
-          "approx": true,
-          "parking": 15
-        }
+        {"mm": 40, "exit": "40", "name": "Unadilla Rest Area (both directions)", "brand": "State", "type": "rest_area", "city": "Unadilla", "approx": true, "parking": 15}
       ]
     },
     "I-90": {
       "maxMM": 496,
       "stops": [
-        {
-          "mm": 10,
-          "exit": "10",
-          "name": "Weigh Station (WB)",
-          "brand": "State",
-          "type": "weigh_station",
-          "city": "Schodack",
-          "approx": true,
-          "notes": "NYSDOT/NYSP commercial vehicle inspection station with electronic screening and weigh-in-motion; I-90 free section east of Albany (own mileposts)"
-        },
-        {
-          "mm": 12,
-          "exit": "12",
-          "name": "Love's Travel Stop",
-          "brand": "Love's",
-          "type": "truck_stop",
-          "city": "Schodack",
-          "approx": true,
-          "notes": "US 9, I-90 free section east of Albany (own mileposts)",
-          "parking": 80
-        },
-        {
-          "mm": 153,
-          "exit": "",
-          "name": "Guilderland Service Area",
-          "brand": "State",
-          "type": "service_plaza",
-          "city": "Guilderland",
-          "approx": true,
-          "notes": "NY Thruway milepost; westbound",
-          "parking": 35
-        },
-        {
-          "mm": 168,
-          "exit": "",
-          "name": "Pattersonville Service Area",
-          "brand": "State",
-          "type": "service_plaza",
-          "city": "Pattersonville",
-          "approx": true,
-          "notes": "NY Thruway milepost; westbound",
-          "parking": 30
-        },
-        {
-          "mm": 172,
-          "exit": "",
-          "name": "Mohawk Service Area",
-          "brand": "State",
-          "type": "service_plaza",
-          "city": "Amsterdam",
-          "approx": true,
-          "notes": "NY Thruway milepost; eastbound",
-          "parking": 30
-        },
-        {
-          "mm": 174,
-          "exit": "28",
-          "name": "Pilot Travel Center",
-          "brand": "Pilot",
-          "type": "truck_stop",
-          "city": "Fultonville",
-          "approx": true,
-          "notes": "Thruway exit 28 (sequential); milepost ~174; Riverside Dr",
-          "parking": 80
-        },
-        {
-          "mm": 174,
-          "exit": "28",
-          "name": "Onvo Travel Plaza Motel",
-          "brand": "Onvo",
-          "type": "hotel",
-          "city": "Fultonville",
-          "approx": false,
-          "notes": "Truck parking verified: motel on Onvo Travel Plaza truck stop property (truck parking, showers, CAT scale) at Thruway Exit 28"
-        },
-        {
-          "mm": 210,
-          "exit": "",
-          "name": "Indian Castle Service Area",
-          "brand": "State",
-          "type": "service_plaza",
-          "city": "Little Falls",
-          "approx": true,
-          "notes": "NY Thruway milepost; westbound",
-          "parking": 30
-        },
-        {
-          "mm": 214,
-          "exit": "",
-          "name": "Iroquois Service Area",
-          "brand": "State",
-          "type": "service_plaza",
-          "city": "Little Falls",
-          "approx": true,
-          "notes": "NY Thruway milepost; eastbound",
-          "parking": 30
-        },
-        {
-          "mm": 244,
-          "exit": "",
-          "name": "Oneida Service Area",
-          "brand": "State",
-          "type": "service_plaza",
-          "city": "Westmoreland",
-          "approx": true,
-          "notes": "NY Thruway milepost; westbound",
-          "parking": 35
-        },
-        {
-          "mm": 266,
-          "exit": "",
-          "name": "Chittenango Service Area",
-          "brand": "State",
-          "type": "service_plaza",
-          "city": "Chittenango",
-          "approx": true,
-          "notes": "NY Thruway milepost; eastbound",
-          "parking": 35
-        },
-        {
-          "mm": 283,
-          "exit": "36",
-          "name": "Pilot Travel Center",
-          "brand": "Pilot",
-          "type": "truck_stop",
-          "city": "Liverpool (Syracuse)",
-          "approx": true,
-          "notes": "7th North St, off Thruway exit 36/37 (sequential); milepost estimated",
-          "parking": 75
-        },
-        {
-          "mm": 292,
-          "exit": "",
-          "name": "Warners Service Area",
-          "brand": "State",
-          "type": "service_plaza",
-          "city": "Warners",
-          "approx": true,
-          "notes": "NY Thruway milepost; westbound",
-          "parking": 40
-        },
-        {
-          "mm": 310,
-          "exit": "",
-          "name": "Port Byron Service Area",
-          "brand": "State",
-          "type": "service_plaza",
-          "city": "Port Byron",
-          "approx": true,
-          "notes": "NY Thruway milepost; eastbound",
-          "parking": 35
-        },
-        {
-          "mm": 324,
-          "exit": "",
-          "name": "Junius Ponds Service Area",
-          "brand": "State",
-          "type": "service_plaza",
-          "city": "Phelps",
-          "approx": true,
-          "notes": "NY Thruway milepost; westbound",
-          "parking": 40
-        },
-        {
-          "mm": 350,
-          "exit": "",
-          "name": "Seneca Service Area",
-          "brand": "State",
-          "type": "service_plaza",
-          "city": "Victor",
-          "approx": true,
-          "notes": "NY Thruway milepost; eastbound",
-          "parking": 35
-        },
-        {
-          "mm": 366,
-          "exit": "",
-          "name": "Scottsville Service Area",
-          "brand": "State",
-          "type": "service_plaza",
-          "city": "Scottsville",
-          "approx": true,
-          "notes": "NY Thruway milepost; westbound",
-          "parking": 40
-        },
-        {
-          "mm": 376,
-          "exit": "",
-          "name": "Ontario Service Area",
-          "brand": "State",
-          "type": "service_plaza",
-          "city": "Le Roy",
-          "approx": true,
-          "notes": "NY Thruway milepost; eastbound",
-          "parking": 35
-        },
-        {
-          "mm": 397,
-          "exit": "",
-          "name": "Pembroke Service Area",
-          "brand": "State",
-          "type": "service_plaza",
-          "city": "Pembroke",
-          "approx": true,
-          "notes": "NY Thruway milepost; westbound",
-          "parking": 40
-        },
-        {
-          "mm": 402,
-          "exit": "48A",
-          "name": "TA Travel Center",
-          "brand": "TA",
-          "type": "truck_stop",
-          "city": "Pembroke",
-          "approx": true,
-          "notes": "NY 77, Thruway exit 48A (sequential); milepost ~402; Alleghany Rd",
-          "parking": 200
-        },
-        {
-          "mm": 402,
-          "exit": "48A",
-          "name": "Flying J Travel Center",
-          "brand": "Flying J",
-          "type": "truck_stop",
-          "city": "Pembroke",
-          "approx": true,
-          "notes": "NY 77, Thruway exit 48A (sequential); milepost ~402; Alleghany Rd",
-          "parking": 90
-        },
-        {
-          "mm": 402,
-          "exit": "48A",
-          "name": "Econo Lodge Darien Lakes",
-          "brand": "Econo Lodge (Choice)",
-          "type": "hotel",
-          "city": "Corfu (Pembroke)",
-          "approx": false,
-          "notes": "Truck parking verified: hotel advertises dedicated tractor-trailer parking lot with exterior electrical outlets for truckers; Flying J/TA across the street"
-        },
-        {
-          "mm": 412,
-          "exit": "",
-          "name": "Clarence Service Area",
-          "brand": "State",
-          "type": "service_plaza",
-          "city": "Clarence",
-          "approx": true,
-          "notes": "NY Thruway milepost; eastbound",
-          "parking": 40
-        },
-        {
-          "mm": 447,
-          "exit": "",
-          "name": "Angola Service Area",
-          "brand": "State",
-          "type": "service_plaza",
-          "city": "Angola",
-          "approx": false,
-          "notes": "NY Thruway milepost 447; median plaza serving both directions via pedestrian bridge",
-          "parking": 60
-        }
+        {"mm": 10, "exit": "10", "name": "Weigh Station (WB)", "brand": "State", "type": "weigh_station", "city": "Schodack", "approx": true, "notes": "NYSDOT/NYSP commercial vehicle inspection station with electronic screening and weigh-in-motion; I-90 free section east of Albany (own mileposts)"},
+        {"mm": 12, "exit": "12", "name": "Love's Travel Stop", "brand": "Love's", "type": "truck_stop", "city": "Schodack", "approx": true, "notes": "US 9, I-90 free section east of Albany (own mileposts)", "parking": 80},
+        {"mm": 153, "exit": "", "name": "Guilderland Service Area", "brand": "State", "type": "service_plaza", "city": "Guilderland", "approx": true, "notes": "NY Thruway milepost; westbound", "parking": 35},
+        {"mm": 168, "exit": "", "name": "Pattersonville Service Area", "brand": "State", "type": "service_plaza", "city": "Pattersonville", "approx": true, "notes": "NY Thruway milepost; westbound", "parking": 30},
+        {"mm": 172, "exit": "", "name": "Mohawk Service Area", "brand": "State", "type": "service_plaza", "city": "Amsterdam", "approx": true, "notes": "NY Thruway milepost; eastbound", "parking": 30},
+        {"mm": 174, "exit": "28", "name": "Pilot Travel Center", "brand": "Pilot", "type": "truck_stop", "city": "Fultonville", "approx": true, "notes": "Thruway exit 28 (sequential); milepost ~174; Riverside Dr", "parking": 80},
+        {"mm": 174, "exit": "28", "name": "Onvo Travel Plaza Motel", "brand": "Onvo", "type": "hotel", "city": "Fultonville", "approx": false, "notes": "Truck parking verified: motel on Onvo Travel Plaza truck stop property (truck parking, showers, CAT scale) at Thruway Exit 28"},
+        {"mm": 210, "exit": "", "name": "Indian Castle Service Area", "brand": "State", "type": "service_plaza", "city": "Little Falls", "approx": true, "notes": "NY Thruway milepost; westbound", "parking": 30},
+        {"mm": 214, "exit": "", "name": "Iroquois Service Area", "brand": "State", "type": "service_plaza", "city": "Little Falls", "approx": true, "notes": "NY Thruway milepost; eastbound", "parking": 30},
+        {"mm": 244, "exit": "", "name": "Oneida Service Area", "brand": "State", "type": "service_plaza", "city": "Westmoreland", "approx": true, "notes": "NY Thruway milepost; westbound", "parking": 35},
+        {"mm": 266, "exit": "", "name": "Chittenango Service Area", "brand": "State", "type": "service_plaza", "city": "Chittenango", "approx": true, "notes": "NY Thruway milepost; eastbound", "parking": 35},
+        {"mm": 283, "exit": "36", "name": "Pilot Travel Center", "brand": "Pilot", "type": "truck_stop", "city": "Liverpool (Syracuse)", "approx": true, "notes": "7th North St, off Thruway exit 36/37 (sequential); milepost estimated", "parking": 75},
+        {"mm": 292, "exit": "", "name": "Warners Service Area", "brand": "State", "type": "service_plaza", "city": "Warners", "approx": true, "notes": "NY Thruway milepost; westbound", "parking": 40},
+        {"mm": 310, "exit": "", "name": "Port Byron Service Area", "brand": "State", "type": "service_plaza", "city": "Port Byron", "approx": true, "notes": "NY Thruway milepost; eastbound", "parking": 35},
+        {"mm": 324, "exit": "", "name": "Junius Ponds Service Area", "brand": "State", "type": "service_plaza", "city": "Phelps", "approx": true, "notes": "NY Thruway milepost; westbound", "parking": 40},
+        {"mm": 350, "exit": "", "name": "Seneca Service Area", "brand": "State", "type": "service_plaza", "city": "Victor", "approx": true, "notes": "NY Thruway milepost; eastbound", "parking": 35},
+        {"mm": 366, "exit": "", "name": "Scottsville Service Area", "brand": "State", "type": "service_plaza", "city": "Scottsville", "approx": true, "notes": "NY Thruway milepost; westbound", "parking": 40},
+        {"mm": 376, "exit": "", "name": "Ontario Service Area", "brand": "State", "type": "service_plaza", "city": "Le Roy", "approx": true, "notes": "NY Thruway milepost; eastbound", "parking": 35},
+        {"mm": 397, "exit": "", "name": "Pembroke Service Area", "brand": "State", "type": "service_plaza", "city": "Pembroke", "approx": true, "notes": "NY Thruway milepost; westbound", "parking": 40},
+        {"mm": 402, "exit": "48A", "name": "TA Travel Center", "brand": "TA", "type": "truck_stop", "city": "Pembroke", "approx": true, "notes": "NY 77, Thruway exit 48A (sequential); milepost ~402; Alleghany Rd", "parking": 200},
+        {"mm": 402, "exit": "48A", "name": "Flying J Travel Center", "brand": "Flying J", "type": "truck_stop", "city": "Pembroke", "approx": true, "notes": "NY 77, Thruway exit 48A (sequential); milepost ~402; Alleghany Rd", "parking": 90},
+        {"mm": 402, "exit": "48A", "name": "Econo Lodge Darien Lakes", "brand": "Econo Lodge (Choice)", "type": "hotel", "city": "Corfu (Pembroke)", "approx": false, "notes": "Truck parking verified: hotel advertises dedicated tractor-trailer parking lot with exterior electrical outlets for truckers; Flying J/TA across the street"},
+        {"mm": 412, "exit": "", "name": "Clarence Service Area", "brand": "State", "type": "service_plaza", "city": "Clarence", "approx": true, "notes": "NY Thruway milepost; eastbound", "parking": 40},
+        {"mm": 447, "exit": "", "name": "Angola Service Area", "brand": "State", "type": "service_plaza", "city": "Angola", "approx": false, "notes": "NY Thruway milepost 447; median plaza serving both directions via pedestrian bridge", "parking": 60}
       ]
     },
     "I-95": {
@@ -545,17 +86,7 @@
     "I-390": {
       "maxMM": 76,
       "stops": [
-        {
-          "mm": 26,
-          "exit": "5",
-          "name": "Love's Travel Stop",
-          "brand": "Love's",
-          "type": "truck_stop",
-          "city": "Dansville",
-          "approx": true,
-          "notes": "Exit 5 (sequential); milepost estimated",
-          "parking": 90
-        }
+        {"mm": 26, "exit": "5", "name": "Love's Travel Stop", "brand": "Love's", "type": "truck_stop", "city": "Dansville", "approx": true, "notes": "Exit 5 (sequential); milepost estimated", "parking": 90}
       ]
     },
     "I-99": {

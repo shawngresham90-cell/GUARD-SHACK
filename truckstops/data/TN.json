@@ -41,6 +41,16 @@
         {
           "mm": 62,
           "exit": "62",
+          "name": "Blue Beacon Truck Wash",
+          "brand": "Independent",
+          "type": "truck_wash",
+          "city": "Antioch (Nashville)",
+          "approx": false,
+          "notes": "Blue Beacon of Nashville, 611 Muci Dr off Exit 62; near Pilot Travel Center"
+        },
+        {
+          "mm": 62,
+          "exit": "62",
           "name": "Pilot Travel Center",
           "brand": "Pilot",
           "type": "truck_stop",
@@ -48,16 +58,6 @@
           "approx": true,
           "notes": "Old Hickory Blvd",
           "parking": 85
-        },
-        {
-          "mm": 62,
-          "exit": "62",
-          "name": "Blue Beacon Truck Wash",
-          "brand": "Independent",
-          "type": "truck_wash",
-          "city": "Antioch (Nashville)",
-          "approx": false,
-          "notes": "Blue Beacon of Nashville, 611 Muci Dr off Exit 62; near Pilot Travel Center"
         },
         {
           "mm": 84,
@@ -79,6 +79,15 @@
           "city": "Beechgrove",
           "approx": true,
           "parking": 30
+        },
+        {
+          "mm": 114,
+          "exit": "114",
+          "name": "Motel 6 Manchester",
+          "brand": "Motel 6",
+          "type": "hotel",
+          "city": "Manchester",
+          "notes": "Truck parking verified: Motel 6 lists truck parking for larger vehicles; 2430 Hillsboro Blvd at exit 114 (US 41)"
         },
         {
           "mm": 114,
@@ -126,8 +135,8 @@
         {
           "mm": 174,
           "exit": "174",
-          "name": "Pilot Travel Center",
-          "brand": "Pilot",
+          "name": "Love's Travel Stop",
+          "brand": "Love's",
           "type": "truck_stop",
           "city": "Chattanooga (Lookout Valley)",
           "approx": true,
@@ -137,8 +146,8 @@
         {
           "mm": 174,
           "exit": "174",
-          "name": "Love's Travel Stop",
-          "brand": "Love's",
+          "name": "Pilot Travel Center",
+          "brand": "Pilot",
           "type": "truck_stop",
           "city": "Chattanooga (Lookout Valley)",
           "approx": true,
@@ -242,6 +251,15 @@
         },
         {
           "mm": 80,
+          "exit": "80A",
+          "name": "Jackson Hotel & Convention Center",
+          "brand": "Independent",
+          "type": "hotel",
+          "city": "Jackson",
+          "notes": "Truck parking verified: trucker reviews on TripAdvisor confirm plenty of RV and semi truck parking; south side of exit 80A"
+        },
+        {
+          "mm": 80,
           "exit": "80",
           "name": "Pilot Travel Center",
           "brand": "Pilot",
@@ -265,6 +283,16 @@
         {
           "mm": 126,
           "exit": "126",
+          "name": "Finish Line Truck Wash",
+          "brand": "Independent",
+          "type": "truck_wash",
+          "city": "Holladay",
+          "approx": false,
+          "notes": "Exit 126; near Pilot Travel Center"
+        },
+        {
+          "mm": 126,
+          "exit": "126",
           "name": "Pilot Travel Center",
           "brand": "Pilot",
           "type": "truck_stop",
@@ -272,16 +300,6 @@
           "approx": true,
           "notes": "TN-69, Camden/Holladay",
           "parking": 85
-        },
-        {
-          "mm": 126,
-          "exit": "126",
-          "name": "Finish Line Truck Wash",
-          "brand": "Independent",
-          "type": "truck_wash",
-          "city": "Holladay",
-          "approx": false,
-          "notes": "Exit 126; near Pilot Travel Center"
         },
         {
           "mm": 131,
@@ -297,17 +315,6 @@
         {
           "mm": 172,
           "exit": "172",
-          "name": "TA Dickson",
-          "brand": "TA",
-          "type": "truck_stop",
-          "city": "Dickson",
-          "approx": false,
-          "notes": "TN-46",
-          "parking": 190
-        },
-        {
-          "mm": 172,
-          "exit": "172",
           "name": "Love's Travel Stop",
           "brand": "Love's",
           "type": "truck_stop",
@@ -315,6 +322,17 @@
           "approx": true,
           "notes": "TN-46",
           "parking": 85
+        },
+        {
+          "mm": 172,
+          "exit": "172",
+          "name": "TA Dickson",
+          "brand": "TA",
+          "type": "truck_stop",
+          "city": "Dickson",
+          "approx": false,
+          "notes": "TN-46",
+          "parking": 190
         },
         {
           "mm": 182,
@@ -373,6 +391,15 @@
         {
           "mm": 287,
           "exit": "287",
+          "name": "La Quinta Inn & Suites Cookeville",
+          "brand": "La Quinta",
+          "type": "hotel",
+          "city": "Cookeville",
+          "notes": "Truck parking verified: hotel site lists bus/truck and RV parking; 1131 S Jefferson Ave at exit 287"
+        },
+        {
+          "mm": 287,
+          "exit": "287",
           "name": "Pilot Travel Center",
           "brand": "Pilot",
           "type": "truck_stop",
@@ -417,6 +444,27 @@
         {
           "mm": 369,
           "exit": "369",
+          "name": "Blue Beacon Truck Wash",
+          "brand": "Independent",
+          "type": "truck_wash",
+          "city": "Knoxville",
+          "approx": false,
+          "notes": "1501 Everett Rd, Watt Road Exit 369 (I-40/I-75); by TA/Petro/Pilot"
+        },
+        {
+          "mm": 369,
+          "exit": "369",
+          "name": "Petro Knoxville (Watt Road)",
+          "brand": "Petro",
+          "type": "truck_stop",
+          "city": "Knoxville",
+          "approx": false,
+          "notes": "Watt Rd cluster on I-40/I-75 overlap",
+          "parking": 200
+        },
+        {
+          "mm": 369,
+          "exit": "369",
           "name": "Pilot Travel Center (Watt Road)",
           "brand": "Pilot",
           "type": "truck_stop",
@@ -437,27 +485,6 @@
           "parking": 190
         },
         {
-          "mm": 369,
-          "exit": "369",
-          "name": "Petro Knoxville (Watt Road)",
-          "brand": "Petro",
-          "type": "truck_stop",
-          "city": "Knoxville",
-          "approx": false,
-          "notes": "Watt Rd cluster on I-40/I-75 overlap",
-          "parking": 200
-        },
-        {
-          "mm": 369,
-          "exit": "369",
-          "name": "Blue Beacon Truck Wash",
-          "brand": "Independent",
-          "type": "truck_wash",
-          "city": "Knoxville",
-          "approx": false,
-          "notes": "1501 Everett Rd, Watt Road Exit 369 (I-40/I-75); by TA/Petro/Pilot"
-        },
-        {
           "mm": 372,
           "exit": "372",
           "name": "Weigh Station (both directions)",
@@ -466,6 +493,16 @@
           "city": "Knoxville (Farragut)",
           "approx": false,
           "notes": "THP Knox County scale complex, MM 372 EB and WB on I-40/I-75 overlap; PrePass"
+        },
+        {
+          "mm": 398,
+          "exit": "398",
+          "name": "Motel 6 Knoxville East",
+          "brand": "Motel 6",
+          "type": "hotel",
+          "city": "Knoxville",
+          "approx": true,
+          "notes": "Truck parking verified: Motel 6 lists free RV/bus/truck parking; 1550 Cracker Barrel Ln off Strawberry Plains Pike"
         },
         {
           "mm": 398,

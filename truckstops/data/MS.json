@@ -60,6 +60,26 @@
           "parking": 85
         },
         {
+          "mm": 34,
+          "exit": "34",
+          "name": "Quality Inn Gulfport I-10",
+          "brand": "Quality Inn",
+          "type": "hotel",
+          "city": "Gulfport",
+          "approx": true,
+          "notes": "Truck parking verified: hotel advertises oversized truck lot that accommodates 18-wheelers; US 49 just north of exit 34"
+        },
+        {
+          "mm": 69,
+          "exit": "69",
+          "name": "Baymont Moss Point/Pascagoula",
+          "brand": "Baymont",
+          "type": "hotel",
+          "city": "Moss Point",
+          "approx": true,
+          "notes": "Truck parking verified: Wyndham listing offers free parking for trucks and buses; MS-63 at exit 69"
+        },
+        {
           "mm": 69,
           "exit": "69",
           "name": "Love's Travel Stop",
@@ -174,6 +194,15 @@
         {
           "mm": 153,
           "exit": "153",
+          "name": "Quality Inn Meridian",
+          "brand": "Quality Inn",
+          "type": "hotel",
+          "city": "Meridian",
+          "notes": "Truck parking verified: Choice Hotels listing cites ample RV/bus/truck parking; TripAdvisor trucker review confirms truck parking; I-20/I-59 exit 153"
+        },
+        {
+          "mm": 153,
+          "exit": "153",
           "name": "Queen City Truck Stop",
           "brand": "Independent",
           "type": "truck_stop",
@@ -223,6 +252,16 @@
           "approx": true,
           "notes": "Northbound entering from Louisiana; truck parking",
           "parking": 20
+        },
+        {
+          "mm": 100,
+          "exit": "100",
+          "name": "Studio 6 Jackson I-55",
+          "brand": "Studio 6",
+          "type": "hotel",
+          "city": "Jackson",
+          "approx": true,
+          "notes": "Truck parking verified: Studio 6 property listing includes truck parking amenity; 5035 I-55 N Frontage Rd near Briarwood Dr exit"
         },
         {
           "mm": 119,

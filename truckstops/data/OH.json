@@ -5,343 +5,42 @@
     "I-70": {
       "maxMM": 226,
       "stops": [
-        {
-          "mm": 1,
-          "exit": "1",
-          "name": "Weigh Station (EB)",
-          "brand": "State",
-          "type": "weigh_station",
-          "city": "New Paris (Preble County)",
-          "approx": true,
-          "notes": "OSHP scale at EB mm 0.8, just east of Indiana state line"
-        },
-        {
-          "mm": 1,
-          "exit": "1",
-          "name": "Blue Beacon Truck Wash",
-          "brand": "Independent",
-          "type": "truck_wash",
-          "city": "New Paris",
-          "approx": true,
-          "notes": "9787 US 40 W at OH/IN state line; access via I-70 Exit 156B (IN side) / Exit 1 (OH)"
-        },
-        {
-          "mm": 10,
-          "exit": "10",
-          "name": "Pilot Travel Center",
-          "brand": "Pilot",
-          "type": "truck_stop",
-          "city": "Brookville",
-          "approx": true,
-          "notes": "SR-49 exit",
-          "parking": 80
-        },
-        {
-          "mm": 31,
-          "exit": "31",
-          "name": "Preble County Rest Area (both directions)",
-          "brand": "State",
-          "type": "rest_area",
-          "city": "Lewisburg area",
-          "approx": true,
-          "notes": "Serves EB and WB, truck parking",
-          "parking": 30
-        },
-        {
-          "mm": 41,
-          "exit": "41",
-          "name": "Buc-ee's",
-          "brand": "Buc-ee's",
-          "type": "truck_stop",
-          "city": "Huber Heights",
-          "approx": false,
-          "notes": "No semi parking; opened April 6, 2026; I-70 at OH-235 (exit 41), NE of Dayton; 108 fuel pumps, 24 EV chargers",
-          "parking": 0
-        },
-        {
-          "mm": 80,
-          "exit": "80",
-          "name": "Love's Travel Stop",
-          "brand": "Love's",
-          "type": "truck_stop",
-          "city": "West Jefferson",
-          "approx": false,
-          "notes": "Opened June 2025; I-70 Exit 80/OH-29",
-          "parking": 80
-        },
-        {
-          "mm": 85,
-          "exit": "85",
-          "name": "Pilot Travel Center",
-          "brand": "Pilot",
-          "type": "truck_stop",
-          "city": "West Jefferson",
-          "approx": false,
-          "notes": "SR-142",
-          "parking": 80
-        },
-        {
-          "mm": 85,
-          "exit": "85",
-          "name": "TA Travel Center",
-          "brand": "TA",
-          "type": "truck_stop",
-          "city": "West Jefferson",
-          "approx": true,
-          "notes": "SR-142, Columbus west side",
-          "parking": 175
-        },
-        {
-          "mm": 118,
-          "exit": "118",
-          "name": "Pilot Travel Center",
-          "brand": "Pilot",
-          "type": "truck_stop",
-          "city": "Etna",
-          "approx": true,
-          "notes": "SR-310",
-          "parking": 80
-        },
-        {
-          "mm": 126,
-          "exit": "126",
-          "name": "Pilot Travel Center",
-          "brand": "Pilot",
-          "type": "truck_stop",
-          "city": "Hebron",
-          "approx": false,
-          "notes": "SR-37, large lot",
-          "parking": 100
-        },
-        {
-          "mm": 126,
-          "exit": "126",
-          "name": "Flying J Travel Center",
-          "brand": "Flying J",
-          "type": "truck_stop",
-          "city": "Hebron",
-          "approx": false,
-          "notes": "SR-37",
-          "parking": 90
-        },
-        {
-          "mm": 126,
-          "exit": "126",
-          "name": "Truckomat Truck Wash",
-          "brand": "Independent",
-          "type": "truck_wash",
-          "city": "Hebron",
-          "approx": false,
-          "notes": "10679 Lancaster Rd, I-70 Exit 126"
-        },
-        {
-          "mm": 152,
-          "exit": "152",
-          "name": "Pilot Travel Center",
-          "brand": "Pilot",
-          "type": "truck_stop",
-          "city": "Zanesville",
-          "approx": true,
-          "notes": "US-40/National Rd",
-          "parking": 75
-        },
-        {
-          "mm": 160,
-          "exit": "160",
-          "name": "Love's Travel Stop",
-          "brand": "Love's",
-          "type": "truck_stop",
-          "city": "Zanesville area",
-          "approx": true,
-          "notes": "",
-          "parking": 85
-        },
-        {
-          "mm": 173,
-          "exit": "173",
-          "name": "Weigh Station (WB)",
-          "brand": "State",
-          "type": "weigh_station",
-          "city": "Cambridge area",
-          "approx": true,
-          "notes": "OSHP scale, Guernsey County, west of Cambridge"
-        },
-        {
-          "mm": 178,
-          "exit": "178",
-          "name": "TA Travel Center",
-          "brand": "TA",
-          "type": "truck_stop",
-          "city": "Cambridge",
-          "approx": true,
-          "notes": "US-40, near I-77 junction",
-          "parking": 160
-        },
-        {
-          "mm": 178,
-          "exit": "178",
-          "name": "Love's Travel Stop",
-          "brand": "Love's",
-          "type": "truck_stop",
-          "city": "Cambridge",
-          "approx": true,
-          "notes": "Near I-77 junction",
-          "parking": 85
-        },
-        {
-          "mm": 208,
-          "exit": "208",
-          "name": "Love's Travel Stop",
-          "brand": "Love's",
-          "type": "truck_stop",
-          "city": "St. Clairsville",
-          "approx": false,
-          "notes": "Opened April 2025; I-70 Exit 208; includes Speedco",
-          "parking": 121
-        },
-        {
-          "mm": 212,
-          "exit": "212",
-          "name": "Belmont County Rest Area (both directions)",
-          "brand": "State",
-          "type": "rest_area",
-          "city": "Morristown",
-          "approx": true,
-          "parking": 25
-        }
+        {"mm": 1, "exit": "1", "name": "Weigh Station (EB)", "brand": "State", "type": "weigh_station", "city": "New Paris (Preble County)", "approx": true, "notes": "OSHP scale at EB mm 0.8, just east of Indiana state line"},
+        {"mm": 1, "exit": "1", "name": "Blue Beacon Truck Wash", "brand": "Independent", "type": "truck_wash", "city": "New Paris", "approx": true, "notes": "9787 US 40 W at OH/IN state line; access via I-70 Exit 156B (IN side) / Exit 1 (OH)"},
+        {"mm": 10, "exit": "10", "name": "Pilot Travel Center", "brand": "Pilot", "type": "truck_stop", "city": "Brookville", "approx": true, "notes": "SR-49 exit", "parking": 80},
+        {"mm": 31, "exit": "31", "name": "Preble County Rest Area (both directions)", "brand": "State", "type": "rest_area", "city": "Lewisburg area", "approx": true, "notes": "Serves EB and WB, truck parking", "parking": 30},
+        {"mm": 41, "exit": "41", "name": "Buc-ee's", "brand": "Buc-ee's", "type": "truck_stop", "city": "Huber Heights", "approx": false, "notes": "No semi parking; opened April 6, 2026; I-70 at OH-235 (exit 41), NE of Dayton; 108 fuel pumps, 24 EV chargers", "parking": 0},
+        {"mm": 80, "exit": "80", "name": "Love's Travel Stop", "brand": "Love's", "type": "truck_stop", "city": "West Jefferson", "approx": false, "notes": "Opened June 2025; I-70 Exit 80/OH-29", "parking": 80},
+        {"mm": 85, "exit": "85", "name": "Pilot Travel Center", "brand": "Pilot", "type": "truck_stop", "city": "West Jefferson", "approx": false, "notes": "SR-142", "parking": 80},
+        {"mm": 85, "exit": "85", "name": "TA Travel Center", "brand": "TA", "type": "truck_stop", "city": "West Jefferson", "approx": true, "notes": "SR-142, Columbus west side", "parking": 175},
+        {"mm": 118, "exit": "118", "name": "Pilot Travel Center", "brand": "Pilot", "type": "truck_stop", "city": "Etna", "approx": true, "notes": "SR-310", "parking": 80},
+        {"mm": 126, "exit": "126", "name": "Pilot Travel Center", "brand": "Pilot", "type": "truck_stop", "city": "Hebron", "approx": false, "notes": "SR-37, large lot", "parking": 100},
+        {"mm": 126, "exit": "126", "name": "Flying J Travel Center", "brand": "Flying J", "type": "truck_stop", "city": "Hebron", "approx": false, "notes": "SR-37", "parking": 90},
+        {"mm": 126, "exit": "126", "name": "Truckomat Truck Wash", "brand": "Independent", "type": "truck_wash", "city": "Hebron", "approx": false, "notes": "10679 Lancaster Rd, I-70 Exit 126"},
+        {"mm": 152, "exit": "152", "name": "Pilot Travel Center", "brand": "Pilot", "type": "truck_stop", "city": "Zanesville", "approx": true, "notes": "US-40/National Rd", "parking": 75},
+        {"mm": 160, "exit": "160", "name": "Love's Travel Stop", "brand": "Love's", "type": "truck_stop", "city": "Zanesville area", "approx": true, "notes": "", "parking": 85},
+        {"mm": 173, "exit": "173", "name": "Weigh Station (WB)", "brand": "State", "type": "weigh_station", "city": "Cambridge area", "approx": true, "notes": "OSHP scale, Guernsey County, west of Cambridge"},
+        {"mm": 178, "exit": "178", "name": "TA Travel Center", "brand": "TA", "type": "truck_stop", "city": "Cambridge", "approx": true, "notes": "US-40, near I-77 junction", "parking": 160},
+        {"mm": 178, "exit": "178", "name": "Love's Travel Stop", "brand": "Love's", "type": "truck_stop", "city": "Cambridge", "approx": true, "notes": "Near I-77 junction", "parking": 85},
+        {"mm": 208, "exit": "208", "name": "Love's Travel Stop", "brand": "Love's", "type": "truck_stop", "city": "St. Clairsville", "approx": false, "notes": "Opened April 2025; I-70 Exit 208; includes Speedco", "parking": 121},
+        {"mm": 212, "exit": "212", "name": "Belmont County Rest Area (both directions)", "brand": "State", "type": "rest_area", "city": "Morristown", "approx": true, "parking": 25}
       ]
     },
     "I-71": {
       "maxMM": 248,
       "stops": [
-        {
-          "mm": 35,
-          "exit": "35",
-          "name": "Caesar Creek Rest Area (both directions)",
-          "brand": "State",
-          "type": "rest_area",
-          "city": "Wilmington area",
-          "approx": true,
-          "parking": 25
-        },
-        {
-          "mm": 65,
-          "exit": "65",
-          "name": "Love's Travel Stop",
-          "brand": "Love's",
-          "type": "truck_stop",
-          "city": "Jeffersonville",
-          "approx": true,
-          "notes": "Outlet mall area",
-          "parking": 85
-        },
-        {
-          "mm": 65,
-          "exit": "65",
-          "name": "QuikTrip Jeffersonville Travel Center",
-          "brand": "QuikTrip",
-          "type": "truck_stop",
-          "city": "Jeffersonville",
-          "approx": false,
-          "notes": "Opened fall 2025, I-71 Exit 65; truck scales, diesel lanes, dedicated truck parking"
-        },
-        {
-          "mm": 82,
-          "exit": "82",
-          "name": "Mount Sterling Rest Area (both directions)",
-          "brand": "State",
-          "type": "rest_area",
-          "city": "Mount Sterling area",
-          "approx": true,
-          "notes": "Serves NB and SB, truck parking",
-          "parking": 30
-        },
-        {
-          "mm": 131,
-          "exit": "131",
-          "name": "Flying J Travel Center",
-          "brand": "Flying J",
-          "type": "truck_stop",
-          "city": "Sunbury",
-          "approx": false,
-          "notes": "US-36/SR-37",
-          "parking": 90
-        },
-        {
-          "mm": 153,
-          "exit": "153",
-          "name": "Morrow County Rest Area (both directions)",
-          "brand": "State",
-          "type": "rest_area",
-          "city": "Chesterville",
-          "approx": true,
-          "parking": 25
-        },
-        {
-          "mm": 169,
-          "exit": "169",
-          "name": "Pilot Travel Center",
-          "brand": "Pilot",
-          "type": "truck_stop",
-          "city": "Mansfield",
-          "approx": true,
-          "notes": "SR-13",
-          "parking": 80
-        },
-        {
-          "mm": 186,
-          "exit": "186",
-          "name": "Love's Travel Stop",
-          "brand": "Love's",
-          "type": "truck_stop",
-          "city": "Ashland",
-          "approx": true,
-          "notes": "US-250",
-          "parking": 85
-        },
-        {
-          "mm": 204,
-          "exit": "204",
-          "name": "Pilot Travel Center",
-          "brand": "Pilot",
-          "type": "truck_stop",
-          "city": "Burbank",
-          "approx": false,
-          "notes": "SR-83, Lodi area",
-          "parking": 80
-        },
-        {
-          "mm": 209,
-          "exit": "209",
-          "name": "TA Travel Center",
-          "brand": "TA",
-          "type": "truck_stop",
-          "city": "Seville/Lodi area",
-          "approx": false,
-          "notes": "I-76/US-224 junction",
-          "parking": 175
-        },
-        {
-          "mm": 209,
-          "exit": "209",
-          "name": "Petro Stopping Center",
-          "brand": "Petro",
-          "type": "truck_stop",
-          "city": "Seville/Lodi area",
-          "approx": false,
-          "notes": "I-76/US-224 junction",
-          "parking": 200
-        },
-        {
-          "mm": 209,
-          "exit": "209",
-          "name": "Blue Beacon Truck Wash",
-          "brand": "Independent",
-          "type": "truck_wash",
-          "city": "Lodi (Burbank)",
-          "approx": true,
-          "notes": "At TA Travel Center, I-71 Exit 209 (I-71/I-76/US-224 interchange)"
-        }
+        {"mm": 35, "exit": "35", "name": "Caesar Creek Rest Area (both directions)", "brand": "State", "type": "rest_area", "city": "Wilmington area", "approx": true, "parking": 25},
+        {"mm": 65, "exit": "65", "name": "Love's Travel Stop", "brand": "Love's", "type": "truck_stop", "city": "Jeffersonville", "approx": true, "notes": "Outlet mall area", "parking": 85},
+        {"mm": 65, "exit": "65", "name": "QuikTrip Jeffersonville Travel Center", "brand": "QuikTrip", "type": "truck_stop", "city": "Jeffersonville", "approx": false, "notes": "Opened fall 2025, I-71 Exit 65; truck scales, diesel lanes, dedicated truck parking"},
+        {"mm": 82, "exit": "82", "name": "Mount Sterling Rest Area (both directions)", "brand": "State", "type": "rest_area", "city": "Mount Sterling area", "approx": true, "notes": "Serves NB and SB, truck parking", "parking": 30},
+        {"mm": 131, "exit": "131", "name": "Flying J Travel Center", "brand": "Flying J", "type": "truck_stop", "city": "Sunbury", "approx": false, "notes": "US-36/SR-37", "parking": 90},
+        {"mm": 153, "exit": "153", "name": "Morrow County Rest Area (both directions)", "brand": "State", "type": "rest_area", "city": "Chesterville", "approx": true, "parking": 25},
+        {"mm": 169, "exit": "169", "name": "Pilot Travel Center", "brand": "Pilot", "type": "truck_stop", "city": "Mansfield", "approx": true, "notes": "SR-13", "parking": 80},
+        {"mm": 186, "exit": "186", "name": "Love's Travel Stop", "brand": "Love's", "type": "truck_stop", "city": "Ashland", "approx": true, "notes": "US-250", "parking": 85},
+        {"mm": 204, "exit": "204", "name": "Pilot Travel Center", "brand": "Pilot", "type": "truck_stop", "city": "Burbank", "approx": false, "notes": "SR-83, Lodi area", "parking": 80},
+        {"mm": 209, "exit": "209", "name": "TA Travel Center", "brand": "TA", "type": "truck_stop", "city": "Seville/Lodi area", "approx": false, "notes": "I-76/US-224 junction", "parking": 175},
+        {"mm": 209, "exit": "209", "name": "Petro Stopping Center", "brand": "Petro", "type": "truck_stop", "city": "Seville/Lodi area", "approx": false, "notes": "I-76/US-224 junction", "parking": 200},
+        {"mm": 209, "exit": "209", "name": "Blue Beacon Truck Wash", "brand": "Independent", "type": "truck_wash", "city": "Lodi (Burbank)", "approx": true, "notes": "At TA Travel Center, I-71 Exit 209 (I-71/I-76/US-224 interchange)"}
       ]
     },
     "I-74": {
@@ -351,490 +50,74 @@
     "I-75": {
       "maxMM": 211,
       "stops": [
-        {
-          "mm": 21,
-          "exit": "21",
-          "name": "QuikTrip West Chester Travel Center",
-          "brand": "QuikTrip",
-          "type": "truck_stop",
-          "city": "West Chester",
-          "approx": true,
-          "notes": "Opened 2025 at I-75 Exit 21; 6 high-flow diesel bays"
-        },
-        {
-          "mm": 50,
-          "exit": "50",
-          "name": "QuikTrip Dayton Travel Center",
-          "brand": "QuikTrip",
-          "type": "truck_stop",
-          "city": "Dayton",
-          "approx": true,
-          "notes": "QuikTrip's first Ohio travel center, opened June 2025; 6 diesel bays; exit approximate"
-        },
-        {
-          "mm": 81,
-          "exit": "81",
-          "name": "Piqua Rest Area (both directions)",
-          "brand": "State",
-          "type": "rest_area",
-          "city": "Piqua area",
-          "approx": true,
-          "notes": "Serves NB and SB, truck parking",
-          "parking": 30
-        },
-        {
-          "mm": 111,
-          "exit": "111",
-          "name": "Pilot Travel Center",
-          "brand": "Pilot",
-          "type": "truck_stop",
-          "city": "Wapakoneta",
-          "approx": true,
-          "notes": "Bellefontaine St",
-          "parking": 80
-        },
-        {
-          "mm": 135,
-          "exit": "135",
-          "name": "Flying J Travel Center",
-          "brand": "Flying J",
-          "type": "truck_stop",
-          "city": "Beaverdam",
-          "approx": false,
-          "notes": "US-30 junction area",
-          "parking": 100
-        },
-        {
-          "mm": 135,
-          "exit": "135",
-          "name": "Love's Travel Stop",
-          "brand": "Love's",
-          "type": "truck_stop",
-          "city": "Beaverdam",
-          "approx": false,
-          "notes": "",
-          "parking": 85
-        },
-        {
-          "mm": 135,
-          "exit": "135",
-          "name": "Blue Beacon Truck Wash",
-          "brand": "Independent",
-          "type": "truck_wash",
-          "city": "Beaverdam",
-          "approx": false,
-          "notes": "413 E Main St, I-75 Exit 135; near Flying J"
-        },
-        {
-          "mm": 157,
-          "exit": "157",
-          "name": "Pilot Travel Center",
-          "brand": "Pilot",
-          "type": "truck_stop",
-          "city": "Findlay",
-          "approx": false,
-          "notes": "US-224/SR-15",
-          "parking": 80
-        },
-        {
-          "mm": 159,
-          "exit": "159",
-          "name": "Petro Stopping Center",
-          "brand": "Petro",
-          "type": "truck_stop",
-          "city": "Findlay",
-          "approx": false,
-          "notes": "US-68/SR-15",
-          "parking": 200
-        },
-        {
-          "mm": 164,
-          "exit": "164",
-          "name": "Pilot Travel Center #360",
-          "brand": "Pilot",
-          "type": "truck_stop",
-          "city": "Findlay",
-          "approx": false,
-          "notes": "Completely rebuilt from ground up, reopened November 2025; 11471 State Route 613W; Taco Bell",
-          "parking": 80
-        },
-        {
-          "mm": 167,
-          "exit": "167",
-          "name": "TA Express",
-          "brand": "TA Express",
-          "type": "truck_stop",
-          "city": "North Baltimore",
-          "approx": true,
-          "notes": "SR-18",
-          "parking": 60
-        },
-        {
-          "mm": 179,
-          "exit": "179",
-          "name": "Wood County Rest Area (both directions)",
-          "brand": "State",
-          "type": "rest_area",
-          "city": "Cygnet area",
-          "approx": true,
-          "parking": 25
-        },
-        {
-          "mm": 195,
-          "exit": "195",
-          "name": "QuikTrip Rossford Travel Center",
-          "brand": "QuikTrip",
-          "type": "truck_stop",
-          "city": "Rossford",
-          "approx": true,
-          "notes": "Opened Feb 2026 just east of I-75; 6 diesel bays, truck parking; exit approximate"
-        },
-        {
-          "mm": 210,
-          "exit": "210",
-          "name": "Petro Stopping Center",
-          "brand": "Petro",
-          "type": "truck_stop",
-          "city": "Toledo/Perrysburg area",
-          "approx": true,
-          "notes": "South Toledo metro",
-          "parking": 200
-        }
+        {"mm": 21, "exit": "21", "name": "QuikTrip West Chester Travel Center", "brand": "QuikTrip", "type": "truck_stop", "city": "West Chester", "approx": true, "notes": "Opened 2025 at I-75 Exit 21; 6 high-flow diesel bays"},
+        {"mm": 50, "exit": "50", "name": "QuikTrip Dayton Travel Center", "brand": "QuikTrip", "type": "truck_stop", "city": "Dayton", "approx": true, "notes": "QuikTrip's first Ohio travel center, opened June 2025; 6 diesel bays; exit approximate"},
+        {"mm": 81, "exit": "81", "name": "Piqua Rest Area (both directions)", "brand": "State", "type": "rest_area", "city": "Piqua area", "approx": true, "notes": "Serves NB and SB, truck parking", "parking": 30},
+        {"mm": 111, "exit": "111", "name": "Pilot Travel Center", "brand": "Pilot", "type": "truck_stop", "city": "Wapakoneta", "approx": true, "notes": "Bellefontaine St", "parking": 80},
+        {"mm": 135, "exit": "135", "name": "Flying J Travel Center", "brand": "Flying J", "type": "truck_stop", "city": "Beaverdam", "approx": false, "notes": "US-30 junction area", "parking": 100},
+        {"mm": 135, "exit": "135", "name": "Love's Travel Stop", "brand": "Love's", "type": "truck_stop", "city": "Beaverdam", "approx": false, "notes": "", "parking": 85},
+        {"mm": 135, "exit": "135", "name": "Blue Beacon Truck Wash", "brand": "Independent", "type": "truck_wash", "city": "Beaverdam", "approx": false, "notes": "413 E Main St, I-75 Exit 135; near Flying J"},
+        {"mm": 157, "exit": "157", "name": "Pilot Travel Center", "brand": "Pilot", "type": "truck_stop", "city": "Findlay", "approx": false, "notes": "US-224/SR-15", "parking": 80},
+        {"mm": 159, "exit": "159", "name": "Petro Stopping Center", "brand": "Petro", "type": "truck_stop", "city": "Findlay", "approx": false, "notes": "US-68/SR-15", "parking": 200},
+        {"mm": 164, "exit": "164", "name": "Pilot Travel Center #360", "brand": "Pilot", "type": "truck_stop", "city": "Findlay", "approx": false, "notes": "Completely rebuilt from ground up, reopened November 2025; 11471 State Route 613W; Taco Bell", "parking": 80},
+        {"mm": 167, "exit": "167", "name": "TA Express", "brand": "TA Express", "type": "truck_stop", "city": "North Baltimore", "approx": true, "notes": "SR-18", "parking": 60},
+        {"mm": 179, "exit": "179", "name": "Wood County Rest Area (both directions)", "brand": "State", "type": "rest_area", "city": "Cygnet area", "approx": true, "parking": 25},
+        {"mm": 195, "exit": "195", "name": "QuikTrip Rossford Travel Center", "brand": "QuikTrip", "type": "truck_stop", "city": "Rossford", "approx": true, "notes": "Opened Feb 2026 just east of I-75; 6 diesel bays, truck parking; exit approximate"},
+        {"mm": 210, "exit": "210", "name": "Petro Stopping Center", "brand": "Petro", "type": "truck_stop", "city": "Toledo/Perrysburg area", "approx": true, "notes": "South Toledo metro", "parking": 200}
       ]
     },
     "I-76": {
       "maxMM": 82,
       "stops": [
-        {
-          "mm": 44,
-          "exit": "44",
-          "name": "Portage County Rest Area (both directions)",
-          "brand": "State",
-          "type": "rest_area",
-          "city": "Rootstown",
-          "approx": true,
-          "parking": 20
-        }
+        {"mm": 44, "exit": "44", "name": "Portage County Rest Area (both directions)", "brand": "State", "type": "rest_area", "city": "Rootstown", "approx": true, "parking": 20}
       ]
     },
     "I-77": {
       "maxMM": 164,
       "stops": [
-        {
-          "mm": 1,
-          "exit": "1",
-          "name": "Pilot Travel Center",
-          "brand": "Pilot",
-          "type": "truck_stop",
-          "city": "Marietta",
-          "approx": true,
-          "notes": "SR-7, near WV line",
-          "parking": 75
-        },
-        {
-          "mm": 6,
-          "exit": "6",
-          "name": "Ohio Welcome Center Rest Area (NB only)",
-          "brand": "State",
-          "type": "rest_area",
-          "city": "Marietta",
-          "approx": true,
-          "parking": 15
-        },
-        {
-          "mm": 25,
-          "exit": "25",
-          "name": "Love's Travel Stop",
-          "brand": "Love's",
-          "type": "truck_stop",
-          "city": "Caldwell",
-          "approx": true,
-          "notes": "SR-78",
-          "parking": 85
-        },
-        {
-          "mm": 41,
-          "exit": "41",
-          "name": "Guernsey County Rest Area (both directions)",
-          "brand": "State",
-          "type": "rest_area",
-          "city": "Cambridge area",
-          "approx": true,
-          "notes": "Serves NB and SB, truck parking",
-          "parking": 25
-        },
-        {
-          "mm": 89,
-          "exit": "89",
-          "name": "Tuscarawas County Rest Area (both directions)",
-          "brand": "State",
-          "type": "rest_area",
-          "city": "Dover area",
-          "approx": true,
-          "parking": 20
-        }
+        {"mm": 1, "exit": "1", "name": "Pilot Travel Center", "brand": "Pilot", "type": "truck_stop", "city": "Marietta", "approx": true, "notes": "SR-7, near WV line", "parking": 75},
+        {"mm": 6, "exit": "6", "name": "Ohio Welcome Center Rest Area (NB only)", "brand": "State", "type": "rest_area", "city": "Marietta", "approx": true, "parking": 15},
+        {"mm": 25, "exit": "25", "name": "Love's Travel Stop", "brand": "Love's", "type": "truck_stop", "city": "Caldwell", "approx": true, "notes": "SR-78", "parking": 85},
+        {"mm": 41, "exit": "41", "name": "Guernsey County Rest Area (both directions)", "brand": "State", "type": "rest_area", "city": "Cambridge area", "approx": true, "notes": "Serves NB and SB, truck parking", "parking": 25},
+        {"mm": 89, "exit": "89", "name": "Tuscarawas County Rest Area (both directions)", "brand": "State", "type": "rest_area", "city": "Dover area", "approx": true, "parking": 20}
       ]
     },
     "I-80": {
       "maxMM": 237,
       "stops": [
-        {
-          "mm": 21,
-          "exit": "",
-          "name": "Indian Meadow / Tiffin River Service Plazas",
-          "brand": "State",
-          "type": "service_plaza",
-          "city": "West Unity area",
-          "approx": false,
-          "notes": "Ohio Turnpike mainline pair, EB and WB, truck parking",
-          "parking": 75
-        },
-        {
-          "mm": 49,
-          "exit": "",
-          "name": "Wyandot / Blue Heron Service Plazas",
-          "brand": "State",
-          "type": "service_plaza",
-          "city": "Swanton area",
-          "approx": false,
-          "notes": "Ohio Turnpike mainline pair, EB and WB, truck parking",
-          "parking": 75
-        },
-        {
-          "mm": 77,
-          "exit": "",
-          "name": "Commodore Perry / Erie Islands Service Plazas",
-          "brand": "State",
-          "type": "service_plaza",
-          "city": "Genoa area",
-          "approx": false,
-          "notes": "Ohio Turnpike mainline pair, EB and WB, truck parking",
-          "parking": 100
-        },
-        {
-          "mm": 100,
-          "exit": "",
-          "name": "Middle Ridge / Vermilion Valley Service Plazas",
-          "brand": "State",
-          "type": "service_plaza",
-          "city": "Amherst area",
-          "approx": false,
-          "notes": "Ohio Turnpike mainline pair, EB and WB, truck parking",
-          "parking": 75
-        },
-        {
-          "mm": 139,
-          "exit": "",
-          "name": "Towpath / Great Lakes Service Plazas",
-          "brand": "State",
-          "type": "service_plaza",
-          "city": "Broadview Heights area",
-          "approx": false,
-          "notes": "Ohio Turnpike mainline pair, EB and WB, truck parking",
-          "parking": 80
-        },
-        {
-          "mm": 170,
-          "exit": "",
-          "name": "Portage / Brady's Leap Service Plazas",
-          "brand": "State",
-          "type": "service_plaza",
-          "city": "Mantua area",
-          "approx": false,
-          "notes": "Ohio Turnpike mainline pair, EB and WB, truck parking",
-          "parking": 80
-        },
-        {
-          "mm": 197,
-          "exit": "",
-          "name": "Mahoning Valley / Glacier Hills Service Plazas",
-          "brand": "State",
-          "type": "service_plaza",
-          "city": "Lordstown area",
-          "approx": false,
-          "notes": "Ohio Turnpike mainline pair, EB and WB, truck parking",
-          "parking": 75
-        },
-        {
-          "mm": 223,
-          "exit": "223",
-          "name": "Pilot Travel Center",
-          "brand": "Pilot",
-          "type": "truck_stop",
-          "city": "Austintown",
-          "approx": true,
-          "notes": "SR-46, free I-80 section",
-          "parking": 80
-        },
-        {
-          "mm": 223,
-          "exit": "223",
-          "name": "TA Travel Center",
-          "brand": "TA",
-          "type": "truck_stop",
-          "city": "Austintown (Youngstown)",
-          "approx": true,
-          "notes": "SR-46",
-          "parking": 175
-        },
-        {
-          "mm": 226,
-          "exit": "226",
-          "name": "Blue Beacon Truck Wash",
-          "brand": "Independent",
-          "type": "truck_wash",
-          "city": "Girard",
-          "approx": false,
-          "notes": "2786 Salt Springs Rd, I-80 Exit 226 (Youngstown area)"
-        },
-        {
-          "mm": 232,
-          "exit": "232",
-          "name": "Weigh Station (WB)",
-          "brand": "State",
-          "type": "weigh_station",
-          "city": "Hubbard/Girard area",
-          "approx": true,
-          "notes": "OSHP scale 2.5 mi west of OH-7; truck stops at exit 234 are east of scale"
-        },
-        {
-          "mm": 234,
-          "exit": "234",
-          "name": "Flying J Travel Center",
-          "brand": "Flying J",
-          "type": "truck_stop",
-          "city": "Hubbard/Girard area",
-          "approx": true,
-          "notes": "",
-          "parking": 90
-        },
-        {
-          "mm": 234,
-          "exit": "234",
-          "name": "TruckWorld Travel Plaza",
-          "brand": "Independent",
-          "type": "truck_stop",
-          "city": "Hubbard",
-          "approx": true,
-          "notes": "Large independent stop near PA line",
-          "parking": 150
-        },
-        {
-          "mm": 234,
-          "exit": "234B",
-          "name": "Blue Beacon Truck Wash",
-          "brand": "Independent",
-          "type": "truck_wash",
-          "city": "Hubbard",
-          "approx": false,
-          "notes": "7044 Truck World Blvd, I-80 Exit 234B; at Truck World/TA Youngstown"
-        },
-        {
-          "mm": 234,
-          "exit": "234",
-          "name": "Travelodge at Truck World",
-          "brand": "Travelodge (Wyndham)",
-          "type": "hotel",
-          "city": "Hubbard",
-          "approx": false,
-          "notes": "Truck parking verified: motel located on TruckWorld Travel Plaza truck stop property with 24-hour big-rig parking"
-        }
+        {"mm": 21, "exit": "", "name": "Indian Meadow / Tiffin River Service Plazas", "brand": "State", "type": "service_plaza", "city": "West Unity area", "approx": false, "notes": "Ohio Turnpike mainline pair, EB and WB, truck parking", "parking": 75},
+        {"mm": 49, "exit": "", "name": "Wyandot / Blue Heron Service Plazas", "brand": "State", "type": "service_plaza", "city": "Swanton area", "approx": false, "notes": "Ohio Turnpike mainline pair, EB and WB, truck parking", "parking": 75},
+        {"mm": 77, "exit": "", "name": "Commodore Perry / Erie Islands Service Plazas", "brand": "State", "type": "service_plaza", "city": "Genoa area", "approx": false, "notes": "Ohio Turnpike mainline pair, EB and WB, truck parking", "parking": 100},
+        {"mm": 100, "exit": "", "name": "Middle Ridge / Vermilion Valley Service Plazas", "brand": "State", "type": "service_plaza", "city": "Amherst area", "approx": false, "notes": "Ohio Turnpike mainline pair, EB and WB, truck parking", "parking": 75},
+        {"mm": 139, "exit": "", "name": "Towpath / Great Lakes Service Plazas", "brand": "State", "type": "service_plaza", "city": "Broadview Heights area", "approx": false, "notes": "Ohio Turnpike mainline pair, EB and WB, truck parking", "parking": 80},
+        {"mm": 170, "exit": "", "name": "Portage / Brady's Leap Service Plazas", "brand": "State", "type": "service_plaza", "city": "Mantua area", "approx": false, "notes": "Ohio Turnpike mainline pair, EB and WB, truck parking", "parking": 80},
+        {"mm": 197, "exit": "", "name": "Mahoning Valley / Glacier Hills Service Plazas", "brand": "State", "type": "service_plaza", "city": "Lordstown area", "approx": false, "notes": "Ohio Turnpike mainline pair, EB and WB, truck parking", "parking": 75},
+        {"mm": 223, "exit": "223", "name": "Pilot Travel Center", "brand": "Pilot", "type": "truck_stop", "city": "Austintown", "approx": true, "notes": "SR-46, free I-80 section", "parking": 80},
+        {"mm": 223, "exit": "223", "name": "TA Travel Center", "brand": "TA", "type": "truck_stop", "city": "Austintown (Youngstown)", "approx": true, "notes": "SR-46", "parking": 175},
+        {"mm": 226, "exit": "226", "name": "Blue Beacon Truck Wash", "brand": "Independent", "type": "truck_wash", "city": "Girard", "approx": false, "notes": "2786 Salt Springs Rd, I-80 Exit 226 (Youngstown area)"},
+        {"mm": 232, "exit": "232", "name": "Weigh Station (WB)", "brand": "State", "type": "weigh_station", "city": "Hubbard/Girard area", "approx": true, "notes": "OSHP scale 2.5 mi west of OH-7; truck stops at exit 234 are east of scale"},
+        {"mm": 234, "exit": "234", "name": "Flying J Travel Center", "brand": "Flying J", "type": "truck_stop", "city": "Hubbard/Girard area", "approx": true, "notes": "", "parking": 90},
+        {"mm": 234, "exit": "234", "name": "TruckWorld Travel Plaza", "brand": "Independent", "type": "truck_stop", "city": "Hubbard", "approx": true, "notes": "Large independent stop near PA line", "parking": 150},
+        {"mm": 234, "exit": "234B", "name": "Blue Beacon Truck Wash", "brand": "Independent", "type": "truck_wash", "city": "Hubbard", "approx": false, "notes": "7044 Truck World Blvd, I-80 Exit 234B; at Truck World/TA Youngstown"},
+        {"mm": 234, "exit": "234", "name": "Travelodge at Truck World", "brand": "Travelodge (Wyndham)", "type": "hotel", "city": "Hubbard", "approx": false, "notes": "Truck parking verified: motel located on TruckWorld Travel Plaza truck stop property with 24-hour big-rig parking"}
       ]
     },
     "I-90": {
       "maxMM": 245,
       "stops": [
-        {
-          "mm": 39,
-          "exit": "39",
-          "name": "Love's Travel Stop",
-          "brand": "Love's",
-          "type": "truck_stop",
-          "city": "Delta",
-          "approx": false,
-          "notes": "Opened May 2026; Ohio Turnpike Exit 39 at OH-109",
-          "parking": 108
-        },
-        {
-          "mm": 118,
-          "exit": "118",
-          "name": "Love's Travel Stop",
-          "brand": "Love's",
-          "type": "truck_stop",
-          "city": "Milan Township",
-          "approx": false,
-          "notes": "Opened December 2025; Ohio Turnpike Exit 118 at US-250",
-          "parking": 111
-        },
-        {
-          "mm": 223,
-          "exit": "223",
-          "name": "Flying J Travel Center",
-          "brand": "Flying J",
-          "type": "truck_stop",
-          "city": "Austinburg",
-          "approx": false,
-          "notes": "SR-45",
-          "parking": 90
-        },
-        {
-          "mm": 223,
-          "exit": "223",
-          "name": "TA Travel Center",
-          "brand": "TA",
-          "type": "truck_stop",
-          "city": "Austinburg",
-          "approx": true,
-          "notes": "SR-45",
-          "parking": 160
-        },
-        {
-          "mm": 236,
-          "exit": "236",
-          "name": "Weigh Station (WB)",
-          "brand": "State",
-          "type": "weigh_station",
-          "city": "Kingsville (Ashtabula County)",
-          "approx": true,
-          "notes": "OSHP scale for WB traffic entering from Pennsylvania"
-        },
-        {
-          "mm": 240,
-          "exit": "240",
-          "name": "Ohio Welcome Center Rest Area (WB only)",
-          "brand": "State",
-          "type": "rest_area",
-          "city": "Conneaut",
-          "approx": true,
-          "parking": 20
-        }
+        {"mm": 39, "exit": "39", "name": "Love's Travel Stop", "brand": "Love's", "type": "truck_stop", "city": "Delta", "approx": false, "notes": "Opened May 2026; Ohio Turnpike Exit 39 at OH-109", "parking": 108},
+        {"mm": 118, "exit": "118", "name": "Love's Travel Stop", "brand": "Love's", "type": "truck_stop", "city": "Milan Township", "approx": false, "notes": "Opened December 2025; Ohio Turnpike Exit 118 at US-250", "parking": 111},
+        {"mm": 223, "exit": "223", "name": "Flying J Travel Center", "brand": "Flying J", "type": "truck_stop", "city": "Austinburg", "approx": false, "notes": "SR-45", "parking": 90},
+        {"mm": 223, "exit": "223", "name": "TA Travel Center", "brand": "TA", "type": "truck_stop", "city": "Austinburg", "approx": true, "notes": "SR-45", "parking": 160},
+        {"mm": 236, "exit": "236", "name": "Weigh Station (WB)", "brand": "State", "type": "weigh_station", "city": "Kingsville (Ashtabula County)", "approx": true, "notes": "OSHP scale for WB traffic entering from Pennsylvania"},
+        {"mm": 240, "exit": "240", "name": "Ohio Welcome Center Rest Area (WB only)", "brand": "State", "type": "rest_area", "city": "Conneaut", "approx": true, "parking": 20}
       ]
     },
     "I-280": {
       "maxMM": 13,
       "stops": [
-        {
-          "mm": 1,
-          "exit": "1",
-          "name": "TA Travel Center",
-          "brand": "TA",
-          "type": "truck_stop",
-          "city": "Stony Ridge (Toledo)",
-          "approx": true,
-          "notes": "At Ohio Turnpike exit 71 junction",
-          "parking": 175
-        },
-        {
-          "mm": 1,
-          "exit": "1",
-          "name": "Pilot Travel Center",
-          "brand": "Pilot",
-          "type": "truck_stop",
-          "city": "Stony Ridge (Toledo)",
-          "approx": true,
-          "notes": "At Ohio Turnpike exit 71 junction",
-          "parking": 80
-        }
+        {"mm": 1, "exit": "1", "name": "TA Travel Center", "brand": "TA", "type": "truck_stop", "city": "Stony Ridge (Toledo)", "approx": true, "notes": "At Ohio Turnpike exit 71 junction", "parking": 175},
+        {"mm": 1, "exit": "1", "name": "Pilot Travel Center", "brand": "Pilot", "type": "truck_stop", "city": "Stony Ridge (Toledo)", "approx": true, "notes": "At Ohio Turnpike exit 71 junction", "parking": 80}
       ]
     }
   }
