@@ -70,6 +70,16 @@
           "parking": 85
         },
         {
+          "mm": 44,
+          "exit": "44",
+          "name": "Love's Truck Care",
+          "brand": "Love's Truck Care",
+          "type": "repair",
+          "city": "Loxley",
+          "approx": false,
+          "notes": "Oil change/PM, tire services, light mechanical; 2 service bays; co-located with Love's Travel Stop #206 (126 E Flying K Rd) at this exit"
+        },
+        {
           "mm": 49,
           "exit": "49",
           "name": "Buc-ee's",
@@ -161,6 +171,26 @@
           "parking": 170
         },
         {
+          "mm": 77,
+          "exit": "77",
+          "name": "TA Truck Service",
+          "brand": "TA",
+          "type": "repair",
+          "city": "Cottondale",
+          "approx": false,
+          "notes": "Truck repair shop at TA Tuscaloosa (3501 Buttermilk Rd); tire sales/repair, 24-hr road service, towing; on I-20/I-59 overlap"
+        },
+        {
+          "mm": 77,
+          "exit": "77",
+          "name": "Love's Speedco #911",
+          "brand": "Speedco",
+          "type": "repair",
+          "city": "Cottondale",
+          "approx": false,
+          "notes": "Standalone Speedco at 3120 Buttermilk Rd; oil change/PM, tires, light mechanical, roadside assistance; near TA Tuscaloosa; on I-20/I-59 overlap"
+        },
+        {
           "mm": 100,
           "exit": "100",
           "name": "Petro Stopping Center",
@@ -170,6 +200,46 @@
           "approx": false,
           "notes": "On I-20/I-59 overlap",
           "parking": 200
+        },
+        {
+          "mm": 100,
+          "exit": "100",
+          "name": "TA Truck Service",
+          "brand": "TA",
+          "type": "repair",
+          "city": "McCalla",
+          "approx": false,
+          "notes": "5 truck service bays at Petro Bucksville (22526 Highway 216); tire repair, wheel alignments, road service; on I-20/I-59 overlap"
+        },
+        {
+          "mm": 100,
+          "exit": "100",
+          "name": "Love's Truck Care",
+          "brand": "Love's Truck Care",
+          "type": "repair",
+          "city": "McCalla",
+          "approx": false,
+          "notes": "22183 Highway 216 at Love's Travel Stop #227; oil change/PM, tires, light mechanical; on I-20/I-59 overlap"
+        },
+        {
+          "mm": 123,
+          "exit": "123",
+          "name": "W.W. Williams",
+          "brand": "W.W. Williams",
+          "type": "repair",
+          "city": "Birmingham",
+          "approx": true,
+          "notes": "Diesel and truck repair, transmission service, fleet maintenance; 1160 Bankhead Hwy W, just off I-20/59 Arkadelphia Rd exit; on I-20/I-59 overlap"
+        },
+        {
+          "mm": 147,
+          "exit": "147",
+          "name": "Love's Truck Care",
+          "brand": "Love's Truck Care",
+          "type": "repair",
+          "city": "Moody",
+          "approx": false,
+          "notes": "Oil change/PM, tires, light mechanical; co-located with Love's Travel Stop #530 (2625 Kelly Creek Rd S) at this exit"
         },
         {
           "mm": 185,
@@ -201,6 +271,16 @@
           "city": "Heflin",
           "approx": true,
           "notes": "Westbound only; ALEA scale near New Hopewell, Alabama's only permanent interstate scale house; Drivewyze PreClear site"
+        },
+        {
+          "mm": 205,
+          "exit": "205",
+          "name": "Speedco",
+          "brand": "Speedco",
+          "type": "repair",
+          "city": "Heflin",
+          "approx": false,
+          "notes": "Oil change/PM, tires, light mechanical, roadside assistance; co-located with Love's Travel Stop #818 (6647 Hwy 46) at Exit 205"
         },
         {
           "mm": 213,

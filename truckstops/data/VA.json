@@ -252,6 +252,16 @@
           "notes": "Factory Outlet Dr; on I-77/I-81 overlap"
         },
         {
+          "mm": 80,
+          "exit": "80",
+          "name": "Boss Truck Shop #31",
+          "brand": "Boss Truck Shops",
+          "type": "repair",
+          "city": "Fort Chiswell (Max Meadows)",
+          "approx": true,
+          "notes": "Truck and tire repair, maintenance, new and retread commercial tires; 143 Factory Outlet Dr at Exit 80, adjacent to the Flying J at 139 Factory Outlet Dr"
+        },
+        {
           "mm": 84,
           "exit": "84",
           "name": "Flying J Travel Center",
@@ -261,6 +271,26 @@
           "approx": true,
           "notes": "",
           "parking": 90
+        },
+        {
+          "mm": 84,
+          "exit": "84",
+          "name": "Speedco #937",
+          "brand": "Speedco",
+          "type": "repair",
+          "city": "Max Meadows",
+          "approx": true,
+          "notes": "Love's-owned Speedco: oil/lube, commercial tires, light mechanical, emergency roadside; 2866 Lee Hwy near Love's Travel Stop #239 at Exit 84 (some directories list Exit 80)"
+        },
+        {
+          "mm": 86,
+          "exit": "86",
+          "name": "I-81 Service Center",
+          "brand": "Independent",
+          "type": "repair",
+          "city": "Max Meadows",
+          "approx": true,
+          "notes": "Truck/trailer repair, DOT inspections, electrical, AC/reefer, brakes, transmissions, welding; 24/7 emergency roadside and towing; 5722 E Lee Hwy, 0.6 mi from Exit 86"
         },
         {
           "mm": 108,
@@ -283,6 +313,16 @@
           "approx": false,
           "notes": "Opened January 2025; I-81 Exit 128",
           "parking": 93
+        },
+        {
+          "mm": 128,
+          "exit": "128",
+          "name": "Love's Truck Care",
+          "brand": "Love's",
+          "type": "repair",
+          "city": "Elliston",
+          "approx": true,
+          "notes": "Truck Care center with expanded tire selection, light mechanical, oil changes, 24-hr roadside; co-located with Love's Travel Stop #574 at I-81 Exit 128"
         },
         {
           "mm": 149,

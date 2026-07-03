@@ -60,6 +60,26 @@
           "parking": 85
         },
         {
+          "mm": 62,
+          "exit": "62",
+          "name": "TA Truck Service (TA Antioch)",
+          "brand": "TA",
+          "type": "repair",
+          "city": "Antioch (Nashville)",
+          "approx": false,
+          "notes": "2 truck service bays; co-located with TA Antioch travel center, 13011 Old Hickory Blvd; near Pilot and Blue Beacon at same exit"
+        },
+        {
+          "mm": 64,
+          "exit": "64",
+          "name": "Southern Tire Mart #240",
+          "brand": "Southern Tire Mart",
+          "type": "repair",
+          "city": "La Vergne",
+          "approx": true,
+          "notes": "Commercial truck tire shop, 511 New Paul Rd off Waldron Rd (exit 64); new/retread truck tires, alignment, fleet service"
+        },
+        {
           "mm": 84,
           "exit": "84",
           "name": "Buc-ee's",
@@ -79,6 +99,16 @@
           "city": "Beechgrove",
           "approx": true,
           "parking": 30
+        },
+        {
+          "mm": 89,
+          "exit": "89",
+          "name": "Love's Truck Care",
+          "brand": "Love's",
+          "type": "repair",
+          "city": "Christiana",
+          "approx": false,
+          "notes": "3 truck service bays; co-located with Love's Travel Stop #314, 6137 Epps Mill Rd; oil change/PM, light mechanical, tire services"
         },
         {
           "mm": 114,

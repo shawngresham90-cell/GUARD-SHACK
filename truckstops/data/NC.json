@@ -472,6 +472,16 @@
           "parking": 30
         },
         {
+          "mm": 71,
+          "exit": "71",
+          "name": "95 Tire & Service",
+          "brand": "Independent",
+          "type": "repair",
+          "city": "Dunn",
+          "approx": true,
+          "notes": "Truck tire shop at 918 Long Branch Rd, right off I-95 exit 71 (Long Branch Rd); commercial truck tire sales and repair"
+        },
+        {
           "mm": 95,
           "exit": "95",
           "name": "Sleep Inn & Suites Smithfield",
@@ -480,6 +490,16 @@
           "city": "Smithfield",
           "approx": false,
           "notes": "Truck parking verified: booking listings show RV, bus, and truck parking; 270 N Equity Dr at Exit 95"
+        },
+        {
+          "mm": 105,
+          "exit": "105",
+          "name": "Boss Truck Shop #59",
+          "brand": "Boss Truck Shop",
+          "type": "repair",
+          "city": "Kenly",
+          "approx": true,
+          "notes": "Located at Big Boy's Truck Stop, 595 S Bagley Rd, I-95 exit 105; tire repair/replacement (Michelin, Bridgestone, Bandag retreads), computer diagnostics, PMs, inspections; closed Sunday"
         },
         {
           "mm": 106,
@@ -521,6 +541,26 @@
           "city": "Kenly",
           "approx": false,
           "notes": "Truck parking verified: listings show free self-parking for cars, trucks, and trailers; at Exit 106 adjacent to Kenly 95 Petro truck stop"
+        },
+        {
+          "mm": 106,
+          "exit": "106",
+          "name": "Kenly 95 Truck Service Center",
+          "brand": "TA Truck Service",
+          "type": "repair",
+          "city": "Kenly",
+          "approx": false,
+          "notes": "Co-located with Kenly 95 Truckstop (Petro-affiliated; listed as TA Truck Service #395), 923 Johnston Pkwy at exit 106; ASE-certified mechanics, 24-hr road service, new/used truck tires, alignments, brakes, DOT inspections, PM, minor engine and reefer repair, bulk DEF"
+        },
+        {
+          "mm": 106,
+          "exit": "106",
+          "name": "Love's Speedco Kenly",
+          "brand": "Speedco",
+          "type": "repair",
+          "city": "Kenly",
+          "approx": true,
+          "notes": "Speedco #930 at 101 Woodard Dr, I-95 exit 106; truck tires (incl. Love's retreads), oil change/PM, light mechanical, emergency roadside; owned by Love's"
         },
         {
           "mm": 107,
