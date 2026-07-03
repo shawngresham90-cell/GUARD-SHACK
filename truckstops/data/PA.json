@@ -13,6 +13,7 @@
         {"mm": 147, "exit": "", "name": "North Midway Service Plaza", "brand": "State", "type": "service_plaza", "city": "Bedford", "approx": true, "notes": "PA Turnpike milepost; westbound; on I-70/I-76 overlap", "parking": 50},
         {"mm": 147, "exit": "147", "name": "TA Travel Center", "brand": "TA", "type": "truck_stop", "city": "Breezewood", "approx": false, "notes": "US 30 Breezewood strip; I-70 own milepost (numbering jumps off Turnpike here)", "parking": 200},
         {"mm": 147, "exit": "147", "name": "Gateway Travel Plaza", "brand": "AmBest", "type": "truck_stop", "city": "Breezewood", "approx": false, "notes": "US 30 Breezewood strip; large independent AmBest plaza", "parking": 150},
+        {"mm": 147, "exit": "147", "name": "TA Truck Service", "brand": "TA", "type": "repair", "city": "Breezewood", "approx": false, "notes": "5-bay heavy-duty shop at TA Breezewood; tires/brakes/diagnostics/alignments; co-located with TA Travel Center"},
         {"mm": 167, "exit": "167", "name": "Warfordsburg Welcome Center Rest Area (WB only)", "brand": "State", "type": "rest_area", "city": "Warfordsburg", "approx": true, "parking": 20}
       ]
     },
@@ -63,6 +64,7 @@
         {"mm": 4, "exit": "4B", "name": "TA Travel Center", "brand": "TA", "type": "truck_stop", "city": "West Middlesex", "approx": false, "notes": "", "parking": 150},
         {"mm": 15, "exit": "15", "name": "Flying J Travel Center", "brand": "Flying J", "type": "truck_stop", "city": "Mercer", "approx": true, "notes": "US 19", "parking": 90},
         {"mm": 29, "exit": "29", "name": "TA Travel Center", "brand": "TA", "type": "truck_stop", "city": "Barkeyville", "approx": false, "notes": "PA 8", "parking": 160},
+        {"mm": 29, "exit": "29", "name": "TA Truck Service", "brand": "TA", "type": "repair", "city": "Barkeyville", "approx": false, "notes": "3-bay shop w/ Freightliner ServicePoint at TA Barkeyville; co-located with TA Travel Center"},
         {"mm": 31, "exit": "", "name": "Rest Area (Emlenton)", "brand": "State", "type": "rest_area", "city": "Emlenton", "approx": true, "notes": "Eastbound and westbound pair; truck parking", "parking": 25},
         {"mm": 42, "exit": "42", "name": "Emlenton Truck Plaza (Kwik Fill)", "brand": "Independent", "type": "truck_stop", "city": "Emlenton", "approx": true, "notes": "", "parking": 70},
         {"mm": 78, "exit": "78", "name": "TA Travel Center", "brand": "TA", "type": "truck_stop", "city": "Brookville", "approx": false, "notes": "", "parking": 180},
