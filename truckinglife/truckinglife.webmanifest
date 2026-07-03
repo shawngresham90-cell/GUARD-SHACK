@@ -1,6 +1,6 @@
 {
-  "name": "Truck Life",
-  "short_name": "Truck Life",
+  "name": "Trucking Life",
+  "short_name": "Trucking Life",
   "description": "The driver's daily companion: HOS planning clocks, trip log, expense tracker, and pre-trip checklist. Works offline — everything stays on your phone.",
   "start_url": "./",
   "scope": "./",

@@ -1,7 +1,7 @@
-/* Truck Life service worker — makes the app installable and usable offline.
+/* Trucking Life service worker — makes the app installable and usable offline.
    Cache-first for the app shell so it opens with no connection. */
-const CACHE = 'trucklife-v1';
-const ASSETS = ['./', 'index.html', 'trucklife.webmanifest'];
+const CACHE = 'truckinglife-v1';
+const ASSETS = ['./', 'index.html', 'truckinglife.webmanifest'];
 
 self.addEventListener('install', (e) => {
     e.waitUntil(caches.open(CACHE).then((c) => c.addAll(ASSETS)).then(() => self.skipWaiting()));
