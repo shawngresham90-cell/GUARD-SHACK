@@ -136,19 +136,33 @@ function buildTags(topic, type, extra) {
   return out;
 }
 
-function buildHashtags(topic, type, extra) {
+function buildHashtags(topic, type, extra, format) {
   const base = [topic, ...(extra.slice(0, 2)), "trucking", "truckinglife", "truckdriver"];
   const tags = cleanList(base).slice(0, 5).map(toHashtag);
+  // #Shorts up front tells YouTube to treat it as a Short.
+  if (format === "short") tags.unshift("#Shorts");
   return tags;
 }
 
-function buildDescription(topic, type, tone, hashtags) {
+function buildDescription(topic, type, tone, hashtags, format) {
   const t = titleCase(topic);
   const intro = {
     real: `Ever wondered what really goes on with ${t.toLowerCase()}? In this exclusive behind-the-scenes video, I take you along and get the full breakdown — the stuff most drivers never get to see. From the small details to why so many people get flagged, this is a must-watch for all truckers.`,
     chill: `Pull up a seat and ride shotgun for ${t.toLowerCase()}. Sit back, relax, and enjoy the miles.`,
     educational: `Everything you need to know about ${t.toLowerCase()} — straight from the driver's seat. If you're new to trucking, this one's for you.`,
   }[tone];
+
+  // Shorts get a compact description — no chapters, quick CTA, hashtags.
+  if (format === "short") {
+    return [
+      intro,
+      "",
+      "🔔 SUBSCRIBE for more trucking Shorts every week:",
+      `   youtube.com/${HANDLE}`,
+      "",
+      hashtags.join(" "),
+    ].join("\n");
+  }
 
   return [
     intro,
@@ -215,12 +229,13 @@ function generate() {
   }
   const type = $("vtype").value;
   const tone = $("tone").value;
+  const format = $("format").value;
   const extra = cleanList(($("extra").value || "").split(","));
 
   const titles = buildTitles(topic, type, tone);
   const tags = buildTags(topic, type, extra);
-  const hashtags = buildHashtags(topic, type, extra);
-  const description = buildDescription(topic, type, tone, hashtags);
+  const hashtags = buildHashtags(topic, type, extra, format);
+  const description = buildDescription(topic, type, tone, hashtags, format);
   const pinned = buildPinned(topic);
 
   renderTitles(titles);
@@ -231,7 +246,9 @@ function generate() {
   $("tagCount").textContent = `${tags.length} tags · ${tags.join(", ").length}/500 chars`;
 
   $("results").hidden = false;
-  $("status").textContent = "✅ SEO pack ready — tweak anything below before you post.";
+  $("status").textContent = format === "short"
+    ? "✅ Shorts pack ready — #Shorts added, compact description. Tweak before you post."
+    : "✅ SEO pack ready — tweak anything below before you post.";
   $("results").scrollIntoView({ behavior: "smooth", block: "start" });
 }
 
