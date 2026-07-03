@@ -281,6 +281,16 @@
      "parking": 90
     },
     {
+     "mm": 298,
+     "exit": "298",
+     "name": "Rocky Mountain Truck Center (Floyd's)",
+     "brand": "Freightliner",
+     "type": "repair",
+     "city": "Belgrade",
+     "approx": false,
+     "notes": "Freightliner/Western Star dealer, 310 Alaska Frontage Rd at I-90 exit 298; heavy-duty service & parts; near Flying J"
+    },
+    {
      "mm": 306,
      "exit": "306",
      "name": "Town Pump",
@@ -357,6 +367,16 @@
      "notes": "MDT scale at the Mossmain interchange west of Billings"
     },
     {
+     "mm": 447,
+     "exit": "447",
+     "name": "I-State Truck Center - Billings",
+     "brand": "Freightliner",
+     "type": "repair",
+     "city": "Billings",
+     "approx": false,
+     "notes": "Freightliner dealer, 4600 S Frontage Rd at I-90 exit 447; all-makes heavy-duty service, parts, body shop"
+    },
+    {
      "mm": 450,
      "exit": "450",
      "name": "Pilot Travel Center",
@@ -408,6 +428,16 @@
      "city": "Billings (Lockwood)",
      "approx": true,
      "notes": "Johnson Ln; near Town Pump/Pilot truck stop"
+    },
+    {
+     "mm": 455,
+     "exit": "455",
+     "name": "Montana Peterbilt (Jackson Group)",
+     "brand": "Peterbilt",
+     "type": "repair",
+     "city": "Billings",
+     "approx": false,
+     "notes": "Peterbilt dealer at I-90/I-94 Johnson Lane exit 455; 27 service bays, heavy-duty service, parts, body shop; near TA/Flying J cluster"
     },
     {
      "mm": 495,
