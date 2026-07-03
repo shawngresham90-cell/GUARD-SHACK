@@ -204,6 +204,16 @@
           "notes": "3101 S Bedford Ave; next to Flying J at I-44/US-71 (I-49) interchange"
         },
         {
+          "mm": 11,
+          "exit": "11",
+          "name": "Speedco",
+          "brand": "Speedco",
+          "type": "repair",
+          "city": "Joplin",
+          "approx": false,
+          "notes": "Love's-owned Speedco #929; oil change/PM, tires, light mechanical, roadside assistance; 5815 E 30th St next to Flying J at I-44/I-49 junction"
+        },
+        {
           "mm": 80,
           "exit": "80",
           "name": "Holiday Inn & Suites Springfield I-44",
@@ -246,6 +256,16 @@
           "parking": 180
         },
         {
+          "mm": 88,
+          "exit": "88",
+          "name": "TA Truck Service (TA Springfield)",
+          "brand": "TA Truck Service",
+          "type": "repair",
+          "city": "Strafford",
+          "approx": false,
+          "notes": "Truck repair shop #137; tires, brakes, DOT inspections, maintenance; co-located with TA Springfield travel center at Exit 88"
+        },
+        {
           "mm": 111,
           "exit": "",
           "name": "Conway Rest Area / Route 66 Welcome Center",
@@ -266,6 +286,26 @@
           "approx": true,
           "notes": "Fort Leonard Wood area",
           "parking": 90
+        },
+        {
+          "mm": 163,
+          "exit": "163",
+          "name": "Boss Truck Shop",
+          "brand": "Boss Truck Shops",
+          "type": "repair",
+          "city": "St. Robert",
+          "approx": false,
+          "notes": "Bosselman full-service truck repair and tire shop; 22341 Highway 28 at I-44 Exit 163; 24-hour roadside service network"
+        },
+        {
+          "mm": 189,
+          "exit": "189",
+          "name": "Love's Truck Care",
+          "brand": "Love's Truck Care",
+          "type": "repair",
+          "city": "Rolla",
+          "approx": false,
+          "notes": "3 service bays; oil change/PM, light mechanical, tire services; co-located with Love's Travel Stop #341 at 3500 Hy Point Industrial Park Dr"
         },
         {
           "mm": 208,

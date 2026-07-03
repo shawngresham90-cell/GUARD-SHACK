@@ -120,6 +120,16 @@
           "notes": "Exit 219A Laval Rd; 5831 Santa Elena Dr; near TA/Petro Wheeler Ridge"
         },
         {
+          "mm": 219,
+          "exit": "219",
+          "name": "TA Truck Service Wheeler Ridge",
+          "brand": "TA",
+          "type": "repair",
+          "city": "Lebec (Wheeler Ridge)",
+          "approx": false,
+          "notes": "6 service bays; tires, brakes, electrical, inspections, diagnostics, HVAC, alignments, trailer/aftertreatment; 5821 Dennis McCarthy Dr; co-located with TA/Petro Wheeler Ridge at Laval Rd exit; 24/7 RoadSquad roadside"
+        },
+        {
           "mm": 251,
           "exit": "",
           "name": "Buttonwillow Rest Area",
@@ -161,6 +171,16 @@
           "city": "Buttonwillow",
           "approx": false,
           "notes": "Truck parking verified: truck parking listed amenity on booking sites; off I-5 exit 257 at Tracy Ave"
+        },
+        {
+          "mm": 257,
+          "exit": "257",
+          "name": "TA Truck Service Buttonwillow",
+          "brand": "TA",
+          "type": "repair",
+          "city": "Buttonwillow",
+          "approx": false,
+          "notes": "2 service bays; tires, brakes, electrical, inspections, diagnostics; 24-hr road service; co-located with TA Buttonwillow travel center at CA-58"
         },
         {
           "mm": 278,
@@ -303,6 +323,16 @@
           "notes": "15335 N Thornton Rd; I-5 & Hwy 12; near Flying J Lodi"
         },
         {
+          "mm": 485,
+          "exit": "485",
+          "name": "Love's Truck Care",
+          "brand": "Love's",
+          "type": "repair",
+          "city": "Lodi (Flag City)",
+          "approx": false,
+          "notes": "2 service bays, 24 hrs; oil change/PM, light mechanical, tire services; co-located with Love's Travel Stop #538 at 15250 N Thornton Rd (I-5 & CA-12)"
+        },
+        {
           "mm": 528,
           "exit": "",
           "name": "Elkhorn Rest Area",
@@ -346,6 +376,16 @@
           "parking": 80
         },
         {
+          "mm": 578,
+          "exit": "578",
+          "name": "Love's Truck Care",
+          "brand": "Love's",
+          "type": "repair",
+          "city": "Williams",
+          "approx": false,
+          "notes": "Oil change/PM, light mechanical and tire services; co-located with Love's Travel Stop #652 at CA-20 exit (100 Marguerite St)"
+        },
+        {
           "mm": 590,
           "exit": "",
           "name": "Maxwell Rest Area",
@@ -376,6 +416,16 @@
           "city": "Corning",
           "approx": false,
           "notes": "2041 South Ave; near Petro/TA Corning"
+        },
+        {
+          "mm": 630,
+          "exit": "630",
+          "name": "Petro Truck Service Corning",
+          "brand": "Petro",
+          "type": "repair",
+          "city": "Corning",
+          "approx": false,
+          "notes": "6 service bays; reefer service, alignments, J-PRO diagnostics, tire chains, Freightliner/Western Star service points; co-located with Petro Corning at South Ave (2151 South Ave)"
         },
         {
           "mm": 631,
@@ -556,6 +606,16 @@
       "maxMM": 244,
       "stops": [
         {
+          "mm": 57,
+          "exit": "57",
+          "name": "TA Truck Service Ontario",
+          "brand": "TA",
+          "type": "repair",
+          "city": "Ontario",
+          "approx": true,
+          "notes": "24-hr truck repair shop; commercial tires (Michelin/Bridgestone/Goodyear/Continental/Yokohama dealer), maintenance and repairs; 4325 E Guasti Rd; co-located with TA Ontario at Milliken Ave exit"
+        },
+        {
           "mm": 58,
           "exit": "58",
           "name": "TA Ontario",
@@ -565,6 +625,26 @@
           "approx": true,
           "notes": "Milliken Ave/Guasti Rd area",
           "parking": 180
+        },
+        {
+          "mm": 61,
+          "exit": "61",
+          "name": "Rush Truck Centers - Fontana",
+          "brand": "Rush Truck Centers",
+          "type": "repair",
+          "city": "Fontana",
+          "approx": true,
+          "notes": "Peterbilt dealer at 14490 Slover Ave, off Cherry Ave exit; parts and service for all makes, mobile service, Xpress same-day repair estimates; open to midnight weekdays"
+        },
+        {
+          "mm": 61,
+          "exit": "61",
+          "name": "Velocity Truck Centers - Fontana",
+          "brand": "Velocity Truck Centers",
+          "type": "repair",
+          "city": "Fontana",
+          "approx": true,
+          "notes": "Freightliner/Western Star/Autocar dealer service and parts at 13800 Valley Blvd near Cherry Ave exit; service to midnight weekdays, open weekends"
         },
         {
           "mm": 102,
@@ -629,6 +709,16 @@
           "approx": true,
           "notes": "Dillon Rd",
           "parking": 150
+        },
+        {
+          "mm": 146,
+          "exit": "146",
+          "name": "TA Truck Service Coachella",
+          "brand": "TA",
+          "type": "repair",
+          "city": "Coachella",
+          "approx": false,
+          "notes": "24/7 truck maintenance and repair; tires, road service; 46155 Dillon Rd; co-located with TA Coachella travel center at Dillon Rd exit"
         },
         {
           "mm": 159,
@@ -790,6 +880,26 @@
           "city": "Barstow",
           "approx": false,
           "notes": "Truck parking verified: RV/bus/truck parking listed amenity; reviews cite 'great big rig parking'; near TA Barstow"
+        },
+        {
+          "mm": 178,
+          "exit": "178",
+          "name": "TA Truck Service Barstow",
+          "brand": "TA",
+          "type": "repair",
+          "city": "Barstow",
+          "approx": false,
+          "notes": "7 service bays, open 24 hrs; truck maintenance and repairs; co-located with TA Barstow at 2930 Lenwood Rd"
+        },
+        {
+          "mm": 178,
+          "exit": "178",
+          "name": "Love's Truck Care",
+          "brand": "Love's",
+          "type": "repair",
+          "city": "Barstow",
+          "approx": false,
+          "notes": "Oil change/PM, light mechanical, tire services and roadside assistance; Truck Care open 6am-11pm; co-located with Love's Travel Stop #374 at 2974 Lenwood Rd"
         },
         {
           "mm": 217,
@@ -957,6 +1067,16 @@
           "city": "Sacramento",
           "approx": false,
           "notes": "At Sacramento 49er Travel Plaza (W. El Camino Ave); 2828 El Centro Rd"
+        },
+        {
+          "mm": 85,
+          "exit": "85",
+          "name": "49er Truck Service Center",
+          "brand": "Independent",
+          "type": "repair",
+          "city": "Sacramento",
+          "approx": true,
+          "notes": "Full-service truck and trailer repair at Sacramento 49er Travel Plaza (2828 El Centro Rd, W El Camino Ave exit): alignments, brakes, suspension, driveline, electrical, engine diagnostics, A/C, tires; 24/7 roadside assistance"
         },
         {
           "mm": 100,

@@ -27,6 +27,15 @@
      "parking": 60
     },
     {
+     "mm": 62,
+     "exit": "62",
+     "name": "Love's Truck Care #353",
+     "brand": "Love's Truck Care",
+     "type": "repair",
+     "city": "Fargo",
+     "notes": "Tire service, oil/PM and light mechanical, 24 hours; co-located with Love's Travel Stop #353 at 3220 39th St S"
+    },
+    {
      "mm": 100,
      "exit": "100",
      "name": "Cenex Hillsboro",
@@ -46,6 +55,26 @@
      "approx": true,
      "notes": "Gateway Dr / US-2 area",
      "parking": 40
+    },
+    {
+     "mm": 141,
+     "exit": "141",
+     "name": "Pomp's Tire Service",
+     "brand": "Pomp's Tire",
+     "type": "repair",
+     "city": "Grand Forks",
+     "approx": true,
+     "notes": "Commercial truck tire sales/repair, farm and OTR tires; 4720 Gateway Dr (US-2) just west of exit 141"
+    },
+    {
+     "mm": 141,
+     "exit": "141",
+     "name": "Forks Freightliner Parts & Service Center",
+     "brand": "Freightliner",
+     "type": "repair",
+     "city": "Grand Forks",
+     "approx": true,
+     "notes": "Freightliner dealer truck repair and parts; 1/4 mile east of exit 141 on Gateway Dr (US-2)"
     },
     {
      "mm": 179,
@@ -128,6 +157,16 @@
      "parking": 60
     },
     {
+     "mm": 61,
+     "exit": "61",
+     "name": "Dickinson Tire",
+     "brand": "Independent",
+     "type": "repair",
+     "city": "Dickinson",
+     "approx": true,
+     "notes": "Truck and commercial tire sales and repair; 251 21st St W, about 0.6 mi from exit 61"
+    },
+    {
      "mm": 161,
      "exit": "161",
      "name": "Stamart Travel Center",
@@ -137,6 +176,15 @@
      "approx": true,
      "notes": "East Bismarck; regional independent chain",
      "parking": 80
+    },
+    {
+     "mm": 161,
+     "exit": "161",
+     "name": "Wallwork Truck Center",
+     "brand": "Kenworth (Wallwork)",
+     "type": "repair",
+     "city": "Bismarck",
+     "notes": "Kenworth dealer: full-service truck repair, parts and collision center; 4020 Miriam Ave just off exit 161"
     },
     {
      "mm": 168,
@@ -170,6 +218,15 @@
      "approx": true,
      "notes": "US-281 interchange",
      "parking": 80
+    },
+    {
+     "mm": 258,
+     "exit": "258",
+     "name": "Super Pumper Truck Service",
+     "brand": "Super Pumper",
+     "type": "repair",
+     "city": "Jamestown",
+     "notes": "Tire sales/repair, lube and oil, mechanic service and towing; at Super Pumper truck stop, exit 258"
     },
     {
      "mm": 307,
@@ -232,6 +289,25 @@
      "city": "Fargo",
      "approx": false,
      "notes": "19th Ave S off 45th St exit; west Fargo truck stop corridor"
+    },
+    {
+     "mm": 348,
+     "exit": "348",
+     "name": "TA Truck Service",
+     "brand": "TA Truck Service",
+     "type": "repair",
+     "city": "Fargo",
+     "notes": "4 service bays: tire repair, truck maintenance and repairs, 24/7; co-located with Petro Stopping Center, 4510 19th Ave SW"
+    },
+    {
+     "mm": 348,
+     "exit": "348",
+     "name": "FleetPride Fargo",
+     "brand": "FleetPride",
+     "type": "repair",
+     "city": "Fargo",
+     "approx": true,
+     "notes": "Heavy-duty truck/trailer parts branch plus service center; 1320 45th St N, north of exit 348 via 45th St"
     }
    ]
   }
