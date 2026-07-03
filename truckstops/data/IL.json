@@ -11,7 +11,6 @@
       "stops": [
         {"mm": 62, "exit": "", "name": "Tonica Rest Area (both directions)", "brand": "State", "type": "rest_area", "city": "Tonica area", "approx": true, "notes": "NB and SB, truck parking", "parking": 20},
         {"mm": 99, "exit": "99", "name": "Petro Stopping Center", "brand": "Petro", "type": "truck_stop", "city": "Rochelle", "approx": false, "notes": "IL-38, large full-service travel center", "parking": 200},
-        {"mm": 99, "exit": "99", "name": "Blue Beacon Truck Wash", "brand": "Independent", "type": "truck_wash", "city": "Rochelle", "approx": false, "notes": "At Petro Stopping Center, I-39 Exit 99"},
         {"mm": 99, "exit": "99", "name": "Blue Beacon Truck Wash", "brand": "Independent", "type": "truck_wash", "city": "Rochelle", "approx": false, "notes": "At Petro Stopping Center, I-39 Exit 99"}
       ]
     },
@@ -26,7 +25,6 @@
         {"mm": 145, "exit": "145", "name": "Dixie Travel Plaza", "brand": "Independent", "type": "truck_stop", "city": "McLean", "approx": false, "notes": "US-136, historic Dixie Truckers Home, since 1928", "parking": 150},
         {"mm": 149, "exit": "149", "name": "Funks Grove Rest Area (both directions)", "brand": "State", "type": "rest_area", "city": "Funks Grove (McLean)", "approx": true, "parking": 25},
         {"mm": 160, "exit": "160", "name": "Pilot Travel Center", "brand": "Pilot", "type": "truck_stop", "city": "Bloomington", "approx": true, "notes": "Market St (US-150), I-55/I-74 overlap area", "parking": 75},
-        {"mm": 160, "exit": "160", "name": "Blue Beacon Truck Wash", "brand": "Independent", "type": "truck_wash", "city": "Bloomington", "approx": false, "notes": "408 Caroline St, across from Pilot Travel Center, Exit 160"},
         {"mm": 160, "exit": "160", "name": "Blue Beacon Truck Wash", "brand": "Independent", "type": "truck_wash", "city": "Bloomington", "approx": false, "notes": "408 Caroline St, across from Pilot Travel Center, Exit 160"},
         {"mm": 196, "exit": "", "name": "Pontiac Rest Area (both directions)", "brand": "State", "type": "rest_area", "city": "Pontiac area", "approx": true, "notes": "NB and SB, truck parking", "parking": 25},
         {"mm": 226, "exit": "226", "name": "Coalfield Rest Area (both directions)", "brand": "State", "type": "rest_area", "city": "Gardner", "approx": true, "parking": 30},
@@ -48,7 +46,6 @@
         {"mm": 160, "exit": "160", "name": "Petro Stopping Center", "brand": "Petro", "type": "truck_stop", "city": "Effingham", "approx": true, "notes": "Fayette Ave, Effingham cluster, I-57/I-70 overlap", "parking": 200},
         {"mm": 160, "exit": "160", "name": "Flying J Travel Center", "brand": "Flying J", "type": "truck_stop", "city": "Effingham", "approx": true, "notes": "Fayette Ave, Effingham cluster, I-57/I-70 overlap", "parking": 90},
         {"mm": 160, "exit": "160", "name": "Blue Beacon Truck Wash", "brand": "Independent", "type": "truck_wash", "city": "Effingham", "approx": false, "notes": "At Flying J Travel Plaza, I-57/I-70 overlap Exit 160"},
-        {"mm": 160, "exit": "160", "name": "Blue Beacon Truck Wash", "brand": "Independent", "type": "truck_wash", "city": "Effingham", "approx": false, "notes": "At Flying J Travel Plaza, I-57/I-70 overlap Exit 160"},
         {"mm": 162, "exit": "162", "name": "Pilot Travel Center", "brand": "Pilot", "type": "truck_stop", "city": "Effingham", "approx": true, "notes": "IL-32/33, Effingham cluster, I-57/I-70 overlap", "parking": 75},
         {"mm": 203, "exit": "203", "name": "Love's Travel Stop", "brand": "Love's", "type": "truck_stop", "city": "Arcola", "approx": true, "notes": "IL-133", "parking": 85},
         {"mm": 268, "exit": "", "name": "Buckley Rest Area (both directions)", "brand": "State", "type": "rest_area", "city": "Buckley area", "approx": true, "notes": "NB and SB, truck parking", "parking": 20},
@@ -57,7 +54,6 @@
         {"mm": 330, "exit": "330", "name": "Weigh Station (NB)", "brand": "State", "type": "weigh_station", "city": "Peotone", "approx": false, "notes": "ISP Peotone scale, NB, north of Peotone; PrePass"},
         {"mm": 333, "exit": "333", "name": "Weigh Station (SB)", "brand": "State", "type": "weigh_station", "city": "Peotone", "approx": false, "notes": "ISP Peotone scale, SB; PrePass"},
         {"mm": 335, "exit": "335", "name": "Petro Stopping Center", "brand": "Petro", "type": "truck_stop", "city": "Monee", "approx": false, "notes": "Monee-Manhattan Rd, major Chicago-south truck stop", "parking": 250},
-        {"mm": 335, "exit": "335", "name": "Blue Beacon Truck Wash", "brand": "Independent", "type": "truck_wash", "city": "Monee", "approx": false, "notes": "At Petro Stopping Center, I-57 Exit 335"},
         {"mm": 335, "exit": "335", "name": "Blue Beacon Truck Wash", "brand": "Independent", "type": "truck_wash", "city": "Monee", "approx": false, "notes": "At Petro Stopping Center, I-57 Exit 335"}
       ]
     },

@@ -7,7 +7,6 @@
       "stops": [
         {"mm": 1, "exit": "1", "name": "Weigh Station (EB)", "brand": "State", "type": "weigh_station", "city": "New Paris (Preble County)", "approx": true, "notes": "OSHP scale at EB mm 0.8, just east of Indiana state line"},
         {"mm": 1, "exit": "1", "name": "Blue Beacon Truck Wash", "brand": "Independent", "type": "truck_wash", "city": "New Paris", "approx": true, "notes": "9787 US 40 W at OH/IN state line; access via I-70 Exit 156B (IN side) / Exit 1 (OH)"},
-        {"mm": 1, "exit": "1", "name": "Blue Beacon Truck Wash", "brand": "Independent", "type": "truck_wash", "city": "New Paris", "approx": true, "notes": "9787 US 40 W at OH/IN state line; access via I-70 Exit 156B (IN side) / Exit 1 (OH)"},
         {"mm": 10, "exit": "10", "name": "Pilot Travel Center", "brand": "Pilot", "type": "truck_stop", "city": "Brookville", "approx": true, "notes": "SR-49 exit", "parking": 80},
         {"mm": 31, "exit": "31", "name": "Preble County Rest Area (both directions)", "brand": "State", "type": "rest_area", "city": "Lewisburg area", "approx": true, "notes": "Serves EB and WB, truck parking", "parking": 30},
         {"mm": 41, "exit": "41", "name": "Buc-ee's", "brand": "Buc-ee's", "type": "truck_stop", "city": "Huber Heights", "approx": false, "notes": "No semi parking; opened April 6, 2026; I-70 at OH-235 (exit 41), NE of Dayton; 108 fuel pumps, 24 EV chargers", "parking": 0},
@@ -17,7 +16,6 @@
         {"mm": 118, "exit": "118", "name": "Pilot Travel Center", "brand": "Pilot", "type": "truck_stop", "city": "Etna", "approx": true, "notes": "SR-310", "parking": 80},
         {"mm": 126, "exit": "126", "name": "Pilot Travel Center", "brand": "Pilot", "type": "truck_stop", "city": "Hebron", "approx": false, "notes": "SR-37, large lot", "parking": 100},
         {"mm": 126, "exit": "126", "name": "Flying J Travel Center", "brand": "Flying J", "type": "truck_stop", "city": "Hebron", "approx": false, "notes": "SR-37", "parking": 90},
-        {"mm": 126, "exit": "126", "name": "Truckomat Truck Wash", "brand": "Independent", "type": "truck_wash", "city": "Hebron", "approx": false, "notes": "10679 Lancaster Rd, I-70 Exit 126"},
         {"mm": 126, "exit": "126", "name": "Truckomat Truck Wash", "brand": "Independent", "type": "truck_wash", "city": "Hebron", "approx": false, "notes": "10679 Lancaster Rd, I-70 Exit 126"},
         {"mm": 152, "exit": "152", "name": "Pilot Travel Center", "brand": "Pilot", "type": "truck_stop", "city": "Zanesville", "approx": true, "notes": "US-40/National Rd", "parking": 75},
         {"mm": 160, "exit": "160", "name": "Love's Travel Stop", "brand": "Love's", "type": "truck_stop", "city": "Zanesville area", "approx": true, "notes": "", "parking": 85},
@@ -42,7 +40,6 @@
         {"mm": 204, "exit": "204", "name": "Pilot Travel Center", "brand": "Pilot", "type": "truck_stop", "city": "Burbank", "approx": false, "notes": "SR-83, Lodi area", "parking": 80},
         {"mm": 209, "exit": "209", "name": "TA Travel Center", "brand": "TA", "type": "truck_stop", "city": "Seville/Lodi area", "approx": false, "notes": "I-76/US-224 junction", "parking": 175},
         {"mm": 209, "exit": "209", "name": "Petro Stopping Center", "brand": "Petro", "type": "truck_stop", "city": "Seville/Lodi area", "approx": false, "notes": "I-76/US-224 junction", "parking": 200},
-        {"mm": 209, "exit": "209", "name": "Blue Beacon Truck Wash", "brand": "Independent", "type": "truck_wash", "city": "Lodi (Burbank)", "approx": true, "notes": "At TA Travel Center, I-71 Exit 209 (I-71/I-76/US-224 interchange)"},
         {"mm": 209, "exit": "209", "name": "Blue Beacon Truck Wash", "brand": "Independent", "type": "truck_wash", "city": "Lodi (Burbank)", "approx": true, "notes": "At TA Travel Center, I-71 Exit 209 (I-71/I-76/US-224 interchange)"}
       ]
     },
@@ -59,7 +56,6 @@
         {"mm": 111, "exit": "111", "name": "Pilot Travel Center", "brand": "Pilot", "type": "truck_stop", "city": "Wapakoneta", "approx": true, "notes": "Bellefontaine St", "parking": 80},
         {"mm": 135, "exit": "135", "name": "Flying J Travel Center", "brand": "Flying J", "type": "truck_stop", "city": "Beaverdam", "approx": false, "notes": "US-30 junction area", "parking": 100},
         {"mm": 135, "exit": "135", "name": "Love's Travel Stop", "brand": "Love's", "type": "truck_stop", "city": "Beaverdam", "approx": false, "notes": "", "parking": 85},
-        {"mm": 135, "exit": "135", "name": "Blue Beacon Truck Wash", "brand": "Independent", "type": "truck_wash", "city": "Beaverdam", "approx": false, "notes": "413 E Main St, I-75 Exit 135; near Flying J"},
         {"mm": 135, "exit": "135", "name": "Blue Beacon Truck Wash", "brand": "Independent", "type": "truck_wash", "city": "Beaverdam", "approx": false, "notes": "413 E Main St, I-75 Exit 135; near Flying J"},
         {"mm": 157, "exit": "157", "name": "Pilot Travel Center", "brand": "Pilot", "type": "truck_stop", "city": "Findlay", "approx": false, "notes": "US-224/SR-15", "parking": 80},
         {"mm": 159, "exit": "159", "name": "Petro Stopping Center", "brand": "Petro", "type": "truck_stop", "city": "Findlay", "approx": false, "notes": "US-68/SR-15", "parking": 200},
@@ -99,11 +95,9 @@
         {"mm": 223, "exit": "223", "name": "Pilot Travel Center", "brand": "Pilot", "type": "truck_stop", "city": "Austintown", "approx": true, "notes": "SR-46, free I-80 section", "parking": 80},
         {"mm": 223, "exit": "223", "name": "TA Travel Center", "brand": "TA", "type": "truck_stop", "city": "Austintown (Youngstown)", "approx": true, "notes": "SR-46", "parking": 175},
         {"mm": 226, "exit": "226", "name": "Blue Beacon Truck Wash", "brand": "Independent", "type": "truck_wash", "city": "Girard", "approx": false, "notes": "2786 Salt Springs Rd, I-80 Exit 226 (Youngstown area)"},
-        {"mm": 226, "exit": "226", "name": "Blue Beacon Truck Wash", "brand": "Independent", "type": "truck_wash", "city": "Girard", "approx": false, "notes": "2786 Salt Springs Rd, I-80 Exit 226 (Youngstown area)"},
         {"mm": 232, "exit": "232", "name": "Weigh Station (WB)", "brand": "State", "type": "weigh_station", "city": "Hubbard/Girard area", "approx": true, "notes": "OSHP scale 2.5 mi west of OH-7; truck stops at exit 234 are east of scale"},
         {"mm": 234, "exit": "234", "name": "Flying J Travel Center", "brand": "Flying J", "type": "truck_stop", "city": "Hubbard/Girard area", "approx": true, "notes": "", "parking": 90},
         {"mm": 234, "exit": "234", "name": "TruckWorld Travel Plaza", "brand": "Independent", "type": "truck_stop", "city": "Hubbard", "approx": true, "notes": "Large independent stop near PA line", "parking": 150},
-        {"mm": 234, "exit": "234B", "name": "Blue Beacon Truck Wash", "brand": "Independent", "type": "truck_wash", "city": "Hubbard", "approx": false, "notes": "7044 Truck World Blvd, I-80 Exit 234B; at Truck World/TA Youngstown"},
         {"mm": 234, "exit": "234B", "name": "Blue Beacon Truck Wash", "brand": "Independent", "type": "truck_wash", "city": "Hubbard", "approx": false, "notes": "7044 Truck World Blvd, I-80 Exit 234B; at Truck World/TA Youngstown"}
       ]
     },
