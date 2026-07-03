@@ -69,6 +69,16 @@
           "parking": 100
         },
         {
+          "mm": 205,
+          "exit": "205",
+          "name": "Motel 6 Lebec",
+          "brand": "Motel 6",
+          "type": "hotel",
+          "city": "Lebec",
+          "approx": false,
+          "notes": "Truck parking verified: RV/bus/truck parking listed on booking sites; adjacent to Flying J; reviews note plenty of truck parking"
+        },
+        {
           "mm": 208,
           "exit": "208",
           "name": "Tejon Pass Rest Area (both directions)",
@@ -143,6 +153,16 @@
           "parking": 150
         },
         {
+          "mm": 257,
+          "exit": "257",
+          "name": "Motel 6 Buttonwillow Central",
+          "brand": "Motel 6",
+          "type": "hotel",
+          "city": "Buttonwillow",
+          "approx": false,
+          "notes": "Truck parking verified: truck parking listed amenity on booking sites; off I-5 exit 257 at Tracy Ave"
+        },
+        {
           "mm": 278,
           "exit": "278",
           "name": "Love's Travel Stop",
@@ -207,6 +227,26 @@
           "approx": true,
           "notes": "CA-33",
           "parking": 90
+        },
+        {
+          "mm": 407,
+          "exit": "407",
+          "name": "Best Western Andersen's Inn",
+          "brand": "Best Western",
+          "type": "hotel",
+          "city": "Santa Nella",
+          "approx": true,
+          "notes": "Truck parking verified: TripAdvisor review 'Plenty of truck parking'; hotel has truck/RV lot plus free overflow lot next door"
+        },
+        {
+          "mm": 407,
+          "exit": "407",
+          "name": "Motel 6 Santa Nella",
+          "brand": "Motel 6",
+          "type": "hotel",
+          "city": "Santa Nella",
+          "approx": true,
+          "notes": "Truck parking verified: free RV and truck parking listed amenity on motel6.com"
         },
         {
           "mm": 441,
@@ -379,6 +419,16 @@
           "notes": "CHP Cottonwood CVEF, opened 2000; PrePass"
         },
         {
+          "mm": 680,
+          "exit": "680",
+          "name": "Motel 6 Redding North",
+          "brand": "Motel 6",
+          "type": "hotel",
+          "city": "Redding",
+          "approx": true,
+          "notes": "Truck parking verified: RV/bus/truck parking listed amenity; trucker reviews note commercial trucks/trailers park in back lot"
+        },
+        {
           "mm": 698,
           "exit": "",
           "name": "O'Brien (Lakehead) Rest Area",
@@ -409,6 +459,16 @@
           "approx": true,
           "notes": "South Weed exit",
           "parking": 70
+        },
+        {
+          "mm": 747,
+          "exit": "747",
+          "name": "Motel 6 Weed - Mount Shasta",
+          "brand": "Motel 6",
+          "type": "hotel",
+          "city": "Weed",
+          "approx": true,
+          "notes": "Truck parking verified: 104 parking spaces including truck parking per Allstays listing; off I-5 N Weed Blvd exit"
         },
         {
           "mm": 757,
@@ -458,6 +518,16 @@
           "approx": false,
           "notes": "Crestwood Rd",
           "parking": 50
+        },
+        {
+          "mm": 115,
+          "exit": "115",
+          "name": "Motel 6 El Centro",
+          "brand": "Motel 6",
+          "type": "hotel",
+          "city": "El Centro",
+          "approx": true,
+          "notes": "Truck parking verified: RV/bus/truck parking listed amenity; guest reviews note rear lot large enough for semi trucks"
         },
         {
           "mm": 143,
@@ -592,6 +662,26 @@
           "approx": true,
           "notes": "Both directions",
           "parking": 15
+        },
+        {
+          "mm": 240,
+          "exit": "240",
+          "name": "Motel 6 Blythe",
+          "brand": "Motel 6",
+          "type": "hotel",
+          "city": "Blythe",
+          "approx": true,
+          "notes": "Truck parking verified: free onsite tractor-trailer/bus/RV parking at rear of property; I-10 at Lovekin Blvd"
+        },
+        {
+          "mm": 240,
+          "exit": "240",
+          "name": "Quality Inn Blythe I-10",
+          "brand": "Quality Inn",
+          "type": "hotel",
+          "city": "Blythe",
+          "approx": true,
+          "notes": "Truck parking verified: TripAdvisor trucker review confirms semi truck parking on site"
         }
       ]
     },
@@ -650,6 +740,16 @@
           "parking": 90
         },
         {
+          "mm": 143,
+          "exit": "143",
+          "name": "Motel 6 Hesperia - West Main Street",
+          "brand": "Motel 6",
+          "type": "hotel",
+          "city": "Hesperia",
+          "approx": true,
+          "notes": "Truck parking verified: free semi-truck parking listed amenity; guest reviews confirm plenty of truck parking"
+        },
+        {
           "mm": 178,
           "exit": "178",
           "name": "TA Barstow",
@@ -680,6 +780,16 @@
           "city": "Barstow",
           "approx": false,
           "notes": "2540 High Point Pkwy; near TA Barstow"
+        },
+        {
+          "mm": 178,
+          "exit": "178",
+          "name": "Motel 6 Barstow - Lenwood Road",
+          "brand": "Motel 6",
+          "type": "hotel",
+          "city": "Barstow",
+          "approx": false,
+          "notes": "Truck parking verified: RV/bus/truck parking listed amenity; reviews cite 'great big rig parking'; near TA Barstow"
         },
         {
           "mm": 217,
@@ -751,6 +861,16 @@
           "parking": 80
         },
         {
+          "mm": 142,
+          "exit": "142",
+          "name": "Motel 6 Needles",
+          "brand": "Motel 6",
+          "type": "hotel",
+          "city": "Needles",
+          "approx": true,
+          "notes": "Truck parking verified: truck parking listed amenity; reviews note large-vehicle lot next door; I-40 at J St exit"
+        },
+        {
           "mm": 144,
           "exit": "144",
           "name": "Needles Scales (WB)",
@@ -785,6 +905,16 @@
           "city": "Fairfield (Cordelia)",
           "approx": true,
           "notes": "WB facility; replacement scales broke ground 2025; PrePass"
+        },
+        {
+          "mm": 41,
+          "exit": "41",
+          "name": "Motel 6 Fairfield - Napa Valley (Cordelia)",
+          "brand": "Motel 6",
+          "type": "hotel",
+          "city": "Fairfield (Cordelia)",
+          "approx": true,
+          "notes": "Truck parking verified: truck parking listed amenity (visitfairfield.com directory and booking sites); Central Place at exit 41"
         },
         {
           "mm": 42,
@@ -837,6 +967,16 @@
           "city": "Citrus Heights (Sacramento)",
           "approx": false,
           "notes": "EB and WB scales between Greenback Ln and Antelope Rd; PrePass"
+        },
+        {
+          "mm": 121,
+          "exit": "121",
+          "name": "Motel 6 Auburn",
+          "brand": "Motel 6",
+          "type": "hotel",
+          "city": "Auburn",
+          "approx": true,
+          "notes": "Truck parking verified: truck parking listed amenity on motel6.com and booking listings; off I-80 at Foresthill Rd/Auburn Ravine Rd"
         },
         {
           "mm": 146,
