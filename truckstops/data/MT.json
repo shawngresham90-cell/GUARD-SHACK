@@ -62,6 +62,16 @@
      "parking": 90
     },
     {
+     "mm": 277,
+     "exit": "277",
+     "name": "I-State Truck Center - Great Falls",
+     "brand": "Freightliner",
+     "type": "repair",
+     "city": "Great Falls",
+     "approx": true,
+     "notes": "Freightliner/Western Star dealer at I-15 exit 277; 18 service bays, all-makes heavy-duty service, trailer & Carrier reefer repair; near Flying J"
+    },
+    {
      "mm": 363,
      "exit": "363",
      "name": "Town Pump",
@@ -174,6 +184,16 @@
      "notes": "Independent truck and RV wash off exit 96"
     },
     {
+     "mm": 96,
+     "exit": "96",
+     "name": "Speedco",
+     "brand": "Speedco",
+     "type": "repair",
+     "city": "Missoula",
+     "approx": true,
+     "notes": "Off I-90 exit 96; oil & PM service, light mechanical, tires, roadside for semis; near Pilot/TA"
+    },
+    {
      "mm": 101,
      "exit": "101",
      "name": "Town Pump",
@@ -183,6 +203,16 @@
      "approx": true,
      "notes": "Reserve St; Town Pump chain",
      "parking": 40
+    },
+    {
+     "mm": 101,
+     "exit": "101",
+     "name": "I-State Truck Center - Missoula",
+     "brand": "Freightliner",
+     "type": "repair",
+     "city": "Missoula",
+     "approx": true,
+     "notes": "Freightliner dealer, 5561 Expressway, west Missoula; 21 service bays, all-makes heavy-duty service, overhauls, parts"
     },
     {
      "mm": 122,

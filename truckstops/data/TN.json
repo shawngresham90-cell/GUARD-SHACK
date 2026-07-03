@@ -39,6 +39,16 @@
           "parking": 190
         },
         {
+          "mm": 47,
+          "exit": "47",
+          "name": "TA Truck Service (TA Nashville)",
+          "brand": "TA",
+          "type": "repair",
+          "city": "Nashville",
+          "approx": true,
+          "notes": "6 truck service bays; co-located with TA Nashville travel center, 111 N 1st St (I-24 Exit 47/48); brakes, electrical, PM, DOT inspections, RoadSquad road service"
+        },
+        {
           "mm": 62,
           "exit": "62",
           "name": "Blue Beacon Truck Wash",
@@ -330,6 +340,16 @@
           "parking": 85
         },
         {
+          "mm": 85,
+          "exit": "85",
+          "name": "Southern Tire Mart at Pilot (Jackson)",
+          "brand": "Southern Tire Mart",
+          "type": "repair",
+          "city": "Jackson",
+          "approx": true,
+          "notes": "Truck care center co-located with Pilot Travel Center #366, 30 Sand Pebble Dr (I-40 Exit 85); commercial tires, PM, DOT inspections, 24/7 roadside assistance"
+        },
+        {
           "mm": 87,
           "exit": "87",
           "name": "Love's Travel Stop",
@@ -469,6 +489,16 @@
           "parking": 85
         },
         {
+          "mm": 288,
+          "exit": "288",
+          "name": "Nabors I-40 Service",
+          "brand": "Independent",
+          "type": "repair",
+          "city": "Cookeville",
+          "approx": false,
+          "notes": "Heavy-duty commercial truck repair and towing at I-40 Exit 288, 4720A S Jefferson Ave; brake repair, alignment, road service (since 1989)"
+        },
+        {
           "mm": 320,
           "exit": "320",
           "name": "Buc-ee's",
@@ -543,6 +573,26 @@
           "approx": false,
           "notes": "Watt Rd cluster on I-40/I-75 overlap",
           "parking": 190
+        },
+        {
+          "mm": 369,
+          "exit": "369",
+          "name": "Petro Knoxville Truck Service (Watt Road)",
+          "brand": "Petro",
+          "type": "repair",
+          "city": "Knoxville",
+          "approx": false,
+          "notes": "5 truck service bays, 24/7; co-located with Petro Stopping Center #312, 722 Watt Rd (I-40/I-75 Exit 369); oil/lube, tire repair, truck repairs, road service"
+        },
+        {
+          "mm": 369,
+          "exit": "369",
+          "name": "Speedco (Knoxville Watt Road)",
+          "brand": "Love's",
+          "type": "repair",
+          "city": "Knoxville",
+          "approx": false,
+          "notes": "Speedco at I-40/I-75 Exit 369 Watt Rd cluster; oil change/PM, light mechanical, expanded tire selection, roadside assistance"
         },
         {
           "mm": 372,

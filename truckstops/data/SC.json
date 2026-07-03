@@ -79,6 +79,16 @@
           "notes": "Across from Flying J Travel Center; Buckner Rd"
         },
         {
+          "mm": 71,
+          "exit": "71",
+          "name": "TA Truck Service (TA Columbia North)",
+          "brand": "TA",
+          "type": "repair",
+          "city": "Columbia",
+          "approx": false,
+          "notes": "2 truck service bays, 24/7; co-located with TA Columbia North travel center, 7400 Wilson Blvd (US-21); brakes, electrical, alignment, A/C, PM, DOT inspections, RoadSquad road service, full tire lines"
+        },
+        {
           "mm": 93,
           "exit": "93",
           "name": "Kershaw County Rest Area (both directions)",
@@ -205,6 +215,16 @@
           "parking": 90
         },
         {
+          "mm": 5,
+          "exit": "5",
+          "name": "Petro Columbia (Truck Service)",
+          "brand": "Petro",
+          "type": "repair",
+          "city": "Columbia",
+          "approx": false,
+          "notes": "6 truck service bays, 24/7; co-located with Petro Stopping Center #238, 2154 S Beltline Blvd; engine diagnostics, DOT inspections, HVAC, electrical, brakes, Freightliner/Western Star ServicePoint, tires"
+        },
+        {
           "mm": 65,
           "exit": "65",
           "name": "Love's Travel Stop",
@@ -263,6 +283,16 @@
           "parking": 20
         },
         {
+          "mm": 4,
+          "exit": "4",
+          "name": "Love's Truck Care (Fair Play #387)",
+          "brand": "Love's",
+          "type": "repair",
+          "city": "Fair Play",
+          "approx": false,
+          "notes": "3 truck service bays, 24/7; co-located with Love's Travel Stop #387, 4238 Old Dobbins Bridge Rd; oil/PM, light mechanical, tire services, DOT inspections"
+        },
+        {
           "mm": 9,
           "exit": "9",
           "name": "Weigh Station (NB)",
@@ -271,6 +301,26 @@
           "city": "Fair Play (Townville)",
           "approx": true,
           "notes": "STP scales; serves northbound entering from GA"
+        },
+        {
+          "mm": 63,
+          "exit": "63",
+          "name": "TA Truck Service (TA Spartanburg #025)",
+          "brand": "TA",
+          "type": "repair",
+          "city": "Duncan",
+          "approx": false,
+          "notes": "TA travel center truck service at I-85 Exit 63 (SC-290), Duncan; on-site repair and 24/7 RoadSquad emergency road service; near Pilot and Blue Beacon at same exit"
+        },
+        {
+          "mm": 63,
+          "exit": "63",
+          "name": "Speedco (Duncan #914)",
+          "brand": "Love's",
+          "type": "repair",
+          "city": "Duncan",
+          "approx": true,
+          "notes": "Love's Speedco #914, 196 McAulay Rd; oil change/PM, light mechanical, expanded tire selection, roadside assistance; near Pilot/Blue Beacon at Exit 63"
         },
         {
           "mm": 63,
@@ -497,6 +547,16 @@
           "parking": 90
         },
         {
+          "mm": 164,
+          "exit": "164",
+          "name": "Southern Tire Mart at Pilot (Florence)",
+          "brand": "Southern Tire Mart",
+          "type": "repair",
+          "city": "Florence",
+          "approx": false,
+          "notes": "Truck care center co-located with Pilot Travel Center #337, 2015 W Lucas St (US-52); commercial tires, PM, DOT inspections, 24/7 roadside assistance"
+        },
+        {
           "mm": 169,
           "exit": "169",
           "name": "Blue Beacon Truck Wash",
@@ -516,6 +576,16 @@
           "approx": true,
           "notes": "No semi-truck parking",
           "parking": 0
+        },
+        {
+          "mm": 181,
+          "exit": "181",
+          "name": "Southern Tire Mart at Pilot (Latta)",
+          "brand": "Southern Tire Mart",
+          "type": "repair",
+          "city": "Latta",
+          "approx": false,
+          "notes": "Truck care center co-located with ONE9/Pilot Travel Center #4584 at I-95 Exit 181 (SC-38), 111 Mill Branch Rd; commercial tires, PM, DOT inspections, 24/7 roadside assistance"
         },
         {
           "mm": 193,

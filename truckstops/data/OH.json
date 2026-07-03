@@ -13,6 +13,7 @@
         {"mm": 80, "exit": "80", "name": "Love's Travel Stop", "brand": "Love's", "type": "truck_stop", "city": "West Jefferson", "approx": false, "notes": "Opened June 2025; I-70 Exit 80/OH-29", "parking": 80},
         {"mm": 85, "exit": "85", "name": "Pilot Travel Center", "brand": "Pilot", "type": "truck_stop", "city": "West Jefferson", "approx": false, "notes": "SR-142", "parking": 80},
         {"mm": 85, "exit": "85", "name": "TA Travel Center", "brand": "TA", "type": "truck_stop", "city": "West Jefferson", "approx": true, "notes": "SR-142, Columbus west side", "parking": 175},
+        {"mm": 85, "exit": "85", "name": "TA Truck Service West Jefferson", "brand": "TA", "type": "repair", "city": "West Jefferson", "approx": true, "notes": "Full-service heavy-duty truck repair shop at the TA (Columbus West), I-70 Exit 85 (SR-142)"},
         {"mm": 118, "exit": "118", "name": "Pilot Travel Center", "brand": "Pilot", "type": "truck_stop", "city": "Etna", "approx": true, "notes": "SR-310", "parking": 80},
         {"mm": 126, "exit": "126", "name": "Pilot Travel Center", "brand": "Pilot", "type": "truck_stop", "city": "Hebron", "approx": false, "notes": "SR-37, large lot", "parking": 100},
         {"mm": 126, "exit": "126", "name": "Flying J Travel Center", "brand": "Flying J", "type": "truck_stop", "city": "Hebron", "approx": false, "notes": "SR-37", "parking": 90},
@@ -21,8 +22,10 @@
         {"mm": 160, "exit": "160", "name": "Love's Travel Stop", "brand": "Love's", "type": "truck_stop", "city": "Zanesville area", "approx": true, "notes": "", "parking": 85},
         {"mm": 173, "exit": "173", "name": "Weigh Station (WB)", "brand": "State", "type": "weigh_station", "city": "Cambridge area", "approx": true, "notes": "OSHP scale, Guernsey County, west of Cambridge"},
         {"mm": 178, "exit": "178", "name": "TA Travel Center", "brand": "TA", "type": "truck_stop", "city": "Cambridge", "approx": true, "notes": "US-40, near I-77 junction", "parking": 160},
+        {"mm": 178, "exit": "178", "name": "TA Truck Service Cambridge", "brand": "TA", "type": "repair", "city": "Cambridge", "approx": true, "notes": "Full-service heavy-duty truck repair shop at the TA, I-70 Exit 178 (US-40), near I-77 junction"},
         {"mm": 178, "exit": "178", "name": "Love's Travel Stop", "brand": "Love's", "type": "truck_stop", "city": "Cambridge", "approx": true, "notes": "Near I-77 junction", "parking": 85},
         {"mm": 208, "exit": "208", "name": "Love's Travel Stop", "brand": "Love's", "type": "truck_stop", "city": "St. Clairsville", "approx": false, "notes": "Opened April 2025; I-70 Exit 208; includes Speedco", "parking": 121},
+        {"mm": 208, "exit": "208", "name": "Speedco St. Clairsville", "brand": "Speedco (Love's)", "type": "repair", "city": "St. Clairsville", "approx": false, "notes": "Nine-bay Love's Truck Care/Speedco shop at the Love's, I-70 Exit 208"},
         {"mm": 212, "exit": "212", "name": "Belmont County Rest Area (both directions)", "brand": "State", "type": "rest_area", "city": "Morristown", "approx": true, "parking": 25}
       ]
     },
@@ -40,6 +43,8 @@
         {"mm": 204, "exit": "204", "name": "Pilot Travel Center", "brand": "Pilot", "type": "truck_stop", "city": "Burbank", "approx": false, "notes": "SR-83, Lodi area", "parking": 80},
         {"mm": 209, "exit": "209", "name": "TA Travel Center", "brand": "TA", "type": "truck_stop", "city": "Seville/Lodi area", "approx": false, "notes": "I-76/US-224 junction", "parking": 175},
         {"mm": 209, "exit": "209", "name": "Petro Stopping Center", "brand": "Petro", "type": "truck_stop", "city": "Seville/Lodi area", "approx": false, "notes": "I-76/US-224 junction", "parking": 200},
+        {"mm": 209, "exit": "209", "name": "TA Truck Service Seville", "brand": "TA", "type": "repair", "city": "Seville/Lodi area", "approx": false, "notes": "Full-service heavy-duty truck repair shop at the TA, I-71/I-76 Exit 209 (US-224)"},
+        {"mm": 209, "exit": "209", "name": "Petro Seville Truck Service", "brand": "Petro", "type": "repair", "city": "Seville/Lodi area", "approx": false, "notes": "Full-service TA/Petro heavy-duty truck repair shop at the Petro Stopping Center, I-71/I-76 Exit 209 (US-224)"},
         {"mm": 209, "exit": "209", "name": "Blue Beacon Truck Wash", "brand": "Independent", "type": "truck_wash", "city": "Lodi (Burbank)", "approx": true, "notes": "At TA Travel Center, I-71 Exit 209 (I-71/I-76/US-224 interchange)"}
       ]
     },
@@ -57,13 +62,16 @@
         {"mm": 135, "exit": "135", "name": "Flying J Travel Center", "brand": "Flying J", "type": "truck_stop", "city": "Beaverdam", "approx": false, "notes": "US-30 junction area", "parking": 100},
         {"mm": 135, "exit": "135", "name": "Love's Travel Stop", "brand": "Love's", "type": "truck_stop", "city": "Beaverdam", "approx": false, "notes": "", "parking": 85},
         {"mm": 135, "exit": "135", "name": "Blue Beacon Truck Wash", "brand": "Independent", "type": "truck_wash", "city": "Beaverdam", "approx": false, "notes": "413 E Main St, I-75 Exit 135; near Flying J"},
+        {"mm": 135, "exit": "135", "name": "Speedco Beaverdam", "brand": "Speedco (Love's)", "type": "repair", "city": "Beaverdam", "approx": false, "notes": "Speedco #905 lube/PM/tire, 416 Village Ave at the Love's, I-75 Exit 135"},
         {"mm": 157, "exit": "157", "name": "Pilot Travel Center", "brand": "Pilot", "type": "truck_stop", "city": "Findlay", "approx": false, "notes": "US-224/SR-15", "parking": 80},
         {"mm": 159, "exit": "159", "name": "Petro Stopping Center", "brand": "Petro", "type": "truck_stop", "city": "Findlay", "approx": false, "notes": "US-68/SR-15", "parking": 200},
+        {"mm": 159, "exit": "159", "name": "Petro Findlay Truck Service", "brand": "Petro", "type": "repair", "city": "Findlay", "approx": false, "notes": "Full-service TA/Petro heavy-duty truck repair shop at the Petro Stopping Center, I-75 Exit 159 (US-68/SR-15)"},
         {"mm": 164, "exit": "164", "name": "Pilot Travel Center #360", "brand": "Pilot", "type": "truck_stop", "city": "Findlay", "approx": false, "notes": "Completely rebuilt from ground up, reopened November 2025; 11471 State Route 613W; Taco Bell", "parking": 80},
         {"mm": 167, "exit": "167", "name": "TA Express", "brand": "TA Express", "type": "truck_stop", "city": "North Baltimore", "approx": true, "notes": "SR-18", "parking": 60},
         {"mm": 179, "exit": "179", "name": "Wood County Rest Area (both directions)", "brand": "State", "type": "rest_area", "city": "Cygnet area", "approx": true, "parking": 25},
         {"mm": 195, "exit": "195", "name": "QuikTrip Rossford Travel Center", "brand": "QuikTrip", "type": "truck_stop", "city": "Rossford", "approx": true, "notes": "Opened Feb 2026 just east of I-75; 6 diesel bays, truck parking; exit approximate"},
-        {"mm": 210, "exit": "210", "name": "Petro Stopping Center", "brand": "Petro", "type": "truck_stop", "city": "Toledo/Perrysburg area", "approx": true, "notes": "South Toledo metro", "parking": 200}
+        {"mm": 210, "exit": "210", "name": "Petro Stopping Center", "brand": "Petro", "type": "truck_stop", "city": "Toledo/Perrysburg area", "approx": true, "notes": "South Toledo metro", "parking": 200},
+        {"mm": 210, "exit": "210", "name": "Petro Toledo Truck Service", "brand": "Petro", "type": "repair", "city": "Toledo/Perrysburg area", "approx": true, "notes": "Full-service TA/Petro heavy-duty truck repair shop at the Petro Stopping Center, I-75 Exit 210 (South Toledo metro)"}
       ]
     },
     "I-76": {
@@ -94,11 +102,13 @@
         {"mm": 197, "exit": "", "name": "Mahoning Valley / Glacier Hills Service Plazas", "brand": "State", "type": "service_plaza", "city": "Lordstown area", "approx": false, "notes": "Ohio Turnpike mainline pair, EB and WB, truck parking", "parking": 75},
         {"mm": 223, "exit": "223", "name": "Pilot Travel Center", "brand": "Pilot", "type": "truck_stop", "city": "Austintown", "approx": true, "notes": "SR-46, free I-80 section", "parking": 80},
         {"mm": 223, "exit": "223", "name": "TA Travel Center", "brand": "TA", "type": "truck_stop", "city": "Austintown (Youngstown)", "approx": true, "notes": "SR-46", "parking": 175},
+        {"mm": 223, "exit": "223", "name": "TA Truck Service Youngstown (Austintown)", "brand": "TA", "type": "repair", "city": "Austintown (Youngstown)", "approx": true, "notes": "Full-service heavy-duty truck repair shop at the TA, I-80 Exit 223A (SR-46)"},
         {"mm": 226, "exit": "226", "name": "Blue Beacon Truck Wash", "brand": "Independent", "type": "truck_wash", "city": "Girard", "approx": false, "notes": "2786 Salt Springs Rd, I-80 Exit 226 (Youngstown area)"},
         {"mm": 232, "exit": "232", "name": "Weigh Station (WB)", "brand": "State", "type": "weigh_station", "city": "Hubbard/Girard area", "approx": true, "notes": "OSHP scale 2.5 mi west of OH-7; truck stops at exit 234 are east of scale"},
         {"mm": 234, "exit": "234", "name": "Flying J Travel Center", "brand": "Flying J", "type": "truck_stop", "city": "Hubbard/Girard area", "approx": true, "notes": "", "parking": 90},
         {"mm": 234, "exit": "234", "name": "TruckWorld Travel Plaza", "brand": "Independent", "type": "truck_stop", "city": "Hubbard", "approx": true, "notes": "Large independent stop near PA line", "parking": 150},
         {"mm": 234, "exit": "234B", "name": "Blue Beacon Truck Wash", "brand": "Independent", "type": "truck_wash", "city": "Hubbard", "approx": false, "notes": "7044 Truck World Blvd, I-80 Exit 234B; at Truck World/TA Youngstown"},
+        {"mm": 234, "exit": "234B", "name": "Boss Truck Shop Hubbard", "brand": "Boss Truck Shop", "type": "repair", "city": "Hubbard", "approx": false, "notes": "Full-service lube/tire/repair shop at the Truck World Travel Plaza, 7051 Truck World Blvd, I-80 Exit 234/234B (opened 2022)"},
         {"mm": 234, "exit": "234", "name": "Travelodge at Truck World", "brand": "Travelodge (Wyndham)", "type": "hotel", "city": "Hubbard", "approx": false, "notes": "Truck parking verified: motel located on TruckWorld Travel Plaza truck stop property with 24-hour big-rig parking"}
       ]
     },
@@ -109,6 +119,7 @@
         {"mm": 118, "exit": "118", "name": "Love's Travel Stop", "brand": "Love's", "type": "truck_stop", "city": "Milan Township", "approx": false, "notes": "Opened December 2025; Ohio Turnpike Exit 118 at US-250", "parking": 111},
         {"mm": 223, "exit": "223", "name": "Flying J Travel Center", "brand": "Flying J", "type": "truck_stop", "city": "Austinburg", "approx": false, "notes": "SR-45", "parking": 90},
         {"mm": 223, "exit": "223", "name": "TA Travel Center", "brand": "TA", "type": "truck_stop", "city": "Austinburg", "approx": true, "notes": "SR-45", "parking": 160},
+        {"mm": 223, "exit": "223", "name": "TA Truck Service Austinburg", "brand": "TA", "type": "repair", "city": "Austinburg", "approx": true, "notes": "Full-service heavy-duty truck repair shop at the TA, I-90 Exit 223 (SR-45)"},
         {"mm": 236, "exit": "236", "name": "Weigh Station (WB)", "brand": "State", "type": "weigh_station", "city": "Kingsville (Ashtabula County)", "approx": true, "notes": "OSHP scale for WB traffic entering from Pennsylvania"},
         {"mm": 240, "exit": "240", "name": "Ohio Welcome Center Rest Area (WB only)", "brand": "State", "type": "rest_area", "city": "Conneaut", "approx": true, "parking": 20}
       ]
@@ -117,6 +128,7 @@
       "maxMM": 13,
       "stops": [
         {"mm": 1, "exit": "1", "name": "TA Travel Center", "brand": "TA", "type": "truck_stop", "city": "Stony Ridge (Toledo)", "approx": true, "notes": "At Ohio Turnpike exit 71 junction", "parking": 175},
+        {"mm": 1, "exit": "1", "name": "TA Truck Service Toledo (Stony Ridge)", "brand": "TA", "type": "repair", "city": "Stony Ridge (Toledo)", "approx": true, "notes": "Full-service heavy-duty truck repair shop at the TA Toledo, I-280 Exit 1B at the Ohio Turnpike Exit 71 junction"},
         {"mm": 1, "exit": "1", "name": "Pilot Travel Center", "brand": "Pilot", "type": "truck_stop", "city": "Stony Ridge (Toledo)", "approx": true, "notes": "At Ohio Turnpike exit 71 junction", "parking": 80}
       ]
     }

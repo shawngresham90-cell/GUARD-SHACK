@@ -11,7 +11,8 @@
       "stops": [
         {"mm": 62, "exit": "", "name": "Tonica Rest Area (both directions)", "brand": "State", "type": "rest_area", "city": "Tonica area", "approx": true, "notes": "NB and SB, truck parking", "parking": 20},
         {"mm": 99, "exit": "99", "name": "Petro Stopping Center", "brand": "Petro", "type": "truck_stop", "city": "Rochelle", "approx": false, "notes": "IL-38, large full-service travel center", "parking": 200},
-        {"mm": 99, "exit": "99", "name": "Blue Beacon Truck Wash", "brand": "Independent", "type": "truck_wash", "city": "Rochelle", "approx": false, "notes": "At Petro Stopping Center, I-39 Exit 99"}
+        {"mm": 99, "exit": "99", "name": "Blue Beacon Truck Wash", "brand": "Independent", "type": "truck_wash", "city": "Rochelle", "approx": false, "notes": "At Petro Stopping Center, I-39 Exit 99"},
+        {"mm": 99, "exit": "99", "name": "Petro Rochelle Truck Service", "brand": "Petro", "type": "repair", "city": "Rochelle", "approx": false, "notes": "Full-service TA/Petro heavy-duty truck repair shop co-located at the Petro Stopping Center, I-39 Exit 99"}
       ]
     },
     "I-55": {
@@ -20,15 +21,18 @@
         {"mm": 4, "exit": "4", "name": "Flying J Travel Center", "brand": "Flying J", "type": "truck_stop", "city": "East St. Louis", "approx": true, "notes": "IL-203, on I-55/I-64/I-70 overlap near St. Louis", "parking": 90},
         {"mm": 4, "exit": "4", "name": "Pilot Travel Center", "brand": "Pilot", "type": "truck_stop", "city": "East St. Louis", "approx": true, "notes": "On I-55/I-64/I-70 overlap near St. Louis", "parking": 75},
         {"mm": 13, "exit": "13", "name": "Weigh Station (SB)", "brand": "State", "type": "weigh_station", "city": "Maryville", "approx": true, "notes": "ISP scale on I-55/70 overlap west of Troy (mm ~13.5); serves I-55 SB / I-70 WB toward St. Louis; PrePass"},
+        {"mm": 18, "exit": "18", "name": "Speedco Troy", "brand": "Speedco (Love's)", "type": "repair", "city": "Troy", "approx": true, "notes": "Love's Speedco #949 lube, PM, tire and light mechanical; 2180 Liebler Rd on the I-55/I-70 overlap at Exit 18"},
         {"mm": 52, "exit": "52", "name": "Love's Travel Stop", "brand": "Love's", "type": "truck_stop", "city": "Litchfield", "approx": true, "notes": "IL-16, historic Route 66 town", "parking": 85},
         {"mm": 105, "exit": "105", "name": "Weigh Station (SB)", "brand": "State", "type": "weigh_station", "city": "Williamsville", "approx": true, "notes": "ISP Williamsville/Sherman scale, SB only, north of Springfield between Exit 109 and rest area; PrePass"},
         {"mm": 145, "exit": "145", "name": "Dixie Travel Plaza", "brand": "Independent", "type": "truck_stop", "city": "McLean", "approx": false, "notes": "US-136, historic Dixie Truckers Home, since 1928", "parking": 150},
         {"mm": 149, "exit": "149", "name": "Funks Grove Rest Area (both directions)", "brand": "State", "type": "rest_area", "city": "Funks Grove (McLean)", "approx": true, "parking": 25},
         {"mm": 160, "exit": "160", "name": "Pilot Travel Center", "brand": "Pilot", "type": "truck_stop", "city": "Bloomington", "approx": true, "notes": "Market St (US-150), I-55/I-74 overlap area", "parking": 75},
         {"mm": 160, "exit": "160", "name": "Blue Beacon Truck Wash", "brand": "Independent", "type": "truck_wash", "city": "Bloomington", "approx": false, "notes": "408 Caroline St, across from Pilot Travel Center, Exit 160"},
+        {"mm": 165, "exit": "165", "name": "Speedco Normal", "brand": "Speedco (Love's)", "type": "repair", "city": "Normal", "approx": true, "notes": "Lube, PM, tire and light mechanical; 2007 N Main St, Bloomington-Normal on I-55/I-74 overlap (Exit 165B EB / 165 WB)"},
         {"mm": 196, "exit": "", "name": "Pontiac Rest Area (both directions)", "brand": "State", "type": "rest_area", "city": "Pontiac area", "approx": true, "notes": "NB and SB, truck parking", "parking": 25},
         {"mm": 226, "exit": "226", "name": "Coalfield Rest Area (both directions)", "brand": "State", "type": "rest_area", "city": "Gardner", "approx": true, "parking": 30},
         {"mm": 241, "exit": "241", "name": "Love's Travel Stop", "brand": "Love's", "type": "truck_stop", "city": "Wilmington", "approx": true, "notes": "Lorenzo Rd, RidgePort logistics area", "parking": 85},
+        {"mm": 248, "exit": "248", "name": "Speedco Channahon", "brand": "Speedco (Love's)", "type": "repair", "city": "Channahon", "approx": true, "notes": "Lube, PM, tire and light mechanical; 23801 W Bluff Rd off I-55 Exit 248 / Bluff Rd"},
         {"mm": 266, "exit": "266", "name": "Weigh Station (both directions)", "brand": "State", "type": "weigh_station", "city": "Bolingbrook", "approx": true, "notes": "ISP Bolingbrook (Joliet) scales, NB and SB (SB at mm 266, NB nearby); PrePass"},
         {"mm": 267, "exit": "267", "name": "Pilot Travel Center", "brand": "Pilot", "type": "truck_stop", "city": "Bolingbrook", "approx": true, "notes": "IL-53, closest full truck stop to Chicago on I-55", "parking": 75}
       ]
@@ -42,11 +46,15 @@
         {"mm": 95, "exit": "95", "name": "TA Travel Center", "brand": "TA", "type": "truck_stop", "city": "Mt. Vernon", "approx": false, "notes": "IL-15, I-57/I-64 junction cluster", "parking": 180},
         {"mm": 95, "exit": "95", "name": "Pilot Travel Center", "brand": "Pilot", "type": "truck_stop", "city": "Mt. Vernon", "approx": true, "notes": "IL-15, I-57/I-64 junction cluster", "parking": 75},
         {"mm": 95, "exit": "95", "name": "Huck's Travel Center", "brand": "Independent", "type": "truck_stop", "city": "Mt. Vernon", "approx": true, "notes": "IL-15, I-57/I-64 junction cluster", "parking": 60},
+        {"mm": 95, "exit": "95", "name": "TA Truck Service Mt. Vernon", "brand": "TA", "type": "repair", "city": "Mt. Vernon", "approx": false, "notes": "Full-service heavy-duty truck repair shop at the TA Travel Center, I-57/I-64 Exit 95 (IL-15)"},
         {"mm": 159, "exit": "159", "name": "TA Travel Center", "brand": "TA", "type": "truck_stop", "city": "Effingham", "approx": true, "notes": "Effingham cluster, I-57/I-70 overlap", "parking": 180},
+        {"mm": 159, "exit": "159", "name": "TA Truck Service Effingham", "brand": "TA", "type": "repair", "city": "Effingham", "approx": false, "notes": "TA #321 full-service heavy-duty shop, 1805 W Fayette Ave at the TA on the I-57/I-70 overlap Exit 159"},
+        {"mm": 159, "exit": "159", "name": "Speedco Effingham", "brand": "Speedco (Love's)", "type": "repair", "city": "Effingham", "approx": false, "notes": "Speedco #915 lube/PM/tire, 1805 W Fayette Ave at the TA, I-57/I-70 Exit 159"},
         {"mm": 160, "exit": "160", "name": "Petro Stopping Center", "brand": "Petro", "type": "truck_stop", "city": "Effingham", "approx": true, "notes": "Fayette Ave, Effingham cluster, I-57/I-70 overlap", "parking": 200},
         {"mm": 160, "exit": "160", "name": "Flying J Travel Center", "brand": "Flying J", "type": "truck_stop", "city": "Effingham", "approx": true, "notes": "Fayette Ave, Effingham cluster, I-57/I-70 overlap", "parking": 90},
         {"mm": 160, "exit": "160", "name": "Blue Beacon Truck Wash", "brand": "Independent", "type": "truck_wash", "city": "Effingham", "approx": false, "notes": "At Flying J Travel Plaza, I-57/I-70 overlap Exit 160"},
         {"mm": 160, "exit": "160", "name": "Baymont by Wyndham Effingham", "brand": "Baymont (Wyndham)", "type": "hotel", "city": "Effingham", "approx": false, "notes": "Truck parking verified: guest reviews confirm ample big-rig/semi parking; located at 1811 W Fayette Ave adjacent to Petro truck stop"},
+        {"mm": 160, "exit": "160", "name": "Petro Effingham Truck Service", "brand": "Petro", "type": "repair", "city": "Effingham", "approx": false, "notes": "Full-service TA/Petro heavy-duty truck repair shop at the Petro Stopping Center, I-57/I-70 Exit 160 (Fayette Ave)"},
         {"mm": 162, "exit": "162", "name": "Pilot Travel Center", "brand": "Pilot", "type": "truck_stop", "city": "Effingham", "approx": true, "notes": "IL-32/33, Effingham cluster, I-57/I-70 overlap", "parking": 75},
         {"mm": 203, "exit": "203", "name": "Love's Travel Stop", "brand": "Love's", "type": "truck_stop", "city": "Arcola", "approx": true, "notes": "IL-133", "parking": 85},
         {"mm": 268, "exit": "", "name": "Buckley Rest Area (both directions)", "brand": "State", "type": "rest_area", "city": "Buckley area", "approx": true, "notes": "NB and SB, truck parking", "parking": 20},
@@ -55,7 +63,8 @@
         {"mm": 330, "exit": "330", "name": "Weigh Station (NB)", "brand": "State", "type": "weigh_station", "city": "Peotone", "approx": false, "notes": "ISP Peotone scale, NB, north of Peotone; PrePass"},
         {"mm": 333, "exit": "333", "name": "Weigh Station (SB)", "brand": "State", "type": "weigh_station", "city": "Peotone", "approx": false, "notes": "ISP Peotone scale, SB; PrePass"},
         {"mm": 335, "exit": "335", "name": "Petro Stopping Center", "brand": "Petro", "type": "truck_stop", "city": "Monee", "approx": false, "notes": "Monee-Manhattan Rd, major Chicago-south truck stop", "parking": 250},
-        {"mm": 335, "exit": "335", "name": "Blue Beacon Truck Wash", "brand": "Independent", "type": "truck_wash", "city": "Monee", "approx": false, "notes": "At Petro Stopping Center, I-57 Exit 335"}
+        {"mm": 335, "exit": "335", "name": "Blue Beacon Truck Wash", "brand": "Independent", "type": "truck_wash", "city": "Monee", "approx": false, "notes": "At Petro Stopping Center, I-57 Exit 335"},
+        {"mm": 335, "exit": "335", "name": "Petro Monee Truck Service", "brand": "Petro", "type": "repair", "city": "Monee", "approx": false, "notes": "Petro #367 full-service TA/Petro heavy-duty truck repair shop at the Petro Stopping Center, I-57 Exit 335 (Monee-Manhattan Rd)"}
       ]
     },
     "I-64": {
@@ -73,9 +82,12 @@
         {"mm": 45, "exit": "45", "name": "Love's Travel Stop", "brand": "Love's", "type": "truck_stop", "city": "Greenville", "approx": true, "notes": "IL-127", "parking": 85},
         {"mm": 75, "exit": "75", "name": "Weigh Station (EB)", "brand": "State", "type": "weigh_station", "city": "Brownstown", "approx": true, "notes": "ISP Brownstown scale, EB only, east of Vandalia (reported mm 71.5-75); PrePass"},
         {"mm": 77, "exit": "I-57 exit 159", "name": "TA Travel Center", "brand": "TA", "type": "truck_stop", "city": "Effingham", "approx": true, "notes": "On I-57/I-70 overlap; exits use I-57 mileposts", "parking": 180},
+        {"mm": 77, "exit": "I-57 exit 159", "name": "TA Truck Service Effingham", "brand": "TA", "type": "repair", "city": "Effingham", "approx": true, "notes": "TA #321 full-service shop, 1805 W Fayette Ave at the TA on the I-57/I-70 overlap; exits use I-57 mileposts (Exit 159)"},
+        {"mm": 77, "exit": "I-57 exit 159", "name": "Speedco Effingham", "brand": "Speedco (Love's)", "type": "repair", "city": "Effingham", "approx": true, "notes": "Speedco #915 at the TA on the I-57/I-70 overlap; exits use I-57 mileposts"},
         {"mm": 78, "exit": "I-57 exit 160", "name": "Petro Stopping Center", "brand": "Petro", "type": "truck_stop", "city": "Effingham", "approx": true, "notes": "On I-57/I-70 overlap; exits use I-57 mileposts", "parking": 200},
         {"mm": 78, "exit": "I-57 exit 160", "name": "Flying J Travel Center", "brand": "Flying J", "type": "truck_stop", "city": "Effingham", "approx": true, "notes": "On I-57/I-70 overlap; exits use I-57 mileposts", "parking": 90},
         {"mm": 78, "exit": "I-57 exit 160", "name": "Baymont by Wyndham Effingham", "brand": "Baymont (Wyndham)", "type": "hotel", "city": "Effingham", "approx": true, "notes": "Truck parking verified: guest reviews confirm ample big-rig/semi parking; adjacent to Petro on W Fayette Ave. On I-57/I-70 overlap; exits use I-57 mileposts"},
+        {"mm": 78, "exit": "I-57 exit 160", "name": "Petro Effingham Truck Service", "brand": "Petro", "type": "repair", "city": "Effingham", "approx": true, "notes": "TA/Petro full-service shop at the Petro on the I-57/I-70 overlap; exits use I-57 mileposts (Exit 160)"},
         {"mm": 79, "exit": "I-57 exit 162", "name": "Pilot Travel Center", "brand": "Pilot", "type": "truck_stop", "city": "Effingham", "approx": true, "notes": "On I-57/I-70 overlap; exits use I-57 mileposts", "parking": 75},
         {"mm": 86, "exit": "86", "name": "Montrose Rest Area (both directions)", "brand": "State", "type": "rest_area", "city": "Montrose", "approx": true, "parking": 20},
         {"mm": 147, "exit": "147", "name": "Pilot Travel Center", "brand": "Pilot", "type": "truck_stop", "city": "Marshall", "approx": true, "notes": "IL-1, last services before Indiana", "parking": 75}
@@ -105,14 +117,17 @@
         {"mm": 2, "exit": "2", "name": "Weigh Station (both directions)", "brand": "State", "type": "weigh_station", "city": "Rapids City", "approx": true, "notes": "ISP scales near IL-84 / Mississippi River crossing, EB and WB; PrePass"},
         {"mm": 51, "exit": "", "name": "Sheffield Rest Area (both directions)", "brand": "State", "type": "rest_area", "city": "Sheffield area", "approx": true, "notes": "EB and WB, truck parking", "parking": 25},
         {"mm": 56, "exit": "56", "name": "Pilot Travel Center", "brand": "Pilot", "type": "truck_stop", "city": "Princeton", "approx": true, "notes": "IL-26 / Main St", "parking": 75},
+        {"mm": 56, "exit": "56", "name": "Boss Truck Shop Princeton", "brand": "Boss Truck Shop", "type": "repair", "city": "Princeton", "approx": false, "notes": "Full-service truck/tire shop at the Road Ranger, I-80 Exit 56 (IL-26); only Boss Truck Shop in IL"},
         {"mm": 75, "exit": "75", "name": "Sapp Bros Travel Center", "brand": "Sapp Bros", "type": "truck_stop", "city": "Peru", "approx": true, "notes": "Plank Rd", "parking": 70},
         {"mm": 112, "exit": "112", "name": "R-Place Family Eatery / Morris Travel Plaza", "brand": "Independent", "type": "truck_stop", "city": "Morris", "approx": true, "notes": "IL-47, classic full-service independent", "parking": 100},
         {"mm": 112, "exit": "112", "name": "Super 8 by Wyndham Morris", "brand": "Super 8 (Wyndham)", "type": "hotel", "city": "Morris", "approx": false, "notes": "Truck parking verified: Wyndham property page lists free parking for trucks, buses and RVs"},
         {"mm": 112, "exit": "112", "name": "Days Inn & Suites by Wyndham Morris/I-80", "brand": "Days Inn (Wyndham)", "type": "hotel", "city": "Morris", "approx": false, "notes": "Truck parking verified: Wyndham property page lists free RV and truck parking"},
         {"mm": 122, "exit": "122", "name": "TA Travel Center (Chicago South)", "brand": "TA", "type": "truck_stop", "city": "Minooka", "approx": false, "notes": "Ridge Rd", "parking": 200},
+        {"mm": 122, "exit": "122", "name": "TA Truck Service Minooka (Chicago South)", "brand": "TA", "type": "repair", "city": "Minooka", "approx": false, "notes": "Full-service heavy-duty truck repair shop at the TA Chicago South, I-80 Exit 122 (Ridge Rd)"},
         {"mm": 127, "exit": "127", "name": "Pilot Travel Center", "brand": "Pilot", "type": "truck_stop", "city": "Joliet", "approx": true, "notes": "Houbolt Rd, near CenterPoint intermodal", "parking": 75},
         {"mm": 134, "exit": "134", "name": "Love's Travel Stop", "brand": "Love's", "type": "truck_stop", "city": "Joliet", "approx": false, "notes": "Opened May 2026; Exit 134, New Lenox Rd; Hardee's", "parking": 91},
         {"mm": 157, "exit": "157", "name": "TA Travel Center (Chicago)", "brand": "TA", "type": "truck_stop", "city": "South Holland", "approx": true, "notes": "Halsted St, I-80/I-294 overlap", "parking": 150},
+        {"mm": 157, "exit": "157", "name": "TA Truck Service Chicago (South Holland)", "brand": "TA", "type": "repair", "city": "South Holland", "approx": true, "notes": "Full-service heavy-duty truck repair shop at the TA, I-80/I-294 Exit 157 (Halsted St)"},
         {"mm": 160, "exit": "160", "name": "Pilot Travel Center", "brand": "Pilot", "type": "truck_stop", "city": "Lansing", "approx": true, "notes": "Torrence Ave, I-80/I-94 Kingery overlap", "parking": 75}
       ]
     },
