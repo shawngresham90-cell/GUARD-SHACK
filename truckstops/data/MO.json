@@ -38,6 +38,16 @@
           "parking": 55
         },
         {
+          "mm": 35,
+          "exit": "35",
+          "name": "Southern Tire Mart at Pilot",
+          "brand": "Southern Tire Mart",
+          "type": "repair",
+          "city": "Faucett",
+          "approx": false,
+          "notes": "Commercial truck tire sales/installation, brakes, DOT inspections; 1307B SE Grand DD Hwy, co-located with Pilot Travel Center #1323"
+        },
+        {
           "mm": 109,
           "exit": "109",
           "name": "Rock Port Welcome Center Rest Area (SB only)",
@@ -140,6 +150,26 @@
           "type": "hotel",
           "city": "Joplin",
           "notes": "Truck parking verified: hotel is on the Joplin 44 Truckstop (Petro) property with ~475 truck spaces; advertised to drivers on joplin44.com"
+        },
+        {
+          "mm": 4,
+          "exit": "4",
+          "name": "4 State Trucks",
+          "brand": "Independent",
+          "type": "repair",
+          "city": "Joplin",
+          "approx": false,
+          "notes": "Famous heavy-duty truck parts store and chrome shop (Chrome Shop Mafia); 4579 Hwy 43 at I-44/MO-43 Exit 4 since 1979"
+        },
+        {
+          "mm": 4,
+          "exit": "4",
+          "name": "TA Truck Service (Petro Joplin)",
+          "brand": "TA Truck Service",
+          "type": "repair",
+          "city": "Joplin",
+          "approx": false,
+          "notes": "Full truck repair shop #354 at 4240 Hwy 43; ASE Blue Seal certified facility; co-located with Petro Stopping Center (Joplin 44 Truckstop)"
         },
         {
           "mm": 8,

@@ -60,6 +60,16 @@
      "parking": 75
     },
     {
+     "mm": 62,
+     "exit": "62",
+     "name": "Love's Truck Care",
+     "brand": "Love's Truck Care",
+     "type": "repair",
+     "city": "Cedar City",
+     "approx": false,
+     "notes": "Tires, oil change/PM, light mechanical, 24/7 roadside assistance; co-located with Love's Travel Stop #335 at 2645 N Canyon Ranch Dr"
+    },
+    {
      "mm": 112,
      "exit": "112",
      "name": "Flying J Travel Center",
@@ -101,6 +111,16 @@
      "approx": false,
      "notes": "Opened Nov 2025; 885 S Park Ave, Miss J's Cafe, 6 diesel lanes",
      "parking": 25
+    },
+    {
+     "mm": 163,
+     "exit": "163",
+     "name": "Speedco Truck Lube and Tires",
+     "brand": "Speedco",
+     "type": "repair",
+     "city": "Fillmore",
+     "approx": false,
+     "notes": "Oil change/PM, commercial tires, light mechanical; 915 S 1100 W, same exit as TA Express Fillmore"
     },
     {
      "mm": 167,
@@ -165,6 +185,16 @@
      "approx": true,
      "notes": "UT-132 exit",
      "parking": 75
+    },
+    {
+     "mm": 260,
+     "exit": "260",
+     "name": "Love's Truck Care",
+     "brand": "Love's Truck Care",
+     "type": "repair",
+     "city": "Springville",
+     "approx": false,
+     "notes": "Tires, oil change/PM, light mechanical, roadside assistance; co-located with Love's Travel Stop #518 (358 S 2200 W)"
     },
     {
      "mm": 261,
@@ -232,6 +262,16 @@
      "parking": 90
     },
     {
+     "mm": 343,
+     "exit": "343",
+     "name": "Boss Truck Shop",
+     "brand": "Boss Truck Shops",
+     "type": "repair",
+     "city": "Ogden",
+     "approx": false,
+     "notes": "Full-service truck repair and tire shop (new and retread tires, maintenance); 2096 S 1100 W, exit 343 per Boss Truck Shops site; near Ogden 21st St truck stop cluster"
+    },
+    {
      "mm": 360,
      "exit": "360",
      "name": "Perry Rest Area / Utah Welcome Center (SB only)",
@@ -251,6 +291,16 @@
      "city": "Perry (Brigham City)",
      "approx": true,
      "notes": "UDOT port of entry; southbound entering from Idaho; PrePass"
+    },
+    {
+     "mm": 363,
+     "exit": "363",
+     "name": "Love's Truck Care",
+     "brand": "Love's Truck Care",
+     "type": "repair",
+     "city": "Brigham City",
+     "approx": false,
+     "notes": "Truck tire care center, oil change/PM, light mechanical, roadside assistance; co-located with Love's Travel Stop #686 (20 S 1550 W)"
     }
    ]
   },
@@ -331,6 +381,16 @@
      "approx": true,
      "notes": "First services eastbound after 100+ mile gap from Salina",
      "parking": 75
+    },
+    {
+     "mm": 160,
+     "exit": "160",
+     "name": "Love's Truck Care",
+     "brand": "Love's Truck Care",
+     "type": "repair",
+     "city": "Green River",
+     "approx": false,
+     "notes": "Tires, oil change, light mechanical, emergency roadside assistance; co-located with Love's Travel Stop #792 (1810 E Main St); only truck service inside the Salina-Green River gap area"
     },
     {
      "mm": 164,
@@ -444,6 +504,26 @@
      "notes": "Near TA Tooele / Flying J, exit 99"
     },
     {
+     "mm": 99,
+     "exit": "99",
+     "name": "TA Truck Service",
+     "brand": "TA",
+     "type": "repair",
+     "city": "Lake Point",
+     "approx": false,
+     "notes": "3 maintenance bays; DOT inspections, brake service, HVAC/electrical, J-PRO diagnostics, Freightliner Service Point; co-located with TA Salt Lake City (Tooele) travel center"
+    },
+    {
+     "mm": 99,
+     "exit": "99",
+     "name": "Speedco Truck Lube and Tires",
+     "brand": "Speedco",
+     "type": "repair",
+     "city": "Lake Point",
+     "approx": false,
+     "notes": "Oil change/PM, commercial tires, light mechanical; 8513 N Commerce Dr, same exit as TA and Flying J Lake Point"
+    },
+    {
      "mm": 118,
      "exit": "118",
      "name": "Sapp Bros Travel Center",
@@ -532,6 +612,16 @@
      "city": "Tremonton",
      "approx": true,
      "notes": "Truck parking verified: motel advertises ample truck/RV parking; review notes easy access for extra-long rigs; near I-15/I-84 junction"
+    },
+    {
+     "mm": 40,
+     "exit": "40",
+     "name": "S & M Diesel Services (at Golden Spike Travel Plaza)",
+     "brand": "Independent",
+     "type": "repair",
+     "city": "Tremonton",
+     "approx": false,
+     "notes": "Truck repair, tire sales/repair, DOT inspections, towing, welding; on-site shop at Golden Spike Travel Plaza, 2410 W Main St"
     }
    ]
   }
