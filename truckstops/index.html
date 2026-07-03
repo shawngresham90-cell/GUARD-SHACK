@@ -8,7 +8,7 @@
   :root{
     --bg:#111418; --panel:#1b2129; --panel2:#232b36; --line:#2e3947;
     --text:#e8edf2; --muted:#93a1b3; --accent:#ff5b1f; --accent2:#ffb347;
-    --truck:#4dabf7; --rest:#69db7c; --plaza:#ffd43b; --star:#ffd43b; --paid:#b197fc; --scale:#ff6b6b; --wash:#3bc9db;
+    --truck:#4dabf7; --rest:#69db7c; --plaza:#ffd43b; --star:#ffd43b; --paid:#b197fc; --scale:#ff6b6b; --wash:#3bc9db; --hotel:#f783ac;
   }
   *{box-sizing:border-box;margin:0;padding:0}
   body{background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;min-height:100vh}
@@ -43,6 +43,7 @@
   .mmrow.paid{border-left:4px solid var(--paid)}
   .mmrow.scale{border-left:4px solid var(--scale)}
   .mmrow.wash{border-left:4px solid var(--wash)}
+  .mmrow.hotel{border-left:4px solid var(--hotel)}
   .tabs{display:flex;gap:6px;flex-wrap:wrap;margin:0 0 12px}
   .tabs button{background:var(--panel);border:1px solid var(--line);color:var(--muted);border-radius:20px;padding:7px 14px;font-size:.8rem;cursor:pointer;font-weight:600}
   .tabs button.on{background:var(--accent);border-color:var(--accent);color:#fff}
@@ -60,6 +61,7 @@
   .badge.paid{background:rgba(177,151,252,.15);color:var(--paid)}
   .badge.scale{background:rgba(255,107,107,.15);color:var(--scale)}
   .badge.wash{background:rgba(59,201,219,.15);color:var(--wash)}
+  .badge.hotel{background:rgba(247,131,172,.15);color:var(--hotel)}
   .reserve{display:inline-block;margin-top:6px;background:var(--paid);color:#1b1230;font-weight:700;border-radius:8px;padding:5px 12px;font-size:.78rem;text-decoration:none}
   .legend{display:flex;gap:14px;flex-wrap:wrap;color:var(--muted);font-size:.78rem;margin:4px 0 14px}
   .legend i{display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:5px}
@@ -118,14 +120,16 @@
     service_plaza:{cls:'plaza', label:'SERVICE PLAZA'},
     paid_parking:{cls:'paid', label:'PAID PARKING'},
     weigh_station:{cls:'scale', label:'⚖️ WEIGH STATION'},
-    truck_wash:{cls:'wash', label:'🧼 TRUCK WASH'}
+    truck_wash:{cls:'wash', label:'🧼 TRUCK WASH'},
+    hotel:{cls:'hotel', label:'🏨 HOTEL + TRUCK PARKING'}
   };
   var TABS = [
     {key:'all', label:'All', match:function(){ return true; }},
     {key:'stops', label:'🚛 Truck stops', match:function(s){ return s.type==='truck_stop' || s.type==='service_plaza'; }},
     {key:'rest', label:'🅿️ Rest areas', match:function(s){ return s.type==='rest_area' || s.type==='service_plaza'; }},
     {key:'scales', label:'⚖️ Scales', match:function(s){ return s.type==='weigh_station'; }},
-    {key:'wash', label:'🧼 Washes', match:function(s){ return s.type==='truck_wash'; }}
+    {key:'wash', label:'🧼 Washes', match:function(s){ return s.type==='truck_wash'; }},
+    {key:'hotel', label:'🏨 Hotels', match:function(s){ return s.type==='hotel'; }}
   ];
   var PAGE_TAB = 'all';
   var PAGE_STOPS = [];   // stops rendered on the current highway page
@@ -344,6 +348,7 @@
       + '<span><i style="background:var(--paid)"></i>Paid parking (reservable)</span>'
       + '<span><i style="background:var(--scale)"></i>Weigh station</span>'
       + '<span><i style="background:var(--wash)"></i>Truck wash</span>'
+      + '<span><i style="background:var(--hotel)"></i>Hotel w/ truck parking</span>'
       + '<span>≈ approximate MM</span>'
       + '<span>🅿️ ~ estimated truck spots</span></div>';
     html += '<button class="btn ghost" style="margin-bottom:12px" onclick="TS.toggleAdd()">➕ Know a stop we\'re missing on '+esc(h)+'? Add it</button>';
