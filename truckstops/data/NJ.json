@@ -22,7 +22,10 @@
       "stops": [
         {"mm": 2, "exit": "", "name": "Knowlton Rest Area / Welcome Center", "brand": "State", "type": "rest_area", "city": "Knowlton", "approx": true, "notes": "Eastbound; truck parking", "parking": 25},
         {"mm": 2, "exit": "2", "name": "Weigh Station (EB)", "brand": "State", "type": "weigh_station", "city": "Knowlton", "approx": false, "notes": "NJSP scales ~1 mi east of PA line; PrePass (motion only)"},
-        {"mm": 4, "exit": "4", "name": "TA Travel Center", "brand": "TA", "type": "truck_stop", "city": "Columbia", "approx": false, "notes": "NJ 94, near Delaware Water Gap", "parking": 150}
+        {"mm": 4, "exit": "4", "name": "TA Travel Center", "brand": "TA", "type": "truck_stop", "city": "Columbia", "approx": false, "notes": "NJ 94, near Delaware Water Gap", "parking": 150},
+        {"mm": 4, "exit": "4", "name": "TA Truck Service (Columbia)", "brand": "TA", "type": "repair", "city": "Columbia", "approx": false, "notes": "5-bay TA Truck Service at TA Columbia, I-80 Exit 4; tires, brakes, electrical, alignment, aftertreatment, HVAC, DOT inspections, diagnostics; co-located with TA travel center"},
+        {"mm": 37, "exit": "37", "name": "Gabrielli Truck Sales (Rockaway)", "brand": "Gabrielli", "type": "repair", "city": "Rockaway", "approx": true, "notes": "80 Green Pond Rd off I-80 Exit 37; Mack/Kenworth/Volvo/Isuzu/Ford/Hino dealer, service, parts, collision, towing"},
+        {"mm": 37, "exit": "37", "name": "Service Tire Truck Center (Rockaway)", "brand": "STTC", "type": "repair", "city": "Rockaway", "approx": true, "notes": "STTC, 73 Green Pond Rd off I-80 Exit 37; commercial truck tires and 24-hr road service"}
       ]
     },
     "I-95": {
@@ -39,6 +42,7 @@
         {"mm": 79, "exit": "", "name": "Joyce Kilmer Service Area", "brand": "State", "type": "service_plaza", "city": "East Brunswick", "approx": false, "notes": "NJ Turnpike milepost 78.7; northbound", "parking": 100},
         {"mm": 93, "exit": "", "name": "Thomas Edison Service Area", "brand": "State", "type": "service_plaza", "city": "Woodbridge", "approx": true, "notes": "NJ Turnpike milepost 92.9; northbound", "parking": 60},
         {"mm": 93, "exit": "", "name": "Grover Cleveland Service Area", "brand": "State", "type": "service_plaza", "city": "Woodbridge", "approx": true, "notes": "NJ Turnpike milepost 92.9; southbound", "parking": 60},
+        {"mm": 100, "exit": "13", "name": "Service Tire Truck Center (Linden)", "brand": "STTC", "type": "repair", "city": "Linden", "approx": true, "notes": "STTC, 1900 Lower Rd (Tremley Point) off NJ Turnpike Exit 13; commercial truck tires, mounting, 24-hr road service"},
         {"mm": 112, "exit": "", "name": "Alexander Hamilton Service Area", "brand": "State", "type": "service_plaza", "city": "Secaucus", "approx": true, "notes": "NJ Turnpike milepost 111.6; southbound", "parking": 50},
         {"mm": 116, "exit": "", "name": "Vince Lombardi Service Area", "brand": "State", "type": "service_plaza", "city": "Ridgefield", "approx": false, "notes": "NJ Turnpike milepost 116, eastern spur; northbound access; major truck parking near NYC", "parking": 140}
       ]

@@ -13,6 +13,7 @@
       "maxMM": 176,
       "stops": [
         {"mm": 99, "exit": "99", "name": "Pilot Travel Center", "brand": "Pilot", "type": "truck_stop", "city": "Fond du Lac", "approx": true, "notes": "Near US-151 junction", "parking": 75},
+        {"mm": 99, "exit": "99", "name": "FleetPride", "brand": "FleetPride", "type": "repair", "city": "Fond du Lac", "approx": true, "notes": "Heavy-duty truck & trailer parts/service, 385 N Pioneer Rd, near I-41/US-151 Exit 99"},
         {"mm": 152, "exit": "152", "name": "Weigh Station (NB)", "brand": "State", "type": "weigh_station", "city": "Wrightstown", "approx": true, "notes": "Wrightstown SWEF, NB, between Appleton and De Pere; being rebuilt with weigh-in-motion as part of new WSP Northeast Region HQ (2026)"}
       ]
     },
@@ -33,6 +34,7 @@
         {"mm": 48, "exit": "48", "name": "Road Ranger", "brand": "Road Ranger", "type": "truck_stop", "city": "Oakdale", "approx": true, "notes": "County PP, on I-90/94 overlap east of Tomah", "parking": 55},
         {"mm": 69, "exit": "69", "name": "Kwik Trip", "brand": "Kwik Trip", "type": "truck_stop", "city": "Mauston", "approx": false, "notes": "WI-82, I-90/94 overlap, separate diesel lanes and truck parking", "parking": 50},
         {"mm": 126, "exit": "126", "name": "TA Travel Center (Madison)", "brand": "TA", "type": "truck_stop", "city": "DeForest", "approx": false, "notes": "US-51, I-39/90/94 overlap near Madison", "parking": 180},
+        {"mm": 126, "exit": "126", "name": "TA Truck Service (Madison)", "brand": "TA", "type": "repair", "city": "DeForest", "approx": true, "notes": "4-bay heavy-duty shop at TA Madison; co-located with TA Travel Center"},
         {"mm": 132, "exit": "132", "name": "Kwik Trip", "brand": "Kwik Trip", "type": "truck_stop", "city": "Windsor/DeForest", "approx": true, "notes": "WI-19, I-39/90/94 overlap, truck diesel lanes", "parking": 40},
         {"mm": 145, "exit": "145", "name": "Weigh Station (SB)", "brand": "State", "type": "weigh_station", "city": "Cottage Grove (Madison area)", "approx": false, "notes": "Madison SWEF on I-39/90 SB (I-90 EB) southeast of Madison, serves traffic toward Janesville/Chicago"},
         {"mm": 180, "exit": "180", "name": "Weigh Station (NB)", "brand": "State", "type": "weigh_station", "city": "La Prairie (Beloit/Janesville area)", "approx": false, "notes": "Beloit SWEF, I-39/90 NB, 2.5 mi north of County S; weigh-in-motion"},
