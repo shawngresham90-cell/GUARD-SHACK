@@ -125,6 +125,16 @@
      "parking": 50
     },
     {
+     "mm": 109,
+     "exit": "109",
+     "name": "Executive Inn & Suites",
+     "brand": "Independent",
+     "type": "hotel",
+     "city": "Breaux Bridge",
+     "approx": false,
+     "notes": "Truck parking verified: RV/bus/truck parking listed as amenity on Expedia and Booking.com; 1990 E Rees St at exit 109, near Pilot"
+    },
+    {
      "mm": 121,
      "exit": "121",
      "name": "Atchafalaya Welcome Center",
@@ -200,6 +210,16 @@
      "approx": true,
      "notes": "Gause Blvd area",
      "parking": 75
+    },
+    {
+     "mm": 266,
+     "exit": "266",
+     "name": "Motel 6 Slidell",
+     "brand": "Motel 6",
+     "type": "hotel",
+     "city": "Slidell",
+     "approx": false,
+     "notes": "Truck parking verified: truck parking listed as amenity on Explore Louisiana and Travel Weekly listings; 136 Taos St off exit 266 (Gause Blvd)"
     },
     {
      "mm": 267,
@@ -341,6 +361,26 @@
      "parking": 75
     },
     {
+     "mm": 114,
+     "exit": "114",
+     "name": "Motel 6 West Monroe",
+     "brand": "Motel 6",
+     "type": "hotel",
+     "city": "West Monroe",
+     "approx": false,
+     "notes": "Truck parking verified: RV/bus/truck parking listed as amenity on Booking.com and Hotels.com; 401 Constitution Dr at exit 114 (Thomas Rd)"
+    },
+    {
+     "mm": 120,
+     "exit": "120",
+     "name": "Days Inn Monroe",
+     "brand": "Days Inn",
+     "type": "hotel",
+     "city": "Monroe",
+     "approx": false,
+     "notes": "Truck parking verified: RV/bus/truck parking listed as amenity on Wyndham and Expedia listings; exit 120 (Garrett Rd) across from Pecanland Mall"
+    },
+    {
      "mm": 138,
      "exit": "138",
      "name": "Love's Travel Stop",
@@ -372,6 +412,16 @@
      "approx": false,
      "notes": "US 65 interchange; Tallulah cluster",
      "parking": 80
+    },
+    {
+     "mm": 171,
+     "exit": "171",
+     "name": "Days Inn Tallulah",
+     "brand": "Days Inn",
+     "type": "hotel",
+     "city": "Tallulah",
+     "approx": false,
+     "notes": "Truck parking verified: dedicated truck/RV lot confirmed by multiple driver reviews (enter via road between McDonald's and fuel station, not main entrance); 143 US 65 S at exit 171"
     },
     {
      "mm": 184,
