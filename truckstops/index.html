@@ -160,6 +160,7 @@
 
   // Truck Parking Club referral: set to Shawn's partner ID to monetize Reserve links
   var TPC_PARTNER_ID = '';
+  var TPC_PROMO_CODE = 'SHAWN20';
   function reserveUrl(r){
     if(TPC_PARTNER_ID && r.partner_url) return r.partner_url.split('###PARTNER_ID###').join(TPC_PARTNER_ID);
     return r.book_url || '';
@@ -185,7 +186,9 @@
       + '<div class="mm">💲<small>PAID</small></div>'
       + '<div class="stopinfo"><div class="nm">'+esc(r.name)+'<span class="badge paid">PAID PARKING</span></div>'
       + '<div class="meta">'+meta.join(' &bull; ')+'</div>'
-      + (url ? '<div><a class="reserve" href="'+esc(url)+'" target="_blank" rel="noopener">💲 Reserve a spot</a></div>' : '')
+      + (url ? '<div><a class="reserve" href="'+esc(url)+'" target="_blank" rel="noopener">💲 Reserve a spot</a>'
+             + (TPC_PROMO_CODE ? ' <span style="font-size:.78rem;color:var(--accent2)">🎟️ Use promo code <b>'+esc(TPC_PROMO_CODE)+'</b> at checkout</span>' : '')
+             + '</div>' : '')
       + '</div></div></div>';
   }
 
