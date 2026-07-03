@@ -67,6 +67,7 @@
         {"mm": 214, "exit": "", "name": "Iroquois Service Area", "brand": "State", "type": "service_plaza", "city": "Little Falls", "approx": true, "notes": "NY Thruway milepost; eastbound", "parking": 30},
         {"mm": 244, "exit": "", "name": "Oneida Service Area", "brand": "State", "type": "service_plaza", "city": "Westmoreland", "approx": true, "notes": "NY Thruway milepost; westbound", "parking": 35},
         {"mm": 266, "exit": "", "name": "Chittenango Service Area", "brand": "State", "type": "service_plaza", "city": "Chittenango", "approx": true, "notes": "NY Thruway milepost; eastbound", "parking": 35},
+        {"mm": 281, "exit": "35", "name": "Conway Beam / Beam Mack (East Syracuse)", "brand": "Beam Mack", "type": "repair", "city": "East Syracuse", "approx": true, "notes": "6260 East Molloy Rd off Thruway Exit 35; Mack/Volvo heavy-duty dealer, sales, parts, full service shop"},
         {"mm": 283, "exit": "36", "name": "Pilot Travel Center", "brand": "Pilot", "type": "truck_stop", "city": "Liverpool (Syracuse)", "approx": true, "notes": "7th North St, off Thruway exit 36/37 (sequential); milepost estimated", "parking": 75},
         {"mm": 292, "exit": "", "name": "Warners Service Area", "brand": "State", "type": "service_plaza", "city": "Warners", "approx": true, "notes": "NY Thruway milepost; westbound", "parking": 40},
         {"mm": 310, "exit": "", "name": "Port Byron Service Area", "brand": "State", "type": "service_plaza", "city": "Port Byron", "approx": true, "notes": "NY Thruway milepost; eastbound", "parking": 35},
@@ -76,10 +77,12 @@
         {"mm": 376, "exit": "", "name": "Ontario Service Area", "brand": "State", "type": "service_plaza", "city": "Le Roy", "approx": true, "notes": "NY Thruway milepost; eastbound", "parking": 35},
         {"mm": 397, "exit": "", "name": "Pembroke Service Area", "brand": "State", "type": "service_plaza", "city": "Pembroke", "approx": true, "notes": "NY Thruway milepost; westbound", "parking": 40},
         {"mm": 402, "exit": "48A", "name": "TA Travel Center", "brand": "TA", "type": "truck_stop", "city": "Pembroke", "approx": true, "notes": "NY 77, Thruway exit 48A (sequential); milepost ~402; Alleghany Rd", "parking": 200},
+        {"mm": 402, "exit": "48A", "name": "TA Truck Service (Pembroke)", "brand": "TA", "type": "repair", "city": "Pembroke (Corfu)", "approx": true, "notes": "TA Truck Service at TA Pembroke travel center, 8420 Alleghany Rd, Thruway Exit 48A; full maintenance/repair, tires, brakes; co-located with Flying J"},
         {"mm": 402, "exit": "48A", "name": "Flying J Travel Center", "brand": "Flying J", "type": "truck_stop", "city": "Pembroke", "approx": true, "notes": "NY 77, Thruway exit 48A (sequential); milepost ~402; Alleghany Rd", "parking": 90},
         {"mm": 402, "exit": "48A", "name": "Econo Lodge Darien Lakes", "brand": "Econo Lodge (Choice)", "type": "hotel", "city": "Corfu (Pembroke)", "approx": false, "notes": "Truck parking verified: hotel advertises dedicated tractor-trailer parking lot with exterior electrical outlets for truckers; Flying J/TA across the street"},
         {"mm": 412, "exit": "", "name": "Clarence Service Area", "brand": "State", "type": "service_plaza", "city": "Clarence", "approx": true, "notes": "NY Thruway milepost; eastbound", "parking": 40},
-        {"mm": 447, "exit": "", "name": "Angola Service Area", "brand": "State", "type": "service_plaza", "city": "Angola", "approx": false, "notes": "NY Thruway milepost 447; median plaza serving both directions via pedestrian bridge", "parking": 60}
+        {"mm": 447, "exit": "", "name": "Angola Service Area", "brand": "State", "type": "service_plaza", "city": "Angola", "approx": false, "notes": "NY Thruway milepost 447; median plaza serving both directions via pedestrian bridge", "parking": 60},
+        {"mm": 495, "exit": "61", "name": "Speedco at Love's (Ripley)", "brand": "Speedco", "type": "repair", "city": "Ripley", "approx": true, "notes": "On-site Speedco at Love's Travel Stop #833, 6201 Shortman Rd, Thruway Exit 61; oil/PM, light mechanical, tires, roadside; westernmost NY Thruway exit before PA line"}
       ]
     },
     "I-95": {

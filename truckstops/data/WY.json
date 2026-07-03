@@ -13,6 +13,7 @@
         {"mm": 92, "exit": "92", "name": "Dwyer Junction Rest Area (both directions)", "brand": "State", "type": "rest_area", "city": "Dwyer (Guernsey)", "approx": true, "notes": "At US-26 junction toward Guernsey/Torrington; truck parking", "parking": 20},
         {"mm": 126, "exit": "126", "name": "Orin Junction Rest Area", "brand": "State", "type": "rest_area", "city": "Orin", "approx": false, "notes": "Both directions at US-18/20 junction; truck parking", "parking": 20},
         {"mm": 185, "exit": "185", "name": "Love's Travel Stop", "brand": "Love's", "type": "truck_stop", "city": "Evansville (Casper)", "approx": true, "notes": "East Casper area", "parking": 80},
+        {"mm": 188, "exit": "188", "name": "Central Truck & Diesel", "brand": "Independent", "type": "repair", "city": "Casper", "approx": true, "notes": "2000 E F St near I-25; heavy-duty truck, equipment & collision repair since 1987; mobile service within 60 mi"},
         {"mm": 254, "exit": "254", "name": "Kaycee Rest Area", "brand": "State", "type": "rest_area", "city": "Kaycee", "approx": true, "notes": "Both directions via exit; last stop for 65+ mi to Buffalo/Casper", "parking": 15}
       ]
     },
@@ -26,6 +27,7 @@
         {"mm": 41, "exit": "41", "name": "Fort Bridger Rest Area (both directions)", "brand": "State", "type": "rest_area", "city": "Fort Bridger (Lyman)", "approx": true, "notes": "Truck parking; staging point during winter closures", "parking": 20},
         {"mm": 68, "exit": "68", "name": "Little America Travel Center", "brand": "Little America", "type": "truck_stop", "city": "Little America", "approx": false, "notes": "Famous full-service travel plaza with hotel; landmark stop", "parking": 140},
         {"mm": 102, "exit": "102", "name": "Flying J Travel Center", "brand": "Flying J", "type": "truck_stop", "city": "Rock Springs", "approx": true, "notes": "Dewar Dr area", "parking": 90},
+        {"mm": 102, "exit": "102", "name": "Kenworth Sales - Rock Springs", "brand": "Kenworth", "type": "repair", "city": "Rock Springs", "approx": true, "notes": "384 Blairtown Rd near I-80; full-service Kenworth dealer, heavy & medium duty service and parts"},
         {"mm": 104, "exit": "104", "name": "Pilot Travel Center", "brand": "Pilot", "type": "truck_stop", "city": "Rock Springs", "approx": false, "notes": "Elk St (US-191)", "parking": 80},
         {"mm": 173, "exit": "173", "name": "Love's Travel Stop", "brand": "Love's", "type": "truck_stop", "city": "Wamsutter", "approx": false, "notes": "Only major services between Rock Springs and Rawlins", "parking": 70},
         {"mm": 214, "exit": "214", "name": "Flying J Travel Center", "brand": "Flying J", "type": "truck_stop", "city": "Rawlins", "approx": false, "notes": "Higley Blvd, east Rawlins", "parking": 100},
