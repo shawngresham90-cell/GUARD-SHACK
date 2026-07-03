@@ -1,0 +1,14 @@
+[build]
+  command = "npm run build"
+  publish = "dist"
+
+[build.environment]
+  NODE_VERSION = "20"
+
+# SPA fallback — every non-asset request renders the React shell.
+# Story 6.4 adds explicit /privacy and /affiliate-disclosure rules
+# above this catch-all; security headers ship there too.
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200

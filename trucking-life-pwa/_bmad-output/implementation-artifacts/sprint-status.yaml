@@ -1,0 +1,128 @@
+# generated: 2026-06-12
+# last_updated: 2026-06-12
+# project: Trucking Life with Shawn
+# project_key: NOKEY
+# tracking_system: file-system
+# story_location: {project-root}/_bmad-output/implementation-artifacts
+
+# STATUS DEFINITIONS:
+# ==================
+# Epic Status:
+#   - backlog: Epic not yet started
+#   - in-progress: Epic actively being worked on
+#   - done: All stories in epic completed
+#
+# Epic Status Transitions:
+#   - backlog → in-progress: Automatically when first story is created (via create-story)
+#   - in-progress → done: Manually when all stories reach 'done' status
+#
+# Story Status:
+#   - backlog: Story only exists in epic file
+#   - ready-for-dev: Story file created in stories folder
+#   - in-progress: Developer actively working on implementation
+#   - review: Ready for code review (via Dev's code-review workflow)
+#   - done: Story completed
+#
+# Retrospective Status:
+#   - optional: Can be completed but not required
+#   - done: Retrospective has been completed
+#
+# WORKFLOW NOTES:
+# ===============
+# - Epic transitions to 'in-progress' automatically when first story is created
+# - Stories can be worked in parallel if team capacity allows
+# - Developer typically creates next story after previous one is 'done' to incorporate learnings
+# - Dev moves story to 'review', then runs code-review (fresh context, different LLM recommended)
+
+generated: 2026-06-12
+last_updated: 2026-06-17
+project: Trucking Life with Shawn
+project_key: NOKEY
+tracking_system: file-system
+story_location: "{project-root}/_bmad-output/implementation-artifacts"
+
+development_status:
+  # ── Epic 1: Foundation, Auth & Onboarding ──
+  epic-1: in-progress
+  1-1-scaffold-vite-baseline: done
+  1-2-provision-supabase-schema: done
+  1-3-admin-auth-domain: done
+  1-4-netlify-deploy-domain: done
+  1-5-stub-ci-jobs: done
+  1-6-disclaimer-source-of-truth: done
+  1-7-affiliate-cta-composition-contract: done
+  1-8-hos-shell-composition-contract: done
+  1-9-pwa-infrastructure: done
+  1-10-provider-tree-routing-guards: done
+  1-11-magic-link-auth: done
+  1-12-google-signin: backlog
+  1-13-two-question-onboarding: backlog
+  1-14-settings-shell: backlog
+  epic-1-retrospective: optional
+
+  # ── Epic 2: Parking Discovery ──
+  epic-2: in-progress
+  2-1-parking-schema-migrations: done
+  2-2-parking-search-tpc: backlog
+  2-3-parking-search-state-dot: backlog
+  2-4-parking-search-osm-ranking: backlog
+  2-5-osm-refresh-cron: backlog
+  2-6-parking-home-screen: backlog
+  2-7-tpc-result-card: backlog
+  2-8-public-source-card: backlog
+  2-9-parking-detail-view: backlog
+  2-10-workbox-offline-parking: backlog
+  2-11-parking-disclaimer-telemetry: backlog
+  epic-2-retrospective: optional
+
+  # ── Epic 3: HOS Tracker ──
+  epic-3: backlog
+  3-1-dexie-hosdb-schema: backlog
+  3-2-hos-routing-ack-guard: backlog
+  3-3-hos-disclaimer-screen: backlog
+  3-4-status-entry: backlog
+  3-5-hos-clock: backlog
+  3-6-daily-summary: backlog
+  3-7-weekly-summary-nudge: backlog
+  3-8-verify-fr29-fr31: backlog
+  epic-3-retrospective: optional
+
+  # ── Epic 4: Founder Admin & Affiliate Engine ──
+  epic-4: backlog
+  4-1-affiliate-migrations: backlog
+  4-2-admin-home-guard: backlog
+  4-3-slot-editor: backlog
+  4-4-trigger-editor: backlog
+  4-5-affiliate-event-beacon: backlog
+  4-6-slot-analytics: backlog
+  4-7-slot-renderer-config: backlog
+  4-8-tpc-slot-admin-managed: backlog
+  epic-4-retrospective: optional
+
+  # ── Epic 5: Cohort Attribution & Cross-Promo ──
+  epic-5: backlog
+  5-1-email-export-queue-migration: backlog
+  5-2-email-export-edge-function: backlog
+  5-3-cohort-persistence-analytics: backlog
+  5-4-stan-store-utm-tagging: backlog
+  5-5-use-stan-trigger-hook: backlog
+  5-6-carnivore-trigger-card: backlog
+  5-7-drivers-mind-trigger-card: backlog
+  5-8-save-your-cdl-trigger-card: backlog
+  5-9-more-from-shawn-panel: backlog
+  epic-5-retrospective: optional
+
+  # ── Epic 6: Privacy, Compliance Hardening & v1 Launch ──
+  epic-6: backlog
+  6-1-privacy-panel-right-to-know: backlog
+  6-2-right-to-delete: backlog
+  6-3-analytics-opt-out: backlog
+  6-4-static-stable-urls: backlog
+  6-5-verify-ci-gates: backlog
+  6-6-pre-launch-business-gate: backlog
+  epic-6-retrospective: optional
+
+  # ── Epic 7: v1.05 UX Polish (Sally) — Post-Launch ──
+  epic-7: backlog
+  7-1-sally-ux-spec-placeholder: backlog
+  epic-7-retrospective: optional

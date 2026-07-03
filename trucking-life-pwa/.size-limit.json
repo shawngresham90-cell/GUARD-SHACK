@@ -1,0 +1,9 @@
+[
+  {
+    "name": "Initial bundle",
+    "path": "dist/assets/*.js",
+    "limit": "200 KB",
+    "gzip": true,
+    "running": false
+  }
+]
