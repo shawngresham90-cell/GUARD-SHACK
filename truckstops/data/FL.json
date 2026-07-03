@@ -28,6 +28,16 @@
           "parking": 160
         },
         {
+          "mm": 10,
+          "exit": "10",
+          "name": "TA Truck Service #158",
+          "brand": "TA Truck Service",
+          "type": "repair",
+          "city": "Seffner (Tampa East)",
+          "approx": true,
+          "notes": "Truck repair and tire shop co-located with TA Express Tampa, 11706 Tampa Gateway Blvd; service bays, tires, PM, 24/7 roadside assistance"
+        },
+        {
           "mm": 46,
           "exit": "46",
           "name": "Rest Area (both directions)",
@@ -109,6 +119,16 @@
           "parking": 30
         },
         {
+          "mm": 70,
+          "exit": "70",
+          "name": "Love's Truck Care",
+          "brand": "Love's Truck Care",
+          "type": "repair",
+          "city": "Mossy Head (DeFuniak Springs)",
+          "approx": true,
+          "notes": "2 service bays co-located with Love's Travel Stop #561, 17750 Hwy 285 Dr S; tires, oil/PM, light mechanical, roadside assistance"
+        },
+        {
           "mm": 85,
           "exit": "85",
           "name": "Love's Travel Stop",
@@ -140,6 +160,16 @@
           "approx": false,
           "notes": "New build, opened February 2026; 2923 Hwy 81; 8 diesel lanes",
           "parking": 87
+        },
+        {
+          "mm": 130,
+          "exit": "130",
+          "name": "Love's Truck Care",
+          "brand": "Love's Truck Care",
+          "type": "repair",
+          "city": "Cottondale",
+          "approx": true,
+          "notes": "1 service bay co-located with Love's Travel Stop #453, 2510 US-231; tires, oil/PM, light mechanical, roadside assistance"
         },
         {
           "mm": 133,
@@ -182,6 +212,16 @@
           "city": "Marianna",
           "approx": true,
           "notes": "Truck parking verified: listings show truck parking and coin laundry; off I-10 at FL 71 (Exit 142)"
+        },
+        {
+          "mm": 142,
+          "exit": "142",
+          "name": "TA Truck Service #178",
+          "brand": "TA Truck Service",
+          "type": "repair",
+          "city": "Marianna",
+          "approx": true,
+          "notes": "Truck repair and tire shop co-located with TA Marianna, 2112 Hwy 71 S; brakes, tires, PM, 24/7 roadside assistance"
         },
         {
           "mm": 155,

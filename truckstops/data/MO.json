@@ -338,12 +338,32 @@
           "approx": true,
           "notes": "",
           "parking": 80
+        },
+        {
+          "mm": 226,
+          "exit": "226",
+          "name": "Boss Truck Shop",
+          "brand": "Boss Truck Shops",
+          "type": "repair",
+          "city": "Sullivan",
+          "approx": false,
+          "notes": "Bosselman truck repair and tire shop at 1496 State Hwy AF, adjacent to Flying J Travel Plaza off Exit 226"
         }
       ]
     },
     "I-49": {
       "maxMM": 184,
       "stops": [
+        {
+          "mm": 27,
+          "exit": "27",
+          "name": "Love's Truck Care",
+          "brand": "Love's Truck Care",
+          "type": "repair",
+          "city": "Neosho",
+          "approx": false,
+          "notes": "Oil change/PM, light mechanical, tire services; co-located with Love's Travel Stop #585 at 12009 E Hwy 86"
+        },
         {
           "mm": 39,
           "exit": "39",
@@ -364,6 +384,16 @@
           "approx": true,
           "notes": "",
           "parking": 80
+        },
+        {
+          "mm": 158,
+          "exit": "158",
+          "name": "Love's Truck Care",
+          "brand": "Love's Truck Care",
+          "type": "repair",
+          "city": "Harrisonville",
+          "approx": false,
+          "notes": "Oil change/PM, light mechanical, tire services; co-located with Love's Travel Stop #616 at 2611 S Brookhart Dr"
         },
         {
           "mm": 167,
@@ -454,6 +484,16 @@
           "city": "Matthews",
           "approx": false,
           "notes": "664 MO-80 off Exit 58; near Love's Travel Stop"
+        },
+        {
+          "mm": 58,
+          "exit": "58",
+          "name": "Love's Truck Care",
+          "brand": "Love's Truck Care",
+          "type": "repair",
+          "city": "Matthews",
+          "approx": false,
+          "notes": "Oil change/PM, light mechanical, tire services; co-located with Love's Travel Stop #313 at 100 Loves Industrial Dr"
         },
         {
           "mm": 66,
