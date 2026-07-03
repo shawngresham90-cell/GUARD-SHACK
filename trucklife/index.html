@@ -1,0 +1,700 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="theme-color" content="#14100b">
+    <meta name="description" content="Truck Life: the driver's daily companion. HOS clocks, trip log, expense tracker, and pre-trip checklist. Works offline, everything stays on your phone.">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <link rel="manifest" href="trucklife.webmanifest">
+    <link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2264%22%20height%3D%2264%22%3E%3Crect%20width%3D%2264%22%20height%3D%2264%22%20rx%3D%2212%22%20fill%3D%22%2314100b%22%2F%3E%3Ctext%20x%3D%2250%25%22%20y%3D%2256%25%22%20font-size%3D%2238%22%20text-anchor%3D%22middle%22%20dominant-baseline%3D%22middle%22%3E%F0%9F%9A%9B%3C%2Ftext%3E%3C%2Fsvg%3E">
+    <title>Truck Life - Driver's Daily Companion</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
+        html, body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background: radial-gradient(circle at top, #241a10 0%, #14100b 60%, #0b0806 100%);
+            color: #f0e9df;
+            min-height: 100vh;
+        }
+        body {
+            max-width: 760px; margin: 0 auto;
+            padding: calc(env(safe-area-inset-top) + 16px) 14px calc(env(safe-area-inset-bottom) + 86px);
+        }
+        header { text-align: center; margin-bottom: 14px; }
+        header h1 { font-size: 23px; letter-spacing: 0.4px; }
+        header h1 span { color: #ff5b1f; }
+        header p { font-size: 12.5px; color: #b3a48f; margin-top: 4px; }
+        a { color: #ff8b57; }
+        h2 {
+            font-size: 13px; color: #b3a48f; text-transform: uppercase;
+            letter-spacing: 1px; margin: 20px 4px 10px;
+        }
+
+        .tab-page { display: none; }
+        .tab-page.active { display: block; }
+
+        /* ---------- shared bits ---------- */
+        button {
+            border: 0; padding: 13px 16px; border-radius: 12px;
+            font-size: 15px; font-weight: 600; color: #fff; cursor: pointer;
+            transition: transform 0.08s ease, opacity 0.2s;
+        }
+        button:active { transform: scale(0.97); }
+        .btn-primary { background: linear-gradient(135deg, #ff5b1f, #cf3d08); }
+        .btn-ghost   { background: #3a2c1d; }
+        .btn-danger  { background: linear-gradient(135deg, #ff5d6f, #c0273a); }
+        .btn-row { display: flex; gap: 10px; margin: 14px 0; }
+        .btn-row button { flex: 1; }
+        .card {
+            background: #1d1610; border: 1px solid #3a2c1d; border-radius: 14px;
+            padding: 14px; margin-bottom: 10px;
+        }
+        .muted { color: #b3a48f; font-size: 12px; }
+        input, select, textarea {
+            width: 100%; background: #14100b; color: #f0e9df;
+            border: 1px solid #3a2c1d; border-radius: 10px;
+            padding: 11px 12px; font-size: 15px; margin-top: 5px;
+        }
+        input:focus, select:focus, textarea:focus { outline: none; border-color: #ff5b1f; }
+        label { font-size: 12px; color: #b3a48f; display: block; margin-top: 10px; }
+        .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+        .row-del {
+            background: none; border: 0; color: #ff5d6f; font-size: 18px;
+            padding: 4px 8px; cursor: pointer; flex-shrink: 0;
+        }
+        .empty { text-align: center; color: #b3a48f; font-size: 13px; padding: 24px 10px; }
+
+        /* ---------- HOS clocks ---------- */
+        .clocks { display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px; }
+        .clock {
+            background: linear-gradient(180deg, #241a10, #1a130c);
+            border: 1px solid #3a2c1d; border-radius: 14px;
+            padding: 14px 10px; text-align: center;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.35);
+        }
+        .clock .time { font-size: 30px; font-weight: 700; font-variant-numeric: tabular-nums; }
+        .clock .lbl { font-size: 10.5px; color: #b3a48f; margin-top: 4px; text-transform: uppercase; letter-spacing: 0.5px; }
+        .clock.ok .time { color: #4cd6a0; }
+        .clock.warn .time { color: #f5b13b; }
+        .clock.out .time { color: #ff5d6f; }
+        .status-now {
+            display: flex; justify-content: space-between; align-items: center;
+            background: #1d1610; border: 1px solid #3a2c1d; border-radius: 14px;
+            padding: 12px 16px; margin: 10px 0;
+        }
+        .status-now .st { font-size: 17px; font-weight: 700; }
+        .status-now .dur { font-size: 15px; color: #b3a48f; font-variant-numeric: tabular-nums; }
+        .duty-btns { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; }
+        .duty-btns button { padding: 14px 4px; font-size: 13.5px; background: #3a2c1d; }
+        .duty-btns button.active-off { background: linear-gradient(135deg, #54637e, #39465e); }
+        .duty-btns button.active-sb  { background: linear-gradient(135deg, #7d5cd6, #5636ad); }
+        .duty-btns button.active-d   { background: linear-gradient(135deg, #2fae74, #1f7c52); }
+        .duty-btns button.active-on  { background: linear-gradient(135deg, #ff5b1f, #cf3d08); }
+        .hos-log-item {
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 9px 4px; border-bottom: 1px solid #2a2015; font-size: 14px;
+        }
+        .hos-log-item:last-child { border-bottom: 0; }
+        .hos-log-item .t { color: #b3a48f; font-variant-numeric: tabular-nums; }
+
+        /* ---------- lists (trips / expenses) ---------- */
+        .item-row {
+            display: flex; justify-content: space-between; align-items: center; gap: 10px;
+            background: #1d1610; border: 1px solid #3a2c1d; border-radius: 12px;
+            padding: 11px 8px 11px 14px; margin-bottom: 8px;
+        }
+        .item-row .main { flex: 1; min-width: 0; }
+        .item-row .ttl { font-size: 14.5px; font-weight: 600; }
+        .item-row .sub { font-size: 12px; color: #b3a48f; margin-top: 2px; }
+        .item-row .amt { font-size: 15px; font-weight: 700; font-variant-numeric: tabular-nums; white-space: nowrap; }
+        .totals { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-bottom: 12px; }
+        .totals .tot {
+            background: linear-gradient(180deg, #241a10, #1a130c);
+            border: 1px solid #3a2c1d; border-radius: 12px; padding: 11px 6px; text-align: center;
+        }
+        .totals .tot .n { font-size: 17px; font-weight: 700; color: #ff8b57; font-variant-numeric: tabular-nums; }
+        .totals .tot .l { font-size: 10px; color: #b3a48f; text-transform: uppercase; letter-spacing: 0.5px; margin-top: 3px; }
+
+        /* ---------- pre-trip ---------- */
+        .pt-progress {
+            height: 10px; background: #2a2015; border-radius: 999px; overflow: hidden; margin: 8px 0 14px;
+        }
+        .pt-progress .bar { height: 100%; background: linear-gradient(90deg, #ff5b1f, #4cd6a0); width: 0; transition: width 0.25s; }
+        .pt-group { margin-bottom: 14px; }
+        .pt-item {
+            display: flex; align-items: center; gap: 12px;
+            padding: 11px 12px; background: #1d1610; border: 1px solid #3a2c1d;
+            border-radius: 12px; margin-bottom: 6px; cursor: pointer; user-select: none;
+            font-size: 14.5px;
+        }
+        .pt-item .box {
+            width: 22px; height: 22px; border-radius: 7px; border: 2px solid #b3a48f;
+            flex-shrink: 0; display: flex; align-items: center; justify-content: center;
+            font-size: 14px; color: #0b0806;
+        }
+        .pt-item.done { opacity: 0.6; }
+        .pt-item.done .box { background: #4cd6a0; border-color: #4cd6a0; }
+        .pt-item.done .txt { text-decoration: line-through; }
+
+        /* ---------- bottom nav ---------- */
+        nav {
+            position: fixed; bottom: 0; left: 0; right: 0;
+            background: rgba(20, 16, 11, 0.96); backdrop-filter: blur(10px);
+            border-top: 1px solid #3a2c1d;
+            display: flex; max-width: 760px; margin: 0 auto;
+            padding-bottom: env(safe-area-inset-bottom);
+        }
+        nav button {
+            flex: 1; background: none; border: 0; border-radius: 0;
+            padding: 10px 2px 12px; color: #b3a48f; font-size: 11px; font-weight: 600;
+        }
+        nav button .ico { display: block; font-size: 21px; margin-bottom: 2px; }
+        nav button.active { color: #ff5b1f; }
+
+        footer { text-align: center; margin-top: 26px; font-size: 12px; color: #b3a48f; line-height: 2; }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>🚛 Truck <span>Life</span></h1>
+        <p>The driver's daily companion — clocks, miles, money, pre-trip. All on your phone, works offline.</p>
+    </header>
+
+    <!-- ============ HOS CLOCKS ============ -->
+    <section id="page-hos" class="tab-page active">
+        <div class="clocks">
+            <div class="clock" id="clkDrive"><div class="time">11:00</div><div class="lbl">Drive left (11 hr)</div></div>
+            <div class="clock" id="clkShift"><div class="time">14:00</div><div class="lbl">Shift left (14 hr)</div></div>
+            <div class="clock" id="clkBreak"><div class="time">8:00</div><div class="lbl">Until 30-min break</div></div>
+            <div class="clock" id="clkCycle"><div class="time">70:00</div><div class="lbl">Cycle left (70 hr / 8 day)</div></div>
+        </div>
+
+        <div class="status-now">
+            <div class="st" id="statusNow">OFF DUTY</div>
+            <div class="dur" id="statusDur">0:00</div>
+        </div>
+
+        <div class="duty-btns">
+            <button id="btnOFF" onclick="setDuty('OFF')">🛌<br>Off Duty</button>
+            <button id="btnSB" onclick="setDuty('SB')">😴<br>Sleeper</button>
+            <button id="btnD" onclick="setDuty('D')">🚛<br>Driving</button>
+            <button id="btnON" onclick="setDuty('ON')">🔧<br>On Duty</button>
+        </div>
+
+        <h2>Today's changes</h2>
+        <div class="card" id="hosLog"><div class="empty">Tap a duty status above to start the clocks.</div></div>
+        <div class="btn-row">
+            <button class="btn-ghost" onclick="undoDuty()">↩️ Undo last change</button>
+        </div>
+        <p class="muted" style="margin:0 4px;">These clocks are a planning helper, not an ELD and not legal advice. Your ELD is the official record — always follow it and the FMCSA hours-of-service rules. A 10-hr break resets drive/shift; a 34-hr restart resets the cycle.</p>
+    </section>
+
+    <!-- ============ TRIP LOG ============ -->
+    <section id="page-trips" class="tab-page">
+        <div class="totals">
+            <div class="tot"><div class="n" id="triToday">0</div><div class="l">Miles today</div></div>
+            <div class="tot"><div class="n" id="triWeek">0</div><div class="l">Miles 7 days</div></div>
+            <div class="tot"><div class="n" id="triMonth">0</div><div class="l">Miles 30 days</div></div>
+        </div>
+
+        <div class="card">
+            <div class="grid2">
+                <div><label>From</label><input id="tripFrom" placeholder="Memphis, TN"></div>
+                <div><label>To</label><input id="tripTo" placeholder="Dallas, TX"></div>
+            </div>
+            <div class="grid2">
+                <div><label>Odometer start</label><input id="tripOdoS" type="number" inputmode="decimal" placeholder="512400"></div>
+                <div><label>Odometer end</label><input id="tripOdoE" type="number" inputmode="decimal" placeholder="512873"></div>
+            </div>
+            <label>Notes (load #, detention, weather…)</label>
+            <input id="tripNotes" placeholder="Optional">
+            <div class="btn-row" style="margin-bottom:0;">
+                <button class="btn-primary" onclick="addTrip()">➕ Log trip</button>
+            </div>
+        </div>
+
+        <h2>Recent trips</h2>
+        <div id="tripList"></div>
+        <div class="btn-row">
+            <button class="btn-ghost" onclick="exportTrips()">📤 Export CSV</button>
+        </div>
+    </section>
+
+    <!-- ============ EXPENSES ============ -->
+    <section id="page-money" class="tab-page">
+        <div class="totals">
+            <div class="tot"><div class="n" id="expToday">$0</div><div class="l">Today</div></div>
+            <div class="tot"><div class="n" id="expWeek">$0</div><div class="l">7 days</div></div>
+            <div class="tot"><div class="n" id="expMonth">$0</div><div class="l">30 days</div></div>
+        </div>
+
+        <div class="card">
+            <div class="grid2">
+                <div><label>Amount ($)</label><input id="expAmt" type="number" inputmode="decimal" step="0.01" placeholder="84.50"></div>
+                <div><label>Category</label>
+                    <select id="expCat">
+                        <option>⛽ Fuel</option>
+                        <option>🍔 Food</option>
+                        <option>🅿️ Parking</option>
+                        <option>⚖️ Scales / Tolls</option>
+                        <option>🔧 Maintenance</option>
+                        <option>🧾 Other</option>
+                    </select>
+                </div>
+            </div>
+            <label>Note</label>
+            <input id="expNote" placeholder="Optional — where / what">
+            <div class="btn-row" style="margin-bottom:0;">
+                <button class="btn-primary" onclick="addExpense()">➕ Add expense</button>
+            </div>
+        </div>
+
+        <h2>Recent expenses</h2>
+        <div id="expList"></div>
+        <div class="btn-row">
+            <button class="btn-ghost" onclick="exportExpenses()">📤 Export CSV</button>
+        </div>
+        <p class="muted" style="margin:0 4px;">Every receipt you log here is money at tax time. Export the CSV and hand it straight to your tax person.</p>
+    </section>
+
+    <!-- ============ PRE-TRIP ============ -->
+    <section id="page-pretrip" class="tab-page">
+        <div class="status-now">
+            <div class="st" id="ptStatus">0 / 0 checked</div>
+            <div class="dur" id="ptDate"></div>
+        </div>
+        <div class="pt-progress"><div class="bar" id="ptBar"></div></div>
+        <div id="ptGroups"></div>
+        <div class="btn-row">
+            <button class="btn-danger" onclick="resetPretrip()">🔄 Reset for a new inspection</button>
+        </div>
+        <p class="muted" style="margin:0 4px;">The list resets itself each new day. Checklist is a memory aid — do your full walk-around per your company policy and the FMCSA pre-trip requirements.</p>
+    </section>
+
+    <footer>
+        More free tools from Trucking Life With Shawn:<br>
+        <a href="/dataq/">📋 DataQ Tracker — fight bad violations</a><br>
+        <a href="/truckstops/">🛣️ Interstate Truck Stop Directory</a>
+    </footer>
+
+    <nav>
+        <button id="tab-hos" class="active" onclick="showTab('hos')"><span class="ico">⏱️</span>Clocks</button>
+        <button id="tab-trips" onclick="showTab('trips')"><span class="ico">🗺️</span>Trips</button>
+        <button id="tab-money" onclick="showTab('money')"><span class="ico">💵</span>Money</button>
+        <button id="tab-pretrip" onclick="showTab('pretrip')"><span class="ico">✅</span>Pre-Trip</button>
+    </nav>
+
+    <script>
+    'use strict';
+    /* =========================================================
+       Truck Life — everything lives in localStorage on-device.
+       ========================================================= */
+    const KEY = 'trucklife.v1';
+    const HR = 3600000, MIN = 60000, DAY = 86400000;
+
+    const DUTY_NAMES = { OFF: 'OFF DUTY', SB: 'SLEEPER', D: 'DRIVING', ON: 'ON DUTY' };
+
+    const PRETRIP = [
+        { name: '🔧 Engine compartment', items: [
+            'Oil level', 'Coolant level', 'Power steering fluid', 'Belts & hoses',
+            'Leaks under the truck', 'Air compressor / lines' ] },
+        { name: '🚛 Truck & cab', items: [
+            'Brakes & air pressure build-up', 'Steering play', 'Horn (city & air)',
+            'Wipers & washer fluid', 'Mirrors clean & adjusted', 'Seat belt',
+            'Emergency kit / triangles / extinguisher', 'Registration, permits, insurance' ] },
+        { name: '💡 Lights & electrical', items: [
+            'Headlights (low & high)', 'Turn signals & 4-ways', 'Brake lights',
+            'Clearance / marker lights', 'Trailer lights connected' ] },
+        { name: '🛞 Tires, wheels & brakes', items: [
+            'Tread depth & inflation (steer)', 'Tread depth & inflation (drives)',
+            'Tread depth & inflation (trailer)', 'Lug nuts / rust trails',
+            'Brake pads / slack adjusters', 'No air leaks (listen)' ] },
+        { name: '📦 Trailer & coupling', items: [
+            'Fifth wheel locked / kingpin', 'Air & electric lines secured',
+            'Landing gear up & handle stowed', 'Doors latched / seal on',
+            'Load secured / weight distributed', 'Mud flaps' ] },
+    ];
+
+    /* ---------- state ---------- */
+    function blankState() {
+        return { hos: [], trips: [], expenses: [], pretrip: { date: todayStr(), checked: {} } };
+    }
+    function load() {
+        try {
+            const s = JSON.parse(localStorage.getItem(KEY));
+            if (s && typeof s === 'object') {
+                return Object.assign(blankState(), s);
+            }
+        } catch (e) { /* corrupted -> start fresh */ }
+        return blankState();
+    }
+    function save() { localStorage.setItem(KEY, JSON.stringify(state)); }
+    let state = load();
+
+    function todayStr(ts) {
+        const d = ts ? new Date(ts) : new Date();
+        return d.getFullYear() + '-' + String(d.getMonth() + 1).padStart(2, '0') + '-' + String(d.getDate()).padStart(2, '0');
+    }
+    function fmtClock(ms) {
+        ms = Math.max(0, ms);
+        const h = Math.floor(ms / HR), m = Math.floor((ms % HR) / MIN);
+        return h + ':' + String(m).padStart(2, '0');
+    }
+    function fmtTime(ts) {
+        return new Date(ts).toLocaleTimeString([], { hour: 'numeric', minute: '2-digit' });
+    }
+    function fmtDate(ts) {
+        return new Date(ts).toLocaleDateString([], { month: 'short', day: 'numeric' });
+    }
+    function esc(s) {
+        return String(s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+    }
+
+    /* =========================================================
+       HOS clocks
+       Rules implemented (property-carrying, advisory only):
+       - 11 hr driving / 14 hr window after 10 consecutive hrs off (OFF/SB)
+       - 30-min break required after 8 cumulative hrs driving,
+         satisfied by any 30+ min not driving
+       - 70 hr on-duty in rolling 8 days; 34-hr restart resets it
+       ========================================================= */
+    function currentDuty() {
+        const log = state.hos;
+        return log.length ? log[log.length - 1].s : 'OFF';
+    }
+
+    function setDuty(s) {
+        if (currentDuty() === s && state.hos.length) return;
+        state.hos.push({ t: Date.now(), s });
+        pruneHos();
+        save();
+        renderHos();
+    }
+
+    function undoDuty() {
+        if (!state.hos.length) return;
+        state.hos.pop();
+        save();
+        renderHos();
+    }
+
+    // Keep 9 days of history (enough for the 8-day cycle), plus the
+    // last entry before the cutoff so the current status chain is unbroken.
+    function pruneHos() {
+        const cutoff = Date.now() - 9 * DAY;
+        const log = state.hos;
+        let firstKeep = log.findIndex(e => e.t >= cutoff);
+        if (firstKeep === -1) firstKeep = log.length; // all old
+        if (firstKeep > 1) state.hos = log.slice(firstKeep - 1);
+    }
+
+    // Build [{s, start, end}] segments from the duty log up to `now`.
+    function hosSegments(now) {
+        const log = state.hos, segs = [];
+        for (let i = 0; i < log.length; i++) {
+            const end = i + 1 < log.length ? log[i + 1].t : now;
+            if (end > log[i].t) segs.push({ s: log[i].s, start: log[i].t, end });
+        }
+        return segs;
+    }
+
+    // Merge consecutive rest (OFF/SB) segments into single stretches.
+    function restStretches(segs) {
+        const out = [];
+        for (const seg of segs) {
+            const rest = seg.s === 'OFF' || seg.s === 'SB';
+            const last = out[out.length - 1];
+            if (rest && last && last.rest && last.end === seg.start) last.end = seg.end;
+            else out.push({ rest, start: seg.start, end: seg.end });
+        }
+        return out.filter(x => x.rest);
+    }
+
+    function hosStats(now) {
+        const segs = hosSegments(now);
+        if (!segs.length) {
+            return { drive: 11 * HR, shift: 14 * HR, brk: 8 * HR, cycle: 70 * HR, fresh: true };
+        }
+        const rests = restStretches(segs);
+
+        // --- 14-hr window start: end of the last completed 10-hr rest ---
+        let windowStart = segs[0].start;
+        let inFullRest = false;
+        for (const r of rests) {
+            if (r.end - r.start >= 10 * HR) {
+                if (r.end >= now) inFullRest = true; // currently resting 10+ hrs -> fresh
+                windowStart = r.end;
+            }
+        }
+        let drive = 11 * HR, shift = 14 * HR, brk = 8 * HR;
+        if (!inFullRest) {
+            let driveUsed = 0;
+            for (const seg of segs) {
+                if (seg.s === 'D' && seg.end > windowStart) {
+                    driveUsed += seg.end - Math.max(seg.start, windowStart);
+                }
+            }
+            drive = 11 * HR - driveUsed;
+            shift = 14 * HR - (now - windowStart);
+
+            // --- 30-min break: driving accumulated since last 30+ min non-driving ---
+            let sinceBreak = 0;
+            for (const seg of segs) {
+                if (seg.end <= windowStart) continue;
+                const start = Math.max(seg.start, windowStart);
+                if (seg.s === 'D') sinceBreak += seg.end - start;
+                else if (seg.end - start >= 30 * MIN) sinceBreak = 0;
+            }
+            brk = 8 * HR - sinceBreak;
+        }
+
+        // --- 70-hr / 8-day cycle, 34-hr restart ---
+        let cycleStart = now - 8 * DAY;
+        for (const r of rests) {
+            if (r.end - r.start >= 34 * HR && r.end > cycleStart) cycleStart = r.end;
+        }
+        let cycleUsed = 0;
+        for (const seg of segs) {
+            if ((seg.s === 'D' || seg.s === 'ON') && seg.end > cycleStart) {
+                cycleUsed += seg.end - Math.max(seg.start, cycleStart);
+            }
+        }
+        return { drive, shift, brk, cycle: 70 * HR - cycleUsed, fresh: inFullRest };
+    }
+
+    function paintClock(id, ms) {
+        const el = document.getElementById(id);
+        el.querySelector('.time').textContent = fmtClock(ms);
+        el.className = 'clock ' + (ms <= 0 ? 'out' : ms <= HR ? 'warn' : 'ok');
+    }
+
+    function renderHos() {
+        const now = Date.now();
+        const st = hosStats(now);
+        paintClock('clkDrive', st.drive);
+        paintClock('clkShift', st.shift);
+        paintClock('clkBreak', st.brk);
+        paintClock('clkCycle', st.cycle);
+
+        const duty = currentDuty();
+        document.getElementById('statusNow').textContent = DUTY_NAMES[duty];
+        const last = state.hos[state.hos.length - 1];
+        document.getElementById('statusDur').textContent = last ? fmtClock(now - last.t) : '0:00';
+
+        for (const [code, cls] of [['OFF', 'off'], ['SB', 'sb'], ['D', 'd'], ['ON', 'on']]) {
+            const b = document.getElementById('btn' + code);
+            b.className = (duty === code && state.hos.length) ? 'active-' + cls : '';
+        }
+
+        const today = todayStr();
+        const todays = state.hos.filter(e => todayStr(e.t) === today);
+        const box = document.getElementById('hosLog');
+        box.innerHTML = todays.length
+            ? todays.slice().reverse().map(e =>
+                `<div class="hos-log-item"><span>${DUTY_NAMES[e.s]}</span><span class="t">${fmtTime(e.t)}</span></div>`).join('')
+            : '<div class="empty">Tap a duty status above to start the clocks.</div>';
+    }
+
+    /* =========================================================
+       Trip log
+       ========================================================= */
+    function addTrip() {
+        const from = document.getElementById('tripFrom').value.trim();
+        const to = document.getElementById('tripTo').value.trim();
+        const odoS = parseFloat(document.getElementById('tripOdoS').value);
+        const odoE = parseFloat(document.getElementById('tripOdoE').value);
+        if (!isFinite(odoS) || !isFinite(odoE) || odoE <= odoS) {
+            alert('Enter a start and end odometer (end must be bigger than start).');
+            return;
+        }
+        state.trips.unshift({
+            t: Date.now(), from, to, odoS, odoE,
+            miles: Math.round((odoE - odoS) * 10) / 10,
+            notes: document.getElementById('tripNotes').value.trim(),
+        });
+        save();
+        for (const id of ['tripFrom', 'tripTo', 'tripOdoS', 'tripOdoE', 'tripNotes']) document.getElementById(id).value = '';
+        renderTrips();
+    }
+
+    function delTrip(i) {
+        state.trips.splice(i, 1);
+        save();
+        renderTrips();
+    }
+
+    function sumSince(arr, ms, pick) {
+        const cut = Date.now() - ms;
+        return arr.reduce((tot, x) => x.t >= cut ? tot + pick(x) : tot, 0);
+    }
+
+    function renderTrips() {
+        const today = todayStr();
+        const milesToday = state.trips.reduce((t, x) => todayStr(x.t) === today ? t + x.miles : t, 0);
+        document.getElementById('triToday').textContent = Math.round(milesToday).toLocaleString();
+        document.getElementById('triWeek').textContent = Math.round(sumSince(state.trips, 7 * DAY, x => x.miles)).toLocaleString();
+        document.getElementById('triMonth').textContent = Math.round(sumSince(state.trips, 30 * DAY, x => x.miles)).toLocaleString();
+
+        const box = document.getElementById('tripList');
+        box.innerHTML = state.trips.length
+            ? state.trips.slice(0, 50).map((x, i) => `
+                <div class="item-row">
+                    <div class="main">
+                        <div class="ttl">${esc(x.from || '—')} → ${esc(x.to || '—')}</div>
+                        <div class="sub">${fmtDate(x.t)} · odo ${x.odoS.toLocaleString()}–${x.odoE.toLocaleString()}${x.notes ? ' · ' + esc(x.notes) : ''}</div>
+                    </div>
+                    <div class="amt">${x.miles.toLocaleString()} mi</div>
+                    <button class="row-del" onclick="delTrip(${i})" aria-label="Delete trip">✕</button>
+                </div>`).join('')
+            : '<div class="empty">No trips yet. Log your first run above.</div>';
+    }
+
+    /* =========================================================
+       Expenses
+       ========================================================= */
+    function addExpense() {
+        const amt = parseFloat(document.getElementById('expAmt').value);
+        if (!isFinite(amt) || amt <= 0) { alert('Enter an amount.'); return; }
+        state.expenses.unshift({
+            t: Date.now(), amt: Math.round(amt * 100) / 100,
+            cat: document.getElementById('expCat').value,
+            note: document.getElementById('expNote').value.trim(),
+        });
+        save();
+        document.getElementById('expAmt').value = '';
+        document.getElementById('expNote').value = '';
+        renderExpenses();
+    }
+
+    function delExpense(i) {
+        state.expenses.splice(i, 1);
+        save();
+        renderExpenses();
+    }
+
+    function fmtMoney(n) {
+        return '$' + n.toLocaleString(undefined, { minimumFractionDigits: n % 1 ? 2 : 0, maximumFractionDigits: 2 });
+    }
+
+    function renderExpenses() {
+        const today = todayStr();
+        const t = state.expenses.reduce((s, x) => todayStr(x.t) === today ? s + x.amt : s, 0);
+        document.getElementById('expToday').textContent = fmtMoney(t);
+        document.getElementById('expWeek').textContent = fmtMoney(sumSince(state.expenses, 7 * DAY, x => x.amt));
+        document.getElementById('expMonth').textContent = fmtMoney(sumSince(state.expenses, 30 * DAY, x => x.amt));
+
+        const box = document.getElementById('expList');
+        box.innerHTML = state.expenses.length
+            ? state.expenses.slice(0, 50).map((x, i) => `
+                <div class="item-row">
+                    <div class="main">
+                        <div class="ttl">${esc(x.cat)}</div>
+                        <div class="sub">${fmtDate(x.t)}${x.note ? ' · ' + esc(x.note) : ''}</div>
+                    </div>
+                    <div class="amt">${fmtMoney(x.amt)}</div>
+                    <button class="row-del" onclick="delExpense(${i})" aria-label="Delete expense">✕</button>
+                </div>`).join('')
+            : '<div class="empty">No expenses yet. Log fuel, food, parking — it all counts.</div>';
+    }
+
+    /* ---------- CSV export ---------- */
+    function downloadCsv(name, rows) {
+        const csv = rows.map(r => r.map(v => {
+            v = String(v == null ? '' : v);
+            return /[",\n]/.test(v) ? '"' + v.replace(/"/g, '""') + '"' : v;
+        }).join(',')).join('\n');
+        const a = document.createElement('a');
+        a.href = URL.createObjectURL(new Blob([csv], { type: 'text/csv' }));
+        a.download = name;
+        a.click();
+        URL.revokeObjectURL(a.href);
+    }
+    function exportTrips() {
+        if (!state.trips.length) { alert('Nothing to export yet.'); return; }
+        downloadCsv('trucklife-trips.csv',
+            [['date', 'from', 'to', 'odo_start', 'odo_end', 'miles', 'notes']]
+                .concat(state.trips.map(x => [todayStr(x.t), x.from, x.to, x.odoS, x.odoE, x.miles, x.notes])));
+    }
+    function exportExpenses() {
+        if (!state.expenses.length) { alert('Nothing to export yet.'); return; }
+        downloadCsv('trucklife-expenses.csv',
+            [['date', 'category', 'amount', 'note']]
+                .concat(state.expenses.map(x => [todayStr(x.t), x.cat, x.amt, x.note])));
+    }
+
+    /* =========================================================
+       Pre-trip checklist
+       ========================================================= */
+    function ptId(g, i) { return g + '.' + i; }
+
+    function ensurePretripDay() {
+        if (state.pretrip.date !== todayStr()) {
+            state.pretrip = { date: todayStr(), checked: {} };
+            save();
+        }
+    }
+
+    function togglePt(g, i) {
+        ensurePretripDay();
+        const id = ptId(g, i);
+        if (state.pretrip.checked[id]) delete state.pretrip.checked[id];
+        else state.pretrip.checked[id] = true;
+        save();
+        renderPretrip();
+    }
+
+    function resetPretrip() {
+        state.pretrip = { date: todayStr(), checked: {} };
+        save();
+        renderPretrip();
+    }
+
+    function renderPretrip() {
+        ensurePretripDay();
+        const box = document.getElementById('ptGroups');
+        let total = 0, done = 0;
+        box.innerHTML = PRETRIP.map((grp, g) => `
+            <div class="pt-group">
+                <h2>${grp.name}</h2>
+                ${grp.items.map((item, i) => {
+                    total++;
+                    const on = !!state.pretrip.checked[ptId(g, i)];
+                    if (on) done++;
+                    return `<div class="pt-item ${on ? 'done' : ''}" onclick="togglePt(${g},${i})">
+                        <span class="box">${on ? '✔' : ''}</span><span class="txt">${esc(item)}</span></div>`;
+                }).join('')}
+            </div>`).join('');
+        document.getElementById('ptStatus').textContent = done + ' / ' + total + ' checked';
+        document.getElementById('ptDate').textContent = new Date().toLocaleDateString([], { weekday: 'short', month: 'short', day: 'numeric' });
+        document.getElementById('ptBar').style.width = (total ? (100 * done / total) : 0) + '%';
+    }
+
+    /* =========================================================
+       Tabs + boot
+       ========================================================= */
+    function showTab(name) {
+        for (const p of document.querySelectorAll('.tab-page')) p.classList.remove('active');
+        for (const b of document.querySelectorAll('nav button')) b.classList.remove('active');
+        document.getElementById('page-' + name).classList.add('active');
+        document.getElementById('tab-' + name).classList.add('active');
+        window.scrollTo(0, 0);
+    }
+
+    function renderAll() {
+        renderHos();
+        renderTrips();
+        renderExpenses();
+        renderPretrip();
+    }
+    renderAll();
+    setInterval(renderHos, 1000);
+    document.addEventListener('visibilitychange', () => { if (!document.hidden) renderAll(); });
+
+    if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('trucklife-sw.js').catch(() => { /* offline install is best-effort */ });
+    }
+    </script>
+</body>
+</html>
