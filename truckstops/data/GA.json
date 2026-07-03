@@ -1,677 +1,707 @@
 {
- "state": "Georgia",
- "abbr": "GA",
- "interstates": {
-  "I-16": {
-   "maxMM": 167,
-   "stops": [
-    {
-     "mm": 46,
-     "exit": "46",
-     "name": "Rest Area (both directions)",
-     "brand": "State",
-     "type": "rest_area",
-     "city": "Dudley",
-     "approx": true,
-     "notes": "Truck parking; serves EB and WB",
-     "parking": 30
+  "state": "Georgia",
+  "abbr": "GA",
+  "interstates": {
+    "I-16": {
+      "maxMM": 167,
+      "stops": [
+        {
+          "mm": 46,
+          "exit": "46",
+          "name": "Rest Area (both directions)",
+          "brand": "State",
+          "type": "rest_area",
+          "city": "Dudley",
+          "approx": true,
+          "notes": "Truck parking; serves EB and WB",
+          "parking": 30
+        },
+        {
+          "mm": 51,
+          "exit": "51",
+          "name": "Love's Travel Stop",
+          "brand": "Love's",
+          "type": "truck_stop",
+          "city": "Dublin",
+          "approx": true,
+          "notes": "US-441",
+          "parking": 80
+        },
+        {
+          "mm": 144,
+          "exit": "144",
+          "name": "Weigh Station (both directions)",
+          "brand": "State",
+          "type": "weigh_station",
+          "city": "Blichton",
+          "approx": true,
+          "notes": "Georgia DPS scales west of I-95, Savannah area; EB side at MM 144, WB counterpart nearby"
+        }
+      ]
     },
-    {
-     "mm": 51,
-     "exit": "51",
-     "name": "Love's Travel Stop",
-     "brand": "Love's",
-     "type": "truck_stop",
-     "city": "Dublin",
-     "approx": true,
-     "notes": "US-441",
-     "parking": 80
+    "I-20": {
+      "maxMM": 202,
+      "stops": [
+        {
+          "mm": 1,
+          "exit": "1",
+          "name": "Georgia Welcome Center (eastbound)",
+          "brand": "State",
+          "type": "rest_area",
+          "city": "Tallapoosa",
+          "approx": true,
+          "notes": "Serves eastbound entering from AL; truck parking",
+          "parking": 40
+        },
+        {
+          "mm": 13,
+          "exit": "13",
+          "name": "Weigh Station (WB)",
+          "brand": "State",
+          "type": "weigh_station",
+          "city": "Bremen (Waco)",
+          "approx": true,
+          "notes": "Georgia DPS scales between exits 9 and 19; sometimes called Tallapoosa/Bremen scales; serves westbound toward AL"
+        },
+        {
+          "mm": 19,
+          "exit": "19",
+          "name": "Pilot Travel Center",
+          "brand": "Pilot",
+          "type": "truck_stop",
+          "city": "Temple",
+          "approx": false,
+          "notes": "",
+          "parking": 80
+        },
+        {
+          "mm": 42,
+          "exit": "42",
+          "name": "Weigh Station (EB)",
+          "brand": "State",
+          "type": "weigh_station",
+          "city": "Lithia Springs",
+          "approx": true,
+          "notes": "Georgia DPS scales just east of exit 41, west side of Atlanta"
+        },
+        {
+          "mm": 108,
+          "exit": "108",
+          "name": "Rest Area (both directions)",
+          "brand": "State",
+          "type": "rest_area",
+          "city": "Rutledge",
+          "approx": true,
+          "notes": "Truck parking; serves EB and WB",
+          "parking": 30
+        },
+        {
+          "mm": 114,
+          "exit": "114",
+          "name": "Pilot Travel Center",
+          "brand": "Pilot",
+          "type": "truck_stop",
+          "city": "Madison",
+          "approx": true,
+          "notes": "US-441",
+          "parking": 80
+        },
+        {
+          "mm": 190,
+          "exit": "190",
+          "name": "Weigh Station (WB)",
+          "brand": "State",
+          "type": "weigh_station",
+          "city": "Grovetown (Columbia County)",
+          "approx": true,
+          "notes": "Georgia DPS scales near exit 190, Augusta west side; serves westbound entering from SC"
+        },
+        {
+          "mm": 194,
+          "exit": "194",
+          "name": "Pilot Travel Center",
+          "brand": "Pilot",
+          "type": "truck_stop",
+          "city": "Grovetown",
+          "approx": true,
+          "notes": "Augusta west side",
+          "parking": 80
+        },
+        {
+          "mm": 201,
+          "exit": "201",
+          "name": "Georgia Welcome Center (westbound)",
+          "brand": "State",
+          "type": "rest_area",
+          "city": "Augusta (Martinez)",
+          "approx": true,
+          "notes": "Serves westbound entering from SC; truck parking",
+          "parking": 30
+        }
+      ]
     },
-    {
-     "mm": 144,
-     "exit": "144",
-     "name": "Weigh Station (both directions)",
-     "brand": "State",
-     "type": "weigh_station",
-     "city": "Blichton",
-     "approx": true,
-     "notes": "Georgia DPS scales west of I-95, Savannah area; EB side at MM 144, WB counterpart nearby"
+    "I-24": {
+      "maxMM": 4,
+      "stops": []
+    },
+    "I-59": {
+      "maxMM": 20,
+      "stops": []
+    },
+    "I-75": {
+      "maxMM": 355,
+      "stops": [
+        {
+          "mm": 1,
+          "exit": "1",
+          "name": "Georgia Welcome Center (northbound)",
+          "brand": "State",
+          "type": "rest_area",
+          "city": "Lake Park",
+          "approx": true,
+          "notes": "Serves northbound entering from FL; truck parking",
+          "parking": 40
+        },
+        {
+          "mm": 2,
+          "exit": "2",
+          "name": "Flying J Travel Center",
+          "brand": "Flying J",
+          "type": "truck_stop",
+          "city": "Lake Park",
+          "approx": false,
+          "notes": "Lake Park truck stop cluster",
+          "parking": 90
+        },
+        {
+          "mm": 16,
+          "exit": "16",
+          "name": "Love's Travel Stop",
+          "brand": "Love's",
+          "type": "truck_stop",
+          "city": "Valdosta",
+          "approx": true,
+          "notes": "US-84",
+          "parking": 80
+        },
+        {
+          "mm": 16,
+          "exit": "16",
+          "name": "Days Inn by Wyndham Valdosta I-75",
+          "brand": "Days Inn",
+          "type": "hotel",
+          "city": "Valdosta",
+          "approx": false,
+          "notes": "Truck parking verified: Wyndham hotel site lists free parking for car, truck, or RV; 1827 W Hill Ave at Exit 16"
+        },
+        {
+          "mm": 23,
+          "exit": "23",
+          "name": "Weigh Station (both directions)",
+          "brand": "State",
+          "type": "weigh_station",
+          "city": "Valdosta (Lowndes County)",
+          "approx": false,
+          "notes": "Georgia DPS Lowndes County scales north of Valdosta; NB and SB sides"
+        },
+        {
+          "mm": 60,
+          "exit": "60",
+          "name": "Flying J Travel Center",
+          "brand": "Flying J",
+          "type": "truck_stop",
+          "city": "Tifton",
+          "approx": true,
+          "notes": "",
+          "parking": 90
+        },
+        {
+          "mm": 60,
+          "exit": "60",
+          "name": "Blue Beacon Truck Wash",
+          "brand": "Independent",
+          "type": "truck_wash",
+          "city": "Tifton",
+          "approx": false,
+          "notes": "Near Flying J Travel Center; Expressway Ln"
+        },
+        {
+          "mm": 63,
+          "exit": "63A",
+          "name": "Motel 6 Tifton",
+          "brand": "Motel 6",
+          "type": "hotel",
+          "city": "Tifton",
+          "approx": true,
+          "notes": "Truck parking verified: Motel 6/booking listings note ample space for trucks and buses including semis to pull in and out; 1103 King Rd"
+        },
+        {
+          "mm": 76,
+          "exit": "76",
+          "name": "Turner County Rest Area (both directions)",
+          "brand": "State",
+          "type": "rest_area",
+          "city": "Ashburn",
+          "approx": true,
+          "notes": "Truck parking; serves NB and SB",
+          "parking": 30
+        },
+        {
+          "mm": 99,
+          "exit": "99",
+          "name": "Love's Travel Stop",
+          "brand": "Love's",
+          "type": "truck_stop",
+          "city": "Cordele",
+          "approx": true,
+          "notes": "",
+          "parking": 80
+        },
+        {
+          "mm": 101,
+          "exit": "101",
+          "name": "Pilot Travel Center",
+          "brand": "Pilot",
+          "type": "truck_stop",
+          "city": "Cordele",
+          "approx": true,
+          "notes": "US-280",
+          "parking": 80
+        },
+        {
+          "mm": 118,
+          "exit": "118",
+          "name": "Perry Rest Area (both directions)",
+          "brand": "State",
+          "type": "rest_area",
+          "city": "Perry",
+          "approx": true,
+          "notes": "Truck parking; serves NB and SB",
+          "parking": 30
+        },
+        {
+          "mm": 144,
+          "exit": "144",
+          "name": "Buc-ee's",
+          "brand": "Buc-ee's",
+          "type": "truck_stop",
+          "city": "Warner Robins",
+          "approx": false,
+          "notes": "Russell Pkwy; no semi-truck parking",
+          "parking": 0
+        },
+        {
+          "mm": 179,
+          "exit": "179",
+          "name": "Monroe County Rest Area (both directions)",
+          "brand": "State",
+          "type": "rest_area",
+          "city": "Forsyth",
+          "approx": true,
+          "notes": "Truck parking; serves NB and SB",
+          "parking": 30
+        },
+        {
+          "mm": 190,
+          "exit": "190",
+          "name": "Weigh Station (both directions)",
+          "brand": "State",
+          "type": "weigh_station",
+          "city": "Forsyth",
+          "approx": true,
+          "notes": "Georgia DPS Monroe County scales northwest of Forsyth; NB side at MM 190, SB counterpart nearby"
+        },
+        {
+          "mm": 201,
+          "exit": "201",
+          "name": "Flying J Travel Center",
+          "brand": "Flying J",
+          "type": "truck_stop",
+          "city": "Jackson",
+          "approx": false,
+          "notes": "Bucksnort Rd",
+          "parking": 100
+        },
+        {
+          "mm": 201,
+          "exit": "201",
+          "name": "Blue Beacon Truck Wash",
+          "brand": "Independent",
+          "type": "truck_wash",
+          "city": "Jackson",
+          "approx": false,
+          "notes": "Near Flying J Travel Center; Truck Stop Way"
+        },
+        {
+          "mm": 235,
+          "exit": "235",
+          "name": "Blue Beacon Truck Wash",
+          "brand": "Independent",
+          "type": "truck_wash",
+          "city": "Forest Park",
+          "approx": true,
+          "notes": "5990 Frontage Rd; near Southern Tire Mart; other-vehicle bay"
+        },
+        {
+          "mm": 296,
+          "exit": "296",
+          "name": "Pilot Travel Center",
+          "brand": "Pilot",
+          "type": "truck_stop",
+          "city": "Cartersville",
+          "approx": false,
+          "notes": "Cassville-White Rd cluster",
+          "parking": 80
+        },
+        {
+          "mm": 296,
+          "exit": "296",
+          "name": "TA Cartersville",
+          "brand": "TA",
+          "type": "truck_stop",
+          "city": "Cartersville",
+          "approx": false,
+          "notes": "Cassville-White Rd cluster",
+          "parking": 180
+        },
+        {
+          "mm": 306,
+          "exit": "306",
+          "name": "Buc-ee's",
+          "brand": "Buc-ee's",
+          "type": "truck_stop",
+          "city": "Calhoun",
+          "approx": false,
+          "notes": "No semi-truck parking",
+          "parking": 0
+        },
+        {
+          "mm": 318,
+          "exit": "318",
+          "name": "Love's Travel Stop",
+          "brand": "Love's",
+          "type": "truck_stop",
+          "city": "Resaca",
+          "approx": true,
+          "notes": "",
+          "parking": 80
+        },
+        {
+          "mm": 326,
+          "exit": "326",
+          "name": "Pilot Travel Center",
+          "brand": "Pilot",
+          "type": "truck_stop",
+          "city": "Dalton",
+          "approx": true,
+          "notes": "Carbondale Rd",
+          "parking": 80
+        },
+        {
+          "mm": 345,
+          "exit": "345",
+          "name": "Weigh Station (both directions)",
+          "brand": "State",
+          "type": "weigh_station",
+          "city": "Ringgold",
+          "approx": true,
+          "notes": "Georgia DPS Catoosa County scales; NB and SB sides south of the TN line"
+        },
+        {
+          "mm": 353,
+          "exit": "353",
+          "name": "Georgia Welcome Center (southbound)",
+          "brand": "State",
+          "type": "rest_area",
+          "city": "Ringgold",
+          "approx": true,
+          "notes": "Serves southbound entering from TN; truck parking",
+          "parking": 40
+        }
+      ]
+    },
+    "I-85": {
+      "maxMM": 179,
+      "stops": [
+        {
+          "mm": 1,
+          "exit": "1",
+          "name": "Georgia Welcome Center (northbound)",
+          "brand": "State",
+          "type": "rest_area",
+          "city": "West Point",
+          "approx": true,
+          "notes": "Serves northbound entering from AL; truck parking",
+          "parking": 40
+        },
+        {
+          "mm": 13,
+          "exit": "13",
+          "name": "Love's Travel Stop",
+          "brand": "Love's",
+          "type": "truck_stop",
+          "city": "LaGrange",
+          "approx": true,
+          "notes": "",
+          "parking": 80
+        },
+        {
+          "mm": 26,
+          "exit": "26",
+          "name": "Weigh Station (both directions)",
+          "brand": "State",
+          "type": "weigh_station",
+          "city": "Hogansville (Troup County)",
+          "approx": true,
+          "notes": "Georgia DPS scales near Mountville/Hogansville between exits 18 and 28; often called the West Point/LaGrange scales; NB and SB sides"
+        },
+        {
+          "mm": 149,
+          "exit": "149",
+          "name": "Pilot Travel Center",
+          "brand": "Pilot",
+          "type": "truck_stop",
+          "city": "Commerce",
+          "approx": true,
+          "notes": "Banks Crossing",
+          "parking": 80
+        },
+        {
+          "mm": 160,
+          "exit": "160",
+          "name": "Petro Stopping Center",
+          "brand": "Petro",
+          "type": "truck_stop",
+          "city": "Carnesville",
+          "approx": false,
+          "notes": "GA-51",
+          "parking": 200
+        },
+        {
+          "mm": 160,
+          "exit": "160",
+          "name": "Blue Beacon Truck Wash",
+          "brand": "Independent",
+          "type": "truck_wash",
+          "city": "Carnesville",
+          "approx": false,
+          "notes": "Near Petro Stopping Center; Old Federal Rd"
+        },
+        {
+          "mm": 169,
+          "exit": "169",
+          "name": "Weigh Station (both directions)",
+          "brand": "State",
+          "type": "weigh_station",
+          "city": "Carnesville (Franklin County)",
+          "approx": true,
+          "notes": "Georgia DPS Franklin County scales between exits 160 and 173; NB and SB sides"
+        },
+        {
+          "mm": 173,
+          "exit": "173",
+          "name": "Love's Travel Stop",
+          "brand": "Love's",
+          "type": "truck_stop",
+          "city": "Lavonia",
+          "approx": false,
+          "notes": "",
+          "parking": 80
+        },
+        {
+          "mm": 176,
+          "exit": "176",
+          "name": "Georgia Welcome Center (southbound)",
+          "brand": "State",
+          "type": "rest_area",
+          "city": "Lavonia",
+          "approx": true,
+          "notes": "Serves southbound entering from SC; truck parking",
+          "parking": 35
+        }
+      ]
+    },
+    "I-95": {
+      "maxMM": 112,
+      "stops": [
+        {
+          "mm": 1,
+          "exit": "1",
+          "name": "Georgia Welcome Center (northbound)",
+          "brand": "State",
+          "type": "rest_area",
+          "city": "Kingsland",
+          "approx": true,
+          "notes": "Serves northbound entering from FL; truck parking",
+          "parking": 40
+        },
+        {
+          "mm": 3,
+          "exit": "3",
+          "name": "Pilot Travel Center",
+          "brand": "Pilot",
+          "type": "truck_stop",
+          "city": "Kingsland",
+          "approx": true,
+          "notes": "GA-40",
+          "parking": 80
+        },
+        {
+          "mm": 29,
+          "exit": "29",
+          "name": "Flying J Travel Center",
+          "brand": "Flying J",
+          "type": "truck_stop",
+          "city": "Brunswick",
+          "approx": false,
+          "notes": "US-17",
+          "parking": 90
+        },
+        {
+          "mm": 29,
+          "exit": "29",
+          "name": "TA Brunswick",
+          "brand": "TA",
+          "type": "truck_stop",
+          "city": "Brunswick",
+          "approx": true,
+          "notes": "US-17",
+          "parking": 150
+        },
+        {
+          "mm": 29,
+          "exit": "29",
+          "name": "Buc-ee's",
+          "brand": "Buc-ee's",
+          "type": "truck_stop",
+          "city": "Brunswick",
+          "approx": false,
+          "notes": "No semi parking; opened July 1, 2025; exit 29 (US-17/GA-99); 74,000 sq ft",
+          "parking": 0
+        },
+        {
+          "mm": 29,
+          "exit": "29",
+          "name": "Daystop Brunswick I-95",
+          "brand": "Days Inn",
+          "type": "hotel",
+          "city": "Brunswick",
+          "approx": false,
+          "notes": "Truck parking verified: motel located within the TA Brunswick truck stop at Exit 29 (US 17/US 82); shared truck lot"
+        },
+        {
+          "mm": 41,
+          "exit": "41",
+          "name": "Rest Area (both directions)",
+          "brand": "State",
+          "type": "rest_area",
+          "city": "McIntosh County",
+          "approx": true,
+          "notes": "Truck parking; serves NB and SB",
+          "parking": 35
+        },
+        {
+          "mm": 42,
+          "exit": "42",
+          "name": "Love's Travel Stop",
+          "brand": "Love's",
+          "type": "truck_stop",
+          "city": "Brunswick",
+          "approx": true,
+          "notes": "US-341, north Brunswick",
+          "parking": 80
+        },
+        {
+          "mm": 48,
+          "exit": "48",
+          "name": "Weigh Station (both directions)",
+          "brand": "State",
+          "type": "weigh_station",
+          "city": "Darien (McIntosh County)",
+          "approx": true,
+          "notes": "Georgia DPS scales near exit 49; NB and SB sides"
+        },
+        {
+          "mm": 87,
+          "exit": "87",
+          "name": "TA Savannah",
+          "brand": "TA",
+          "type": "truck_stop",
+          "city": "Richmond Hill",
+          "approx": true,
+          "notes": "US-17",
+          "parking": 160
+        },
+        {
+          "mm": 109,
+          "exit": "109",
+          "name": "Flying J Travel Center",
+          "brand": "Flying J",
+          "type": "truck_stop",
+          "city": "Port Wentworth",
+          "approx": true,
+          "notes": "GA-21, Savannah area",
+          "parking": 90
+        },
+        {
+          "mm": 110,
+          "exit": "110",
+          "name": "Weigh Station (SB)",
+          "brand": "State",
+          "type": "weigh_station",
+          "city": "Port Wentworth",
+          "approx": true,
+          "notes": "Georgia DPS scales at MM 110.5, just south of the SC line; serves southbound; no PrePass"
+        },
+        {
+          "mm": 111,
+          "exit": "111",
+          "name": "Georgia Welcome Center (southbound)",
+          "brand": "State",
+          "type": "rest_area",
+          "city": "Port Wentworth",
+          "approx": true,
+          "notes": "Serves southbound entering from SC; truck parking",
+          "parking": 35
+        }
+      ]
+    },
+    "I-285": {
+      "maxMM": 63,
+      "stops": [
+        {
+          "mm": 48,
+          "exit": "48",
+          "name": "Petro Stopping Center Atlanta",
+          "brand": "Petro",
+          "type": "truck_stop",
+          "city": "Atlanta",
+          "approx": true,
+          "notes": "Bouldercrest Rd, southeast quadrant",
+          "parking": 250
+        },
+        {
+          "mm": 51,
+          "exit": "51",
+          "name": "TA Atlanta South",
+          "brand": "TA",
+          "type": "truck_stop",
+          "city": "Conley",
+          "approx": true,
+          "notes": "Moreland Ave/US-23, south side",
+          "parking": 200
+        },
+        {
+          "mm": 53,
+          "exit": "53",
+          "name": "Blue Beacon Truck Wash",
+          "brand": "Independent",
+          "type": "truck_wash",
+          "city": "Conley (Atlanta East)",
+          "approx": false,
+          "notes": "4170 Old McDonough Rd"
+        }
+      ]
     }
-   ]
-  },
-  "I-20": {
-   "maxMM": 202,
-   "stops": [
-    {
-     "mm": 1,
-     "exit": "1",
-     "name": "Georgia Welcome Center (eastbound)",
-     "brand": "State",
-     "type": "rest_area",
-     "city": "Tallapoosa",
-     "approx": true,
-     "notes": "Serves eastbound entering from AL; truck parking",
-     "parking": 40
-    },
-    {
-     "mm": 13,
-     "exit": "13",
-     "name": "Weigh Station (WB)",
-     "brand": "State",
-     "type": "weigh_station",
-     "city": "Bremen (Waco)",
-     "approx": true,
-     "notes": "Georgia DPS scales between exits 9 and 19; sometimes called Tallapoosa/Bremen scales; serves westbound toward AL"
-    },
-    {
-     "mm": 19,
-     "exit": "19",
-     "name": "Pilot Travel Center",
-     "brand": "Pilot",
-     "type": "truck_stop",
-     "city": "Temple",
-     "approx": false,
-     "notes": "",
-     "parking": 80
-    },
-    {
-     "mm": 42,
-     "exit": "42",
-     "name": "Weigh Station (EB)",
-     "brand": "State",
-     "type": "weigh_station",
-     "city": "Lithia Springs",
-     "approx": true,
-     "notes": "Georgia DPS scales just east of exit 41, west side of Atlanta"
-    },
-    {
-     "mm": 108,
-     "exit": "108",
-     "name": "Rest Area (both directions)",
-     "brand": "State",
-     "type": "rest_area",
-     "city": "Rutledge",
-     "approx": true,
-     "notes": "Truck parking; serves EB and WB",
-     "parking": 30
-    },
-    {
-     "mm": 114,
-     "exit": "114",
-     "name": "Pilot Travel Center",
-     "brand": "Pilot",
-     "type": "truck_stop",
-     "city": "Madison",
-     "approx": true,
-     "notes": "US-441",
-     "parking": 80
-    },
-    {
-     "mm": 190,
-     "exit": "190",
-     "name": "Weigh Station (WB)",
-     "brand": "State",
-     "type": "weigh_station",
-     "city": "Grovetown (Columbia County)",
-     "approx": true,
-     "notes": "Georgia DPS scales near exit 190, Augusta west side; serves westbound entering from SC"
-    },
-    {
-     "mm": 194,
-     "exit": "194",
-     "name": "Pilot Travel Center",
-     "brand": "Pilot",
-     "type": "truck_stop",
-     "city": "Grovetown",
-     "approx": true,
-     "notes": "Augusta west side",
-     "parking": 80
-    },
-    {
-     "mm": 201,
-     "exit": "201",
-     "name": "Georgia Welcome Center (westbound)",
-     "brand": "State",
-     "type": "rest_area",
-     "city": "Augusta (Martinez)",
-     "approx": true,
-     "notes": "Serves westbound entering from SC; truck parking",
-     "parking": 30
-    }
-   ]
-  },
-  "I-24": {
-   "maxMM": 4,
-   "stops": []
-  },
-  "I-59": {
-   "maxMM": 20,
-   "stops": []
-  },
-  "I-75": {
-   "maxMM": 355,
-   "stops": [
-    {
-     "mm": 1,
-     "exit": "1",
-     "name": "Georgia Welcome Center (northbound)",
-     "brand": "State",
-     "type": "rest_area",
-     "city": "Lake Park",
-     "approx": true,
-     "notes": "Serves northbound entering from FL; truck parking",
-     "parking": 40
-    },
-    {
-     "mm": 2,
-     "exit": "2",
-     "name": "Flying J Travel Center",
-     "brand": "Flying J",
-     "type": "truck_stop",
-     "city": "Lake Park",
-     "approx": false,
-     "notes": "Lake Park truck stop cluster",
-     "parking": 90
-    },
-    {
-     "mm": 16,
-     "exit": "16",
-     "name": "Love's Travel Stop",
-     "brand": "Love's",
-     "type": "truck_stop",
-     "city": "Valdosta",
-     "approx": true,
-     "notes": "US-84",
-     "parking": 80
-    },
-    {
-     "mm": 23,
-     "exit": "23",
-     "name": "Weigh Station (both directions)",
-     "brand": "State",
-     "type": "weigh_station",
-     "city": "Valdosta (Lowndes County)",
-     "approx": false,
-     "notes": "Georgia DPS Lowndes County scales north of Valdosta; NB and SB sides"
-    },
-    {
-     "mm": 60,
-     "exit": "60",
-     "name": "Flying J Travel Center",
-     "brand": "Flying J",
-     "type": "truck_stop",
-     "city": "Tifton",
-     "approx": true,
-     "notes": "",
-     "parking": 90
-    },
-    {
-     "mm": 60,
-     "exit": "60",
-     "name": "Blue Beacon Truck Wash",
-     "brand": "Independent",
-     "type": "truck_wash",
-     "city": "Tifton",
-     "approx": false,
-     "notes": "Near Flying J Travel Center; Expressway Ln"
-    },
-    {
-     "mm": 76,
-     "exit": "76",
-     "name": "Turner County Rest Area (both directions)",
-     "brand": "State",
-     "type": "rest_area",
-     "city": "Ashburn",
-     "approx": true,
-     "notes": "Truck parking; serves NB and SB",
-     "parking": 30
-    },
-    {
-     "mm": 99,
-     "exit": "99",
-     "name": "Love's Travel Stop",
-     "brand": "Love's",
-     "type": "truck_stop",
-     "city": "Cordele",
-     "approx": true,
-     "notes": "",
-     "parking": 80
-    },
-    {
-     "mm": 101,
-     "exit": "101",
-     "name": "Pilot Travel Center",
-     "brand": "Pilot",
-     "type": "truck_stop",
-     "city": "Cordele",
-     "approx": true,
-     "notes": "US-280",
-     "parking": 80
-    },
-    {
-     "mm": 118,
-     "exit": "118",
-     "name": "Perry Rest Area (both directions)",
-     "brand": "State",
-     "type": "rest_area",
-     "city": "Perry",
-     "approx": true,
-     "notes": "Truck parking; serves NB and SB",
-     "parking": 30
-    },
-    {
-     "mm": 144,
-     "exit": "144",
-     "name": "Buc-ee's",
-     "brand": "Buc-ee's",
-     "type": "truck_stop",
-     "city": "Warner Robins",
-     "approx": false,
-     "notes": "Russell Pkwy; no semi-truck parking",
-     "parking": 0
-    },
-    {
-     "mm": 179,
-     "exit": "179",
-     "name": "Monroe County Rest Area (both directions)",
-     "brand": "State",
-     "type": "rest_area",
-     "city": "Forsyth",
-     "approx": true,
-     "notes": "Truck parking; serves NB and SB",
-     "parking": 30
-    },
-    {
-     "mm": 190,
-     "exit": "190",
-     "name": "Weigh Station (both directions)",
-     "brand": "State",
-     "type": "weigh_station",
-     "city": "Forsyth",
-     "approx": true,
-     "notes": "Georgia DPS Monroe County scales northwest of Forsyth; NB side at MM 190, SB counterpart nearby"
-    },
-    {
-     "mm": 201,
-     "exit": "201",
-     "name": "Flying J Travel Center",
-     "brand": "Flying J",
-     "type": "truck_stop",
-     "city": "Jackson",
-     "approx": false,
-     "notes": "Bucksnort Rd",
-     "parking": 100
-    },
-    {
-     "mm": 201,
-     "exit": "201",
-     "name": "Blue Beacon Truck Wash",
-     "brand": "Independent",
-     "type": "truck_wash",
-     "city": "Jackson",
-     "approx": false,
-     "notes": "Near Flying J Travel Center; Truck Stop Way"
-    },
-    {
-     "mm": 235,
-     "exit": "235",
-     "name": "Blue Beacon Truck Wash",
-     "brand": "Independent",
-     "type": "truck_wash",
-     "city": "Forest Park",
-     "approx": true,
-     "notes": "5990 Frontage Rd; near Southern Tire Mart; other-vehicle bay"
-    },
-    {
-     "mm": 296,
-     "exit": "296",
-     "name": "Pilot Travel Center",
-     "brand": "Pilot",
-     "type": "truck_stop",
-     "city": "Cartersville",
-     "approx": false,
-     "notes": "Cassville-White Rd cluster",
-     "parking": 80
-    },
-    {
-     "mm": 296,
-     "exit": "296",
-     "name": "TA Cartersville",
-     "brand": "TA",
-     "type": "truck_stop",
-     "city": "Cartersville",
-     "approx": false,
-     "notes": "Cassville-White Rd cluster",
-     "parking": 180
-    },
-    {
-     "mm": 306,
-     "exit": "306",
-     "name": "Buc-ee's",
-     "brand": "Buc-ee's",
-     "type": "truck_stop",
-     "city": "Calhoun",
-     "approx": false,
-     "notes": "No semi-truck parking",
-     "parking": 0
-    },
-    {
-     "mm": 318,
-     "exit": "318",
-     "name": "Love's Travel Stop",
-     "brand": "Love's",
-     "type": "truck_stop",
-     "city": "Resaca",
-     "approx": true,
-     "notes": "",
-     "parking": 80
-    },
-    {
-     "mm": 326,
-     "exit": "326",
-     "name": "Pilot Travel Center",
-     "brand": "Pilot",
-     "type": "truck_stop",
-     "city": "Dalton",
-     "approx": true,
-     "notes": "Carbondale Rd",
-     "parking": 80
-    },
-    {
-     "mm": 345,
-     "exit": "345",
-     "name": "Weigh Station (both directions)",
-     "brand": "State",
-     "type": "weigh_station",
-     "city": "Ringgold",
-     "approx": true,
-     "notes": "Georgia DPS Catoosa County scales; NB and SB sides south of the TN line"
-    },
-    {
-     "mm": 353,
-     "exit": "353",
-     "name": "Georgia Welcome Center (southbound)",
-     "brand": "State",
-     "type": "rest_area",
-     "city": "Ringgold",
-     "approx": true,
-     "notes": "Serves southbound entering from TN; truck parking",
-     "parking": 40
-    }
-   ]
-  },
-  "I-85": {
-   "maxMM": 179,
-   "stops": [
-    {
-     "mm": 1,
-     "exit": "1",
-     "name": "Georgia Welcome Center (northbound)",
-     "brand": "State",
-     "type": "rest_area",
-     "city": "West Point",
-     "approx": true,
-     "notes": "Serves northbound entering from AL; truck parking",
-     "parking": 40
-    },
-    {
-     "mm": 13,
-     "exit": "13",
-     "name": "Love's Travel Stop",
-     "brand": "Love's",
-     "type": "truck_stop",
-     "city": "LaGrange",
-     "approx": true,
-     "notes": "",
-     "parking": 80
-    },
-    {
-     "mm": 26,
-     "exit": "26",
-     "name": "Weigh Station (both directions)",
-     "brand": "State",
-     "type": "weigh_station",
-     "city": "Hogansville (Troup County)",
-     "approx": true,
-     "notes": "Georgia DPS scales near Mountville/Hogansville between exits 18 and 28; often called the West Point/LaGrange scales; NB and SB sides"
-    },
-    {
-     "mm": 149,
-     "exit": "149",
-     "name": "Pilot Travel Center",
-     "brand": "Pilot",
-     "type": "truck_stop",
-     "city": "Commerce",
-     "approx": true,
-     "notes": "Banks Crossing",
-     "parking": 80
-    },
-    {
-     "mm": 160,
-     "exit": "160",
-     "name": "Petro Stopping Center",
-     "brand": "Petro",
-     "type": "truck_stop",
-     "city": "Carnesville",
-     "approx": false,
-     "notes": "GA-51",
-     "parking": 200
-    },
-    {
-     "mm": 160,
-     "exit": "160",
-     "name": "Blue Beacon Truck Wash",
-     "brand": "Independent",
-     "type": "truck_wash",
-     "city": "Carnesville",
-     "approx": false,
-     "notes": "Near Petro Stopping Center; Old Federal Rd"
-    },
-    {
-     "mm": 169,
-     "exit": "169",
-     "name": "Weigh Station (both directions)",
-     "brand": "State",
-     "type": "weigh_station",
-     "city": "Carnesville (Franklin County)",
-     "approx": true,
-     "notes": "Georgia DPS Franklin County scales between exits 160 and 173; NB and SB sides"
-    },
-    {
-     "mm": 173,
-     "exit": "173",
-     "name": "Love's Travel Stop",
-     "brand": "Love's",
-     "type": "truck_stop",
-     "city": "Lavonia",
-     "approx": false,
-     "notes": "",
-     "parking": 80
-    },
-    {
-     "mm": 176,
-     "exit": "176",
-     "name": "Georgia Welcome Center (southbound)",
-     "brand": "State",
-     "type": "rest_area",
-     "city": "Lavonia",
-     "approx": true,
-     "notes": "Serves southbound entering from SC; truck parking",
-     "parking": 35
-    }
-   ]
-  },
-  "I-95": {
-   "maxMM": 112,
-   "stops": [
-    {
-     "mm": 1,
-     "exit": "1",
-     "name": "Georgia Welcome Center (northbound)",
-     "brand": "State",
-     "type": "rest_area",
-     "city": "Kingsland",
-     "approx": true,
-     "notes": "Serves northbound entering from FL; truck parking",
-     "parking": 40
-    },
-    {
-     "mm": 3,
-     "exit": "3",
-     "name": "Pilot Travel Center",
-     "brand": "Pilot",
-     "type": "truck_stop",
-     "city": "Kingsland",
-     "approx": true,
-     "notes": "GA-40",
-     "parking": 80
-    },
-    {
-     "mm": 29,
-     "exit": "29",
-     "name": "Flying J Travel Center",
-     "brand": "Flying J",
-     "type": "truck_stop",
-     "city": "Brunswick",
-     "approx": false,
-     "notes": "US-17",
-     "parking": 90
-    },
-    {
-     "mm": 29,
-     "exit": "29",
-     "name": "TA Brunswick",
-     "brand": "TA",
-     "type": "truck_stop",
-     "city": "Brunswick",
-     "approx": true,
-     "notes": "US-17",
-     "parking": 150
-    },
-    {
-     "mm": 29,
-     "exit": "29",
-     "name": "Buc-ee's",
-     "brand": "Buc-ee's",
-     "type": "truck_stop",
-     "city": "Brunswick",
-     "approx": false,
-     "notes": "No semi parking; opened July 1, 2025; exit 29 (US-17/GA-99); 74,000 sq ft",
-     "parking": 0
-    },
-    {
-     "mm": 41,
-     "exit": "41",
-     "name": "Rest Area (both directions)",
-     "brand": "State",
-     "type": "rest_area",
-     "city": "McIntosh County",
-     "approx": true,
-     "notes": "Truck parking; serves NB and SB",
-     "parking": 35
-    },
-    {
-     "mm": 42,
-     "exit": "42",
-     "name": "Love's Travel Stop",
-     "brand": "Love's",
-     "type": "truck_stop",
-     "city": "Brunswick",
-     "approx": true,
-     "notes": "US-341, north Brunswick",
-     "parking": 80
-    },
-    {
-     "mm": 48,
-     "exit": "48",
-     "name": "Weigh Station (both directions)",
-     "brand": "State",
-     "type": "weigh_station",
-     "city": "Darien (McIntosh County)",
-     "approx": true,
-     "notes": "Georgia DPS scales near exit 49; NB and SB sides"
-    },
-    {
-     "mm": 87,
-     "exit": "87",
-     "name": "TA Savannah",
-     "brand": "TA",
-     "type": "truck_stop",
-     "city": "Richmond Hill",
-     "approx": true,
-     "notes": "US-17",
-     "parking": 160
-    },
-    {
-     "mm": 109,
-     "exit": "109",
-     "name": "Flying J Travel Center",
-     "brand": "Flying J",
-     "type": "truck_stop",
-     "city": "Port Wentworth",
-     "approx": true,
-     "notes": "GA-21, Savannah area",
-     "parking": 90
-    },
-    {
-     "mm": 110,
-     "exit": "110",
-     "name": "Weigh Station (SB)",
-     "brand": "State",
-     "type": "weigh_station",
-     "city": "Port Wentworth",
-     "approx": true,
-     "notes": "Georgia DPS scales at MM 110.5, just south of the SC line; serves southbound; no PrePass"
-    },
-    {
-     "mm": 111,
-     "exit": "111",
-     "name": "Georgia Welcome Center (southbound)",
-     "brand": "State",
-     "type": "rest_area",
-     "city": "Port Wentworth",
-     "approx": true,
-     "notes": "Serves southbound entering from SC; truck parking",
-     "parking": 35
-    }
-   ]
-  },
-  "I-285": {
-   "maxMM": 63,
-   "stops": [
-    {
-     "mm": 48,
-     "exit": "48",
-     "name": "Petro Stopping Center Atlanta",
-     "brand": "Petro",
-     "type": "truck_stop",
-     "city": "Atlanta",
-     "approx": true,
-     "notes": "Bouldercrest Rd, southeast quadrant",
-     "parking": 250
-    },
-    {
-     "mm": 51,
-     "exit": "51",
-     "name": "TA Atlanta South",
-     "brand": "TA",
-     "type": "truck_stop",
-     "city": "Conley",
-     "approx": true,
-     "notes": "Moreland Ave/US-23, south side",
-     "parking": 200
-    },
-    {
-     "mm": 53,
-     "exit": "53",
-     "name": "Blue Beacon Truck Wash",
-     "brand": "Independent",
-     "type": "truck_wash",
-     "city": "Conley (Atlanta East)",
-     "approx": false,
-     "notes": "4170 Old McDonough Rd"
-    }
-   ]
   }
- }
 }
