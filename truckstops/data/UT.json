@@ -18,6 +18,16 @@
      "parking": 70
     },
     {
+     "mm": 8,
+     "exit": "8",
+     "name": "Motel 6 St George",
+     "brand": "Motel 6",
+     "type": "hotel",
+     "city": "St. George",
+     "approx": true,
+     "notes": "Truck parking verified: Motel 6 amenity listing includes free on-site RV/bus/truck parking"
+    },
+    {
      "mm": 14,
      "exit": "14",
      "name": "St. George Port of Entry (NB)",
@@ -72,6 +82,16 @@
      "parking": 70
     },
     {
+     "mm": 112,
+     "exit": "112",
+     "name": "Days Inn by Wyndham Beaver",
+     "brand": "Days Inn",
+     "type": "hotel",
+     "city": "Beaver",
+     "approx": true,
+     "notes": "Truck parking verified: booking amenity lists free RV/bus/truck parking; across from Flying J, trucker reviews confirm"
+    },
+    {
      "mm": 163,
      "exit": "163",
      "name": "TA Express Fillmore",
@@ -94,6 +114,16 @@
      "parking": 80
     },
     {
+     "mm": 167,
+     "exit": "167",
+     "name": "Best Western Paradise Inn & Resort",
+     "brand": "Best Western",
+     "type": "hotel",
+     "city": "Fillmore",
+     "approx": false,
+     "notes": "Truck parking verified: trailer parking amenity; trucker review parked truck and trailer in front of room; I-15 exit 167 per hotel directory"
+    },
+    {
      "mm": 188,
      "exit": "188",
      "name": "Flying J Travel Center",
@@ -114,6 +144,16 @@
      "approx": false,
      "notes": "South Nephi (UT-28)",
      "parking": 90
+    },
+    {
+     "mm": 222,
+     "exit": "222",
+     "name": "Super 8 by Wyndham Nephi",
+     "brand": "Super 8",
+     "type": "hotel",
+     "city": "Nephi",
+     "approx": true,
+     "notes": "Truck parking verified: Wyndham amenity lists free truck/RV parking; reviews note 45-ft rigs fit without backing out"
     },
     {
      "mm": 225,
@@ -218,6 +258,16 @@
    "maxMM": 232,
    "stops": [
     {
+     "mm": 37,
+     "exit": "37",
+     "name": "Quality Inn Richfield I-70",
+     "brand": "Quality Inn",
+     "type": "hotel",
+     "city": "Richfield",
+     "approx": true,
+     "notes": "Truck parking verified: hotel advertises ample parking for trucks and trailers; 540 S Main St off I-70"
+    },
+    {
      "mm": 40,
      "exit": "40",
      "name": "Flying J Travel Center",
@@ -227,6 +277,16 @@
      "approx": true,
      "notes": "Last full-service truck stop westbound before the no-services gap",
      "parking": 90
+    },
+    {
+     "mm": 54,
+     "exit": "54",
+     "name": "Super 8 by Wyndham Salina/Scenic Hills",
+     "brand": "Super 8",
+     "type": "hotel",
+     "city": "Salina",
+     "approx": true,
+     "notes": "Truck parking verified: amenity lists truck/RV parking with long truck-and-trailer spaces; first hotel off exit, next to truck stop"
     },
     {
      "mm": 102,
@@ -273,6 +333,16 @@
      "parking": 75
     },
     {
+     "mm": 164,
+     "exit": "164",
+     "name": "Super 8 by Wyndham Green River",
+     "brand": "Super 8",
+     "type": "hotel",
+     "city": "Green River",
+     "approx": true,
+     "notes": "Truck parking verified: Wyndham amenity lists free RV/bus/truck parking; well-lit lot off I-70"
+    },
+    {
      "mm": 227,
      "exit": "227",
      "name": "Harley Dome Rest Area / Utah Welcome Center (WB only)",
@@ -298,6 +368,16 @@
      "approx": true,
      "notes": "Nevada state line; last/first services at the Salt Flats",
      "parking": 80
+    },
+    {
+     "mm": 2,
+     "exit": "2",
+     "name": "Motel 6 Wendover",
+     "brand": "Motel 6",
+     "type": "hotel",
+     "city": "Wendover (UT side)",
+     "approx": true,
+     "notes": "Truck parking verified: motel6.com property page lists semi-truck parking; 561 E Wendover Blvd, Utah side"
     },
     {
      "mm": 3,
@@ -386,6 +466,16 @@
      "parking": 30
     },
     {
+     "mm": 162,
+     "exit": "162",
+     "name": "Best Western Holiday Hills",
+     "brand": "Best Western",
+     "type": "hotel",
+     "city": "Coalville",
+     "approx": false,
+     "notes": "Truck parking verified: guest reviews report semi-truck and oversized-trailer parking; hotel directory lists I-80 exit 162"
+    },
+    {
      "mm": 169,
      "exit": "169",
      "name": "Echo Port of Entry (WB)",
@@ -432,6 +522,16 @@
      "approx": true,
      "notes": "UT-102 exit, near I-15/I-84 junction",
      "parking": 75
+    },
+    {
+     "mm": 40,
+     "exit": "40",
+     "name": "Western Inn Tremonton",
+     "brand": "Independent",
+     "type": "hotel",
+     "city": "Tremonton",
+     "approx": true,
+     "notes": "Truck parking verified: motel advertises ample truck/RV parking; review notes easy access for extra-long rigs; near I-15/I-84 junction"
     }
    ]
   }

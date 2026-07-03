@@ -49,6 +49,16 @@
      "parking": 30
     },
     {
+     "mm": 98,
+     "exit": "98",
+     "name": "Americas Best Value Inn Malvern",
+     "brand": "Americas Best Value Inn",
+     "type": "hotel",
+     "city": "Malvern",
+     "approx": false,
+     "notes": "Truck parking verified: Sonesta brand site lists ample parking for cars, buses, and trucks; 1656 Industrial Rd, ~0.4 mi off exit 98"
+    },
+    {
      "mm": 114,
      "exit": "114",
      "name": "Buc-ee's",
@@ -140,6 +150,26 @@
      "parking": 80
     },
     {
+     "mm": 81,
+     "exit": "81",
+     "name": "Best Western Inn",
+     "brand": "Best Western",
+     "type": "hotel",
+     "city": "Russellville",
+     "approx": false,
+     "notes": "Truck parking verified: bestwestern.com/booking listings note plenty of well-lit truck parking next to hotel; 2326 N Arkansas Ave at exit 81/Hwy 7"
+    },
+    {
+     "mm": 81,
+     "exit": "81",
+     "name": "Super 8 by Wyndham Russellville",
+     "brand": "Super 8",
+     "type": "hotel",
+     "city": "Russellville",
+     "approx": false,
+     "notes": "Truck parking verified: wyndhamhotels.com lists free parking for cars, buses, trucks, RVs; TripAdvisor driver review titled 'Truck Parking'; 2404 N Arkansas Ave at exit 81"
+    },
+    {
      "mm": 84,
      "exit": "84",
      "name": "Love's Travel Stop",
@@ -149,6 +179,16 @@
      "approx": true,
      "notes": "East Russellville",
      "parking": 90
+    },
+    {
+     "mm": 157,
+     "exit": "157",
+     "name": "Quality Inn & Suites I-40 East",
+     "brand": "Quality Inn",
+     "type": "hotel",
+     "city": "North Little Rock",
+     "approx": false,
+     "notes": "Truck parking verified: Expedia/Hotels.com list RV/bus/truck parking on site; 5710 Pritchard Dr at exit 157 (AR-161)"
     },
     {
      "mm": 161,
@@ -246,6 +286,16 @@
      "approx": true,
      "notes": "Service Loop Rd; west edge of the West Memphis cluster",
      "parking": 90
+    },
+    {
+     "mm": 278,
+     "exit": "278",
+     "name": "Studio 6 Suites West Memphis",
+     "brand": "Studio 6",
+     "type": "hotel",
+     "city": "West Memphis",
+     "approx": true,
+     "notes": "Truck parking verified: Motel 6/Studio 6 brand site lists truck parking for commercial drivers; 210 W Service Rd at I-40/I-55 crossroads, exit estimated"
     },
     {
      "mm": 279,
