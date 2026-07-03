@@ -231,6 +231,16 @@
      "parking": 190
     },
     {
+     "mm": 150,
+     "exit": "150",
+     "name": "Blue Beacon Truck Wash",
+     "brand": "Independent",
+     "type": "truck_wash",
+     "city": "Haw River",
+     "approx": false,
+     "notes": "Jimmie Kerr Rd on I-40/I-85 overlap; across from Flying J"
+    },
+    {
      "mm": 153,
      "exit": "153",
      "name": "Speedway Travel Plaza (former WilcoHess)",
@@ -341,6 +351,26 @@
      "approx": false,
      "notes": "Large full-service independent (Petro-affiliated); truck wash, restaurant",
      "parking": 200
+    },
+    {
+     "mm": 106,
+     "exit": "106",
+     "name": "Blue Beacon Truck Wash",
+     "brand": "Independent",
+     "type": "truck_wash",
+     "city": "Kenly",
+     "approx": false,
+     "notes": "At Flying J Travel Center"
+    },
+    {
+     "mm": 106,
+     "exit": "106",
+     "name": "Kenly 95 Truck Wash (Truckomat)",
+     "brand": "Independent",
+     "type": "truck_wash",
+     "city": "Kenly",
+     "approx": false,
+     "notes": "At Kenly 95 Truckstop; 24-hour hand-brushed wash"
     },
     {
      "mm": 107,

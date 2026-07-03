@@ -420,6 +420,16 @@
      "parking": 40
     },
     {
+     "mm": 285,
+     "exit": "285",
+     "name": "Blue Beacon Truck Wash",
+     "brand": "Independent",
+     "type": "truck_wash",
+     "city": "Dade City",
+     "approx": false,
+     "notes": "At Flying J; SR-52 (San Antonio)"
+    },
+    {
      "mm": 329,
      "exit": "329",
      "name": "TA Wildwood",
@@ -451,6 +461,16 @@
      "approx": false,
      "notes": "SR-44; Wildwood truck stop cluster",
      "parking": 100
+    },
+    {
+     "mm": 329,
+     "exit": "329",
+     "name": "Wildwood Truck Wash",
+     "brand": "Independent",
+     "type": "truck_wash",
+     "city": "Wildwood",
+     "approx": false,
+     "notes": "SR-44; Wildwood truck stop cluster (TA/Pilot/Flying J)"
     },
     {
      "mm": 358,
@@ -598,6 +618,16 @@
      "approx": true,
      "notes": "Okeechobee Rd cluster",
      "parking": 80
+    },
+    {
+     "mm": 131,
+     "exit": "131",
+     "name": "Blue Beacon Truck Wash",
+     "brand": "Independent",
+     "type": "truck_wash",
+     "city": "Fort Pierce",
+     "approx": false,
+     "notes": "300 N Kings Hwy"
     },
     {
      "mm": 133,

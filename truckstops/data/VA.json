@@ -162,6 +162,16 @@
      "parking": 90
     },
     {
+     "mm": 80,
+     "exit": "80",
+     "name": "Blue Beacon Truck Wash",
+     "brand": "Independent",
+     "type": "truck_wash",
+     "city": "Fort Chiswell (Max Meadows)",
+     "approx": false,
+     "notes": "Factory Outlet Dr; on I-77/I-81 overlap"
+    },
+    {
      "mm": 84,
      "exit": "84",
      "name": "Flying J Travel Center",
@@ -268,6 +278,16 @@
      "approx": false,
      "notes": "Across from White's Travel Center",
      "parking": 200
+    },
+    {
+     "mm": 205,
+     "exit": "205",
+     "name": "Blue Beacon Truck Wash",
+     "brand": "Independent",
+     "type": "truck_wash",
+     "city": "Raphine",
+     "approx": false,
+     "notes": "At White's Travel Center / Petro complex"
     },
     {
      "mm": 232,

@@ -206,6 +206,16 @@
      "parking": 90
     },
     {
+     "mm": 60,
+     "exit": "60",
+     "name": "Blue Beacon Truck Wash",
+     "brand": "Independent",
+     "type": "truck_wash",
+     "city": "Tifton",
+     "approx": false,
+     "notes": "Near Flying J Travel Center; Expressway Ln"
+    },
+    {
      "mm": 76,
      "exit": "76",
      "name": "Turner County Rest Area (both directions)",
@@ -291,6 +301,26 @@
      "approx": false,
      "notes": "Bucksnort Rd",
      "parking": 100
+    },
+    {
+     "mm": 201,
+     "exit": "201",
+     "name": "Blue Beacon Truck Wash",
+     "brand": "Independent",
+     "type": "truck_wash",
+     "city": "Jackson",
+     "approx": false,
+     "notes": "Near Flying J Travel Center; Truck Stop Way"
+    },
+    {
+     "mm": 235,
+     "exit": "235",
+     "name": "Blue Beacon Truck Wash",
+     "brand": "Independent",
+     "type": "truck_wash",
+     "city": "Forest Park",
+     "approx": true,
+     "notes": "5990 Frontage Rd; near Southern Tire Mart; other-vehicle bay"
     },
     {
      "mm": 296,
@@ -426,6 +456,16 @@
      "approx": false,
      "notes": "GA-51",
      "parking": 200
+    },
+    {
+     "mm": 160,
+     "exit": "160",
+     "name": "Blue Beacon Truck Wash",
+     "brand": "Independent",
+     "type": "truck_wash",
+     "city": "Carnesville",
+     "approx": false,
+     "notes": "Near Petro Stopping Center; Old Federal Rd"
     },
     {
      "mm": 169,
@@ -620,9 +660,18 @@
      "approx": true,
      "notes": "Moreland Ave/US-23, south side",
      "parking": 200
+    },
+    {
+     "mm": 53,
+     "exit": "53",
+     "name": "Blue Beacon Truck Wash",
+     "brand": "Independent",
+     "type": "truck_wash",
+     "city": "Conley (Atlanta East)",
+     "approx": false,
+     "notes": "4170 Old McDonough Rd"
     }
    ]
   }
- },
- "_tw_test": true
+ }
 }
