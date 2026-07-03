@@ -556,6 +556,16 @@
           "notes": "Georgia DPS scales near Mountville/Hogansville between exits 18 and 28; often called the West Point/LaGrange scales; NB and SB sides"
         },
         {
+          "mm": 147,
+          "exit": "147",
+          "name": "Speedco at Love's Travel Stop #765",
+          "brand": "Speedco",
+          "type": "repair",
+          "city": "Commerce",
+          "approx": true,
+          "notes": "Tires, oil/PM, light mechanical and roadside assistance; co-located with Love's Travel Stop #765 at GA-98"
+        },
+        {
           "mm": 149,
           "exit": "149",
           "name": "Pilot Travel Center",
@@ -576,6 +586,16 @@
           "approx": false,
           "notes": "GA-51",
           "parking": 200
+        },
+        {
+          "mm": 160,
+          "exit": "160",
+          "name": "TA Truck Service",
+          "brand": "TA",
+          "type": "repair",
+          "city": "Carnesville",
+          "approx": true,
+          "notes": "5 truck service bays; truck repairs, tire repair, ASE/TIA-certified technicians; co-located with Petro Carnesville at 10200 Old Federal Rd"
         },
         {
           "mm": 160,
@@ -690,6 +710,26 @@
           "notes": "Truck parking verified: motel located within the TA Brunswick truck stop at Exit 29 (US 17/US 82); shared truck lot"
         },
         {
+          "mm": 29,
+          "exit": "29",
+          "name": "TA Truck Service",
+          "brand": "TA",
+          "type": "repair",
+          "city": "Brunswick",
+          "approx": true,
+          "notes": "6 truck service bays; tires, brakes, electrical, inspections, HVAC, trailer and aftertreatment work; co-located with TA Brunswick at 185 Dungeness Dr; 24-hr RoadSquad road service"
+        },
+        {
+          "mm": 29,
+          "exit": "29",
+          "name": "Love's Speedco #906",
+          "brand": "Speedco",
+          "type": "repair",
+          "city": "Brunswick",
+          "approx": true,
+          "notes": "Tires, oil/PM, light mechanical and roadside assistance; 130 Pilot Ln in the exit 29 truck stop cluster near Love's Travel Stop #405"
+        },
+        {
           "mm": 41,
           "exit": "41",
           "name": "Rest Area (both directions)",
@@ -733,6 +773,26 @@
           "parking": 160
         },
         {
+          "mm": 87,
+          "exit": "87",
+          "name": "TA Truck Service",
+          "brand": "TA",
+          "type": "repair",
+          "city": "Richmond Hill",
+          "approx": true,
+          "notes": "6 truck service bays; truck repairs, tire repair, oil and lube, 24-hr road service; co-located with TA Savannah travel center at US-17 (4401 Hwy 17)"
+        },
+        {
+          "mm": 109,
+          "exit": "109",
+          "name": "Southern Tire Mart at Pilot",
+          "brand": "Southern Tire Mart",
+          "type": "repair",
+          "city": "Port Wentworth",
+          "approx": true,
+          "notes": "Commercial truck tires, retreads, truck service and repair; 7051 GA-21 (former Dorsey Tire), near Pilot Travel Center at same exit (Savannah area)"
+        },
+        {
           "mm": 109,
           "exit": "109",
           "name": "Flying J Travel Center",
@@ -770,6 +830,16 @@
       "maxMM": 63,
       "stops": [
         {
+          "mm": 12,
+          "exit": "12",
+          "name": "TA Truck Service #322",
+          "brand": "TA",
+          "type": "repair",
+          "city": "Atlanta",
+          "approx": true,
+          "notes": "6 truck service bays; truck repairs, tire repair, truck wash; co-located with Petro Atlanta at 3181 Donald Lee Hollowell Pkwy (west side of perimeter)"
+        },
+        {
           "mm": 48,
           "exit": "48",
           "name": "Petro Stopping Center Atlanta",
@@ -800,6 +870,26 @@
           "city": "Conley (Atlanta East)",
           "approx": false,
           "notes": "4170 Old McDonough Rd"
+        },
+        {
+          "mm": 53,
+          "exit": "53",
+          "name": "W.W. Williams Atlanta",
+          "brand": "W.W. Williams",
+          "type": "repair",
+          "city": "Atlanta (Conley)",
+          "approx": true,
+          "notes": "Diesel engine and heavy truck repair, fleet maintenance; 2849 Moreland Ave SE, 1/4 mile from exit 53 (US-23/Moreland Ave); weekday hours"
+        },
+        {
+          "mm": 53,
+          "exit": "53",
+          "name": "FleetPride Conley",
+          "brand": "FleetPride",
+          "type": "repair",
+          "city": "Conley",
+          "approx": true,
+          "notes": "Heavy-duty truck and trailer parts branch; 4325 Moreland Ave, just south of the I-285/Moreland Ave interchange"
         }
       ]
     }

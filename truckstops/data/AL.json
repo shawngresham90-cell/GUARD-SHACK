@@ -28,6 +28,16 @@
           "parking": 80
         },
         {
+          "mm": 10,
+          "exit": "10",
+          "name": "Speedco",
+          "brand": "Speedco",
+          "type": "repair",
+          "city": "Irvington",
+          "approx": false,
+          "notes": "Oil change/PM, tire services, light mechanical, roadside assistance; co-located with Love's Travel Stop #846 at Exit 10 (CR-39 S), 8400 County Farm Rd"
+        },
+        {
           "mm": 13,
           "exit": "13",
           "name": "Pilot Travel Center",

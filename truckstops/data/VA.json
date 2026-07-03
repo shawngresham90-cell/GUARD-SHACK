@@ -82,6 +82,16 @@
           "parking": 25
         },
         {
+          "mm": 8,
+          "exit": "8",
+          "name": "Fitzgerald Peterbilt of Fancy Gap",
+          "brand": "Peterbilt",
+          "type": "repair",
+          "city": "Fancy Gap",
+          "approx": true,
+          "notes": "Peterbilt dealer: truck service and all-makes parts, Mon-Sat 6am-midnight; 220 Kelly Rd near I-77 Exit 8"
+        },
+        {
           "mm": 41,
           "exit": "41",
           "name": "Sleep Inn Wytheville I-77 & I-81",
@@ -139,6 +149,36 @@
           "parking": 180
         },
         {
+          "mm": 7,
+          "exit": "7",
+          "name": "FleetPride Bristol",
+          "brand": "FleetPride",
+          "type": "repair",
+          "city": "Bristol",
+          "approx": true,
+          "notes": "Heavy-duty truck and trailer parts branch; 15310 Lee Hwy, same US-11 strip as the Exit 7 Petro Stopping Center; Mon-Fri 7:30am-5pm, Sat 8am-noon"
+        },
+        {
+          "mm": 29,
+          "exit": "29",
+          "name": "TA Truck Service (Petro Glade Spring)",
+          "brand": "TA",
+          "type": "repair",
+          "city": "Glade Spring",
+          "approx": true,
+          "notes": "5-bay truck service shop co-located with Petro Glade Spring at Exit 29: tires, brakes, electrical, DOT inspections, diagnostics, HVAC, trailer work; RoadSquad 24/7 roadside"
+        },
+        {
+          "mm": 29,
+          "exit": "29",
+          "name": "Fitzgerald Peterbilt of Glade Spring",
+          "brand": "Peterbilt",
+          "type": "repair",
+          "city": "Glade Spring",
+          "approx": true,
+          "notes": "Peterbilt dealer service and large all-makes parts inventory; 33392 Lee Hwy at I-81 Exit 29; service Mon-Sat to midnight, mobile service available"
+        },
+        {
           "mm": 61,
           "exit": "61",
           "name": "Rural Retreat Rest Area (both directions)",
@@ -169,6 +209,26 @@
           "approx": true,
           "notes": "Wytheville exit 72/77 cluster",
           "parking": 85
+        },
+        {
+          "mm": 72,
+          "exit": "72",
+          "name": "TA Truck Service #143",
+          "brand": "TA",
+          "type": "repair",
+          "city": "Wytheville",
+          "approx": true,
+          "notes": "Truck repair, trailer repair, and tire service shop co-located with TA Wytheville travel center at I-77 Exit 41 / I-81 Exit 72; open 24 hours"
+        },
+        {
+          "mm": 77,
+          "exit": "77",
+          "name": "Southern Tire Mart at Pilot",
+          "brand": "Southern Tire Mart",
+          "type": "repair",
+          "city": "Wytheville",
+          "approx": true,
+          "notes": "Commercial tire sales/service and DOT inspections; co-located with Pilot Travel Center #4619, 1318 E Lee Hwy at I-81/I-77 Exit 77"
         },
         {
           "mm": 80,

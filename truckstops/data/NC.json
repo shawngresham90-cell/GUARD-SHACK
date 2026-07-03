@@ -269,6 +269,36 @@
           "notes": "SHP Charlotte scales, four fixed scales, NB at MM 28 east of NC-273; PrePass"
         },
         {
+          "mm": 29,
+          "exit": "29",
+          "name": "Love's Truck Care",
+          "brand": "Love's",
+          "type": "repair",
+          "city": "Charlotte",
+          "approx": true,
+          "notes": "Co-located with Love's Travel Stop #714 at exit 29 (Sam Wilson Rd), 2603 Sam Wilson Rd; oil change/PM, light mechanical, tire services; open 24 hours"
+        },
+        {
+          "mm": 40,
+          "exit": "40",
+          "name": "Snider Fleet Solutions Charlotte",
+          "brand": "Snider Fleet Solutions",
+          "type": "repair",
+          "city": "Charlotte",
+          "approx": true,
+          "notes": "Charlotte-headquartered commercial tire and mechanical service chain; 4420 N Graham St at exit 40 (Graham St); tires, truck/trailer repair, diagnostics, 24/7 emergency roadside"
+        },
+        {
+          "mm": 41,
+          "exit": "41",
+          "name": "FleetPride Charlotte",
+          "brand": "FleetPride",
+          "type": "repair",
+          "city": "Charlotte",
+          "approx": true,
+          "notes": "Heavy-duty truck and trailer parts branch at 3740 Jeff Adams Dr, on the I-85 northbound service road between exits 40 (Graham St) and 41 (Sugar Creek Rd); M-F plus Sat morning"
+        },
+        {
           "mm": 71,
           "exit": "71",
           "name": "Speedway Travel Plaza (former WilcoHess)",
@@ -291,6 +321,16 @@
           "parking": 190
         },
         {
+          "mm": 138,
+          "exit": "138",
+          "name": "TA Truck Service Greensboro (Whitsett)",
+          "brand": "TA Truck Service",
+          "type": "repair",
+          "city": "Whitsett",
+          "approx": true,
+          "notes": "Co-located with TA Greensboro travel center at I-85/I-40 exit 138 (NC-61), 1101 Hwy 61 S; 6 truck service bays, tires, repair, 24/7 shop and roadside"
+        },
+        {
           "mm": 150,
           "exit": "150",
           "name": "Blue Beacon Truck Wash",
@@ -299,6 +339,26 @@
           "city": "Haw River",
           "approx": false,
           "notes": "Jimmie Kerr Rd on I-40/I-85 overlap; across from Flying J"
+        },
+        {
+          "mm": 150,
+          "exit": "150",
+          "name": "Love's Speedco Haw River",
+          "brand": "Speedco",
+          "type": "repair",
+          "city": "Haw River",
+          "approx": true,
+          "notes": "Speedco #925 at I-85/I-40 exit 150, 940 Jimmie Kerr Rd; truck tires (incl. retreads), oil change/PM, light mechanical, emergency roadside; owned by Love's"
+        },
+        {
+          "mm": 152,
+          "exit": "152",
+          "name": "Love's Truck Care",
+          "brand": "Love's",
+          "type": "repair",
+          "city": "Mebane",
+          "approx": true,
+          "notes": "Co-located with Love's Travel Stop #667 at I-85/I-40 exit 152 (Trollingwood Rd), 1217 Trollingwood-Hawfields Rd; oil change/PM, light mechanical, tire services; open 24 hours"
         },
         {
           "mm": 153,
@@ -358,6 +418,16 @@
           "approx": true,
           "notes": "Serves northbound entering from SC; truck parking",
           "parking": 20
+        },
+        {
+          "mm": 17,
+          "exit": "17",
+          "name": "Black's Tire & Auto Service",
+          "brand": "Black's Tire",
+          "type": "repair",
+          "city": "Lumberton",
+          "approx": true,
+          "notes": "Regional NC/SC tire chain store on W 5th St at I-95 exit 17; commercial truck tires with 24/7 commercial road service dispatch"
         },
         {
           "mm": 24,
