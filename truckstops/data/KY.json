@@ -17,6 +17,16 @@
           "parking": 85
         },
         {
+          "mm": 3,
+          "exit": "3",
+          "name": "Southern Tire Mart at Pilot",
+          "brand": "Southern Tire Mart",
+          "type": "repair",
+          "city": "Paducah",
+          "approx": true,
+          "notes": "Commercial truck tire shop; tires, preventive maintenance, 24/7 roadside assistance; 4160 Olivet Church Rd, co-located with Pilot Travel Center at this exit"
+        },
+        {
           "mm": 4,
           "exit": "4",
           "name": "Days Inn Paducah I-24 Exit 4",
@@ -46,6 +56,16 @@
           "approx": false,
           "notes": "US-62",
           "parking": 85
+        },
+        {
+          "mm": 27,
+          "exit": "27",
+          "name": "Love's Truck Care",
+          "brand": "Love's",
+          "type": "repair",
+          "city": "Calvert City",
+          "approx": false,
+          "notes": "Truck Care #348: oil change/PM, light mechanical, tire services, 24/7 roadside; co-located with Love's Travel Stop at this exit"
         },
         {
           "mm": 36,
@@ -99,6 +119,16 @@
           "approx": false,
           "notes": "US-41A, near Fort Campbell",
           "parking": 200
+        },
+        {
+          "mm": 89,
+          "exit": "89",
+          "name": "Wingfoot Truck Care",
+          "brand": "Wingfoot",
+          "type": "repair",
+          "city": "Oak Grove",
+          "approx": false,
+          "notes": "Goodyear Wingfoot truck tire and repair center; tire repair, towing, truck repairs; co-located with Pilot Travel Center at 8190 Pembroke-Oak Grove Rd"
         },
         {
           "mm": 92,

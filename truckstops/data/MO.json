@@ -707,6 +707,16 @@
           "parking": 30
         },
         {
+          "mm": 175,
+          "exit": "175",
+          "name": "Love's Truck Care",
+          "brand": "Love's Truck Care",
+          "type": "repair",
+          "city": "New Florence",
+          "approx": false,
+          "notes": "3 service bays; oil change/PM, light mechanical, tire services; co-located with Love's Travel Stop #788 at 482 Tree Farm Rd"
+        },
+        {
           "mm": 188,
           "exit": "188",
           "name": "Love's Travel Stop",
@@ -716,6 +726,16 @@
           "approx": true,
           "notes": "",
           "parking": 80
+        },
+        {
+          "mm": 188,
+          "exit": "188",
+          "name": "Southern Tire Mart at Pilot",
+          "brand": "Southern Tire Mart",
+          "type": "repair",
+          "city": "Warrenton",
+          "approx": false,
+          "notes": "Commercial truck tire sales/installation, brakes, DOT inspections; 24002 W Veterans Memorial Pkwy, co-located with Flying J Travel Center #674"
         },
         {
           "mm": 203,

@@ -603,6 +603,26 @@
           "notes": "Truck parking verified: Wyndham hotel site advertises ample free large-vehicle parking; at Exit 329 (FL 44) next to TA and Pilot truck stops"
         },
         {
+          "mm": 329,
+          "exit": "329",
+          "name": "TA Truck Service",
+          "brand": "TA Truck Service",
+          "type": "repair",
+          "city": "Wildwood",
+          "approx": true,
+          "notes": "5 service bays co-located with TA Wildwood, 556 SR-44; brakes, HVAC, DOT inspections, alignment, reefer service, Freightliner service point"
+        },
+        {
+          "mm": 329,
+          "exit": "329",
+          "name": "Wildwood Truck Repair & Wrecker Service",
+          "brand": "Independent",
+          "type": "repair",
+          "city": "Wildwood",
+          "approx": true,
+          "notes": "24/7 truck, trailer and tire repair plus wrecker service, 1190 S Main St near I-75 Exit 329 / Turnpike Exit 304"
+        },
+        {
           "mm": 358,
           "exit": "358",
           "name": "Pilot Travel Center",
@@ -623,6 +643,26 @@
           "approx": false,
           "notes": "SR-326",
           "parking": 200
+        },
+        {
+          "mm": 358,
+          "exit": "358",
+          "name": "Southern Tire Mart at Pilot",
+          "brand": "Southern Tire Mart",
+          "type": "repair",
+          "city": "Ocala",
+          "approx": true,
+          "notes": "Commercial truck tire shop co-located with Pilot Travel Center, 4080 W Hwy 326 (SR-326); Bridgestone/Firestone and Michelin dealer, 24/7 roadside service"
+        },
+        {
+          "mm": 368,
+          "exit": "368",
+          "name": "TA Truck Service at Petro Ocala",
+          "brand": "TA Truck Service",
+          "type": "repair",
+          "city": "Reddick (Ocala)",
+          "approx": true,
+          "notes": "5 service bays co-located with Petro Stopping Center #323, 7401 W Hwy 318 at Exit 368; tires, PM, repairs, 24/7 roadside assistance"
         },
         {
           "mm": 382,
