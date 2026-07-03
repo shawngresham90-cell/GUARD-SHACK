@@ -38,6 +38,16 @@
           "parking": 85
         },
         {
+          "mm": 51,
+          "exit": "51",
+          "name": "Love's Truck Care",
+          "brand": "Love's Truck Care",
+          "type": "repair",
+          "city": "Lexington",
+          "approx": true,
+          "notes": "Tire repair, truck repairs, oil and lube, DOT inspections, 24-hr roadside assistance; co-located with Love's Travel Stop #424, 340 Longs Pond Rd"
+        },
+        {
           "mm": 54,
           "exit": "54",
           "name": "Weigh Station (WB)",

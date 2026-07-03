@@ -410,6 +410,36 @@
           "notes": "At White's Travel Center / Petro complex"
         },
         {
+          "mm": 205,
+          "exit": "205",
+          "name": "White's Travel Center Truck Service (TA Truck Service)",
+          "brand": "Independent",
+          "type": "repair",
+          "city": "Raphine",
+          "approx": true,
+          "notes": "8-bay truck service shop at the White's Travel Center / Petro Raphine complex, 2440 Raphine Rd: Bridgestone commercial tire dealer, tire mounting/repair, alignment, brakes, lube, PM, state inspection; 24-hr in-bay service and emergency road service"
+        },
+        {
+          "mm": 205,
+          "exit": "205",
+          "name": "Southern Tire Mart at Pilot",
+          "brand": "Southern Tire Mart",
+          "type": "repair",
+          "city": "Raphine",
+          "approx": true,
+          "notes": "Commercial tire sales/service and truck care at the Pilot, 711 Oakland Cir just off I-81 Exit 205"
+        },
+        {
+          "mm": 213,
+          "exit": "213",
+          "name": "Love's Truck Care",
+          "brand": "Love's",
+          "type": "repair",
+          "city": "Staunton (Greenville)",
+          "approx": true,
+          "notes": "2 truck service bays: tire repair, truck repairs, oil and lube, 24-hr roadside; co-located with Love's Travel Stop #706, 3499 Lee Jackson Hwy at Exit 213 on the I-64/I-81 overlap"
+        },
+        {
           "mm": 232,
           "exit": "",
           "name": "Mount Sidney Safety Rest Area",
@@ -443,6 +473,16 @@
           "parking": 0
         },
         {
+          "mm": 240,
+          "exit": "240",
+          "name": "FleetPride Harrisonburg",
+          "brand": "FleetPride",
+          "type": "repair",
+          "city": "Mt. Crawford",
+          "approx": true,
+          "notes": "Heavy-duty truck and trailer parts branch; 100 White Picket Trl, Mt. Crawford, just off I-81 Exit 240 near the Pilot; Mon-Fri 7:30am-5pm"
+        },
+        {
           "mm": 243,
           "exit": "243",
           "name": "Hampton Inn Harrisonburg South",
@@ -451,6 +491,16 @@
           "city": "Harrisonburg",
           "approx": true,
           "notes": "Truck parking verified: Hilton hotel site states RV, bus, and semi-truck parking available; S Main St near Exit 243 (Harrisonburg Travel Center exit)"
+        },
+        {
+          "mm": 243,
+          "exit": "243",
+          "name": "Kenworth Sales Company (Truck Enterprises) Harrisonburg",
+          "brand": "Kenworth",
+          "type": "repair",
+          "city": "Harrisonburg",
+          "approx": true,
+          "notes": "Kenworth dealer: parts and service to midnight weekdays, Sat hours, 24-hr on-call service, mobile service, body shop, truck wash; 3440 S Main St (US-11) near I-81 Exit 243"
         },
         {
           "mm": 262,

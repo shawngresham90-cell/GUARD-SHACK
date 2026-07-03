@@ -310,6 +310,16 @@
           "parking": 80
         },
         {
+          "mm": 14,
+          "exit": "14",
+          "name": "Speedco",
+          "brand": "Speedco",
+          "type": "repair",
+          "city": "Hamilton",
+          "approx": false,
+          "notes": "Oil change/PM, tires, light mechanical, roadside assistance; co-located with Love's Travel Stop #814 (1126 County Hwy 35) at this exit"
+        },
+        {
           "mm": 30,
           "exit": "30",
           "name": "Pilot Travel Center #1452",
@@ -388,6 +398,26 @@
           "city": "Cottondale",
           "approx": false,
           "notes": "3501 Buttermilk Rd, Exit 77; independent wash near TA Tuscaloosa, since 1991"
+        },
+        {
+          "mm": 77,
+          "exit": "77",
+          "name": "TA Truck Service",
+          "brand": "TA",
+          "type": "repair",
+          "city": "Cottondale",
+          "approx": false,
+          "notes": "Truck repair shop at TA Tuscaloosa (3501 Buttermilk Rd); tire sales/repair, 24-hr road service, towing; on I-20/I-59 overlap"
+        },
+        {
+          "mm": 77,
+          "exit": "77",
+          "name": "Love's Speedco #911",
+          "brand": "Speedco",
+          "type": "repair",
+          "city": "Cottondale",
+          "approx": false,
+          "notes": "Standalone Speedco at 3120 Buttermilk Rd; oil change/PM, tires, light mechanical, roadside assistance; near TA Tuscaloosa; on I-20/I-59 overlap"
         },
         {
           "mm": 100,

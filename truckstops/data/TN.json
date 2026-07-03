@@ -183,6 +183,26 @@
           "approx": true,
           "notes": "Browns Ferry Rd",
           "parking": 85
+        },
+        {
+          "mm": 181,
+          "exit": "181",
+          "name": "FleetPride Chattanooga",
+          "brand": "FleetPride",
+          "type": "repair",
+          "city": "Chattanooga",
+          "approx": false,
+          "notes": "Heavy-duty truck & trailer parts store, 2000 E 24th St Pl off 4th Ave (exit 181); FleetPride service center nearby on E 29th St"
+        },
+        {
+          "mm": 181,
+          "exit": "181",
+          "name": "Worldwide Equipment Chattanooga",
+          "brand": "Worldwide Equipment",
+          "type": "repair",
+          "city": "Chattanooga",
+          "approx": false,
+          "notes": "Heavy-duty truck dealership with service and parts, 2017 E 23rd St at 4th Ave (exit 181)"
         }
       ]
     },
@@ -278,6 +298,16 @@
           "approx": true,
           "notes": "TN-76",
           "parking": 85
+        },
+        {
+          "mm": 68,
+          "exit": "68",
+          "name": "TA Truck Service (TA Denmark)",
+          "brand": "TA",
+          "type": "repair",
+          "city": "Denmark (Jackson)",
+          "approx": false,
+          "notes": "2 truck service bays; co-located with TA Denmark travel center, 155 Providence Rd; truck repair and tires"
         },
         {
           "mm": 80,
