@@ -687,6 +687,26 @@
           "parking": 45
         },
         {
+          "mm": 414,
+          "exit": "414",
+          "name": "TA Truck Service",
+          "brand": "TA Truck Service",
+          "type": "repair",
+          "city": "Lake City",
+          "approx": true,
+          "notes": "5 service bays open 24/7 co-located with TA Lake City #288, 14197 S US-441 at Exit 414; PM, engine diagnostics, alignments, tires, oil changes"
+        },
+        {
+          "mm": 414,
+          "exit": "414",
+          "name": "Speedco",
+          "brand": "Speedco",
+          "type": "repair",
+          "city": "Lake City",
+          "approx": true,
+          "notes": "3 service bays co-located with Love's Travel Stop #724, 13700 S US-441 at Exit 414; tires, oil/PM, light mechanical, roadside assistance"
+        },
+        {
           "mm": 427,
           "exit": "427",
           "name": "Flying J Travel Center",
@@ -830,6 +850,16 @@
           "notes": "Truck parking verified: TripAdvisor trucker review 'plenty of truck parking' - dedicated gravel lot for trucks; right off I-95"
         },
         {
+          "mm": 129,
+          "exit": "129",
+          "name": "Love's Truck Care",
+          "brand": "Love's Truck Care",
+          "type": "repair",
+          "city": "Fort Pierce",
+          "approx": true,
+          "notes": "Co-located with Love's Travel Stop #415, 7150 Okeechobee Rd; tires (Michelin/Bridgestone/Goodyear etc.), light mechanical, roadside assistance"
+        },
+        {
           "mm": 131,
           "exit": "131",
           "name": "Blue Beacon Truck Wash",
@@ -884,6 +914,16 @@
           "parking": 80
         },
         {
+          "mm": 223,
+          "exit": "223",
+          "name": "Speedco",
+          "brand": "Speedco",
+          "type": "repair",
+          "city": "Mims",
+          "approx": true,
+          "notes": "24/7 shop co-located with Love's Travel Stop #868 at Exit 223 (SR-46); tires, oil/PM, light mechanical, emergency roadside assistance"
+        },
+        {
           "mm": 227,
           "exit": "227",
           "name": "Mims Rest Area (both directions)",
@@ -936,6 +976,16 @@
           "approx": true,
           "notes": "Truck parking; serves NB and SB",
           "parking": 40
+        },
+        {
+          "mm": 305,
+          "exit": "305",
+          "name": "Love's Truck Care",
+          "brand": "Love's Truck Care",
+          "type": "repair",
+          "city": "St. Augustine",
+          "approx": true,
+          "notes": "24-hour truck care co-located with Love's Travel Stop #894, 1025 SR-206 W at Exit 305; tires, oil and lube, truck repairs, roadside assistance"
         },
         {
           "mm": 329,

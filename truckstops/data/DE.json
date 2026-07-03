@@ -31,11 +31,42 @@
     },
     "I-295": {
       "maxMM": 6,
-      "stops": []
+      "stops": [
+        {
+          "mm": 2,
+          "exit": "",
+          "name": "Bayshore Ford Truck Sales",
+          "brand": "Ford",
+          "type": "repair",
+          "city": "New Castle",
+          "approx": true,
+          "notes": "Commercial Ford truck dealer with parts and service departments; 4003 N DuPont Hwy (US 13) between the I-295 US 13/40 Farnhurst interchange and I-495 exit 1 (I-295 exits are unnumbered in DE)"
+        },
+        {
+          "mm": 3,
+          "exit": "",
+          "name": "FleetPride Service Center (ARS Truck & Fleet)",
+          "brand": "FleetPride",
+          "type": "repair",
+          "city": "New Castle",
+          "approx": true,
+          "notes": "Heavy-duty truck and trailer repair with 24-hr mobile service; 3065 New Castle Ave (DE 9) just south of the unnumbered I-295/DE 9 cloverleaf"
+        }
+      ]
     },
     "I-495": {
       "maxMM": 12,
       "stops": [
+        {
+          "mm": 1,
+          "exit": "1",
+          "name": "FleetPride Wilmington",
+          "brand": "FleetPride",
+          "type": "repair",
+          "city": "Wilmington",
+          "approx": true,
+          "notes": "Heavy-duty truck and trailer parts branch; 5 Medori Blvd off Christiana Ave, about 1 mi from exit 1 (US 13)"
+        },
         {
           "mm": 2,
           "exit": "2",

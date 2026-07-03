@@ -760,6 +760,16 @@
           "parking": 200
         },
         {
+          "mm": 203,
+          "exit": "203",
+          "name": "TA Truck Service (TA Foristell)",
+          "brand": "TA Truck Service",
+          "type": "repair",
+          "city": "Foristell",
+          "approx": false,
+          "notes": "Truck repair shop #175 with 5 service bays, open 24/7; tires, brakes, electrical, inspections, alignments, HVAC, aftertreatment; co-located with TA Foristell at 3265 N Service Rd E"
+        },
+        {
           "mm": 204,
           "exit": "204",
           "name": "Weigh Station (both directions)",
@@ -768,6 +778,16 @@
           "city": "Foristell",
           "approx": true,
           "notes": "MoDOT/MSHP Foristell scales near milepost 204, west of Wentzville; EB and WB facilities"
+        },
+        {
+          "mm": 246,
+          "exit": "246A",
+          "name": "Love's Truck Care",
+          "brand": "Love's Truck Care",
+          "type": "repair",
+          "city": "St. Louis",
+          "approx": false,
+          "notes": "Oil change/PM, light mechanical, tire services, roadside assistance; co-located with Love's Travel Stop #461 at 6124 N Broadway"
         }
       ]
     },

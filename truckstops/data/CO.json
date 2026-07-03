@@ -83,6 +83,36 @@
      "parking": 210
     },
     {
+     "mm": 104,
+     "exit": "104",
+     "name": "TA Truck Service - Pueblo",
+     "brand": "TA",
+     "type": "repair",
+     "city": "Pueblo",
+     "approx": false,
+     "notes": "Truck service shop co-located with TA Pueblo travel center (1275 Drew Dix Pkwy, opened Dec 2025); repairs, tires, DOT inspections"
+    },
+    {
+     "mm": 104,
+     "exit": "104",
+     "name": "Love's Truck Care #226",
+     "brand": "Love's",
+     "type": "repair",
+     "city": "Pueblo",
+     "approx": false,
+     "notes": "Co-located with Love's Travel Stop #226, 6470 N Elizabeth St; oil change/PM, light mechanical, tire services, 24-hr road service"
+    },
+    {
+     "mm": 140,
+     "exit": "140",
+     "name": "Southern Tire Mart #542",
+     "brand": "Southern Tire Mart",
+     "type": "repair",
+     "city": "Colorado Springs",
+     "approx": true,
+     "notes": "Commercial truck tire dealer (former GCR), 2220 Rand Ave off S Tejon St near exit 140; Bridgestone/Firestone/Michelin, Bandag retreads, 24/7 mobile service"
+    },
+    {
      "mm": 160,
      "exit": "160",
      "name": "Monument Port of Entry (both directions)",
@@ -134,6 +164,16 @@
      "city": "Fort Collins",
      "approx": true,
      "notes": "CSP port of entry; southbound entering from Wyoming; PrePass"
+    },
+    {
+     "mm": 269,
+     "exit": "269",
+     "name": "Pomp's Tire Service",
+     "brand": "Pomp's Tire",
+     "type": "repair",
+     "city": "Fort Collins",
+     "approx": true,
+     "notes": "Commercial/farm/OTR truck tire shop, 3020 E Mulberry St (CO-14) about 2 mi west of exit 269; 24-hr commercial road service"
     }
    ]
   },
@@ -171,6 +211,16 @@
      "approx": true,
      "notes": "West side of Grand Junction",
      "parking": 80
+    },
+    {
+     "mm": 26,
+     "exit": "26",
+     "name": "MHC Kenworth - Grand Junction",
+     "brand": "MHC Kenworth",
+     "type": "repair",
+     "city": "Grand Junction",
+     "approx": true,
+     "notes": "Kenworth dealer with full-service truck repair and parts, 752 23 1/2 Rd off US-6&50 about 2 mi from exit 26; extended weekday hours"
     },
     {
      "mm": 90,
@@ -270,6 +320,16 @@
      "notes": "Behind Pilot Travel Center; north Denver"
     },
     {
+     "mm": 276,
+     "exit": "276B",
+     "name": "Pomp's Tire Service #187",
+     "brand": "Pomp's Tire",
+     "type": "repair",
+     "city": "Denver",
+     "approx": false,
+     "notes": "Commercial truck tire shop, 5000 Colorado Blvd just north of exit 276B; Michelin/Bridgestone/Goodyear dealer, 24-hr road service"
+    },
+    {
      "mm": 278,
      "exit": "278",
      "name": "Blue Beacon Truck Wash",
@@ -278,6 +338,26 @@
      "city": "Commerce City",
      "approx": false,
      "notes": "Behind TA Denver, Quebec St (near I-270 interchange)"
+    },
+    {
+     "mm": 278,
+     "exit": "278",
+     "name": "TA Truck Service - Commerce City",
+     "brand": "TA",
+     "type": "repair",
+     "city": "Commerce City",
+     "approx": false,
+     "notes": "Truck service shop co-located with TA Commerce City travel center, 5101 Quebec St (exit 278); repairs, tires, DOT inspections; Blue Beacon wash on site"
+    },
+    {
+     "mm": 281,
+     "exit": "281",
+     "name": "Southern Tire Mart - Denver",
+     "brand": "Southern Tire Mart",
+     "type": "repair",
+     "city": "Denver",
+     "approx": true,
+     "notes": "Commercial truck tire dealer, 12555 E 39th Ave just south of I-70 off Peoria St (exit 281); truck tires and retreads"
     },
     {
      "mm": 285,
@@ -356,6 +436,16 @@
      "parking": 150
     },
     {
+     "mm": 359,
+     "exit": "359",
+     "name": "TA Truck Service - Limon",
+     "brand": "TA",
+     "type": "repair",
+     "city": "Limon",
+     "approx": false,
+     "notes": "5-bay truck service shop co-located with TA Limon travel center (exit 359/US-24); brakes, HVAC, electrical, DOT inspections, alignments"
+    },
+    {
      "mm": 437,
      "exit": "437",
      "name": "Colorado Welcome Center - Burlington",
@@ -383,6 +473,16 @@
      "parking": 80
     },
     {
+     "mm": 31,
+     "exit": "31",
+     "name": "Love's Truck Care #377",
+     "brand": "Love's",
+     "type": "repair",
+     "city": "Hudson",
+     "approx": false,
+     "notes": "Co-located with Love's Travel Stop #377, 201 E Bison Hwy (exit 31/CO-52); oil change/PM, light mechanical, tire services, 24-hr road service"
+    },
+    {
      "mm": 34,
      "exit": "34",
      "name": "Pilot Travel Center",
@@ -405,6 +505,16 @@
      "parking": 75
     },
     {
+     "mm": 82,
+     "exit": "82",
+     "name": "Les Schwab Tire Center",
+     "brand": "Les Schwab",
+     "type": "repair",
+     "city": "Fort Morgan",
+     "approx": false,
+     "notes": "Tire shop with commercial truck tire service, 405 Barlow Rd about 1 mi south of exit 82 (Barlow Rd); opened 2023"
+    },
+    {
      "mm": 90,
      "exit": "90",
      "name": "Fort Morgan Port of Entry (both directions)",
@@ -424,6 +534,16 @@
      "approx": true,
      "notes": "Both directions; truck parking",
      "parking": 20
+    },
+    {
+     "mm": 125,
+     "exit": "125",
+     "name": "Korf Continental",
+     "brand": "Independent",
+     "type": "repair",
+     "city": "Sterling",
+     "approx": true,
+     "notes": "International truck dealer with semi service, parts and commercial tires (Bridgestone dealer), 1200 W Main St on US-6 about 1 mi northeast of exit 125"
     },
     {
      "mm": 180,

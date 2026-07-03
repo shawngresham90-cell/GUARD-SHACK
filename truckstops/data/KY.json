@@ -168,6 +168,16 @@
           "parking": 85
         },
         {
+          "mm": 43,
+          "exit": "43",
+          "name": "Love's Truck Care",
+          "brand": "Love's",
+          "type": "repair",
+          "city": "Waddy",
+          "approx": false,
+          "notes": "3 service bays; oil change/PM, light mechanical, tire services, roadside assistance; co-located with Love's Travel Stop #303 at 1940 Waddy Rd"
+        },
+        {
           "mm": 96,
           "exit": "96",
           "name": "Love's Travel Stop",
@@ -208,6 +218,16 @@
           "approx": true,
           "notes": "KY-32",
           "parking": 85
+        },
+        {
+          "mm": 172,
+          "exit": "172",
+          "name": "Love's Truck Care",
+          "brand": "Love's",
+          "type": "repair",
+          "city": "Grayson",
+          "approx": false,
+          "notes": "Oil change/PM, light mechanical, tire services; co-located with Love's Travel Stop #418 at 750 N Carol Malone Blvd"
         },
         {
           "mm": 185,
@@ -289,6 +309,16 @@
           "parking": 85
         },
         {
+          "mm": 6,
+          "exit": "6",
+          "name": "Speedco",
+          "brand": "Speedco",
+          "type": "repair",
+          "city": "Franklin",
+          "approx": false,
+          "notes": "Love's Speedco #919: truck lube/oil change, tire sales and service; 2875 Scottsville Rd; near Love's Travel Stop at same exit"
+        },
+        {
           "mm": 22,
           "exit": "22",
           "name": "Motel 6 Bowling Green",
@@ -318,6 +348,16 @@
           "approx": false,
           "notes": "No semi-truck parking",
           "parking": 0
+        },
+        {
+          "mm": 38,
+          "exit": "38",
+          "name": "TA Truck Service",
+          "brand": "TA",
+          "type": "repair",
+          "city": "Smiths Grove",
+          "approx": false,
+          "notes": "Truck repair and tire service with ASE/TIA-certified technicians; co-located with TA Smiths Grove travel center at 605 S Main St"
         },
         {
           "mm": 53,
