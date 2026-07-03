@@ -76,6 +76,26 @@
           "city": "New Castle",
           "approx": true,
           "notes": "525 Terminal Ave; near Christiana's Truck Stop; daytime hours"
+        },
+        {
+          "mm": 2,
+          "exit": "2",
+          "name": "Total Tire Services",
+          "brand": "Independent",
+          "type": "repair",
+          "city": "New Castle",
+          "approx": true,
+          "notes": "Commercial truck tire sales, repair, retreading and road service; 600 Terminal Ave at exit 2, near Port of Wilmington; weekday hours"
+        },
+        {
+          "mm": 3,
+          "exit": "3",
+          "name": "RedDot Truck Service",
+          "brand": "Independent",
+          "type": "repair",
+          "city": "Wilmington",
+          "approx": true,
+          "notes": "24-hr heavy-duty truck and trailer repair shop with roadside service; 1221 E 12th St just off exit 3 (12th Street)"
         }
       ]
     }

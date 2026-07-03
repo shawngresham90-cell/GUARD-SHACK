@@ -97,6 +97,26 @@
           "notes": "11480 Stockyard Dr (Socorro), exit 37 Horizon Blvd; near Petro/Flying J/Love's"
         },
         {
+          "mm": 37,
+          "exit": "37",
+          "name": "TA Truck Service",
+          "brand": "Petro",
+          "type": "repair",
+          "city": "El Paso",
+          "approx": false,
+          "notes": "Truck repair & tire shop; at the Petro exit 37"
+        },
+        {
+          "mm": 37,
+          "exit": "37",
+          "name": "Speedco",
+          "brand": "Love's",
+          "type": "repair",
+          "city": "El Paso",
+          "approx": false,
+          "notes": "Truck lube & tire shop, 1317 Horizon Blvd; at the Love's/Petro cluster exit 37"
+        },
+        {
           "mm": 61,
           "exit": "61",
           "name": "Hudspeth County Rest Area (both directions)",
@@ -128,6 +148,16 @@
           "approx": true,
           "notes": "",
           "parking": 90
+        },
+        {
+          "mm": 140,
+          "exit": "140",
+          "name": "Love's Truck Care",
+          "brand": "Love's",
+          "type": "repair",
+          "city": "Van Horn",
+          "approx": false,
+          "notes": "Oil/PM, light mechanical and tire services; at the Love's exit 140"
         },
         {
           "mm": 257,
@@ -228,6 +258,26 @@
           "parking": 250
         },
         {
+          "mm": 581,
+          "exit": "581",
+          "name": "TA Truck Service",
+          "brand": "TA",
+          "type": "repair",
+          "city": "San Antonio",
+          "approx": false,
+          "notes": "Truck repair & tire shop; at the TA exit 581 (Foster Rd)"
+        },
+        {
+          "mm": 581,
+          "exit": "581",
+          "name": "Speedco",
+          "brand": "Love's",
+          "type": "repair",
+          "city": "San Antonio",
+          "approx": false,
+          "notes": "Truck lube & tire shop, 1855 N Foster Rd; Foster Rd exit 581 near the TA"
+        },
+        {
           "mm": 582,
           "exit": "582",
           "name": "Blue Beacon Truck Wash",
@@ -236,6 +286,16 @@
           "city": "San Antonio",
           "approx": true,
           "notes": "1112 Ackerman Rd, exit 582; near TA exit 581"
+        },
+        {
+          "mm": 582,
+          "exit": "582",
+          "name": "Southern Tire Mart",
+          "brand": "Southern Tire Mart",
+          "type": "repair",
+          "city": "San Antonio",
+          "approx": true,
+          "notes": "Commercial truck tires with 24-hr roadside service; 6081 I-10 E frontage"
         },
         {
           "mm": 583,
@@ -268,6 +328,16 @@
           "city": "San Antonio",
           "approx": false,
           "notes": "San Antonio East location, 6089 IH-10 E at exit 583; near Flying J/Pilot"
+        },
+        {
+          "mm": 585,
+          "exit": "585",
+          "name": "Rush Truck Centers",
+          "brand": "Rush",
+          "type": "repair",
+          "city": "Converse",
+          "approx": true,
+          "notes": "Peterbilt dealer with truck service & parts; 8922 I-10 E frontage, northeast San Antonio"
         },
         {
           "mm": 593,
@@ -344,6 +414,16 @@
           "parking": 150
         },
         {
+          "mm": 789,
+          "exit": "789",
+          "name": "TA Truck Service",
+          "brand": "TA",
+          "type": "repair",
+          "city": "Baytown",
+          "approx": false,
+          "notes": "Truck repair & tire shop; at the TA exit 789"
+        },
+        {
           "mm": 797,
           "exit": "797",
           "name": "Love's Travel Stop",
@@ -363,6 +443,16 @@
           "city": "Baytown",
           "approx": true,
           "notes": "Houston East eastbound TxDPS scale at FM 1405 (exit 797)"
+        },
+        {
+          "mm": 797,
+          "exit": "797",
+          "name": "Love's Truck Care",
+          "brand": "Love's",
+          "type": "repair",
+          "city": "Baytown",
+          "approx": false,
+          "notes": "Truck tire and light mechanical services; at the Love's exit 797"
         },
         {
           "mm": 800,
@@ -395,6 +485,16 @@
           "approx": true,
           "notes": "Walden Rd exit",
           "parking": 200
+        },
+        {
+          "mm": 848,
+          "exit": "848",
+          "name": "TA Truck Service",
+          "brand": "TA",
+          "type": "repair",
+          "city": "Beaumont",
+          "approx": false,
+          "notes": "Truck repair & tire shop; at the TA exit 848"
         },
         {
           "mm": 873,
@@ -523,6 +623,16 @@
           "notes": "Truck parking verified: listed amenity on Motel 6 site; 200 E I-20 Service Rd at US-385, exit 116"
         },
         {
+          "mm": 126,
+          "exit": "126",
+          "name": "Rush Truck Centers",
+          "brand": "Rush",
+          "type": "repair",
+          "city": "Odessa",
+          "approx": true,
+          "notes": "Peterbilt dealer with truck service & parts; 7450 E I-20 frontage east of Odessa"
+        },
+        {
           "mm": 138,
           "exit": "138",
           "name": "Love's Travel Stop",
@@ -556,6 +666,16 @@
           "parking": 150
         },
         {
+          "mm": 177,
+          "exit": "177",
+          "name": "TA Truck Service",
+          "brand": "TA",
+          "type": "repair",
+          "city": "Big Spring",
+          "approx": false,
+          "notes": "Truck repair & tire shop; at the TA exit 177"
+        },
+        {
           "mm": 218,
           "exit": "218",
           "name": "Mitchell County Safety Rest Area",
@@ -576,6 +696,26 @@
           "approx": true,
           "notes": "",
           "parking": 120
+        },
+        {
+          "mm": 242,
+          "exit": "242",
+          "name": "TA Truck Service",
+          "brand": "TA",
+          "type": "repair",
+          "city": "Sweetwater",
+          "approx": false,
+          "notes": "Truck repair & tire shop; at the TA exit 242"
+        },
+        {
+          "mm": 277,
+          "exit": "277",
+          "name": "Southern Tire Mart",
+          "brand": "Southern Tire Mart",
+          "type": "repair",
+          "city": "Tye",
+          "approx": false,
+          "notes": "Commercial truck tires, 24-hr roadside service (6629 I-20); also STM at Pilot shop at the Flying J exit 277"
         },
         {
           "mm": 306,
@@ -630,6 +770,26 @@
           "approx": false,
           "notes": "Bonnie View Rd exit",
           "parking": 90
+        },
+        {
+          "mm": 470,
+          "exit": "470",
+          "name": "TA Truck Service",
+          "brand": "TA",
+          "type": "repair",
+          "city": "Dallas",
+          "approx": false,
+          "notes": "Truck repair & tire shop; at the TA Dallas South exit 470"
+        },
+        {
+          "mm": 470,
+          "exit": "470",
+          "name": "Southern Tire Mart",
+          "brand": "Southern Tire Mart",
+          "type": "repair",
+          "city": "Dallas",
+          "approx": false,
+          "notes": "Commercial truck tires with 24-hr roadside service; 35035 LBJ Fwy at exit 470"
         },
         {
           "mm": 472,
@@ -704,6 +864,16 @@
           "approx": true,
           "notes": "Modern TxDOT safety rest area with tornado shelter",
           "parking": 40
+        },
+        {
+          "mm": 540,
+          "exit": "540",
+          "name": "Love's Truck Care",
+          "brand": "Love's",
+          "type": "repair",
+          "city": "Van",
+          "approx": true,
+          "notes": "Truck tire and light mechanical services; at the Love's, 1221 S Oak St"
         },
         {
           "mm": 546,
@@ -926,6 +1096,26 @@
           "notes": "1020 Beltway Pkwy, SB exit 13; near TA/Flying J/Love's"
         },
         {
+          "mm": 13,
+          "exit": "13",
+          "name": "TA Truck Service",
+          "brand": "TA",
+          "type": "repair",
+          "city": "Laredo",
+          "approx": false,
+          "notes": "Truck repair & tire shop; at the TA exit 13"
+        },
+        {
+          "mm": 13,
+          "exit": "13",
+          "name": "Speedco",
+          "brand": "Love's",
+          "type": "repair",
+          "city": "Laredo",
+          "approx": true,
+          "notes": "Truck lube & tire shop, 102 Logistics Dr; north Laredo truck corridor near exit 13"
+        },
+        {
           "mm": 39,
           "exit": "39",
           "name": "Love's Travel Stop",
@@ -959,6 +1149,16 @@
           "parking": 80
         },
         {
+          "mm": 68,
+          "exit": "68",
+          "name": "Love's Truck Care",
+          "brand": "Love's",
+          "type": "repair",
+          "city": "Cotulla",
+          "approx": false,
+          "notes": "Truck tire and light mechanical services; at the Love's exit 68"
+        },
+        {
           "mm": 121,
           "exit": "121",
           "name": "Weigh Station (both directions)",
@@ -989,6 +1189,16 @@
           "approx": true,
           "notes": "South side of San Antonio, Fischer Rd area",
           "parking": 200
+        },
+        {
+          "mm": 140,
+          "exit": "140",
+          "name": "TA Truck Service",
+          "brand": "Petro",
+          "type": "repair",
+          "city": "San Antonio",
+          "approx": false,
+          "notes": "Truck repair & tire shop; at the Petro exit 140"
         },
         {
           "mm": 187,
@@ -1031,6 +1241,16 @@
           "approx": true,
           "notes": "No semi parking; under construction, opening Aug 12, 2026 (announced); exit 210 (Yarrington Rd); 120 fueling positions",
           "parking": 0
+        },
+        {
+          "mm": 264,
+          "exit": "264",
+          "name": "Southern Tire Mart",
+          "brand": "Southern Tire Mart",
+          "type": "repair",
+          "city": "Georgetown",
+          "approx": true,
+          "notes": "Commercial truck tires and repair; 7150 N I-35 frontage"
         },
         {
           "mm": 287,
@@ -1160,6 +1380,16 @@
           "approx": true,
           "notes": "North Fort Worth, Meacham Blvd area",
           "parking": 250
+        },
+        {
+          "mm": 56,
+          "exit": "56",
+          "name": "TA Truck Service",
+          "brand": "Petro",
+          "type": "repair",
+          "city": "Fort Worth",
+          "approx": false,
+          "notes": "Truck repair & tire shop; at the Petro exit 56"
         }
       ]
     },
@@ -1278,6 +1508,36 @@
           "notes": "Eagle United Truck Wash, 7540 E I-40 between exits 74 and 75"
         },
         {
+          "mm": 74,
+          "exit": "74",
+          "name": "TA Truck Service",
+          "brand": "TA",
+          "type": "repair",
+          "city": "Amarillo",
+          "approx": false,
+          "notes": "Truck repair & tire shop, 7000 E I-40; at the TA exit 74"
+        },
+        {
+          "mm": 74,
+          "exit": "74",
+          "name": "Love's Truck Care",
+          "brand": "Love's",
+          "type": "repair",
+          "city": "Amarillo",
+          "approx": false,
+          "notes": "Truck tire and light mechanical services, 6930 E I-40; at the Love's exit 74"
+        },
+        {
+          "mm": 74,
+          "exit": "74",
+          "name": "Southern Tire Mart",
+          "brand": "Southern Tire Mart",
+          "type": "repair",
+          "city": "Amarillo",
+          "approx": true,
+          "notes": "Commercial truck tires with 24-hr roadside service; 6294 E I-40 frontage"
+        },
+        {
           "mm": 75,
           "exit": "75",
           "name": "Petro Stopping Center",
@@ -1310,6 +1570,26 @@
           "notes": "Amarillo East location, 8500 E I-40, exit 75; at the Petro/Flying J"
         },
         {
+          "mm": 75,
+          "exit": "75",
+          "name": "TA Truck Service",
+          "brand": "Petro",
+          "type": "repair",
+          "city": "Amarillo",
+          "approx": false,
+          "notes": "Truck repair & tire shop, 8500 S Lakeside Dr; at the Petro exit 75"
+        },
+        {
+          "mm": 75,
+          "exit": "75",
+          "name": "Rush Truck Centers",
+          "brand": "Rush",
+          "type": "repair",
+          "city": "Amarillo",
+          "approx": true,
+          "notes": "Peterbilt dealer with truck service & parts; 8000 I-40 E frontage"
+        },
+        {
           "mm": 76,
           "exit": "76",
           "name": "Pilot Travel Center",
@@ -1330,6 +1610,16 @@
           "approx": true,
           "notes": "Welcome center on east side of Amarillo, serves both directions",
           "parking": 20
+        },
+        {
+          "mm": 76,
+          "exit": "76",
+          "name": "Speedco",
+          "brand": "Love's",
+          "type": "repair",
+          "city": "Amarillo",
+          "approx": false,
+          "notes": "Truck lube & tire shop, 10000 I-40 E at exit 76; near the Pilot exit 76"
         },
         {
           "mm": 142,
@@ -1488,6 +1778,16 @@
           "city": "Wilmer",
           "approx": true,
           "notes": "Paired NB (Ferris) and SB (Wilmer) TxDPS scales at Fulghum Rd, exit 272, south of Dallas"
+        },
+        {
+          "mm": 272,
+          "exit": "272",
+          "name": "Love's Truck Care",
+          "brand": "Love's",
+          "type": "repair",
+          "city": "Hutchins",
+          "approx": false,
+          "notes": "Truck tire and light mechanical services, 2500 S IH-45; at the Love's (Dallas south)"
         },
         {
           "mm": 273,

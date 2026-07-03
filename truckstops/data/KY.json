@@ -371,6 +371,16 @@
           "parking": 85
         },
         {
+          "mm": 58,
+          "exit": "58",
+          "name": "Love's Truck Care",
+          "brand": "Love's",
+          "type": "repair",
+          "city": "Sonora",
+          "approx": false,
+          "notes": "Truck tire care, light mechanical, commercial oil change, TirePass; co-located with Love's Travel Stop #360 at this exit"
+        },
+        {
           "mm": 86,
           "exit": "86",
           "name": "Blue Beacon Truck Wash",
@@ -379,6 +389,26 @@
           "city": "Glendale",
           "approx": false,
           "notes": "446 W Glendale Hodgenville Rd; at Petro Glendale (Exit 86)"
+        },
+        {
+          "mm": 86,
+          "exit": "86",
+          "name": "TA Truck Service",
+          "brand": "TA",
+          "type": "repair",
+          "city": "Glendale",
+          "approx": false,
+          "notes": "5 truck service bays, 24 hours; truck repair and tire service; co-located with Petro Glendale (#330) at 554 W Glendale Hodgenville Rd; Blue Beacon at same exit"
+        },
+        {
+          "mm": 105,
+          "exit": "105",
+          "name": "Southern Tire Mart at Pilot",
+          "brand": "Southern Tire Mart",
+          "type": "repair",
+          "city": "Lebanon Junction",
+          "approx": false,
+          "notes": "Commercial truck tire shop; tires, preventive maintenance, 24/7 roadside assistance; 264 Park Plaza Blvd, co-located with Pilot Travel Center #399 at this exit"
         },
         {
           "mm": 114,

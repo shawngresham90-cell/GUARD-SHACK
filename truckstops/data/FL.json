@@ -999,6 +999,16 @@
           "parking": 90
         },
         {
+          "mm": 366,
+          "exit": "366",
+          "name": "Love's Truck Care",
+          "brand": "Love's Truck Care",
+          "type": "repair",
+          "city": "Jacksonville",
+          "approx": true,
+          "notes": "Co-located with Love's Travel Stop #603, 400 Pecan Park Rd at Exit 366; tires, oil/PM, light mechanical, roadside assistance"
+        },
+        {
           "mm": 380,
           "exit": "380",
           "name": "Florida Welcome Center (southbound)",

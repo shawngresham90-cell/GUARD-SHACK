@@ -1,559 +1,639 @@
 {
- "state": "Oklahoma",
- "abbr": "OK",
- "interstates": {
-  "I-35": {
-   "maxMM": 236,
-   "stops": [
-    {
-     "mm": 1,
-     "exit": "1",
-     "name": "Love's Travel Stop",
-     "brand": "Love's",
-     "type": "truck_stop",
-     "city": "Thackerville",
-     "approx": false,
-     "notes": "Just north of the Red River / Texas line, WinStar casino area",
-     "parking": 100
+  "state": "Oklahoma",
+  "abbr": "OK",
+  "interstates": {
+    "I-35": {
+      "maxMM": 236,
+      "stops": [
+        {
+          "mm": 1,
+          "exit": "1",
+          "name": "Love's Travel Stop",
+          "brand": "Love's",
+          "type": "truck_stop",
+          "city": "Thackerville",
+          "approx": false,
+          "notes": "Just north of the Red River / Texas line, WinStar casino area",
+          "parking": 100
+        },
+        {
+          "mm": 2,
+          "exit": "",
+          "name": "Oklahoma Welcome Center",
+          "brand": "State",
+          "type": "rest_area",
+          "city": "Thackerville",
+          "approx": true,
+          "notes": "Northbound; welcome center near Texas line; truck parking",
+          "parking": 30
+        },
+        {
+          "mm": 12,
+          "exit": "12",
+          "name": "Weigh Station (NB)",
+          "brand": "State",
+          "type": "weigh_station",
+          "city": "Thackerville",
+          "approx": true,
+          "notes": "Oklahoma Port of Entry (Love County), between Thackerville and Marietta; PrePass"
+        },
+        {
+          "mm": 15,
+          "exit": "15",
+          "name": "Love's Travel Stop",
+          "brand": "Love's",
+          "type": "truck_stop",
+          "city": "Marietta",
+          "approx": true,
+          "notes": "",
+          "parking": 80
+        },
+        {
+          "mm": 31,
+          "exit": "31",
+          "name": "Love's Travel Stop",
+          "brand": "Love's",
+          "type": "truck_stop",
+          "city": "Ardmore",
+          "approx": true,
+          "notes": "South Ardmore",
+          "parking": 80
+        },
+        {
+          "mm": 33,
+          "exit": "33",
+          "name": "Motel 6 Ardmore",
+          "brand": "Motel 6",
+          "type": "hotel",
+          "city": "Ardmore",
+          "approx": false,
+          "notes": "Truck parking verified: Motel 6/Allstays list truck parking amenity; 120 Holiday Dr, I-35 exit 33"
+        },
+        {
+          "mm": 33,
+          "exit": "33",
+          "name": "Boss Truck Shop",
+          "brand": "Boss",
+          "type": "repair",
+          "city": "Ardmore",
+          "approx": false,
+          "notes": "24-hr truck, trailer, tire & reefer repair, 2380 Cooper Dr; at the Flying J exit 33"
+        },
+        {
+          "mm": 33,
+          "exit": "33",
+          "name": "Rush Truck Centers",
+          "brand": "Rush",
+          "type": "repair",
+          "city": "Ardmore",
+          "approx": false,
+          "notes": "Peterbilt dealer with truck service & parts; 2100 Cooper Dr at exit 33"
+        },
+        {
+          "mm": 46,
+          "exit": "46",
+          "name": "Murray County Rest Area (both directions)",
+          "brand": "State",
+          "type": "rest_area",
+          "city": "Davis",
+          "approx": true,
+          "parking": 20
+        },
+        {
+          "mm": 55,
+          "exit": "55",
+          "name": "Love's Travel Stop",
+          "brand": "Love's",
+          "type": "truck_stop",
+          "city": "Davis",
+          "approx": true,
+          "notes": "OK-7, Arbuckle Mountains area",
+          "parking": 80
+        },
+        {
+          "mm": 72,
+          "exit": "72",
+          "name": "Love's Travel Stop",
+          "brand": "Love's",
+          "type": "truck_stop",
+          "city": "Pauls Valley",
+          "approx": true,
+          "notes": "",
+          "parking": 80
+        },
+        {
+          "mm": 121,
+          "exit": "121",
+          "name": "Pilot Travel Center",
+          "brand": "Pilot",
+          "type": "truck_stop",
+          "city": "Oklahoma City",
+          "approx": true,
+          "notes": "SE 89th St, south OKC",
+          "parking": 80
+        },
+        {
+          "mm": 127,
+          "exit": "127",
+          "name": "Blue Beacon Truck Wash",
+          "brand": "Independent",
+          "type": "truck_wash",
+          "city": "Oklahoma City",
+          "approx": false,
+          "notes": "OKC South location at the Petro, 20 S Martin Luther King Ave, I-40/I-35 junction exit 127"
+        },
+        {
+          "mm": 134,
+          "exit": "134",
+          "name": "Blue Beacon Truck Wash",
+          "brand": "Independent",
+          "type": "truck_wash",
+          "city": "Oklahoma City",
+          "approx": true,
+          "notes": "OKC North location, 7720 N Bryant Ave, exit 134"
+        },
+        {
+          "mm": 185,
+          "exit": "185",
+          "name": "Love's Travel Stop",
+          "brand": "Love's",
+          "type": "truck_stop",
+          "city": "Perry",
+          "approx": true,
+          "notes": "",
+          "parking": 80
+        },
+        {
+          "mm": 214,
+          "exit": "214",
+          "name": "Love's Travel Stop",
+          "brand": "Love's",
+          "type": "truck_stop",
+          "city": "Tonkawa",
+          "approx": true,
+          "notes": "US-60 junction",
+          "parking": 90
+        },
+        {
+          "mm": 225,
+          "exit": "225",
+          "name": "Kay County Welcome Center Rest Area (SB only)",
+          "brand": "State",
+          "type": "rest_area",
+          "city": "Blackwell",
+          "approx": true,
+          "parking": 25
+        },
+        {
+          "mm": 231,
+          "exit": "231",
+          "name": "Kanza Travel Plaza",
+          "brand": "Independent",
+          "type": "truck_stop",
+          "city": "Braman",
+          "approx": true,
+          "notes": "Kaw Nation-operated; last stop before Kansas line",
+          "parking": 75
+        },
+        {
+          "mm": 235,
+          "exit": "235",
+          "name": "Weigh Station (SB)",
+          "brand": "State",
+          "type": "weigh_station",
+          "city": "Braman",
+          "approx": true,
+          "notes": "Oklahoma Port of Entry (Kay County), about 1 mile south of the Kansas line; PrePass"
+        }
+      ]
     },
-    {
-     "mm": 2,
-     "exit": "",
-     "name": "Oklahoma Welcome Center",
-     "brand": "State",
-     "type": "rest_area",
-     "city": "Thackerville",
-     "approx": true,
-     "notes": "Northbound; welcome center near Texas line; truck parking",
-     "parking": 30
+    "I-40": {
+      "maxMM": 331,
+      "stops": [
+        {
+          "mm": 1,
+          "exit": "1",
+          "name": "Texola Welcome Center Rest Area (EB only)",
+          "brand": "State",
+          "type": "rest_area",
+          "city": "Texola",
+          "approx": true,
+          "parking": 25
+        },
+        {
+          "mm": 5,
+          "exit": "5",
+          "name": "Weigh Station (EB)",
+          "brand": "State",
+          "type": "weigh_station",
+          "city": "Erick",
+          "approx": true,
+          "notes": "Oklahoma Port of Entry (Beckham County), near Texas line; PrePass"
+        },
+        {
+          "mm": 7,
+          "exit": "7",
+          "name": "Love's Travel Stop",
+          "brand": "Love's",
+          "type": "truck_stop",
+          "city": "Erick",
+          "approx": false,
+          "notes": "",
+          "parking": 70
+        },
+        {
+          "mm": 20,
+          "exit": "20",
+          "name": "Flying J Travel Center",
+          "brand": "Flying J",
+          "type": "truck_stop",
+          "city": "Sayre",
+          "approx": true,
+          "notes": "OK-152 exit",
+          "parking": 90
+        },
+        {
+          "mm": 20,
+          "exit": "20",
+          "name": "Boss Truck Shop",
+          "brand": "Boss",
+          "type": "repair",
+          "city": "Sayre",
+          "approx": false,
+          "notes": "24-hr truck, trailer, tire & reefer repair, 2402 S 4th St; at the Flying J exit 20"
+        },
+        {
+          "mm": 38,
+          "exit": "38",
+          "name": "Love's Travel Stop",
+          "brand": "Love's",
+          "type": "truck_stop",
+          "city": "Elk City",
+          "approx": true,
+          "notes": "",
+          "parking": 90
+        },
+        {
+          "mm": 40,
+          "exit": "40",
+          "name": "Holiday Inn Express & Suites Elk City",
+          "brand": "IHG",
+          "type": "hotel",
+          "city": "Elk City",
+          "approx": false,
+          "notes": "Truck parking verified: gravel rear lots for tractor-trailers per Tripadvisor driver reviews; HotelGuides lists I-40 exit 40, 2101 E 3rd St"
+        },
+        {
+          "mm": 41,
+          "exit": "41",
+          "name": "Hutch's Travel Stop",
+          "brand": "Independent",
+          "type": "truck_stop",
+          "city": "Elk City",
+          "approx": true,
+          "notes": "Western Oklahoma independent chain",
+          "parking": 40
+        },
+        {
+          "mm": 41,
+          "exit": "41",
+          "name": "Motel 6 Elk City",
+          "brand": "Motel 6",
+          "type": "hotel",
+          "city": "Elk City",
+          "approx": false,
+          "notes": "Truck parking verified: motel6.com lists truck/RV parking; 2604 E Hwy 66, ~0.3 mi from I-40 exit 41"
+        },
+        {
+          "mm": 84,
+          "exit": "84",
+          "name": "Love's Travel Stop",
+          "brand": "Love's",
+          "type": "truck_stop",
+          "city": "Weatherford",
+          "approx": true,
+          "notes": "",
+          "parking": 80
+        },
+        {
+          "mm": 101,
+          "exit": "101",
+          "name": "Love's Travel Stop",
+          "brand": "Love's",
+          "type": "truck_stop",
+          "city": "Hinton",
+          "approx": false,
+          "notes": "Hinton Junction, US-281",
+          "parking": 90
+        },
+        {
+          "mm": 108,
+          "exit": "108",
+          "name": "Love's Travel Stop",
+          "brand": "Love's",
+          "type": "truck_stop",
+          "city": "Calumet",
+          "approx": true,
+          "notes": "",
+          "parking": 70
+        },
+        {
+          "mm": 123,
+          "exit": "123",
+          "name": "Motel 6 El Reno",
+          "brand": "Motel 6",
+          "type": "hotel",
+          "city": "El Reno",
+          "approx": false,
+          "notes": "Truck parking verified: Expedia/Booking list free RV/bus/truck parking; 1506 Domino Dr, I-40 at Country Club Rd exit 123"
+        },
+        {
+          "mm": 140,
+          "exit": "140",
+          "name": "TA Oklahoma City West",
+          "brand": "TA",
+          "type": "truck_stop",
+          "city": "Oklahoma City",
+          "approx": true,
+          "notes": "Morgan Rd, west OKC",
+          "parking": 200
+        },
+        {
+          "mm": 140,
+          "exit": "140",
+          "name": "Blue Beacon Truck Wash",
+          "brand": "Independent",
+          "type": "truck_wash",
+          "city": "Oklahoma City",
+          "approx": false,
+          "notes": "OKC West location, 300 S Morgan Rd, exit 140; at the TA"
+        },
+        {
+          "mm": 140,
+          "exit": "140",
+          "name": "TA Truck Service",
+          "brand": "TA",
+          "type": "repair",
+          "city": "Oklahoma City",
+          "approx": false,
+          "notes": "Truck repair & tire shop; at the TA Oklahoma City West exit 140"
+        },
+        {
+          "mm": 140,
+          "exit": "140",
+          "name": "Speedco",
+          "brand": "Love's",
+          "type": "repair",
+          "city": "Oklahoma City",
+          "approx": false,
+          "notes": "Truck lube & tire shop, 10001 SW 8th St at exit 140; near the TA"
+        },
+        {
+          "mm": 140,
+          "exit": "140",
+          "name": "Rush Truck Centers",
+          "brand": "Rush",
+          "type": "repair",
+          "city": "Oklahoma City",
+          "approx": true,
+          "notes": "Peterbilt dealer with truck service & parts; 8700 W I-40 Service Rd at Council Rd, near the TA exit 140"
+        },
+        {
+          "mm": 142,
+          "exit": "142",
+          "name": "Flying J Travel Center",
+          "brand": "Flying J",
+          "type": "truck_stop",
+          "city": "Oklahoma City",
+          "approx": true,
+          "notes": "Council Rd area, west OKC",
+          "parking": 100
+        },
+        {
+          "mm": 166,
+          "exit": "166",
+          "name": "Love's Travel Stop",
+          "brand": "Love's",
+          "type": "truck_stop",
+          "city": "Oklahoma City (Choctaw)",
+          "approx": true,
+          "notes": "Choctaw Rd, east OKC metro",
+          "parking": 80
+        },
+        {
+          "mm": 185,
+          "exit": "185",
+          "name": "Love's Travel Stop",
+          "brand": "Love's",
+          "type": "truck_stop",
+          "city": "Shawnee",
+          "approx": true,
+          "notes": "",
+          "parking": 80
+        },
+        {
+          "mm": 221,
+          "exit": "221",
+          "name": "Love's Travel Stop",
+          "brand": "Love's",
+          "type": "truck_stop",
+          "city": "Okemah",
+          "approx": true,
+          "notes": "",
+          "parking": 80
+        },
+        {
+          "mm": 237,
+          "exit": "237",
+          "name": "Love's Country Store",
+          "brand": "Love's",
+          "type": "truck_stop",
+          "city": "Henryetta",
+          "approx": true,
+          "notes": "US-75 junction",
+          "parking": 30
+        },
+        {
+          "mm": 264,
+          "exit": "264",
+          "name": "Love's Travel Stop",
+          "brand": "Love's",
+          "type": "truck_stop",
+          "city": "Checotah",
+          "approx": true,
+          "notes": "US-69 junction",
+          "parking": 80
+        },
+        {
+          "mm": 287,
+          "exit": "287",
+          "name": "Love's Country Store",
+          "brand": "Love's",
+          "type": "truck_stop",
+          "city": "Webbers Falls",
+          "approx": true,
+          "notes": "",
+          "parking": 30
+        },
+        {
+          "mm": 308,
+          "exit": "308",
+          "name": "Love's Travel Stop",
+          "brand": "Love's",
+          "type": "truck_stop",
+          "city": "Sallisaw",
+          "approx": false,
+          "notes": "US-59 exit",
+          "parking": 90
+        },
+        {
+          "mm": 325,
+          "exit": "325",
+          "name": "Cherokee Travel Plaza",
+          "brand": "Independent",
+          "type": "truck_stop",
+          "city": "Roland",
+          "approx": false,
+          "notes": "Cherokee Nation-operated; last stop before Arkansas line",
+          "parking": 100
+        },
+        {
+          "mm": 326,
+          "exit": "326",
+          "name": "Sequoyah County Welcome Center Rest Area (WB only)",
+          "brand": "State",
+          "type": "rest_area",
+          "city": "Roland",
+          "approx": true,
+          "parking": 25
+        },
+        {
+          "mm": 328,
+          "exit": "328",
+          "name": "Weigh Station (WB)",
+          "brand": "State",
+          "type": "weigh_station",
+          "city": "Roland",
+          "approx": true,
+          "notes": "Oklahoma Port of Entry (Sequoyah County), near Arkansas line; PrePass"
+        }
+      ]
     },
-    {
-     "mm": 12,
-     "exit": "12",
-     "name": "Weigh Station (NB)",
-     "brand": "State",
-     "type": "weigh_station",
-     "city": "Thackerville",
-     "approx": true,
-     "notes": "Oklahoma Port of Entry (Love County), between Thackerville and Marietta; PrePass"
+    "I-44": {
+      "maxMM": 329,
+      "stops": [
+        {
+          "mm": 5,
+          "exit": "5",
+          "name": "Love's Travel Stop",
+          "brand": "Love's",
+          "type": "truck_stop",
+          "city": "Randlett",
+          "approx": true,
+          "notes": "US-70, just north of Texas line",
+          "parking": 80
+        },
+        {
+          "mm": 76,
+          "exit": "",
+          "name": "H.E. Bailey Turnpike Service Plaza",
+          "brand": "Independent",
+          "type": "service_plaza",
+          "city": "Chickasha (south of)",
+          "approx": true,
+          "notes": "H.E. Bailey Turnpike; serves both directions; turnpike milepost",
+          "parking": 30
+        },
+        {
+          "mm": 172,
+          "exit": "",
+          "name": "Stroud Service Plaza",
+          "brand": "Independent",
+          "type": "service_plaza",
+          "city": "Stroud",
+          "approx": true,
+          "notes": "Turner Turnpike midpoint plaza; serves both directions; turnpike milepost",
+          "parking": 50
+        },
+        {
+          "mm": 179,
+          "exit": "179",
+          "name": "Love's Travel Stop (Turner Turnpike WB plaza)",
+          "brand": "Love's",
+          "type": "service_plaza",
+          "city": "Stroud",
+          "approx": true,
+          "notes": "Reopened November 2025 after full rebuild; Truck Care added 2026",
+          "parking": 159
+        },
+        {
+          "mm": 222,
+          "exit": "222",
+          "name": "Rush Truck Centers",
+          "brand": "Rush",
+          "type": "repair",
+          "city": "Tulsa",
+          "approx": true,
+          "notes": "Peterbilt dealer with truck service & parts; 6015 S 49th W Ave, southwest Tulsa"
+        },
+        {
+          "mm": 236,
+          "exit": "236",
+          "name": "Pilot Travel Center",
+          "brand": "Pilot",
+          "type": "truck_stop",
+          "city": "Tulsa",
+          "approx": true,
+          "notes": "129th E Ave, east Tulsa (free section)",
+          "parking": 80
+        },
+        {
+          "mm": 240,
+          "exit": "240A",
+          "name": "Motel 6 Tulsa (Catoosa)",
+          "brand": "Motel 6",
+          "type": "hotel",
+          "city": "Catoosa",
+          "approx": false,
+          "notes": "Truck parking verified: motel6.com/VisitTulsa list truck parking amenity; 18715 E Admiral Pl, I-44 exit 240A"
+        },
+        {
+          "mm": 240,
+          "exit": "240",
+          "name": "Boss Truck Shop",
+          "brand": "Boss",
+          "type": "repair",
+          "city": "Tulsa (Catoosa)",
+          "approx": true,
+          "notes": "24-hr truck, trailer, tire & reefer repair; 421 N 161st E Ave at I-44 & 161st E Ave"
+        },
+        {
+          "mm": 283,
+          "exit": "283",
+          "name": "Big Cabin Travel Plaza",
+          "brand": "AmBest",
+          "type": "truck_stop",
+          "city": "Big Cabin",
+          "approx": false,
+          "notes": "US-69 exit off Will Rogers Turnpike; large independent AmBest plaza",
+          "parking": 200
+        },
+        {
+          "mm": 289,
+          "exit": "",
+          "name": "Vinita Service Plaza",
+          "brand": "Independent",
+          "type": "service_plaza",
+          "city": "Vinita",
+          "approx": true,
+          "notes": "Will Rogers Turnpike; McDonald's spanning the roadway; serves both directions; turnpike milepost",
+          "parking": 40
+        }
+      ]
     },
-    {
-     "mm": 15,
-     "exit": "15",
-     "name": "Love's Travel Stop",
-     "brand": "Love's",
-     "type": "truck_stop",
-     "city": "Marietta",
-     "approx": true,
-     "notes": "",
-     "parking": 80
-    },
-    {
-     "mm": 31,
-     "exit": "31",
-     "name": "Love's Travel Stop",
-     "brand": "Love's",
-     "type": "truck_stop",
-     "city": "Ardmore",
-     "approx": true,
-     "notes": "South Ardmore",
-     "parking": 80
-    },
-    {
-     "mm": 33,
-     "exit": "33",
-     "name": "Motel 6 Ardmore",
-     "brand": "Motel 6",
-     "type": "hotel",
-     "city": "Ardmore",
-     "approx": false,
-     "notes": "Truck parking verified: Motel 6/Allstays list truck parking amenity; 120 Holiday Dr, I-35 exit 33"
-    },
-    {
-     "mm": 46,
-     "exit": "46",
-     "name": "Murray County Rest Area (both directions)",
-     "brand": "State",
-     "type": "rest_area",
-     "city": "Davis",
-     "approx": true,
-     "parking": 20
-    },
-    {
-     "mm": 55,
-     "exit": "55",
-     "name": "Love's Travel Stop",
-     "brand": "Love's",
-     "type": "truck_stop",
-     "city": "Davis",
-     "approx": true,
-     "notes": "OK-7, Arbuckle Mountains area",
-     "parking": 80
-    },
-    {
-     "mm": 72,
-     "exit": "72",
-     "name": "Love's Travel Stop",
-     "brand": "Love's",
-     "type": "truck_stop",
-     "city": "Pauls Valley",
-     "approx": true,
-     "notes": "",
-     "parking": 80
-    },
-    {
-     "mm": 121,
-     "exit": "121",
-     "name": "Pilot Travel Center",
-     "brand": "Pilot",
-     "type": "truck_stop",
-     "city": "Oklahoma City",
-     "approx": true,
-     "notes": "SE 89th St, south OKC",
-     "parking": 80
-    },
-    {
-     "mm": 127,
-     "exit": "127",
-     "name": "Blue Beacon Truck Wash",
-     "brand": "Independent",
-     "type": "truck_wash",
-     "city": "Oklahoma City",
-     "approx": false,
-     "notes": "OKC South location at the Petro, 20 S Martin Luther King Ave, I-40/I-35 junction exit 127"
-    },
-    {
-     "mm": 134,
-     "exit": "134",
-     "name": "Blue Beacon Truck Wash",
-     "brand": "Independent",
-     "type": "truck_wash",
-     "city": "Oklahoma City",
-     "approx": true,
-     "notes": "OKC North location, 7720 N Bryant Ave, exit 134"
-    },
-    {
-     "mm": 185,
-     "exit": "185",
-     "name": "Love's Travel Stop",
-     "brand": "Love's",
-     "type": "truck_stop",
-     "city": "Perry",
-     "approx": true,
-     "notes": "",
-     "parking": 80
-    },
-    {
-     "mm": 214,
-     "exit": "214",
-     "name": "Love's Travel Stop",
-     "brand": "Love's",
-     "type": "truck_stop",
-     "city": "Tonkawa",
-     "approx": true,
-     "notes": "US-60 junction",
-     "parking": 90
-    },
-    {
-     "mm": 225,
-     "exit": "225",
-     "name": "Kay County Welcome Center Rest Area (SB only)",
-     "brand": "State",
-     "type": "rest_area",
-     "city": "Blackwell",
-     "approx": true,
-     "parking": 25
-    },
-    {
-     "mm": 231,
-     "exit": "231",
-     "name": "Kanza Travel Plaza",
-     "brand": "Independent",
-     "type": "truck_stop",
-     "city": "Braman",
-     "approx": true,
-     "notes": "Kaw Nation-operated; last stop before Kansas line",
-     "parking": 75
-    },
-    {
-     "mm": 235,
-     "exit": "235",
-     "name": "Weigh Station (SB)",
-     "brand": "State",
-     "type": "weigh_station",
-     "city": "Braman",
-     "approx": true,
-     "notes": "Oklahoma Port of Entry (Kay County), about 1 mile south of the Kansas line; PrePass"
+    "I-240": {
+      "maxMM": 16,
+      "stops": []
     }
-   ]
-  },
-  "I-40": {
-   "maxMM": 331,
-   "stops": [
-    {
-     "mm": 1,
-     "exit": "1",
-     "name": "Texola Welcome Center Rest Area (EB only)",
-     "brand": "State",
-     "type": "rest_area",
-     "city": "Texola",
-     "approx": true,
-     "parking": 25
-    },
-    {
-     "mm": 5,
-     "exit": "5",
-     "name": "Weigh Station (EB)",
-     "brand": "State",
-     "type": "weigh_station",
-     "city": "Erick",
-     "approx": true,
-     "notes": "Oklahoma Port of Entry (Beckham County), near Texas line; PrePass"
-    },
-    {
-     "mm": 7,
-     "exit": "7",
-     "name": "Love's Travel Stop",
-     "brand": "Love's",
-     "type": "truck_stop",
-     "city": "Erick",
-     "approx": false,
-     "notes": "",
-     "parking": 70
-    },
-    {
-     "mm": 20,
-     "exit": "20",
-     "name": "Flying J Travel Center",
-     "brand": "Flying J",
-     "type": "truck_stop",
-     "city": "Sayre",
-     "approx": true,
-     "notes": "OK-152 exit",
-     "parking": 90
-    },
-    {
-     "mm": 38,
-     "exit": "38",
-     "name": "Love's Travel Stop",
-     "brand": "Love's",
-     "type": "truck_stop",
-     "city": "Elk City",
-     "approx": true,
-     "notes": "",
-     "parking": 90
-    },
-    {
-     "mm": 40,
-     "exit": "40",
-     "name": "Holiday Inn Express & Suites Elk City",
-     "brand": "IHG",
-     "type": "hotel",
-     "city": "Elk City",
-     "approx": false,
-     "notes": "Truck parking verified: gravel rear lots for tractor-trailers per Tripadvisor driver reviews; HotelGuides lists I-40 exit 40, 2101 E 3rd St"
-    },
-    {
-     "mm": 41,
-     "exit": "41",
-     "name": "Hutch's Travel Stop",
-     "brand": "Independent",
-     "type": "truck_stop",
-     "city": "Elk City",
-     "approx": true,
-     "notes": "Western Oklahoma independent chain",
-     "parking": 40
-    },
-    {
-     "mm": 41,
-     "exit": "41",
-     "name": "Motel 6 Elk City",
-     "brand": "Motel 6",
-     "type": "hotel",
-     "city": "Elk City",
-     "approx": false,
-     "notes": "Truck parking verified: motel6.com lists truck/RV parking; 2604 E Hwy 66, ~0.3 mi from I-40 exit 41"
-    },
-    {
-     "mm": 84,
-     "exit": "84",
-     "name": "Love's Travel Stop",
-     "brand": "Love's",
-     "type": "truck_stop",
-     "city": "Weatherford",
-     "approx": true,
-     "notes": "",
-     "parking": 80
-    },
-    {
-     "mm": 101,
-     "exit": "101",
-     "name": "Love's Travel Stop",
-     "brand": "Love's",
-     "type": "truck_stop",
-     "city": "Hinton",
-     "approx": false,
-     "notes": "Hinton Junction, US-281",
-     "parking": 90
-    },
-    {
-     "mm": 108,
-     "exit": "108",
-     "name": "Love's Travel Stop",
-     "brand": "Love's",
-     "type": "truck_stop",
-     "city": "Calumet",
-     "approx": true,
-     "notes": "",
-     "parking": 70
-    },
-    {
-     "mm": 123,
-     "exit": "123",
-     "name": "Motel 6 El Reno",
-     "brand": "Motel 6",
-     "type": "hotel",
-     "city": "El Reno",
-     "approx": false,
-     "notes": "Truck parking verified: Expedia/Booking list free RV/bus/truck parking; 1506 Domino Dr, I-40 at Country Club Rd exit 123"
-    },
-    {
-     "mm": 140,
-     "exit": "140",
-     "name": "TA Oklahoma City West",
-     "brand": "TA",
-     "type": "truck_stop",
-     "city": "Oklahoma City",
-     "approx": true,
-     "notes": "Morgan Rd, west OKC",
-     "parking": 200
-    },
-    {
-     "mm": 140,
-     "exit": "140",
-     "name": "Blue Beacon Truck Wash",
-     "brand": "Independent",
-     "type": "truck_wash",
-     "city": "Oklahoma City",
-     "approx": false,
-     "notes": "OKC West location, 300 S Morgan Rd, exit 140; at the TA"
-    },
-    {
-     "mm": 142,
-     "exit": "142",
-     "name": "Flying J Travel Center",
-     "brand": "Flying J",
-     "type": "truck_stop",
-     "city": "Oklahoma City",
-     "approx": true,
-     "notes": "Council Rd area, west OKC",
-     "parking": 100
-    },
-    {
-     "mm": 166,
-     "exit": "166",
-     "name": "Love's Travel Stop",
-     "brand": "Love's",
-     "type": "truck_stop",
-     "city": "Oklahoma City (Choctaw)",
-     "approx": true,
-     "notes": "Choctaw Rd, east OKC metro",
-     "parking": 80
-    },
-    {
-     "mm": 185,
-     "exit": "185",
-     "name": "Love's Travel Stop",
-     "brand": "Love's",
-     "type": "truck_stop",
-     "city": "Shawnee",
-     "approx": true,
-     "notes": "",
-     "parking": 80
-    },
-    {
-     "mm": 221,
-     "exit": "221",
-     "name": "Love's Travel Stop",
-     "brand": "Love's",
-     "type": "truck_stop",
-     "city": "Okemah",
-     "approx": true,
-     "notes": "",
-     "parking": 80
-    },
-    {
-     "mm": 237,
-     "exit": "237",
-     "name": "Love's Country Store",
-     "brand": "Love's",
-     "type": "truck_stop",
-     "city": "Henryetta",
-     "approx": true,
-     "notes": "US-75 junction",
-     "parking": 30
-    },
-    {
-     "mm": 264,
-     "exit": "264",
-     "name": "Love's Travel Stop",
-     "brand": "Love's",
-     "type": "truck_stop",
-     "city": "Checotah",
-     "approx": true,
-     "notes": "US-69 junction",
-     "parking": 80
-    },
-    {
-     "mm": 287,
-     "exit": "287",
-     "name": "Love's Country Store",
-     "brand": "Love's",
-     "type": "truck_stop",
-     "city": "Webbers Falls",
-     "approx": true,
-     "notes": "",
-     "parking": 30
-    },
-    {
-     "mm": 308,
-     "exit": "308",
-     "name": "Love's Travel Stop",
-     "brand": "Love's",
-     "type": "truck_stop",
-     "city": "Sallisaw",
-     "approx": false,
-     "notes": "US-59 exit",
-     "parking": 90
-    },
-    {
-     "mm": 325,
-     "exit": "325",
-     "name": "Cherokee Travel Plaza",
-     "brand": "Independent",
-     "type": "truck_stop",
-     "city": "Roland",
-     "approx": false,
-     "notes": "Cherokee Nation-operated; last stop before Arkansas line",
-     "parking": 100
-    },
-    {
-     "mm": 326,
-     "exit": "326",
-     "name": "Sequoyah County Welcome Center Rest Area (WB only)",
-     "brand": "State",
-     "type": "rest_area",
-     "city": "Roland",
-     "approx": true,
-     "parking": 25
-    },
-    {
-     "mm": 328,
-     "exit": "328",
-     "name": "Weigh Station (WB)",
-     "brand": "State",
-     "type": "weigh_station",
-     "city": "Roland",
-     "approx": true,
-     "notes": "Oklahoma Port of Entry (Sequoyah County), near Arkansas line; PrePass"
-    }
-   ]
-  },
-  "I-44": {
-   "maxMM": 329,
-   "stops": [
-    {
-     "mm": 5,
-     "exit": "5",
-     "name": "Love's Travel Stop",
-     "brand": "Love's",
-     "type": "truck_stop",
-     "city": "Randlett",
-     "approx": true,
-     "notes": "US-70, just north of Texas line",
-     "parking": 80
-    },
-    {
-     "mm": 76,
-     "exit": "",
-     "name": "H.E. Bailey Turnpike Service Plaza",
-     "brand": "Independent",
-     "type": "service_plaza",
-     "city": "Chickasha (south of)",
-     "approx": true,
-     "notes": "H.E. Bailey Turnpike; serves both directions; turnpike milepost",
-     "parking": 30
-    },
-    {
-     "mm": 172,
-     "exit": "",
-     "name": "Stroud Service Plaza",
-     "brand": "Independent",
-     "type": "service_plaza",
-     "city": "Stroud",
-     "approx": true,
-     "notes": "Turner Turnpike midpoint plaza; serves both directions; turnpike milepost",
-     "parking": 50
-    },
-    {
-     "mm": 179,
-     "exit": "179",
-     "name": "Love's Travel Stop (Turner Turnpike WB plaza)",
-     "brand": "Love's",
-     "type": "service_plaza",
-     "city": "Stroud",
-     "approx": true,
-     "notes": "Reopened November 2025 after full rebuild; Truck Care added 2026",
-     "parking": 159
-    },
-    {
-     "mm": 236,
-     "exit": "236",
-     "name": "Pilot Travel Center",
-     "brand": "Pilot",
-     "type": "truck_stop",
-     "city": "Tulsa",
-     "approx": true,
-     "notes": "129th E Ave, east Tulsa (free section)",
-     "parking": 80
-    },
-    {
-     "mm": 240,
-     "exit": "240A",
-     "name": "Motel 6 Tulsa (Catoosa)",
-     "brand": "Motel 6",
-     "type": "hotel",
-     "city": "Catoosa",
-     "approx": false,
-     "notes": "Truck parking verified: motel6.com/VisitTulsa list truck parking amenity; 18715 E Admiral Pl, I-44 exit 240A"
-    },
-    {
-     "mm": 283,
-     "exit": "283",
-     "name": "Big Cabin Travel Plaza",
-     "brand": "AmBest",
-     "type": "truck_stop",
-     "city": "Big Cabin",
-     "approx": false,
-     "notes": "US-69 exit off Will Rogers Turnpike; large independent AmBest plaza",
-     "parking": 200
-    },
-    {
-     "mm": 289,
-     "exit": "",
-     "name": "Vinita Service Plaza",
-     "brand": "Independent",
-     "type": "service_plaza",
-     "city": "Vinita",
-     "approx": true,
-     "notes": "Will Rogers Turnpike; McDonald's spanning the roadway; serves both directions; turnpike milepost",
-     "parking": 40
-    }
-   ]
-  },
-  "I-240": {
-   "maxMM": 16,
-   "stops": []
   }
- }
 }

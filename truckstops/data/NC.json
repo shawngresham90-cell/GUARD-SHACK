@@ -16,6 +16,16 @@
           "parking": 15
         },
         {
+          "mm": 44,
+          "exit": "44",
+          "name": "FleetPro Truck Center",
+          "brand": "Independent",
+          "type": "repair",
+          "city": "Fletcher",
+          "approx": true,
+          "notes": "Family-owned heavy truck and trailer shop at 4989 Hendersonville Rd (US-25) near I-26 exit 44 (Fletcher/Mountain Home); engine diagnostics, AC, suspension/brakes, DOT inspections, emergency roadside; M-F 8am-10:30pm"
+        },
+        {
           "mm": 46,
           "exit": "46",
           "name": "Weigh Station (both directions)",
