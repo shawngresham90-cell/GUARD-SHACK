@@ -28,6 +28,16 @@
      "parking": 30
     },
     {
+     "mm": 12,
+     "exit": "12",
+     "name": "Weigh Station (NB)",
+     "brand": "State",
+     "type": "weigh_station",
+     "city": "Thackerville",
+     "approx": true,
+     "notes": "Oklahoma Port of Entry (Love County), between Thackerville and Marietta; PrePass"
+    },
+    {
      "mm": 15,
      "exit": "15",
      "name": "Love's Travel Stop",
@@ -93,6 +103,26 @@
      "parking": 80
     },
     {
+     "mm": 127,
+     "exit": "127",
+     "name": "Blue Beacon Truck Wash",
+     "brand": "Independent",
+     "type": "truck_wash",
+     "city": "Oklahoma City",
+     "approx": false,
+     "notes": "OKC South location at the Petro, 20 S Martin Luther King Ave, I-40/I-35 junction exit 127"
+    },
+    {
+     "mm": 134,
+     "exit": "134",
+     "name": "Blue Beacon Truck Wash",
+     "brand": "Independent",
+     "type": "truck_wash",
+     "city": "Oklahoma City",
+     "approx": true,
+     "notes": "OKC North location, 7720 N Bryant Ave, exit 134"
+    },
+    {
      "mm": 185,
      "exit": "185",
      "name": "Love's Travel Stop",
@@ -134,6 +164,16 @@
      "approx": true,
      "notes": "Kaw Nation-operated; last stop before Kansas line",
      "parking": 75
+    },
+    {
+     "mm": 235,
+     "exit": "235",
+     "name": "Weigh Station (SB)",
+     "brand": "State",
+     "type": "weigh_station",
+     "city": "Braman",
+     "approx": true,
+     "notes": "Oklahoma Port of Entry (Kay County), about 1 mile south of the Kansas line; PrePass"
     }
    ]
   },
@@ -149,6 +189,16 @@
      "city": "Texola",
      "approx": true,
      "parking": 25
+    },
+    {
+     "mm": 5,
+     "exit": "5",
+     "name": "Weigh Station (EB)",
+     "brand": "State",
+     "type": "weigh_station",
+     "city": "Erick",
+     "approx": true,
+     "notes": "Oklahoma Port of Entry (Beckham County), near Texas line; PrePass"
     },
     {
      "mm": 7,
@@ -237,6 +287,16 @@
      "approx": true,
      "notes": "Morgan Rd, west OKC",
      "parking": 200
+    },
+    {
+     "mm": 140,
+     "exit": "140",
+     "name": "Blue Beacon Truck Wash",
+     "brand": "Independent",
+     "type": "truck_wash",
+     "city": "Oklahoma City",
+     "approx": false,
+     "notes": "OKC West location, 300 S Morgan Rd, exit 140; at the TA"
     },
     {
      "mm": 142,
@@ -346,6 +406,16 @@
      "city": "Roland",
      "approx": true,
      "parking": 25
+    },
+    {
+     "mm": 328,
+     "exit": "328",
+     "name": "Weigh Station (WB)",
+     "brand": "State",
+     "type": "weigh_station",
+     "city": "Roland",
+     "approx": true,
+     "notes": "Oklahoma Port of Entry (Sequoyah County), near Arkansas line; PrePass"
     }
    ]
   },

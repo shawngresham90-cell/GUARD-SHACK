@@ -72,6 +72,16 @@
      "parking": 25
     },
     {
+     "mm": 52,
+     "exit": "52",
+     "name": "Weigh Station (both directions)",
+     "brand": "State",
+     "type": "weigh_station",
+     "city": "Bland",
+     "approx": true,
+     "notes": "VA DMV Bland Motor Carrier Service Center; weigh-in-motion/PrePass"
+    },
+    {
      "mm": 61,
      "exit": "61",
      "name": "Rocky Gap Welcome Center (SB only)",
@@ -152,6 +162,16 @@
      "parking": 90
     },
     {
+     "mm": 80,
+     "exit": "80",
+     "name": "Blue Beacon Truck Wash",
+     "brand": "Independent",
+     "type": "truck_wash",
+     "city": "Fort Chiswell (Max Meadows)",
+     "approx": false,
+     "notes": "Factory Outlet Dr; on I-77/I-81 overlap"
+    },
+    {
      "mm": 84,
      "exit": "84",
      "name": "Flying J Travel Center",
@@ -183,6 +203,16 @@
      "approx": false,
      "notes": "Opened January 2025; I-81 Exit 128",
      "parking": 93
+    },
+    {
+     "mm": 149,
+     "exit": "149",
+     "name": "Weigh Station (both directions)",
+     "brand": "State",
+     "type": "weigh_station",
+     "city": "Troutville",
+     "approx": true,
+     "notes": "VA DMV Troutville Motor Carrier Service Center; ramp weigh-in-motion/PrePass"
     },
     {
      "mm": 150,
@@ -248,6 +278,16 @@
      "approx": false,
      "notes": "Across from White's Travel Center",
      "parking": 200
+    },
+    {
+     "mm": 205,
+     "exit": "205",
+     "name": "Blue Beacon Truck Wash",
+     "brand": "Independent",
+     "type": "truck_wash",
+     "city": "Raphine",
+     "approx": false,
+     "notes": "At White's Travel Center / Petro complex"
     },
     {
      "mm": 232,
@@ -316,6 +356,16 @@
      "parking": 80
     },
     {
+     "mm": 304,
+     "exit": "304",
+     "name": "Weigh Station (both directions)",
+     "brand": "State",
+     "type": "weigh_station",
+     "city": "Stephens City",
+     "approx": true,
+     "notes": "VA DMV Stephens City Motor Carrier Service Center; weigh-in-motion/PrePass"
+    },
+    {
      "mm": 320,
      "exit": "",
      "name": "Clearbrook Welcome Center",
@@ -365,6 +415,16 @@
      "parking": 90
     },
     {
+     "mm": 22,
+     "exit": "22",
+     "name": "Weigh Station (both directions)",
+     "brand": "State",
+     "type": "weigh_station",
+     "city": "Alberta",
+     "approx": true,
+     "notes": "VA DMV Alberta Motor Carrier Service Center; weigh-in-motion/PrePass"
+    },
+    {
      "mm": 32,
      "exit": "",
      "name": "Alberta Safety Rest Area",
@@ -412,6 +472,16 @@
      "approx": true,
      "notes": "",
      "parking": 75
+    },
+    {
+     "mm": 39,
+     "exit": "39",
+     "name": "Weigh Station (both directions)",
+     "brand": "State",
+     "type": "weigh_station",
+     "city": "Carson",
+     "approx": true,
+     "notes": "VA DMV Carson Motor Carrier Service Center; weigh-in-motion/PrePass"
     },
     {
      "mm": 41,
@@ -489,6 +559,16 @@
      "approx": true,
      "notes": "Both directions, truck parking",
      "parking": 35
+    },
+    {
+     "mm": 154,
+     "exit": "154",
+     "name": "Weigh Station (both directions)",
+     "brand": "State",
+     "type": "weigh_station",
+     "city": "Dumfries",
+     "approx": true,
+     "notes": "VA DMV Dumfries Motor Carrier Service Center; weigh-in-motion/PrePass"
     }
    ]
   }

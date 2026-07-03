@@ -7,22 +7,26 @@
       "maxMM": 98,
       "stops": [
         {"mm": 2, "exit": "2", "name": "Danbury Welcome Center Rest Area (EB only)", "brand": "State", "type": "rest_area", "city": "Danbury", "approx": true, "notes": "Eastbound only; welcome center just past NY line with truck parking, no fuel", "parking": 10},
+        {"mm": 3, "exit": "3", "name": "Weigh Station (EB)", "brand": "State", "type": "weigh_station", "city": "Danbury", "approx": true, "notes": "CT DMV scale, eastbound near posted Exit 2B just past the NY line; static platform scale"},
         {"mm": 27, "exit": "28", "name": "Pilot Travel Center", "brand": "Pilot", "type": "truck_stop", "city": "Milldale (Southington)", "approx": true, "notes": "1875 Meriden-Waterbury Tpke; fuel, parking, store", "parking": 50},
         {"mm": 29, "exit": "", "name": "Southington Service Plazas (both directions)", "brand": "State", "type": "service_plaza", "city": "Southington", "approx": true, "notes": "EB and WB plazas; fuel and fast food, limited truck parking", "parking": 10},
         {"mm": 70, "exit": "71", "name": "TA Willington", "brand": "TA", "type": "truck_stop", "city": "Willington", "approx": true, "notes": "327 Ruby Rd; largest truck stop in Connecticut, full service, ~200 truck spaces", "parking": 200},
-        {"mm": 72, "exit": "", "name": "Willington Rest Areas (both directions)", "brand": "State", "type": "rest_area", "city": "Willington", "approx": true, "notes": "EB and WB; truck parking, no fuel", "parking": 20}
+        {"mm": 72, "exit": "", "name": "Willington Rest Areas (both directions)", "brand": "State", "type": "rest_area", "city": "Willington", "approx": true, "notes": "EB and WB; truck parking, no fuel", "parking": 20},
+        {"mm": 73, "exit": "73", "name": "Weigh Station (WB)", "brand": "State", "type": "weigh_station", "city": "Union", "approx": true, "notes": "CT DMV scale, westbound near posted Exit 73 just past the MA line; weigh-in-motion screening ahead of the platform scale"}
       ]
     },
     "I-91": {
       "maxMM": 58,
       "stops": [
         {"mm": 14, "exit": "", "name": "Wallingford Rest Area (NB only)", "brand": "State", "type": "rest_area", "city": "Wallingford", "approx": true, "notes": "Northbound; truck parking, no fuel", "parking": 15},
+        {"mm": 21, "exit": "21", "name": "Weigh Station (NB)", "brand": "State", "type": "weigh_station", "city": "Middletown", "approx": true, "notes": "CT DMV scale, northbound at the Middletown rest area site; triple pad platform scale"},
         {"mm": 22, "exit": "", "name": "Middletown Rest Area (SB only)", "brand": "State", "type": "rest_area", "city": "Middletown", "approx": true, "notes": "Southbound; truck parking, no fuel. No truck stops on I-91 in CT", "parking": 15}
       ]
     },
     "I-95": {
       "maxMM": 112,
       "stops": [
+        {"mm": 3, "exit": "3", "name": "Weigh Station (NB)", "brand": "State", "type": "weigh_station", "city": "Greenwich", "approx": true, "notes": "CT DMV scale, northbound near posted Exit 3 just past the NY line; weigh-in-motion screening ahead of the static scales"},
         {"mm": 12, "exit": "", "name": "Darien Service Plazas (both directions)", "brand": "State", "type": "service_plaza", "city": "Darien", "approx": true, "notes": "NB and SB plazas; fuel and food, very limited truck parking", "parking": 8},
         {"mm": 22, "exit": "22", "name": "Fairfield Service Plaza (NB only)", "brand": "State", "type": "service_plaza", "city": "Fairfield", "approx": true, "notes": "Northbound Connecticut Turnpike plaza; fuel and food, very limited truck parking", "parking": 8},
         {"mm": 38, "exit": "40", "name": "Pilot Travel Center", "brand": "Pilot", "type": "truck_stop", "city": "Milford", "approx": true, "notes": "433 Old Gate Ln; fuel and parking, tight lot", "parking": 30},

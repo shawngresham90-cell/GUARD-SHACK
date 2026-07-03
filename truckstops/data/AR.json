@@ -17,6 +17,16 @@
      "parking": 20
     },
     {
+     "mm": 26,
+     "exit": "26",
+     "name": "Weigh Station (both directions)",
+     "brand": "State",
+     "type": "weigh_station",
+     "city": "Hope",
+     "approx": true,
+     "notes": "Arkansas Highway Police scales about 4 miles southwest of Hope near Guernsey; separate EB and WB stations; milepost estimated; PrePass"
+    },
+    {
      "mm": 44,
      "exit": "44",
      "name": "Love's Travel Stop",
@@ -88,6 +98,16 @@
      "parking": 75
     },
     {
+     "mm": 9,
+     "exit": "9",
+     "name": "Weigh Station (both directions)",
+     "brand": "State",
+     "type": "weigh_station",
+     "city": "Alma",
+     "approx": true,
+     "notes": "Arkansas Highway Police scales about 4 miles west of Alma; separate EB and WB stations; PrePass"
+    },
+    {
      "mm": 13,
      "exit": "13",
      "name": "Love's Travel Stop",
@@ -153,6 +173,16 @@
      "parking": 80
     },
     {
+     "mm": 161,
+     "exit": "161",
+     "name": "Blue Beacon Truck Wash",
+     "brand": "Independent",
+     "type": "truck_wash",
+     "city": "North Little Rock",
+     "approx": false,
+     "notes": "3210 Valentine Rd, exit 161; at the Petro"
+    },
+    {
      "mm": 175,
      "exit": "175",
      "name": "Love's Travel Stop",
@@ -195,6 +225,16 @@
      "approx": true,
      "notes": "East of Forrest City; truck parking",
      "parking": 25
+    },
+    {
+     "mm": 274,
+     "exit": "274",
+     "name": "Weigh Station (both directions)",
+     "brand": "State",
+     "type": "weigh_station",
+     "city": "West Memphis",
+     "approx": true,
+     "notes": "Arkansas Highway Police scales west of the West Memphis truck stop cluster; EB scale near mm 273.5 with WB counterpart; PrePass"
     },
     {
      "mm": 278,
@@ -252,6 +292,16 @@
      "parking": 80
     },
     {
+     "mm": 280,
+     "exit": "280",
+     "name": "Blue Beacon Truck Wash",
+     "brand": "Independent",
+     "type": "truck_wash",
+     "city": "West Memphis",
+     "approx": false,
+     "notes": "3600 Service Loop Rd, exit 280; near Petro/Flying J/Pilot; also serves I-55 exit 4"
+    },
+    {
      "mm": 282,
      "exit": "",
      "name": "West Memphis Welcome Center",
@@ -272,6 +322,16 @@
   "I-55": {
    "maxMM": 72,
    "stops": [
+    {
+     "mm": 6,
+     "exit": "6",
+     "name": "Weigh Station (both directions)",
+     "brand": "State",
+     "type": "weigh_station",
+     "city": "Marion",
+     "approx": true,
+     "notes": "Arkansas Highway Police NB/SB scales between the Memphis bridge and Marion; milepost estimated; PrePass"
+    },
     {
      "mm": 63,
      "exit": "63",

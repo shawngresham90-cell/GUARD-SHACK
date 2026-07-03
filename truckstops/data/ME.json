@@ -7,6 +7,7 @@
       "maxMM": 303,
       "stops": [
         {"mm": 3, "exit": "", "name": "Kittery Welcome Center (Maine Visitor Info) Rest Area (NB only)", "brand": "State", "type": "rest_area", "city": "Kittery", "approx": true, "notes": "Northbound, just past NH line; truck parking, no fuel", "parking": 15},
+        {"mm": 5, "exit": "5", "name": "Weigh Station (NB)", "brand": "State", "type": "weigh_station", "city": "Kittery", "approx": true, "notes": "Maine State Police scale and inspection site, northbound around mm 5.5; PrePass not accepted"},
         {"mm": 25, "exit": "", "name": "Kennebunk Service Plazas (both directions)", "brand": "State", "type": "service_plaza", "city": "Kennebunk", "approx": false, "notes": "NB and SB Maine Turnpike plazas; 24-hour fuel, food, truck parking; closest plaza to Wells", "parking": 50},
         {"mm": 58, "exit": "", "name": "Cumberland Service Plaza (NB only)", "brand": "State", "type": "service_plaza", "city": "Cumberland", "approx": true, "notes": "Northbound Maine Turnpike plaza; fuel, food, truck parking", "parking": 30},
         {"mm": 59, "exit": "", "name": "Gray Service Plaza (SB only)", "brand": "State", "type": "service_plaza", "city": "Gray", "approx": true, "notes": "Southbound Maine Turnpike plaza; fuel, food, truck parking", "parking": 30},

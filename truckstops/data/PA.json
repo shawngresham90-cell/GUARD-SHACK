@@ -76,6 +76,8 @@
         {"mm": 195, "exit": "195", "name": "Mile Run Rest Area (both directions)", "brand": "State", "type": "rest_area", "city": "Loganton", "approx": true, "parking": 25},
         {"mm": 224, "exit": "224", "name": "Pilot Travel Center", "brand": "Pilot", "type": "truck_stop", "city": "Danville", "approx": true, "notes": "PA 54", "parking": 75},
         {"mm": 232, "exit": "232", "name": "Petro Stopping Center", "brand": "Petro", "type": "truck_stop", "city": "Bloomsburg (Buckhorn)", "approx": false, "notes": "US 42 Buckhorn exit", "parking": 200},
+        {"mm": 246, "exit": "246", "name": "Weigh Station (EB)", "brand": "State", "type": "weigh_station", "city": "Mifflinville", "approx": false, "notes": "Hetlerville/Berwick scales at MM 246 rest area; weigh-in-motion on ramp; PSP operated"},
+        {"mm": 246, "exit": "246", "name": "Weigh Station (WB)", "brand": "State", "type": "weigh_station", "city": "Mifflinville", "approx": false, "notes": "Hetlerville/Berwick scales at MM 246 rest area; weigh-in-motion on ramp; PSP operated"},
         {"mm": 257, "exit": "", "name": "Rest Area (White Haven)", "brand": "State", "type": "rest_area", "city": "White Haven", "approx": true, "notes": "Eastbound and westbound pair; truck parking", "parking": 30},
         {"mm": 309, "exit": "309", "name": "TA Travel Center", "brand": "TA", "type": "truck_stop", "city": "Delaware Water Gap", "approx": false, "notes": "Last services before NJ", "parking": 170},
         {"mm": 310, "exit": "310", "name": "Delaware Water Gap Welcome Center Rest Area (WB only)", "brand": "State", "type": "rest_area", "city": "Delaware Water Gap", "approx": true, "parking": 20}
@@ -91,6 +93,8 @@
         {"mm": 52, "exit": "52", "name": "Petro Stopping Center", "brand": "Petro", "type": "truck_stop", "city": "Carlisle", "approx": false, "notes": "Carlisle cluster; US 11 Middlesex", "parking": 250},
         {"mm": 52, "exit": "52", "name": "Pilot Travel Center", "brand": "Pilot", "type": "truck_stop", "city": "Carlisle", "approx": false, "notes": "Carlisle cluster; US 11 Middlesex", "parking": 80},
         {"mm": 52, "exit": "52", "name": "Love's Travel Stop", "brand": "Love's", "type": "truck_stop", "city": "Carlisle", "approx": true, "notes": "Carlisle cluster", "parking": 90},
+        {"mm": 52, "exit": "52", "name": "Blue Beacon Truck Wash", "brand": "Independent", "type": "truck_wash", "city": "Carlisle", "approx": false, "notes": "1201 Harrisburg Pike at Flying J Travel Plaza; Exit 52 (I-81 S) / 52A (I-81 N), near PA Turnpike Exit 226"},
+        {"mm": 52, "exit": "52", "name": "Blue Beacon Truck Wash", "brand": "Independent", "type": "truck_wash", "city": "Carlisle", "approx": false, "notes": "1201 Harrisburg Pike at Flying J Travel Plaza; Exit 52 (I-81 S) / 52A (I-81 N), near PA Turnpike Exit 226"},
         {"mm": 80, "exit": "80", "name": "Love's Travel Stop", "brand": "Love's", "type": "truck_stop", "city": "Grantville", "approx": true, "notes": "Harrisburg area; PA 743 near Hollywood Casino", "parking": 80},
         {"mm": 100, "exit": "100", "name": "Pilot Travel Center", "brand": "Pilot", "type": "truck_stop", "city": "Pine Grove", "approx": false, "notes": "PA 443", "parking": 75},
         {"mm": 145, "exit": "145", "name": "Pilot Travel Center", "brand": "Pilot", "type": "truck_stop", "city": "West Hazleton", "approx": false, "notes": "PA 93", "parking": 70},

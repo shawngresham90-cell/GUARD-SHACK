@@ -1,635 +1,113 @@
 {
- "state": "Indiana",
- "abbr": "IN",
- "interstates": {
-  "I-64": {
-   "maxMM": 124,
-   "stops": [
-    {
-     "mm": 7,
-     "exit": "7",
-     "name": "Indiana Welcome Center Rest Area (EB only)",
-     "brand": "State",
-     "type": "rest_area",
-     "city": "Griffin area",
-     "approx": true,
-     "notes": "Serves EB, truck parking",
-     "parking": 25
+  "state": "Indiana",
+  "abbr": "IN",
+  "interstates": {
+    "I-64": {
+      "maxMM": 124,
+      "stops": [
+        {"mm": 7, "exit": "7", "name": "Indiana Welcome Center Rest Area (EB only)", "brand": "State", "type": "rest_area", "city": "Griffin area", "approx": true, "notes": "Serves EB, truck parking", "parking": 25},
+        {"mm": 25, "exit": "25", "name": "Flying J Travel Center", "brand": "Flying J", "type": "truck_stop", "city": "Evansville area", "approx": true, "notes": "US-41 junction", "parking": 90},
+        {"mm": 25, "exit": "25", "name": "Blue Beacon Truck Wash", "brand": "Independent", "type": "truck_wash", "city": "Haubstadt (Evansville area)", "approx": false, "notes": "12744 Access Rd; I-64 Exit 25A/B at US-41, Blue Beacon of Evansville"},
+        {"mm": 25, "exit": "25", "name": "Blue Beacon Truck Wash", "brand": "Independent", "type": "truck_wash", "city": "Haubstadt (Evansville area)", "approx": false, "notes": "12744 Access Rd; I-64 Exit 25A/B at US-41, Blue Beacon of Evansville"},
+        {"mm": 54, "exit": "54", "name": "Pilot Travel Center", "brand": "Pilot", "type": "truck_stop", "city": "Dale", "approx": true, "notes": "US-231", "parking": 80},
+        {"mm": 54, "exit": "54", "name": "Love's Travel Stop", "brand": "Love's", "type": "truck_stop", "city": "Dale", "approx": true, "notes": "US-231", "parking": 85},
+        {"mm": 57, "exit": "57A", "name": "TA Express Dale", "brand": "TA Express", "type": "truck_stop", "city": "Dale", "approx": false, "notes": "Opened Nov 2025; 102 Rocket Way, Arby's/Dunkin, 8 diesel lanes", "parking": 114},
+        {"mm": 58, "exit": "58", "name": "Ferdinand Rest Area (both directions)", "brand": "State", "type": "rest_area", "city": "Dale/Ferdinand area", "approx": true, "parking": 25}
+      ]
     },
-    {
-     "mm": 25,
-     "exit": "25",
-     "name": "Flying J Travel Center",
-     "brand": "Flying J",
-     "type": "truck_stop",
-     "city": "Evansville area",
-     "approx": true,
-     "notes": "US-41 junction",
-     "parking": 90
+    "I-65": {
+      "maxMM": 262,
+      "stops": [
+        {"mm": 16, "exit": "16", "name": "Love's Travel Stop", "brand": "Love's", "type": "truck_stop", "city": "Memphis", "approx": true, "notes": "Memphis Rd", "parking": 85},
+        {"mm": 22, "exit": "22", "name": "Henryville Rest Area (both directions)", "brand": "State", "type": "rest_area", "city": "Henryville", "approx": true, "parking": 25},
+        {"mm": 29, "exit": "29", "name": "Pilot Travel Center", "brand": "Pilot", "type": "truck_stop", "city": "Scottsburg", "approx": true, "notes": "SR-56", "parking": 80},
+        {"mm": 50, "exit": "50", "name": "Pilot Travel Center", "brand": "Pilot", "type": "truck_stop", "city": "Seymour", "approx": true, "notes": "US-50", "parking": 80},
+        {"mm": 52, "exit": "52", "name": "Weigh Station (both directions)", "brand": "State", "type": "weigh_station", "city": "Seymour", "approx": true, "notes": "ISP scales NB and SB, about 1-2 mi north of US-50 (exit 50)"},
+        {"mm": 71, "exit": "71", "name": "Taylorsville Rest Area (both directions)", "brand": "State", "type": "rest_area", "city": "Taylorsville", "approx": true, "parking": 30},
+        {"mm": 95, "exit": "95", "name": "Pilot Travel Center", "brand": "Pilot", "type": "truck_stop", "city": "Whiteland", "approx": false, "notes": "Whiteland Rd", "parking": 80},
+        {"mm": 95, "exit": "95", "name": "Love's Travel Stop", "brand": "Love's", "type": "truck_stop", "city": "Whiteland", "approx": false, "notes": "Whiteland Rd", "parking": 85},
+        {"mm": 95, "exit": "95", "name": "Blue Beacon Truck Wash", "brand": "Independent", "type": "truck_wash", "city": "Whiteland", "approx": false, "notes": "4942 N 350 E, I-65 Exit 95"},
+        {"mm": 95, "exit": "95", "name": "Blue Beacon Truck Wash", "brand": "Independent", "type": "truck_wash", "city": "Whiteland", "approx": false, "notes": "4942 N 350 E, I-65 Exit 95"},
+        {"mm": 130, "exit": "130", "name": "Wally's Whitestown", "brand": "Independent", "type": "truck_stop", "city": "Whitestown", "approx": false, "notes": "Opened June 30, 2026; Wally's first Indiana site, 84 fueling positions; car-focused, no reported overnight semi parking"},
+        {"mm": 139, "exit": "139", "name": "Flying J Travel Center", "brand": "Flying J", "type": "truck_stop", "city": "Lebanon", "approx": false, "notes": "SR-39", "parking": 100},
+        {"mm": 139, "exit": "139", "name": "Pilot Travel Center", "brand": "Pilot", "type": "truck_stop", "city": "Lebanon", "approx": true, "notes": "SR-39", "parking": 80},
+        {"mm": 196, "exit": "196", "name": "Wolcott Rest Area (both directions)", "brand": "State", "type": "rest_area", "city": "Wolcott", "approx": true, "parking": 30},
+        {"mm": 201, "exit": "201", "name": "Petro Stopping Center", "brand": "Petro", "type": "truck_stop", "city": "Remington", "approx": false, "notes": "US-24", "parking": 200},
+        {"mm": 201, "exit": "201", "name": "Pilot Travel Center", "brand": "Pilot", "type": "truck_stop", "city": "Remington", "approx": false, "notes": "US-24", "parking": 80},
+        {"mm": 240, "exit": "240", "name": "Pilot Travel Center", "brand": "Pilot", "type": "truck_stop", "city": "Lowell", "approx": true, "notes": "SR-2", "parking": 80},
+        {"mm": 241, "exit": "241", "name": "Indiana Welcome Center Rest Area (SB only)", "brand": "State", "type": "rest_area", "city": "Lowell", "approx": true, "parking": 20},
+        {"mm": 243, "exit": "243", "name": "Weigh Station (SB)", "brand": "State", "type": "weigh_station", "city": "Lowell", "approx": true, "notes": "ISP scale with inspection bay; old NB scale is closed"}
+      ]
     },
-    {
-     "mm": 54,
-     "exit": "54",
-     "name": "Pilot Travel Center",
-     "brand": "Pilot",
-     "type": "truck_stop",
-     "city": "Dale",
-     "approx": true,
-     "notes": "US-231",
-     "parking": 80
+    "I-69": {
+      "maxMM": 358,
+      "stops": [
+        {"mm": 222, "exit": "222", "name": "Pendleton Rest Area (both directions)", "brand": "State", "type": "rest_area", "city": "Pendleton", "approx": true, "parking": 30},
+        {"mm": 234, "exit": "234", "name": "Pilot Travel Center", "brand": "Pilot", "type": "truck_stop", "city": "Daleville", "approx": true, "notes": "SR-67, post-2016 renumbered exit", "parking": 80},
+        {"mm": 259, "exit": "259", "name": "Love's Travel Stop", "brand": "Love's", "type": "truck_stop", "city": "Gas City", "approx": true, "notes": "SR-22", "parking": 85},
+        {"mm": 288, "exit": "288", "name": "Weigh Station (SB)", "brand": "State", "type": "weigh_station", "city": "Warren", "approx": true, "notes": "ISP scale, Huntington County (post-2016 renumbered mileage)"},
+        {"mm": 309, "exit": "309", "name": "Pilot Travel Center", "brand": "Pilot", "type": "truck_stop", "city": "Fort Wayne", "approx": true, "notes": "Lafayette Center Rd", "parking": 80},
+        {"mm": 309, "exit": "309A", "name": "Blue Beacon Truck Wash", "brand": "Independent", "type": "truck_wash", "city": "Fort Wayne", "approx": false, "notes": "3230 W Coliseum Blvd, I-69 Exit 309A"},
+        {"mm": 309, "exit": "309A", "name": "Blue Beacon Truck Wash", "brand": "Independent", "type": "truck_wash", "city": "Fort Wayne", "approx": false, "notes": "3230 W Coliseum Blvd, I-69 Exit 309A"},
+        {"mm": 356, "exit": "356", "name": "Indiana Welcome Center Rest Area (SB only)", "brand": "State", "type": "rest_area", "city": "Fremont", "approx": true, "parking": 25},
+        {"mm": 357, "exit": "357", "name": "Petro Stopping Center", "brand": "Petro", "type": "truck_stop", "city": "Fremont", "approx": true, "notes": "SR-120, near Indiana Toll Road junction", "parking": 200},
+        {"mm": 357, "exit": "357", "name": "Pilot Travel Center", "brand": "Pilot", "type": "truck_stop", "city": "Fremont", "approx": true, "notes": "Near Indiana Toll Road junction", "parking": 80}
+      ]
     },
-    {
-     "mm": 54,
-     "exit": "54",
-     "name": "Love's Travel Stop",
-     "brand": "Love's",
-     "type": "truck_stop",
-     "city": "Dale",
-     "approx": true,
-     "notes": "US-231",
-     "parking": 85
+    "I-70": {
+      "maxMM": 157,
+      "stops": [
+        {"mm": 1, "exit": "1", "name": "Indiana Welcome Center Rest Area (EB only)", "brand": "State", "type": "rest_area", "city": "West Terre Haute", "approx": false, "parking": 128, "notes": "Opened Nov 2025; new Indy 500-themed INDOT welcome center, EB mm 2 near IL line; 128 truck spaces (up from 78)"},
+        {"mm": 1, "exit": "1", "name": "Weigh Station (EB)", "brand": "State", "type": "weigh_station", "city": "West Terre Haute", "approx": true, "notes": "ISP scale just east of Illinois line, Sugar Creek Township"},
+        {"mm": 7, "exit": "7", "name": "Pilot Travel Center", "brand": "Pilot", "type": "truck_stop", "city": "Terre Haute", "approx": true, "notes": "US-41", "parking": 80},
+        {"mm": 11, "exit": "11", "name": "TA Travel Center", "brand": "TA", "type": "truck_stop", "city": "Terre Haute", "approx": true, "notes": "SR-46", "parking": 160},
+        {"mm": 23, "exit": "23", "name": "TA Travel Center", "brand": "TA", "type": "truck_stop", "city": "Brazil", "approx": false, "notes": "SR-59", "parking": 160},
+        {"mm": 41, "exit": "41", "name": "Flying J Travel Center", "brand": "Flying J", "type": "truck_stop", "city": "Cloverdale", "approx": true, "notes": "US-231", "parking": 90},
+        {"mm": 59, "exit": "59", "name": "Love's Travel Stop", "brand": "Love's", "type": "truck_stop", "city": "Monrovia area", "approx": true, "notes": "SR-39", "parking": 85},
+        {"mm": 96, "exit": "96", "name": "Pilot Travel Center", "brand": "Pilot", "type": "truck_stop", "city": "Greenfield", "approx": false, "notes": "SR-9", "parking": 80},
+        {"mm": 96, "exit": "96", "name": "Mr. Fuel Travel Center", "brand": "AmBest", "type": "truck_stop", "city": "Greenfield", "approx": false, "notes": "Independent AmBest-affiliated stop", "parking": 75},
+        {"mm": 107, "exit": "107", "name": "Greenfield Rest Area (both directions)", "brand": "State", "type": "rest_area", "city": "Greenfield area", "approx": true, "notes": "Serves EB and WB, truck parking", "parking": 30},
+        {"mm": 123, "exit": "123", "name": "Love's Travel Stop", "brand": "Love's", "type": "truck_stop", "city": "Spiceland", "approx": false, "notes": "SR-3", "parking": 85},
+        {"mm": 123, "exit": "123", "name": "Flying J Travel Center", "brand": "Flying J", "type": "truck_stop", "city": "Spiceland", "approx": false, "notes": "SR-3", "parking": 90},
+        {"mm": 148, "exit": "148", "name": "Weigh Station (WB)", "brand": "State", "type": "weigh_station", "city": "Richmond", "approx": true, "notes": "ISP scale just west of US-35/Williamsburg Pike (exit 149); WB right lane becomes scale ramp"},
+        {"mm": 151, "exit": "151", "name": "Indiana Welcome Center Rest Area (WB only)", "brand": "State", "type": "rest_area", "city": "Richmond", "approx": true, "parking": 25}
+      ]
     },
-    {
-     "mm": 57,
-     "exit": "57A",
-     "name": "TA Express Dale",
-     "brand": "TA Express",
-     "type": "truck_stop",
-     "city": "Dale",
-     "approx": false,
-     "notes": "Opened Nov 2025; 102 Rocket Way, Arby's/Dunkin, 8 diesel lanes",
-     "parking": 114
+    "I-74": {
+      "maxMM": 172,
+      "stops": [
+        {"mm": 4, "exit": "4", "name": "Indiana Welcome Center Rest Area (EB only)", "brand": "State", "type": "rest_area", "city": "Covington", "approx": true, "parking": 15},
+        {"mm": 34, "exit": "34", "name": "Pilot Travel Center", "brand": "Pilot", "type": "truck_stop", "city": "Crawfordsville", "approx": true, "notes": "US-231", "parking": 80},
+        {"mm": 134, "exit": "134", "name": "Love's Travel Stop", "brand": "Love's", "type": "truck_stop", "city": "Greensburg", "approx": true, "notes": "SR-3", "parking": 85},
+        {"mm": 169, "exit": "169", "name": "Indiana Welcome Center Rest Area (WB only)", "brand": "State", "type": "rest_area", "city": "West Harrison", "approx": true, "parking": 20},
+        {"mm": 170, "exit": "170", "name": "Weigh Station (WB)", "brand": "State", "type": "weigh_station", "city": "West Harrison", "approx": true, "notes": "ISP scale near Ohio state line"}
+      ]
     },
-    {
-     "mm": 58,
-     "exit": "58",
-     "name": "Ferdinand Rest Area (both directions)",
-     "brand": "State",
-     "type": "rest_area",
-     "city": "Dale/Ferdinand area",
-     "approx": true,
-     "parking": 25
+    "I-80/I-90": {
+      "maxMM": 157,
+      "stops": [
+        {"mm": 21, "exit": "21", "name": "Blue Beacon Truck Wash", "brand": "Independent", "type": "truck_wash", "city": "Lake Station", "approx": true, "notes": "Indiana Toll Road Exit 21 (IN-51/Ripley St); Blue Beacon of Lake Station North on Ripley St corridor"},
+        {"mm": 21, "exit": "21", "name": "Blue Beacon Truck Wash", "brand": "Independent", "type": "truck_wash", "city": "Lake Station", "approx": true, "notes": "Indiana Toll Road Exit 21 (IN-51/Ripley St); Blue Beacon of Lake Station North on Ripley St corridor"},
+        {"mm": 22, "exit": "", "name": "Indiana Toll Road Travel Plaza", "brand": "State", "type": "service_plaza", "city": "Lake Station/Portage area", "approx": true, "notes": "Mainline pair, EB and WB, truck parking", "parking": 40},
+        {"mm": 56, "exit": "", "name": "George Ade Travel Plaza", "brand": "State", "type": "service_plaza", "city": "Rolling Prairie area", "approx": true, "notes": "Mainline pair, EB and WB, truck parking", "parking": 50},
+        {"mm": 72, "exit": "", "name": "Knute Rockne Travel Plaza", "brand": "State", "type": "service_plaza", "city": "South Bend area", "approx": true, "notes": "Mainline pair, EB and WB, truck parking", "parking": 50},
+        {"mm": 126, "exit": "", "name": "Indiana Toll Road Travel Plaza", "brand": "State", "type": "service_plaza", "city": "Middlebury/LaGrange area", "approx": true, "notes": "Mainline pair, EB and WB, truck parking", "parking": 45},
+        {"mm": 146, "exit": "", "name": "Indiana Toll Road Travel Plaza", "brand": "State", "type": "service_plaza", "city": "Fremont area", "approx": true, "notes": "Mainline, truck parking", "parking": 40}
+      ]
+    },
+    "I-94": {
+      "maxMM": 46,
+      "stops": [
+        {"mm": 6, "exit": "6", "name": "Love's Travel Stop", "brand": "Love's", "type": "truck_stop", "city": "Gary", "approx": true, "notes": "Burr St, I-80/94 Borman Expwy concurrency", "parking": 85},
+        {"mm": 9, "exit": "9", "name": "Petro Stopping Center", "brand": "Petro", "type": "truck_stop", "city": "Gary", "approx": true, "notes": "Grant St, I-80/94 concurrency", "parking": 200},
+        {"mm": 15, "exit": "15", "name": "Pilot Travel Center", "brand": "Pilot", "type": "truck_stop", "city": "Lake Station", "approx": false, "notes": "Ripley St/SR-51, end of I-80/94 concurrency", "parking": 80},
+        {"mm": 15, "exit": "15", "name": "Flying J Travel Center", "brand": "Flying J", "type": "truck_stop", "city": "Lake Station", "approx": true, "notes": "Ripley St cluster", "parking": 90},
+        {"mm": 15, "exit": "15B", "name": "Blue Beacon Truck Wash", "brand": "Independent", "type": "truck_wash", "city": "Lake Station", "approx": false, "notes": "Ripley St (IN-51) near Flying J; two Blue Beacon facilities on Ripley St corridor"},
+        {"mm": 15, "exit": "15B", "name": "Blue Beacon Truck Wash", "brand": "Independent", "type": "truck_wash", "city": "Lake Station", "approx": false, "notes": "Ripley St (IN-51) near Flying J; two Blue Beacon facilities on Ripley St corridor"},
+        {"mm": 19, "exit": "19", "name": "Love's Travel Stop", "brand": "Love's", "type": "truck_stop", "city": "Portage", "approx": true, "notes": "", "parking": 85},
+        {"mm": 22, "exit": "22", "name": "TA Travel Center", "brand": "TA", "type": "truck_stop", "city": "Burns Harbor", "approx": true, "notes": "US-20", "parking": 175},
+        {"mm": 29, "exit": "29", "name": "Weigh Station (both directions)", "brand": "State", "type": "weigh_station", "city": "Chesterton", "approx": true, "notes": "ISP scales EB and WB"}
+      ]
     }
-   ]
-  },
-  "I-65": {
-   "maxMM": 262,
-   "stops": [
-    {
-     "mm": 16,
-     "exit": "16",
-     "name": "Love's Travel Stop",
-     "brand": "Love's",
-     "type": "truck_stop",
-     "city": "Memphis",
-     "approx": true,
-     "notes": "Memphis Rd",
-     "parking": 85
-    },
-    {
-     "mm": 22,
-     "exit": "22",
-     "name": "Henryville Rest Area (both directions)",
-     "brand": "State",
-     "type": "rest_area",
-     "city": "Henryville",
-     "approx": true,
-     "parking": 25
-    },
-    {
-     "mm": 29,
-     "exit": "29",
-     "name": "Pilot Travel Center",
-     "brand": "Pilot",
-     "type": "truck_stop",
-     "city": "Scottsburg",
-     "approx": true,
-     "notes": "SR-56",
-     "parking": 80
-    },
-    {
-     "mm": 50,
-     "exit": "50",
-     "name": "Pilot Travel Center",
-     "brand": "Pilot",
-     "type": "truck_stop",
-     "city": "Seymour",
-     "approx": true,
-     "notes": "US-50",
-     "parking": 80
-    },
-    {
-     "mm": 71,
-     "exit": "71",
-     "name": "Taylorsville Rest Area (both directions)",
-     "brand": "State",
-     "type": "rest_area",
-     "city": "Taylorsville",
-     "approx": true,
-     "parking": 30
-    },
-    {
-     "mm": 95,
-     "exit": "95",
-     "name": "Pilot Travel Center",
-     "brand": "Pilot",
-     "type": "truck_stop",
-     "city": "Whiteland",
-     "approx": false,
-     "notes": "Whiteland Rd",
-     "parking": 80
-    },
-    {
-     "mm": 95,
-     "exit": "95",
-     "name": "Love's Travel Stop",
-     "brand": "Love's",
-     "type": "truck_stop",
-     "city": "Whiteland",
-     "approx": false,
-     "notes": "Whiteland Rd",
-     "parking": 85
-    },
-    {
-     "mm": 130,
-     "exit": "130",
-     "name": "Wally's Whitestown",
-     "brand": "Independent",
-     "type": "truck_stop",
-     "city": "Whitestown",
-     "approx": false,
-     "notes": "Opened June 30, 2026; Wally's first Indiana site, 84 fueling positions; car-focused, no reported overnight semi parking"
-    },
-    {
-     "mm": 139,
-     "exit": "139",
-     "name": "Flying J Travel Center",
-     "brand": "Flying J",
-     "type": "truck_stop",
-     "city": "Lebanon",
-     "approx": false,
-     "notes": "SR-39",
-     "parking": 100
-    },
-    {
-     "mm": 139,
-     "exit": "139",
-     "name": "Pilot Travel Center",
-     "brand": "Pilot",
-     "type": "truck_stop",
-     "city": "Lebanon",
-     "approx": true,
-     "notes": "SR-39",
-     "parking": 80
-    },
-    {
-     "mm": 196,
-     "exit": "196",
-     "name": "Wolcott Rest Area (both directions)",
-     "brand": "State",
-     "type": "rest_area",
-     "city": "Wolcott",
-     "approx": true,
-     "parking": 30
-    },
-    {
-     "mm": 201,
-     "exit": "201",
-     "name": "Petro Stopping Center",
-     "brand": "Petro",
-     "type": "truck_stop",
-     "city": "Remington",
-     "approx": false,
-     "notes": "US-24",
-     "parking": 200
-    },
-    {
-     "mm": 201,
-     "exit": "201",
-     "name": "Pilot Travel Center",
-     "brand": "Pilot",
-     "type": "truck_stop",
-     "city": "Remington",
-     "approx": false,
-     "notes": "US-24",
-     "parking": 80
-    },
-    {
-     "mm": 240,
-     "exit": "240",
-     "name": "Pilot Travel Center",
-     "brand": "Pilot",
-     "type": "truck_stop",
-     "city": "Lowell",
-     "approx": true,
-     "notes": "SR-2",
-     "parking": 80
-    },
-    {
-     "mm": 241,
-     "exit": "241",
-     "name": "Indiana Welcome Center Rest Area (SB only)",
-     "brand": "State",
-     "type": "rest_area",
-     "city": "Lowell",
-     "approx": true,
-     "parking": 20
-    }
-   ]
-  },
-  "I-69": {
-   "maxMM": 358,
-   "stops": [
-    {
-     "mm": 222,
-     "exit": "222",
-     "name": "Pendleton Rest Area (both directions)",
-     "brand": "State",
-     "type": "rest_area",
-     "city": "Pendleton",
-     "approx": true,
-     "parking": 30
-    },
-    {
-     "mm": 234,
-     "exit": "234",
-     "name": "Pilot Travel Center",
-     "brand": "Pilot",
-     "type": "truck_stop",
-     "city": "Daleville",
-     "approx": true,
-     "notes": "SR-67, post-2016 renumbered exit",
-     "parking": 80
-    },
-    {
-     "mm": 259,
-     "exit": "259",
-     "name": "Love's Travel Stop",
-     "brand": "Love's",
-     "type": "truck_stop",
-     "city": "Gas City",
-     "approx": true,
-     "notes": "SR-22",
-     "parking": 85
-    },
-    {
-     "mm": 309,
-     "exit": "309",
-     "name": "Pilot Travel Center",
-     "brand": "Pilot",
-     "type": "truck_stop",
-     "city": "Fort Wayne",
-     "approx": true,
-     "notes": "Lafayette Center Rd",
-     "parking": 80
-    },
-    {
-     "mm": 356,
-     "exit": "356",
-     "name": "Indiana Welcome Center Rest Area (SB only)",
-     "brand": "State",
-     "type": "rest_area",
-     "city": "Fremont",
-     "approx": true,
-     "parking": 25
-    },
-    {
-     "mm": 357,
-     "exit": "357",
-     "name": "Petro Stopping Center",
-     "brand": "Petro",
-     "type": "truck_stop",
-     "city": "Fremont",
-     "approx": true,
-     "notes": "SR-120, near Indiana Toll Road junction",
-     "parking": 200
-    },
-    {
-     "mm": 357,
-     "exit": "357",
-     "name": "Pilot Travel Center",
-     "brand": "Pilot",
-     "type": "truck_stop",
-     "city": "Fremont",
-     "approx": true,
-     "notes": "Near Indiana Toll Road junction",
-     "parking": 80
-    }
-   ]
-  },
-  "I-70": {
-   "maxMM": 157,
-   "stops": [
-    {
-     "mm": 1,
-     "exit": "1",
-     "name": "Indiana Welcome Center Rest Area (EB only)",
-     "brand": "State",
-     "type": "rest_area",
-     "city": "West Terre Haute",
-     "approx": false,
-     "parking": 128,
-     "notes": "Opened Nov 2025; new Indy 500-themed INDOT welcome center, EB mm 2 near IL line; 128 truck spaces (up from 78)"
-    },
-    {
-     "mm": 7,
-     "exit": "7",
-     "name": "Pilot Travel Center",
-     "brand": "Pilot",
-     "type": "truck_stop",
-     "city": "Terre Haute",
-     "approx": true,
-     "notes": "US-41",
-     "parking": 80
-    },
-    {
-     "mm": 11,
-     "exit": "11",
-     "name": "TA Travel Center",
-     "brand": "TA",
-     "type": "truck_stop",
-     "city": "Terre Haute",
-     "approx": true,
-     "notes": "SR-46",
-     "parking": 160
-    },
-    {
-     "mm": 23,
-     "exit": "23",
-     "name": "TA Travel Center",
-     "brand": "TA",
-     "type": "truck_stop",
-     "city": "Brazil",
-     "approx": false,
-     "notes": "SR-59",
-     "parking": 160
-    },
-    {
-     "mm": 41,
-     "exit": "41",
-     "name": "Flying J Travel Center",
-     "brand": "Flying J",
-     "type": "truck_stop",
-     "city": "Cloverdale",
-     "approx": true,
-     "notes": "US-231",
-     "parking": 90
-    },
-    {
-     "mm": 59,
-     "exit": "59",
-     "name": "Love's Travel Stop",
-     "brand": "Love's",
-     "type": "truck_stop",
-     "city": "Monrovia area",
-     "approx": true,
-     "notes": "SR-39",
-     "parking": 85
-    },
-    {
-     "mm": 96,
-     "exit": "96",
-     "name": "Pilot Travel Center",
-     "brand": "Pilot",
-     "type": "truck_stop",
-     "city": "Greenfield",
-     "approx": false,
-     "notes": "SR-9",
-     "parking": 80
-    },
-    {
-     "mm": 96,
-     "exit": "96",
-     "name": "Mr. Fuel Travel Center",
-     "brand": "AmBest",
-     "type": "truck_stop",
-     "city": "Greenfield",
-     "approx": false,
-     "notes": "Independent AmBest-affiliated stop",
-     "parking": 75
-    },
-    {
-     "mm": 107,
-     "exit": "107",
-     "name": "Greenfield Rest Area (both directions)",
-     "brand": "State",
-     "type": "rest_area",
-     "city": "Greenfield area",
-     "approx": true,
-     "notes": "Serves EB and WB, truck parking",
-     "parking": 30
-    },
-    {
-     "mm": 123,
-     "exit": "123",
-     "name": "Love's Travel Stop",
-     "brand": "Love's",
-     "type": "truck_stop",
-     "city": "Spiceland",
-     "approx": false,
-     "notes": "SR-3",
-     "parking": 85
-    },
-    {
-     "mm": 123,
-     "exit": "123",
-     "name": "Flying J Travel Center",
-     "brand": "Flying J",
-     "type": "truck_stop",
-     "city": "Spiceland",
-     "approx": false,
-     "notes": "SR-3",
-     "parking": 90
-    },
-    {
-     "mm": 151,
-     "exit": "151",
-     "name": "Indiana Welcome Center Rest Area (WB only)",
-     "brand": "State",
-     "type": "rest_area",
-     "city": "Richmond",
-     "approx": true,
-     "parking": 25
-    }
-   ]
-  },
-  "I-74": {
-   "maxMM": 172,
-   "stops": [
-    {
-     "mm": 4,
-     "exit": "4",
-     "name": "Indiana Welcome Center Rest Area (EB only)",
-     "brand": "State",
-     "type": "rest_area",
-     "city": "Covington",
-     "approx": true,
-     "parking": 15
-    },
-    {
-     "mm": 34,
-     "exit": "34",
-     "name": "Pilot Travel Center",
-     "brand": "Pilot",
-     "type": "truck_stop",
-     "city": "Crawfordsville",
-     "approx": true,
-     "notes": "US-231",
-     "parking": 80
-    },
-    {
-     "mm": 134,
-     "exit": "134",
-     "name": "Love's Travel Stop",
-     "brand": "Love's",
-     "type": "truck_stop",
-     "city": "Greensburg",
-     "approx": true,
-     "notes": "SR-3",
-     "parking": 85
-    },
-    {
-     "mm": 169,
-     "exit": "169",
-     "name": "Indiana Welcome Center Rest Area (WB only)",
-     "brand": "State",
-     "type": "rest_area",
-     "city": "West Harrison",
-     "approx": true,
-     "parking": 20
-    }
-   ]
-  },
-  "I-80/I-90": {
-   "maxMM": 157,
-   "stops": [
-    {
-     "mm": 22,
-     "exit": "",
-     "name": "Indiana Toll Road Travel Plaza",
-     "brand": "State",
-     "type": "service_plaza",
-     "city": "Lake Station/Portage area",
-     "approx": true,
-     "notes": "Mainline pair, EB and WB, truck parking",
-     "parking": 40
-    },
-    {
-     "mm": 56,
-     "exit": "",
-     "name": "George Ade Travel Plaza",
-     "brand": "State",
-     "type": "service_plaza",
-     "city": "Rolling Prairie area",
-     "approx": true,
-     "notes": "Mainline pair, EB and WB, truck parking",
-     "parking": 50
-    },
-    {
-     "mm": 72,
-     "exit": "",
-     "name": "Knute Rockne Travel Plaza",
-     "brand": "State",
-     "type": "service_plaza",
-     "city": "South Bend area",
-     "approx": true,
-     "notes": "Mainline pair, EB and WB, truck parking",
-     "parking": 50
-    },
-    {
-     "mm": 126,
-     "exit": "",
-     "name": "Indiana Toll Road Travel Plaza",
-     "brand": "State",
-     "type": "service_plaza",
-     "city": "Middlebury/LaGrange area",
-     "approx": true,
-     "notes": "Mainline pair, EB and WB, truck parking",
-     "parking": 45
-    },
-    {
-     "mm": 146,
-     "exit": "",
-     "name": "Indiana Toll Road Travel Plaza",
-     "brand": "State",
-     "type": "service_plaza",
-     "city": "Fremont area",
-     "approx": true,
-     "notes": "Mainline, truck parking",
-     "parking": 40
-    }
-   ]
-  },
-  "I-94": {
-   "maxMM": 46,
-   "stops": [
-    {
-     "mm": 6,
-     "exit": "6",
-     "name": "Love's Travel Stop",
-     "brand": "Love's",
-     "type": "truck_stop",
-     "city": "Gary",
-     "approx": true,
-     "notes": "Burr St, I-80/94 Borman Expwy concurrency",
-     "parking": 85
-    },
-    {
-     "mm": 9,
-     "exit": "9",
-     "name": "Petro Stopping Center",
-     "brand": "Petro",
-     "type": "truck_stop",
-     "city": "Gary",
-     "approx": true,
-     "notes": "Grant St, I-80/94 concurrency",
-     "parking": 200
-    },
-    {
-     "mm": 15,
-     "exit": "15",
-     "name": "Pilot Travel Center",
-     "brand": "Pilot",
-     "type": "truck_stop",
-     "city": "Lake Station",
-     "approx": false,
-     "notes": "Ripley St/SR-51, end of I-80/94 concurrency",
-     "parking": 80
-    },
-    {
-     "mm": 15,
-     "exit": "15",
-     "name": "Flying J Travel Center",
-     "brand": "Flying J",
-     "type": "truck_stop",
-     "city": "Lake Station",
-     "approx": true,
-     "notes": "Ripley St cluster",
-     "parking": 90
-    },
-    {
-     "mm": 19,
-     "exit": "19",
-     "name": "Love's Travel Stop",
-     "brand": "Love's",
-     "type": "truck_stop",
-     "city": "Portage",
-     "approx": true,
-     "notes": "",
-     "parking": 85
-    },
-    {
-     "mm": 22,
-     "exit": "22",
-     "name": "TA Travel Center",
-     "brand": "TA",
-     "type": "truck_stop",
-     "city": "Burns Harbor",
-     "approx": true,
-     "notes": "US-20",
-     "parking": 175
-    }
-   ]
   }
- }
 }

@@ -17,6 +17,26 @@
      "parking": 20
     },
     {
+     "mm": 1,
+     "exit": "1",
+     "name": "Weigh Station (EB)",
+     "brand": "State",
+     "type": "weigh_station",
+     "city": "Toomey",
+     "approx": true,
+     "notes": "DOTD port of entry about 1 mile east of the Texas line; weigh-in-motion with bypass signs"
+    },
+    {
+     "mm": 2,
+     "exit": "2",
+     "name": "Weigh Station (WB)",
+     "brand": "State",
+     "type": "weigh_station",
+     "city": "Toomey",
+     "approx": true,
+     "notes": "DOTD scale near mm 2.5, last scale before the Texas line; weigh-in-motion with bypass signs"
+    },
+    {
      "mm": 7,
      "exit": "7",
      "name": "Love's Travel Stop",
@@ -182,6 +202,16 @@
      "parking": 75
     },
     {
+     "mm": 267,
+     "exit": "267",
+     "name": "Weigh Station (both directions)",
+     "brand": "State",
+     "type": "weigh_station",
+     "city": "Slidell",
+     "approx": true,
+     "notes": "DOTD Slidell scales near the I-10/I-12/I-59 junction; milepost estimated; some sources report the mainline stations were removed during I-10 widening - verify locally"
+    },
+    {
      "mm": 270,
      "exit": "",
      "name": "Slidell Welcome Center",
@@ -197,6 +227,16 @@
   "I-12": {
    "maxMM": 85,
    "stops": [
+    {
+     "mm": 40,
+     "exit": "40",
+     "name": "Blue Beacon Truck Wash",
+     "brand": "Independent",
+     "type": "truck_wash",
+     "city": "Hammond",
+     "approx": false,
+     "notes": "2102 SW Railroad Ave, exit 40 (US-51); 1 mile east of I-55"
+    },
     {
      "mm": 68,
      "exit": "68",
@@ -224,6 +264,16 @@
      "approx": true,
      "notes": "Eastbound entering from Texas; LA welcome center; truck parking",
      "parking": 20
+    },
+    {
+     "mm": 1,
+     "exit": "1",
+     "name": "Weigh Station (both directions)",
+     "brand": "State",
+     "type": "weigh_station",
+     "city": "Greenwood",
+     "approx": true,
+     "notes": "DOTD port of entry just east of the Texas line; EB scale near mm 1, WB scale near mm 1.5; weigh-in-motion with bypass signs"
     },
     {
      "mm": 3,
@@ -268,6 +318,16 @@
      "approx": true,
      "notes": "Greenwood cluster",
      "parking": 85
+    },
+    {
+     "mm": 8,
+     "exit": "8",
+     "name": "Blue Beacon Truck Wash",
+     "brand": "Independent",
+     "type": "truck_wash",
+     "city": "Shreveport",
+     "approx": false,
+     "notes": "6904 W Bert Kouns Industrial Loop, exit 8; next to the Flying J"
     },
     {
      "mm": 112,

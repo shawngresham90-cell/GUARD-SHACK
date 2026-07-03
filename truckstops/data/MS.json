@@ -1,276 +1,366 @@
 {
- "state": "Mississippi",
- "abbr": "MS",
- "interstates": {
-  "I-10": {
-   "maxMM": 77,
-   "stops": [
-    {
-     "mm": 2,
-     "exit": "",
-     "name": "Mississippi Welcome Center (Pearlington)",
-     "brand": "State",
-     "type": "rest_area",
-     "city": "Pearlington",
-     "approx": true,
-     "notes": "Eastbound entering from Louisiana; truck parking; also known as the Hancock County Welcome Center",
-     "parking": 20
+  "state": "Mississippi",
+  "abbr": "MS",
+  "interstates": {
+    "I-10": {
+      "maxMM": 77,
+      "stops": [
+        {
+          "mm": 1,
+          "exit": "1",
+          "name": "Weigh Station (EB)",
+          "brand": "State",
+          "type": "weigh_station",
+          "city": "Pearlington",
+          "approx": true,
+          "notes": "MDOT scale just east of the Pearl River/Louisiana line, before Exit 2 (MS 607); PrePass/Drivewyze bypass"
+        },
+        {
+          "mm": 2,
+          "exit": "",
+          "name": "Mississippi Welcome Center (Pearlington)",
+          "brand": "State",
+          "type": "rest_area",
+          "city": "Pearlington",
+          "approx": true,
+          "notes": "Eastbound entering from Louisiana; truck parking; also known as the Hancock County Welcome Center",
+          "parking": 20
+        },
+        {
+          "mm": 24,
+          "exit": "24",
+          "name": "Buc-ee's",
+          "brand": "Buc-ee's",
+          "type": "truck_stop",
+          "city": "Pass Christian",
+          "approx": false,
+          "notes": "No semi parking; opened June 9, 2025; exit 24 (Menge Ave); 126 gas pumps, 24 EV chargers",
+          "parking": 0
+        },
+        {
+          "mm": 31,
+          "exit": "31",
+          "name": "Flying J Travel Center",
+          "brand": "Flying J",
+          "type": "truck_stop",
+          "city": "Gulfport",
+          "approx": true,
+          "notes": "Canal Rd exit",
+          "parking": 90
+        },
+        {
+          "mm": 31,
+          "exit": "31",
+          "name": "Love's Travel Stop",
+          "brand": "Love's",
+          "type": "truck_stop",
+          "city": "Gulfport",
+          "approx": true,
+          "notes": "Canal Rd cluster",
+          "parking": 85
+        },
+        {
+          "mm": 69,
+          "exit": "69",
+          "name": "Love's Travel Stop",
+          "brand": "Love's",
+          "type": "truck_stop",
+          "city": "Moss Point",
+          "approx": true,
+          "notes": "MS 63 interchange",
+          "parking": 80
+        },
+        {
+          "mm": 74,
+          "exit": "74",
+          "name": "Weigh Station (both directions)",
+          "brand": "State",
+          "type": "weigh_station",
+          "city": "Moss Point",
+          "approx": true,
+          "notes": "MDOT EB and WB scales in the Escatawpa area near the Alabama line; milepost estimated; PrePass/Drivewyze bypass"
+        },
+        {
+          "mm": 75,
+          "exit": "",
+          "name": "Mississippi Welcome Center (Moss Point)",
+          "brand": "State",
+          "type": "rest_area",
+          "city": "Moss Point",
+          "approx": true,
+          "notes": "Westbound entering from Alabama; truck parking",
+          "parking": 20
+        }
+      ]
     },
-    {
-     "mm": 24,
-     "exit": "24",
-     "name": "Buc-ee's",
-     "brand": "Buc-ee's",
-     "type": "truck_stop",
-     "city": "Pass Christian",
-     "approx": false,
-     "notes": "No semi parking; opened June 9, 2025; exit 24 (Menge Ave); 126 gas pumps, 24 EV chargers",
-     "parking": 0
+    "I-20": {
+      "maxMM": 154,
+      "stops": [
+        {
+          "mm": 1,
+          "exit": "",
+          "name": "Mississippi Welcome Center (Vicksburg)",
+          "brand": "State",
+          "type": "rest_area",
+          "city": "Vicksburg",
+          "approx": true,
+          "notes": "Eastbound entering from Louisiana; truck parking",
+          "parking": 20
+        },
+        {
+          "mm": 19,
+          "exit": "19",
+          "name": "Love's Travel Stop",
+          "brand": "Love's",
+          "type": "truck_stop",
+          "city": "Edwards",
+          "approx": true,
+          "notes": "Between Vicksburg and Jackson",
+          "parking": 80
+        },
+        {
+          "mm": 36,
+          "exit": "36",
+          "name": "Pilot Travel Center",
+          "brand": "Pilot",
+          "type": "truck_stop",
+          "city": "Clinton",
+          "approx": true,
+          "notes": "Springridge Rd exit, west of Jackson",
+          "parking": 75
+        },
+        {
+          "mm": 45,
+          "exit": "45",
+          "name": "Blue Beacon Truck Wash",
+          "brand": "Independent",
+          "type": "truck_wash",
+          "city": "Jackson (Pearl)",
+          "approx": true,
+          "notes": "Blue Beacon of Pearl, 970 I-20 W Frontage Rd; at Petro on I-20/I-55 overlap"
+        },
+        {
+          "mm": 45,
+          "exit": "45",
+          "name": "Gill Express Truck Wash",
+          "brand": "Independent",
+          "type": "truck_wash",
+          "city": "Jackson",
+          "approx": true,
+          "notes": "950 I-20 W Frontage Rd, next door to Blue Beacon; washouts and tanker acid wash"
+        },
+        {
+          "mm": 48,
+          "exit": "48",
+          "name": "Pilot Travel Center",
+          "brand": "Pilot",
+          "type": "truck_stop",
+          "city": "Pearl",
+          "approx": true,
+          "notes": "Pearson Rd exit, east side of Jackson",
+          "parking": 75
+        },
+        {
+          "mm": 151,
+          "exit": "151",
+          "name": "Love's Travel Stop",
+          "brand": "Love's",
+          "type": "truck_stop",
+          "city": "Meridian",
+          "approx": true,
+          "notes": "On the I-20/I-59 concurrency through Meridian",
+          "parking": 85
+        },
+        {
+          "mm": 153,
+          "exit": "153",
+          "name": "Queen City Truck Stop",
+          "brand": "Independent",
+          "type": "truck_stop",
+          "city": "Meridian",
+          "approx": true,
+          "notes": "Independent stop; I-20/I-59 concurrency",
+          "parking": 50
+        },
+        {
+          "mm": 154,
+          "exit": "154",
+          "name": "Pilot Travel Center",
+          "brand": "Pilot",
+          "type": "truck_stop",
+          "city": "Meridian",
+          "approx": true,
+          "notes": "East Meridian; I-20/I-59 concurrency",
+          "parking": 80
+        }
+      ]
     },
-    {
-     "mm": 31,
-     "exit": "31",
-     "name": "Flying J Travel Center",
-     "brand": "Flying J",
-     "type": "truck_stop",
-     "city": "Gulfport",
-     "approx": true,
-     "notes": "Canal Rd exit",
-     "parking": 90
+    "I-22": {
+      "maxMM": 113,
+      "stops": [],
+      "notes": "Byhalia (I-269) to the Alabama line via New Albany and Tupelo; mileposts begin around mm 14 to match the future extension toward Memphis. No confirmed major chain truck stops directly on I-22 in Mississippi."
     },
-    {
-     "mm": 31,
-     "exit": "31",
-     "name": "Love's Travel Stop",
-     "brand": "Love's",
-     "type": "truck_stop",
-     "city": "Gulfport",
-     "approx": true,
-     "notes": "Canal Rd cluster",
-     "parking": 85
+    "I-55": {
+      "maxMM": 291,
+      "stops": [
+        {
+          "mm": 2,
+          "exit": "2",
+          "name": "Weigh Station (both directions)",
+          "brand": "State",
+          "type": "weigh_station",
+          "city": "Magnolia",
+          "approx": true,
+          "notes": "MDOT NB and SB scales near the Louisiana line at Osyka, south of Magnolia; milepost estimated; PrePass/Drivewyze bypass"
+        },
+        {
+          "mm": 3,
+          "exit": "",
+          "name": "Mississippi Welcome Center (Magnolia)",
+          "brand": "State",
+          "type": "rest_area",
+          "city": "Magnolia",
+          "approx": true,
+          "notes": "Northbound entering from Louisiana; truck parking",
+          "parking": 20
+        },
+        {
+          "mm": 119,
+          "exit": "119",
+          "name": "Love's Travel Stop",
+          "brand": "Love's",
+          "type": "truck_stop",
+          "city": "Canton",
+          "approx": true,
+          "notes": "North of Jackson",
+          "parking": 85
+        },
+        {
+          "mm": 181,
+          "exit": "181",
+          "name": "Winona Rest Area (both directions)",
+          "brand": "State",
+          "type": "rest_area",
+          "city": "Winona",
+          "approx": true,
+          "parking": 20
+        },
+        {
+          "mm": 185,
+          "exit": "185",
+          "name": "Love's Travel Stop",
+          "brand": "Love's",
+          "type": "truck_stop",
+          "city": "Winona",
+          "approx": true,
+          "notes": "US 82 junction",
+          "parking": 80
+        },
+        {
+          "mm": 243,
+          "exit": "243",
+          "name": "Love's Travel Stop",
+          "brand": "Love's",
+          "type": "truck_stop",
+          "city": "Batesville",
+          "approx": true,
+          "notes": "MS 6 interchange",
+          "parking": 85
+        },
+        {
+          "mm": 273,
+          "exit": "273",
+          "name": "Coldwater Rest Area (both directions)",
+          "brand": "State",
+          "type": "rest_area",
+          "city": "Coldwater",
+          "approx": true,
+          "parking": 20
+        },
+        {
+          "mm": 280,
+          "exit": "",
+          "name": "Mississippi Welcome Center (Hernando)",
+          "brand": "State",
+          "type": "rest_area",
+          "city": "Hernando",
+          "approx": true,
+          "notes": "Southbound entering from Tennessee; truck parking",
+          "parking": 25
+        },
+        {
+          "mm": 284,
+          "exit": "284",
+          "name": "Weigh Station (both directions)",
+          "brand": "State",
+          "type": "weigh_station",
+          "city": "Nesbit",
+          "approx": true,
+          "notes": "MDOT NB and SB scales at Nesbit, about 7 miles south of the Tennessee line (north of the Coldwater/Hernando rest areas); milepost estimated; Drivewyze bypass"
+        }
+      ]
     },
-    {
-     "mm": 69,
-     "exit": "69",
-     "name": "Love's Travel Stop",
-     "brand": "Love's",
-     "type": "truck_stop",
-     "city": "Moss Point",
-     "approx": true,
-     "notes": "MS 63 interchange",
-     "parking": 80
+    "I-59": {
+      "maxMM": 172,
+      "stops": [
+        {
+          "mm": 1,
+          "exit": "1",
+          "name": "Weigh Station (SB)",
+          "brand": "State",
+          "type": "weigh_station",
+          "city": "Nicholson",
+          "approx": true,
+          "notes": "MDOT scale near the Louisiana line south of Picayune; milepost estimated"
+        },
+        {
+          "mm": 2,
+          "exit": "",
+          "name": "Mississippi Welcome Center (Picayune)",
+          "brand": "State",
+          "type": "rest_area",
+          "city": "Picayune",
+          "approx": true,
+          "notes": "Northbound entering from Louisiana; truck parking",
+          "parking": 20
+        },
+        {
+          "mm": 93,
+          "exit": "93",
+          "name": "B Clean Truck Wash",
+          "brand": "Independent",
+          "type": "truck_wash",
+          "city": "Laurel",
+          "approx": false,
+          "notes": "86 Don Curt Rd off Exit 93; 24-hour truck washing and washouts"
+        },
+        {
+          "mm": 165,
+          "exit": "165",
+          "name": "Mississippi Welcome Center (Toomsuba)",
+          "brand": "State",
+          "type": "rest_area",
+          "city": "Toomsuba",
+          "approx": true,
+          "notes": "Westbound/southbound entering from Alabama on the I-20/I-59 concurrency; truck parking",
+          "parking": 20
+        },
+        {
+          "mm": 170,
+          "exit": "170",
+          "name": "Weigh Station (both directions)",
+          "brand": "State",
+          "type": "weigh_station",
+          "city": "Kewanee",
+          "approx": true,
+          "notes": "MDOT Meridian scales on the I-20/I-59 concurrency about 2 miles west of the Alabama line; WB scale at mm 170.5; PrePass/Drivewyze bypass"
+        }
+      ]
     },
-    {
-     "mm": 75,
-     "exit": "",
-     "name": "Mississippi Welcome Center (Moss Point)",
-     "brand": "State",
-     "type": "rest_area",
-     "city": "Moss Point",
-     "approx": true,
-     "notes": "Westbound entering from Alabama; truck parking",
-     "parking": 20
+    "I-69": {
+      "maxMM": 12,
+      "stops": [],
+      "notes": "Short segment near Tunica/Robinsonville and Hernando; no known truck stops directly on the route."
     }
-   ]
-  },
-  "I-20": {
-   "maxMM": 154,
-   "stops": [
-    {
-     "mm": 1,
-     "exit": "",
-     "name": "Mississippi Welcome Center (Vicksburg)",
-     "brand": "State",
-     "type": "rest_area",
-     "city": "Vicksburg",
-     "approx": true,
-     "notes": "Eastbound entering from Louisiana; truck parking",
-     "parking": 20
-    },
-    {
-     "mm": 19,
-     "exit": "19",
-     "name": "Love's Travel Stop",
-     "brand": "Love's",
-     "type": "truck_stop",
-     "city": "Edwards",
-     "approx": true,
-     "notes": "Between Vicksburg and Jackson",
-     "parking": 80
-    },
-    {
-     "mm": 36,
-     "exit": "36",
-     "name": "Pilot Travel Center",
-     "brand": "Pilot",
-     "type": "truck_stop",
-     "city": "Clinton",
-     "approx": true,
-     "notes": "Springridge Rd exit, west of Jackson",
-     "parking": 75
-    },
-    {
-     "mm": 48,
-     "exit": "48",
-     "name": "Pilot Travel Center",
-     "brand": "Pilot",
-     "type": "truck_stop",
-     "city": "Pearl",
-     "approx": true,
-     "notes": "Pearson Rd exit, east side of Jackson",
-     "parking": 75
-    },
-    {
-     "mm": 151,
-     "exit": "151",
-     "name": "Love's Travel Stop",
-     "brand": "Love's",
-     "type": "truck_stop",
-     "city": "Meridian",
-     "approx": true,
-     "notes": "On the I-20/I-59 concurrency through Meridian",
-     "parking": 85
-    },
-    {
-     "mm": 153,
-     "exit": "153",
-     "name": "Queen City Truck Stop",
-     "brand": "Independent",
-     "type": "truck_stop",
-     "city": "Meridian",
-     "approx": true,
-     "notes": "Independent stop; I-20/I-59 concurrency",
-     "parking": 50
-    },
-    {
-     "mm": 154,
-     "exit": "154",
-     "name": "Pilot Travel Center",
-     "brand": "Pilot",
-     "type": "truck_stop",
-     "city": "Meridian",
-     "approx": true,
-     "notes": "East Meridian; I-20/I-59 concurrency",
-     "parking": 80
-    }
-   ]
-  },
-  "I-22": {
-   "maxMM": 113,
-   "stops": [],
-   "notes": "Byhalia (I-269) to the Alabama line via New Albany and Tupelo; mileposts begin around mm 14 to match the future extension toward Memphis. No confirmed major chain truck stops directly on I-22 in Mississippi."
-  },
-  "I-55": {
-   "maxMM": 291,
-   "stops": [
-    {
-     "mm": 3,
-     "exit": "",
-     "name": "Mississippi Welcome Center (Magnolia)",
-     "brand": "State",
-     "type": "rest_area",
-     "city": "Magnolia",
-     "approx": true,
-     "notes": "Northbound entering from Louisiana; truck parking",
-     "parking": 20
-    },
-    {
-     "mm": 119,
-     "exit": "119",
-     "name": "Love's Travel Stop",
-     "brand": "Love's",
-     "type": "truck_stop",
-     "city": "Canton",
-     "approx": true,
-     "notes": "North of Jackson",
-     "parking": 85
-    },
-    {
-     "mm": 181,
-     "exit": "181",
-     "name": "Winona Rest Area (both directions)",
-     "brand": "State",
-     "type": "rest_area",
-     "city": "Winona",
-     "approx": true,
-     "parking": 20
-    },
-    {
-     "mm": 185,
-     "exit": "185",
-     "name": "Love's Travel Stop",
-     "brand": "Love's",
-     "type": "truck_stop",
-     "city": "Winona",
-     "approx": true,
-     "notes": "US 82 junction",
-     "parking": 80
-    },
-    {
-     "mm": 243,
-     "exit": "243",
-     "name": "Love's Travel Stop",
-     "brand": "Love's",
-     "type": "truck_stop",
-     "city": "Batesville",
-     "approx": true,
-     "notes": "MS 6 interchange",
-     "parking": 85
-    },
-    {
-     "mm": 273,
-     "exit": "273",
-     "name": "Coldwater Rest Area (both directions)",
-     "brand": "State",
-     "type": "rest_area",
-     "city": "Coldwater",
-     "approx": true,
-     "parking": 20
-    },
-    {
-     "mm": 280,
-     "exit": "",
-     "name": "Mississippi Welcome Center (Hernando)",
-     "brand": "State",
-     "type": "rest_area",
-     "city": "Hernando",
-     "approx": true,
-     "notes": "Southbound entering from Tennessee; truck parking",
-     "parking": 25
-    }
-   ]
-  },
-  "I-59": {
-   "maxMM": 172,
-   "stops": [
-    {
-     "mm": 2,
-     "exit": "",
-     "name": "Mississippi Welcome Center (Picayune)",
-     "brand": "State",
-     "type": "rest_area",
-     "city": "Picayune",
-     "approx": true,
-     "notes": "Northbound entering from Louisiana; truck parking",
-     "parking": 20
-    },
-    {
-     "mm": 165,
-     "exit": "165",
-     "name": "Mississippi Welcome Center (Toomsuba)",
-     "brand": "State",
-     "type": "rest_area",
-     "city": "Toomsuba",
-     "approx": true,
-     "notes": "Westbound/southbound entering from Alabama on the I-20/I-59 concurrency; truck parking",
-     "parking": 20
-    }
-   ]
-  },
-  "I-69": {
-   "maxMM": 12,
-   "stops": [],
-   "notes": "Short segment near Tunica/Robinsonville and Hernando; no known truck stops directly on the route."
   }
- }
 }

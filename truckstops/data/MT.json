@@ -89,6 +89,16 @@
      "parking": 15
     },
     {
+     "mm": 5,
+     "exit": "5",
+     "name": "Dena Mora Weigh Station (EB)",
+     "brand": "State",
+     "type": "weigh_station",
+     "city": "Saltese (Lookout Pass)",
+     "approx": true,
+     "notes": "MDT scale near the Idaho line; eastbound entering from Idaho; co-located with Dena Mora rest area"
+    },
+    {
      "mm": 16,
      "exit": "16",
      "name": "Lincoln's 50,000 Silver Dollar",
@@ -122,6 +132,16 @@
      "parking": 20
     },
     {
+     "mm": 90,
+     "exit": "90",
+     "name": "Weigh Station (both directions)",
+     "brand": "State",
+     "type": "weigh_station",
+     "city": "Missoula",
+     "approx": true,
+     "notes": "MDT scale west of Missoula"
+    },
+    {
      "mm": 96,
      "exit": "96",
      "name": "Muralt's Travel Plaza",
@@ -142,6 +162,16 @@
      "approx": true,
      "notes": "US-10 W near airport (former Flying J Crossroads)",
      "parking": 75
+    },
+    {
+     "mm": 96,
+     "exit": "96",
+     "name": "Exit 96 Shine Truck & RV Wash",
+     "brand": "Independent",
+     "type": "truck_wash",
+     "city": "Missoula",
+     "approx": true,
+     "notes": "Independent truck and RV wash off exit 96"
     },
     {
      "mm": 101,
@@ -287,6 +317,16 @@
      "parking": 177
     },
     {
+     "mm": 437,
+     "exit": "437",
+     "name": "Weigh Station (both directions)",
+     "brand": "State",
+     "type": "weigh_station",
+     "city": "Laurel (Billings)",
+     "approx": true,
+     "notes": "MDT scale at the Mossmain interchange west of Billings"
+    },
+    {
      "mm": 450,
      "exit": "450",
      "name": "Pilot Travel Center",
@@ -296,6 +336,16 @@
      "approx": true,
      "notes": "East Billings",
      "parking": 80
+    },
+    {
+     "mm": 450,
+     "exit": "450",
+     "name": "Hoogies Industrial Cleaning",
+     "brand": "Independent",
+     "type": "truck_wash",
+     "city": "Billings",
+     "approx": true,
+     "notes": "Trailer washouts by appointment, State Ave"
     },
     {
      "mm": 455,
@@ -320,6 +370,16 @@
      "parking": 150
     },
     {
+     "mm": 455,
+     "exit": "455",
+     "name": "Fly In Lube & Wash",
+     "brand": "Independent",
+     "type": "truck_wash",
+     "city": "Billings (Lockwood)",
+     "approx": true,
+     "notes": "Johnson Ln; near Town Pump/Pilot truck stop"
+    },
+    {
      "mm": 495,
      "exit": "495",
      "name": "Love's Travel Stop",
@@ -329,6 +389,16 @@
      "approx": true,
      "notes": "Last major services before Wyoming line",
      "parking": 75
+    },
+    {
+     "mm": 495,
+     "exit": "495",
+     "name": "Weigh Station (both directions)",
+     "brand": "State",
+     "type": "weigh_station",
+     "city": "Hardin",
+     "approx": true,
+     "notes": "MDT scale near Hardin"
     }
    ]
   },

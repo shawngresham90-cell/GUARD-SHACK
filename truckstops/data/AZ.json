@@ -88,6 +88,26 @@
      "parking": 125
     },
     {
+     "mm": 1,
+     "exit": "1",
+     "name": "Extreme Clean Truck & RV Wash",
+     "brand": "Independent",
+     "type": "truck_wash",
+     "city": "Ehrenberg",
+     "approx": true,
+     "notes": "14190 Flying J Rd, at the Flying J exit 1"
+    },
+    {
+     "mm": 4,
+     "exit": "4",
+     "name": "Ehrenberg Port of Entry (EB)",
+     "brand": "State",
+     "type": "weigh_station",
+     "city": "Ehrenberg",
+     "approx": false,
+     "notes": "ADOT commercial port at MP 3.8, eastbound entering from California; PrePass/Drivewyze bypass available"
+    },
+    {
      "mm": 17,
      "exit": "17",
      "name": "Love's Travel Stop",
@@ -176,6 +196,16 @@
      "parking": 200
     },
     {
+     "mm": 135,
+     "exit": "135",
+     "name": "Blue Beacon Truck Wash",
+     "brand": "Independent",
+     "type": "truck_wash",
+     "city": "Tolleson",
+     "approx": false,
+     "notes": "8423 W Roosevelt St, exit 135; TA Phoenix at exit 133 nearby"
+    },
+    {
      "mm": 181,
      "exit": "",
      "name": "Sacaton Rest Area",
@@ -209,6 +239,16 @@
      "parking": 80
     },
     {
+     "mm": 200,
+     "exit": "200",
+     "name": "Blue Beacon Truck Wash",
+     "brand": "Independent",
+     "type": "truck_wash",
+     "city": "Eloy",
+     "approx": false,
+     "notes": "5265 S Sunland Gin Rd, exit 200; at the Petro (listed as Casa Grande)"
+    },
+    {
      "mm": 203,
      "exit": "203",
      "name": "Love's Travel Stop",
@@ -218,6 +258,16 @@
      "approx": false,
      "notes": "Opened December 2025; Exit 203/Toltec Rd",
      "parking": 129
+    },
+    {
+     "mm": 208,
+     "exit": "208",
+     "name": "Blue Beacon Truck Wash",
+     "brand": "Independent",
+     "type": "truck_wash",
+     "city": "Eloy",
+     "approx": false,
+     "notes": "Eloy East location, 1172 S Sunshine Blvd, exit 208; near Flying J"
     },
     {
      "mm": 219,
@@ -295,6 +345,16 @@
      "approx": true,
      "notes": "Rex Allen Dr exit",
      "parking": 75
+    },
+    {
+     "mm": 387,
+     "exit": "387",
+     "name": "San Simon Port of Entry (WB)",
+     "brand": "State",
+     "type": "weigh_station",
+     "city": "San Simon",
+     "approx": true,
+     "notes": "ADOT commercial port, westbound about 4 miles west of the NM line; weigh-in-motion; PrePass/Drivewyze bypass available"
     },
     {
      "mm": 389,
@@ -375,6 +435,16 @@
    "maxMM": 359,
    "stops": [
     {
+     "mm": 4,
+     "exit": "4",
+     "name": "Topock Port of Entry (EB)",
+     "brand": "State",
+     "type": "weigh_station",
+     "city": "Topock",
+     "approx": false,
+     "notes": "ADOT commercial port at MP 3.8, eastbound entering from California; PrePass/Drivewyze bypass available"
+    },
+    {
      "mm": 23,
      "exit": "",
      "name": "Haviland Rest Area",
@@ -428,6 +498,16 @@
      "approx": false,
      "notes": "Blake Ranch Rd; large full-service stop",
      "parking": 200
+    },
+    {
+     "mm": 66,
+     "exit": "66",
+     "name": "Blue Beacon Truck Wash",
+     "brand": "Independent",
+     "type": "truck_wash",
+     "city": "Kingman",
+     "approx": false,
+     "notes": "3270 E Andy Devine Ave, exit 66; at the Petro"
     },
     {
      "mm": 161,
@@ -516,6 +596,16 @@
      "approx": true,
      "notes": "Tribal-operated travel plaza",
      "parking": 75
+    },
+    {
+     "mm": 340,
+     "exit": "340",
+     "name": "Sanders Port of Entry (WB)",
+     "brand": "State",
+     "type": "weigh_station",
+     "city": "Sanders",
+     "approx": false,
+     "notes": "ADOT commercial port at MP 340, westbound entering from New Mexico; PrePass/Drivewyze bypass available"
     },
     {
      "mm": 359,

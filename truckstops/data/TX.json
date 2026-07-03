@@ -87,6 +87,16 @@
      "parking": 70
     },
     {
+     "mm": 37,
+     "exit": "37",
+     "name": "Blue Beacon Truck Wash",
+     "brand": "Independent",
+     "type": "truck_wash",
+     "city": "El Paso",
+     "approx": false,
+     "notes": "11480 Stockyard Dr (Socorro), exit 37 Horizon Blvd; near Petro/Flying J/Love's"
+    },
+    {
      "mm": 61,
      "exit": "61",
      "name": "Hudspeth County Rest Area (both directions)",
@@ -208,6 +218,16 @@
      "parking": 250
     },
     {
+     "mm": 582,
+     "exit": "582",
+     "name": "Blue Beacon Truck Wash",
+     "brand": "Independent",
+     "type": "truck_wash",
+     "city": "San Antonio",
+     "approx": true,
+     "notes": "1112 Ackerman Rd, exit 582; near TA exit 581"
+    },
+    {
      "mm": 583,
      "exit": "583",
      "name": "Flying J Travel Center",
@@ -230,6 +250,16 @@
      "parking": 75
     },
     {
+     "mm": 583,
+     "exit": "583",
+     "name": "Blue Beacon Truck Wash",
+     "brand": "Independent",
+     "type": "truck_wash",
+     "city": "San Antonio",
+     "approx": false,
+     "notes": "San Antonio East location, 6089 IH-10 E at exit 583; near Flying J/Pilot"
+    },
+    {
      "mm": 593,
      "exit": "593",
      "name": "Guadalupe County Safety Rest Area",
@@ -241,6 +271,26 @@
      "parking": 40
     },
     {
+     "mm": 615,
+     "exit": "615",
+     "name": "Weigh Station (WB)",
+     "brand": "State",
+     "type": "weigh_station",
+     "city": "Seguin",
+     "approx": true,
+     "notes": "TxDPS fixed scale about 3 miles east of Seguin; westbound side of paired facility"
+    },
+    {
+     "mm": 616,
+     "exit": "616",
+     "name": "Weigh Station (EB)",
+     "brand": "State",
+     "type": "weigh_station",
+     "city": "Seguin",
+     "approx": true,
+     "notes": "TxDPS fixed scale east of Seguin; eastbound side of paired facility"
+    },
+    {
      "mm": 628,
      "exit": "628",
      "name": "Buc-ee's",
@@ -250,6 +300,16 @@
      "approx": false,
      "notes": "TX 80 exit; no semi-truck parking permitted",
      "parking": 0
+    },
+    {
+     "mm": 729,
+     "exit": "729",
+     "name": "Weigh Station (both directions)",
+     "brand": "State",
+     "type": "weigh_station",
+     "city": "Sealy",
+     "approx": true,
+     "notes": "Houston West (Sealy) paired EB/WB TxDPS scales just east of the Brazos River, between exits 723 and 732"
     },
     {
      "mm": 740,
@@ -285,6 +345,16 @@
      "parking": 80
     },
     {
+     "mm": 797,
+     "exit": "797",
+     "name": "Weigh Station (EB)",
+     "brand": "State",
+     "type": "weigh_station",
+     "city": "Baytown",
+     "approx": true,
+     "notes": "Houston East eastbound TxDPS scale at FM 1405 (exit 797)"
+    },
+    {
      "mm": 800,
      "exit": "800",
      "name": "Buc-ee's",
@@ -294,6 +364,16 @@
      "approx": true,
      "notes": "No semi-truck parking permitted",
      "parking": 0
+    },
+    {
+     "mm": 815,
+     "exit": "815",
+     "name": "Weigh Station (WB)",
+     "brand": "State",
+     "type": "weigh_station",
+     "city": "Winnie",
+     "approx": true,
+     "notes": "Houston East westbound TxDPS scale, about 14 miles west of Winnie"
     },
     {
      "mm": 848,
@@ -316,6 +396,16 @@
      "approx": true,
      "notes": "",
      "parking": 75
+    },
+    {
+     "mm": 873,
+     "exit": "873",
+     "name": "Blue Beacon Truck Wash",
+     "brand": "Independent",
+     "type": "truck_wash",
+     "city": "Orange",
+     "approx": false,
+     "notes": "7144 IH-10 W, exit 873; across from the Pilot/Flying J"
     },
     {
      "mm": 878,
@@ -382,6 +472,16 @@
      "parking": 80
     },
     {
+     "mm": 103,
+     "exit": "103",
+     "name": "Weigh Station (both directions)",
+     "brand": "State",
+     "type": "weigh_station",
+     "city": "Penwell",
+     "approx": true,
+     "notes": "Penwell paired EB/WB TxDPS scales west of Odessa; Drivewyze PreClear bypass site"
+    },
+    {
      "mm": 108,
      "exit": "108",
      "name": "Pilot Travel Center",
@@ -391,6 +491,16 @@
      "approx": true,
      "notes": "",
      "parking": 80
+    },
+    {
+     "mm": 115,
+     "exit": "115",
+     "name": "Blue Beacon Truck Wash",
+     "brand": "Independent",
+     "type": "truck_wash",
+     "city": "Odessa",
+     "approx": false,
+     "notes": "2103 W I-20, exit 115"
     },
     {
      "mm": 138,
@@ -470,6 +580,16 @@
      "parking": 90
     },
     {
+     "mm": 420,
+     "exit": "420",
+     "name": "Weigh Station (both directions)",
+     "brand": "State",
+     "type": "weigh_station",
+     "city": "Weatherford",
+     "approx": true,
+     "notes": "Fort Worth west paired EB/WB TxDPS scales, about 10 miles east of Weatherford"
+    },
+    {
      "mm": 470,
      "exit": "470",
      "name": "TA Dallas South",
@@ -492,6 +612,26 @@
      "parking": 90
     },
     {
+     "mm": 472,
+     "exit": "472",
+     "name": "Blue Beacon Truck Wash",
+     "brand": "Independent",
+     "type": "truck_wash",
+     "city": "Dallas",
+     "approx": true,
+     "notes": "Dallas location, 34245 LBJ Fwy frontage road, exit 472"
+    },
+    {
+     "mm": 472,
+     "exit": "472",
+     "name": "Blue Beacon Truck Wash",
+     "brand": "Independent",
+     "type": "truck_wash",
+     "city": "Dallas",
+     "approx": false,
+     "notes": "Dallas East location, 7312 Bonnie View Rd, exit 472; Flying J 1/2 mile east"
+    },
+    {
      "mm": 506,
      "exit": "506",
      "name": "Buc-ee's",
@@ -501,6 +641,16 @@
      "approx": true,
      "notes": "No semi-truck parking permitted",
      "parking": 0
+    },
+    {
+     "mm": 512,
+     "exit": "512",
+     "name": "Weigh Station (both directions)",
+     "brand": "State",
+     "type": "weigh_station",
+     "city": "Terrell",
+     "approx": true,
+     "notes": "Paired EB/WB TxDPS scales east of Terrell; nearest fuel at exit 509 to the west"
     },
     {
      "mm": 523,
@@ -534,6 +684,16 @@
      "approx": true,
      "notes": "Modern TxDOT safety rest area with tornado shelter",
      "parking": 40
+    },
+    {
+     "mm": 546,
+     "exit": "546",
+     "name": "Weigh Station (EB)",
+     "brand": "State",
+     "type": "weigh_station",
+     "city": "Tyler",
+     "approx": true,
+     "notes": "Eastbound TxDPS scale west of Tyler, near Van"
     },
     {
      "mm": 595,
@@ -716,6 +876,16 @@
      "parking": 100
     },
     {
+     "mm": 13,
+     "exit": "13",
+     "name": "Blue Beacon Truck Wash",
+     "brand": "Independent",
+     "type": "truck_wash",
+     "city": "Laredo",
+     "approx": false,
+     "notes": "1020 Beltway Pkwy, SB exit 13; near TA/Flying J/Love's"
+    },
+    {
      "mm": 39,
      "exit": "39",
      "name": "Love's Travel Stop",
@@ -749,6 +919,16 @@
      "parking": 80
     },
     {
+     "mm": 121,
+     "exit": "121",
+     "name": "Weigh Station (both directions)",
+     "brand": "State",
+     "type": "weigh_station",
+     "city": "Devine",
+     "approx": true,
+     "notes": "Paired NB/SB TxDPS scales about 5 miles south of Devine (near Moore); Drivewyze PreClear bypass site"
+    },
+    {
      "mm": 124,
      "exit": "124",
      "name": "Love's Travel Stop",
@@ -780,6 +960,16 @@
      "approx": false,
      "notes": "One of the largest convenience stores in the world; no semi-truck parking permitted",
      "parking": 0
+    },
+    {
+     "mm": 209,
+     "exit": "209",
+     "name": "Weigh Station (both directions)",
+     "brand": "State",
+     "type": "weigh_station",
+     "city": "San Marcos",
+     "approx": true,
+     "notes": "Paired NB/SB TxDPS scales near mm 208-209, just north/south of San Marcos"
     },
     {
      "mm": 210,
@@ -846,6 +1036,16 @@
      "approx": true,
      "notes": "Modern TxDOT safety rest area with tornado shelter, north of the I-35E/I-35W merge",
      "parking": 40
+    },
+    {
+     "mm": 471,
+     "exit": "471",
+     "name": "Blue Beacon Truck Wash",
+     "brand": "Independent",
+     "type": "truck_wash",
+     "city": "Denton",
+     "approx": false,
+     "notes": "4800 Barthold Rd, exit 471"
     },
     {
      "mm": 502,
@@ -938,6 +1138,16 @@
      "approx": true,
      "notes": "",
      "parking": 90
+    },
+    {
+     "mm": 75,
+     "exit": "75",
+     "name": "Weigh Station (both directions)",
+     "brand": "State",
+     "type": "weigh_station",
+     "city": "Three Rivers",
+     "approx": true,
+     "notes": "Paired NB/SB TxDPS scales just north of the US-281 wye junction north of Three Rivers"
     }
    ]
   },
@@ -978,6 +1188,26 @@
      "parking": 90
     },
     {
+     "mm": 74,
+     "exit": "74",
+     "name": "Blue Beacon Truck Wash",
+     "brand": "Independent",
+     "type": "truck_wash",
+     "city": "Amarillo",
+     "approx": false,
+     "notes": "2200 Whitaker Rd, exit 74; at the TA"
+    },
+    {
+     "mm": 74,
+     "exit": "74",
+     "name": "Eagle Truck Wash",
+     "brand": "Independent",
+     "type": "truck_wash",
+     "city": "Amarillo",
+     "approx": true,
+     "notes": "Eagle United Truck Wash, 7540 E I-40 between exits 74 and 75"
+    },
+    {
      "mm": 75,
      "exit": "75",
      "name": "Petro Stopping Center",
@@ -998,6 +1228,16 @@
      "approx": false,
      "notes": "Lakeside Dr exit",
      "parking": 100
+    },
+    {
+     "mm": 75,
+     "exit": "75",
+     "name": "Blue Beacon Truck Wash",
+     "brand": "Independent",
+     "type": "truck_wash",
+     "city": "Amarillo",
+     "approx": false,
+     "notes": "Amarillo East location, 8500 E I-40, exit 75; at the Petro/Flying J"
     },
     {
      "mm": 76,
@@ -1031,6 +1271,16 @@
      "approx": true,
      "notes": "Serves both directions; includes tornado shelter",
      "parking": 30
+    },
+    {
+     "mm": 165,
+     "exit": "165",
+     "name": "Weigh Station (both directions)",
+     "brand": "State",
+     "type": "weigh_station",
+     "city": "Shamrock",
+     "approx": true,
+     "notes": "Single shared TxDPS scale just east of exit 164 serving both EB and WB traffic entering/leaving Oklahoma"
     }
    ]
   },
@@ -1076,6 +1326,16 @@
      "parking": 80
     },
     {
+     "mm": 102,
+     "exit": "102",
+     "name": "Weigh Station (both directions)",
+     "brand": "State",
+     "type": "weigh_station",
+     "city": "New Waverly",
+     "approx": true,
+     "notes": "Paired scales; NB near mm 101.5, SB between Huntsville State Park and New Waverly; Drivewyze PreClear bypass site"
+    },
+    {
      "mm": 142,
      "exit": "142",
      "name": "Buc-ee's",
@@ -1098,6 +1358,16 @@
      "parking": 90
     },
     {
+     "mm": 165,
+     "exit": "165",
+     "name": "Weigh Station (SB)",
+     "brand": "State",
+     "type": "weigh_station",
+     "city": "Centerville",
+     "approx": true,
+     "notes": "Southbound TxDPS scale just north of Centerville"
+    },
+    {
      "mm": 197,
      "exit": "197",
      "name": "Love's Travel Stop",
@@ -1118,6 +1388,26 @@
      "approx": true,
      "notes": "Serves both directions",
      "parking": 35
+    },
+    {
+     "mm": 249,
+     "exit": "249",
+     "name": "Blue Beacon Truck Wash",
+     "brand": "Independent",
+     "type": "truck_wash",
+     "city": "Ennis",
+     "approx": false,
+     "notes": "3103 S Kaufman St, exit 249"
+    },
+    {
+     "mm": 272,
+     "exit": "272",
+     "name": "Weigh Station (both directions)",
+     "brand": "State",
+     "type": "weigh_station",
+     "city": "Wilmer",
+     "approx": true,
+     "notes": "Paired NB (Ferris) and SB (Wilmer) TxDPS scales at Fulghum Rd, exit 272, south of Dallas"
     },
     {
      "mm": 273,

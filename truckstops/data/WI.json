@@ -1,306 +1,64 @@
 {
- "state": "Wisconsin",
- "abbr": "WI",
- "interstates": {
-  "I-39": {
-   "maxMM": 208,
-   "stops": [
-    {
-     "mm": 113,
-     "exit": "",
-     "name": "Westfield Rest Area (both directions)",
-     "brand": "State",
-     "type": "rest_area",
-     "city": "Westfield area",
-     "approx": true,
-     "notes": "NB and SB, truck parking; south of Portage I-39 runs with I-90/94 (see I-90)",
-     "parking": 25
+  "state": "Wisconsin",
+  "abbr": "WI",
+  "interstates": {
+    "I-39": {
+      "maxMM": 208,
+      "stops": [
+        {"mm": 113, "exit": "", "name": "Westfield Rest Area (both directions)", "brand": "State", "type": "rest_area", "city": "Westfield area", "approx": true, "notes": "NB and SB, truck parking; south of Portage I-39 runs with I-90/94 (see I-90)", "parking": 25},
+        {"mm": 153, "exit": "153", "name": "Kwik Trip", "brand": "Kwik Trip", "type": "truck_stop", "city": "Plover", "approx": true, "notes": "Plover Rd (WI-54), separate diesel lanes and truck parking", "parking": 40}
+      ]
     },
-    {
-     "mm": 153,
-     "exit": "153",
-     "name": "Kwik Trip",
-     "brand": "Kwik Trip",
-     "type": "truck_stop",
-     "city": "Plover",
-     "approx": true,
-     "notes": "Plover Rd (WI-54), separate diesel lanes and truck parking",
-     "parking": 40
+    "I-41": {
+      "maxMM": 176,
+      "stops": [
+        {"mm": 99, "exit": "99", "name": "Pilot Travel Center", "brand": "Pilot", "type": "truck_stop", "city": "Fond du Lac", "approx": true, "notes": "Near US-151 junction", "parking": 75},
+        {"mm": 152, "exit": "152", "name": "Weigh Station (NB)", "brand": "State", "type": "weigh_station", "city": "Wrightstown", "approx": true, "notes": "Wrightstown SWEF, NB, between Appleton and De Pere; being rebuilt with weigh-in-motion as part of new WSP Northeast Region HQ (2026)"}
+      ]
+    },
+    "I-43": {
+      "maxMM": 192,
+      "stops": [
+        {"mm": 22, "exit": "", "name": "Delavan Rest Area (both directions)", "brand": "State", "type": "rest_area", "city": "Delavan area", "approx": true, "notes": "NB and SB, truck parking", "parking": 20},
+        {"mm": 141, "exit": "141", "name": "Weigh Station (SB)", "brand": "State", "type": "weigh_station", "city": "Newton (Centerville)", "approx": false, "notes": "Newton SWEF, SB only, 0.5 mi south of County F, Manitowoc County"},
+        {"mm": 164, "exit": "", "name": "Maribel Rest Area (both directions)", "brand": "State", "type": "rest_area", "city": "Maribel area", "approx": true, "notes": "NB and SB, truck parking", "parking": 20}
+      ]
+    },
+    "I-90": {
+      "maxMM": 187,
+      "stops": [
+        {"mm": 2, "exit": "2", "name": "Wisconsin Welcome Center (La Crosse) (EB only)", "brand": "State", "type": "rest_area", "city": "La Crosse", "approx": true, "notes": "Travel information center serving EB entering from Minnesota", "parking": 15},
+        {"mm": 21, "exit": "21", "name": "Sparta Rest Area (WB)", "brand": "State", "type": "rest_area", "city": "Sparta", "approx": true, "notes": "Reopened Nov 2025 after $12.5M rebuild; 70 truck spaces (up from 16) plus oversize staging", "parking": 70},
+        {"mm": 30, "exit": "", "name": "Sparta Rest Area (both directions)", "brand": "State", "type": "rest_area", "city": "Sparta area", "approx": true, "notes": "EB and WB, truck parking", "parking": 25},
+        {"mm": 48, "exit": "48", "name": "Road Ranger", "brand": "Road Ranger", "type": "truck_stop", "city": "Oakdale", "approx": true, "notes": "County PP, on I-90/94 overlap east of Tomah", "parking": 55},
+        {"mm": 69, "exit": "69", "name": "Kwik Trip", "brand": "Kwik Trip", "type": "truck_stop", "city": "Mauston", "approx": false, "notes": "WI-82, I-90/94 overlap, separate diesel lanes and truck parking", "parking": 50},
+        {"mm": 126, "exit": "126", "name": "TA Travel Center (Madison)", "brand": "TA", "type": "truck_stop", "city": "DeForest", "approx": false, "notes": "US-51, I-39/90/94 overlap near Madison", "parking": 180},
+        {"mm": 132, "exit": "132", "name": "Kwik Trip", "brand": "Kwik Trip", "type": "truck_stop", "city": "Windsor/DeForest", "approx": true, "notes": "WI-19, I-39/90/94 overlap, truck diesel lanes", "parking": 40},
+        {"mm": 145, "exit": "145", "name": "Weigh Station (SB)", "brand": "State", "type": "weigh_station", "city": "Cottage Grove (Madison area)", "approx": false, "notes": "Madison SWEF on I-39/90 SB (I-90 EB) southeast of Madison, serves traffic toward Janesville/Chicago"},
+        {"mm": 180, "exit": "180", "name": "Weigh Station (NB)", "brand": "State", "type": "weigh_station", "city": "La Prairie (Beloit/Janesville area)", "approx": false, "notes": "Beloit SWEF, I-39/90 NB, 2.5 mi north of County S; weigh-in-motion"},
+        {"mm": 185, "exit": "", "name": "Wisconsin Welcome Center", "brand": "State", "type": "rest_area", "city": "Beloit", "approx": true, "notes": "Serves WB/NB entering from Illinois, truck parking", "parking": 25}
+      ]
+    },
+    "I-94": {
+      "maxMM": 348,
+      "stops": [
+        {"mm": 2, "exit": "", "name": "St. Croix Travel Information Center", "brand": "State", "type": "rest_area", "city": "Hudson", "approx": true, "notes": "Serves EB entering from Minnesota, truck parking", "parking": 30},
+        {"mm": 4, "exit": "4", "name": "Kwik Trip", "brand": "Kwik Trip", "type": "truck_stop", "city": "Hudson", "approx": true, "notes": "US-12, truck diesel lanes; verify amenities", "parking": 30},
+        {"mm": 8, "exit": "8", "name": "Weigh Station (EB)", "brand": "State", "type": "weigh_station", "city": "Hudson", "approx": false, "notes": "Hudson SWEF, EB only, about 5.5 mi east of Hudson; rebuilt 2022-2023 with automated truck monitoring"},
+        {"mm": 44, "exit": "", "name": "Menomonie Rest Area (both directions)", "brand": "State", "type": "rest_area", "city": "Menomonie area", "approx": true, "notes": "EB and WB, truck parking", "parking": 25},
+        {"mm": 88, "exit": "88", "name": "TA Express", "brand": "TA Express", "type": "truck_stop", "city": "Osseo", "approx": true, "notes": "WI-10/53, former Osseo Travel Center", "parking": 80},
+        {"mm": 116, "exit": "116", "name": "Pilot Travel Center", "brand": "Pilot", "type": "truck_stop", "city": "Black River Falls", "approx": false, "notes": "WI-54", "parking": 75},
+        {"mm": 116, "exit": "116", "name": "Flying J Travel Center", "brand": "Flying J", "type": "truck_stop", "city": "Black River Falls", "approx": true, "notes": "WI-54", "parking": 90},
+        {"mm": 143, "exit": "143", "name": "Kwik Trip", "brand": "Kwik Trip", "type": "truck_stop", "city": "Tomah", "approx": true, "notes": "US-12; I-94 joins I-90 at Tomah, overlap stops listed under I-90", "parking": 40},
+        {"mm": 267, "exit": "267", "name": "Pilot Travel Center", "brand": "Pilot", "type": "truck_stop", "city": "Johnson Creek", "approx": false, "notes": "WI-26", "parking": 75},
+        {"mm": 267, "exit": "267", "name": "Kwik Trip", "brand": "Kwik Trip", "type": "truck_stop", "city": "Johnson Creek", "approx": true, "notes": "WI-26, truck diesel lanes and parking", "parking": 40},
+        {"mm": 322, "exit": "322", "name": "Pilot Travel Center", "brand": "Pilot", "type": "truck_stop", "city": "Oak Creek", "approx": false, "notes": "Ryan Rd (WI-100), main Milwaukee-area truck stop", "parking": 75},
+        {"mm": 329, "exit": "329", "name": "Blue Beacon Truck Wash", "brand": "Independent", "type": "truck_wash", "city": "Franksville (Milwaukee area)", "approx": false, "notes": "4343 Michel Ct, Racine County; Blue Beacon of Milwaukee, I-94 Exit 329"},
+        {"mm": 329, "exit": "329", "name": "Blue Beacon Truck Wash", "brand": "Independent", "type": "truck_wash", "city": "Franksville (Milwaukee area)", "approx": false, "notes": "4343 Michel Ct, Racine County; Blue Beacon of Milwaukee, I-94 Exit 329"},
+        {"mm": 333, "exit": "333", "name": "Pilot Travel Center", "brand": "Pilot", "type": "truck_stop", "city": "Sturtevant (Racine area)", "approx": true, "notes": "WI-20 area", "parking": 75},
+        {"mm": 347, "exit": "", "name": "Wisconsin Welcome Center", "brand": "State", "type": "rest_area", "city": "Kenosha", "approx": true, "notes": "Serves WB/NB entering from Illinois, truck parking", "parking": 30},
+        {"mm": 348, "exit": "348", "name": "Weigh Station (NB)", "brand": "State", "type": "weigh_station", "city": "Pleasant Prairie (Kenosha)", "approx": true, "notes": "Kenosha SWEF, NB only, 0.25 mi north of Illinois line (listed at mm ~349); indoor inspection facility"}
+      ]
     }
-   ]
-  },
-  "I-41": {
-   "maxMM": 176,
-   "stops": [
-    {
-     "mm": 99,
-     "exit": "99",
-     "name": "Pilot Travel Center",
-     "brand": "Pilot",
-     "type": "truck_stop",
-     "city": "Fond du Lac",
-     "approx": true,
-     "notes": "Near US-151 junction",
-     "parking": 75
-    }
-   ]
-  },
-  "I-43": {
-   "maxMM": 192,
-   "stops": [
-    {
-     "mm": 22,
-     "exit": "",
-     "name": "Delavan Rest Area (both directions)",
-     "brand": "State",
-     "type": "rest_area",
-     "city": "Delavan area",
-     "approx": true,
-     "notes": "NB and SB, truck parking",
-     "parking": 20
-    },
-    {
-     "mm": 164,
-     "exit": "",
-     "name": "Maribel Rest Area (both directions)",
-     "brand": "State",
-     "type": "rest_area",
-     "city": "Maribel area",
-     "approx": true,
-     "notes": "NB and SB, truck parking",
-     "parking": 20
-    }
-   ]
-  },
-  "I-90": {
-   "maxMM": 187,
-   "stops": [
-    {
-     "mm": 2,
-     "exit": "2",
-     "name": "Wisconsin Welcome Center (La Crosse) (EB only)",
-     "brand": "State",
-     "type": "rest_area",
-     "city": "La Crosse",
-     "approx": true,
-     "notes": "Travel information center serving EB entering from Minnesota",
-     "parking": 15
-    },
-    {
-     "mm": 21,
-     "exit": "21",
-     "name": "Sparta Rest Area (WB)",
-     "brand": "State",
-     "type": "rest_area",
-     "city": "Sparta",
-     "approx": true,
-     "notes": "Reopened Nov 2025 after $12.5M rebuild; 70 truck spaces (up from 16) plus oversize staging",
-     "parking": 70
-    },
-    {
-     "mm": 30,
-     "exit": "",
-     "name": "Sparta Rest Area (both directions)",
-     "brand": "State",
-     "type": "rest_area",
-     "city": "Sparta area",
-     "approx": true,
-     "notes": "EB and WB, truck parking",
-     "parking": 25
-    },
-    {
-     "mm": 48,
-     "exit": "48",
-     "name": "Road Ranger",
-     "brand": "Road Ranger",
-     "type": "truck_stop",
-     "city": "Oakdale",
-     "approx": true,
-     "notes": "County PP, on I-90/94 overlap east of Tomah",
-     "parking": 55
-    },
-    {
-     "mm": 69,
-     "exit": "69",
-     "name": "Kwik Trip",
-     "brand": "Kwik Trip",
-     "type": "truck_stop",
-     "city": "Mauston",
-     "approx": false,
-     "notes": "WI-82, I-90/94 overlap, separate diesel lanes and truck parking",
-     "parking": 50
-    },
-    {
-     "mm": 126,
-     "exit": "126",
-     "name": "TA Travel Center (Madison)",
-     "brand": "TA",
-     "type": "truck_stop",
-     "city": "DeForest",
-     "approx": false,
-     "notes": "US-51, I-39/90/94 overlap near Madison",
-     "parking": 180
-    },
-    {
-     "mm": 132,
-     "exit": "132",
-     "name": "Kwik Trip",
-     "brand": "Kwik Trip",
-     "type": "truck_stop",
-     "city": "Windsor/DeForest",
-     "approx": true,
-     "notes": "WI-19, I-39/90/94 overlap, truck diesel lanes",
-     "parking": 40
-    },
-    {
-     "mm": 185,
-     "exit": "",
-     "name": "Wisconsin Welcome Center",
-     "brand": "State",
-     "type": "rest_area",
-     "city": "Beloit",
-     "approx": true,
-     "notes": "Serves WB/NB entering from Illinois, truck parking",
-     "parking": 25
-    }
-   ]
-  },
-  "I-94": {
-   "maxMM": 348,
-   "stops": [
-    {
-     "mm": 2,
-     "exit": "",
-     "name": "St. Croix Travel Information Center",
-     "brand": "State",
-     "type": "rest_area",
-     "city": "Hudson",
-     "approx": true,
-     "notes": "Serves EB entering from Minnesota, truck parking",
-     "parking": 30
-    },
-    {
-     "mm": 4,
-     "exit": "4",
-     "name": "Kwik Trip",
-     "brand": "Kwik Trip",
-     "type": "truck_stop",
-     "city": "Hudson",
-     "approx": true,
-     "notes": "US-12, truck diesel lanes; verify amenities",
-     "parking": 30
-    },
-    {
-     "mm": 44,
-     "exit": "",
-     "name": "Menomonie Rest Area (both directions)",
-     "brand": "State",
-     "type": "rest_area",
-     "city": "Menomonie area",
-     "approx": true,
-     "notes": "EB and WB, truck parking",
-     "parking": 25
-    },
-    {
-     "mm": 88,
-     "exit": "88",
-     "name": "TA Express",
-     "brand": "TA Express",
-     "type": "truck_stop",
-     "city": "Osseo",
-     "approx": true,
-     "notes": "WI-10/53, former Osseo Travel Center",
-     "parking": 80
-    },
-    {
-     "mm": 116,
-     "exit": "116",
-     "name": "Pilot Travel Center",
-     "brand": "Pilot",
-     "type": "truck_stop",
-     "city": "Black River Falls",
-     "approx": false,
-     "notes": "WI-54",
-     "parking": 75
-    },
-    {
-     "mm": 116,
-     "exit": "116",
-     "name": "Flying J Travel Center",
-     "brand": "Flying J",
-     "type": "truck_stop",
-     "city": "Black River Falls",
-     "approx": true,
-     "notes": "WI-54",
-     "parking": 90
-    },
-    {
-     "mm": 143,
-     "exit": "143",
-     "name": "Kwik Trip",
-     "brand": "Kwik Trip",
-     "type": "truck_stop",
-     "city": "Tomah",
-     "approx": true,
-     "notes": "US-12; I-94 joins I-90 at Tomah, overlap stops listed under I-90",
-     "parking": 40
-    },
-    {
-     "mm": 267,
-     "exit": "267",
-     "name": "Pilot Travel Center",
-     "brand": "Pilot",
-     "type": "truck_stop",
-     "city": "Johnson Creek",
-     "approx": false,
-     "notes": "WI-26",
-     "parking": 75
-    },
-    {
-     "mm": 267,
-     "exit": "267",
-     "name": "Kwik Trip",
-     "brand": "Kwik Trip",
-     "type": "truck_stop",
-     "city": "Johnson Creek",
-     "approx": true,
-     "notes": "WI-26, truck diesel lanes and parking",
-     "parking": 40
-    },
-    {
-     "mm": 322,
-     "exit": "322",
-     "name": "Pilot Travel Center",
-     "brand": "Pilot",
-     "type": "truck_stop",
-     "city": "Oak Creek",
-     "approx": false,
-     "notes": "Ryan Rd (WI-100), main Milwaukee-area truck stop",
-     "parking": 75
-    },
-    {
-     "mm": 333,
-     "exit": "333",
-     "name": "Pilot Travel Center",
-     "brand": "Pilot",
-     "type": "truck_stop",
-     "city": "Sturtevant (Racine area)",
-     "approx": true,
-     "notes": "WI-20 area",
-     "parking": 75
-    },
-    {
-     "mm": 347,
-     "exit": "",
-     "name": "Wisconsin Welcome Center",
-     "brand": "State",
-     "type": "rest_area",
-     "city": "Kenosha",
-     "approx": true,
-     "notes": "Serves WB/NB entering from Illinois, truck parking",
-     "parking": 30
-    }
-   ]
   }
- }
 }

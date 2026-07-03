@@ -6,6 +6,16 @@
    "maxMM": 218,
    "stops": [
     {
+     "mm": 23,
+     "exit": "23",
+     "name": "Weigh Station (both directions)",
+     "brand": "State",
+     "type": "weigh_station",
+     "city": "Mooreton",
+     "approx": true,
+     "notes": "ND Highway Patrol weigh/inspection station; separate NB and SB facilities at ND-13 (Wahpeton/Mooreton exit)"
+    },
+    {
      "mm": 62,
      "exit": "62",
      "name": "Stamart Travel Center",
@@ -73,6 +83,16 @@
      "approx": false,
      "notes": "First/last stop at MT line",
      "parking": 75
+    },
+    {
+     "mm": 1,
+     "exit": "1",
+     "name": "Weigh Station (EB)",
+     "brand": "State",
+     "type": "weigh_station",
+     "city": "Beach",
+     "approx": true,
+     "notes": "ND Highway Patrol scale for EB traffic entering from Montana"
     },
     {
      "mm": 32,
@@ -162,6 +182,16 @@
      "parking": 15
     },
     {
+     "mm": 340,
+     "exit": "340",
+     "name": "Weigh Station (WB)",
+     "brand": "State",
+     "type": "weigh_station",
+     "city": "West Fargo",
+     "approx": true,
+     "notes": "ND Highway Patrol scale just west of exit 342; all commercial vehicles must enter during operating hours"
+    },
+    {
      "mm": 342,
      "exit": "342",
      "name": "Love's Travel Stop",
@@ -192,6 +222,16 @@
      "approx": true,
      "notes": "39th St S, near I-94/I-29 junction",
      "parking": 100
+    },
+    {
+     "mm": 348,
+     "exit": "348",
+     "name": "Blue Beacon Truck Wash",
+     "brand": "Independent",
+     "type": "truck_wash",
+     "city": "Fargo",
+     "approx": false,
+     "notes": "19th Ave S off 45th St exit; west Fargo truck stop corridor"
     }
    ]
   }

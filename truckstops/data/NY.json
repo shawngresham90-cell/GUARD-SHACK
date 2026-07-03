@@ -16,6 +16,8 @@
       "stops": [
         {"mm": 4, "exit": "4", "name": "Port Jervis Welcome Center Rest Area (EB only)", "brand": "State", "type": "rest_area", "city": "Port Jervis", "approx": true, "parking": 15},
         {"mm": 28, "exit": "28", "name": "Pilot Travel Center", "brand": "Pilot", "type": "truck_stop", "city": "Maybrook (Montgomery)", "approx": true, "notes": "NY 208 / Neelytown Rd; exit 28 (old exit 5) under mileage-based renumbering", "parking": 80},
+        {"mm": 28, "exit": "28", "name": "Blue Beacon Truck Wash", "brand": "Independent", "type": "truck_wash", "city": "Montgomery (Maybrook)", "approx": true, "notes": "145 Neelytown Rd at TA Maybrook; mile-based Exit 28 (old Exit 5)"},
+        {"mm": 28, "exit": "28", "name": "Blue Beacon Truck Wash", "brand": "Independent", "type": "truck_wash", "city": "Montgomery (Maybrook)", "approx": true, "notes": "145 Neelytown Rd at TA Maybrook; mile-based Exit 28 (old Exit 5)"},
         {"mm": 41, "exit": "41", "name": "Beacon Text Stop / Parking Area (both directions)", "brand": "State", "type": "rest_area", "city": "Beacon", "approx": true, "parking": 10}
       ]
     },
@@ -52,6 +54,7 @@
     "I-90": {
       "maxMM": 496,
       "stops": [
+        {"mm": 10, "exit": "10", "name": "Weigh Station (WB)", "brand": "State", "type": "weigh_station", "city": "Schodack", "approx": true, "notes": "NYSDOT/NYSP commercial vehicle inspection station with electronic screening and weigh-in-motion; I-90 free section east of Albany (own mileposts)"},
         {"mm": 12, "exit": "12", "name": "Love's Travel Stop", "brand": "Love's", "type": "truck_stop", "city": "Schodack", "approx": true, "notes": "US 9, I-90 free section east of Albany (own mileposts)", "parking": 80},
         {"mm": 153, "exit": "", "name": "Guilderland Service Area", "brand": "State", "type": "service_plaza", "city": "Guilderland", "approx": true, "notes": "NY Thruway milepost; westbound", "parking": 35},
         {"mm": 168, "exit": "", "name": "Pattersonville Service Area", "brand": "State", "type": "service_plaza", "city": "Pattersonville", "approx": true, "notes": "NY Thruway milepost; westbound", "parking": 30},

@@ -18,6 +18,16 @@
      "parking": 70
     },
     {
+     "mm": 14,
+     "exit": "14",
+     "name": "St. George Port of Entry (NB)",
+     "brand": "State",
+     "type": "weigh_station",
+     "city": "St. George (Washington)",
+     "approx": true,
+     "notes": "UDOT port of entry; northbound entering from Arizona; PrePass"
+    },
+    {
      "mm": 27,
      "exit": "27",
      "name": "Sapp Bros Toquerville",
@@ -150,6 +160,16 @@
      "parking": 70
     },
     {
+     "mm": 305,
+     "exit": "305",
+     "name": "Blue Beacon Truck Wash",
+     "brand": "Independent",
+     "type": "truck_wash",
+     "city": "Salt Lake City",
+     "approx": false,
+     "notes": "Exit 305B (2100 S); 2020 S 900 W; at Flying J"
+    },
+    {
      "mm": 339,
      "exit": "339",
      "name": "Pilot Travel Center",
@@ -181,6 +201,16 @@
      "approx": true,
      "notes": "Serves southbound traffic entering from Idaho; truck parking",
      "parking": 15
+    },
+    {
+     "mm": 361,
+     "exit": "361",
+     "name": "Perry Port of Entry (SB)",
+     "brand": "State",
+     "type": "weigh_station",
+     "city": "Perry (Brigham City)",
+     "approx": true,
+     "notes": "UDOT port of entry; southbound entering from Idaho; PrePass"
     }
    ]
   },
@@ -270,6 +300,16 @@
      "parking": 80
     },
     {
+     "mm": 3,
+     "exit": "3",
+     "name": "Wendover Port of Entry (EB)",
+     "brand": "State",
+     "type": "weigh_station",
+     "city": "Wendover",
+     "approx": true,
+     "notes": "UDOT port of entry; eastbound entering from Nevada; PrePass"
+    },
+    {
      "mm": 10,
      "exit": "10",
      "name": "Bonneville Salt Flats Rest Area",
@@ -314,6 +354,16 @@
      "parking": 150
     },
     {
+     "mm": 99,
+     "exit": "99",
+     "name": "Blue Beacon Truck Wash",
+     "brand": "Independent",
+     "type": "truck_wash",
+     "city": "Lake Point",
+     "approx": false,
+     "notes": "Near TA Tooele / Flying J, exit 99"
+    },
+    {
      "mm": 118,
      "exit": "118",
      "name": "Sapp Bros Travel Center",
@@ -334,6 +384,16 @@
      "approx": true,
      "notes": "Coalville/Echo area",
      "parking": 30
+    },
+    {
+     "mm": 169,
+     "exit": "169",
+     "name": "Echo Port of Entry (WB)",
+     "brand": "State",
+     "type": "weigh_station",
+     "city": "Echo (Coalville)",
+     "approx": true,
+     "notes": "UDOT port of entry near the I-80/I-84 junction; westbound entering from Wyoming; PrePass"
     },
     {
      "mm": 170,

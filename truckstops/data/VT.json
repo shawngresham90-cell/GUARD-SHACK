@@ -17,6 +17,7 @@
       "maxMM": 178,
       "stops": [
         {"mm": 1, "exit": "", "name": "Guilford Welcome Center Rest Area (NB only)", "brand": "State", "type": "rest_area", "city": "Guilford", "approx": true, "notes": "Northbound, just past MA line; large welcome center with truck parking, no fuel", "parking": 15},
+        {"mm": 5, "exit": "5", "name": "Weigh Station (NB)", "brand": "State", "type": "weigh_station", "city": "Guilford", "approx": true, "notes": "Vermont DMV scale, northbound at the Guilford welcome center area south of Exit 1 (Brattleboro)"},
         {"mm": 89, "exit": "89", "name": "Hartford Welcome Center Rest Area (NB only)", "brand": "State", "type": "rest_area", "city": "Hartford (White River Junction)", "approx": true, "notes": "Northbound near the I-89 junction; truck parking, no fuel", "parking": 10},
         {"mm": 100, "exit": "17", "name": "P&H Truck Stop (Maplefields Wells River)", "brand": "Independent", "type": "truck_stop", "city": "Wells River", "approx": true, "notes": "Legendary P&H Truck Stop, acquired by Maplefields; 24-hour fuel, restaurant, overnight truck parking, at US-302", "parking": 100},
         {"mm": 177, "exit": "", "name": "Derby Line Welcome Center Rest Area (SB only)", "brand": "State", "type": "rest_area", "city": "Derby Line", "approx": true, "notes": "Southbound, at the Canadian border; truck parking, no fuel", "parking": 10}

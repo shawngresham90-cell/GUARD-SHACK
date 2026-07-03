@@ -16,6 +16,16 @@
      "parking": 15
     },
     {
+     "mm": 46,
+     "exit": "46",
+     "name": "Weigh Station (both directions)",
+     "brand": "State",
+     "type": "weigh_station",
+     "city": "Hendersonville",
+     "approx": true,
+     "notes": "SHP Hendersonville scales north of US-64, two fixed scales; PrePass"
+    },
+    {
      "mm": 68,
      "exit": "68",
      "name": "North Carolina Welcome Center (westbound)",
@@ -141,6 +151,16 @@
      "parking": 60
     },
     {
+     "mm": 102,
+     "exit": "102",
+     "name": "Weigh Station (both directions)",
+     "brand": "State",
+     "type": "weigh_station",
+     "city": "Mount Airy",
+     "approx": true,
+     "notes": "SHP Mount Airy scales about 3 mi south of VA line, two fixed scales; PrePass"
+    },
+    {
      "mm": 103,
      "exit": "103",
      "name": "North Carolina Welcome Center (southbound)",
@@ -179,6 +199,16 @@
      "parking": 85
     },
     {
+     "mm": 28,
+     "exit": "28",
+     "name": "Weigh Station (both directions)",
+     "brand": "State",
+     "type": "weigh_station",
+     "city": "Charlotte (Mount Holly)",
+     "approx": true,
+     "notes": "SHP Charlotte scales, four fixed scales, NB at MM 28 east of NC-273; PrePass"
+    },
+    {
      "mm": 71,
      "exit": "71",
      "name": "Speedway Travel Plaza (former WilcoHess)",
@@ -201,6 +231,16 @@
      "parking": 190
     },
     {
+     "mm": 150,
+     "exit": "150",
+     "name": "Blue Beacon Truck Wash",
+     "brand": "Independent",
+     "type": "truck_wash",
+     "city": "Haw River",
+     "approx": false,
+     "notes": "Jimmie Kerr Rd on I-40/I-85 overlap; across from Flying J"
+    },
+    {
      "mm": 153,
      "exit": "153",
      "name": "Speedway Travel Plaza (former WilcoHess)",
@@ -210,6 +250,16 @@
      "approx": true,
      "notes": "On I-85/I-40 overlap; legacy WilcoHess site",
      "parking": 60
+    },
+    {
+     "mm": 160,
+     "exit": "160",
+     "name": "Weigh Station (both directions)",
+     "brand": "State",
+     "type": "weigh_station",
+     "city": "Efland (Hillsborough)",
+     "approx": true,
+     "notes": "SHP Hillsborough scales on I-40/I-85 overlap, four fixed scales plus ramp/highway weigh-in-motion; PrePass"
     },
     {
      "mm": 191,
@@ -248,6 +298,16 @@
      "approx": true,
      "notes": "Serves northbound entering from SC; truck parking",
      "parking": 20
+    },
+    {
+     "mm": 24,
+     "exit": "24",
+     "name": "Weigh Station (both directions)",
+     "brand": "State",
+     "type": "weigh_station",
+     "city": "Lumberton",
+     "approx": false,
+     "notes": "SHP Lumberton scales, MM 24, two fixed scales; PrePass"
     },
     {
      "mm": 33,
@@ -293,6 +353,26 @@
      "parking": 200
     },
     {
+     "mm": 106,
+     "exit": "106",
+     "name": "Blue Beacon Truck Wash",
+     "brand": "Independent",
+     "type": "truck_wash",
+     "city": "Kenly",
+     "approx": false,
+     "notes": "At Flying J Travel Center"
+    },
+    {
+     "mm": 106,
+     "exit": "106",
+     "name": "Kenly 95 Truck Wash (Truckomat)",
+     "brand": "Independent",
+     "type": "truck_wash",
+     "city": "Kenly",
+     "approx": false,
+     "notes": "At Kenly 95 Truckstop; 24-hour hand-brushed wash"
+    },
+    {
      "mm": 107,
      "exit": "107",
      "name": "Big Boy's Truck Stop",
@@ -313,6 +393,16 @@
      "approx": false,
      "notes": "NC-4, Gold Rock",
      "parking": 190
+    },
+    {
+     "mm": 151,
+     "exit": "151",
+     "name": "Weigh Station (both directions)",
+     "brand": "State",
+     "type": "weigh_station",
+     "city": "Enfield (Halifax County)",
+     "approx": false,
+     "notes": "SHP Halifax scales, NB and SB at MM 151, two fixed scales each; PrePass"
     },
     {
      "mm": 154,
