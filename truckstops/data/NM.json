@@ -17,6 +17,16 @@
      "parking": 20
     },
     {
+     "mm": 20,
+     "exit": "20",
+     "name": "Days Inn & Suites by Wyndham Lordsburg",
+     "brand": "Days Inn",
+     "type": "hotel",
+     "city": "Lordsburg",
+     "approx": false,
+     "notes": "Truck parking verified: Wyndham official site lists free parking for car, truck, or RV; 1426 W Motel Dr, I-10 Exit 20"
+    },
+    {
      "mm": 22,
      "exit": "22",
      "name": "Pilot Travel Center",
@@ -428,6 +438,16 @@
      "parking": 25
     },
     {
+     "mm": 273,
+     "exit": "273",
+     "name": "Americas Best Value Inn Santa Rosa",
+     "brand": "Americas Best Value Inn",
+     "type": "hotel",
+     "city": "Santa Rosa",
+     "approx": true,
+     "notes": "Truck parking verified: Sonesta official site lists complimentary bus and truck parking; 120 Route 66/Hwy 54, west Santa Rosa"
+    },
+    {
      "mm": 275,
      "exit": "275",
      "name": "TA Express Santa Rosa",
@@ -439,6 +459,26 @@
      "parking": 60
     },
     {
+     "mm": 275,
+     "exit": "275",
+     "name": "Super 8 by Wyndham Santa Rosa",
+     "brand": "Super 8",
+     "type": "hotel",
+     "city": "Santa Rosa",
+     "approx": false,
+     "notes": "Truck parking verified: Wyndham official site says park your truck or bus in ample free lot; 1201 Will Rogers Dr, I-40 Exit 275"
+    },
+    {
+     "mm": 275,
+     "exit": "275",
+     "name": "Comfort Inn Santa Rosa on Route 66",
+     "brand": "Comfort Inn",
+     "type": "hotel",
+     "city": "Santa Rosa",
+     "approx": false,
+     "notes": "Truck parking verified: hotel site lists complimentary bus and truck parking; guest reviews confirm truck+trailer parking; 2524 Route 66, I-40 Exit 275"
+    },
+    {
      "mm": 277,
      "exit": "277",
      "name": "Love's Travel Stop",
@@ -448,6 +488,16 @@
      "approx": true,
      "notes": "",
      "parking": 80
+    },
+    {
+     "mm": 332,
+     "exit": "332",
+     "name": "Days Inn by Wyndham Tucumcari",
+     "brand": "Days Inn",
+     "type": "hotel",
+     "city": "Tucumcari",
+     "approx": false,
+     "notes": "Truck parking verified: booking listings (HotelGuides/Travel Weekly) note ample truck parking; 2623 S 1st St, I-40 Exit 332"
     },
     {
      "mm": 333,

@@ -60,6 +60,16 @@
      "parking": 80
     },
     {
+     "mm": 33,
+     "exit": "33",
+     "name": "Motel 6 Ardmore",
+     "brand": "Motel 6",
+     "type": "hotel",
+     "city": "Ardmore",
+     "approx": false,
+     "notes": "Truck parking verified: Motel 6/Allstays list truck parking amenity; 120 Holiday Dr, I-35 exit 33"
+    },
+    {
      "mm": 46,
      "exit": "46",
      "name": "Murray County Rest Area (both directions)",
@@ -234,6 +244,16 @@
      "parking": 90
     },
     {
+     "mm": 40,
+     "exit": "40",
+     "name": "Holiday Inn Express & Suites Elk City",
+     "brand": "IHG",
+     "type": "hotel",
+     "city": "Elk City",
+     "approx": false,
+     "notes": "Truck parking verified: gravel rear lots for tractor-trailers per Tripadvisor driver reviews; HotelGuides lists I-40 exit 40, 2101 E 3rd St"
+    },
+    {
      "mm": 41,
      "exit": "41",
      "name": "Hutch's Travel Stop",
@@ -243,6 +263,16 @@
      "approx": true,
      "notes": "Western Oklahoma independent chain",
      "parking": 40
+    },
+    {
+     "mm": 41,
+     "exit": "41",
+     "name": "Motel 6 Elk City",
+     "brand": "Motel 6",
+     "type": "hotel",
+     "city": "Elk City",
+     "approx": false,
+     "notes": "Truck parking verified: motel6.com lists truck/RV parking; 2604 E Hwy 66, ~0.3 mi from I-40 exit 41"
     },
     {
      "mm": 84,
@@ -276,6 +306,16 @@
      "approx": true,
      "notes": "",
      "parking": 70
+    },
+    {
+     "mm": 123,
+     "exit": "123",
+     "name": "Motel 6 El Reno",
+     "brand": "Motel 6",
+     "type": "hotel",
+     "city": "El Reno",
+     "approx": false,
+     "notes": "Truck parking verified: Expedia/Booking list free RV/bus/truck parking; 1506 Domino Dr, I-40 at Country Club Rd exit 123"
     },
     {
      "mm": 140,
@@ -476,6 +516,16 @@
      "approx": true,
      "notes": "129th E Ave, east Tulsa (free section)",
      "parking": 80
+    },
+    {
+     "mm": 240,
+     "exit": "240A",
+     "name": "Motel 6 Tulsa (Catoosa)",
+     "brand": "Motel 6",
+     "type": "hotel",
+     "city": "Catoosa",
+     "approx": false,
+     "notes": "Truck parking verified: motel6.com/VisitTulsa list truck parking amenity; 18715 E Admiral Pl, I-44 exit 240A"
     },
     {
      "mm": 283,
