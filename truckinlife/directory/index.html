@@ -3,12 +3,12 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Interstate Truck Stop Directory</title>
+<title>Truckin' Life Directory — The Book of the Road</title>
 <style>
   :root{
     --bg:#111418; --panel:#1b2129; --panel2:#232b36; --line:#2e3947;
     --text:#e8edf2; --muted:#93a1b3; --accent:#ff5b1f; --accent2:#ffb347;
-    --truck:#4dabf7; --rest:#69db7c; --plaza:#ffd43b; --star:#ffd43b; --paid:#b197fc; --scale:#ff6b6b; --wash:#3bc9db; --hotel:#f783ac; --repair:#a9e34b;
+    --truck:#4dabf7; --rest:#69db7c; --plaza:#ffd43b; --star:#ffd43b; --paid:#b197fc; --scale:#ff6b6b; --wash:#3bc9db; --hotel:#f783ac;
   }
   *{box-sizing:border-box;margin:0;padding:0}
   body{background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;min-height:100vh}
@@ -44,7 +44,6 @@
   .mmrow.scale{border-left:4px solid var(--scale)}
   .mmrow.wash{border-left:4px solid var(--wash)}
   .mmrow.hotel{border-left:4px solid var(--hotel)}
-  .mmrow.repair{border-left:4px solid var(--repair)}
   .tabs{display:flex;gap:6px;flex-wrap:wrap;margin:0 0 12px}
   .tabs button{background:var(--panel);border:1px solid var(--line);color:var(--muted);border-radius:20px;padding:7px 14px;font-size:.8rem;cursor:pointer;font-weight:600}
   .tabs button.on{background:var(--accent);border-color:var(--accent);color:#fff}
@@ -63,7 +62,6 @@
   .badge.scale{background:rgba(255,107,107,.15);color:var(--scale)}
   .badge.wash{background:rgba(59,201,219,.15);color:var(--wash)}
   .badge.hotel{background:rgba(247,131,172,.15);color:var(--hotel)}
-  .badge.repair{background:rgba(169,227,75,.15);color:var(--repair)}
   .reserve{display:inline-block;margin-top:6px;background:var(--paid);color:#1b1230;font-weight:700;border-radius:8px;padding:5px 12px;font-size:.78rem;text-decoration:none}
   .legend{display:flex;gap:14px;flex-wrap:wrap;color:var(--muted);font-size:.78rem;margin:4px 0 14px}
   .legend i{display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:5px}
@@ -102,14 +100,14 @@
 <body>
 <div class="wrap">
   <header>
-    <h1>🚛 <span class="hw">Interstate</span> Truck Stop Directory</h1>
+    <h1>🚛 Truckin&#39; Life <span class="hw">Directory</span></h1>
     <p>Open the book: pick your <b>state</b> (A–Z) → pick your <b>interstate</b> → read down from <b>mile marker 0</b> to the top. Truck stops, rest areas &amp; service plazas at every marker — with driver reviews, and you can add spots we're missing.</p>
   </header>
   <div id="app"></div>
   <p class="disclaimer">Mile markers are based on exit numbers and may be approximate (marked ≈). Truck-spot counts are estimates. Locations open, close and rebrand — always confirm parking &amp; fuel with your GPS or Trucker Path before counting on a stop.</p>
-  <p class="backlink"><a href="/">← Guard Shack home</a></p>
+  <p class="backlink"><a href="/">← Truckin&#39; Life Directory home</a></p>
 </div>
-<script src="data.js"></script>
+<script src="../data.js"></script>
 <script>
 (function(){
   var DATA = window.TRUCKSTOP_DATA || {};
@@ -123,8 +121,7 @@
     paid_parking:{cls:'paid', label:'PAID PARKING'},
     weigh_station:{cls:'scale', label:'⚖️ WEIGH STATION'},
     truck_wash:{cls:'wash', label:'🧼 TRUCK WASH'},
-    hotel:{cls:'hotel', label:'🏨 HOTEL + TRUCK PARKING'},
-    repair:{cls:'repair', label:'🔧 TIRE & REPAIR'}
+    hotel:{cls:'hotel', label:'🏨 HOTEL + TRUCK PARKING'}
   };
   var TABS = [
     {key:'all', label:'All', match:function(){ return true; }},
@@ -132,8 +129,7 @@
     {key:'rest', label:'🅿️ Rest areas', match:function(s){ return s.type==='rest_area' || s.type==='service_plaza'; }},
     {key:'scales', label:'⚖️ Scales', match:function(s){ return s.type==='weigh_station'; }},
     {key:'wash', label:'🧼 Washes', match:function(s){ return s.type==='truck_wash'; }},
-    {key:'hotel', label:'🏨 Hotels', match:function(s){ return s.type==='hotel'; }},
-    {key:'repair', label:'🔧 Repair', match:function(s){ return s.type==='repair'; }}
+    {key:'hotel', label:'🏨 Hotels', match:function(s){ return s.type==='hotel'; }}
   ];
   var PAGE_TAB = 'all';
   var PAGE_STOPS = [];   // stops rendered on the current highway page
@@ -353,7 +349,6 @@
       + '<span><i style="background:var(--scale)"></i>Weigh station</span>'
       + '<span><i style="background:var(--wash)"></i>Truck wash</span>'
       + '<span><i style="background:var(--hotel)"></i>Hotel w/ truck parking</span>'
-      + '<span><i style="background:var(--repair)"></i>Tire & repair</span>'
       + '<span>≈ approximate MM</span>'
       + '<span>🅿️ ~ estimated truck spots</span></div>';
     html += '<button class="btn ghost" style="margin-bottom:12px" onclick="TS.toggleAdd()">➕ Know a stop we\'re missing on '+esc(h)+'? Add it</button>';
@@ -364,7 +359,7 @@
       + '<div class="row2"><div><label>Mile marker *</label><input name="mm" type="number" min="0" max="2000" required></div>'
       + '<div><label>Truck spots (about how many?)</label><input name="parking" type="number" min="0" max="2000"></div></div>'
       + '<div><label>Stop name *</label><input name="name" maxlength="120" required placeholder="e.g. Joe\'s Truck Plaza"></div>'
-      + '<div class="row2"><div><label>Type</label><select name="type"><option value="truck_stop">Truck stop</option><option value="rest_area">Rest area</option><option value="service_plaza">Service plaza</option><option value="truck_wash">Truck wash</option><option value="weigh_station">Weigh station</option><option value="hotel">Hotel with truck parking</option><option value="repair">Tire / repair / parts shop</option></select></div>'
+      + '<div class="row2"><div><label>Type</label><select name="type"><option value="truck_stop">Truck stop</option><option value="rest_area">Rest area</option><option value="service_plaza">Service plaza</option><option value="truck_wash">Truck wash</option><option value="weigh_station">Weigh station</option><option value="hotel">Hotel with truck parking</option></select></div>'
       + '<div><label>City / town</label><input name="city" maxlength="80"></div></div>'
       + '<div><label>Notes (fuel, food, overnight rules…)</label><textarea name="notes" maxlength="500"></textarea></div>'
       + '<div><label>Your name / handle</label><input name="driver_name" maxlength="60" placeholder="so we can credit you"></div>'

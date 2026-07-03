@@ -7,7 +7,9 @@
       "stops": [
         {"mm": 18, "exit": "18", "name": "Ashland Port of Entry (both directions)", "brand": "State", "type": "weigh_station", "city": "Ashland", "approx": true, "notes": "ODOT port of entry, NB and SB facilities; Green Light preclearance"},
         {"mm": 24, "exit": "24", "name": "Petro Stopping Center", "brand": "Petro", "type": "truck_stop", "city": "Phoenix", "approx": false, "notes": "Fern Valley Rd, Medford/Ashland area", "parking": 150},
+        {"mm": 24, "exit": "24", "name": "TA Truck Service at Petro Phoenix", "brand": "TA Truck Service", "type": "repair", "city": "Phoenix", "approx": false, "notes": "4-bay truck repair shop: tires, brakes, PM, road service; co-located with Petro Stopping Center at Fern Valley Rd, I-5 exit 24"},
         {"mm": 33, "exit": "33", "name": "Pilot Travel Center", "brand": "Pilot", "type": "truck_stop", "city": "Central Point", "approx": false, "notes": "Former Witham Truck Stop", "parking": 75},
+        {"mm": 33, "exit": "33", "name": "Pape Kenworth - Medford", "brand": "Kenworth", "type": "repair", "city": "Central Point", "approx": false, "notes": "Full-service Kenworth dealership: truck service, parts, sales; 4300 Hadley Dr off I-5 exit 33"},
         {"mm": 45, "exit": "45", "name": "Valley of the Rogue Rest Area (both directions)", "brand": "State", "type": "rest_area", "city": "Gold Hill", "approx": true, "notes": "At Valley of the Rogue State Park", "parking": 20},
         {"mm": 63, "exit": "63", "name": "Manzanita Rest Area (both directions)", "brand": "State", "type": "rest_area", "city": "Grants Pass", "approx": true, "parking": 15},
         {"mm": 99, "exit": "99", "name": "Seven Feathers Truck & Travel Center", "brand": "Independent", "type": "truck_stop", "city": "Canyonville", "approx": false, "notes": "Cow Creek tribal travel center at Seven Feathers Casino", "parking": 100},
@@ -18,22 +20,35 @@
         {"mm": 178, "exit": "178", "name": "Gettings Creek Rest Area (both directions)", "brand": "State", "type": "rest_area", "city": "Cottage Grove", "approx": true, "parking": 15},
         {"mm": 199, "exit": "199", "name": "TA Coburg", "brand": "TA", "type": "truck_stop", "city": "Coburg", "approx": false, "notes": "North of Eugene", "parking": 200},
         {"mm": 199, "exit": "199", "name": "Pilot Travel Center", "brand": "Pilot", "type": "truck_stop", "city": "Coburg", "approx": false, "notes": "", "parking": 80},
+        {"mm": 199, "exit": "199", "name": "TA Truck Service #078", "brand": "TA Truck Service", "type": "repair", "city": "Coburg", "approx": false, "notes": "In-bay truck repair at TA Coburg: tires, brakes, alignment, DOT inspections, engine diagnostics, road service; co-located with TA travel center"},
+        {"mm": 199, "exit": "199", "name": "Pape Kenworth - Eugene", "brand": "Kenworth", "type": "repair", "city": "Coburg", "approx": false, "notes": "Kenworth dealership with 8 service bays, large parts warehouse; 91195 Coburg Industrial Way at I-5 exit 199"},
+        {"mm": 199, "exit": "199", "name": "Freightliner Northwest - Coburg", "brand": "Freightliner", "type": "repair", "city": "Coburg", "approx": true, "notes": "Freightliner dealer service and parts (Gordon Truck Centers), all-makes diesel repair; 90975 Roberts Rd in Coburg truck-dealer district off exit 199"},
+        {"mm": 199, "exit": "199", "name": "Cummins Sales and Service - Coburg", "brand": "Cummins", "type": "repair", "city": "Coburg", "approx": true, "notes": "Cummins engine and Onan generator repair, genuine parts, mobile service; 33070 Roberts Ct in Coburg truck-dealer district off exit 199"},
         {"mm": 209, "exit": "209", "name": "Pilot Travel Center", "brand": "Pilot", "type": "truck_stop", "city": "Halsey", "approx": false, "notes": "Halsey/Brownsville exit", "parking": 60},
         {"mm": 233, "exit": "233", "name": "Love's Travel Stop", "brand": "Love's", "type": "truck_stop", "city": "Millersburg", "approx": true, "notes": "Albany area", "parking": 80},
         {"mm": 241, "exit": "241", "name": "Santiam Rest Area (both directions)", "brand": "State", "type": "rest_area", "city": "Albany/Jefferson area", "approx": true, "parking": 15},
+        {"mm": 256, "exit": "256", "name": "Motel 6 Salem", "brand": "Motel 6", "type": "hotel", "city": "Salem", "approx": false, "notes": "Truck parking verified: Motel 6/Expedia amenity lists free RV/bus/truck parking; 1401 Hawthorne Ave NE off I-5 at Market St exit 256"},
         {"mm": 263, "exit": "263", "name": "Pilot Travel Center", "brand": "Pilot", "type": "truck_stop", "city": "Brooks", "approx": false, "notes": "Salem north (Brooks)", "parking": 80},
         {"mm": 274, "exit": "274", "name": "Woodburn Port of Entry (both directions)", "brand": "State", "type": "weigh_station", "city": "Woodburn", "approx": true, "notes": "ODOT port of entry at MP 274.5, NB and SB facilities; Green Light preclearance"},
         {"mm": 278, "exit": "278", "name": "TA Aurora", "brand": "TA", "type": "truck_stop", "city": "Aurora", "approx": false, "notes": "Ehlen Rd, Aurora/Donald", "parking": 150},
+        {"mm": 278, "exit": "278", "name": "TA Truck Service #056", "brand": "TA Truck Service", "type": "repair", "city": "Aurora", "approx": false, "notes": "2-bay truck repair shop: tires, PM, road service; co-located with TA Aurora travel center"},
+        {"mm": 278, "exit": "278", "name": "Speedco #902", "brand": "Speedco", "type": "repair", "city": "Aurora", "approx": false, "notes": "Love's Speedco: oil change/PM, tires, light mechanical, roadside assistance; 12227 Melinda Ln NE at I-5 exit 278, adjacent to TA Aurora"},
+        {"mm": 278, "exit": "278", "name": "Pape Kenworth - Donald", "brand": "Kenworth", "type": "repair", "city": "Donald", "approx": false, "notes": "Kenworth/TRP parts and service branch; 11693 Ehlen Rd NE just west of I-5 exit 278"},
         {"mm": 281, "exit": "281", "name": "French Prairie (NB) / Baldock (SB) Rest Areas", "brand": "State", "type": "rest_area", "city": "Wilsonville area", "approx": true, "notes": "Paired rest areas, large truck parking", "parking": 50},
         {"mm": 282, "exit": "282", "name": "Love's Travel Stop", "brand": "Love's", "type": "truck_stop", "city": "Aurora", "approx": true, "notes": "Canby/Aurora exit", "parking": 70},
+        {"mm": 290, "exit": "290", "name": "Motel 6 Portland South - Lake Oswego/Tigard", "brand": "Motel 6", "type": "hotel", "city": "Tigard", "approx": false, "notes": "Truck parking verified: listing describes expansive on-site lot built to accommodate semi-trucks/RVs; 17950 SW McEwan Rd at I-5 exit 290"},
+        {"mm": 306, "exit": "306", "name": "TEC Equipment - Portland", "brand": "TEC Equipment", "type": "repair", "city": "Portland", "approx": true, "notes": "Volvo and Mack truck dealership with 25 service bays, parts, collision center; 750 NE Columbia Blvd off I-5 Columbia Blvd exit"},
         {"mm": 307, "exit": "307", "name": "Jubitz Travel Center", "brand": "Independent", "type": "truck_stop", "city": "Portland", "approx": false, "notes": "Famous independent; full-service with cinema, lounge, Ponderosa", "parking": 200},
-        {"mm": 307, "exit": "307", "name": "Blue Beacon Truck Wash", "brand": "Independent", "type": "truck_wash", "city": "Portland", "approx": false, "notes": "10244 N Vancouver Way; at Jubitz Travel Center"}
+        {"mm": 307, "exit": "307", "name": "Blue Beacon Truck Wash", "brand": "Independent", "type": "truck_wash", "city": "Portland", "approx": false, "notes": "10244 N Vancouver Way; at Jubitz Travel Center"},
+        {"mm": 307, "exit": "307", "name": "Jubitz Truck Service Center", "brand": "Independent", "type": "repair", "city": "Portland", "approx": false, "notes": "Full-service repair and commercial tire shop (Michelin, Bridgestone, Goodyear, retreads) since 1952; brakes, electrical, APU, reefer, 24/7 road service; co-located with Jubitz Travel Center"},
+        {"mm": 307, "exit": "307", "name": "Pomp's Tire Service", "brand": "Pomp's Tire", "type": "repair", "city": "Portland", "approx": false, "notes": "Commercial truck tire center (formerly GCR Tires & Service), Bridgestone/Firestone/Bandag dealer, 24-hour commercial road service; 10360 N Vancouver Way near Jubitz"}
       ]
     },
     "I-82": {
       "maxMM": 11,
       "stops": [
-        {"mm": 1, "exit": "1", "name": "Umatilla Port of Entry (SB)", "brand": "State", "type": "weigh_station", "city": "Umatilla", "approx": true, "notes": "ODOT port of entry near US-730 interchange; serves southbound traffic entering Oregon; Green Light preclearance"}
+        {"mm": 1, "exit": "1", "name": "Umatilla Port of Entry (SB)", "brand": "State", "type": "weigh_station", "city": "Umatilla", "approx": true, "notes": "ODOT port of entry near US-730 interchange; serves southbound traffic entering Oregon; Green Light preclearance"},
+        {"mm": 1, "exit": "1", "name": "Umatilla Inn & Suites", "brand": "Independent", "type": "hotel", "city": "Umatilla", "approx": true, "notes": "Truck parking verified: Travel Oregon/Booking listing notes large truck parking and free RV/bus/truck parking on site; 1370 6th St (US-730) near I-82 exit 1"}
       ]
     },
     "I-84": {
@@ -41,14 +56,19 @@
       "stops": [
         {"mm": 17, "exit": "17", "name": "TA Portland", "brand": "TA", "type": "truck_stop", "city": "Troutdale", "approx": false, "notes": "", "parking": 150},
         {"mm": 17, "exit": "17", "name": "Love's Travel Stop", "brand": "Love's", "type": "truck_stop", "city": "Troutdale", "approx": false, "notes": "", "parking": 80},
+        {"mm": 17, "exit": "17", "name": "TA Truck Service #183", "brand": "TA Truck Service", "type": "repair", "city": "Troutdale", "approx": false, "notes": "In-bay truck repair 6am-11pm daily: tires, brakes, PM, road service; co-located with TA Portland travel center"},
+        {"mm": 17, "exit": "17", "name": "Love's Truck Care", "brand": "Love's Truck Care", "type": "repair", "city": "Troutdale", "approx": false, "notes": "Truck tire, oil change/PM and light mechanical shop; 400 NW Frontage Rd; co-located with Love's Travel Stop"},
         {"mm": 45, "exit": "45", "name": "Cascade Locks Port of Entry (EB)", "brand": "State", "type": "weigh_station", "city": "Cascade Locks", "approx": true, "notes": "ODOT port of entry, Columbia Gorge; Green Light preclearance"},
         {"mm": 73, "exit": "73", "name": "Memaloose Rest Area (both directions)", "brand": "State", "type": "rest_area", "city": "Mosier", "approx": false, "notes": "Serves both directions; truck parking, Columbia Gorge", "parking": 15},
         {"mm": 104, "exit": "104", "name": "Pilot Travel Center", "brand": "Pilot", "type": "truck_stop", "city": "Biggs Junction", "approx": false, "notes": "US-97 junction at Columbia River", "parking": 80},
         {"mm": 161, "exit": "161", "name": "Boardman Rest Area (both directions)", "brand": "State", "type": "rest_area", "city": "Boardman", "approx": true, "parking": 20},
         {"mm": 164, "exit": "164", "name": "Love's Travel Stop", "brand": "Love's", "type": "truck_stop", "city": "Boardman", "approx": true, "notes": "", "parking": 80},
         {"mm": 164, "exit": "164", "name": "Pilot Travel Center", "brand": "Pilot", "type": "truck_stop", "city": "Boardman", "approx": true, "notes": "", "parking": 75},
+        {"mm": 164, "exit": "164", "name": "Love's Truck Care", "brand": "Love's Truck Care", "type": "repair", "city": "Boardman", "approx": true, "notes": "Truck tire, oil change/PM and light mechanical shop; 78665 Tower Rd; co-located with Love's Travel Stop"},
         {"mm": 188, "exit": "188", "name": "Space Age Travel Center", "brand": "Independent", "type": "truck_stop", "city": "Hermiston", "approx": true, "notes": "Hermiston/Stanfield exit, US-395", "parking": 70},
         {"mm": 188, "exit": "188", "name": "Pilot Travel Center", "brand": "Pilot", "type": "truck_stop", "city": "Stanfield", "approx": true, "notes": "", "parking": 75},
+        {"mm": 210, "exit": "210", "name": "Motel 6 Pendleton", "brand": "Motel 6", "type": "hotel", "city": "Pendleton", "approx": false, "notes": "Truck parking verified: Motel 6 amenity list includes truck parking; 325 SE Nye Ave at I-84 exit 210"},
+        {"mm": 210, "exit": "210", "name": "Super 8 by Wyndham Pendleton", "brand": "Super 8", "type": "hotel", "city": "Pendleton", "approx": false, "notes": "Truck parking verified: TripAdvisor trucker review 'Good truck parking around hotel', places to park a semi; 601 SE Nye Ave at I-84 exit 210"},
         {"mm": 216, "exit": "216", "name": "Arrowhead Travel Plaza", "brand": "Independent", "type": "truck_stop", "city": "Pendleton", "approx": false, "notes": "Umatilla tribal plaza at Wildhorse Resort, Mission", "parking": 75},
         {"mm": 227, "exit": "227", "name": "Emigrant Hill Weigh Station (WB)", "brand": "State", "type": "weigh_station", "city": "Emigrant Hill", "approx": false, "notes": "ODOT scale and brake test area at MP 227 atop Cabbage Hill, before 6% downgrade"},
         {"mm": 228, "exit": "228", "name": "Deadman Pass Rest Areas (both directions)", "brand": "State", "type": "rest_area", "city": "Emigrant Hill", "approx": false, "notes": "Both directions; chain-up truck parking atop Cabbage Hill", "parking": 30},
@@ -57,10 +77,13 @@
         {"mm": 269, "exit": "269", "name": "Charles Reynolds Rest Area (both directions)", "brand": "State", "type": "rest_area", "city": "La Grande", "approx": true, "notes": "East of La Grande near Ladd Canyon", "parking": 15},
         {"mm": 295, "exit": "295", "name": "Baker Valley Rest Area (both directions)", "brand": "State", "type": "rest_area", "city": "Baker City", "approx": true, "parking": 15},
         {"mm": 304, "exit": "304", "name": "Pilot Travel Center", "brand": "Pilot", "type": "truck_stop", "city": "Baker City", "approx": false, "notes": "Campbell St", "parking": 70},
+        {"mm": 304, "exit": "304", "name": "Super 8 by Wyndham Baker City", "brand": "Super 8", "type": "hotel", "city": "Baker City", "approx": false, "notes": "Truck parking verified: listing shows 10 truck parking spaces; guest reviews note plenty of parking out back for trucks; 250 Campbell St at exit 304"},
         {"mm": 335, "exit": "335", "name": "Weatherby Rest Area (both directions)", "brand": "State", "type": "rest_area", "city": "Weatherby", "approx": false, "notes": "Serves both directions; truck parking", "parking": 15},
         {"mm": 353, "exit": "353", "name": "Farewell Bend Port of Entry (WB)", "brand": "State", "type": "weigh_station", "city": "Huntington", "approx": true, "notes": "ODOT port of entry near Farewell Bend, serves westbound traffic entering Oregon from Idaho; Green Light preclearance"},
+        {"mm": 374, "exit": "374", "name": "Love's Truck Care", "brand": "Love's Truck Care", "type": "repair", "city": "Ontario", "approx": false, "notes": "2 truck service bays: tires, oil change/PM, light mechanical, road service; co-located with Love's Travel Stop #372 at 1041 NW Washington Ave, I-84 exit 374"},
         {"mm": 376, "exit": "376", "name": "Pilot Travel Center", "brand": "Pilot", "type": "truck_stop", "city": "Ontario", "approx": true, "notes": "Near Idaho line", "parking": 80},
         {"mm": 376, "exit": "376", "name": "Love's Travel Stop", "brand": "Love's", "type": "truck_stop", "city": "Ontario", "approx": true, "notes": "", "parking": 80},
+        {"mm": 376, "exit": "376", "name": "Motel 6 Ontario", "brand": "Motel 6", "type": "hotel", "city": "Ontario", "approx": true, "notes": "Truck parking verified: Motel 6/Allstays listing includes free RV/bus/truck parking; 275 NE 12th St off I-84 Business US-30 near exit 376"},
         {"mm": 377, "exit": "377", "name": "Ontario Rest Area / Welcome Center (WB only)", "brand": "State", "type": "rest_area", "city": "Ontario", "approx": true, "notes": "Westbound welcome center just inside Oregon from Idaho", "parking": 15}
       ]
     }

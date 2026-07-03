@@ -8,6 +8,7 @@
         {"mm": 7, "exit": "7", "name": "Indiana Welcome Center Rest Area (EB only)", "brand": "State", "type": "rest_area", "city": "Griffin area", "approx": true, "notes": "Serves EB, truck parking", "parking": 25},
         {"mm": 25, "exit": "25", "name": "Flying J Travel Center", "brand": "Flying J", "type": "truck_stop", "city": "Evansville area", "approx": true, "notes": "US-41 junction", "parking": 90},
         {"mm": 25, "exit": "25", "name": "Blue Beacon Truck Wash", "brand": "Independent", "type": "truck_wash", "city": "Haubstadt (Evansville area)", "approx": false, "notes": "12744 Access Rd; I-64 Exit 25A/B at US-41, Blue Beacon of Evansville"},
+        {"mm": 25, "exit": "25", "name": "Boss Truck Shop Evansville", "brand": "Boss Truck Shop", "type": "repair", "city": "Haubstadt (Evansville area)", "approx": false, "notes": "Full-service truck/tire shop at the Love's, I-64 Exit 25 (US-41)"},
         {"mm": 54, "exit": "54", "name": "Pilot Travel Center", "brand": "Pilot", "type": "truck_stop", "city": "Dale", "approx": true, "notes": "US-231", "parking": 80},
         {"mm": 54, "exit": "54", "name": "Love's Travel Stop", "brand": "Love's", "type": "truck_stop", "city": "Dale", "approx": true, "notes": "US-231", "parking": 85},
         {"mm": 57, "exit": "57A", "name": "TA Express Dale", "brand": "TA Express", "type": "truck_stop", "city": "Dale", "approx": false, "notes": "Opened Nov 2025; 102 Rocket Way, Arby's/Dunkin, 8 diesel lanes", "parking": 114},
@@ -26,13 +27,17 @@
         {"mm": 95, "exit": "95", "name": "Pilot Travel Center", "brand": "Pilot", "type": "truck_stop", "city": "Whiteland", "approx": false, "notes": "Whiteland Rd", "parking": 80},
         {"mm": 95, "exit": "95", "name": "Love's Travel Stop", "brand": "Love's", "type": "truck_stop", "city": "Whiteland", "approx": false, "notes": "Whiteland Rd", "parking": 85},
         {"mm": 95, "exit": "95", "name": "Blue Beacon Truck Wash", "brand": "Independent", "type": "truck_wash", "city": "Whiteland", "approx": false, "notes": "4942 N 350 E, I-65 Exit 95"},
+        {"mm": 95, "exit": "95", "name": "Speedco Whiteland", "brand": "Speedco (Love's)", "type": "repair", "city": "Whiteland", "approx": false, "notes": "Speedco #952 lube/PM/tire, 4804 N 350 E at the Love's, I-65 Exit 95"},
         {"mm": 130, "exit": "130", "name": "Wally's Whitestown", "brand": "Independent", "type": "truck_stop", "city": "Whitestown", "approx": false, "notes": "Opened June 30, 2026; Wally's first Indiana site, 84 fueling positions; car-focused, no reported overnight semi parking"},
         {"mm": 139, "exit": "139", "name": "Flying J Travel Center", "brand": "Flying J", "type": "truck_stop", "city": "Lebanon", "approx": false, "notes": "SR-39", "parking": 100},
         {"mm": 139, "exit": "139", "name": "Pilot Travel Center", "brand": "Pilot", "type": "truck_stop", "city": "Lebanon", "approx": true, "notes": "SR-39", "parking": 80},
+        {"mm": 175, "exit": "175", "name": "Love's Truck Care Lafayette", "brand": "Love's Truck Care", "type": "repair", "city": "Lafayette", "approx": true, "notes": "Full-service heavy-duty truck care shop at the Love's, I-65 Exit 175 (2400 E 200th N)"},
         {"mm": 196, "exit": "196", "name": "Wolcott Rest Area (both directions)", "brand": "State", "type": "rest_area", "city": "Wolcott", "approx": true, "parking": 30},
         {"mm": 201, "exit": "201", "name": "Petro Stopping Center", "brand": "Petro", "type": "truck_stop", "city": "Remington", "approx": false, "notes": "US-24", "parking": 200},
         {"mm": 201, "exit": "201", "name": "Pilot Travel Center", "brand": "Pilot", "type": "truck_stop", "city": "Remington", "approx": false, "notes": "US-24", "parking": 80},
+        {"mm": 201, "exit": "201", "name": "Petro Remington Truck Service", "brand": "Petro", "type": "repair", "city": "Remington", "approx": false, "notes": "Full-service TA/Petro heavy-duty truck repair shop at the Petro Stopping Center, I-65 Exit 201 (US-24)"},
         {"mm": 240, "exit": "240", "name": "Pilot Travel Center", "brand": "Pilot", "type": "truck_stop", "city": "Lowell", "approx": true, "notes": "SR-2", "parking": 80},
+        {"mm": 240, "exit": "240", "name": "Boss Truck Shop Hebron", "brand": "Boss Truck Shop", "type": "repair", "city": "Hebron (Lowell)", "approx": false, "notes": "Boss #34 full-service truck/tire shop, 3235 E 181st Ave at the Flying J, I-65 Exit 240"},
         {"mm": 241, "exit": "241", "name": "Indiana Welcome Center Rest Area (SB only)", "brand": "State", "type": "rest_area", "city": "Lowell", "approx": true, "parking": 20},
         {"mm": 243, "exit": "243", "name": "Weigh Station (SB)", "brand": "State", "type": "weigh_station", "city": "Lowell", "approx": true, "notes": "ISP scale with inspection bay; old NB scale is closed"}
       ]
@@ -48,7 +53,8 @@
         {"mm": 309, "exit": "309A", "name": "Blue Beacon Truck Wash", "brand": "Independent", "type": "truck_wash", "city": "Fort Wayne", "approx": false, "notes": "3230 W Coliseum Blvd, I-69 Exit 309A"},
         {"mm": 356, "exit": "356", "name": "Indiana Welcome Center Rest Area (SB only)", "brand": "State", "type": "rest_area", "city": "Fremont", "approx": true, "parking": 25},
         {"mm": 357, "exit": "357", "name": "Petro Stopping Center", "brand": "Petro", "type": "truck_stop", "city": "Fremont", "approx": true, "notes": "SR-120, near Indiana Toll Road junction", "parking": 200},
-        {"mm": 357, "exit": "357", "name": "Pilot Travel Center", "brand": "Pilot", "type": "truck_stop", "city": "Fremont", "approx": true, "notes": "Near Indiana Toll Road junction", "parking": 80}
+        {"mm": 357, "exit": "357", "name": "Pilot Travel Center", "brand": "Pilot", "type": "truck_stop", "city": "Fremont", "approx": true, "notes": "Near Indiana Toll Road junction", "parking": 80},
+        {"mm": 357, "exit": "357", "name": "Petro Fremont Truck Service", "brand": "Petro", "type": "repair", "city": "Fremont", "approx": true, "notes": "Full-service TA/Petro heavy-duty truck repair shop at the Petro Stopping Center, I-69 Exit 357 (SR-120), near Indiana Toll Road"}
       ]
     },
     "I-70": {
@@ -58,7 +64,9 @@
         {"mm": 1, "exit": "1", "name": "Weigh Station (EB)", "brand": "State", "type": "weigh_station", "city": "West Terre Haute", "approx": true, "notes": "ISP scale just east of Illinois line, Sugar Creek Township"},
         {"mm": 7, "exit": "7", "name": "Pilot Travel Center", "brand": "Pilot", "type": "truck_stop", "city": "Terre Haute", "approx": true, "notes": "US-41", "parking": 80},
         {"mm": 11, "exit": "11", "name": "TA Travel Center", "brand": "TA", "type": "truck_stop", "city": "Terre Haute", "approx": true, "notes": "SR-46", "parking": 160},
+        {"mm": 11, "exit": "11", "name": "TA Truck Service Terre Haute", "brand": "TA", "type": "repair", "city": "Terre Haute", "approx": true, "notes": "Full-service heavy-duty truck repair shop at the TA, I-70 Exit 11 (SR-46)"},
         {"mm": 23, "exit": "23", "name": "TA Travel Center", "brand": "TA", "type": "truck_stop", "city": "Brazil", "approx": false, "notes": "SR-59", "parking": 160},
+        {"mm": 23, "exit": "23", "name": "TA Truck Service Brazil", "brand": "TA", "type": "repair", "city": "Brazil", "approx": false, "notes": "Full-service heavy-duty truck repair shop at the TA, I-70 Exit 23 (SR-59)"},
         {"mm": 41, "exit": "41", "name": "Flying J Travel Center", "brand": "Flying J", "type": "truck_stop", "city": "Cloverdale", "approx": true, "notes": "US-231", "parking": 90},
         {"mm": 59, "exit": "59", "name": "Love's Travel Stop", "brand": "Love's", "type": "truck_stop", "city": "Monrovia area", "approx": true, "notes": "SR-39", "parking": 85},
         {"mm": 96, "exit": "96", "name": "Pilot Travel Center", "brand": "Pilot", "type": "truck_stop", "city": "Greenfield", "approx": false, "notes": "SR-9", "parking": 80},
@@ -87,6 +95,7 @@
         {"mm": 22, "exit": "", "name": "Indiana Toll Road Travel Plaza", "brand": "State", "type": "service_plaza", "city": "Lake Station/Portage area", "approx": true, "notes": "Mainline pair, EB and WB, truck parking", "parking": 40},
         {"mm": 56, "exit": "", "name": "George Ade Travel Plaza", "brand": "State", "type": "service_plaza", "city": "Rolling Prairie area", "approx": true, "notes": "Mainline pair, EB and WB, truck parking", "parking": 50},
         {"mm": 72, "exit": "", "name": "Knute Rockne Travel Plaza", "brand": "State", "type": "service_plaza", "city": "South Bend area", "approx": true, "notes": "Mainline pair, EB and WB, truck parking", "parking": 50},
+        {"mm": 92, "exit": "92", "name": "Super 8 by Wyndham Elkhart", "brand": "Super 8 (Wyndham)", "type": "hotel", "city": "Elkhart", "approx": false, "notes": "Truck parking verified: booking listing (HotelPlanner) shows truck parking amenity; Elkhart County tourism promotes Exit 92 truck-friendly hotels"},
         {"mm": 126, "exit": "", "name": "Indiana Toll Road Travel Plaza", "brand": "State", "type": "service_plaza", "city": "Middlebury/LaGrange area", "approx": true, "notes": "Mainline pair, EB and WB, truck parking", "parking": 45},
         {"mm": 146, "exit": "", "name": "Indiana Toll Road Travel Plaza", "brand": "State", "type": "service_plaza", "city": "Fremont area", "approx": true, "notes": "Mainline, truck parking", "parking": 40}
       ]
@@ -96,11 +105,14 @@
       "stops": [
         {"mm": 6, "exit": "6", "name": "Love's Travel Stop", "brand": "Love's", "type": "truck_stop", "city": "Gary", "approx": true, "notes": "Burr St, I-80/94 Borman Expwy concurrency", "parking": 85},
         {"mm": 9, "exit": "9", "name": "Petro Stopping Center", "brand": "Petro", "type": "truck_stop", "city": "Gary", "approx": true, "notes": "Grant St, I-80/94 concurrency", "parking": 200},
+        {"mm": 9, "exit": "9", "name": "Petro Gary Truck Service", "brand": "Petro", "type": "repair", "city": "Gary", "approx": true, "notes": "Full-service TA/Petro heavy-duty truck repair shop at the Petro Stopping Center, I-80/94 Exit 9 (Grant St)"},
         {"mm": 15, "exit": "15", "name": "Pilot Travel Center", "brand": "Pilot", "type": "truck_stop", "city": "Lake Station", "approx": false, "notes": "Ripley St/SR-51, end of I-80/94 concurrency", "parking": 80},
         {"mm": 15, "exit": "15", "name": "Flying J Travel Center", "brand": "Flying J", "type": "truck_stop", "city": "Lake Station", "approx": true, "notes": "Ripley St cluster", "parking": 90},
         {"mm": 15, "exit": "15B", "name": "Blue Beacon Truck Wash", "brand": "Independent", "type": "truck_wash", "city": "Lake Station", "approx": false, "notes": "Ripley St (IN-51) near Flying J; two Blue Beacon facilities on Ripley St corridor"},
+        {"mm": 15, "exit": "15B", "name": "Boss Truck Shop Lake Station", "brand": "Boss Truck Shop", "type": "repair", "city": "Lake Station", "approx": false, "notes": "Boss full-service truck/tire shop, 1401 Ripley St at the Flying J, I-80/94 Exit 15B"},
         {"mm": 19, "exit": "19", "name": "Love's Travel Stop", "brand": "Love's", "type": "truck_stop", "city": "Portage", "approx": true, "notes": "", "parking": 85},
         {"mm": 22, "exit": "22", "name": "TA Travel Center", "brand": "TA", "type": "truck_stop", "city": "Burns Harbor", "approx": true, "notes": "US-20", "parking": 175},
+        {"mm": 22, "exit": "22", "name": "TA Truck Service Burns Harbor", "brand": "TA", "type": "repair", "city": "Burns Harbor", "approx": true, "notes": "Full-service heavy-duty truck repair shop at the TA, I-94 Exit 22 (US-20)"},
         {"mm": 29, "exit": "29", "name": "Weigh Station (both directions)", "brand": "State", "type": "weigh_station", "city": "Chesterton", "approx": true, "notes": "ISP scales EB and WB"}
       ]
     }

@@ -15,6 +15,16 @@
           "approx": true,
           "notes": "At Railroad Pass Casino, US-93/95 junction",
           "parking": 45
+        },
+        {
+          "mm": 18,
+          "exit": "18",
+          "name": "Railroad Pass Casino & Hotel (Ramada by Wyndham)",
+          "brand": "Ramada",
+          "type": "hotel",
+          "city": "Henderson (Railroad Pass)",
+          "approx": true,
+          "notes": "Truck parking verified: on-site Railroad Pass Travel Center with semi diesel lanes, truck parking, driver showers/lounge per casino's own website"
         }
       ]
     },
@@ -65,6 +75,16 @@
           "parking": 150
         },
         {
+          "mm": 33,
+          "exit": "33",
+          "name": "TA Truck Service Las Vegas",
+          "brand": "TA",
+          "type": "repair",
+          "city": "Las Vegas",
+          "approx": true,
+          "notes": "Truck repair, tire service, PM; co-located with TA Las Vegas travel center at Blue Diamond Rd exit (8050 Dean Martin Dr)"
+        },
+        {
           "mm": 46,
           "exit": "46",
           "name": "Love's Travel Stop",
@@ -86,6 +106,46 @@
           "notes": "2932 Losee Rd; Cheyenne Ave exit; near Petro/Love's"
         },
         {
+          "mm": 46,
+          "exit": "46",
+          "name": "Love's Truck Care / Speedco #936",
+          "brand": "Speedco",
+          "type": "repair",
+          "city": "North Las Vegas",
+          "approx": false,
+          "notes": "Oil change/PM, tire service, light mechanical, roadside assistance; 2920 Losee Rd at Cheyenne Ave exit; near Love's Travel Stop and Blue Beacon"
+        },
+        {
+          "mm": 46,
+          "exit": "46",
+          "name": "FleetPride North Las Vegas",
+          "brand": "FleetPride",
+          "type": "repair",
+          "city": "North Las Vegas",
+          "approx": true,
+          "notes": "Heavy-duty truck and trailer parts branch; 674 Corinthian Way at Losee Rd, just off Cheyenne Ave exit"
+        },
+        {
+          "mm": 48,
+          "exit": "48",
+          "name": "Cannery Casino Hotel",
+          "brand": "Boyd Gaming",
+          "type": "hotel",
+          "city": "North Las Vegas",
+          "approx": true,
+          "notes": "Truck parking verified: dedicated Truck & RV lot mapped at 2121 E Craig Rd; trucker guides cite large semi lot; ~2 mi E of I-15 via Craig Rd"
+        },
+        {
+          "mm": 48,
+          "exit": "48",
+          "name": "Rush Truck Centers - Las Vegas (Peterbilt)",
+          "brand": "Rush Truck Centers",
+          "type": "repair",
+          "city": "North Las Vegas",
+          "approx": true,
+          "notes": "Peterbilt/Ford dealer service, all-makes parts, mobile service, Xpress repair estimates; 4120 Donovan Way on I-15 frontage between Cheyenne and Craig Rd exits"
+        },
+        {
           "mm": 54,
           "exit": "54",
           "name": "Petro Stopping Center",
@@ -95,6 +155,16 @@
           "approx": true,
           "notes": "Speedway Blvd/N Hollywood Blvd",
           "parking": 200
+        },
+        {
+          "mm": 54,
+          "exit": "54",
+          "name": "TA Truck Service at Petro (Petro Lube)",
+          "brand": "Petro",
+          "type": "repair",
+          "city": "North Las Vegas",
+          "approx": true,
+          "notes": "5 lube/service bays, PM and truck repair; co-located with Petro Stopping Center at Speedway Blvd exit (6595 N Hollywood Blvd)"
         },
         {
           "mm": 61,
@@ -122,6 +192,16 @@
     "I-80": {
       "maxMM": 411,
       "stops": [
+        {
+          "mm": 4,
+          "exit": "4",
+          "name": "Best Western Plus Boomtown Casino Hotel",
+          "brand": "Best Western",
+          "type": "hotel",
+          "city": "Verdi",
+          "approx": false,
+          "notes": "Truck parking verified: historic truck stop property; TruckMap lists Boomtown Casino Truck Stop at I-80 exit 4; trucker reviews cite lit truck parking"
+        },
         {
           "mm": 5,
           "exit": "5",
@@ -153,6 +233,16 @@
           "approx": true,
           "notes": "E Greg St; TA-affiliated",
           "parking": 100
+        },
+        {
+          "mm": 23,
+          "exit": "23",
+          "name": "Papé Kenworth Sparks",
+          "brand": "Kenworth",
+          "type": "repair",
+          "city": "Sparks (Mustang)",
+          "approx": false,
+          "notes": "Full-service Kenworth dealer just off exit 23; 10 service bays incl. PremierCare express bay, parts dept, body shop; 8640 Canyon River Dr (opened as Western Nevada Kenworth)"
         },
         {
           "mm": 32,
@@ -197,6 +287,16 @@
           "notes": "865 Pilot Rd; near Pilot/Love's Fernley"
         },
         {
+          "mm": 46,
+          "exit": "46",
+          "name": "Love's Truck Care / Speedco #917",
+          "brand": "Speedco",
+          "type": "repair",
+          "city": "Fernley",
+          "approx": false,
+          "notes": "Oil change/PM, tire service, light mechanical, roadside assistance; 900 Pilot Rd at West Fernley exit; co-located with Love's Travel Stop #246, next to Blue Beacon"
+        },
+        {
           "mm": 48,
           "exit": "48",
           "name": "Pilot Travel Center",
@@ -208,6 +308,16 @@
           "parking": 80
         },
         {
+          "mm": 48,
+          "exit": "48",
+          "name": "SureStay Hotel by Best Western Fernley",
+          "brand": "Best Western",
+          "type": "hotel",
+          "city": "Fernley",
+          "approx": true,
+          "notes": "Truck parking verified: booking amenity lists truck and RV parking on site; 1405 E Newlands Dr near E Fernley exit"
+        },
+        {
           "mm": 83,
           "exit": "83",
           "name": "Trinity Rest Area (both directions)",
@@ -216,6 +326,16 @@
           "city": "Trinity (I-80/US-95 junction, east of Fernley)",
           "approx": true,
           "parking": 20
+        },
+        {
+          "mm": 106,
+          "exit": "106",
+          "name": "Lovelock Inn",
+          "brand": "Independent",
+          "type": "hotel",
+          "city": "Lovelock",
+          "approx": true,
+          "notes": "Truck parking verified: motel advertises truck parking as amenity; reviews note freeway-close location for early departures"
         },
         {
           "mm": 158,
@@ -238,6 +358,36 @@
           "approx": true,
           "notes": "W Winnemucca Blvd",
           "parking": 80
+        },
+        {
+          "mm": 176,
+          "exit": "176",
+          "name": "Quality Inn Winnemucca - Model T Casino",
+          "brand": "Quality Inn",
+          "type": "hotel",
+          "city": "Winnemucca",
+          "approx": true,
+          "notes": "Truck parking verified: Trucker Path truck-parking listing; reviews cite ample truck parking and large semi lot at casino hotel"
+        },
+        {
+          "mm": 178,
+          "exit": "178",
+          "name": "Winners Inn Casino",
+          "brand": "Independent",
+          "type": "hotel",
+          "city": "Winnemucca",
+          "approx": true,
+          "notes": "Truck parking verified: booking amenity lists free RV/bus/truck parking; reviews note truck/RV lot west of casino fits dozens of rigs"
+        },
+        {
+          "mm": 231,
+          "exit": "231",
+          "name": "Super 8 by Wyndham Battle Mountain",
+          "brand": "Super 8",
+          "type": "hotel",
+          "city": "Battle Mountain",
+          "approx": true,
+          "notes": "Truck parking verified: hotel lists truck/bus/RV parking with outside outlets for extended-stay guests"
         },
         {
           "mm": 262,
@@ -273,6 +423,36 @@
           "parking": 50
         },
         {
+          "mm": 303,
+          "exit": "303",
+          "name": "Gold Country Inn and Casino by Red Lion",
+          "brand": "Red Lion",
+          "type": "hotel",
+          "city": "Elko",
+          "approx": true,
+          "notes": "Truck parking verified: booking amenity lists on-site RV/bus/truck parking (surcharge); review cites great parking for truck and trailer"
+        },
+        {
+          "mm": 303,
+          "exit": "303",
+          "name": "Maverick Hotel and Casino by Red Lion",
+          "brand": "Red Lion",
+          "type": "hotel",
+          "city": "Elko",
+          "approx": true,
+          "notes": "Truck parking verified: booking amenity lists free RV/bus/truck parking on site; formerly Red Lion Hotel & Casino Elko"
+        },
+        {
+          "mm": 303,
+          "exit": "303",
+          "name": "GCR Tires & Service Elko",
+          "brand": "GCR Tires",
+          "type": "repair",
+          "city": "Elko",
+          "approx": true,
+          "notes": "Commercial truck tires (Bridgestone/Firestone/Bandag retreads), 24/7 roadside tire service, trailer repair; 650 Union Pacific Way off Errecart Blvd near E Elko exit"
+        },
+        {
           "mm": 312,
           "exit": "312",
           "name": "Osino Scales (both directions)",
@@ -303,6 +483,26 @@
           "approx": true,
           "notes": "US-93 junction",
           "parking": 100
+        },
+        {
+          "mm": 352,
+          "exit": "352",
+          "name": "Motel 6 Wells",
+          "brand": "Motel 6",
+          "type": "hotel",
+          "city": "Wells",
+          "approx": true,
+          "notes": "Truck parking verified: amenity lists free RV/bus/truck parking with trailer parking in back; limited (~2) truck spaces, Flying J across street"
+        },
+        {
+          "mm": 352,
+          "exit": "352",
+          "name": "Love's Truck Care (Speedco) Wells",
+          "brand": "Speedco",
+          "type": "repair",
+          "city": "Wells",
+          "approx": false,
+          "notes": "2 truck service bays; oil change/PM, light mechanical, tires, roadside assistance; co-located with Love's Travel Stop #365 at US-93 exit (157 US-93 S)"
         },
         {
           "mm": 373,
@@ -336,6 +536,16 @@
           "approx": false,
           "notes": "Opened Feb 2026; 8 diesel lanes, Black Bear Diner/Del Taco/Bojangles",
           "parking": 153
+        },
+        {
+          "mm": 410,
+          "exit": "410",
+          "name": "Wendover Nugget Hotel & Casino by Red Lion",
+          "brand": "Red Lion",
+          "type": "hotel",
+          "city": "West Wendover",
+          "approx": false,
+          "notes": "Truck parking verified: casino's own site lists on-site truck stop with large truck parking area and CDL-holder coupon book"
         }
       ]
     }

@@ -1,305 +1,425 @@
 {
- "state": "West Virginia",
- "abbr": "WV",
- "note": "I-77 between Princeton (mm 9) and Charleston (mm 95) is the West Virginia Turnpike (toll). Commercial exits are limited; fuel/parking on the Turnpike is at the toll-road travel plazas (Bluestone, Beckley, Morton), listed as service_plaza. I-64 overlaps the Turnpike between Beckley and Charleston.",
- "interstates": {
-  "I-64": {
-   "maxMM": 184,
-   "stops": [
-    {
-     "mm": 10,
-     "exit": "",
-     "name": "Huntington Welcome Center",
-     "brand": "State",
-     "type": "rest_area",
-     "city": "Huntington",
-     "approx": true,
-     "notes": "Eastbound entering from KY, truck parking",
-     "parking": 20
+  "state": "West Virginia",
+  "abbr": "WV",
+  "note": "I-77 between Princeton (mm 9) and Charleston (mm 95) is the West Virginia Turnpike (toll). Commercial exits are limited; fuel/parking on the Turnpike is at the toll-road travel plazas (Bluestone, Beckley, Morton), listed as service_plaza. I-64 overlaps the Turnpike between Beckley and Charleston.",
+  "interstates": {
+    "I-64": {
+      "maxMM": 184,
+      "stops": [
+        {
+          "mm": 10,
+          "exit": "",
+          "name": "Huntington Welcome Center",
+          "brand": "State",
+          "type": "rest_area",
+          "city": "Huntington",
+          "approx": true,
+          "notes": "Eastbound entering from KY, truck parking",
+          "parking": 20
+        },
+        {
+          "mm": 28,
+          "exit": "28",
+          "name": "Love's Travel Stop",
+          "brand": "Love's",
+          "type": "truck_stop",
+          "city": "Milton",
+          "approx": true,
+          "notes": "US-60 interchange",
+          "parking": 90
+        },
+        {
+          "mm": 37,
+          "exit": "37",
+          "name": "Weigh Station (both directions)",
+          "brand": "State",
+          "type": "weigh_station",
+          "city": "Hurricane",
+          "approx": true,
+          "notes": "Teays Valley/Hurricane scales, WB near mm 37.5 with EB counterpart nearby; Drivewyze bypass site"
+        },
+        {
+          "mm": 45,
+          "exit": "45",
+          "name": "Bob Sumerel Tire",
+          "brand": "Bob Sumerel Tire",
+          "type": "repair",
+          "city": "Nitro",
+          "approx": true,
+          "notes": "Goodyear commercial tire dealer at 215 Michigan Ave: truck tires, retreads, truck service & repair; about 1 mile from Nitro exit"
+        },
+        {
+          "mm": 47,
+          "exit": "47",
+          "name": "Heritage International Trucks",
+          "brand": "International",
+          "type": "repair",
+          "city": "Cross Lanes",
+          "approx": true,
+          "notes": "International truck dealer with parts and service at 1 Jain Dr, off WV-622/Goff Mountain Rd interchange"
+        },
+        {
+          "mm": 54,
+          "exit": "54",
+          "name": "FleetPride Parts & Service",
+          "brand": "FleetPride",
+          "type": "repair",
+          "city": "South Charleston",
+          "approx": true,
+          "notes": "Heavy-duty truck and trailer parts branch plus service center (repair and maintenance) at 3204 MacCorkle Ave SW (US-60), near MacCorkle Ave exit"
+        },
+        {
+          "mm": 179,
+          "exit": "",
+          "name": "White Sulphur Springs Welcome Center",
+          "brand": "State",
+          "type": "rest_area",
+          "city": "White Sulphur Springs",
+          "approx": true,
+          "notes": "Westbound entering from VA, truck parking. Beckley-Charleston segment overlaps WV Turnpike; see I-77 plazas",
+          "parking": 20
+        }
+      ]
     },
-    {
-     "mm": 28,
-     "exit": "28",
-     "name": "Love's Travel Stop",
-     "brand": "Love's",
-     "type": "truck_stop",
-     "city": "Milton",
-     "approx": true,
-     "notes": "US-60 interchange",
-     "parking": 90
+    "I-68": {
+      "maxMM": 32,
+      "stops": [
+        {
+          "mm": 23,
+          "exit": "23",
+          "name": "Little Sandy's Truck Stop",
+          "brand": "Independent",
+          "type": "truck_stop",
+          "city": "Bruceton Mills",
+          "approx": true,
+          "notes": "WV-26 interchange",
+          "parking": 60
+        }
+      ]
     },
-    {
-     "mm": 37,
-     "exit": "37",
-     "name": "Weigh Station (both directions)",
-     "brand": "State",
-     "type": "weigh_station",
-     "city": "Hurricane",
-     "approx": true,
-     "notes": "Teays Valley/Hurricane scales, WB near mm 37.5 with EB counterpart nearby; Drivewyze bypass site"
+    "I-70": {
+      "maxMM": 15,
+      "stops": [
+        {
+          "mm": 4,
+          "exit": "4",
+          "name": "Weigh Station (WB)",
+          "brand": "State",
+          "type": "weigh_station",
+          "city": "Wheeling",
+          "approx": true,
+          "notes": "Westbound near mm 3.5 west of Wheeling; reported rarely open"
+        },
+        {
+          "mm": 11,
+          "exit": "11",
+          "name": "TA Wheeling",
+          "brand": "TA",
+          "type": "truck_stop",
+          "city": "Valley Grove",
+          "approx": false,
+          "notes": "Dallas Pike",
+          "parking": 150
+        },
+        {
+          "mm": 11,
+          "exit": "11",
+          "name": "TA Truck Service",
+          "brand": "TA",
+          "type": "repair",
+          "city": "Valley Grove",
+          "approx": true,
+          "notes": "Co-located with TA Wheeling travel center at Dallas Pike; 4 service bays: tires, brakes, electrical, DOT inspections, diagnostics, HVAC, alignments, trailer and aftertreatment work; 24/7 RoadSquad roadside"
+        },
+        {
+          "mm": 11,
+          "exit": "11",
+          "name": "Hunter Truck Wheeling",
+          "brand": "Peterbilt",
+          "type": "repair",
+          "city": "Valley Grove",
+          "approx": true,
+          "notes": "Hunter Truck Peterbilt dealer at Exit 11/Dallas Pike: medium- and heavy-duty truck repair, OEM and aftermarket parts"
+        },
+        {
+          "mm": 13,
+          "exit": "13",
+          "name": "Valley Grove Welcome Center (WB only)",
+          "brand": "State",
+          "type": "rest_area",
+          "city": "Valley Grove",
+          "approx": true,
+          "parking": 20
+        }
+      ]
     },
-    {
-     "mm": 179,
-     "exit": "",
-     "name": "White Sulphur Springs Welcome Center",
-     "brand": "State",
-     "type": "rest_area",
-     "city": "White Sulphur Springs",
-     "approx": true,
-     "notes": "Westbound entering from VA, truck parking. Beckley-Charleston segment overlaps WV Turnpike; see I-77 plazas",
-     "parking": 20
+    "I-77": {
+      "maxMM": 187,
+      "stops": [
+        {
+          "mm": 9,
+          "exit": "9",
+          "name": "Love's Travel Stop",
+          "brand": "Love's",
+          "type": "truck_stop",
+          "city": "Princeton",
+          "approx": true,
+          "notes": "US-460, southern end of WV Turnpike",
+          "parking": 90
+        },
+        {
+          "mm": 14,
+          "exit": "14",
+          "name": "Weigh Station (SB)",
+          "brand": "State",
+          "type": "weigh_station",
+          "city": "Princeton",
+          "approx": true,
+          "notes": "Eads Mill scales on WV Turnpike southbound, north of Princeton"
+        },
+        {
+          "mm": 20,
+          "exit": "",
+          "name": "Bluestone Travel Plaza",
+          "brand": "Independent",
+          "type": "service_plaza",
+          "city": "Camp Creek",
+          "approx": true,
+          "notes": "WV Turnpike toll plaza, northbound side",
+          "parking": 20
+        },
+        {
+          "mm": 44,
+          "exit": "44",
+          "name": "FleetPride Parts",
+          "brand": "FleetPride",
+          "type": "repair",
+          "city": "Beckley",
+          "approx": true,
+          "notes": "Heavy-duty truck and trailer parts branch at 490 Ragland Rd, roughly 2 miles from Harper Rd exit; serves I-77/I-64 Beckley junction"
+        },
+        {
+          "mm": 45,
+          "exit": "45",
+          "name": "Beckley Travel Plaza",
+          "brand": "Independent",
+          "type": "service_plaza",
+          "city": "Beckley",
+          "approx": true,
+          "notes": "WV Turnpike toll plaza at Tamarack, serves both directions",
+          "parking": 40
+        },
+        {
+          "mm": 69,
+          "exit": "",
+          "name": "Morton Travel Plaza",
+          "brand": "Independent",
+          "type": "service_plaza",
+          "city": "Chelyan",
+          "approx": true,
+          "notes": "WV Turnpike toll plaza, both directions",
+          "parking": 25
+        },
+        {
+          "mm": 132,
+          "exit": "132",
+          "name": "Go-Mart #33 Truck Wash",
+          "brand": "Independent",
+          "type": "truck_wash",
+          "city": "Fairplain",
+          "approx": true,
+          "notes": "At Go-Mart truck stop"
+        },
+        {
+          "mm": 132,
+          "exit": "132",
+          "name": "Love's Truck Care / Speedco",
+          "brand": "Love's",
+          "type": "repair",
+          "city": "Ripley",
+          "approx": true,
+          "notes": "Co-located with Love's Travel Stop #378 at 3875 Charleston Rd (Love's and exit directories list this store at I-77 Exit 132): truck tires, PM/lube, light mechanical, 24-hr roadside assistance"
+        },
+        {
+          "mm": 138,
+          "exit": "138",
+          "name": "Love's Travel Stop",
+          "brand": "Love's",
+          "type": "truck_stop",
+          "city": "Ripley",
+          "approx": true,
+          "notes": "US-33 interchange",
+          "parking": 90
+        },
+        {
+          "mm": 169,
+          "exit": "169",
+          "name": "Weigh Station (SB)",
+          "brand": "State",
+          "type": "weigh_station",
+          "city": "Mineral Wells",
+          "approx": true,
+          "notes": "Southbound scales south of Parkersburg"
+        },
+        {
+          "mm": 170,
+          "exit": "170",
+          "name": "Pilot Travel Center",
+          "brand": "Pilot",
+          "type": "truck_stop",
+          "city": "Mineral Wells",
+          "approx": false,
+          "notes": "South of Parkersburg",
+          "parking": 80
+        },
+        {
+          "mm": 170,
+          "exit": "170",
+          "name": "Pifer's Service Center",
+          "brand": "Independent",
+          "type": "repair",
+          "city": "Mineral Wells",
+          "approx": true,
+          "notes": "24/7 truck and trailer repair, tires, and heavy-duty towing/recovery at 115 Elizabeth Pike (WV-14), same exit as Pilot Travel Center"
+        },
+        {
+          "mm": 185,
+          "exit": "",
+          "name": "Williamstown Welcome Center",
+          "brand": "State",
+          "type": "rest_area",
+          "city": "Williamstown",
+          "approx": true,
+          "notes": "Southbound entering from OH, truck parking",
+          "parking": 20
+        }
+      ]
+    },
+    "I-79": {
+      "maxMM": 161,
+      "stops": [
+        {
+          "mm": 62,
+          "exit": "62",
+          "name": "Microtel Inn & Suites by Wyndham Gassaway/Sutton",
+          "brand": "Microtel",
+          "type": "hotel",
+          "city": "Gassaway",
+          "approx": false,
+          "notes": "Truck parking verified: Wyndham hotel site advertises free parking for cars and trucks of all sizes; 115 Reston Pl at Exit 62"
+        },
+        {
+          "mm": 67,
+          "exit": "67",
+          "name": "Go-Mart Travel Center",
+          "brand": "Independent",
+          "type": "truck_stop",
+          "city": "Flatwoods",
+          "approx": true,
+          "notes": "WV-4 interchange",
+          "parking": 50
+        },
+        {
+          "mm": 85,
+          "exit": "",
+          "name": "Burnsville Rest Area",
+          "brand": "State",
+          "type": "rest_area",
+          "city": "Burnsville",
+          "approx": true,
+          "notes": "Both directions, truck parking",
+          "parking": 20
+        },
+        {
+          "mm": 105,
+          "exit": "105",
+          "name": "Jane Lew Truck Stop",
+          "brand": "Independent",
+          "type": "truck_stop",
+          "city": "Jane Lew",
+          "approx": false,
+          "notes": "",
+          "parking": 60
+        },
+        {
+          "mm": 105,
+          "exit": "105",
+          "name": "Worldwide Equipment of West Virginia",
+          "brand": "Kenworth",
+          "type": "repair",
+          "city": "Jane Lew",
+          "approx": true,
+          "notes": "Kenworth dealer with truck parts and service at 685 Industrial Park Rd, at the Jane Lew exit near Jane Lew Truck Stop"
+        },
+        {
+          "mm": 159,
+          "exit": "159",
+          "name": "Morgantown Welcome Center (SB only)",
+          "brand": "State",
+          "type": "rest_area",
+          "city": "Morgantown",
+          "approx": true,
+          "parking": 20
+        }
+      ]
+    },
+    "I-81": {
+      "maxMM": 26,
+      "stops": [
+        {
+          "mm": 5,
+          "exit": "5",
+          "name": "Love's Travel Stop",
+          "brand": "Love's",
+          "type": "truck_stop",
+          "city": "Inwood",
+          "approx": true,
+          "notes": "WV-51 interchange, south of Martinsburg",
+          "parking": 90
+        },
+        {
+          "mm": 5,
+          "exit": "5",
+          "name": "Inwood Truck & Tires",
+          "brand": "Independent",
+          "type": "repair",
+          "city": "Inwood",
+          "approx": true,
+          "notes": "Truck and trailer repair, DOT inspections, tire sales/service (Michelin national account), reefer/AC repair, 24-hr roadside; 230 Truxmore Ct, same WV-51 exit as Love's"
+        },
+        {
+          "mm": 12,
+          "exit": "12",
+          "name": "McCarthy Tire Service",
+          "brand": "McCarthy Tire",
+          "type": "repair",
+          "city": "Martinsburg",
+          "approx": true,
+          "notes": "Commercial tire shop and truck shop (inspections, PM, diesel repairs) with 24/7 commercial roadside; 1663 Winchester Ave (US-11) at Exit 12"
+        },
+        {
+          "mm": 20,
+          "exit": "20",
+          "name": "Pilot Travel Center",
+          "brand": "Pilot",
+          "type": "truck_stop",
+          "city": "Spring Mills",
+          "approx": true,
+          "notes": "Falling Waters area, north of Martinsburg",
+          "parking": 80
+        },
+        {
+          "mm": 25,
+          "exit": "",
+          "name": "Martinsburg Welcome Center",
+          "brand": "State",
+          "type": "rest_area",
+          "city": "Martinsburg",
+          "approx": true,
+          "notes": "Southbound entering from MD, truck parking",
+          "parking": 20
+        }
+      ]
     }
-   ]
-  },
-  "I-68": {
-   "maxMM": 32,
-   "stops": [
-    {
-     "mm": 23,
-     "exit": "23",
-     "name": "Little Sandy's Truck Stop",
-     "brand": "Independent",
-     "type": "truck_stop",
-     "city": "Bruceton Mills",
-     "approx": true,
-     "notes": "WV-26 interchange",
-     "parking": 60
-    }
-   ]
-  },
-  "I-70": {
-   "maxMM": 15,
-   "stops": [
-    {
-     "mm": 4,
-     "exit": "4",
-     "name": "Weigh Station (WB)",
-     "brand": "State",
-     "type": "weigh_station",
-     "city": "Wheeling",
-     "approx": true,
-     "notes": "Westbound near mm 3.5 west of Wheeling; reported rarely open"
-    },
-    {
-     "mm": 11,
-     "exit": "11",
-     "name": "TA Wheeling",
-     "brand": "TA",
-     "type": "truck_stop",
-     "city": "Valley Grove",
-     "approx": false,
-     "notes": "Dallas Pike",
-     "parking": 150
-    },
-    {
-     "mm": 13,
-     "exit": "13",
-     "name": "Valley Grove Welcome Center (WB only)",
-     "brand": "State",
-     "type": "rest_area",
-     "city": "Valley Grove",
-     "approx": true,
-     "parking": 20
-    }
-   ]
-  },
-  "I-77": {
-   "maxMM": 187,
-   "stops": [
-    {
-     "mm": 9,
-     "exit": "9",
-     "name": "Love's Travel Stop",
-     "brand": "Love's",
-     "type": "truck_stop",
-     "city": "Princeton",
-     "approx": true,
-     "notes": "US-460, southern end of WV Turnpike",
-     "parking": 90
-    },
-    {
-     "mm": 14,
-     "exit": "14",
-     "name": "Weigh Station (SB)",
-     "brand": "State",
-     "type": "weigh_station",
-     "city": "Princeton",
-     "approx": true,
-     "notes": "Eads Mill scales on WV Turnpike southbound, north of Princeton"
-    },
-    {
-     "mm": 20,
-     "exit": "",
-     "name": "Bluestone Travel Plaza",
-     "brand": "Independent",
-     "type": "service_plaza",
-     "city": "Camp Creek",
-     "approx": true,
-     "notes": "WV Turnpike toll plaza, northbound side",
-     "parking": 20
-    },
-    {
-     "mm": 45,
-     "exit": "45",
-     "name": "Beckley Travel Plaza",
-     "brand": "Independent",
-     "type": "service_plaza",
-     "city": "Beckley",
-     "approx": true,
-     "notes": "WV Turnpike toll plaza at Tamarack, serves both directions",
-     "parking": 40
-    },
-    {
-     "mm": 69,
-     "exit": "",
-     "name": "Morton Travel Plaza",
-     "brand": "Independent",
-     "type": "service_plaza",
-     "city": "Chelyan",
-     "approx": true,
-     "notes": "WV Turnpike toll plaza, both directions",
-     "parking": 25
-    },
-    {
-     "mm": 132,
-     "exit": "132",
-     "name": "Go-Mart #33 Truck Wash",
-     "brand": "Independent",
-     "type": "truck_wash",
-     "city": "Fairplain",
-     "approx": true,
-     "notes": "At Go-Mart truck stop"
-    },
-    {
-     "mm": 138,
-     "exit": "138",
-     "name": "Love's Travel Stop",
-     "brand": "Love's",
-     "type": "truck_stop",
-     "city": "Ripley",
-     "approx": true,
-     "notes": "US-33 interchange",
-     "parking": 90
-    },
-    {
-     "mm": 169,
-     "exit": "169",
-     "name": "Weigh Station (SB)",
-     "brand": "State",
-     "type": "weigh_station",
-     "city": "Mineral Wells",
-     "approx": true,
-     "notes": "Southbound scales south of Parkersburg"
-    },
-    {
-     "mm": 170,
-     "exit": "170",
-     "name": "Pilot Travel Center",
-     "brand": "Pilot",
-     "type": "truck_stop",
-     "city": "Mineral Wells",
-     "approx": false,
-     "notes": "South of Parkersburg",
-     "parking": 80
-    },
-    {
-     "mm": 185,
-     "exit": "",
-     "name": "Williamstown Welcome Center",
-     "brand": "State",
-     "type": "rest_area",
-     "city": "Williamstown",
-     "approx": true,
-     "notes": "Southbound entering from OH, truck parking",
-     "parking": 20
-    }
-   ]
-  },
-  "I-79": {
-   "maxMM": 161,
-   "stops": [
-    {
-     "mm": 67,
-     "exit": "67",
-     "name": "Go-Mart Travel Center",
-     "brand": "Independent",
-     "type": "truck_stop",
-     "city": "Flatwoods",
-     "approx": true,
-     "notes": "WV-4 interchange",
-     "parking": 50
-    },
-    {
-     "mm": 85,
-     "exit": "",
-     "name": "Burnsville Rest Area",
-     "brand": "State",
-     "type": "rest_area",
-     "city": "Burnsville",
-     "approx": true,
-     "notes": "Both directions, truck parking",
-     "parking": 20
-    },
-    {
-     "mm": 105,
-     "exit": "105",
-     "name": "Jane Lew Truck Stop",
-     "brand": "Independent",
-     "type": "truck_stop",
-     "city": "Jane Lew",
-     "approx": false,
-     "notes": "",
-     "parking": 60
-    },
-    {
-     "mm": 159,
-     "exit": "159",
-     "name": "Morgantown Welcome Center (SB only)",
-     "brand": "State",
-     "type": "rest_area",
-     "city": "Morgantown",
-     "approx": true,
-     "parking": 20
-    }
-   ]
-  },
-  "I-81": {
-   "maxMM": 26,
-   "stops": [
-    {
-     "mm": 5,
-     "exit": "5",
-     "name": "Love's Travel Stop",
-     "brand": "Love's",
-     "type": "truck_stop",
-     "city": "Inwood",
-     "approx": true,
-     "notes": "WV-51 interchange, south of Martinsburg",
-     "parking": 90
-    },
-    {
-     "mm": 20,
-     "exit": "20",
-     "name": "Pilot Travel Center",
-     "brand": "Pilot",
-     "type": "truck_stop",
-     "city": "Spring Mills",
-     "approx": true,
-     "notes": "Falling Waters area, north of Martinsburg",
-     "parking": 80
-    },
-    {
-     "mm": 25,
-     "exit": "",
-     "name": "Martinsburg Welcome Center",
-     "brand": "State",
-     "type": "rest_area",
-     "city": "Martinsburg",
-     "approx": true,
-     "notes": "Southbound entering from MD, truck parking",
-     "parking": 20
-    }
-   ]
   }
- }
 }

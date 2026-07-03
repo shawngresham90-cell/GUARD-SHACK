@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Truckin' Life Directory — Every Truck Stop, Every Interstate, Every Mile Marker</title>
+<meta name="description" content="The trucker's book of the road: 2,000+ truck stops, rest areas, weigh stations, truck washes and trucker-friendly hotels on every US interstate, mile marker by mile marker — plus 5,000+ reservable paid parking spots. Built by Trucking Life With Shawn.">
+<style>
+  :root{
+    --bg:#111418; --panel:#1b2129; --panel2:#232b36; --line:#2e3947;
+    --text:#e8edf2; --muted:#93a1b3; --accent:#ff5b1f; --accent2:#ffb347;
+    --truck:#4dabf7; --rest:#69db7c; --plaza:#ffd43b; --paid:#b197fc; --scale:#ff6b6b; --wash:#3bc9db; --hotel:#f783ac;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;line-height:1.5}
+  a{color:var(--accent2)}
+  .wrap{max-width:960px;margin:0 auto;padding:0 18px}
+  header.hero{text-align:center;padding:60px 0 40px;background:linear-gradient(180deg,#181d24 0%,var(--bg) 100%);border-bottom:1px solid var(--line)}
+  .hero .badge-line{color:var(--accent2);font-size:.85rem;letter-spacing:2px;text-transform:uppercase;margin-bottom:14px}
+  .hero h1{font-size:2.6rem;line-height:1.15;letter-spacing:.5px}
+  .hero h1 .hl{color:var(--accent)}
+  .hero p.tag{color:var(--muted);font-size:1.05rem;max-width:640px;margin:16px auto 0}
+  .cta{display:inline-block;background:var(--accent);color:#fff;font-weight:800;font-size:1.15rem;border-radius:12px;padding:16px 38px;text-decoration:none;margin-top:28px;box-shadow:0 4px 24px rgba(255,91,31,.35)}
+  .cta:hover{background:#ff6f3d}
+  .cta.small{font-size:.95rem;padding:12px 26px;box-shadow:none}
+  .statrow{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin:44px auto 0;max-width:820px}
+  .stat{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:16px 10px}
+  .stat b{display:block;font-size:1.5rem;color:var(--accent2)}
+  .stat span{color:var(--muted);font-size:.78rem}
+  section{padding:48px 0}
+  section h2{font-size:1.5rem;text-align:center;margin-bottom:8px}
+  section p.sub{color:var(--muted);text-align:center;max-width:620px;margin:0 auto 30px}
+  .features{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px}
+  .feature{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:20px;border-top:4px solid var(--accent)}
+  .feature.t{border-top-color:var(--truck)}
+  .feature.r{border-top-color:var(--rest)}
+  .feature.s{border-top-color:var(--scale)}
+  .feature.w{border-top-color:var(--wash)}
+  .feature.h{border-top-color:var(--hotel)}
+  .feature.p{border-top-color:var(--paid)}
+  .feature h3{font-size:1.05rem;margin-bottom:6px}
+  .feature p{color:var(--muted);font-size:.9rem}
+  .how{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;counter-reset:step}
+  .step{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:20px;position:relative}
+  .step::before{counter-increment:step;content:counter(step);position:absolute;top:-16px;left:18px;background:var(--accent);color:#fff;font-weight:800;width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center}
+  .step h3{margin:8px 0 6px;font-size:1rem}
+  .step p{color:var(--muted);font-size:.88rem}
+  .promo{background:linear-gradient(90deg,rgba(177,151,252,.12),rgba(255,91,31,.12));border:1px solid var(--paid);border-radius:16px;padding:26px;text-align:center;margin-top:10px}
+  .promo b{color:var(--paid)}
+  .promo .code{display:inline-block;background:var(--panel2);border:1px dashed var(--accent2);color:var(--accent2);font-weight:800;font-size:1.3rem;letter-spacing:3px;border-radius:10px;padding:10px 24px;margin:12px 0}
+  .yt{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:28px;text-align:center}
+  .yt h2{margin-bottom:6px}
+  .yt a.btn{display:inline-block;background:#ff0000;color:#fff;font-weight:700;border-radius:10px;padding:12px 26px;text-decoration:none;margin-top:14px}
+  footer{border-top:1px solid var(--line);padding:30px 0 50px;text-align:center;color:var(--muted);font-size:.8rem}
+  footer .disc{max-width:640px;margin:10px auto 0;font-size:.72rem;line-height:1.5}
+  @media (max-width:600px){ .hero h1{font-size:1.9rem} }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="badge-line">🚛 From Trucking Life With Shawn</div>
+    <h1>Truckin' Life <span class="hl">Directory</span></h1>
+    <p class="tag">The book of the road. Every truck stop, rest area, weigh station, truck wash, and trucker-friendly hotel on every US interstate — laid out <b>mile marker by mile marker</b>, the way you actually drive it.</p>
+    <a class="cta" href="directory/">📖 Open the Directory — Free</a>
+    <div class="statrow">
+      <div class="stat"><b>2,000+</b><span>locations mapped</span></div>
+      <div class="stat"><b>5,000+</b><span>reservable paid spots</span></div>
+      <div class="stat"><b>250</b><span>weigh stations</span></div>
+      <div class="stat"><b>50</b><span>states + DC covered</span></div>
+    </div>
+  </div>
+</header>
+
+<section>
+  <div class="wrap">
+    <h2>Everything on your route, in one book</h2>
+    <p class="sub">Pick your state. Pick your interstate. Read down from mile marker 0 — every stop appears in the order you'll hit it, with tabs to filter just what you need.</p>
+    <div class="features">
+      <div class="feature t"><h3>🚛 Truck Stops</h3><p>Pilot, Flying J, Love's, TA, Petro and the famous independents — with estimated truck-spot counts at every location.</p></div>
+      <div class="feature r"><h3>🅿️ Rest Areas</h3><p>State rest areas and welcome centers with truck parking counts, direction served, and turnpike service plazas at true mileposts.</p></div>
+      <div class="feature s"><h3>⚖️ Weigh Stations</h3><p>Every permanent scale house and port of entry at its mile marker with direction and PrePass notes — no surprises.</p></div>
+      <div class="feature w"><h3>🧼 Truck Washes</h3><p>Blue Beacon and verified independents, each noting which truck stop they sit at.</p></div>
+      <div class="feature h"><h3>🏨 Trucker Hotels</h3><p>Hotels and motels with <b>verified</b> semi parking — real beds without abandoning your rig. Evidence quoted on every listing.</p></div>
+      <div class="feature p"><h3>💲 Reservable Paid Parking</h3><p>5,000+ guaranteed spots via Truck Parking Club with live availability, prices and ratings — reserve before you roll in.</p></div>
+    </div>
+  </div>
+</section>
+
+<section style="padding-top:10px">
+  <div class="wrap">
+    <h2>Built by drivers, checked by Shawn</h2>
+    <p class="sub">See a stop we're missing? Add it right from the road — every driver submission is reviewed before it enters the book, and every stop takes star reviews from the drivers who've been there.</p>
+    <div class="how">
+      <div class="step"><h3>Open your interstate</h3><p>State → interstate → mile marker 0 on up. Works on any phone, no app to install.</p></div>
+      <div class="step"><h3>Filter what you need</h3><p>Tabs for truck stops, rest areas, scales, washes and hotels — or search any city or brand.</p></div>
+      <div class="step"><h3>Add &amp; review stops</h3><p>Submit missing spots and rate the ones you use. Approved additions credit your handle.</p></div>
+    </div>
+    <div class="promo">
+      <b>💜 GUARANTEED PARKING?</b><br>
+      Reserve any paid spot in the directory and use promo code
+      <div class="code">SHAWN20</div>
+      <div style="color:var(--muted);font-size:.85rem">at Truck Parking Club checkout</div>
+    </div>
+  </div>
+</section>
+
+<section style="padding-top:0">
+  <div class="wrap">
+    <div class="yt">
+      <h2>🎥 Trucking Life With Shawn</h2>
+      <p style="color:var(--muted)">This directory is built and maintained by Shawn — real driver, real miles. Ride along on the channel.</p>
+      <a class="btn" href="https://www.youtube.com/@TruckingLifewithShawn" target="_blank" rel="noopener">▶ Subscribe on YouTube</a>
+    </div>
+    <div style="text-align:center;margin-top:34px">
+      <a class="cta small" href="directory/">📖 Open the Directory</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div>© Truckin' Life Directory · A Trucking Life With Shawn project</div>
+    <p class="disc">Mile markers are exit-number based and may be approximate. Truck-spot counts are estimates. Locations open, close and rebrand — always confirm parking and fuel with your GPS before counting on a stop. Paid parking reservations are fulfilled by Truck Parking Club; hotel listings note the source of their truck-parking verification.</p>
+  </div>
+</footer>
+
+</body>
+</html>

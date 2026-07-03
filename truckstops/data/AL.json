@@ -28,6 +28,16 @@
           "parking": 80
         },
         {
+          "mm": 10,
+          "exit": "10",
+          "name": "Speedco",
+          "brand": "Speedco",
+          "type": "repair",
+          "city": "Irvington",
+          "approx": false,
+          "notes": "Oil change/PM, tire services, light mechanical, roadside assistance; co-located with Love's Travel Stop #846 at Exit 10 (CR-39 S), 8400 County Farm Rd"
+        },
+        {
           "mm": 13,
           "exit": "13",
           "name": "Pilot Travel Center",
@@ -39,6 +49,16 @@
           "parking": 75
         },
         {
+          "mm": 15,
+          "exit": "15",
+          "name": "Motel 6 Mobile (Tillmans Corner)",
+          "brand": "Motel 6",
+          "type": "hotel",
+          "city": "Mobile",
+          "approx": true,
+          "notes": "Truck parking verified: Motel 6 lists on-site truck parking; trucker review confirms; 5686 Tillmans Corner Pkwy (US 90)"
+        },
+        {
           "mm": 44,
           "exit": "44",
           "name": "Love's Travel Stop",
@@ -48,6 +68,16 @@
           "approx": false,
           "notes": "AL-59",
           "parking": 85
+        },
+        {
+          "mm": 44,
+          "exit": "44",
+          "name": "Love's Truck Care",
+          "brand": "Love's Truck Care",
+          "type": "repair",
+          "city": "Loxley",
+          "approx": false,
+          "notes": "Oil change/PM, tire services, light mechanical; 2 service bays; co-located with Love's Travel Stop #206 (126 E Flying K Rd) at this exit"
         },
         {
           "mm": 49,
@@ -112,17 +142,6 @@
         {
           "mm": 77,
           "exit": "77",
-          "name": "TA Tuscaloosa",
-          "brand": "TA",
-          "type": "truck_stop",
-          "city": "Cottondale",
-          "approx": false,
-          "notes": "On I-20/I-59 overlap; Buttermilk Rd/US-11",
-          "parking": 170
-        },
-        {
-          "mm": 77,
-          "exit": "77",
           "name": "Blue Beacon Truck Wash",
           "brand": "Independent",
           "type": "truck_wash",
@@ -141,6 +160,37 @@
           "notes": "3501 Buttermilk Rd, Exit 77; independent wash near TA Tuscaloosa, since 1991"
         },
         {
+          "mm": 77,
+          "exit": "77",
+          "name": "TA Tuscaloosa",
+          "brand": "TA",
+          "type": "truck_stop",
+          "city": "Cottondale",
+          "approx": false,
+          "notes": "On I-20/I-59 overlap; Buttermilk Rd/US-11",
+          "parking": 170
+        },
+        {
+          "mm": 77,
+          "exit": "77",
+          "name": "TA Truck Service",
+          "brand": "TA",
+          "type": "repair",
+          "city": "Cottondale",
+          "approx": false,
+          "notes": "Truck repair shop at TA Tuscaloosa (3501 Buttermilk Rd); tire sales/repair, 24-hr road service, towing; on I-20/I-59 overlap"
+        },
+        {
+          "mm": 77,
+          "exit": "77",
+          "name": "Love's Speedco #911",
+          "brand": "Speedco",
+          "type": "repair",
+          "city": "Cottondale",
+          "approx": false,
+          "notes": "Standalone Speedco at 3120 Buttermilk Rd; oil change/PM, tires, light mechanical, roadside assistance; near TA Tuscaloosa; on I-20/I-59 overlap"
+        },
+        {
           "mm": 100,
           "exit": "100",
           "name": "Petro Stopping Center",
@@ -150,6 +200,56 @@
           "approx": false,
           "notes": "On I-20/I-59 overlap",
           "parking": 200
+        },
+        {
+          "mm": 100,
+          "exit": "100",
+          "name": "TA Truck Service",
+          "brand": "TA",
+          "type": "repair",
+          "city": "McCalla",
+          "approx": false,
+          "notes": "5 truck service bays at Petro Bucksville (22526 Highway 216); tire repair, wheel alignments, road service; on I-20/I-59 overlap"
+        },
+        {
+          "mm": 100,
+          "exit": "100",
+          "name": "Love's Truck Care",
+          "brand": "Love's Truck Care",
+          "type": "repair",
+          "city": "McCalla",
+          "approx": false,
+          "notes": "22183 Highway 216 at Love's Travel Stop #227; oil change/PM, tires, light mechanical; on I-20/I-59 overlap"
+        },
+        {
+          "mm": 123,
+          "exit": "123",
+          "name": "W.W. Williams",
+          "brand": "W.W. Williams",
+          "type": "repair",
+          "city": "Birmingham",
+          "approx": true,
+          "notes": "Diesel and truck repair, transmission service, fleet maintenance; 1160 Bankhead Hwy W, just off I-20/59 Arkadelphia Rd exit; on I-20/I-59 overlap"
+        },
+        {
+          "mm": 147,
+          "exit": "147",
+          "name": "Love's Truck Care",
+          "brand": "Love's Truck Care",
+          "type": "repair",
+          "city": "Moody",
+          "approx": false,
+          "notes": "Oil change/PM, tires, light mechanical; co-located with Love's Travel Stop #530 (2625 Kelly Creek Rd S) at this exit"
+        },
+        {
+          "mm": 185,
+          "exit": "185",
+          "name": "Motel 6 Anniston (Oxford)",
+          "brand": "Motel 6",
+          "type": "hotel",
+          "city": "Oxford",
+          "approx": true,
+          "notes": "Truck parking verified: Motel 6 lists free RV/bus/truck parking; Allstays notes 5 truck spaces; 202 Grace St off AL-21"
         },
         {
           "mm": 199,
@@ -171,6 +271,16 @@
           "city": "Heflin",
           "approx": true,
           "notes": "Westbound only; ALEA scale near New Hopewell, Alabama's only permanent interstate scale house; Drivewyze PreClear site"
+        },
+        {
+          "mm": 205,
+          "exit": "205",
+          "name": "Speedco",
+          "brand": "Speedco",
+          "type": "repair",
+          "city": "Heflin",
+          "approx": false,
+          "notes": "Oil change/PM, tires, light mechanical, roadside assistance; co-located with Love's Travel Stop #818 (6647 Hwy 46) at Exit 205"
         },
         {
           "mm": 213,
@@ -198,6 +308,16 @@
           "approx": true,
           "notes": "US-278 area",
           "parking": 80
+        },
+        {
+          "mm": 14,
+          "exit": "14",
+          "name": "Speedco",
+          "brand": "Speedco",
+          "type": "repair",
+          "city": "Hamilton",
+          "approx": false,
+          "notes": "Oil change/PM, tires, light mechanical, roadside assistance; co-located with Love's Travel Stop #814 (1126 County Hwy 35) at this exit"
         },
         {
           "mm": 30,
@@ -278,6 +398,26 @@
           "city": "Cottondale",
           "approx": false,
           "notes": "3501 Buttermilk Rd, Exit 77; independent wash near TA Tuscaloosa, since 1991"
+        },
+        {
+          "mm": 77,
+          "exit": "77",
+          "name": "TA Truck Service",
+          "brand": "TA",
+          "type": "repair",
+          "city": "Cottondale",
+          "approx": false,
+          "notes": "Truck repair shop at TA Tuscaloosa (3501 Buttermilk Rd); tire sales/repair, 24-hr road service, towing; on I-20/I-59 overlap"
+        },
+        {
+          "mm": 77,
+          "exit": "77",
+          "name": "Love's Speedco #911",
+          "brand": "Speedco",
+          "type": "repair",
+          "city": "Cottondale",
+          "approx": false,
+          "notes": "Standalone Speedco at 3120 Buttermilk Rd; oil change/PM, tires, light mechanical, roadside assistance; near TA Tuscaloosa; on I-20/I-59 overlap"
         },
         {
           "mm": 100,
@@ -386,17 +526,6 @@
         {
           "mm": 158,
           "exit": "158",
-          "name": "Pilot Travel Center",
-          "brand": "Pilot",
-          "type": "truck_stop",
-          "city": "Hope Hull",
-          "approx": false,
-          "notes": "Hope Hull truck stop cluster, Montgomery south side",
-          "parking": 85
-        },
-        {
-          "mm": 158,
-          "exit": "158",
           "name": "Love's Travel Stop",
           "brand": "Love's",
           "type": "truck_stop",
@@ -404,6 +533,17 @@
           "approx": true,
           "notes": "Hope Hull truck stop cluster",
           "parking": 80
+        },
+        {
+          "mm": 158,
+          "exit": "158",
+          "name": "Pilot Travel Center",
+          "brand": "Pilot",
+          "type": "truck_stop",
+          "city": "Hope Hull",
+          "approx": false,
+          "notes": "Hope Hull truck stop cluster, Montgomery south side",
+          "parking": 85
         },
         {
           "mm": 208,
@@ -419,23 +559,23 @@
         {
           "mm": 264,
           "exit": "264",
-          "name": "Pilot Travel Center",
-          "brand": "Pilot",
-          "type": "truck_stop",
-          "city": "Birmingham",
-          "approx": false,
-          "notes": "Daniel Payne Dr",
-          "parking": 80
-        },
-        {
-          "mm": 264,
-          "exit": "264",
           "name": "Love's Travel Stop",
           "brand": "Love's",
           "type": "truck_stop",
           "city": "Birmingham",
           "approx": true,
           "notes": "Daniel Payne Dr area",
+          "parking": 80
+        },
+        {
+          "mm": 264,
+          "exit": "264",
+          "name": "Pilot Travel Center",
+          "brand": "Pilot",
+          "type": "truck_stop",
+          "city": "Birmingham",
+          "approx": false,
+          "notes": "Daniel Payne Dr",
           "parking": 80
         },
         {
@@ -450,6 +590,42 @@
           "parking": 90
         },
         {
+          "mm": 310,
+          "exit": "310",
+          "name": "Comfort Suites Cullman I-65 Exit 310",
+          "brand": "Comfort Suites",
+          "type": "hotel",
+          "city": "Cullman",
+          "notes": "Truck parking verified: Choice Hotels amenity list includes truck parking; also listed on Trucker Path hotels"
+        },
+        {
+          "mm": 310,
+          "exit": "310",
+          "name": "Quality Inn Cullman I-65 Exit 310",
+          "brand": "Quality Inn",
+          "type": "hotel",
+          "city": "Cullman",
+          "notes": "Truck parking verified: Choice Hotels amenity list includes RV/bus/truck parking"
+        },
+        {
+          "mm": 310,
+          "exit": "310",
+          "name": "Sleep Inn & Suites Cullman I-65 Exit 310",
+          "brand": "Sleep Inn",
+          "type": "hotel",
+          "city": "Cullman",
+          "notes": "Truck parking verified: Choice Hotels amenity list includes RV/bus/truck parking"
+        },
+        {
+          "mm": 334,
+          "exit": "334",
+          "name": "Days Inn Decatur Priceville I-65 Exit 334",
+          "brand": "Days Inn",
+          "type": "hotel",
+          "city": "Priceville",
+          "notes": "Truck parking verified: guest review tags cite truck parking; listed on Trucker Path hotels; adjacent to Pilot #441"
+        },
+        {
           "mm": 334,
           "exit": "334",
           "name": "Pilot Travel Center",
@@ -459,6 +635,15 @@
           "approx": true,
           "notes": "Decatur area",
           "parking": 80
+        },
+        {
+          "mm": 351,
+          "exit": "351",
+          "name": "Clarion Pointe Athens I-65",
+          "brand": "Clarion",
+          "type": "hotel",
+          "city": "Athens",
+          "notes": "Truck parking verified: property listing describes big-truck parking area; US 72 at exit 351"
         },
         {
           "mm": 351,

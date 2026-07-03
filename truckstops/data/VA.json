@@ -1,576 +1,776 @@
 {
- "state": "Virginia",
- "abbr": "VA",
- "note": "I-77 and I-81 overlap near Wytheville; the Wytheville/Fort Chiswell truck stop cluster is listed under I-81 (exits 72-84). Mile markers on rest areas without numbered exits use the milepost.",
- "interstates": {
-  "I-64": {
-   "maxMM": 299,
-   "stops": [
-    {
-     "mm": 1,
-     "exit": "",
-     "name": "Covington Welcome Center",
-     "brand": "State",
-     "type": "rest_area",
-     "city": "Covington",
-     "approx": true,
-     "notes": "Eastbound; welcome center entering VA from WV, truck parking",
-     "parking": 20
+  "state": "Virginia",
+  "abbr": "VA",
+  "note": "I-77 and I-81 overlap near Wytheville; the Wytheville/Fort Chiswell truck stop cluster is listed under I-81 (exits 72-84). Mile markers on rest areas without numbered exits use the milepost.",
+  "interstates": {
+    "I-64": {
+      "maxMM": 299,
+      "stops": [
+        {
+          "mm": 1,
+          "exit": "",
+          "name": "Covington Welcome Center",
+          "brand": "State",
+          "type": "rest_area",
+          "city": "Covington",
+          "approx": true,
+          "notes": "Eastbound; welcome center entering VA from WV, truck parking",
+          "parking": 20
+        },
+        {
+          "mm": 169,
+          "exit": "",
+          "name": "Goochland Safety Rest Area",
+          "brand": "State",
+          "type": "rest_area",
+          "city": "Goochland",
+          "approx": true,
+          "notes": "Both directions, truck parking",
+          "parking": 30
+        },
+        {
+          "mm": 211,
+          "exit": "211",
+          "name": "Love's Truck Tire Care",
+          "brand": "Love's",
+          "type": "repair",
+          "city": "New Kent (Talleysville)",
+          "approx": true,
+          "notes": "Tire repair, light mechanical, oil changes, 24-hr emergency roadside; co-located with Love's Travel Stop #705 at I-64 Exit 211, 6870 Jimmy Burrell Ln"
+        },
+        {
+          "mm": 213,
+          "exit": "",
+          "name": "New Kent Safety Rest Area",
+          "brand": "State",
+          "type": "rest_area",
+          "city": "New Kent",
+          "approx": true,
+          "notes": "Both directions, truck parking",
+          "parking": 30
+        }
+      ]
     },
-    {
-     "mm": 169,
-     "exit": "",
-     "name": "Goochland Safety Rest Area",
-     "brand": "State",
-     "type": "rest_area",
-     "city": "Goochland",
-     "approx": true,
-     "notes": "Both directions, truck parking",
-     "parking": 30
+    "I-66": {
+      "maxMM": 76,
+      "stops": [
+        {
+          "mm": 48,
+          "exit": "",
+          "name": "Manassas Rest Area",
+          "brand": "State",
+          "type": "rest_area",
+          "city": "Manassas",
+          "approx": true,
+          "notes": "Westbound; limited truck parking. No major truck stops directly on I-66",
+          "parking": 10
+        }
+      ]
     },
-    {
-     "mm": 213,
-     "exit": "",
-     "name": "New Kent Safety Rest Area",
-     "brand": "State",
-     "type": "rest_area",
-     "city": "New Kent",
-     "approx": true,
-     "notes": "Both directions, truck parking",
-     "parking": 30
+    "I-77": {
+      "maxMM": 67,
+      "stops": [
+        {
+          "mm": 1,
+          "exit": "",
+          "name": "Lambsburg Welcome Center",
+          "brand": "State",
+          "type": "rest_area",
+          "city": "Lambsburg",
+          "approx": true,
+          "notes": "Northbound entering from NC, truck parking. Wytheville truck stops are on the I-77/I-81 overlap; see I-81 exits 72-84",
+          "parking": 25
+        },
+        {
+          "mm": 8,
+          "exit": "8",
+          "name": "Fitzgerald Peterbilt of Fancy Gap",
+          "brand": "Peterbilt",
+          "type": "repair",
+          "city": "Fancy Gap",
+          "approx": true,
+          "notes": "Peterbilt dealer: truck service and all-makes parts, Mon-Sat 6am-midnight; 220 Kelly Rd near I-77 Exit 8"
+        },
+        {
+          "mm": 41,
+          "exit": "41",
+          "name": "Sleep Inn Wytheville I-77 & I-81",
+          "brand": "Sleep Inn",
+          "type": "hotel",
+          "city": "Wytheville",
+          "approx": false,
+          "notes": "Truck parking verified: hotel site advertises large truck parking area; TripAdvisor review titled 'Truck Parking' confirms big-rig space; 135 Nye Circle at Exit 41 near I-81 junction"
+        },
+        {
+          "mm": 52,
+          "exit": "52",
+          "name": "Weigh Station (both directions)",
+          "brand": "State",
+          "type": "weigh_station",
+          "city": "Bland",
+          "approx": true,
+          "notes": "VA DMV Bland Motor Carrier Service Center; weigh-in-motion/PrePass"
+        },
+        {
+          "mm": 61,
+          "exit": "61",
+          "name": "Rocky Gap Welcome Center (SB only)",
+          "brand": "State",
+          "type": "rest_area",
+          "city": "Rocky Gap",
+          "approx": true,
+          "parking": 20
+        }
+      ]
+    },
+    "I-81": {
+      "maxMM": 325,
+      "stops": [
+        {
+          "mm": 1,
+          "exit": "",
+          "name": "Bristol Welcome Center",
+          "brand": "State",
+          "type": "rest_area",
+          "city": "Bristol",
+          "approx": true,
+          "notes": "Northbound entering from TN, truck parking",
+          "parking": 25
+        },
+        {
+          "mm": 7,
+          "exit": "7",
+          "name": "Petro Stopping Center",
+          "brand": "Petro",
+          "type": "truck_stop",
+          "city": "Bristol",
+          "approx": false,
+          "notes": "",
+          "parking": 180
+        },
+        {
+          "mm": 7,
+          "exit": "7",
+          "name": "FleetPride Bristol",
+          "brand": "FleetPride",
+          "type": "repair",
+          "city": "Bristol",
+          "approx": true,
+          "notes": "Heavy-duty truck and trailer parts branch; 15310 Lee Hwy, same US-11 strip as the Exit 7 Petro Stopping Center; Mon-Fri 7:30am-5pm, Sat 8am-noon"
+        },
+        {
+          "mm": 29,
+          "exit": "29",
+          "name": "TA Truck Service (Petro Glade Spring)",
+          "brand": "TA",
+          "type": "repair",
+          "city": "Glade Spring",
+          "approx": true,
+          "notes": "5-bay truck service shop co-located with Petro Glade Spring at Exit 29: tires, brakes, electrical, DOT inspections, diagnostics, HVAC, trailer work; RoadSquad 24/7 roadside"
+        },
+        {
+          "mm": 29,
+          "exit": "29",
+          "name": "Fitzgerald Peterbilt of Glade Spring",
+          "brand": "Peterbilt",
+          "type": "repair",
+          "city": "Glade Spring",
+          "approx": true,
+          "notes": "Peterbilt dealer service and large all-makes parts inventory; 33392 Lee Hwy at I-81 Exit 29; service Mon-Sat to midnight, mobile service available"
+        },
+        {
+          "mm": 61,
+          "exit": "61",
+          "name": "Rural Retreat Rest Area (both directions)",
+          "brand": "State",
+          "type": "rest_area",
+          "city": "Rural Retreat",
+          "approx": true,
+          "parking": 25
+        },
+        {
+          "mm": 72,
+          "exit": "72",
+          "name": "TA Wytheville",
+          "brand": "TA",
+          "type": "truck_stop",
+          "city": "Wytheville",
+          "approx": false,
+          "notes": "At I-77/I-81 junction",
+          "parking": 160
+        },
+        {
+          "mm": 77,
+          "exit": "77",
+          "name": "Pilot Travel Center",
+          "brand": "Pilot",
+          "type": "truck_stop",
+          "city": "Wytheville",
+          "approx": true,
+          "notes": "Wytheville exit 72/77 cluster",
+          "parking": 85
+        },
+        {
+          "mm": 72,
+          "exit": "72",
+          "name": "TA Truck Service #143",
+          "brand": "TA",
+          "type": "repair",
+          "city": "Wytheville",
+          "approx": true,
+          "notes": "Truck repair, trailer repair, and tire service shop co-located with TA Wytheville travel center at I-77 Exit 41 / I-81 Exit 72; open 24 hours"
+        },
+        {
+          "mm": 77,
+          "exit": "77",
+          "name": "Southern Tire Mart at Pilot",
+          "brand": "Southern Tire Mart",
+          "type": "repair",
+          "city": "Wytheville",
+          "approx": true,
+          "notes": "Commercial tire sales/service and DOT inspections; co-located with Pilot Travel Center #4619, 1318 E Lee Hwy at I-81/I-77 Exit 77"
+        },
+        {
+          "mm": 80,
+          "exit": "80",
+          "name": "Love's Travel Stop",
+          "brand": "Love's",
+          "type": "truck_stop",
+          "city": "Fort Chiswell",
+          "approx": true,
+          "notes": "US-52 / Fort Chiswell",
+          "parking": 90
+        },
+        {
+          "mm": 80,
+          "exit": "80",
+          "name": "Blue Beacon Truck Wash",
+          "brand": "Independent",
+          "type": "truck_wash",
+          "city": "Fort Chiswell (Max Meadows)",
+          "approx": false,
+          "notes": "Factory Outlet Dr; on I-77/I-81 overlap"
+        },
+        {
+          "mm": 80,
+          "exit": "80",
+          "name": "Boss Truck Shop #31",
+          "brand": "Boss Truck Shops",
+          "type": "repair",
+          "city": "Fort Chiswell (Max Meadows)",
+          "approx": true,
+          "notes": "Truck and tire repair, maintenance, new and retread commercial tires; 143 Factory Outlet Dr at Exit 80, adjacent to the Flying J at 139 Factory Outlet Dr"
+        },
+        {
+          "mm": 84,
+          "exit": "84",
+          "name": "Flying J Travel Center",
+          "brand": "Flying J",
+          "type": "truck_stop",
+          "city": "Max Meadows",
+          "approx": true,
+          "notes": "",
+          "parking": 90
+        },
+        {
+          "mm": 84,
+          "exit": "84",
+          "name": "Speedco #937",
+          "brand": "Speedco",
+          "type": "repair",
+          "city": "Max Meadows",
+          "approx": true,
+          "notes": "Love's-owned Speedco: oil/lube, commercial tires, light mechanical, emergency roadside; 2866 Lee Hwy near Love's Travel Stop #239 at Exit 84 (some directories list Exit 80)"
+        },
+        {
+          "mm": 86,
+          "exit": "86",
+          "name": "I-81 Service Center",
+          "brand": "Independent",
+          "type": "repair",
+          "city": "Max Meadows",
+          "approx": true,
+          "notes": "Truck/trailer repair, DOT inspections, electrical, AC/reefer, brakes, transmissions, welding; 24/7 emergency roadside and towing; 5722 E Lee Hwy, 0.6 mi from Exit 86"
+        },
+        {
+          "mm": 108,
+          "exit": "",
+          "name": "Ironto Safety Rest Area",
+          "brand": "State",
+          "type": "rest_area",
+          "city": "Ironto",
+          "approx": true,
+          "notes": "Both directions, truck parking",
+          "parking": 30
+        },
+        {
+          "mm": 128,
+          "exit": "128",
+          "name": "Love's Travel Stop",
+          "brand": "Love's",
+          "type": "truck_stop",
+          "city": "Elliston",
+          "approx": false,
+          "notes": "Opened January 2025; I-81 Exit 128",
+          "parking": 93
+        },
+        {
+          "mm": 128,
+          "exit": "128",
+          "name": "Love's Truck Care",
+          "brand": "Love's",
+          "type": "repair",
+          "city": "Elliston",
+          "approx": true,
+          "notes": "Truck Care center with expanded tire selection, light mechanical, oil changes, 24-hr roadside; co-located with Love's Travel Stop #574 at I-81 Exit 128"
+        },
+        {
+          "mm": 149,
+          "exit": "149",
+          "name": "Weigh Station (both directions)",
+          "brand": "State",
+          "type": "weigh_station",
+          "city": "Troutville",
+          "approx": true,
+          "notes": "VA DMV Troutville Motor Carrier Service Center; ramp weigh-in-motion/PrePass"
+        },
+        {
+          "mm": 150,
+          "exit": "150",
+          "name": "TA Roanoke",
+          "brand": "TA",
+          "type": "truck_stop",
+          "city": "Troutville",
+          "approx": false,
+          "notes": "US-11/US-220 interchange",
+          "parking": 180
+        },
+        {
+          "mm": 158,
+          "exit": "",
+          "name": "Troutville Safety Rest Area",
+          "brand": "State",
+          "type": "rest_area",
+          "city": "Troutville",
+          "approx": true,
+          "notes": "Both directions, truck parking",
+          "parking": 30
+        },
+        {
+          "mm": 195,
+          "exit": "195",
+          "name": "Lee Hi Travel Plaza",
+          "brand": "AmBest",
+          "type": "truck_stop",
+          "city": "Lexington",
+          "approx": false,
+          "notes": "Independent AmBest full-service plaza",
+          "parking": 150
+        },
+        {
+          "mm": 199,
+          "exit": "199",
+          "name": "Fairfield Rest Area (both directions)",
+          "brand": "State",
+          "type": "rest_area",
+          "city": "Fairfield",
+          "approx": true,
+          "parking": 25
+        },
+        {
+          "mm": 205,
+          "exit": "205",
+          "name": "White's Travel Center",
+          "brand": "Independent",
+          "type": "truck_stop",
+          "city": "Raphine",
+          "approx": false,
+          "notes": "One of the largest truck stops in America; 800+ truck spaces",
+          "parking": 600
+        },
+        {
+          "mm": 205,
+          "exit": "205",
+          "name": "Petro Stopping Center",
+          "brand": "Petro",
+          "type": "truck_stop",
+          "city": "Raphine",
+          "approx": false,
+          "notes": "Across from White's Travel Center",
+          "parking": 200
+        },
+        {
+          "mm": 205,
+          "exit": "205",
+          "name": "Blue Beacon Truck Wash",
+          "brand": "Independent",
+          "type": "truck_wash",
+          "city": "Raphine",
+          "approx": false,
+          "notes": "At White's Travel Center / Petro complex"
+        },
+        {
+          "mm": 205,
+          "exit": "205",
+          "name": "White's Travel Center Truck Service (TA Truck Service)",
+          "brand": "Independent",
+          "type": "repair",
+          "city": "Raphine",
+          "approx": true,
+          "notes": "8-bay truck service shop at the White's Travel Center / Petro Raphine complex, 2440 Raphine Rd: Bridgestone commercial tire dealer, tire mounting/repair, alignment, brakes, lube, PM, state inspection; 24-hr in-bay service and emergency road service"
+        },
+        {
+          "mm": 205,
+          "exit": "205",
+          "name": "Southern Tire Mart at Pilot",
+          "brand": "Southern Tire Mart",
+          "type": "repair",
+          "city": "Raphine",
+          "approx": true,
+          "notes": "Commercial tire sales/service and truck care at the Pilot, 711 Oakland Cir just off I-81 Exit 205"
+        },
+        {
+          "mm": 213,
+          "exit": "213",
+          "name": "Love's Truck Care",
+          "brand": "Love's",
+          "type": "repair",
+          "city": "Staunton (Greenville)",
+          "approx": true,
+          "notes": "2 truck service bays: tire repair, truck repairs, oil and lube, 24-hr roadside; co-located with Love's Travel Stop #706, 3499 Lee Jackson Hwy at Exit 213 on the I-64/I-81 overlap"
+        },
+        {
+          "mm": 232,
+          "exit": "",
+          "name": "Mount Sidney Safety Rest Area",
+          "brand": "State",
+          "type": "rest_area",
+          "city": "Mount Sidney",
+          "approx": true,
+          "notes": "Both directions, truck parking",
+          "parking": 30
+        },
+        {
+          "mm": 240,
+          "exit": "240",
+          "name": "Pilot Travel Center",
+          "brand": "Pilot",
+          "type": "truck_stop",
+          "city": "Mount Crawford",
+          "approx": true,
+          "notes": "South of Harrisonburg",
+          "parking": 80
+        },
+        {
+          "mm": 240,
+          "exit": "240",
+          "name": "Buc-ee's",
+          "brand": "Buc-ee's",
+          "type": "truck_stop",
+          "city": "Mount Crawford",
+          "approx": false,
+          "notes": "No semi parking; opened June 30, 2025; exit 240 (Friedens Church Rd/VA-257), near Harrisonburg; 120 fueling positions",
+          "parking": 0
+        },
+        {
+          "mm": 240,
+          "exit": "240",
+          "name": "FleetPride Harrisonburg",
+          "brand": "FleetPride",
+          "type": "repair",
+          "city": "Mt. Crawford",
+          "approx": true,
+          "notes": "Heavy-duty truck and trailer parts branch; 100 White Picket Trl, Mt. Crawford, just off I-81 Exit 240 near the Pilot; Mon-Fri 7:30am-5pm"
+        },
+        {
+          "mm": 243,
+          "exit": "243",
+          "name": "Hampton Inn Harrisonburg South",
+          "brand": "Hampton Inn",
+          "type": "hotel",
+          "city": "Harrisonburg",
+          "approx": true,
+          "notes": "Truck parking verified: Hilton hotel site states RV, bus, and semi-truck parking available; S Main St near Exit 243 (Harrisonburg Travel Center exit)"
+        },
+        {
+          "mm": 243,
+          "exit": "243",
+          "name": "Kenworth Sales Company (Truck Enterprises) Harrisonburg",
+          "brand": "Kenworth",
+          "type": "repair",
+          "city": "Harrisonburg",
+          "approx": true,
+          "notes": "Kenworth dealer: parts and service to midnight weekdays, Sat hours, 24-hr on-call service, mobile service, body shop, truck wash; 3440 S Main St (US-11) near I-81 Exit 243"
+        },
+        {
+          "mm": 262,
+          "exit": "",
+          "name": "New Market Safety Rest Area",
+          "brand": "State",
+          "type": "rest_area",
+          "city": "New Market",
+          "approx": true,
+          "notes": "Both directions, truck parking",
+          "parking": 30
+        },
+        {
+          "mm": 273,
+          "exit": "273",
+          "name": "Love's Travel Stop",
+          "brand": "Love's",
+          "type": "truck_stop",
+          "city": "Mount Jackson",
+          "approx": true,
+          "notes": "",
+          "parking": 90
+        },
+        {
+          "mm": 291,
+          "exit": "291",
+          "name": "Pilot Travel Center",
+          "brand": "Pilot",
+          "type": "truck_stop",
+          "city": "Toms Brook",
+          "approx": false,
+          "notes": "",
+          "parking": 80
+        },
+        {
+          "mm": 304,
+          "exit": "304",
+          "name": "Weigh Station (both directions)",
+          "brand": "State",
+          "type": "weigh_station",
+          "city": "Stephens City",
+          "approx": true,
+          "notes": "VA DMV Stephens City Motor Carrier Service Center; weigh-in-motion/PrePass"
+        },
+        {
+          "mm": 310,
+          "exit": "310",
+          "name": "Motel 6 Winchester",
+          "brand": "Motel 6",
+          "type": "hotel",
+          "city": "Winchester",
+          "approx": true,
+          "notes": "Truck parking verified: listings state truck parking available; 2951 Valley Ave (US 11) off I-81/VA 37"
+        },
+        {
+          "mm": 320,
+          "exit": "",
+          "name": "Clearbrook Welcome Center",
+          "brand": "State",
+          "type": "rest_area",
+          "city": "Clear Brook",
+          "approx": true,
+          "notes": "Southbound entering from WV, truck parking",
+          "parking": 25
+        },
+        {
+          "mm": 323,
+          "exit": "323",
+          "name": "Flying J Travel Center",
+          "brand": "Flying J",
+          "type": "truck_stop",
+          "city": "Winchester",
+          "approx": false,
+          "notes": "Clear Brook / Rest Church Rd, north of Winchester",
+          "parking": 100
+        }
+      ]
+    },
+    "I-85": {
+      "maxMM": 69,
+      "stops": [
+        {
+          "mm": 1,
+          "exit": "",
+          "name": "Bracey Welcome Center",
+          "brand": "State",
+          "type": "rest_area",
+          "city": "Bracey",
+          "approx": true,
+          "notes": "Northbound entering from NC, truck parking",
+          "parking": 25
+        },
+        {
+          "mm": 12,
+          "exit": "12",
+          "name": "Flying J Travel Center",
+          "brand": "Flying J",
+          "type": "truck_stop",
+          "city": "South Hill",
+          "approx": true,
+          "notes": "US-58 interchange",
+          "parking": 90
+        },
+        {
+          "mm": 22,
+          "exit": "22",
+          "name": "Weigh Station (both directions)",
+          "brand": "State",
+          "type": "weigh_station",
+          "city": "Alberta",
+          "approx": true,
+          "notes": "VA DMV Alberta Motor Carrier Service Center; weigh-in-motion/PrePass"
+        },
+        {
+          "mm": 32,
+          "exit": "",
+          "name": "Alberta Safety Rest Area",
+          "brand": "State",
+          "type": "rest_area",
+          "city": "Alberta",
+          "approx": true,
+          "notes": "Both directions, truck parking",
+          "parking": 25
+        }
+      ]
+    },
+    "I-95": {
+      "maxMM": 179,
+      "stops": [
+        {
+          "mm": 1,
+          "exit": "",
+          "name": "Skippers Welcome Center",
+          "brand": "State",
+          "type": "rest_area",
+          "city": "Skippers",
+          "approx": true,
+          "notes": "Northbound entering from NC, truck parking",
+          "parking": 25
+        },
+        {
+          "mm": 11,
+          "exit": "11",
+          "name": "Sadler Travel Plaza",
+          "brand": "AmBest",
+          "type": "truck_stop",
+          "city": "Emporia",
+          "approx": false,
+          "notes": "US-58 interchange, Emporia area",
+          "parking": 120
+        },
+        {
+          "mm": 11,
+          "exit": "11B",
+          "name": "Holiday Inn Express Emporia",
+          "brand": "Holiday Inn Express",
+          "type": "hotel",
+          "city": "Emporia",
+          "approx": true,
+          "notes": "Truck parking verified: HotelTruckParking listing shows 5 truck parking spaces; 1350 W Atlantic St (US 58) at Exit 11B - limited spaces"
+        },
+        {
+          "mm": 33,
+          "exit": "33",
+          "name": "Davis Travel Center",
+          "brand": "Independent",
+          "type": "truck_stop",
+          "city": "Stony Creek",
+          "approx": true,
+          "notes": "",
+          "parking": 75
+        },
+        {
+          "mm": 39,
+          "exit": "39",
+          "name": "Weigh Station (both directions)",
+          "brand": "State",
+          "type": "weigh_station",
+          "city": "Carson",
+          "approx": true,
+          "notes": "VA DMV Carson Motor Carrier Service Center; weigh-in-motion/PrePass"
+        },
+        {
+          "mm": 41,
+          "exit": "41",
+          "name": "Pilot Travel Center",
+          "brand": "Pilot",
+          "type": "truck_stop",
+          "city": "Carson",
+          "approx": true,
+          "notes": "",
+          "parking": 80
+        },
+        {
+          "mm": 98,
+          "exit": "98",
+          "name": "Flying J Travel Center",
+          "brand": "Flying J",
+          "type": "truck_stop",
+          "city": "Doswell",
+          "approx": true,
+          "notes": "VA-30, near Kings Dominion",
+          "parking": 100
+        },
+        {
+          "mm": 104,
+          "exit": "104",
+          "name": "Pilot Travel Center",
+          "brand": "Pilot",
+          "type": "truck_stop",
+          "city": "Ruther Glen",
+          "approx": true,
+          "notes": "VA-207",
+          "parking": 80
+        },
+        {
+          "mm": 104,
+          "exit": "104",
+          "name": "Love's Travel Stop",
+          "brand": "Love's",
+          "type": "truck_stop",
+          "city": "Ruther Glen",
+          "approx": true,
+          "notes": "VA-207",
+          "parking": 90
+        },
+        {
+          "mm": 107,
+          "exit": "",
+          "name": "Ladysmith Safety Rest Area",
+          "brand": "State",
+          "type": "rest_area",
+          "city": "Ladysmith",
+          "approx": true,
+          "notes": "Both directions, truck parking",
+          "parking": 30
+        },
+        {
+          "mm": 132,
+          "exit": "",
+          "name": "Fredericksburg Safety Rest Area",
+          "brand": "State",
+          "type": "rest_area",
+          "city": "Fredericksburg",
+          "approx": true,
+          "notes": "Southbound, truck parking",
+          "parking": 25
+        },
+        {
+          "mm": 154,
+          "exit": "",
+          "name": "Dale City Safety Rest Area",
+          "brand": "State",
+          "type": "rest_area",
+          "city": "Dale City",
+          "approx": true,
+          "notes": "Both directions, truck parking",
+          "parking": 35
+        },
+        {
+          "mm": 154,
+          "exit": "154",
+          "name": "Weigh Station (both directions)",
+          "brand": "State",
+          "type": "weigh_station",
+          "city": "Dumfries",
+          "approx": true,
+          "notes": "VA DMV Dumfries Motor Carrier Service Center; weigh-in-motion/PrePass"
+        }
+      ]
     }
-   ]
-  },
-  "I-66": {
-   "maxMM": 76,
-   "stops": [
-    {
-     "mm": 48,
-     "exit": "",
-     "name": "Manassas Rest Area",
-     "brand": "State",
-     "type": "rest_area",
-     "city": "Manassas",
-     "approx": true,
-     "notes": "Westbound; limited truck parking. No major truck stops directly on I-66",
-     "parking": 10
-    }
-   ]
-  },
-  "I-77": {
-   "maxMM": 67,
-   "stops": [
-    {
-     "mm": 1,
-     "exit": "",
-     "name": "Lambsburg Welcome Center",
-     "brand": "State",
-     "type": "rest_area",
-     "city": "Lambsburg",
-     "approx": true,
-     "notes": "Northbound entering from NC, truck parking. Wytheville truck stops are on the I-77/I-81 overlap; see I-81 exits 72-84",
-     "parking": 25
-    },
-    {
-     "mm": 52,
-     "exit": "52",
-     "name": "Weigh Station (both directions)",
-     "brand": "State",
-     "type": "weigh_station",
-     "city": "Bland",
-     "approx": true,
-     "notes": "VA DMV Bland Motor Carrier Service Center; weigh-in-motion/PrePass"
-    },
-    {
-     "mm": 61,
-     "exit": "61",
-     "name": "Rocky Gap Welcome Center (SB only)",
-     "brand": "State",
-     "type": "rest_area",
-     "city": "Rocky Gap",
-     "approx": true,
-     "parking": 20
-    }
-   ]
-  },
-  "I-81": {
-   "maxMM": 325,
-   "stops": [
-    {
-     "mm": 1,
-     "exit": "",
-     "name": "Bristol Welcome Center",
-     "brand": "State",
-     "type": "rest_area",
-     "city": "Bristol",
-     "approx": true,
-     "notes": "Northbound entering from TN, truck parking",
-     "parking": 25
-    },
-    {
-     "mm": 7,
-     "exit": "7",
-     "name": "Petro Stopping Center",
-     "brand": "Petro",
-     "type": "truck_stop",
-     "city": "Bristol",
-     "approx": false,
-     "notes": "",
-     "parking": 180
-    },
-    {
-     "mm": 61,
-     "exit": "61",
-     "name": "Rural Retreat Rest Area (both directions)",
-     "brand": "State",
-     "type": "rest_area",
-     "city": "Rural Retreat",
-     "approx": true,
-     "parking": 25
-    },
-    {
-     "mm": 72,
-     "exit": "72",
-     "name": "TA Wytheville",
-     "brand": "TA",
-     "type": "truck_stop",
-     "city": "Wytheville",
-     "approx": false,
-     "notes": "At I-77/I-81 junction",
-     "parking": 160
-    },
-    {
-     "mm": 77,
-     "exit": "77",
-     "name": "Pilot Travel Center",
-     "brand": "Pilot",
-     "type": "truck_stop",
-     "city": "Wytheville",
-     "approx": true,
-     "notes": "Wytheville exit 72/77 cluster",
-     "parking": 85
-    },
-    {
-     "mm": 80,
-     "exit": "80",
-     "name": "Love's Travel Stop",
-     "brand": "Love's",
-     "type": "truck_stop",
-     "city": "Fort Chiswell",
-     "approx": true,
-     "notes": "US-52 / Fort Chiswell",
-     "parking": 90
-    },
-    {
-     "mm": 80,
-     "exit": "80",
-     "name": "Blue Beacon Truck Wash",
-     "brand": "Independent",
-     "type": "truck_wash",
-     "city": "Fort Chiswell (Max Meadows)",
-     "approx": false,
-     "notes": "Factory Outlet Dr; on I-77/I-81 overlap"
-    },
-    {
-     "mm": 84,
-     "exit": "84",
-     "name": "Flying J Travel Center",
-     "brand": "Flying J",
-     "type": "truck_stop",
-     "city": "Max Meadows",
-     "approx": true,
-     "notes": "",
-     "parking": 90
-    },
-    {
-     "mm": 108,
-     "exit": "",
-     "name": "Ironto Safety Rest Area",
-     "brand": "State",
-     "type": "rest_area",
-     "city": "Ironto",
-     "approx": true,
-     "notes": "Both directions, truck parking",
-     "parking": 30
-    },
-    {
-     "mm": 128,
-     "exit": "128",
-     "name": "Love's Travel Stop",
-     "brand": "Love's",
-     "type": "truck_stop",
-     "city": "Elliston",
-     "approx": false,
-     "notes": "Opened January 2025; I-81 Exit 128",
-     "parking": 93
-    },
-    {
-     "mm": 149,
-     "exit": "149",
-     "name": "Weigh Station (both directions)",
-     "brand": "State",
-     "type": "weigh_station",
-     "city": "Troutville",
-     "approx": true,
-     "notes": "VA DMV Troutville Motor Carrier Service Center; ramp weigh-in-motion/PrePass"
-    },
-    {
-     "mm": 150,
-     "exit": "150",
-     "name": "TA Roanoke",
-     "brand": "TA",
-     "type": "truck_stop",
-     "city": "Troutville",
-     "approx": false,
-     "notes": "US-11/US-220 interchange",
-     "parking": 180
-    },
-    {
-     "mm": 158,
-     "exit": "",
-     "name": "Troutville Safety Rest Area",
-     "brand": "State",
-     "type": "rest_area",
-     "city": "Troutville",
-     "approx": true,
-     "notes": "Both directions, truck parking",
-     "parking": 30
-    },
-    {
-     "mm": 195,
-     "exit": "195",
-     "name": "Lee Hi Travel Plaza",
-     "brand": "AmBest",
-     "type": "truck_stop",
-     "city": "Lexington",
-     "approx": false,
-     "notes": "Independent AmBest full-service plaza",
-     "parking": 150
-    },
-    {
-     "mm": 199,
-     "exit": "199",
-     "name": "Fairfield Rest Area (both directions)",
-     "brand": "State",
-     "type": "rest_area",
-     "city": "Fairfield",
-     "approx": true,
-     "parking": 25
-    },
-    {
-     "mm": 205,
-     "exit": "205",
-     "name": "White's Travel Center",
-     "brand": "Independent",
-     "type": "truck_stop",
-     "city": "Raphine",
-     "approx": false,
-     "notes": "One of the largest truck stops in America; 800+ truck spaces",
-     "parking": 600
-    },
-    {
-     "mm": 205,
-     "exit": "205",
-     "name": "Petro Stopping Center",
-     "brand": "Petro",
-     "type": "truck_stop",
-     "city": "Raphine",
-     "approx": false,
-     "notes": "Across from White's Travel Center",
-     "parking": 200
-    },
-    {
-     "mm": 205,
-     "exit": "205",
-     "name": "Blue Beacon Truck Wash",
-     "brand": "Independent",
-     "type": "truck_wash",
-     "city": "Raphine",
-     "approx": false,
-     "notes": "At White's Travel Center / Petro complex"
-    },
-    {
-     "mm": 232,
-     "exit": "",
-     "name": "Mount Sidney Safety Rest Area",
-     "brand": "State",
-     "type": "rest_area",
-     "city": "Mount Sidney",
-     "approx": true,
-     "notes": "Both directions, truck parking",
-     "parking": 30
-    },
-    {
-     "mm": 240,
-     "exit": "240",
-     "name": "Pilot Travel Center",
-     "brand": "Pilot",
-     "type": "truck_stop",
-     "city": "Mount Crawford",
-     "approx": true,
-     "notes": "South of Harrisonburg",
-     "parking": 80
-    },
-    {
-     "mm": 240,
-     "exit": "240",
-     "name": "Buc-ee's",
-     "brand": "Buc-ee's",
-     "type": "truck_stop",
-     "city": "Mount Crawford",
-     "approx": false,
-     "notes": "No semi parking; opened June 30, 2025; exit 240 (Friedens Church Rd/VA-257), near Harrisonburg; 120 fueling positions",
-     "parking": 0
-    },
-    {
-     "mm": 262,
-     "exit": "",
-     "name": "New Market Safety Rest Area",
-     "brand": "State",
-     "type": "rest_area",
-     "city": "New Market",
-     "approx": true,
-     "notes": "Both directions, truck parking",
-     "parking": 30
-    },
-    {
-     "mm": 273,
-     "exit": "273",
-     "name": "Love's Travel Stop",
-     "brand": "Love's",
-     "type": "truck_stop",
-     "city": "Mount Jackson",
-     "approx": true,
-     "notes": "",
-     "parking": 90
-    },
-    {
-     "mm": 291,
-     "exit": "291",
-     "name": "Pilot Travel Center",
-     "brand": "Pilot",
-     "type": "truck_stop",
-     "city": "Toms Brook",
-     "approx": false,
-     "notes": "",
-     "parking": 80
-    },
-    {
-     "mm": 304,
-     "exit": "304",
-     "name": "Weigh Station (both directions)",
-     "brand": "State",
-     "type": "weigh_station",
-     "city": "Stephens City",
-     "approx": true,
-     "notes": "VA DMV Stephens City Motor Carrier Service Center; weigh-in-motion/PrePass"
-    },
-    {
-     "mm": 320,
-     "exit": "",
-     "name": "Clearbrook Welcome Center",
-     "brand": "State",
-     "type": "rest_area",
-     "city": "Clear Brook",
-     "approx": true,
-     "notes": "Southbound entering from WV, truck parking",
-     "parking": 25
-    },
-    {
-     "mm": 323,
-     "exit": "323",
-     "name": "Flying J Travel Center",
-     "brand": "Flying J",
-     "type": "truck_stop",
-     "city": "Winchester",
-     "approx": false,
-     "notes": "Clear Brook / Rest Church Rd, north of Winchester",
-     "parking": 100
-    }
-   ]
-  },
-  "I-85": {
-   "maxMM": 69,
-   "stops": [
-    {
-     "mm": 1,
-     "exit": "",
-     "name": "Bracey Welcome Center",
-     "brand": "State",
-     "type": "rest_area",
-     "city": "Bracey",
-     "approx": true,
-     "notes": "Northbound entering from NC, truck parking",
-     "parking": 25
-    },
-    {
-     "mm": 12,
-     "exit": "12",
-     "name": "Flying J Travel Center",
-     "brand": "Flying J",
-     "type": "truck_stop",
-     "city": "South Hill",
-     "approx": true,
-     "notes": "US-58 interchange",
-     "parking": 90
-    },
-    {
-     "mm": 22,
-     "exit": "22",
-     "name": "Weigh Station (both directions)",
-     "brand": "State",
-     "type": "weigh_station",
-     "city": "Alberta",
-     "approx": true,
-     "notes": "VA DMV Alberta Motor Carrier Service Center; weigh-in-motion/PrePass"
-    },
-    {
-     "mm": 32,
-     "exit": "",
-     "name": "Alberta Safety Rest Area",
-     "brand": "State",
-     "type": "rest_area",
-     "city": "Alberta",
-     "approx": true,
-     "notes": "Both directions, truck parking",
-     "parking": 25
-    }
-   ]
-  },
-  "I-95": {
-   "maxMM": 179,
-   "stops": [
-    {
-     "mm": 1,
-     "exit": "",
-     "name": "Skippers Welcome Center",
-     "brand": "State",
-     "type": "rest_area",
-     "city": "Skippers",
-     "approx": true,
-     "notes": "Northbound entering from NC, truck parking",
-     "parking": 25
-    },
-    {
-     "mm": 11,
-     "exit": "11",
-     "name": "Sadler Travel Plaza",
-     "brand": "AmBest",
-     "type": "truck_stop",
-     "city": "Emporia",
-     "approx": false,
-     "notes": "US-58 interchange, Emporia area",
-     "parking": 120
-    },
-    {
-     "mm": 33,
-     "exit": "33",
-     "name": "Davis Travel Center",
-     "brand": "Independent",
-     "type": "truck_stop",
-     "city": "Stony Creek",
-     "approx": true,
-     "notes": "",
-     "parking": 75
-    },
-    {
-     "mm": 39,
-     "exit": "39",
-     "name": "Weigh Station (both directions)",
-     "brand": "State",
-     "type": "weigh_station",
-     "city": "Carson",
-     "approx": true,
-     "notes": "VA DMV Carson Motor Carrier Service Center; weigh-in-motion/PrePass"
-    },
-    {
-     "mm": 41,
-     "exit": "41",
-     "name": "Pilot Travel Center",
-     "brand": "Pilot",
-     "type": "truck_stop",
-     "city": "Carson",
-     "approx": true,
-     "notes": "",
-     "parking": 80
-    },
-    {
-     "mm": 98,
-     "exit": "98",
-     "name": "Flying J Travel Center",
-     "brand": "Flying J",
-     "type": "truck_stop",
-     "city": "Doswell",
-     "approx": true,
-     "notes": "VA-30, near Kings Dominion",
-     "parking": 100
-    },
-    {
-     "mm": 104,
-     "exit": "104",
-     "name": "Pilot Travel Center",
-     "brand": "Pilot",
-     "type": "truck_stop",
-     "city": "Ruther Glen",
-     "approx": true,
-     "notes": "VA-207",
-     "parking": 80
-    },
-    {
-     "mm": 104,
-     "exit": "104",
-     "name": "Love's Travel Stop",
-     "brand": "Love's",
-     "type": "truck_stop",
-     "city": "Ruther Glen",
-     "approx": true,
-     "notes": "VA-207",
-     "parking": 90
-    },
-    {
-     "mm": 107,
-     "exit": "",
-     "name": "Ladysmith Safety Rest Area",
-     "brand": "State",
-     "type": "rest_area",
-     "city": "Ladysmith",
-     "approx": true,
-     "notes": "Both directions, truck parking",
-     "parking": 30
-    },
-    {
-     "mm": 132,
-     "exit": "",
-     "name": "Fredericksburg Safety Rest Area",
-     "brand": "State",
-     "type": "rest_area",
-     "city": "Fredericksburg",
-     "approx": true,
-     "notes": "Southbound, truck parking",
-     "parking": 25
-    },
-    {
-     "mm": 154,
-     "exit": "",
-     "name": "Dale City Safety Rest Area",
-     "brand": "State",
-     "type": "rest_area",
-     "city": "Dale City",
-     "approx": true,
-     "notes": "Both directions, truck parking",
-     "parking": 35
-    },
-    {
-     "mm": 154,
-     "exit": "154",
-     "name": "Weigh Station (both directions)",
-     "brand": "State",
-     "type": "weigh_station",
-     "city": "Dumfries",
-     "approx": true,
-     "notes": "VA DMV Dumfries Motor Carrier Service Center; weigh-in-motion/PrePass"
-    }
-   ]
   }
- }
 }

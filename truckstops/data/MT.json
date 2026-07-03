@@ -62,6 +62,16 @@
      "parking": 90
     },
     {
+     "mm": 277,
+     "exit": "277",
+     "name": "I-State Truck Center - Great Falls",
+     "brand": "Freightliner",
+     "type": "repair",
+     "city": "Great Falls",
+     "approx": true,
+     "notes": "Freightliner/Western Star dealer at I-15 exit 277; 18 service bays, all-makes heavy-duty service, trailer & Carrier reefer repair; near Flying J"
+    },
+    {
      "mm": 363,
      "exit": "363",
      "name": "Town Pump",
@@ -174,6 +184,16 @@
      "notes": "Independent truck and RV wash off exit 96"
     },
     {
+     "mm": 96,
+     "exit": "96",
+     "name": "Speedco",
+     "brand": "Speedco",
+     "type": "repair",
+     "city": "Missoula",
+     "approx": true,
+     "notes": "Off I-90 exit 96; oil & PM service, light mechanical, tires, roadside for semis; near Pilot/TA"
+    },
+    {
      "mm": 101,
      "exit": "101",
      "name": "Town Pump",
@@ -183,6 +203,16 @@
      "approx": true,
      "notes": "Reserve St; Town Pump chain",
      "parking": 40
+    },
+    {
+     "mm": 101,
+     "exit": "101",
+     "name": "I-State Truck Center - Missoula",
+     "brand": "Freightliner",
+     "type": "repair",
+     "city": "Missoula",
+     "approx": true,
+     "notes": "Freightliner dealer, 5561 Expressway, west Missoula; 21 service bays, all-makes heavy-duty service, overhauls, parts"
     },
     {
      "mm": 122,
@@ -249,6 +279,16 @@
      "approx": false,
      "notes": "Jackrabbit Ln, near Bozeman airport",
      "parking": 90
+    },
+    {
+     "mm": 298,
+     "exit": "298",
+     "name": "Rocky Mountain Truck Center (Floyd's)",
+     "brand": "Freightliner",
+     "type": "repair",
+     "city": "Belgrade",
+     "approx": false,
+     "notes": "Freightliner/Western Star dealer, 310 Alaska Frontage Rd at I-90 exit 298; heavy-duty service & parts; near Flying J"
     },
     {
      "mm": 306,
@@ -327,6 +367,16 @@
      "notes": "MDT scale at the Mossmain interchange west of Billings"
     },
     {
+     "mm": 447,
+     "exit": "447",
+     "name": "I-State Truck Center - Billings",
+     "brand": "Freightliner",
+     "type": "repair",
+     "city": "Billings",
+     "approx": false,
+     "notes": "Freightliner dealer, 4600 S Frontage Rd at I-90 exit 447; all-makes heavy-duty service, parts, body shop"
+    },
+    {
      "mm": 450,
      "exit": "450",
      "name": "Pilot Travel Center",
@@ -378,6 +428,16 @@
      "city": "Billings (Lockwood)",
      "approx": true,
      "notes": "Johnson Ln; near Town Pump/Pilot truck stop"
+    },
+    {
+     "mm": 455,
+     "exit": "455",
+     "name": "Montana Peterbilt (Jackson Group)",
+     "brand": "Peterbilt",
+     "type": "repair",
+     "city": "Billings",
+     "approx": false,
+     "notes": "Peterbilt dealer at I-90/I-94 Johnson Lane exit 455; 27 service bays, heavy-duty service, parts, body shop; near TA/Flying J cluster"
     },
     {
      "mm": 495,

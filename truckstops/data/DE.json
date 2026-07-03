@@ -1,52 +1,103 @@
 {
- "state": "Delaware",
- "abbr": "DE",
- "note": "Delaware has no full-size branded truck stops directly on its interstates. The Delaware Welcome Center (Biden Welcome Center) on I-95 between exits 1 and 3 is a tolled-corridor service plaza with fuel and limited truck parking. Nearest full truck stops: TA Elkton, MD (I-95 exit 109 MD) and Flying J Carneys Point, NJ (off I-295 at US-40).",
- "interstates": {
-  "I-95": {
-   "maxMM": 23,
-   "stops": [
-    {
-     "mm": 1,
-     "exit": "1",
-     "name": "Weigh Station (both directions)",
-     "brand": "State",
-     "type": "weigh_station",
-     "city": "Newark",
-     "approx": true,
-     "notes": "Newark scales at the I-95 toll plaza just east of the MD line; Drivewyze bypass site"
+  "state": "Delaware",
+  "abbr": "DE",
+  "note": "Delaware has no full-size branded truck stops directly on its interstates. The Delaware Welcome Center (Biden Welcome Center) on I-95 between exits 1 and 3 is a tolled-corridor service plaza with fuel and limited truck parking. Nearest full truck stops: TA Elkton, MD (I-95 exit 109 MD) and Flying J Carneys Point, NJ (off I-295 at US-40).",
+  "interstates": {
+    "I-95": {
+      "maxMM": 23,
+      "stops": [
+        {
+          "mm": 1,
+          "exit": "1",
+          "name": "Weigh Station (both directions)",
+          "brand": "State",
+          "type": "weigh_station",
+          "city": "Newark",
+          "approx": true,
+          "notes": "Newark scales at the I-95 toll plaza just east of the MD line; Drivewyze bypass site"
+        },
+        {
+          "mm": 5,
+          "exit": "",
+          "name": "Delaware Welcome Center (Biden Welcome Center)",
+          "brand": "State",
+          "type": "service_plaza",
+          "city": "Newark",
+          "approx": true,
+          "notes": "Both directions between exits 1 and 3 on the Delaware Turnpike; fuel, food, limited truck parking",
+          "parking": 30
+        }
+      ]
     },
-    {
-     "mm": 5,
-     "exit": "",
-     "name": "Delaware Welcome Center (Biden Welcome Center)",
-     "brand": "State",
-     "type": "service_plaza",
-     "city": "Newark",
-     "approx": true,
-     "notes": "Both directions between exits 1 and 3 on the Delaware Turnpike; fuel, food, limited truck parking",
-     "parking": 30
+    "I-295": {
+      "maxMM": 6,
+      "stops": [
+        {
+          "mm": 2,
+          "exit": "",
+          "name": "Bayshore Ford Truck Sales",
+          "brand": "Ford",
+          "type": "repair",
+          "city": "New Castle",
+          "approx": true,
+          "notes": "Commercial Ford truck dealer with parts and service departments; 4003 N DuPont Hwy (US 13) between the I-295 US 13/40 Farnhurst interchange and I-495 exit 1 (I-295 exits are unnumbered in DE)"
+        },
+        {
+          "mm": 3,
+          "exit": "",
+          "name": "FleetPride Service Center (ARS Truck & Fleet)",
+          "brand": "FleetPride",
+          "type": "repair",
+          "city": "New Castle",
+          "approx": true,
+          "notes": "Heavy-duty truck and trailer repair with 24-hr mobile service; 3065 New Castle Ave (DE 9) just south of the unnumbered I-295/DE 9 cloverleaf"
+        }
+      ]
+    },
+    "I-495": {
+      "maxMM": 12,
+      "stops": [
+        {
+          "mm": 1,
+          "exit": "1",
+          "name": "FleetPride Wilmington",
+          "brand": "FleetPride",
+          "type": "repair",
+          "city": "Wilmington",
+          "approx": true,
+          "notes": "Heavy-duty truck and trailer parts branch; 5 Medori Blvd off Christiana Ave, about 1 mi from exit 1 (US 13)"
+        },
+        {
+          "mm": 2,
+          "exit": "2",
+          "name": "495 Truck Wash & Wash-Outs",
+          "brand": "Independent",
+          "type": "truck_wash",
+          "city": "New Castle",
+          "approx": true,
+          "notes": "525 Terminal Ave; near Christiana's Truck Stop; daytime hours"
+        },
+        {
+          "mm": 2,
+          "exit": "2",
+          "name": "Total Tire Services",
+          "brand": "Independent",
+          "type": "repair",
+          "city": "New Castle",
+          "approx": true,
+          "notes": "Commercial truck tire sales, repair, retreading and road service; 600 Terminal Ave at exit 2, near Port of Wilmington; weekday hours"
+        },
+        {
+          "mm": 3,
+          "exit": "3",
+          "name": "RedDot Truck Service",
+          "brand": "Independent",
+          "type": "repair",
+          "city": "Wilmington",
+          "approx": true,
+          "notes": "24-hr heavy-duty truck and trailer repair shop with roadside service; 1221 E 12th St just off exit 3 (12th Street)"
+        }
+      ]
     }
-   ]
-  },
-  "I-295": {
-   "maxMM": 6,
-   "stops": []
-  },
-  "I-495": {
-   "maxMM": 12,
-   "stops": [
-    {
-     "mm": 2,
-     "exit": "2",
-     "name": "495 Truck Wash & Wash-Outs",
-     "brand": "Independent",
-     "type": "truck_wash",
-     "city": "New Castle",
-     "approx": true,
-     "notes": "525 Terminal Ave; near Christiana's Truck Stop; daytime hours"
-    }
-   ]
   }
- }
 }

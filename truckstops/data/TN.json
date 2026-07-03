@@ -39,6 +39,26 @@
           "parking": 190
         },
         {
+          "mm": 47,
+          "exit": "47",
+          "name": "TA Truck Service (TA Nashville)",
+          "brand": "TA",
+          "type": "repair",
+          "city": "Nashville",
+          "approx": true,
+          "notes": "6 truck service bays; co-located with TA Nashville travel center, 111 N 1st St (I-24 Exit 47/48); brakes, electrical, PM, DOT inspections, RoadSquad road service"
+        },
+        {
+          "mm": 62,
+          "exit": "62",
+          "name": "Blue Beacon Truck Wash",
+          "brand": "Independent",
+          "type": "truck_wash",
+          "city": "Antioch (Nashville)",
+          "approx": false,
+          "notes": "Blue Beacon of Nashville, 611 Muci Dr off Exit 62; near Pilot Travel Center"
+        },
+        {
           "mm": 62,
           "exit": "62",
           "name": "Pilot Travel Center",
@@ -52,12 +72,22 @@
         {
           "mm": 62,
           "exit": "62",
-          "name": "Blue Beacon Truck Wash",
-          "brand": "Independent",
-          "type": "truck_wash",
+          "name": "TA Truck Service (TA Antioch)",
+          "brand": "TA",
+          "type": "repair",
           "city": "Antioch (Nashville)",
           "approx": false,
-          "notes": "Blue Beacon of Nashville, 611 Muci Dr off Exit 62; near Pilot Travel Center"
+          "notes": "2 truck service bays; co-located with TA Antioch travel center, 13011 Old Hickory Blvd; near Pilot and Blue Beacon at same exit"
+        },
+        {
+          "mm": 64,
+          "exit": "64",
+          "name": "Southern Tire Mart #240",
+          "brand": "Southern Tire Mart",
+          "type": "repair",
+          "city": "La Vergne",
+          "approx": true,
+          "notes": "Commercial truck tire shop, 511 New Paul Rd off Waldron Rd (exit 64); new/retread truck tires, alignment, fleet service"
         },
         {
           "mm": 84,
@@ -79,6 +109,25 @@
           "city": "Beechgrove",
           "approx": true,
           "parking": 30
+        },
+        {
+          "mm": 89,
+          "exit": "89",
+          "name": "Love's Truck Care",
+          "brand": "Love's",
+          "type": "repair",
+          "city": "Christiana",
+          "approx": false,
+          "notes": "3 truck service bays; co-located with Love's Travel Stop #314, 6137 Epps Mill Rd; oil change/PM, light mechanical, tire services"
+        },
+        {
+          "mm": 114,
+          "exit": "114",
+          "name": "Motel 6 Manchester",
+          "brand": "Motel 6",
+          "type": "hotel",
+          "city": "Manchester",
+          "notes": "Truck parking verified: Motel 6 lists truck parking for larger vehicles; 2430 Hillsboro Blvd at exit 114 (US 41)"
         },
         {
           "mm": 114,
@@ -126,8 +175,8 @@
         {
           "mm": 174,
           "exit": "174",
-          "name": "Pilot Travel Center",
-          "brand": "Pilot",
+          "name": "Love's Travel Stop",
+          "brand": "Love's",
           "type": "truck_stop",
           "city": "Chattanooga (Lookout Valley)",
           "approx": true,
@@ -137,13 +186,33 @@
         {
           "mm": 174,
           "exit": "174",
-          "name": "Love's Travel Stop",
-          "brand": "Love's",
+          "name": "Pilot Travel Center",
+          "brand": "Pilot",
           "type": "truck_stop",
           "city": "Chattanooga (Lookout Valley)",
           "approx": true,
           "notes": "Browns Ferry Rd",
           "parking": 85
+        },
+        {
+          "mm": 181,
+          "exit": "181",
+          "name": "FleetPride Chattanooga",
+          "brand": "FleetPride",
+          "type": "repair",
+          "city": "Chattanooga",
+          "approx": false,
+          "notes": "Heavy-duty truck & trailer parts store, 2000 E 24th St Pl off 4th Ave (exit 181); FleetPride service center nearby on E 29th St"
+        },
+        {
+          "mm": 181,
+          "exit": "181",
+          "name": "Worldwide Equipment Chattanooga",
+          "brand": "Worldwide Equipment",
+          "type": "repair",
+          "city": "Chattanooga",
+          "approx": false,
+          "notes": "Heavy-duty truck dealership with service and parts, 2017 E 23rd St at 4th Ave (exit 181)"
         }
       ]
     },
@@ -241,6 +310,25 @@
           "parking": 85
         },
         {
+          "mm": 68,
+          "exit": "68",
+          "name": "TA Truck Service (TA Denmark)",
+          "brand": "TA",
+          "type": "repair",
+          "city": "Denmark (Jackson)",
+          "approx": false,
+          "notes": "2 truck service bays; co-located with TA Denmark travel center, 155 Providence Rd; truck repair and tires"
+        },
+        {
+          "mm": 80,
+          "exit": "80A",
+          "name": "Jackson Hotel & Convention Center",
+          "brand": "Independent",
+          "type": "hotel",
+          "city": "Jackson",
+          "notes": "Truck parking verified: trucker reviews on TripAdvisor confirm plenty of RV and semi truck parking; south side of exit 80A"
+        },
+        {
           "mm": 80,
           "exit": "80",
           "name": "Pilot Travel Center",
@@ -250,6 +338,16 @@
           "approx": true,
           "notes": "US-45 Bypass",
           "parking": 85
+        },
+        {
+          "mm": 85,
+          "exit": "85",
+          "name": "Southern Tire Mart at Pilot (Jackson)",
+          "brand": "Southern Tire Mart",
+          "type": "repair",
+          "city": "Jackson",
+          "approx": true,
+          "notes": "Truck care center co-located with Pilot Travel Center #366, 30 Sand Pebble Dr (I-40 Exit 85); commercial tires, PM, DOT inspections, 24/7 roadside assistance"
         },
         {
           "mm": 87,
@@ -265,6 +363,16 @@
         {
           "mm": 126,
           "exit": "126",
+          "name": "Finish Line Truck Wash",
+          "brand": "Independent",
+          "type": "truck_wash",
+          "city": "Holladay",
+          "approx": false,
+          "notes": "Exit 126; near Pilot Travel Center"
+        },
+        {
+          "mm": 126,
+          "exit": "126",
           "name": "Pilot Travel Center",
           "brand": "Pilot",
           "type": "truck_stop",
@@ -272,16 +380,6 @@
           "approx": true,
           "notes": "TN-69, Camden/Holladay",
           "parking": 85
-        },
-        {
-          "mm": 126,
-          "exit": "126",
-          "name": "Finish Line Truck Wash",
-          "brand": "Independent",
-          "type": "truck_wash",
-          "city": "Holladay",
-          "approx": false,
-          "notes": "Exit 126; near Pilot Travel Center"
         },
         {
           "mm": 131,
@@ -297,17 +395,6 @@
         {
           "mm": 172,
           "exit": "172",
-          "name": "TA Dickson",
-          "brand": "TA",
-          "type": "truck_stop",
-          "city": "Dickson",
-          "approx": false,
-          "notes": "TN-46",
-          "parking": 190
-        },
-        {
-          "mm": 172,
-          "exit": "172",
           "name": "Love's Travel Stop",
           "brand": "Love's",
           "type": "truck_stop",
@@ -315,6 +402,17 @@
           "approx": true,
           "notes": "TN-46",
           "parking": 85
+        },
+        {
+          "mm": 172,
+          "exit": "172",
+          "name": "TA Dickson",
+          "brand": "TA",
+          "type": "truck_stop",
+          "city": "Dickson",
+          "approx": false,
+          "notes": "TN-46",
+          "parking": 190
         },
         {
           "mm": 182,
@@ -373,6 +471,15 @@
         {
           "mm": 287,
           "exit": "287",
+          "name": "La Quinta Inn & Suites Cookeville",
+          "brand": "La Quinta",
+          "type": "hotel",
+          "city": "Cookeville",
+          "notes": "Truck parking verified: hotel site lists bus/truck and RV parking; 1131 S Jefferson Ave at exit 287"
+        },
+        {
+          "mm": 287,
+          "exit": "287",
           "name": "Pilot Travel Center",
           "brand": "Pilot",
           "type": "truck_stop",
@@ -380,6 +487,16 @@
           "approx": true,
           "notes": "S Jefferson Ave",
           "parking": 85
+        },
+        {
+          "mm": 288,
+          "exit": "288",
+          "name": "Nabors I-40 Service",
+          "brand": "Independent",
+          "type": "repair",
+          "city": "Cookeville",
+          "approx": false,
+          "notes": "Heavy-duty commercial truck repair and towing at I-40 Exit 288, 4720A S Jefferson Ave; brake repair, alignment, road service (since 1989)"
         },
         {
           "mm": 320,
@@ -417,6 +534,27 @@
         {
           "mm": 369,
           "exit": "369",
+          "name": "Blue Beacon Truck Wash",
+          "brand": "Independent",
+          "type": "truck_wash",
+          "city": "Knoxville",
+          "approx": false,
+          "notes": "1501 Everett Rd, Watt Road Exit 369 (I-40/I-75); by TA/Petro/Pilot"
+        },
+        {
+          "mm": 369,
+          "exit": "369",
+          "name": "Petro Knoxville (Watt Road)",
+          "brand": "Petro",
+          "type": "truck_stop",
+          "city": "Knoxville",
+          "approx": false,
+          "notes": "Watt Rd cluster on I-40/I-75 overlap",
+          "parking": 200
+        },
+        {
+          "mm": 369,
+          "exit": "369",
           "name": "Pilot Travel Center (Watt Road)",
           "brand": "Pilot",
           "type": "truck_stop",
@@ -439,23 +577,22 @@
         {
           "mm": 369,
           "exit": "369",
-          "name": "Petro Knoxville (Watt Road)",
+          "name": "Petro Knoxville Truck Service (Watt Road)",
           "brand": "Petro",
-          "type": "truck_stop",
+          "type": "repair",
           "city": "Knoxville",
           "approx": false,
-          "notes": "Watt Rd cluster on I-40/I-75 overlap",
-          "parking": 200
+          "notes": "5 truck service bays, 24/7; co-located with Petro Stopping Center #312, 722 Watt Rd (I-40/I-75 Exit 369); oil/lube, tire repair, truck repairs, road service"
         },
         {
           "mm": 369,
           "exit": "369",
-          "name": "Blue Beacon Truck Wash",
-          "brand": "Independent",
-          "type": "truck_wash",
+          "name": "Speedco (Knoxville Watt Road)",
+          "brand": "Love's",
+          "type": "repair",
           "city": "Knoxville",
           "approx": false,
-          "notes": "1501 Everett Rd, Watt Road Exit 369 (I-40/I-75); by TA/Petro/Pilot"
+          "notes": "Speedco at I-40/I-75 Exit 369 Watt Rd cluster; oil change/PM, light mechanical, expanded tire selection, roadside assistance"
         },
         {
           "mm": 372,
@@ -466,6 +603,16 @@
           "city": "Knoxville (Farragut)",
           "approx": false,
           "notes": "THP Knox County scale complex, MM 372 EB and WB on I-40/I-75 overlap; PrePass"
+        },
+        {
+          "mm": 398,
+          "exit": "398",
+          "name": "Motel 6 Knoxville East",
+          "brand": "Motel 6",
+          "type": "hotel",
+          "city": "Knoxville",
+          "approx": true,
+          "notes": "Truck parking verified: Motel 6 lists free RV/bus/truck parking; 1550 Cracker Barrel Ln off Strawberry Plains Pike"
         },
         {
           "mm": 398,

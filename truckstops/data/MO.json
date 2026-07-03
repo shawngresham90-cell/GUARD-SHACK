@@ -38,6 +38,16 @@
           "parking": 55
         },
         {
+          "mm": 35,
+          "exit": "35",
+          "name": "Southern Tire Mart at Pilot",
+          "brand": "Southern Tire Mart",
+          "type": "repair",
+          "city": "Faucett",
+          "approx": false,
+          "notes": "Commercial truck tire sales/installation, brakes, DOT inspections; 1307B SE Grand DD Hwy, co-located with Pilot Travel Center #1323"
+        },
+        {
           "mm": 109,
           "exit": "109",
           "name": "Rock Port Welcome Center Rest Area (SB only)",
@@ -63,6 +73,16 @@
     "I-35": {
       "maxMM": 114,
       "stops": [
+        {
+          "mm": 54,
+          "exit": "54",
+          "name": "Motel 6 Cameron",
+          "brand": "Motel 6",
+          "type": "hotel",
+          "city": "Cameron",
+          "approx": true,
+          "notes": "Truck parking verified: Motel 6 lists on-site truck parking; 1920 Bob Griffin Rd at US 36 interchange"
+        },
         {
           "mm": 110,
           "exit": "",
@@ -123,6 +143,35 @@
           "parking": 80
         },
         {
+          "mm": 4,
+          "exit": "4",
+          "name": "Sleep Inn (Joplin 44 Truckstop)",
+          "brand": "Sleep Inn",
+          "type": "hotel",
+          "city": "Joplin",
+          "notes": "Truck parking verified: hotel is on the Joplin 44 Truckstop (Petro) property with ~475 truck spaces; advertised to drivers on joplin44.com"
+        },
+        {
+          "mm": 4,
+          "exit": "4",
+          "name": "4 State Trucks",
+          "brand": "Independent",
+          "type": "repair",
+          "city": "Joplin",
+          "approx": false,
+          "notes": "Famous heavy-duty truck parts store and chrome shop (Chrome Shop Mafia); 4579 Hwy 43 at I-44/MO-43 Exit 4 since 1979"
+        },
+        {
+          "mm": 4,
+          "exit": "4",
+          "name": "TA Truck Service (Petro Joplin)",
+          "brand": "TA Truck Service",
+          "type": "repair",
+          "city": "Joplin",
+          "approx": false,
+          "notes": "Full truck repair shop #354 at 4240 Hwy 43; ASE Blue Seal certified facility; co-located with Petro Stopping Center (Joplin 44 Truckstop)"
+        },
+        {
           "mm": 8,
           "exit": "8",
           "name": "Flying J Travel Center",
@@ -155,6 +204,25 @@
           "notes": "3101 S Bedford Ave; next to Flying J at I-44/US-71 (I-49) interchange"
         },
         {
+          "mm": 11,
+          "exit": "11",
+          "name": "Speedco",
+          "brand": "Speedco",
+          "type": "repair",
+          "city": "Joplin",
+          "approx": false,
+          "notes": "Love's-owned Speedco #929; oil change/PM, tires, light mechanical, roadside assistance; 5815 E 30th St next to Flying J at I-44/I-49 junction"
+        },
+        {
+          "mm": 80,
+          "exit": "80",
+          "name": "Holiday Inn & Suites Springfield I-44",
+          "brand": "Holiday Inn",
+          "type": "hotel",
+          "city": "Springfield",
+          "notes": "Truck parking verified: IHG hotel site states exterior lot accommodates semis/18-wheelers, trailers and oversized vehicles; 2720 N Glenstone Ave"
+        },
+        {
           "mm": 84,
           "exit": "84",
           "name": "Buc-ee's",
@@ -164,6 +232,17 @@
           "approx": true,
           "notes": "Opened 2023; NOTE: no overnight semi parking at Buc-ee's",
           "parking": 0
+        },
+        {
+          "mm": 88,
+          "exit": "88",
+          "name": "Flying J Travel Center",
+          "brand": "Flying J",
+          "type": "truck_stop",
+          "city": "Strafford",
+          "approx": true,
+          "notes": "Same interchange as the TA",
+          "parking": 90
         },
         {
           "mm": 88,
@@ -179,13 +258,12 @@
         {
           "mm": 88,
           "exit": "88",
-          "name": "Flying J Travel Center",
-          "brand": "Flying J",
-          "type": "truck_stop",
+          "name": "TA Truck Service (TA Springfield)",
+          "brand": "TA Truck Service",
+          "type": "repair",
           "city": "Strafford",
-          "approx": true,
-          "notes": "Same interchange as the TA",
-          "parking": 90
+          "approx": false,
+          "notes": "Truck repair shop #137; tires, brakes, DOT inspections, maintenance; co-located with TA Springfield travel center at Exit 88"
         },
         {
           "mm": 111,
@@ -210,15 +288,24 @@
           "parking": 90
         },
         {
-          "mm": 208,
-          "exit": "208",
-          "name": "Love's Travel Stop",
-          "brand": "Love's",
-          "type": "truck_stop",
-          "city": "Cuba",
-          "approx": true,
-          "notes": "",
-          "parking": 80
+          "mm": 163,
+          "exit": "163",
+          "name": "Boss Truck Shop",
+          "brand": "Boss Truck Shops",
+          "type": "repair",
+          "city": "St. Robert",
+          "approx": false,
+          "notes": "Bosselman full-service truck repair and tire shop; 22341 Highway 28 at I-44 Exit 163; 24-hour roadside service network"
+        },
+        {
+          "mm": 189,
+          "exit": "189",
+          "name": "Love's Truck Care",
+          "brand": "Love's Truck Care",
+          "type": "repair",
+          "city": "Rolla",
+          "approx": false,
+          "notes": "3 service bays; oil change/PM, light mechanical, tire services; co-located with Love's Travel Stop #341 at 3500 Hy Point Industrial Park Dr"
         },
         {
           "mm": 208,
@@ -231,6 +318,17 @@
           "notes": "301 Highway DD; near Love's Travel Stop (Exit 208)"
         },
         {
+          "mm": 208,
+          "exit": "208",
+          "name": "Love's Travel Stop",
+          "brand": "Love's",
+          "type": "truck_stop",
+          "city": "Cuba",
+          "approx": true,
+          "notes": "",
+          "parking": 80
+        },
+        {
           "mm": 226,
           "exit": "226",
           "name": "Love's Travel Stop",
@@ -240,12 +338,32 @@
           "approx": true,
           "notes": "",
           "parking": 80
+        },
+        {
+          "mm": 226,
+          "exit": "226",
+          "name": "Boss Truck Shop",
+          "brand": "Boss Truck Shops",
+          "type": "repair",
+          "city": "Sullivan",
+          "approx": false,
+          "notes": "Bosselman truck repair and tire shop at 1496 State Hwy AF, adjacent to Flying J Travel Plaza off Exit 226"
         }
       ]
     },
     "I-49": {
       "maxMM": 184,
       "stops": [
+        {
+          "mm": 27,
+          "exit": "27",
+          "name": "Love's Truck Care",
+          "brand": "Love's Truck Care",
+          "type": "repair",
+          "city": "Neosho",
+          "approx": false,
+          "notes": "Oil change/PM, light mechanical, tire services; co-located with Love's Travel Stop #585 at 12009 E Hwy 86"
+        },
         {
           "mm": 39,
           "exit": "39",
@@ -266,6 +384,16 @@
           "approx": true,
           "notes": "",
           "parking": 80
+        },
+        {
+          "mm": 158,
+          "exit": "158",
+          "name": "Love's Truck Care",
+          "brand": "Love's Truck Care",
+          "type": "repair",
+          "city": "Harrisonville",
+          "approx": false,
+          "notes": "Oil change/PM, light mechanical, tire services; co-located with Love's Travel Stop #616 at 2611 S Brookhart Dr"
         },
         {
           "mm": 167,
@@ -358,6 +486,16 @@
           "notes": "664 MO-80 off Exit 58; near Love's Travel Stop"
         },
         {
+          "mm": 58,
+          "exit": "58",
+          "name": "Love's Truck Care",
+          "brand": "Love's Truck Care",
+          "type": "repair",
+          "city": "Matthews",
+          "approx": false,
+          "notes": "Oil change/PM, light mechanical, tire services; co-located with Love's Travel Stop #313 at 100 Loves Industrial Dr"
+        },
+        {
           "mm": 66,
           "exit": "66",
           "name": "Flying J Travel Center",
@@ -429,6 +567,25 @@
         {
           "mm": 28,
           "exit": "28",
+          "name": "Blue Beacon Truck Wash",
+          "brand": "Independent",
+          "type": "truck_wash",
+          "city": "Oak Grove",
+          "approx": false,
+          "notes": "306 NW 1st St; by TA Kansas City (Exit 28)"
+        },
+        {
+          "mm": 28,
+          "exit": "28",
+          "name": "Oak Grove Inn",
+          "brand": "Independent",
+          "type": "hotel",
+          "city": "Oak Grove",
+          "notes": "Truck parking verified: hotel listings advertise large truck parking for drivers; adjacent to Petro/TA truck stop cluster at exit 28"
+        },
+        {
+          "mm": 28,
+          "exit": "28",
           "name": "TA Kansas City",
           "brand": "TA",
           "type": "truck_stop",
@@ -440,12 +597,22 @@
         {
           "mm": 28,
           "exit": "28",
-          "name": "Blue Beacon Truck Wash",
-          "brand": "Independent",
-          "type": "truck_wash",
+          "name": "Speedco",
+          "brand": "Speedco",
+          "type": "repair",
           "city": "Oak Grove",
           "approx": false,
-          "notes": "306 NW 1st St; by TA Kansas City (Exit 28)"
+          "notes": "Love's-owned Speedco #940; oil change/PM, tires, light mechanical, roadside assistance; 301 SE 4th St at the Exit 28 truck stop cluster"
+        },
+        {
+          "mm": 28,
+          "exit": "28",
+          "name": "TA Truck Service (TA Kansas City)",
+          "brand": "TA Truck Service",
+          "type": "repair",
+          "city": "Oak Grove",
+          "approx": false,
+          "notes": "Truck repair shop #052 with 3 service bays; DOT inspections, brakes, electrical, HVAC, diagnostics; co-located with TA Kansas City travel center"
         },
         {
           "mm": 58,
@@ -456,6 +623,25 @@
           "city": "Concordia",
           "approx": true,
           "parking": 30
+        },
+        {
+          "mm": 58,
+          "exit": "58",
+          "name": "Days Inn Concordia",
+          "brand": "Days Inn",
+          "type": "hotel",
+          "city": "Concordia",
+          "notes": "Truck parking verified: hotel offers free large truck/bus/RV parking (Wyndham listing); next to TA Concordia"
+        },
+        {
+          "mm": 58,
+          "exit": "58",
+          "name": "TA Truck Service (TA Concordia)",
+          "brand": "TA Truck Service",
+          "type": "repair",
+          "city": "Concordia",
+          "approx": false,
+          "notes": "Truck repair shop #018 with 2 service bays; alignments, DOT inspections, brakes, electrical, diagnostics; co-located with TA Concordia travel center at 102 NW 4th St"
         },
         {
           "mm": 101,
@@ -482,6 +668,15 @@
         {
           "mm": 148,
           "exit": "148",
+          "name": "Motel 6 Kingdom City (former Baymont)",
+          "brand": "Motel 6",
+          "type": "hotel",
+          "city": "Kingdom City",
+          "notes": "Truck parking verified: property listing includes on-site truck parking; at Petro Kingdom City truck stop cluster"
+        },
+        {
+          "mm": 148,
+          "exit": "148",
           "name": "Petro Stopping Center",
           "brand": "Petro",
           "type": "truck_stop",
@@ -489,6 +684,16 @@
           "approx": false,
           "notes": "US-54 junction; major full-service stop",
           "parking": 250
+        },
+        {
+          "mm": 148,
+          "exit": "148",
+          "name": "TA Truck Service (Petro Kingdom City)",
+          "brand": "TA Truck Service",
+          "type": "repair",
+          "city": "Kingdom City",
+          "approx": false,
+          "notes": "Truck repair shop #318; 24-hour road service, mechanic on duty; co-located with Petro Kingdom City at 3304 Gold Rd"
         },
         {
           "mm": 169,
@@ -502,6 +707,16 @@
           "parking": 30
         },
         {
+          "mm": 175,
+          "exit": "175",
+          "name": "Love's Truck Care",
+          "brand": "Love's Truck Care",
+          "type": "repair",
+          "city": "New Florence",
+          "approx": false,
+          "notes": "3 service bays; oil change/PM, light mechanical, tire services; co-located with Love's Travel Stop #788 at 482 Tree Farm Rd"
+        },
+        {
           "mm": 188,
           "exit": "188",
           "name": "Love's Travel Stop",
@@ -510,6 +725,27 @@
           "city": "Warrenton",
           "approx": true,
           "notes": "",
+          "parking": 80
+        },
+        {
+          "mm": 188,
+          "exit": "188",
+          "name": "Southern Tire Mart at Pilot",
+          "brand": "Southern Tire Mart",
+          "type": "repair",
+          "city": "Warrenton",
+          "approx": false,
+          "notes": "Commercial truck tire sales/installation, brakes, DOT inspections; 24002 W Veterans Memorial Pkwy, co-located with Flying J Travel Center #674"
+        },
+        {
+          "mm": 203,
+          "exit": "203",
+          "name": "Pilot Travel Center",
+          "brand": "Pilot",
+          "type": "truck_stop",
+          "city": "Foristell",
+          "approx": true,
+          "notes": "Same interchange as the TA",
           "parking": 80
         },
         {
@@ -526,13 +762,12 @@
         {
           "mm": 203,
           "exit": "203",
-          "name": "Pilot Travel Center",
-          "brand": "Pilot",
-          "type": "truck_stop",
+          "name": "TA Truck Service (TA Foristell)",
+          "brand": "TA Truck Service",
+          "type": "repair",
           "city": "Foristell",
-          "approx": true,
-          "notes": "Same interchange as the TA",
-          "parking": 80
+          "approx": false,
+          "notes": "Truck repair shop #175 with 5 service bays, open 24/7; tires, brakes, electrical, inspections, alignments, HVAC, aftertreatment; co-located with TA Foristell at 3265 N Service Rd E"
         },
         {
           "mm": 204,
@@ -543,6 +778,16 @@
           "city": "Foristell",
           "approx": true,
           "notes": "MoDOT/MSHP Foristell scales near milepost 204, west of Wentzville; EB and WB facilities"
+        },
+        {
+          "mm": 246,
+          "exit": "246A",
+          "name": "Love's Truck Care",
+          "brand": "Love's Truck Care",
+          "type": "repair",
+          "city": "St. Louis",
+          "approx": false,
+          "notes": "Oil change/PM, light mechanical, tire services, roadside assistance; co-located with Love's Travel Stop #461 at 6124 N Broadway"
         }
       ]
     },

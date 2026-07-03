@@ -138,6 +138,16 @@
    "maxMM": 55,
    "stops": [
     {
+     "mm": 7,
+     "exit": "7",
+     "name": "Ballard Truck Center (West Springfield)",
+     "brand": "Ballard",
+     "type": "repair",
+     "city": "West Springfield",
+     "approx": true,
+     "notes": "124 Ashley Ave near I-91 Exit 7 (US-20 / North End Bridge), West Springfield/Big E area; Mack/Volvo/Hino dealer, full service, parts"
+    },
+    {
      "mm": 35,
      "exit": "35 (old 24)",
      "name": "Whately Diner / Fillin' Station Truck Stop",
@@ -198,7 +208,18 @@
   },
   "I-290": {
    "maxMM": 20,
-   "stops": []
+   "stops": [
+    {
+     "mm": 2,
+     "exit": "Rt 20 (SW Cutoff)",
+     "name": "Ballard Truck Center (Worcester)",
+     "brand": "Ballard",
+     "type": "repair",
+     "city": "Worcester",
+     "approx": true,
+     "notes": "442 Southwest Cutoff (US-20) near I-290 south end and the I-90/I-395 Auburn interchange; Mack/Volvo/Isuzu/Hino dealer HQ, full service, parts"
+    }
+   ]
   },
   "I-395": {
    "maxMM": 11,

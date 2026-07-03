@@ -1,443 +1,633 @@
 {
- "state": "North Carolina",
- "abbr": "NC",
- "interstates": {
-  "I-26": {
-   "maxMM": 70,
-   "stops": [
-    {
-     "mm": 6,
-     "exit": "6",
-     "name": "North Carolina Welcome Center (eastbound)",
-     "brand": "State",
-     "type": "rest_area",
-     "city": "Mars Hill (Madison County)",
-     "approx": true,
-     "parking": 15
+  "state": "North Carolina",
+  "abbr": "NC",
+  "interstates": {
+    "I-26": {
+      "maxMM": 70,
+      "stops": [
+        {
+          "mm": 6,
+          "exit": "6",
+          "name": "North Carolina Welcome Center (eastbound)",
+          "brand": "State",
+          "type": "rest_area",
+          "city": "Mars Hill (Madison County)",
+          "approx": true,
+          "parking": 15
+        },
+        {
+          "mm": 44,
+          "exit": "44",
+          "name": "FleetPro Truck Center",
+          "brand": "Independent",
+          "type": "repair",
+          "city": "Fletcher",
+          "approx": true,
+          "notes": "Family-owned heavy truck and trailer shop at 4989 Hendersonville Rd (US-25) near I-26 exit 44 (Fletcher/Mountain Home); engine diagnostics, AC, suspension/brakes, DOT inspections, emergency roadside; M-F 8am-10:30pm"
+        },
+        {
+          "mm": 46,
+          "exit": "46",
+          "name": "Weigh Station (both directions)",
+          "brand": "State",
+          "type": "weigh_station",
+          "city": "Hendersonville",
+          "approx": true,
+          "notes": "SHP Hendersonville scales north of US-64, two fixed scales; PrePass"
+        },
+        {
+          "mm": 68,
+          "exit": "68",
+          "name": "North Carolina Welcome Center (westbound)",
+          "brand": "State",
+          "type": "rest_area",
+          "city": "Columbus/Tryon",
+          "approx": true,
+          "notes": "Serves westbound entering from SC; truck parking",
+          "parking": 20
+        }
+      ]
     },
-    {
-     "mm": 46,
-     "exit": "46",
-     "name": "Weigh Station (both directions)",
-     "brand": "State",
-     "type": "weigh_station",
-     "city": "Hendersonville",
-     "approx": true,
-     "notes": "SHP Hendersonville scales north of US-64, two fixed scales; PrePass"
+    "I-40": {
+      "maxMM": 420,
+      "stops": [
+        {
+          "mm": 10,
+          "exit": "10",
+          "name": "North Carolina Welcome Center (eastbound)",
+          "brand": "State",
+          "type": "rest_area",
+          "city": "Waynesville (Haywood County)",
+          "approx": true,
+          "notes": "Serves eastbound entering from TN through Pigeon River Gorge; truck parking",
+          "parking": 20
+        },
+        {
+          "mm": 37,
+          "exit": "37",
+          "name": "Pilot Travel Center",
+          "brand": "Pilot",
+          "type": "truck_stop",
+          "city": "Candler (Asheville west)",
+          "approx": true,
+          "notes": "",
+          "parking": 85
+        },
+        {
+          "mm": 37,
+          "exit": "37",
+          "name": "TA Truck Service Candler",
+          "brand": "TA Truck Service",
+          "type": "repair",
+          "city": "Candler (Asheville west)",
+          "approx": true,
+          "notes": "Co-located with TA Candler travel center (153 Wiggins Rd); 4 truck service bays, tire repair, alignments, 24/7 emergency roadside"
+        },
+        {
+          "mm": 86,
+          "exit": "86",
+          "name": "Love's Travel Stop",
+          "brand": "Love's",
+          "type": "truck_stop",
+          "city": "Marion",
+          "approx": true,
+          "notes": "NC-226. Note: I-40 shares I-85 mileposts on the Greensboro-Hillsborough overlap; see I-85 for Mebane stops",
+          "parking": 85
+        },
+        {
+          "mm": 112,
+          "exit": "112",
+          "name": "Burke County Rest Area (both directions)",
+          "brand": "State",
+          "type": "rest_area",
+          "city": "Valdese",
+          "approx": true,
+          "parking": 25
+        },
+        {
+          "mm": 133,
+          "exit": "133",
+          "name": "Sheetz Conover",
+          "brand": "Independent",
+          "type": "truck_stop",
+          "city": "Conover",
+          "approx": false,
+          "notes": "Sheetz truck-diesel format, opened Feb 2026; 7 high-flow diesel lanes, 46 free truck spaces",
+          "parking": 46
+        },
+        {
+          "mm": 150,
+          "exit": "150",
+          "name": "National Fleet Management",
+          "brand": "Independent",
+          "type": "repair",
+          "city": "Statesville",
+          "approx": true,
+          "notes": "Full-service heavy truck and trailer repair shop with parts department at 1426 Northside Dr, on I-40 between exits 148 and 150"
+        },
+        {
+          "mm": 150,
+          "exit": "150",
+          "name": "Parrish Truck Tire Center",
+          "brand": "Parrish Tire",
+          "type": "repair",
+          "city": "Statesville",
+          "approx": true,
+          "notes": "Commercial truck tire center at 1336 Northside Dr (between I-40 exits 148 and 150); flat repairs, truck/trailer alignments, 24/7 emergency roadside tire service"
+        },
+        {
+          "mm": 177,
+          "exit": "177",
+          "name": "Iredell County Rest Area (both directions)",
+          "brand": "State",
+          "type": "rest_area",
+          "city": "Statesville",
+          "approx": true,
+          "parking": 30
+        },
+        {
+          "mm": 221,
+          "exit": "221",
+          "name": "Snider Fleet Solutions Greensboro",
+          "brand": "Snider Fleet Solutions",
+          "type": "repair",
+          "city": "Greensboro",
+          "approx": true,
+          "notes": "Charlotte-headquartered commercial tire and mechanical service chain; 300 E Meadowview Rd off I-40 exit 221 (S Elm-Eugene St); in-shop service plus 24/7 emergency roadside"
+        },
+        {
+          "mm": 325,
+          "exit": "325",
+          "name": "Rest Area (both directions)",
+          "brand": "State",
+          "type": "rest_area",
+          "city": "Benson (Johnston County)",
+          "approx": true,
+          "notes": "Truck parking; serves EB and WB",
+          "parking": 25
+        },
+        {
+          "mm": 364,
+          "exit": "364",
+          "name": "Duplin County Rest Area (both directions)",
+          "brand": "State",
+          "type": "rest_area",
+          "city": "Warsaw",
+          "approx": true,
+          "parking": 25
+        }
+      ]
     },
-    {
-     "mm": 68,
-     "exit": "68",
-     "name": "North Carolina Welcome Center (westbound)",
-     "brand": "State",
-     "type": "rest_area",
-     "city": "Columbus/Tryon",
-     "approx": true,
-     "notes": "Serves westbound entering from SC; truck parking",
-     "parking": 20
+    "I-73": {
+      "maxMM": 135,
+      "stops": []
+    },
+    "I-74": {
+      "maxMM": 210,
+      "stops": []
+    },
+    "I-77": {
+      "maxMM": 105,
+      "stops": [
+        {
+          "mm": 49,
+          "exit": "49",
+          "name": "Excel Truck Group Statesville",
+          "brand": "Excel Truck Group",
+          "type": "repair",
+          "city": "Statesville",
+          "approx": true,
+          "notes": "Freightliner/Western Star dealer at 2221 International Dr near the I-77/I-40 junction (I-77 exit 49 / I-40 exit 148); full-service truck and trailer repair, Detroit/Cummins engine work, parts department, mobile service"
+        },
+        {
+          "mm": 82,
+          "exit": "82",
+          "name": "Speedway Travel Plaza (former WilcoHess)",
+          "brand": "Independent",
+          "type": "truck_stop",
+          "city": "Jonesville (Elkin)",
+          "approx": true,
+          "notes": "Legacy WilcoHess truck stop, now Speedway",
+          "parking": 60
+        },
+        {
+          "mm": 102,
+          "exit": "102",
+          "name": "Weigh Station (both directions)",
+          "brand": "State",
+          "type": "weigh_station",
+          "city": "Mount Airy",
+          "approx": true,
+          "notes": "SHP Mount Airy scales about 3 mi south of VA line, two fixed scales; PrePass"
+        },
+        {
+          "mm": 103,
+          "exit": "103",
+          "name": "North Carolina Welcome Center (southbound)",
+          "brand": "State",
+          "type": "rest_area",
+          "city": "Dobson area (Surry County)",
+          "approx": true,
+          "notes": "Serves southbound entering from VA off Fancy Gap; truck parking",
+          "parking": 20
+        }
+      ]
+    },
+    "I-85": {
+      "maxMM": 234,
+      "stops": [
+        {
+          "mm": 2,
+          "exit": "2",
+          "name": "North Carolina Welcome Center (northbound)",
+          "brand": "State",
+          "type": "rest_area",
+          "city": "Grover (Cleveland County)",
+          "approx": true,
+          "notes": "Serves northbound entering from SC; truck parking",
+          "parking": 20
+        },
+        {
+          "mm": 5,
+          "exit": "5",
+          "name": "Love's Travel Stop",
+          "brand": "Love's",
+          "type": "truck_stop",
+          "city": "Kings Mountain",
+          "approx": true,
+          "notes": "Dixon School Rd",
+          "parking": 85
+        },
+        {
+          "mm": 28,
+          "exit": "28",
+          "name": "Weigh Station (both directions)",
+          "brand": "State",
+          "type": "weigh_station",
+          "city": "Charlotte (Mount Holly)",
+          "approx": true,
+          "notes": "SHP Charlotte scales, four fixed scales, NB at MM 28 east of NC-273; PrePass"
+        },
+        {
+          "mm": 29,
+          "exit": "29",
+          "name": "Love's Truck Care",
+          "brand": "Love's",
+          "type": "repair",
+          "city": "Charlotte",
+          "approx": true,
+          "notes": "Co-located with Love's Travel Stop #714 at exit 29 (Sam Wilson Rd), 2603 Sam Wilson Rd; oil change/PM, light mechanical, tire services; open 24 hours"
+        },
+        {
+          "mm": 40,
+          "exit": "40",
+          "name": "Snider Fleet Solutions Charlotte",
+          "brand": "Snider Fleet Solutions",
+          "type": "repair",
+          "city": "Charlotte",
+          "approx": true,
+          "notes": "Charlotte-headquartered commercial tire and mechanical service chain; 4420 N Graham St at exit 40 (Graham St); tires, truck/trailer repair, diagnostics, 24/7 emergency roadside"
+        },
+        {
+          "mm": 41,
+          "exit": "41",
+          "name": "FleetPride Charlotte",
+          "brand": "FleetPride",
+          "type": "repair",
+          "city": "Charlotte",
+          "approx": true,
+          "notes": "Heavy-duty truck and trailer parts branch at 3740 Jeff Adams Dr, on the I-85 northbound service road between exits 40 (Graham St) and 41 (Sugar Creek Rd); M-F plus Sat morning"
+        },
+        {
+          "mm": 71,
+          "exit": "71",
+          "name": "Speedway Travel Plaza (former WilcoHess)",
+          "brand": "Independent",
+          "type": "truck_stop",
+          "city": "Salisbury",
+          "approx": true,
+          "notes": "Peeler Rd; legacy WilcoHess site",
+          "parking": 60
+        },
+        {
+          "mm": 124,
+          "exit": "124",
+          "name": "TA Greensboro",
+          "brand": "TA",
+          "type": "truck_stop",
+          "city": "Greensboro",
+          "approx": true,
+          "notes": "S Elm-Eugene St",
+          "parking": 190
+        },
+        {
+          "mm": 138,
+          "exit": "138",
+          "name": "TA Truck Service Greensboro (Whitsett)",
+          "brand": "TA Truck Service",
+          "type": "repair",
+          "city": "Whitsett",
+          "approx": true,
+          "notes": "Co-located with TA Greensboro travel center at I-85/I-40 exit 138 (NC-61), 1101 Hwy 61 S; 6 truck service bays, tires, repair, 24/7 shop and roadside"
+        },
+        {
+          "mm": 150,
+          "exit": "150",
+          "name": "Blue Beacon Truck Wash",
+          "brand": "Independent",
+          "type": "truck_wash",
+          "city": "Haw River",
+          "approx": false,
+          "notes": "Jimmie Kerr Rd on I-40/I-85 overlap; across from Flying J"
+        },
+        {
+          "mm": 150,
+          "exit": "150",
+          "name": "Love's Speedco Haw River",
+          "brand": "Speedco",
+          "type": "repair",
+          "city": "Haw River",
+          "approx": true,
+          "notes": "Speedco #925 at I-85/I-40 exit 150, 940 Jimmie Kerr Rd; truck tires (incl. retreads), oil change/PM, light mechanical, emergency roadside; owned by Love's"
+        },
+        {
+          "mm": 152,
+          "exit": "152",
+          "name": "Love's Truck Care",
+          "brand": "Love's",
+          "type": "repair",
+          "city": "Mebane",
+          "approx": true,
+          "notes": "Co-located with Love's Travel Stop #667 at I-85/I-40 exit 152 (Trollingwood Rd), 1217 Trollingwood-Hawfields Rd; oil change/PM, light mechanical, tire services; open 24 hours"
+        },
+        {
+          "mm": 153,
+          "exit": "153",
+          "name": "Speedway Travel Plaza (former WilcoHess)",
+          "brand": "Independent",
+          "type": "truck_stop",
+          "city": "Mebane",
+          "approx": true,
+          "notes": "On I-85/I-40 overlap; legacy WilcoHess site",
+          "parking": 60
+        },
+        {
+          "mm": 160,
+          "exit": "160",
+          "name": "Weigh Station (both directions)",
+          "brand": "State",
+          "type": "weigh_station",
+          "city": "Efland (Hillsborough)",
+          "approx": true,
+          "notes": "SHP Hillsborough scales on I-40/I-85 overlap, four fixed scales plus ramp/highway weigh-in-motion; PrePass"
+        },
+        {
+          "mm": 191,
+          "exit": "191",
+          "name": "Love's Travel Stop",
+          "brand": "Love's",
+          "type": "truck_stop",
+          "city": "Butner",
+          "approx": true,
+          "notes": "US-15",
+          "parking": 85
+        },
+        {
+          "mm": 231,
+          "exit": "231",
+          "name": "North Carolina Welcome Center (southbound)",
+          "brand": "State",
+          "type": "rest_area",
+          "city": "Wise (Warren County)",
+          "approx": true,
+          "notes": "Serves southbound entering from VA; truck parking",
+          "parking": 20
+        }
+      ]
+    },
+    "I-95": {
+      "maxMM": 181,
+      "stops": [
+        {
+          "mm": 5,
+          "exit": "5",
+          "name": "North Carolina Welcome Center (northbound)",
+          "brand": "State",
+          "type": "rest_area",
+          "city": "Rowland",
+          "approx": true,
+          "notes": "Serves northbound entering from SC; truck parking",
+          "parking": 20
+        },
+        {
+          "mm": 17,
+          "exit": "17",
+          "name": "Black's Tire & Auto Service",
+          "brand": "Black's Tire",
+          "type": "repair",
+          "city": "Lumberton",
+          "approx": true,
+          "notes": "Regional NC/SC tire chain store on W 5th St at I-95 exit 17; commercial truck tires with 24/7 commercial road service dispatch"
+        },
+        {
+          "mm": 24,
+          "exit": "24",
+          "name": "Weigh Station (both directions)",
+          "brand": "State",
+          "type": "weigh_station",
+          "city": "Lumberton",
+          "approx": false,
+          "notes": "SHP Lumberton scales, MM 24, two fixed scales; PrePass"
+        },
+        {
+          "mm": 33,
+          "exit": "33",
+          "name": "Love's Travel Stop",
+          "brand": "Love's",
+          "type": "truck_stop",
+          "city": "St. Pauls",
+          "approx": true,
+          "notes": "",
+          "parking": 85
+        },
+        {
+          "mm": 41,
+          "exit": "41",
+          "name": "Sheetz Hope Mills",
+          "brand": "Independent",
+          "type": "truck_stop",
+          "city": "Hope Mills",
+          "approx": true,
+          "notes": "Sheetz truck-diesel format, opened Feb 2025; 7 diesel lanes, 41 free overnight truck spaces",
+          "parking": 41
+        },
+        {
+          "mm": 49,
+          "exit": "49",
+          "name": "Cumberland County Rest Area (both directions)",
+          "brand": "State",
+          "type": "rest_area",
+          "city": "Wade (Fayetteville)",
+          "approx": true,
+          "parking": 30
+        },
+        {
+          "mm": 71,
+          "exit": "71",
+          "name": "95 Tire & Service",
+          "brand": "Independent",
+          "type": "repair",
+          "city": "Dunn",
+          "approx": true,
+          "notes": "Truck tire shop at 918 Long Branch Rd, right off I-95 exit 71 (Long Branch Rd); commercial truck tire sales and repair"
+        },
+        {
+          "mm": 95,
+          "exit": "95",
+          "name": "Sleep Inn & Suites Smithfield",
+          "brand": "Sleep Inn",
+          "type": "hotel",
+          "city": "Smithfield",
+          "approx": false,
+          "notes": "Truck parking verified: booking listings show RV, bus, and truck parking; 270 N Equity Dr at Exit 95"
+        },
+        {
+          "mm": 105,
+          "exit": "105",
+          "name": "Boss Truck Shop #59",
+          "brand": "Boss Truck Shop",
+          "type": "repair",
+          "city": "Kenly",
+          "approx": true,
+          "notes": "Located at Big Boy's Truck Stop, 595 S Bagley Rd, I-95 exit 105; tire repair/replacement (Michelin, Bridgestone, Bandag retreads), computer diagnostics, PMs, inspections; closed Sunday"
+        },
+        {
+          "mm": 106,
+          "exit": "106",
+          "name": "Kenly 95 Truckstop",
+          "brand": "Independent",
+          "type": "truck_stop",
+          "city": "Kenly",
+          "approx": false,
+          "notes": "Large full-service independent (Petro-affiliated); truck wash, restaurant",
+          "parking": 200
+        },
+        {
+          "mm": 106,
+          "exit": "106",
+          "name": "Blue Beacon Truck Wash",
+          "brand": "Independent",
+          "type": "truck_wash",
+          "city": "Kenly",
+          "approx": false,
+          "notes": "At Flying J Travel Center"
+        },
+        {
+          "mm": 106,
+          "exit": "106",
+          "name": "Kenly 95 Truck Wash (Truckomat)",
+          "brand": "Independent",
+          "type": "truck_wash",
+          "city": "Kenly",
+          "approx": false,
+          "notes": "At Kenly 95 Truckstop; 24-hour hand-brushed wash"
+        },
+        {
+          "mm": 106,
+          "exit": "106",
+          "name": "Motel 6 Kenly",
+          "brand": "Motel 6",
+          "type": "hotel",
+          "city": "Kenly",
+          "approx": false,
+          "notes": "Truck parking verified: listings show free self-parking for cars, trucks, and trailers; at Exit 106 adjacent to Kenly 95 Petro truck stop"
+        },
+        {
+          "mm": 106,
+          "exit": "106",
+          "name": "Kenly 95 Truck Service Center",
+          "brand": "TA Truck Service",
+          "type": "repair",
+          "city": "Kenly",
+          "approx": false,
+          "notes": "Co-located with Kenly 95 Truckstop (Petro-affiliated; listed as TA Truck Service #395), 923 Johnston Pkwy at exit 106; ASE-certified mechanics, 24-hr road service, new/used truck tires, alignments, brakes, DOT inspections, PM, minor engine and reefer repair, bulk DEF"
+        },
+        {
+          "mm": 106,
+          "exit": "106",
+          "name": "Love's Speedco Kenly",
+          "brand": "Speedco",
+          "type": "repair",
+          "city": "Kenly",
+          "approx": true,
+          "notes": "Speedco #930 at 101 Woodard Dr, I-95 exit 106; truck tires (incl. Love's retreads), oil change/PM, light mechanical, emergency roadside; owned by Love's"
+        },
+        {
+          "mm": 107,
+          "exit": "107",
+          "name": "Big Boy's Truck Stop",
+          "brand": "AmBest",
+          "type": "truck_stop",
+          "city": "Kenly",
+          "approx": true,
+          "notes": "Independent AmBest member",
+          "parking": 60
+        },
+        {
+          "mm": 145,
+          "exit": "145",
+          "name": "TA Battleboro (Gold Rock)",
+          "brand": "TA",
+          "type": "truck_stop",
+          "city": "Battleboro (Rocky Mount)",
+          "approx": false,
+          "notes": "NC-4, Gold Rock",
+          "parking": 190
+        },
+        {
+          "mm": 151,
+          "exit": "151",
+          "name": "Weigh Station (both directions)",
+          "brand": "State",
+          "type": "weigh_station",
+          "city": "Enfield (Halifax County)",
+          "approx": false,
+          "notes": "SHP Halifax scales, NB and SB at MM 151, two fixed scales each; PrePass"
+        },
+        {
+          "mm": 154,
+          "exit": "154",
+          "name": "Love's Travel Stop",
+          "brand": "Love's",
+          "type": "truck_stop",
+          "city": "Enfield",
+          "approx": true,
+          "notes": "NC-481",
+          "parking": 85
+        },
+        {
+          "mm": 171,
+          "exit": "171",
+          "name": "Pilot Travel Center",
+          "brand": "Pilot",
+          "type": "truck_stop",
+          "city": "Roanoke Rapids",
+          "approx": true,
+          "notes": "NC-125",
+          "parking": 85
+        },
+        {
+          "mm": 176,
+          "exit": "176",
+          "name": "North Carolina Welcome Center (southbound)",
+          "brand": "State",
+          "type": "rest_area",
+          "city": "Roanoke Rapids (Northampton County)",
+          "approx": true,
+          "notes": "Serves southbound entering from VA; truck parking",
+          "parking": 20
+        }
+      ]
     }
-   ]
-  },
-  "I-40": {
-   "maxMM": 420,
-   "stops": [
-    {
-     "mm": 10,
-     "exit": "10",
-     "name": "North Carolina Welcome Center (eastbound)",
-     "brand": "State",
-     "type": "rest_area",
-     "city": "Waynesville (Haywood County)",
-     "approx": true,
-     "notes": "Serves eastbound entering from TN through Pigeon River Gorge; truck parking",
-     "parking": 20
-    },
-    {
-     "mm": 37,
-     "exit": "37",
-     "name": "Pilot Travel Center",
-     "brand": "Pilot",
-     "type": "truck_stop",
-     "city": "Candler (Asheville west)",
-     "approx": true,
-     "notes": "",
-     "parking": 85
-    },
-    {
-     "mm": 86,
-     "exit": "86",
-     "name": "Love's Travel Stop",
-     "brand": "Love's",
-     "type": "truck_stop",
-     "city": "Marion",
-     "approx": true,
-     "notes": "NC-226. Note: I-40 shares I-85 mileposts on the Greensboro-Hillsborough overlap; see I-85 for Mebane stops",
-     "parking": 85
-    },
-    {
-     "mm": 112,
-     "exit": "112",
-     "name": "Burke County Rest Area (both directions)",
-     "brand": "State",
-     "type": "rest_area",
-     "city": "Valdese",
-     "approx": true,
-     "parking": 25
-    },
-    {
-     "mm": 133,
-     "exit": "133",
-     "name": "Sheetz Conover",
-     "brand": "Independent",
-     "type": "truck_stop",
-     "city": "Conover",
-     "approx": false,
-     "notes": "Sheetz truck-diesel format, opened Feb 2026; 7 high-flow diesel lanes, 46 free truck spaces",
-     "parking": 46
-    },
-    {
-     "mm": 177,
-     "exit": "177",
-     "name": "Iredell County Rest Area (both directions)",
-     "brand": "State",
-     "type": "rest_area",
-     "city": "Statesville",
-     "approx": true,
-     "parking": 30
-    },
-    {
-     "mm": 325,
-     "exit": "325",
-     "name": "Rest Area (both directions)",
-     "brand": "State",
-     "type": "rest_area",
-     "city": "Benson (Johnston County)",
-     "approx": true,
-     "notes": "Truck parking; serves EB and WB",
-     "parking": 25
-    },
-    {
-     "mm": 364,
-     "exit": "364",
-     "name": "Duplin County Rest Area (both directions)",
-     "brand": "State",
-     "type": "rest_area",
-     "city": "Warsaw",
-     "approx": true,
-     "parking": 25
-    }
-   ]
-  },
-  "I-73": {
-   "maxMM": 135,
-   "stops": []
-  },
-  "I-74": {
-   "maxMM": 210,
-   "stops": []
-  },
-  "I-77": {
-   "maxMM": 105,
-   "stops": [
-    {
-     "mm": 82,
-     "exit": "82",
-     "name": "Speedway Travel Plaza (former WilcoHess)",
-     "brand": "Independent",
-     "type": "truck_stop",
-     "city": "Jonesville (Elkin)",
-     "approx": true,
-     "notes": "Legacy WilcoHess truck stop, now Speedway",
-     "parking": 60
-    },
-    {
-     "mm": 102,
-     "exit": "102",
-     "name": "Weigh Station (both directions)",
-     "brand": "State",
-     "type": "weigh_station",
-     "city": "Mount Airy",
-     "approx": true,
-     "notes": "SHP Mount Airy scales about 3 mi south of VA line, two fixed scales; PrePass"
-    },
-    {
-     "mm": 103,
-     "exit": "103",
-     "name": "North Carolina Welcome Center (southbound)",
-     "brand": "State",
-     "type": "rest_area",
-     "city": "Dobson area (Surry County)",
-     "approx": true,
-     "notes": "Serves southbound entering from VA off Fancy Gap; truck parking",
-     "parking": 20
-    }
-   ]
-  },
-  "I-85": {
-   "maxMM": 234,
-   "stops": [
-    {
-     "mm": 2,
-     "exit": "2",
-     "name": "North Carolina Welcome Center (northbound)",
-     "brand": "State",
-     "type": "rest_area",
-     "city": "Grover (Cleveland County)",
-     "approx": true,
-     "notes": "Serves northbound entering from SC; truck parking",
-     "parking": 20
-    },
-    {
-     "mm": 5,
-     "exit": "5",
-     "name": "Love's Travel Stop",
-     "brand": "Love's",
-     "type": "truck_stop",
-     "city": "Kings Mountain",
-     "approx": true,
-     "notes": "Dixon School Rd",
-     "parking": 85
-    },
-    {
-     "mm": 28,
-     "exit": "28",
-     "name": "Weigh Station (both directions)",
-     "brand": "State",
-     "type": "weigh_station",
-     "city": "Charlotte (Mount Holly)",
-     "approx": true,
-     "notes": "SHP Charlotte scales, four fixed scales, NB at MM 28 east of NC-273; PrePass"
-    },
-    {
-     "mm": 71,
-     "exit": "71",
-     "name": "Speedway Travel Plaza (former WilcoHess)",
-     "brand": "Independent",
-     "type": "truck_stop",
-     "city": "Salisbury",
-     "approx": true,
-     "notes": "Peeler Rd; legacy WilcoHess site",
-     "parking": 60
-    },
-    {
-     "mm": 124,
-     "exit": "124",
-     "name": "TA Greensboro",
-     "brand": "TA",
-     "type": "truck_stop",
-     "city": "Greensboro",
-     "approx": true,
-     "notes": "S Elm-Eugene St",
-     "parking": 190
-    },
-    {
-     "mm": 150,
-     "exit": "150",
-     "name": "Blue Beacon Truck Wash",
-     "brand": "Independent",
-     "type": "truck_wash",
-     "city": "Haw River",
-     "approx": false,
-     "notes": "Jimmie Kerr Rd on I-40/I-85 overlap; across from Flying J"
-    },
-    {
-     "mm": 153,
-     "exit": "153",
-     "name": "Speedway Travel Plaza (former WilcoHess)",
-     "brand": "Independent",
-     "type": "truck_stop",
-     "city": "Mebane",
-     "approx": true,
-     "notes": "On I-85/I-40 overlap; legacy WilcoHess site",
-     "parking": 60
-    },
-    {
-     "mm": 160,
-     "exit": "160",
-     "name": "Weigh Station (both directions)",
-     "brand": "State",
-     "type": "weigh_station",
-     "city": "Efland (Hillsborough)",
-     "approx": true,
-     "notes": "SHP Hillsborough scales on I-40/I-85 overlap, four fixed scales plus ramp/highway weigh-in-motion; PrePass"
-    },
-    {
-     "mm": 191,
-     "exit": "191",
-     "name": "Love's Travel Stop",
-     "brand": "Love's",
-     "type": "truck_stop",
-     "city": "Butner",
-     "approx": true,
-     "notes": "US-15",
-     "parking": 85
-    },
-    {
-     "mm": 231,
-     "exit": "231",
-     "name": "North Carolina Welcome Center (southbound)",
-     "brand": "State",
-     "type": "rest_area",
-     "city": "Wise (Warren County)",
-     "approx": true,
-     "notes": "Serves southbound entering from VA; truck parking",
-     "parking": 20
-    }
-   ]
-  },
-  "I-95": {
-   "maxMM": 181,
-   "stops": [
-    {
-     "mm": 5,
-     "exit": "5",
-     "name": "North Carolina Welcome Center (northbound)",
-     "brand": "State",
-     "type": "rest_area",
-     "city": "Rowland",
-     "approx": true,
-     "notes": "Serves northbound entering from SC; truck parking",
-     "parking": 20
-    },
-    {
-     "mm": 24,
-     "exit": "24",
-     "name": "Weigh Station (both directions)",
-     "brand": "State",
-     "type": "weigh_station",
-     "city": "Lumberton",
-     "approx": false,
-     "notes": "SHP Lumberton scales, MM 24, two fixed scales; PrePass"
-    },
-    {
-     "mm": 33,
-     "exit": "33",
-     "name": "Love's Travel Stop",
-     "brand": "Love's",
-     "type": "truck_stop",
-     "city": "St. Pauls",
-     "approx": true,
-     "notes": "",
-     "parking": 85
-    },
-    {
-     "mm": 41,
-     "exit": "41",
-     "name": "Sheetz Hope Mills",
-     "brand": "Independent",
-     "type": "truck_stop",
-     "city": "Hope Mills",
-     "approx": true,
-     "notes": "Sheetz truck-diesel format, opened Feb 2025; 7 diesel lanes, 41 free overnight truck spaces",
-     "parking": 41
-    },
-    {
-     "mm": 49,
-     "exit": "49",
-     "name": "Cumberland County Rest Area (both directions)",
-     "brand": "State",
-     "type": "rest_area",
-     "city": "Wade (Fayetteville)",
-     "approx": true,
-     "parking": 30
-    },
-    {
-     "mm": 106,
-     "exit": "106",
-     "name": "Kenly 95 Truckstop",
-     "brand": "Independent",
-     "type": "truck_stop",
-     "city": "Kenly",
-     "approx": false,
-     "notes": "Large full-service independent (Petro-affiliated); truck wash, restaurant",
-     "parking": 200
-    },
-    {
-     "mm": 106,
-     "exit": "106",
-     "name": "Blue Beacon Truck Wash",
-     "brand": "Independent",
-     "type": "truck_wash",
-     "city": "Kenly",
-     "approx": false,
-     "notes": "At Flying J Travel Center"
-    },
-    {
-     "mm": 106,
-     "exit": "106",
-     "name": "Kenly 95 Truck Wash (Truckomat)",
-     "brand": "Independent",
-     "type": "truck_wash",
-     "city": "Kenly",
-     "approx": false,
-     "notes": "At Kenly 95 Truckstop; 24-hour hand-brushed wash"
-    },
-    {
-     "mm": 107,
-     "exit": "107",
-     "name": "Big Boy's Truck Stop",
-     "brand": "AmBest",
-     "type": "truck_stop",
-     "city": "Kenly",
-     "approx": true,
-     "notes": "Independent AmBest member",
-     "parking": 60
-    },
-    {
-     "mm": 145,
-     "exit": "145",
-     "name": "TA Battleboro (Gold Rock)",
-     "brand": "TA",
-     "type": "truck_stop",
-     "city": "Battleboro (Rocky Mount)",
-     "approx": false,
-     "notes": "NC-4, Gold Rock",
-     "parking": 190
-    },
-    {
-     "mm": 151,
-     "exit": "151",
-     "name": "Weigh Station (both directions)",
-     "brand": "State",
-     "type": "weigh_station",
-     "city": "Enfield (Halifax County)",
-     "approx": false,
-     "notes": "SHP Halifax scales, NB and SB at MM 151, two fixed scales each; PrePass"
-    },
-    {
-     "mm": 154,
-     "exit": "154",
-     "name": "Love's Travel Stop",
-     "brand": "Love's",
-     "type": "truck_stop",
-     "city": "Enfield",
-     "approx": true,
-     "notes": "NC-481",
-     "parking": 85
-    },
-    {
-     "mm": 171,
-     "exit": "171",
-     "name": "Pilot Travel Center",
-     "brand": "Pilot",
-     "type": "truck_stop",
-     "city": "Roanoke Rapids",
-     "approx": true,
-     "notes": "NC-125",
-     "parking": 85
-    },
-    {
-     "mm": 176,
-     "exit": "176",
-     "name": "North Carolina Welcome Center (southbound)",
-     "brand": "State",
-     "type": "rest_area",
-     "city": "Roanoke Rapids (Northampton County)",
-     "approx": true,
-     "notes": "Serves southbound entering from VA; truck parking",
-     "parking": 20
-    }
-   ]
   }
- }
 }
