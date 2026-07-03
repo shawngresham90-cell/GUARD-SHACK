@@ -10,8 +10,11 @@
         {"mm": 97, "exit": "", "name": "Matfield Green Service Area", "brand": "Independent", "type": "service_plaza", "city": "Matfield Green", "approx": false, "notes": "Kansas Turnpike, Flint Hills; serves both directions; turnpike milepost", "parking": 40},
         {"mm": 127, "exit": "127", "name": "Flying J Travel Center", "brand": "Flying J", "type": "truck_stop", "city": "Emporia", "approx": true, "notes": "US-50 at turnpike exit 127, where I-35 leaves the turnpike", "parking": 90},
         {"mm": 127, "exit": "127A", "name": "Blue Beacon Truck Wash", "brand": "Independent", "type": "truck_wash", "city": "Emporia", "approx": false, "notes": "US-50 at exit 127A; by the Flying J"},
+        {"mm": 127, "exit": "127", "name": "Speedco Truck Lube and Tires", "brand": "Speedco", "type": "repair", "city": "Emporia", "approx": false, "notes": "4215 W US-50; oil change/PM, tires, light mechanical, roadside assistance; co-located with Flying J Travel Plaza at exit 127 (US-50)"},
         {"mm": 155, "exit": "155", "name": "TA Beto Junction", "brand": "TA", "type": "truck_stop", "city": "Lebo", "approx": false, "notes": "US-75 junction; longtime Beto Junction stop", "parking": 200},
+        {"mm": 155, "exit": "155", "name": "TA Truck Service", "brand": "TA Truck Service", "type": "repair", "city": "Lebo", "approx": false, "notes": "Service bays at TA Beto Junction; truck and trailer repair, commercial tires; co-located with TA Beto Junction at exit 155 (US-75)"},
         {"mm": 183, "exit": "183", "name": "Love's Travel Stop", "brand": "Love's", "type": "truck_stop", "city": "Ottawa", "approx": true, "notes": "US-59 exit", "parking": 80},
+        {"mm": 183, "exit": "183", "name": "Love's Truck Care", "brand": "Love's Truck Care", "type": "repair", "city": "Ottawa", "approx": true, "notes": "203 E 27th St; tires, light mechanical, roadside assistance; co-located with Love's Travel Stop #258 at the US-59 exit"},
         {"mm": 210, "exit": "210", "name": "QuikTrip Travel Center", "brand": "QuikTrip", "type": "truck_stop", "city": "Gardner", "approx": true, "notes": "QT full-size travel center, KC metro southwest", "parking": 60},
         {"mm": 213, "exit": "213", "name": "Weigh Station (both directions)", "brand": "State", "type": "weigh_station", "city": "Olathe", "approx": false, "notes": "KHP Olathe scales; separate NB and SB facilities at milepost 213, about 1 mile south of Olathe"}
       ]
@@ -28,22 +31,29 @@
         {"mm": 127, "exit": "127", "name": "Love's Travel Stop", "brand": "Love's", "type": "truck_stop", "city": "WaKeeney", "approx": true, "notes": "US-283 junction", "parking": 80},
         {"mm": 132, "exit": "132", "name": "Ogallah Rest Area (both directions)", "brand": "State", "type": "rest_area", "city": "Ogallah", "approx": true, "parking": 25},
         {"mm": 157, "exit": "157", "name": "Love's Travel Stop", "brand": "Love's", "type": "truck_stop", "city": "Hays", "approx": true, "notes": "US-183 exit", "parking": 90},
+        {"mm": 159, "exit": "159", "name": "I-70 Truck Repair", "brand": "Independent", "type": "repair", "city": "Hays", "approx": false, "notes": "At exit 159; parts, tires and alignment, collision repair; technicians certified on Cummins, Detroit and CAT engines; 30+ years serving NW Kansas"},
         {"mm": 184, "exit": "184", "name": "Love's Travel Stop", "brand": "Love's", "type": "truck_stop", "city": "Russell", "approx": true, "notes": "US-281 exit", "parking": 80},
         {"mm": 188, "exit": "", "name": "Topeka Service Area", "brand": "Independent", "type": "service_plaza", "city": "Topeka", "approx": false, "notes": "Kansas Turnpike section east of Topeka; turnpike milepost 188; serves both directions", "parking": 40},
+        {"mm": 188, "exit": "", "name": "Love's Truck Care", "brand": "Love's Truck Care", "type": "repair", "city": "Topeka", "approx": false, "notes": "Kansas Turnpike Topeka Service Area (turnpike milepost 188); 3 maintenance bays; tires, oil changes, light mechanical; opened Oct 2025 next to Love's Travel Stop; first Truck Care on the turnpike"},
         {"mm": 209, "exit": "", "name": "Lawrence Service Area", "brand": "Independent", "type": "service_plaza", "city": "Lawrence", "approx": false, "notes": "Kansas Turnpike section; turnpike milepost 209; serves both directions", "parking": 40},
         {"mm": 224, "exit": "224", "name": "Ellsworth County Rest Area (both directions)", "brand": "State", "type": "rest_area", "city": "Ellsworth", "approx": true, "parking": 25},
         {"mm": 252, "exit": "252", "name": "Sapp Bros Travel Center", "brand": "Sapp Bros", "type": "truck_stop", "city": "Salina", "approx": true, "notes": "US-81/I-135 side of Salina", "parking": 80},
         {"mm": 252, "exit": "252", "name": "Blue Beacon Truck Wash", "brand": "Independent", "type": "truck_wash", "city": "Salina", "approx": false, "notes": "N 9th St, about 1 mi south of exit 252"},
+        {"mm": 252, "exit": "252", "name": "TA Truck Service", "brand": "TA Truck Service", "type": "repair", "city": "Salina", "approx": false, "notes": "2125 N 9th St; 24-hr truck repair, commercial tires; co-located with Petro Salina at exit 252"},
         {"mm": 253, "exit": "253", "name": "Petro Stopping Center", "brand": "Petro", "type": "truck_stop", "city": "Salina", "approx": true, "notes": "N Ohio St exit; full-service stop", "parking": 200},
         {"mm": 265, "exit": "265", "name": "Solomon Rest Area (both directions)", "brand": "State", "type": "rest_area", "city": "Solomon", "approx": true, "parking": 30},
+        {"mm": 272, "exit": "272", "name": "Love's Truck Care", "brand": "Love's Truck Care", "type": "repair", "city": "Abilene", "approx": false, "notes": "2322 Fair Rd; tires, light mechanical, roadside assistance; co-located with Love's Travel Stop at exit 272 (KS-15)"},
         {"mm": 295, "exit": "295", "name": "Sapp Bros Travel Center", "brand": "Sapp Bros", "type": "truck_stop", "city": "Junction City", "approx": true, "notes": "US-77 exit", "parking": 80},
+        {"mm": 295, "exit": "295", "name": "Sapp Bros Service Center", "brand": "Sapp Bros", "type": "repair", "city": "Junction City", "approx": false, "notes": "1913 Lacy Dr; PM oil changes, brakes, electrical, national account tire service, 24/7 roadside; co-located with Sapp Bros Travel Center at exit 295 (US-77)"},
         {"mm": 336, "exit": "336", "name": "Paxico Rest Area (both directions)", "brand": "State", "type": "rest_area", "city": "Paxico", "approx": true, "parking": 25}
       ]
     },
     "I-135": {
       "maxMM": 96,
       "stops": [
+        {"mm": 9, "exit": "9", "name": "Speedco Truck Lube and Tires", "brand": "Speedco", "type": "repair", "city": "Wichita", "approx": false, "notes": "2266 N Cleveland Ave; oil change/PM, tires, light mechanical, roadside assistance; co-located with Love's Travel Stop at exit 9 (21st St)"},
         {"mm": 13, "exit": "13", "name": "Flying J Travel Center", "brand": "Flying J", "type": "truck_stop", "city": "Park City (Wichita)", "approx": true, "notes": "61st St N, north Wichita metro", "parking": 90},
+        {"mm": 13, "exit": "13", "name": "Pomp's Tire Service", "brand": "Pomp's Tire", "type": "repair", "city": "Wichita (Park City)", "approx": true, "notes": "6240 N Broadway St; commercial truck tires (Bridgestone, Goodyear, Michelin), 24/7 fleet road service; just off exit 13 (61st St N) near the Flying J"},
         {"mm": 68, "exit": "", "name": "Rest Area (McPherson area)", "brand": "State", "type": "rest_area", "city": "McPherson", "approx": true, "notes": "Serves both directions; truck parking", "parking": 20}
       ]
     },

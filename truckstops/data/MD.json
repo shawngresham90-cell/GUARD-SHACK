@@ -39,6 +39,16 @@
           "notes": "Finzel Truck Weigh and Inspection Station, eastbound at mm 31; PrePass"
         },
         {
+          "mm": 46,
+          "exit": "46",
+          "name": "Love's Truck Care",
+          "brand": "Love's",
+          "type": "repair",
+          "city": "Cumberland",
+          "approx": true,
+          "notes": "Co-located with Love's Travel Stop #537 (13300 Ali Ghan Rd NE); truck tire care, oil change/PM, light mechanical, roadside assistance"
+        },
+        {
           "mm": 74,
           "exit": "74",
           "name": "Sideling Hill Rest Area (both directions)",
@@ -63,6 +73,26 @@
           "approx": true,
           "notes": "MD-63 interchange, west of Hagerstown",
           "parking": 70
+        },
+        {
+          "mm": 24,
+          "exit": "24",
+          "name": "Southern Tire Mart at Pilot",
+          "brand": "Southern Tire Mart",
+          "type": "repair",
+          "city": "Hagerstown",
+          "approx": true,
+          "notes": "11557 Hopewell Rd, co-located with Pilot Travel Center #150 off MD-63/Greencastle Pike; commercial truck tires, PM services, 24/7 roadside assistance"
+        },
+        {
+          "mm": 24,
+          "exit": "24",
+          "name": "FleetPride Hagerstown",
+          "brand": "FleetPride",
+          "type": "repair",
+          "city": "Hagerstown",
+          "approx": true,
+          "notes": "16803 Notley Rd at Hopewell Rd, off MD-63/Greencastle Pike; heavy-duty truck and trailer parts branch"
         },
         {
           "mm": 39,
@@ -131,6 +161,16 @@
           "city": "Hagerstown",
           "approx": false,
           "notes": "Truck parking verified: Wyndham hotel site advertises ample parking for cars, trucks, or buses; off Exit 5B (Halfway Blvd) near Pilot truck stop"
+        },
+        {
+          "mm": 10,
+          "exit": "10",
+          "name": "Love's Truck Care",
+          "brand": "Love's",
+          "type": "repair",
+          "city": "Hagerstown",
+          "approx": true,
+          "notes": "14188 Perini Ave, co-located with Love's Travel Stop #682 at exit 10A; truck tire services, oil change/PM, light mechanical"
         }
       ]
     },
@@ -173,6 +213,26 @@
           "approx": true,
           "notes": "MD-175, Jessup truck stop cluster off US-1",
           "parking": 200
+        },
+        {
+          "mm": 41,
+          "exit": "41",
+          "name": "TA Truck Service",
+          "brand": "TA",
+          "type": "repair",
+          "city": "Jessup",
+          "approx": true,
+          "notes": "Co-located with TA Baltimore South #151 (7401 Assateague Dr, exit 41A); 4 service bays, tires, brakes, DOT inspections, alignment, HVAC/electric, 24-hr road service"
+        },
+        {
+          "mm": 41,
+          "exit": "41",
+          "name": "Maryland Truck Tire Services",
+          "brand": "Independent",
+          "type": "repair",
+          "city": "Jessup",
+          "approx": true,
+          "notes": "8390 Washington Blvd (US-1) in Jessup truck-stop cluster off MD-175; commercial truck tire sales and repair"
         },
         {
           "mm": 82,
@@ -247,6 +307,26 @@
           "city": "Elkton",
           "approx": true,
           "notes": "Truck parking verified: guest reviews cite great truck parking, convenient for rigs with trailers; budget motel off Exit 109 (MD 279) near DE line"
+        },
+        {
+          "mm": 109,
+          "exit": "109",
+          "name": "TA Truck Service",
+          "brand": "TA",
+          "type": "repair",
+          "city": "Elkton",
+          "approx": true,
+          "notes": "Co-located with TA Elkton #019 (1400 Elkton Rd, exit 109B); tires, oil and lube, truck repairs, 24-hr road service"
+        },
+        {
+          "mm": 109,
+          "exit": "109",
+          "name": "Boss Truck Shop #50",
+          "brand": "Boss Truck Shop",
+          "type": "repair",
+          "city": "Elkton",
+          "approx": true,
+          "notes": "227 Belle Hill Rd at Flying J (exit 109A); 24-hr truck, trailer and tire repair, oil change, DOT inspections, brakes/AC, mobile road service"
         }
       ]
     },

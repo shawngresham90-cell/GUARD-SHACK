@@ -595,6 +595,26 @@
           "parking": 200
         },
         {
+          "mm": 28,
+          "exit": "28",
+          "name": "Speedco",
+          "brand": "Speedco",
+          "type": "repair",
+          "city": "Oak Grove",
+          "approx": false,
+          "notes": "Love's-owned Speedco #940; oil change/PM, tires, light mechanical, roadside assistance; 301 SE 4th St at the Exit 28 truck stop cluster"
+        },
+        {
+          "mm": 28,
+          "exit": "28",
+          "name": "TA Truck Service (TA Kansas City)",
+          "brand": "TA Truck Service",
+          "type": "repair",
+          "city": "Oak Grove",
+          "approx": false,
+          "notes": "Truck repair shop #052 with 3 service bays; DOT inspections, brakes, electrical, HVAC, diagnostics; co-located with TA Kansas City travel center"
+        },
+        {
           "mm": 58,
           "exit": "58",
           "name": "Concordia Rest Area (both directions)",
@@ -612,6 +632,16 @@
           "type": "hotel",
           "city": "Concordia",
           "notes": "Truck parking verified: hotel offers free large truck/bus/RV parking (Wyndham listing); next to TA Concordia"
+        },
+        {
+          "mm": 58,
+          "exit": "58",
+          "name": "TA Truck Service (TA Concordia)",
+          "brand": "TA Truck Service",
+          "type": "repair",
+          "city": "Concordia",
+          "approx": false,
+          "notes": "Truck repair shop #018 with 2 service bays; alignments, DOT inspections, brakes, electrical, diagnostics; co-located with TA Concordia travel center at 102 NW 4th St"
         },
         {
           "mm": 101,
@@ -654,6 +684,16 @@
           "approx": false,
           "notes": "US-54 junction; major full-service stop",
           "parking": 250
+        },
+        {
+          "mm": 148,
+          "exit": "148",
+          "name": "TA Truck Service (Petro Kingdom City)",
+          "brand": "TA Truck Service",
+          "type": "repair",
+          "city": "Kingdom City",
+          "approx": false,
+          "notes": "Truck repair shop #318; 24-hour road service, mechanic on duty; co-located with Petro Kingdom City at 3304 Gold Rd"
         },
         {
           "mm": 169,

@@ -278,6 +278,16 @@
           "parking": 90
         },
         {
+          "mm": 192,
+          "exit": "192",
+          "name": "Southern Tire Mart #140",
+          "brand": "Southern Tire Mart",
+          "type": "repair",
+          "city": "Midway",
+          "approx": true,
+          "notes": "Commercial truck tire shop, 1505 Commerce Blvd off Exit 192 near Flying J; Bridgestone/Firestone dealer, retreads, alignment, 24/7 roadside service"
+        },
+        {
           "mm": 194,
           "exit": "194",
           "name": "Gadsden County Rest Area (both directions)",
@@ -331,6 +341,16 @@
           "approx": true,
           "notes": "Truck parking; serves EB and WB",
           "parking": 30
+        },
+        {
+          "mm": 262,
+          "exit": "262",
+          "name": "Love's Truck Care",
+          "brand": "Love's Truck Care",
+          "type": "repair",
+          "city": "Lee",
+          "approx": true,
+          "notes": "Co-located with Love's Travel Stop #379, 3204 SE County Rd 255; tires, oil/PM, light mechanical, roadside assistance"
         },
         {
           "mm": 283,
@@ -397,6 +417,36 @@
           "approx": true,
           "notes": "US-301, Baldwin cluster",
           "parking": 80
+        },
+        {
+          "mm": 343,
+          "exit": "343",
+          "name": "TA Truck Service #247",
+          "brand": "TA Truck Service",
+          "type": "repair",
+          "city": "Baldwin",
+          "approx": true,
+          "notes": "3 service bays co-located with TA Baldwin, 1024 US-301 S; tires, PM, repairs, 24/7 roadside assistance"
+        },
+        {
+          "mm": 343,
+          "exit": "343",
+          "name": "Speedco",
+          "brand": "Speedco",
+          "type": "repair",
+          "city": "Baldwin",
+          "approx": true,
+          "notes": "Co-located with Love's Travel Stop #761, US-301 Baldwin cluster; tires, oil/PM, light mechanical, roadside assistance"
+        },
+        {
+          "mm": 359,
+          "exit": "359",
+          "name": "Snider Fleet Solutions",
+          "brand": "Snider Fleet Solutions",
+          "type": "repair",
+          "city": "Jacksonville",
+          "approx": true,
+          "notes": "Commercial tire and mechanical service, 718 Lane Ave N about 1 mile north of Exit 359 (Lane Ave); 24/7 emergency roadside tire service"
         }
       ]
     },
@@ -435,6 +485,16 @@
           "approx": false,
           "notes": "Luckett Rd",
           "parking": 80
+        },
+        {
+          "mm": 139,
+          "exit": "139",
+          "name": "Boss Truck Shop",
+          "brand": "Boss Truck Shops",
+          "type": "repair",
+          "city": "Fort Myers",
+          "approx": true,
+          "notes": "Bosselman truck service shop adjacent to Pilot Travel Center, 6054 Plaza Dr; tires, PM, repairs"
         },
         {
           "mm": 159,
