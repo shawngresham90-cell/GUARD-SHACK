@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex">
+<title>Truckin' Life Directory — Admin</title>
+<style>
+  :root{--bg:#111418;--panel:#1b2129;--panel2:#232b36;--line:#2e3947;--text:#e8edf2;--muted:#93a1b3;--accent:#ff5b1f;--accent2:#ffb347;--ok:#69db7c;--bad:#ff6b6b;--star:#ffd43b}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+  .wrap{max-width:760px;margin:0 auto;padding:16px 14px 60px}
+  h1{font-size:1.3rem;text-align:center;padding:16px 0 4px}
+  h1 span{color:var(--accent)}
+  h2{font-size:1rem;margin:22px 0 10px;color:var(--accent2)}
+  .sub{color:var(--muted);font-size:.82rem;text-align:center;margin-bottom:16px}
+  .pinbox{display:flex;gap:8px;margin-bottom:16px}
+  input,textarea{background:var(--panel2);border:1px solid var(--line);border-radius:9px;color:var(--text);padding:10px 12px;font-size:.95rem;width:100%;font-family:inherit}
+  .btn{background:var(--accent);border:none;color:#fff;font-weight:700;border-radius:9px;padding:10px 16px;font-size:.9rem;cursor:pointer;white-space:nowrap}
+  .btn.ok{background:var(--ok);color:#10251a}
+  .btn.bad{background:transparent;border:1px solid var(--bad);color:var(--bad)}
+  .btn:disabled{opacity:.5}
+  .card{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:12px 14px;margin-bottom:10px}
+  .card .hdr{font-weight:700}
+  .card .meta{color:var(--muted);font-size:.82rem;margin:4px 0 8px;line-height:1.5}
+  .card .actions{display:flex;gap:8px}
+  .stars{color:var(--star)}
+  .empty{color:var(--muted);text-align:center;padding:20px;font-size:.9rem}
+  .msg{text-align:center;font-size:.85rem;margin:8px 0}
+  .msg.err{color:var(--bad)} .msg.ok{color:var(--ok)}
+  .tag{display:inline-block;font-size:.68rem;font-weight:700;border-radius:6px;padding:2px 7px;background:rgba(255,91,31,.18);color:var(--accent);margin-left:6px;vertical-align:middle}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>🛠️ Truckin&#39; Life <span>Admin</span></h1>
+  <p class="sub">Approve driver-submitted stops and moderate reviews. Keep this page and your PIN to yourself.</p>
+  <div class="pinbox">
+    <input id="pin" type="password" placeholder="Admin PIN" autocomplete="current-password">
+    <button class="btn" id="loadbtn" onclick="load()">Unlock</button>
+  </div>
+  <div class="msg" id="msg"></div>
+  <div id="content"></div>
+</div>
+<script>
+var SB_URL = 'https://mmnvcbejjdweetnxncfi.supabase.co';
+var SB_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im1tbnZjYmVqamR3ZWV0bnhuY2ZpIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODA5NTM3MzMsImV4cCI6MjA5NjUyOTczM30.PSzPFqTAiv0GHv0DBpAOREUE7BvrbHHgetQSYpeSajA';
+
+function esc(s){ return String(s==null?'':s).replace(/[&<>"']/g, function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];}); }
+function starStr(r){ return '★★★★★'.slice(0,r) + '☆☆☆☆☆'.slice(0,5-r); }
+function setMsg(t, cls){ var m=document.getElementById('msg'); m.textContent=t; m.className='msg '+(cls||''); }
+
+function api(body){
+  return fetch(SB_URL + '/functions/v1/ts-admin', {
+    method:'POST',
+    headers:{ 'apikey':SB_KEY, 'Authorization':'Bearer '+SB_KEY, 'Content-Type':'application/json' },
+    body: JSON.stringify(Object.assign({pin: document.getElementById('pin').value.trim()}, body))
+  }).then(function(r){ return r.json().then(function(j){ if(!r.ok) throw new Error(j.error||'error'); return j; }); });
+}
+
+function load(){
+  var btn = document.getElementById('loadbtn'); btn.disabled = true;
+  setMsg('Loading…');
+  api({action:'list'}).then(function(data){
+    setMsg('');
+    sessionStorage.setItem('ts_pin_ok','1');
+    render(data);
+  }).catch(function(e){
+    setMsg(e.message === 'wrong PIN' ? 'Wrong PIN.' : 'Error: '+e.message, 'err');
+  }).finally(function(){ btn.disabled = false; });
+}
+
+function render(data){
+  var html = '<h2>📥 Pending stop submissions ('+data.submissions.length+')</h2>';
+  if(!data.submissions.length) html += '<div class="empty">Nothing waiting — all caught up. 👍</div>';
+  data.submissions.forEach(function(s){
+    html += '<div class="card" id="sub-'+s.id+'">'
+      + '<div class="hdr">'+esc(s.name)+'<span class="tag">'+esc(s.type)+'</span></div>'
+      + '<div class="meta">'+esc(s.state)+' &bull; '+esc(s.interstate)+' &bull; MM '+esc(s.mm)
+      + (s.city ? ' &bull; '+esc(s.city) : '')
+      + (s.parking!=null ? ' &bull; 🅿️ ~'+esc(s.parking)+' spots' : '')
+      + (s.notes ? '<br>“'+esc(s.notes)+'”' : '')
+      + '<br>Submitted by '+esc(s.driver_name||'anonymous')+' on '+esc((s.created_at||'').slice(0,10))+'</div>'
+      + '<div class="actions">'
+      + '<button class="btn ok" onclick="act(\'approve\',\''+s.id+'\',\'sub\')">✅ Approve</button>'
+      + '<button class="btn bad" onclick="act(\'reject\',\''+s.id+'\',\'sub\')">✖ Reject</button>'
+      + '</div></div>';
+  });
+  html += '<h2>💬 Recent reviews ('+data.reviews.length+')</h2>';
+  if(!data.reviews.length) html += '<div class="empty">No reviews yet.</div>';
+  data.reviews.forEach(function(r){
+    html += '<div class="card" id="rev-'+r.id+'">'
+      + '<div class="hdr"><span class="stars">'+starStr(r.rating)+'</span> '+esc(r.stop_key)+'</div>'
+      + '<div class="meta">'+(r.comment?'“'+esc(r.comment)+'”<br>':'')
+      + '— '+esc(r.driver_name||'Driver')+' &bull; '+esc((r.created_at||'').slice(0,10))+'</div>'
+      + '<div class="actions"><button class="btn bad" onclick="act(\'delete_review\',\''+r.id+'\',\'rev\')">🗑 Delete review</button></div>'
+      + '</div>';
+  });
+  document.getElementById('content').innerHTML = html;
+}
+
+function act(action, id, kind){
+  api({action:action, id:id}).then(function(){
+    var el = document.getElementById(kind+'-'+id);
+    if(el) el.remove();
+    setMsg(action==='approve' ? 'Approved — it\'s live in the book now.' : (action==='reject' ? 'Rejected.' : 'Review deleted.'), 'ok');
+  }).catch(function(e){ setMsg('Error: '+e.message, 'err'); });
+}
+
+document.getElementById('pin').addEventListener('keydown', function(e){ if(e.key==='Enter') load(); });
+</script>
+</body>
+</html>
