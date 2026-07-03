@@ -208,7 +208,18 @@
   },
   "I-290": {
    "maxMM": 20,
-   "stops": []
+   "stops": [
+    {
+     "mm": 2,
+     "exit": "Rt 20 (SW Cutoff)",
+     "name": "Ballard Truck Center (Worcester)",
+     "brand": "Ballard",
+     "type": "repair",
+     "city": "Worcester",
+     "approx": true,
+     "notes": "442 Southwest Cutoff (US-20) near I-290 south end and the I-90/I-395 Auburn interchange; Mack/Volvo/Isuzu/Hino dealer HQ, full service, parts"
+    }
+   ]
   },
   "I-395": {
    "maxMM": 11,
