@@ -38,6 +38,16 @@
           "parking": 0
         },
         {
+          "mm": 28,
+          "exit": "28",
+          "name": "Love's Truck Care",
+          "brand": "Love's",
+          "type": "repair",
+          "city": "Gulfport",
+          "approx": false,
+          "notes": "Truck Tire Care center at Love's Travel Stop #595 (9240 County Farm Rd, exit 28); tires, light mechanical, oil changes, 24/7 roadside assistance"
+        },
+        {
           "mm": 31,
           "exit": "31",
           "name": "Flying J Travel Center",
@@ -58,6 +68,16 @@
           "approx": true,
           "notes": "Canal Rd cluster",
           "parking": 85
+        },
+        {
+          "mm": 31,
+          "exit": "31",
+          "name": "Southern Tire Mart at Pilot",
+          "brand": "Southern Tire Mart",
+          "type": "repair",
+          "city": "Gulfport",
+          "approx": false,
+          "notes": "Commercial truck tire shop co-located with Flying J Travel Center #676 (9353 Canal Rd, exit 31); new tires, flat repair, DOT inspections, 24/7 roadside"
         },
         {
           "mm": 34,
@@ -170,6 +190,46 @@
           "notes": "950 I-20 W Frontage Rd, next door to Blue Beacon; washouts and tanker acid wash"
         },
         {
+          "mm": 45,
+          "exit": "45",
+          "name": "TA Truck Service (Petro Jackson)",
+          "brand": "TA Truck Service",
+          "type": "repair",
+          "city": "Jackson (Pearl)",
+          "approx": false,
+          "notes": "5-bay truck service shop at Petro Stopping Center #328 on the I-20/I-55 overlap; truck repairs, tires, oil/lube, DOT inspections; next to Blue Beacon truck wash"
+        },
+        {
+          "mm": 47,
+          "exit": "47A",
+          "name": "Southern Tire Mart",
+          "brand": "Southern Tire Mart",
+          "type": "repair",
+          "city": "Richland",
+          "approx": false,
+          "notes": "428 US 49 S just off exit 47A; commercial truck tires, retreads, tire repair, 24/7 roadside assistance"
+        },
+        {
+          "mm": 47,
+          "exit": "47A",
+          "name": "FleetPride",
+          "brand": "FleetPride",
+          "type": "repair",
+          "city": "Richland",
+          "approx": true,
+          "notes": "Heavy-duty truck and trailer parts store at 533 US 49 S off exit 47A (US 49 S), near Southern Tire Mart"
+        },
+        {
+          "mm": 47,
+          "exit": "47B",
+          "name": "Speedco",
+          "brand": "Speedco",
+          "type": "repair",
+          "city": "Flowood",
+          "approx": false,
+          "notes": "740 Hwy 80 E at exit 47B; oil change/PM, truck tires, light mechanical; Love's-owned"
+        },
+        {
           "mm": 48,
           "exit": "48",
           "name": "Pilot Travel Center",
@@ -190,6 +250,16 @@
           "approx": true,
           "notes": "On the I-20/I-59 concurrency through Meridian",
           "parking": 85
+        },
+        {
+          "mm": 151,
+          "exit": "151",
+          "name": "Southern Tire Mart at Pilot",
+          "brand": "Southern Tire Mart",
+          "type": "repair",
+          "city": "Meridian",
+          "approx": false,
+          "notes": "Tire and truck care shop co-located with Pilot Travel Center #388 (1555 Tommy Webb Dr, I-20/I-59 exit 151); truck tires, lube services, 24/7 roadside"
         },
         {
           "mm": 153,
@@ -221,6 +291,16 @@
           "approx": true,
           "notes": "East Meridian; I-20/I-59 concurrency",
           "parking": 80
+        },
+        {
+          "mm": 154,
+          "exit": "154",
+          "name": "Southern Tire Mart",
+          "brand": "Southern Tire Mart",
+          "type": "repair",
+          "city": "Meridian",
+          "approx": true,
+          "notes": "Store #265 at 5480 N Frontage Rd directly on the I-20/I-59 north frontage road; commercial truck tires, tire repair, alignment, 24/7 roadside; exit number estimated"
         }
       ]
     },
@@ -254,6 +334,16 @@
           "parking": 20
         },
         {
+          "mm": 13,
+          "exit": "13",
+          "name": "Love's Truck Care",
+          "brand": "Love's",
+          "type": "repair",
+          "city": "McComb",
+          "approx": false,
+          "notes": "2 truck service bays at Love's Travel Stop #393 (1119 Airport-Fernwood Rd, exit 13); oil change/PM, light mechanical, tire services"
+        },
+        {
           "mm": 100,
           "exit": "100",
           "name": "Studio 6 Jackson I-55",
@@ -273,6 +363,16 @@
           "approx": true,
           "notes": "North of Jackson",
           "parking": 85
+        },
+        {
+          "mm": 119,
+          "exit": "119",
+          "name": "Speedco",
+          "brand": "Speedco",
+          "type": "repair",
+          "city": "Canton",
+          "approx": false,
+          "notes": "1545 Peace St (MS 22) at exit 119, adjacent to Love's Travel Stop; oil change/PM, truck tires, light mechanical; Love's-owned"
         },
         {
           "mm": 181,
@@ -305,6 +405,16 @@
           "approx": true,
           "notes": "MS 6 interchange",
           "parking": 85
+        },
+        {
+          "mm": 246,
+          "exit": "246",
+          "name": "Love's Truck Care",
+          "brand": "Love's",
+          "type": "repair",
+          "city": "Batesville",
+          "approx": false,
+          "notes": "3 truck service bays at Love's Travel Stop #388 (725 Hwy 35 N, exit 246); oil change/PM, light mechanical, tire services"
         },
         {
           "mm": 273,
@@ -383,6 +493,16 @@
           "approx": true,
           "notes": "Westbound/southbound entering from Alabama on the I-20/I-59 concurrency; truck parking",
           "parking": 20
+        },
+        {
+          "mm": 165,
+          "exit": "165",
+          "name": "Love's Truck Care",
+          "brand": "Love's",
+          "type": "repair",
+          "city": "Toomsuba",
+          "approx": false,
+          "notes": "Truck Tire Care center at Love's Travel Stop #343 (113 Will Garrett Rd, I-20/I-59 exit 165); tire repair, 24/7 roadside assistance; near Toomsuba welcome center"
         },
         {
           "mm": 170,

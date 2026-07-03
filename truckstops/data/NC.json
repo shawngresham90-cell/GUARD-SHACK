@@ -190,6 +190,16 @@
       "maxMM": 105,
       "stops": [
         {
+          "mm": 49,
+          "exit": "49",
+          "name": "Excel Truck Group Statesville",
+          "brand": "Excel Truck Group",
+          "type": "repair",
+          "city": "Statesville",
+          "approx": true,
+          "notes": "Freightliner/Western Star dealer at 2221 International Dr near the I-77/I-40 junction (I-77 exit 49 / I-40 exit 148); full-service truck and trailer repair, Detroit/Cummins engine work, parts department, mobile service"
+        },
+        {
           "mm": 82,
           "exit": "82",
           "name": "Speedway Travel Plaza (former WilcoHess)",

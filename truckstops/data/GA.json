@@ -393,6 +393,16 @@
           "notes": "Near Flying J Travel Center; Truck Stop Way"
         },
         {
+          "mm": 201,
+          "exit": "201",
+          "name": "Speedco #928",
+          "brand": "Speedco",
+          "type": "repair",
+          "city": "Jackson",
+          "approx": true,
+          "notes": "Truck lube, tires (mount/balance/repair), DOT inspections, light mechanical, roadside assistance; 1111 Bucksnort Rd near Flying J at same exit"
+        },
+        {
           "mm": 235,
           "exit": "235",
           "name": "Blue Beacon Truck Wash",
@@ -401,6 +411,16 @@
           "city": "Forest Park",
           "approx": true,
           "notes": "5990 Frontage Rd; near Southern Tire Mart; other-vehicle bay"
+        },
+        {
+          "mm": 235,
+          "exit": "235",
+          "name": "Southern Tire Mart #160",
+          "brand": "Southern Tire Mart",
+          "type": "repair",
+          "city": "Forest Park",
+          "approx": true,
+          "notes": "Commercial truck tire store with 24-hr road service; 6200 Frontage Rd along I-75, near Blue Beacon at same exit"
         },
         {
           "mm": 296,
@@ -423,6 +443,16 @@
           "approx": false,
           "notes": "Cassville-White Rd cluster",
           "parking": 180
+        },
+        {
+          "mm": 296,
+          "exit": "296",
+          "name": "TA Truck Service",
+          "brand": "TA",
+          "type": "repair",
+          "city": "Cartersville",
+          "approx": true,
+          "notes": "6 truck service bays; tires, brakes, electrical, diagnostics, alignments, HVAC, trailer and aftertreatment work; co-located with TA Cartersville travel center at 981 Cassville-White Rd; 24-hr RoadSquad road service"
         },
         {
           "mm": 306,
@@ -456,6 +486,16 @@
           "approx": true,
           "notes": "Carbondale Rd",
           "parking": 80
+        },
+        {
+          "mm": 326,
+          "exit": "326",
+          "name": "Southern Tire Mart at Pilot #348",
+          "brand": "Southern Tire Mart",
+          "type": "repair",
+          "city": "Dalton",
+          "approx": true,
+          "notes": "Commercial truck tires, PM, DOT inspections, 24/7 roadside assistance; co-located with Pilot Travel Center at 142-A Carbondale Rd (formerly Wingfoot Truck Care)"
         },
         {
           "mm": 345,

@@ -273,6 +273,16 @@
           "parking": 80
         },
         {
+          "mm": 170,
+          "exit": "170",
+          "name": "Pifer's Service Center",
+          "brand": "Independent",
+          "type": "repair",
+          "city": "Mineral Wells",
+          "approx": true,
+          "notes": "24/7 truck and trailer repair, tires, and heavy-duty towing/recovery at 115 Elizabeth Pike (WV-14), same exit as Pilot Travel Center"
+        },
+        {
           "mm": 185,
           "exit": "",
           "name": "Williamstown Welcome Center",
@@ -332,6 +342,16 @@
           "parking": 60
         },
         {
+          "mm": 105,
+          "exit": "105",
+          "name": "Worldwide Equipment of West Virginia",
+          "brand": "Kenworth",
+          "type": "repair",
+          "city": "Jane Lew",
+          "approx": true,
+          "notes": "Kenworth dealer with truck parts and service at 685 Industrial Park Rd, at the Jane Lew exit near Jane Lew Truck Stop"
+        },
+        {
           "mm": 159,
           "exit": "159",
           "name": "Morgantown Welcome Center (SB only)",
@@ -356,6 +376,26 @@
           "approx": true,
           "notes": "WV-51 interchange, south of Martinsburg",
           "parking": 90
+        },
+        {
+          "mm": 5,
+          "exit": "5",
+          "name": "Inwood Truck & Tires",
+          "brand": "Independent",
+          "type": "repair",
+          "city": "Inwood",
+          "approx": true,
+          "notes": "Truck and trailer repair, DOT inspections, tire sales/service (Michelin national account), reefer/AC repair, 24-hr roadside; 230 Truxmore Ct, same WV-51 exit as Love's"
+        },
+        {
+          "mm": 12,
+          "exit": "12",
+          "name": "McCarthy Tire Service",
+          "brand": "McCarthy Tire",
+          "type": "repair",
+          "city": "Martinsburg",
+          "approx": true,
+          "notes": "Commercial tire shop and truck shop (inspections, PM, diesel repairs) with 24/7 commercial roadside; 1663 Winchester Ave (US-11) at Exit 12"
         },
         {
           "mm": 20,

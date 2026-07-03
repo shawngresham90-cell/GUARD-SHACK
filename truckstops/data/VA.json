@@ -29,6 +29,16 @@
           "parking": 30
         },
         {
+          "mm": 211,
+          "exit": "211",
+          "name": "Love's Truck Tire Care",
+          "brand": "Love's",
+          "type": "repair",
+          "city": "New Kent (Talleysville)",
+          "approx": true,
+          "notes": "Tire repair, light mechanical, oil changes, 24-hr emergency roadside; co-located with Love's Travel Stop #705 at I-64 Exit 211, 6870 Jimmy Burrell Ln"
+        },
+        {
           "mm": 213,
           "exit": "",
           "name": "New Kent Safety Rest Area",

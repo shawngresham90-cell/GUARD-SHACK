@@ -571,6 +571,16 @@
           "parking": 85
         },
         {
+          "mm": 29,
+          "exit": "29",
+          "name": "Boss Truck Shop",
+          "brand": "Boss Truck Shops",
+          "type": "repair",
+          "city": "Corbin",
+          "approx": false,
+          "notes": "Boss Truck Shop #40: truck and tire repair, tire sales, computer diagnostics; 218 KY-770 at Exit 29, adjacent to Love's Travel Stop"
+        },
+        {
           "mm": 34,
           "exit": "34",
           "name": "Weigh Station (both directions)",
@@ -657,6 +667,16 @@
           "parking": 85
         },
         {
+          "mm": 136,
+          "exit": "136",
+          "name": "Love's Truck Care",
+          "brand": "Love's",
+          "type": "repair",
+          "city": "Sadieville",
+          "approx": false,
+          "notes": "2 truck service bays; truck tire care, oil change/PM, light mechanical; co-located with Love's Travel Stop #618 at 313 Porter Rd"
+        },
+        {
           "mm": 168,
           "exit": "168",
           "name": "Weigh Station (SB)",
@@ -697,6 +717,26 @@
           "approx": true,
           "notes": "Serves southbound leaving Cincinnati area; truck parking",
           "parking": 25
+        },
+        {
+          "mm": 175,
+          "exit": "175",
+          "name": "TA Truck Service",
+          "brand": "TA",
+          "type": "repair",
+          "city": "Walton",
+          "approx": false,
+          "notes": "Truck repair and tire service; co-located with TA Walton travel center at 145 Richwood Rd (I-71/I-75 overlap)"
+        },
+        {
+          "mm": 181,
+          "exit": "181",
+          "name": "TA Truck Service",
+          "brand": "TA",
+          "type": "repair",
+          "city": "Florence",
+          "approx": false,
+          "notes": "TA Truck Service #093: 6 service bays, 24-hour truck repair and tire service; co-located with TA Florence travel center at 7777 Burlington Pike"
         }
       ]
     }
