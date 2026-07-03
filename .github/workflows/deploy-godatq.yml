@@ -1,0 +1,62 @@
+# Deploys the DataQ Tracker (`dataq/`) to the dedicated Netlify site
+# https://godatq.netlify.app on every push to `main` that touches the app,
+# and any time you click "Run workflow" in the Actions tab.
+#
+# ONE-TIME SETUP (60 seconds — the only manual step):
+#   1. Netlify -> user settings -> Applications -> Personal access tokens ->
+#      "New access token" -> name it "GitHub Actions - godatq" -> copy it.
+#      Direct link: https://app.netlify.com/user/applications#personal-access-tokens
+#   2. GitHub -> this repo -> Settings -> Secrets and variables -> Actions ->
+#      "New repository secret" -> Name: NETLIFY_AUTH_TOKEN -> paste the token.
+#      Direct link:
+#      https://github.com/shawngresham90-cell/GUARD-SHACK/settings/secrets/actions/new
+#   3. Merge this PR. First deploy fires automatically; every future change to
+#      `dataq/` auto-deploys to godatq.netlify.app.
+#
+# The site ID below is not secret (Netlify treats it as a public identifier).
+
+name: Deploy godatq.netlify.app
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "dataq/**"
+      - ".github/workflows/deploy-godatq.yml"
+  workflow_dispatch: {}
+
+concurrency:
+  group: deploy-godatq
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+
+      # nwtgck/actions-netlify exits GREEN when credentials are missing
+      # ("not deployable"), which reads as a successful deploy that never
+      # happened. Fail loudly instead so a green run always means deployed.
+      - name: Require NETLIFY_AUTH_TOKEN secret
+        run: |
+          if [ -z "${{ secrets.NETLIFY_AUTH_TOKEN }}" ]; then
+            echo "::error::The NETLIFY_AUTH_TOKEN repo secret is missing, so nothing can deploy. Create a token at https://app.netlify.com/user/applications#personal-access-tokens and add it at https://github.com/${{ github.repository }}/settings/secrets/actions/new with the name NETLIFY_AUTH_TOKEN, then re-run this workflow."
+            exit 1
+          fi
+
+      - name: Deploy dataq/ to Netlify (production)
+        uses: nwtgck/actions-netlify@v3.0
+        with:
+          publish-dir: ./dataq
+          production-deploy: true
+          deploy-message: "GitHub Actions: ${{ github.event.head_commit.message || github.sha }}"
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          enable-commit-comment: false
+          enable-pull-request-comment: false
+        env:
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+          NETLIFY_SITE_ID: 49097ace-633b-44b9-b8b8-1d6394c09bae
+        timeout-minutes: 5

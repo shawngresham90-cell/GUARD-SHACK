@@ -1,0 +1,143 @@
+{
+  "state": "Pennsylvania",
+  "abbr": "PA",
+  "interstates": {
+    "I-70": {
+      "maxMM": 171,
+      "stops": [
+        {"mm": 1, "exit": "", "name": "PA Welcome Center (West Alexander)", "brand": "State", "type": "rest_area", "city": "West Alexander", "approx": true, "notes": "Eastbound, at WV line; truck parking", "parking": 15},
+        {"mm": 32, "exit": "32B", "name": "Pilot Travel Center", "brand": "Pilot", "type": "truck_stop", "city": "Bentleyville", "approx": false, "notes": "", "parking": 75},
+        {"mm": 112, "exit": "", "name": "South Somerset Service Plaza", "brand": "State", "type": "service_plaza", "city": "Somerset", "approx": true, "notes": "PA Turnpike milepost; eastbound; on I-70/I-76 overlap", "parking": 40},
+        {"mm": 112, "exit": "", "name": "North Somerset Service Plaza", "brand": "State", "type": "service_plaza", "city": "Somerset", "approx": true, "notes": "PA Turnpike milepost; westbound; on I-70/I-76 overlap", "parking": 40},
+        {"mm": 147, "exit": "", "name": "South Midway Service Plaza", "brand": "State", "type": "service_plaza", "city": "Bedford", "approx": true, "notes": "PA Turnpike milepost; eastbound; on I-70/I-76 overlap", "parking": 50},
+        {"mm": 147, "exit": "", "name": "North Midway Service Plaza", "brand": "State", "type": "service_plaza", "city": "Bedford", "approx": true, "notes": "PA Turnpike milepost; westbound; on I-70/I-76 overlap", "parking": 50},
+        {"mm": 147, "exit": "147", "name": "TA Travel Center", "brand": "TA", "type": "truck_stop", "city": "Breezewood", "approx": false, "notes": "US 30 Breezewood strip; I-70 own milepost (numbering jumps off Turnpike here)", "parking": 200},
+        {"mm": 147, "exit": "147", "name": "Gateway Travel Plaza", "brand": "AmBest", "type": "truck_stop", "city": "Breezewood", "approx": false, "notes": "US 30 Breezewood strip; large independent AmBest plaza", "parking": 150},
+        {"mm": 167, "exit": "167", "name": "Warfordsburg Welcome Center Rest Area (WB only)", "brand": "State", "type": "rest_area", "city": "Warfordsburg", "approx": true, "parking": 20}
+      ]
+    },
+    "I-76": {
+      "maxMM": 351,
+      "stops": [
+        {"mm": 49, "exit": "", "name": "Oakmont Plum Service Plaza", "brand": "State", "type": "service_plaza", "city": "Plum", "approx": false, "notes": "PA Turnpike milepost 49.3; eastbound", "parking": 25},
+        {"mm": 78, "exit": "", "name": "New Stanton Service Plaza", "brand": "State", "type": "service_plaza", "city": "New Stanton", "approx": true, "notes": "PA Turnpike milepost ~77.6; eastbound", "parking": 45},
+        {"mm": 112, "exit": "", "name": "South Somerset Service Plaza", "brand": "State", "type": "service_plaza", "city": "Somerset", "approx": true, "notes": "PA Turnpike milepost 112.3; eastbound", "parking": 40},
+        {"mm": 112, "exit": "", "name": "North Somerset Service Plaza", "brand": "State", "type": "service_plaza", "city": "Somerset", "approx": true, "notes": "PA Turnpike milepost 112.3; westbound", "parking": 40},
+        {"mm": 147, "exit": "", "name": "South Midway Service Plaza", "brand": "State", "type": "service_plaza", "city": "Bedford", "approx": false, "notes": "PA Turnpike milepost 147.3; eastbound", "parking": 50},
+        {"mm": 147, "exit": "", "name": "North Midway Service Plaza", "brand": "State", "type": "service_plaza", "city": "Bedford", "approx": false, "notes": "PA Turnpike milepost 147.3; westbound", "parking": 50},
+        {"mm": 172, "exit": "", "name": "Sideling Hill Service Plaza", "brand": "State", "type": "service_plaza", "city": "Waterfall", "approx": false, "notes": "PA Turnpike milepost 172.3; serves both directions", "parking": 60},
+        {"mm": 203, "exit": "", "name": "Blue Mountain Service Plaza", "brand": "State", "type": "service_plaza", "city": "Newburg", "approx": true, "notes": "PA Turnpike milepost ~202.5; eastbound", "parking": 40},
+        {"mm": 219, "exit": "", "name": "Cumberland Valley Service Plaza", "brand": "State", "type": "service_plaza", "city": "Plainfield", "approx": true, "notes": "PA Turnpike milepost ~219; westbound", "parking": 40},
+        {"mm": 250, "exit": "", "name": "Highspire Service Plaza", "brand": "State", "type": "service_plaza", "city": "Highspire", "approx": true, "notes": "PA Turnpike milepost ~250; eastbound", "parking": 30},
+        {"mm": 259, "exit": "", "name": "Lawn Service Plaza", "brand": "State", "type": "service_plaza", "city": "Lawn", "approx": true, "notes": "PA Turnpike milepost ~259; westbound", "parking": 30},
+        {"mm": 290, "exit": "", "name": "Bowmansville Service Plaza", "brand": "State", "type": "service_plaza", "city": "Bowmansville", "approx": true, "notes": "PA Turnpike milepost ~290; direction unverified", "parking": 40},
+        {"mm": 305, "exit": "", "name": "Peter J. Camiel Service Plaza", "brand": "State", "type": "service_plaza", "city": "Wallace Township", "approx": true, "notes": "PA Turnpike milepost ~305; westbound", "parking": 40},
+        {"mm": 325, "exit": "", "name": "Valley Forge Service Plaza", "brand": "State", "type": "service_plaza", "city": "King of Prussia", "approx": true, "notes": "PA Turnpike milepost ~324.5; eastbound", "parking": 25}
+      ]
+    },
+    "I-276": {
+      "maxMM": 358,
+      "stops": [
+        {"mm": 328, "exit": "", "name": "King of Prussia Service Plaza", "brand": "State", "type": "service_plaza", "city": "King of Prussia", "approx": true, "notes": "PA Turnpike milepost ~328; on I-276 east-west mainline", "parking": 20}
+      ]
+    },
+    "I-78": {
+      "maxMM": 77,
+      "stops": [
+        {"mm": 10, "exit": "10", "name": "Flying J Travel Center", "brand": "Flying J", "type": "truck_stop", "city": "Frystown", "approx": false, "notes": "PA 645", "parking": 90},
+        {"mm": 13, "exit": "13", "name": "Love's Travel Stop", "brand": "Love's", "type": "truck_stop", "city": "Bethel", "approx": true, "notes": "", "parking": 80},
+        {"mm": 40, "exit": "40", "name": "Krumsville Rest Area (EB only)", "brand": "State", "type": "rest_area", "city": "Krumsville", "approx": true, "parking": 20}
+      ]
+    },
+    "I-79": {
+      "maxMM": 183,
+      "stops": [
+        {"mm": 1, "exit": "", "name": "PA Welcome Center", "brand": "State", "type": "rest_area", "city": "Kirby", "approx": true, "notes": "Northbound, near WV line; truck parking", "parking": 15},
+        {"mm": 88, "exit": "88", "name": "Portersville Rest Area (both directions)", "brand": "State", "type": "rest_area", "city": "Portersville", "approx": true, "parking": 25}
+      ]
+    },
+    "I-80": {
+      "maxMM": 311,
+      "stops": [
+        {"mm": 1, "exit": "1", "name": "West Middlesex Welcome Center Rest Area (EB only)", "brand": "State", "type": "rest_area", "city": "West Middlesex", "approx": true, "parking": 20},
+        {"mm": 4, "exit": "4B", "name": "TA Travel Center", "brand": "TA", "type": "truck_stop", "city": "West Middlesex", "approx": false, "notes": "", "parking": 150},
+        {"mm": 15, "exit": "15", "name": "Flying J Travel Center", "brand": "Flying J", "type": "truck_stop", "city": "Mercer", "approx": true, "notes": "US 19", "parking": 90},
+        {"mm": 29, "exit": "29", "name": "TA Travel Center", "brand": "TA", "type": "truck_stop", "city": "Barkeyville", "approx": false, "notes": "PA 8", "parking": 160},
+        {"mm": 31, "exit": "", "name": "Rest Area (Emlenton)", "brand": "State", "type": "rest_area", "city": "Emlenton", "approx": true, "notes": "Eastbound and westbound pair; truck parking", "parking": 25},
+        {"mm": 42, "exit": "42", "name": "Emlenton Truck Plaza (Kwik Fill)", "brand": "Independent", "type": "truck_stop", "city": "Emlenton", "approx": true, "notes": "", "parking": 70},
+        {"mm": 78, "exit": "78", "name": "TA Travel Center", "brand": "TA", "type": "truck_stop", "city": "Brookville", "approx": false, "notes": "", "parking": 180},
+        {"mm": 78, "exit": "78", "name": "Flying J Travel Center", "brand": "Flying J", "type": "truck_stop", "city": "Brookville", "approx": false, "notes": "", "parking": 90},
+        {"mm": 87, "exit": "", "name": "Rest Area (Corsica)", "brand": "State", "type": "rest_area", "city": "Corsica", "approx": true, "notes": "Eastbound and westbound pair; truck parking", "parking": 25},
+        {"mm": 133, "exit": "133", "name": "Kylertown Truck Stop (Kwik Fill)", "brand": "Independent", "type": "truck_stop", "city": "Kylertown", "approx": true, "notes": "PA 53", "parking": 60},
+        {"mm": 143, "exit": "143", "name": "Snow Shoe Rest Area (both directions)", "brand": "State", "type": "rest_area", "city": "Snow Shoe", "approx": true, "parking": 30},
+        {"mm": 158, "exit": "158", "name": "TA Express (former Bestway Travel Center)", "brand": "TA Express", "type": "truck_stop", "city": "Milesburg", "approx": true, "notes": "US 150", "parking": 60},
+        {"mm": 173, "exit": "173", "name": "Flying J Travel Center", "brand": "Flying J", "type": "truck_stop", "city": "Lamar (Mill Hall)", "approx": false, "notes": "Big Lamar cluster", "parking": 100},
+        {"mm": 173, "exit": "173", "name": "Pilot Travel Center", "brand": "Pilot", "type": "truck_stop", "city": "Lamar", "approx": true, "notes": "Lamar cluster", "parking": 80},
+        {"mm": 195, "exit": "195", "name": "Mile Run Rest Area (both directions)", "brand": "State", "type": "rest_area", "city": "Loganton", "approx": true, "parking": 25},
+        {"mm": 224, "exit": "224", "name": "Pilot Travel Center", "brand": "Pilot", "type": "truck_stop", "city": "Danville", "approx": true, "notes": "PA 54", "parking": 75},
+        {"mm": 232, "exit": "232", "name": "Petro Stopping Center", "brand": "Petro", "type": "truck_stop", "city": "Bloomsburg (Buckhorn)", "approx": false, "notes": "US 42 Buckhorn exit", "parking": 200},
+        {"mm": 246, "exit": "246", "name": "Weigh Station (EB)", "brand": "State", "type": "weigh_station", "city": "Mifflinville", "approx": false, "notes": "Hetlerville/Berwick scales at MM 246 rest area; weigh-in-motion on ramp; PSP operated"},
+        {"mm": 246, "exit": "246", "name": "Weigh Station (WB)", "brand": "State", "type": "weigh_station", "city": "Mifflinville", "approx": false, "notes": "Hetlerville/Berwick scales at MM 246 rest area; weigh-in-motion on ramp; PSP operated"},
+        {"mm": 257, "exit": "", "name": "Rest Area (White Haven)", "brand": "State", "type": "rest_area", "city": "White Haven", "approx": true, "notes": "Eastbound and westbound pair; truck parking", "parking": 30},
+        {"mm": 309, "exit": "309", "name": "TA Travel Center", "brand": "TA", "type": "truck_stop", "city": "Delaware Water Gap", "approx": false, "notes": "Last services before NJ", "parking": 170},
+        {"mm": 310, "exit": "310", "name": "Delaware Water Gap Welcome Center Rest Area (WB only)", "brand": "State", "type": "rest_area", "city": "Delaware Water Gap", "approx": true, "parking": 20}
+      ]
+    },
+    "I-81": {
+      "maxMM": 233,
+      "stops": [
+        {"mm": 1, "exit": "", "name": "PA Welcome Center (State Line)", "brand": "State", "type": "rest_area", "city": "State Line", "approx": true, "notes": "Northbound, near MD line; truck parking", "parking": 20},
+        {"mm": 5, "exit": "5", "name": "Love's Travel Stop", "brand": "Love's", "type": "truck_stop", "city": "Greencastle", "approx": true, "notes": "US 11", "parking": 80},
+        {"mm": 37, "exit": "37", "name": "Walnut Bottom Rest Area (both directions)", "brand": "State", "type": "rest_area", "city": "Walnut Bottom", "approx": true, "parking": 30},
+        {"mm": 49, "exit": "49", "name": "Flying J Travel Center", "brand": "Flying J", "type": "truck_stop", "city": "Carlisle", "approx": false, "notes": "Carlisle cluster; Harrisburg Pike", "parking": 100},
+        {"mm": 52, "exit": "52", "name": "Petro Stopping Center", "brand": "Petro", "type": "truck_stop", "city": "Carlisle", "approx": false, "notes": "Carlisle cluster; US 11 Middlesex", "parking": 250},
+        {"mm": 52, "exit": "52", "name": "Pilot Travel Center", "brand": "Pilot", "type": "truck_stop", "city": "Carlisle", "approx": false, "notes": "Carlisle cluster; US 11 Middlesex", "parking": 80},
+        {"mm": 52, "exit": "52", "name": "Love's Travel Stop", "brand": "Love's", "type": "truck_stop", "city": "Carlisle", "approx": true, "notes": "Carlisle cluster", "parking": 90},
+        {"mm": 52, "exit": "52", "name": "Blue Beacon Truck Wash", "brand": "Independent", "type": "truck_wash", "city": "Carlisle", "approx": false, "notes": "1201 Harrisburg Pike at Flying J Travel Plaza; Exit 52 (I-81 S) / 52A (I-81 N), near PA Turnpike Exit 226"},
+        {"mm": 80, "exit": "80", "name": "Love's Travel Stop", "brand": "Love's", "type": "truck_stop", "city": "Grantville", "approx": true, "notes": "Harrisburg area; PA 743 near Hollywood Casino", "parking": 80},
+        {"mm": 100, "exit": "100", "name": "Pilot Travel Center", "brand": "Pilot", "type": "truck_stop", "city": "Pine Grove", "approx": false, "notes": "PA 443", "parking": 75},
+        {"mm": 145, "exit": "145", "name": "Pilot Travel Center", "brand": "Pilot", "type": "truck_stop", "city": "West Hazleton", "approx": false, "notes": "PA 93", "parking": 70},
+        {"mm": 155, "exit": "155", "name": "Pilot Travel Center", "brand": "Pilot", "type": "truck_stop", "city": "Dorrance", "approx": true, "notes": "Blue Ridge Trail (PA 309)", "parking": 75},
+        {"mm": 178, "exit": "178", "name": "Pilot Travel Center", "brand": "Pilot", "type": "truck_stop", "city": "Avoca (Dupont)", "approx": true, "notes": "Near Wilkes-Barre/Scranton airport", "parking": 70},
+        {"mm": 203, "exit": "203", "name": "Harford Rest Area (both directions)", "brand": "State", "type": "rest_area", "city": "Harford", "approx": true, "parking": 25},
+        {"mm": 231, "exit": "231", "name": "Great Bend Welcome Center Rest Area (SB only)", "brand": "State", "type": "rest_area", "city": "Great Bend", "approx": true, "parking": 20}
+      ]
+    },
+    "I-83": {
+      "maxMM": 51,
+      "stops": [
+        {"mm": 3, "exit": "", "name": "PA Welcome Center (Shrewsbury)", "brand": "State", "type": "rest_area", "city": "Shrewsbury", "approx": true, "notes": "Northbound, near MD line; truck parking", "parking": 20},
+        {"mm": 24, "exit": "24", "name": "Flying J Travel Center", "brand": "Flying J", "type": "truck_stop", "city": "Manchester (York)", "approx": true, "notes": "Board Rd", "parking": 90}
+      ]
+    },
+    "I-84": {
+      "maxMM": 54,
+      "stops": [
+        {"mm": 26, "exit": "", "name": "Rest Area (Promised Land)", "brand": "State", "type": "rest_area", "city": "Greentown", "approx": true, "notes": "Eastbound and westbound pair; truck parking", "parking": 25},
+        {"mm": 53, "exit": "", "name": "PA Welcome Center (Matamoras)", "brand": "State", "type": "rest_area", "city": "Matamoras", "approx": true, "notes": "Westbound, near NY line; truck parking", "parking": 15}
+      ]
+    },
+    "I-86": {
+      "maxMM": 7,
+      "stops": []
+    },
+    "I-90": {
+      "maxMM": 46,
+      "stops": [
+        {"mm": 1, "exit": "", "name": "PA Welcome Center (West Springfield)", "brand": "State", "type": "rest_area", "city": "West Springfield", "approx": true, "notes": "Eastbound, near OH line; truck parking", "parking": 20},
+        {"mm": 24, "exit": "24", "name": "Flying J Travel Center", "brand": "Flying J", "type": "truck_stop", "city": "Erie (McKean)", "approx": true, "notes": "US 19 / Perry Hwy", "parking": 90},
+        {"mm": 45, "exit": "", "name": "PA Welcome Center (North East)", "brand": "State", "type": "rest_area", "city": "North East", "approx": true, "notes": "Westbound, near NY line; truck parking", "parking": 20}
+      ]
+    },
+    "I-95": {
+      "maxMM": 51,
+      "stops": [
+        {"mm": 1, "exit": "", "name": "PA Welcome Center (Linwood)", "brand": "State", "type": "rest_area", "city": "Linwood", "approx": true, "notes": "Northbound, near DE line; limited truck parking; urban corridor with no truck stops", "parking": 8}
+      ]
+    },
+    "I-99": {
+      "maxMM": 85,
+      "stops": []
+    }
+  }
+}

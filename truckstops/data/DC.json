@@ -1,0 +1,31 @@
+{
+  "state": "District of Columbia",
+  "abbr": "DC",
+  "note": "There are no truck stops, rest areas, or service plazas within the District of Columbia. Interstate mileage inside DC is very short and urban. Nearest truck facilities are in Maryland (TA Baltimore-Jessup, I-95 MD exit 41; Maryland Welcome Center, I-95 MD mm 37) and Virginia (Dale City Rest Area, I-95 VA mm 154; Pilot/Love's at Ruther Glen, I-95 VA exit 104).",
+  "interstates": {
+    "I-66": {
+      "maxMM": 1,
+      "stops": []
+    },
+    "I-95": {
+      "maxMM": 1,
+      "stops": []
+    },
+    "I-295": {
+      "maxMM": 4,
+      "stops": []
+    },
+    "I-395": {
+      "maxMM": 2,
+      "stops": []
+    },
+    "I-495": {
+      "maxMM": 1,
+      "stops": []
+    },
+    "I-695": {
+      "maxMM": 2,
+      "stops": []
+    }
+  }
+}

@@ -1,0 +1,6 @@
+# Never cache the app shell, so visitors always get the newest app
+# right after a deploy.
+/
+  Cache-Control: no-store
+/index.html
+  Cache-Control: no-store

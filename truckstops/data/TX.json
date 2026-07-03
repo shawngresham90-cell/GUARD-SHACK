@@ -1,0 +1,1481 @@
+{
+ "state": "Texas",
+ "abbr": "TX",
+ "interstates": {
+  "I-2": {
+   "maxMM": 47,
+   "stops": []
+  },
+  "I-10": {
+   "maxMM": 880,
+   "stops": [
+    {
+     "mm": 0,
+     "exit": "0",
+     "name": "Love's Travel Stop",
+     "brand": "Love's",
+     "type": "truck_stop",
+     "city": "Anthony",
+     "approx": true,
+     "notes": "At NM state line",
+     "parking": 90
+    },
+    {
+     "mm": 0,
+     "exit": "0",
+     "name": "Flying J Travel Center",
+     "brand": "Flying J",
+     "type": "truck_stop",
+     "city": "Anthony",
+     "approx": true,
+     "notes": "At NM state line",
+     "parking": 90
+    },
+    {
+     "mm": 1,
+     "exit": "0",
+     "name": "Texas Travel Information Center - Anthony",
+     "brand": "State",
+     "type": "rest_area",
+     "city": "Anthony",
+     "approx": true,
+     "notes": "Welcome center, serves eastbound traffic entering from New Mexico",
+     "parking": 20
+    },
+    {
+     "mm": 2,
+     "exit": "2",
+     "name": "Xpress Fuel by Pilot #1312",
+     "brand": "Pilot",
+     "type": "truck_stop",
+     "city": "Vinton",
+     "approx": false,
+     "notes": "New build, opened mid-2025; Xpress Fuel format with showers and CAT scale; 581 Vinton Rd, NW of El Paso",
+     "parking": 35
+    },
+    {
+     "mm": 37,
+     "exit": "37",
+     "name": "Flying J Travel Center",
+     "brand": "Flying J",
+     "type": "truck_stop",
+     "city": "El Paso",
+     "approx": false,
+     "notes": "Horizon Blvd exit",
+     "parking": 85
+    },
+    {
+     "mm": 37,
+     "exit": "37",
+     "name": "Petro Stopping Center",
+     "brand": "Petro",
+     "type": "truck_stop",
+     "city": "El Paso",
+     "approx": false,
+     "notes": "Horizon Blvd exit",
+     "parking": 300
+    },
+    {
+     "mm": 37,
+     "exit": "37",
+     "name": "Love's Travel Stop",
+     "brand": "Love's",
+     "type": "truck_stop",
+     "city": "El Paso",
+     "approx": true,
+     "notes": "Horizon Blvd area",
+     "parking": 70
+    },
+    {
+     "mm": 37,
+     "exit": "37",
+     "name": "Blue Beacon Truck Wash",
+     "brand": "Independent",
+     "type": "truck_wash",
+     "city": "El Paso",
+     "approx": false,
+     "notes": "11480 Stockyard Dr (Socorro), exit 37 Horizon Blvd; near Petro/Flying J/Love's"
+    },
+    {
+     "mm": 61,
+     "exit": "61",
+     "name": "Hudspeth County Rest Area (both directions)",
+     "brand": "State",
+     "type": "rest_area",
+     "city": "Fort Hancock",
+     "approx": true,
+     "notes": "TxDOT safety rest area between El Paso and Sierra Blanca",
+     "parking": 20
+    },
+    {
+     "mm": 138,
+     "exit": "138",
+     "name": "Pilot Travel Center",
+     "brand": "Pilot",
+     "type": "truck_stop",
+     "city": "Van Horn",
+     "approx": true,
+     "notes": "",
+     "parking": 80
+    },
+    {
+     "mm": 140,
+     "exit": "140",
+     "name": "Love's Travel Stop",
+     "brand": "Love's",
+     "type": "truck_stop",
+     "city": "Van Horn",
+     "approx": true,
+     "notes": "",
+     "parking": 90
+    },
+    {
+     "mm": 257,
+     "exit": "257",
+     "name": "Love's Travel Stop",
+     "brand": "Love's",
+     "type": "truck_stop",
+     "city": "Fort Stockton",
+     "approx": true,
+     "notes": "US 285 exit",
+     "parking": 100
+    },
+    {
+     "mm": 294,
+     "exit": "294",
+     "name": "Pecos County Picnic Area (both directions)",
+     "brand": "State",
+     "type": "rest_area",
+     "city": "Bakersfield",
+     "approx": true,
+     "notes": "Picnic/parking area east of Fort Stockton; limited truck parking",
+     "parking": 10
+    },
+    {
+     "mm": 372,
+     "exit": "372",
+     "name": "Circle Bar Truck Corral",
+     "brand": "Independent",
+     "type": "truck_stop",
+     "city": "Ozona",
+     "approx": true,
+     "notes": "Long-running independent full-service truck stop",
+     "parking": 100
+    },
+    {
+     "mm": 394,
+     "exit": "394",
+     "name": "Sutton County Safety Rest Area",
+     "brand": "State",
+     "type": "rest_area",
+     "city": "Sonora",
+     "approx": true,
+     "notes": "Serves both directions",
+     "parking": 30
+    },
+    {
+     "mm": 456,
+     "exit": "456",
+     "name": "Love's Travel Stop",
+     "brand": "Love's",
+     "type": "truck_stop",
+     "city": "Junction",
+     "approx": true,
+     "notes": "",
+     "parking": 80
+    },
+    {
+     "mm": 514,
+     "exit": "514",
+     "name": "Kendall County Picnic Area (both directions)",
+     "brand": "State",
+     "type": "rest_area",
+     "city": "Comfort",
+     "approx": true,
+     "notes": "Hill Country picnic/parking area; limited truck parking",
+     "parking": 10
+    },
+    {
+     "mm": 543,
+     "exit": "543",
+     "name": "Buc-ee's",
+     "brand": "Buc-ee's",
+     "type": "truck_stop",
+     "city": "Boerne",
+     "approx": true,
+     "notes": "No semi parking; under construction, opening summer 2026 (announced); I-10 at S Main St/Bus US-87 (exit approx 542); smaller 54,000 sq ft format",
+     "parking": 0
+    },
+    {
+     "mm": 581,
+     "exit": "581",
+     "name": "TA San Antonio",
+     "brand": "TA",
+     "type": "truck_stop",
+     "city": "San Antonio",
+     "approx": true,
+     "notes": "Ackerman Rd, east side",
+     "parking": 250
+    },
+    {
+     "mm": 582,
+     "exit": "582",
+     "name": "Blue Beacon Truck Wash",
+     "brand": "Independent",
+     "type": "truck_wash",
+     "city": "San Antonio",
+     "approx": true,
+     "notes": "1112 Ackerman Rd, exit 582; near TA exit 581"
+    },
+    {
+     "mm": 583,
+     "exit": "583",
+     "name": "Flying J Travel Center",
+     "brand": "Flying J",
+     "type": "truck_stop",
+     "city": "San Antonio",
+     "approx": true,
+     "notes": "Foster Rd, east side",
+     "parking": 90
+    },
+    {
+     "mm": 583,
+     "exit": "583",
+     "name": "Pilot Travel Center",
+     "brand": "Pilot",
+     "type": "truck_stop",
+     "city": "San Antonio",
+     "approx": true,
+     "notes": "Foster Rd, east side",
+     "parking": 75
+    },
+    {
+     "mm": 583,
+     "exit": "583",
+     "name": "Blue Beacon Truck Wash",
+     "brand": "Independent",
+     "type": "truck_wash",
+     "city": "San Antonio",
+     "approx": false,
+     "notes": "San Antonio East location, 6089 IH-10 E at exit 583; near Flying J/Pilot"
+    },
+    {
+     "mm": 593,
+     "exit": "593",
+     "name": "Guadalupe County Safety Rest Area",
+     "brand": "State",
+     "type": "rest_area",
+     "city": "Seguin",
+     "approx": true,
+     "notes": "Serves both directions",
+     "parking": 40
+    },
+    {
+     "mm": 615,
+     "exit": "615",
+     "name": "Weigh Station (WB)",
+     "brand": "State",
+     "type": "weigh_station",
+     "city": "Seguin",
+     "approx": true,
+     "notes": "TxDPS fixed scale about 3 miles east of Seguin; westbound side of paired facility"
+    },
+    {
+     "mm": 616,
+     "exit": "616",
+     "name": "Weigh Station (EB)",
+     "brand": "State",
+     "type": "weigh_station",
+     "city": "Seguin",
+     "approx": true,
+     "notes": "TxDPS fixed scale east of Seguin; eastbound side of paired facility"
+    },
+    {
+     "mm": 628,
+     "exit": "628",
+     "name": "Buc-ee's",
+     "brand": "Buc-ee's",
+     "type": "truck_stop",
+     "city": "Luling",
+     "approx": false,
+     "notes": "TX 80 exit; no semi-truck parking permitted",
+     "parking": 0
+    },
+    {
+     "mm": 729,
+     "exit": "729",
+     "name": "Weigh Station (both directions)",
+     "brand": "State",
+     "type": "weigh_station",
+     "city": "Sealy",
+     "approx": true,
+     "notes": "Houston West (Sealy) paired EB/WB TxDPS scales just east of the Brazos River, between exits 723 and 732"
+    },
+    {
+     "mm": 740,
+     "exit": "740",
+     "name": "Buc-ee's",
+     "brand": "Buc-ee's",
+     "type": "truck_stop",
+     "city": "Katy",
+     "approx": false,
+     "notes": "Cane Island Pkwy; no semi-truck parking permitted",
+     "parking": 0
+    },
+    {
+     "mm": 789,
+     "exit": "789",
+     "name": "TA Baytown",
+     "brand": "TA",
+     "type": "truck_stop",
+     "city": "Baytown",
+     "approx": false,
+     "notes": "Thompson Rd exit",
+     "parking": 150
+    },
+    {
+     "mm": 797,
+     "exit": "797",
+     "name": "Love's Travel Stop",
+     "brand": "Love's",
+     "type": "truck_stop",
+     "city": "Baytown",
+     "approx": true,
+     "notes": "",
+     "parking": 80
+    },
+    {
+     "mm": 797,
+     "exit": "797",
+     "name": "Weigh Station (EB)",
+     "brand": "State",
+     "type": "weigh_station",
+     "city": "Baytown",
+     "approx": true,
+     "notes": "Houston East eastbound TxDPS scale at FM 1405 (exit 797)"
+    },
+    {
+     "mm": 800,
+     "exit": "800",
+     "name": "Buc-ee's",
+     "brand": "Buc-ee's",
+     "type": "truck_stop",
+     "city": "Baytown",
+     "approx": true,
+     "notes": "No semi-truck parking permitted",
+     "parking": 0
+    },
+    {
+     "mm": 815,
+     "exit": "815",
+     "name": "Weigh Station (WB)",
+     "brand": "State",
+     "type": "weigh_station",
+     "city": "Winnie",
+     "approx": true,
+     "notes": "Houston East westbound TxDPS scale, about 14 miles west of Winnie"
+    },
+    {
+     "mm": 848,
+     "exit": "848",
+     "name": "TA Beaumont",
+     "brand": "TA",
+     "type": "truck_stop",
+     "city": "Beaumont",
+     "approx": true,
+     "notes": "Walden Rd exit",
+     "parking": 200
+    },
+    {
+     "mm": 873,
+     "exit": "873",
+     "name": "Pilot Travel Center",
+     "brand": "Pilot",
+     "type": "truck_stop",
+     "city": "Orange",
+     "approx": true,
+     "notes": "",
+     "parking": 75
+    },
+    {
+     "mm": 873,
+     "exit": "873",
+     "name": "Blue Beacon Truck Wash",
+     "brand": "Independent",
+     "type": "truck_wash",
+     "city": "Orange",
+     "approx": false,
+     "notes": "7144 IH-10 W, exit 873; across from the Pilot/Flying J"
+    },
+    {
+     "mm": 878,
+     "exit": "878",
+     "name": "Texas Travel Information Center - Orange",
+     "brand": "State",
+     "type": "rest_area",
+     "city": "Orange",
+     "approx": true,
+     "notes": "Welcome center, serves westbound traffic entering from Louisiana",
+     "parking": 25
+    }
+   ]
+  },
+  "I-14": {
+   "maxMM": 26,
+   "stops": []
+  },
+  "I-20": {
+   "maxMM": 636,
+   "stops": [
+    {
+     "mm": 42,
+     "exit": "42",
+     "name": "Love's Travel Stop",
+     "brand": "Love's",
+     "type": "truck_stop",
+     "city": "Pecos",
+     "approx": true,
+     "notes": "",
+     "parking": 100
+    },
+    {
+     "mm": 42,
+     "exit": "42",
+     "name": "TA Express Pecos",
+     "brand": "TA Express",
+     "type": "truck_stop",
+     "city": "Pecos",
+     "approx": true,
+     "notes": "",
+     "parking": 75
+    },
+    {
+     "mm": 66,
+     "exit": "66",
+     "name": "Ward County Rest Area (both directions)",
+     "brand": "State",
+     "type": "rest_area",
+     "city": "Monahans",
+     "approx": true,
+     "notes": "TxDOT safety rest area with storm shelters",
+     "parking": 30
+    },
+    {
+     "mm": 80,
+     "exit": "80",
+     "name": "Love's Travel Stop",
+     "brand": "Love's",
+     "type": "truck_stop",
+     "city": "Monahans",
+     "approx": true,
+     "notes": "TX 18 exit",
+     "parking": 80
+    },
+    {
+     "mm": 103,
+     "exit": "103",
+     "name": "Weigh Station (both directions)",
+     "brand": "State",
+     "type": "weigh_station",
+     "city": "Penwell",
+     "approx": true,
+     "notes": "Penwell paired EB/WB TxDPS scales west of Odessa; Drivewyze PreClear bypass site"
+    },
+    {
+     "mm": 108,
+     "exit": "108",
+     "name": "Pilot Travel Center",
+     "brand": "Pilot",
+     "type": "truck_stop",
+     "city": "Odessa",
+     "approx": true,
+     "notes": "",
+     "parking": 80
+    },
+    {
+     "mm": 115,
+     "exit": "115",
+     "name": "Blue Beacon Truck Wash",
+     "brand": "Independent",
+     "type": "truck_wash",
+     "city": "Odessa",
+     "approx": false,
+     "notes": "2103 W I-20, exit 115"
+    },
+    {
+     "mm": 138,
+     "exit": "138",
+     "name": "Love's Travel Stop",
+     "brand": "Love's",
+     "type": "truck_stop",
+     "city": "Midland",
+     "approx": true,
+     "notes": "",
+     "parking": 90
+    },
+    {
+     "mm": 176,
+     "exit": "176",
+     "name": "Love's Travel Stop",
+     "brand": "Love's",
+     "type": "truck_stop",
+     "city": "Big Spring",
+     "approx": false,
+     "notes": "Opened September 2025; Exit 176",
+     "parking": 105
+    },
+    {
+     "mm": 177,
+     "exit": "177",
+     "name": "TA Big Spring",
+     "brand": "TA",
+     "type": "truck_stop",
+     "city": "Big Spring",
+     "approx": false,
+     "notes": "",
+     "parking": 150
+    },
+    {
+     "mm": 218,
+     "exit": "218",
+     "name": "Mitchell County Safety Rest Area",
+     "brand": "State",
+     "type": "rest_area",
+     "city": "Colorado City",
+     "approx": true,
+     "notes": "Serves both directions",
+     "parking": 30
+    },
+    {
+     "mm": 242,
+     "exit": "242",
+     "name": "TA Sweetwater",
+     "brand": "TA",
+     "type": "truck_stop",
+     "city": "Sweetwater",
+     "approx": true,
+     "notes": "",
+     "parking": 120
+    },
+    {
+     "mm": 306,
+     "exit": "306",
+     "name": "Love's Travel Stop",
+     "brand": "Love's",
+     "type": "truck_stop",
+     "city": "Baird",
+     "approx": true,
+     "notes": "",
+     "parking": 80
+    },
+    {
+     "mm": 406,
+     "exit": "406",
+     "name": "Love's Travel Stop",
+     "brand": "Love's",
+     "type": "truck_stop",
+     "city": "Weatherford",
+     "approx": true,
+     "notes": "",
+     "parking": 90
+    },
+    {
+     "mm": 420,
+     "exit": "420",
+     "name": "Weigh Station (both directions)",
+     "brand": "State",
+     "type": "weigh_station",
+     "city": "Weatherford",
+     "approx": true,
+     "notes": "Fort Worth west paired EB/WB TxDPS scales, about 10 miles east of Weatherford"
+    },
+    {
+     "mm": 470,
+     "exit": "470",
+     "name": "TA Dallas South",
+     "brand": "TA",
+     "type": "truck_stop",
+     "city": "Dallas",
+     "approx": false,
+     "notes": "Bonnie View Rd exit",
+     "parking": 200
+    },
+    {
+     "mm": 470,
+     "exit": "470",
+     "name": "Flying J Travel Center",
+     "brand": "Flying J",
+     "type": "truck_stop",
+     "city": "Dallas",
+     "approx": false,
+     "notes": "Bonnie View Rd exit",
+     "parking": 90
+    },
+    {
+     "mm": 472,
+     "exit": "472",
+     "name": "Blue Beacon Truck Wash",
+     "brand": "Independent",
+     "type": "truck_wash",
+     "city": "Dallas",
+     "approx": true,
+     "notes": "Dallas location, 34245 LBJ Fwy frontage road, exit 472"
+    },
+    {
+     "mm": 472,
+     "exit": "472",
+     "name": "Blue Beacon Truck Wash",
+     "brand": "Independent",
+     "type": "truck_wash",
+     "city": "Dallas",
+     "approx": false,
+     "notes": "Dallas East location, 7312 Bonnie View Rd, exit 472; Flying J 1/2 mile east"
+    },
+    {
+     "mm": 506,
+     "exit": "506",
+     "name": "Buc-ee's",
+     "brand": "Buc-ee's",
+     "type": "truck_stop",
+     "city": "Terrell",
+     "approx": true,
+     "notes": "No semi-truck parking permitted",
+     "parking": 0
+    },
+    {
+     "mm": 512,
+     "exit": "512",
+     "name": "Weigh Station (both directions)",
+     "brand": "State",
+     "type": "weigh_station",
+     "city": "Terrell",
+     "approx": true,
+     "notes": "Paired EB/WB TxDPS scales east of Terrell; nearest fuel at exit 509 to the west"
+    },
+    {
+     "mm": 523,
+     "exit": "523",
+     "name": "Road Ranger Canton",
+     "brand": "Road Ranger",
+     "type": "truck_stop",
+     "city": "Canton",
+     "approx": true,
+     "notes": "Opened March 2025 (54th Road Ranger); 8 diesel lanes, 6 showers, Dickey's BBQ + Church's Chicken; exit approximate (FM 859)",
+     "parking": 81
+    },
+    {
+     "mm": 527,
+     "exit": "527",
+     "name": "Love's Travel Stop",
+     "brand": "Love's",
+     "type": "truck_stop",
+     "city": "Canton",
+     "approx": true,
+     "notes": "",
+     "parking": 80
+    },
+    {
+     "mm": 538,
+     "exit": "538",
+     "name": "Van Zandt County Rest Area (both directions)",
+     "brand": "State",
+     "type": "rest_area",
+     "city": "Canton",
+     "approx": true,
+     "notes": "Modern TxDOT safety rest area with tornado shelter",
+     "parking": 40
+    },
+    {
+     "mm": 546,
+     "exit": "546",
+     "name": "Weigh Station (EB)",
+     "brand": "State",
+     "type": "weigh_station",
+     "city": "Tyler",
+     "approx": true,
+     "notes": "Eastbound TxDPS scale west of Tyler, near Van"
+    },
+    {
+     "mm": 595,
+     "exit": "595",
+     "name": "Pilot Travel Center",
+     "brand": "Pilot",
+     "type": "truck_stop",
+     "city": "Longview",
+     "approx": true,
+     "notes": "",
+     "parking": 75
+    },
+    {
+     "mm": 633,
+     "exit": "633",
+     "name": "Texas Travel Information Center - Waskom",
+     "brand": "State",
+     "type": "rest_area",
+     "city": "Waskom",
+     "approx": true,
+     "notes": "Welcome center, serves westbound traffic entering from Louisiana",
+     "parking": 25
+    }
+   ]
+  },
+  "I-27": {
+   "maxMM": 124,
+   "stops": [
+    {
+     "mm": 74,
+     "exit": "74",
+     "name": "Swisher County Rest Area (both directions)",
+     "brand": "State",
+     "type": "rest_area",
+     "city": "Tulia",
+     "approx": true,
+     "notes": "TxDOT safety rest area between Lubbock and Amarillo",
+     "parking": 20
+    },
+    {
+     "mm": 74,
+     "exit": "74",
+     "name": "Love's Travel Stop",
+     "brand": "Love's",
+     "type": "truck_stop",
+     "city": "Tulia",
+     "approx": false,
+     "notes": "Opened August 2025; Exit 74 at TX-86",
+     "parking": 59
+    }
+   ]
+  },
+  "I-30": {
+   "maxMM": 224,
+   "stops": [
+    {
+     "mm": 87,
+     "exit": "87",
+     "name": "Love's Travel Stop",
+     "brand": "Love's",
+     "type": "truck_stop",
+     "city": "Caddo Mills",
+     "approx": true,
+     "notes": "",
+     "parking": 90
+    },
+    {
+     "mm": 104,
+     "exit": "104",
+     "name": "Hopkins County Rest Area (both directions)",
+     "brand": "State",
+     "type": "rest_area",
+     "city": "Cumby",
+     "approx": true,
+     "notes": "TxDOT safety rest area between Greenville and Sulphur Springs",
+     "parking": 25
+    },
+    {
+     "mm": 122,
+     "exit": "122",
+     "name": "Love's Travel Stop",
+     "brand": "Love's",
+     "type": "truck_stop",
+     "city": "Sulphur Springs",
+     "approx": true,
+     "notes": "",
+     "parking": 80
+    },
+    {
+     "mm": 147,
+     "exit": "147",
+     "name": "Love's Travel Stop",
+     "brand": "Love's",
+     "type": "truck_stop",
+     "city": "Mount Vernon",
+     "approx": true,
+     "notes": "",
+     "parking": 80
+    },
+    {
+     "mm": 162,
+     "exit": "162",
+     "name": "Pilot Travel Center",
+     "brand": "Pilot",
+     "type": "truck_stop",
+     "city": "Mount Pleasant",
+     "approx": true,
+     "notes": "",
+     "parking": 75
+    },
+    {
+     "mm": 201,
+     "exit": "201",
+     "name": "Love's Travel Stop",
+     "brand": "Love's",
+     "type": "truck_stop",
+     "city": "New Boston",
+     "approx": true,
+     "notes": "",
+     "parking": 80
+    },
+    {
+     "mm": 223,
+     "exit": "223",
+     "name": "Texas Travel Information Center - Texarkana",
+     "brand": "State",
+     "type": "rest_area",
+     "city": "Texarkana",
+     "approx": true,
+     "notes": "Welcome center, serves westbound traffic entering from Arkansas",
+     "parking": 20
+    }
+   ]
+  },
+  "I-35": {
+   "maxMM": 504,
+   "stops": [
+    {
+     "mm": 3,
+     "exit": "3",
+     "name": "Texas Travel Information Center - Laredo",
+     "brand": "State",
+     "type": "rest_area",
+     "city": "Laredo",
+     "approx": true,
+     "notes": "Welcome center, serves northbound traffic entering from Mexico",
+     "parking": 15
+    },
+    {
+     "mm": 13,
+     "exit": "13",
+     "name": "Flying J Travel Center",
+     "brand": "Flying J",
+     "type": "truck_stop",
+     "city": "Laredo",
+     "approx": false,
+     "notes": "Uniroyal Dr; major border-freight cluster",
+     "parking": 150
+    },
+    {
+     "mm": 13,
+     "exit": "13",
+     "name": "TA Laredo",
+     "brand": "TA",
+     "type": "truck_stop",
+     "city": "Laredo",
+     "approx": true,
+     "notes": "",
+     "parking": 200
+    },
+    {
+     "mm": 13,
+     "exit": "13",
+     "name": "Love's Travel Stop",
+     "brand": "Love's",
+     "type": "truck_stop",
+     "city": "Laredo",
+     "approx": true,
+     "notes": "",
+     "parking": 100
+    },
+    {
+     "mm": 13,
+     "exit": "13",
+     "name": "Blue Beacon Truck Wash",
+     "brand": "Independent",
+     "type": "truck_wash",
+     "city": "Laredo",
+     "approx": false,
+     "notes": "1020 Beltway Pkwy, SB exit 13; near TA/Flying J/Love's"
+    },
+    {
+     "mm": 39,
+     "exit": "39",
+     "name": "Love's Travel Stop",
+     "brand": "Love's",
+     "type": "truck_stop",
+     "city": "Encinal",
+     "approx": true,
+     "notes": "",
+     "parking": 90
+    },
+    {
+     "mm": 63,
+     "exit": "63",
+     "name": "La Salle County Rest Area (both directions)",
+     "brand": "State",
+     "type": "rest_area",
+     "city": "Cotulla",
+     "approx": true,
+     "notes": "TxDOT safety rest area on the Laredo-San Antonio corridor",
+     "parking": 20
+    },
+    {
+     "mm": 68,
+     "exit": "68",
+     "name": "Love's Travel Stop",
+     "brand": "Love's",
+     "type": "truck_stop",
+     "city": "Cotulla",
+     "approx": true,
+     "notes": "",
+     "parking": 80
+    },
+    {
+     "mm": 121,
+     "exit": "121",
+     "name": "Weigh Station (both directions)",
+     "brand": "State",
+     "type": "weigh_station",
+     "city": "Devine",
+     "approx": true,
+     "notes": "Paired NB/SB TxDPS scales about 5 miles south of Devine (near Moore); Drivewyze PreClear bypass site"
+    },
+    {
+     "mm": 124,
+     "exit": "124",
+     "name": "Love's Travel Stop",
+     "brand": "Love's",
+     "type": "truck_stop",
+     "city": "Devine",
+     "approx": true,
+     "notes": "",
+     "parking": 80
+    },
+    {
+     "mm": 140,
+     "exit": "140",
+     "name": "Petro Stopping Center",
+     "brand": "Petro",
+     "type": "truck_stop",
+     "city": "San Antonio",
+     "approx": true,
+     "notes": "South side of San Antonio, Fischer Rd area",
+     "parking": 200
+    },
+    {
+     "mm": 191,
+     "exit": "191",
+     "name": "Buc-ee's",
+     "brand": "Buc-ee's",
+     "type": "truck_stop",
+     "city": "New Braunfels",
+     "approx": false,
+     "notes": "One of the largest convenience stores in the world; no semi-truck parking permitted",
+     "parking": 0
+    },
+    {
+     "mm": 209,
+     "exit": "209",
+     "name": "Weigh Station (both directions)",
+     "brand": "State",
+     "type": "weigh_station",
+     "city": "San Marcos",
+     "approx": true,
+     "notes": "Paired NB/SB TxDPS scales near mm 208-209, just north/south of San Marcos"
+    },
+    {
+     "mm": 210,
+     "exit": "210",
+     "name": "Buc-ee's",
+     "brand": "Buc-ee's",
+     "type": "truck_stop",
+     "city": "San Marcos",
+     "approx": true,
+     "notes": "No semi parking; under construction, opening Aug 12, 2026 (announced); exit 210 (Yarrington Rd); 120 fueling positions",
+     "parking": 0
+    },
+    {
+     "mm": 287,
+     "exit": "287",
+     "name": "Bell County Safety Rest Area",
+     "brand": "State",
+     "type": "rest_area",
+     "city": "Salado",
+     "approx": true,
+     "notes": "Serves both directions",
+     "parking": 35
+    },
+    {
+     "mm": 300,
+     "exit": "300",
+     "name": "Buc-ee's",
+     "brand": "Buc-ee's",
+     "type": "truck_stop",
+     "city": "Temple",
+     "approx": true,
+     "notes": "No semi-truck parking permitted",
+     "parking": 0
+    },
+    {
+     "mm": 342,
+     "exit": "342",
+     "name": "Flying J Travel Center",
+     "brand": "Flying J",
+     "type": "truck_stop",
+     "city": "Waco",
+     "approx": true,
+     "notes": "North Waco / Lacy Lakeview area",
+     "parking": 90
+    },
+    {
+     "mm": 368,
+     "exit": "368",
+     "name": "Love's Travel Stop",
+     "brand": "Love's",
+     "type": "truck_stop",
+     "city": "Hillsboro",
+     "approx": true,
+     "notes": "Near I-35E/I-35W split",
+     "parking": 90
+    },
+    {
+     "mm": 376,
+     "exit": "376",
+     "name": "Hill County Rest Area (both directions)",
+     "brand": "State",
+     "type": "rest_area",
+     "city": "Abbott",
+     "approx": true,
+     "notes": "Modern TxDOT safety rest area with tornado shelter, north of the I-35E/I-35W merge",
+     "parking": 40
+    },
+    {
+     "mm": 471,
+     "exit": "471",
+     "name": "Blue Beacon Truck Wash",
+     "brand": "Independent",
+     "type": "truck_wash",
+     "city": "Denton",
+     "approx": false,
+     "notes": "4800 Barthold Rd, exit 471"
+    },
+    {
+     "mm": 502,
+     "exit": "502",
+     "name": "Texas Travel Information Center - Gainesville",
+     "brand": "State",
+     "type": "rest_area",
+     "city": "Gainesville",
+     "approx": true,
+     "notes": "Welcome center, serves southbound traffic entering from Oklahoma",
+     "parking": 20
+    }
+   ]
+  },
+  "I-35E": {
+   "maxMM": 467,
+   "stops": [
+    {
+     "mm": 462,
+     "exit": "462",
+     "name": "Buc-ee's",
+     "brand": "Buc-ee's",
+     "type": "truck_stop",
+     "city": "Denton",
+     "approx": true,
+     "notes": "No semi-truck parking permitted",
+     "parking": 0
+    }
+   ]
+  },
+  "I-35W": {
+   "maxMM": 85,
+   "stops": [
+    {
+     "mm": 26,
+     "exit": "26",
+     "name": "Love's Travel Stop",
+     "brand": "Love's",
+     "type": "truck_stop",
+     "city": "Alvarado",
+     "approx": true,
+     "notes": "US 67 exit",
+     "parking": 80
+    },
+    {
+     "mm": 56,
+     "exit": "56",
+     "name": "Petro Stopping Center",
+     "brand": "Petro",
+     "type": "truck_stop",
+     "city": "Fort Worth",
+     "approx": true,
+     "notes": "North Fort Worth, Meacham Blvd area",
+     "parking": 250
+    }
+   ]
+  },
+  "I-37": {
+   "maxMM": 143,
+   "stops": [
+    {
+     "mm": 34,
+     "exit": "34",
+     "name": "Love's Travel Stop",
+     "brand": "Love's",
+     "type": "truck_stop",
+     "city": "Mathis",
+     "approx": true,
+     "notes": "",
+     "parking": 80
+    },
+    {
+     "mm": 66,
+     "exit": "66",
+     "name": "Live Oak County Rest Area (both directions)",
+     "brand": "State",
+     "type": "rest_area",
+     "city": "Three Rivers",
+     "approx": true,
+     "notes": "TxDOT safety rest area between Corpus Christi and San Antonio",
+     "parking": 20
+    },
+    {
+     "mm": 72,
+     "exit": "72",
+     "name": "Love's Travel Stop",
+     "brand": "Love's",
+     "type": "truck_stop",
+     "city": "Three Rivers",
+     "approx": true,
+     "notes": "",
+     "parking": 90
+    },
+    {
+     "mm": 75,
+     "exit": "75",
+     "name": "Weigh Station (both directions)",
+     "brand": "State",
+     "type": "weigh_station",
+     "city": "Three Rivers",
+     "approx": true,
+     "notes": "Paired NB/SB TxDPS scales just north of the US-281 wye junction north of Three Rivers"
+    }
+   ]
+  },
+  "I-40": {
+   "maxMM": 177,
+   "stops": [
+    {
+     "mm": 28,
+     "exit": "28",
+     "name": "Oldham County Picnic Area (both directions)",
+     "brand": "State",
+     "type": "rest_area",
+     "city": "Vega",
+     "approx": true,
+     "notes": "Picnic/parking area west of Amarillo; limited truck parking",
+     "parking": 10
+    },
+    {
+     "mm": 74,
+     "exit": "74",
+     "name": "TA Amarillo",
+     "brand": "TA",
+     "type": "truck_stop",
+     "city": "Amarillo",
+     "approx": false,
+     "notes": "Whitaker Rd exit",
+     "parking": 250
+    },
+    {
+     "mm": 74,
+     "exit": "74",
+     "name": "Love's Travel Stop",
+     "brand": "Love's",
+     "type": "truck_stop",
+     "city": "Amarillo",
+     "approx": true,
+     "notes": "",
+     "parking": 90
+    },
+    {
+     "mm": 74,
+     "exit": "74",
+     "name": "Blue Beacon Truck Wash",
+     "brand": "Independent",
+     "type": "truck_wash",
+     "city": "Amarillo",
+     "approx": false,
+     "notes": "2200 Whitaker Rd, exit 74; at the TA"
+    },
+    {
+     "mm": 74,
+     "exit": "74",
+     "name": "Eagle Truck Wash",
+     "brand": "Independent",
+     "type": "truck_wash",
+     "city": "Amarillo",
+     "approx": true,
+     "notes": "Eagle United Truck Wash, 7540 E I-40 between exits 74 and 75"
+    },
+    {
+     "mm": 75,
+     "exit": "75",
+     "name": "Petro Stopping Center",
+     "brand": "Petro",
+     "type": "truck_stop",
+     "city": "Amarillo",
+     "approx": false,
+     "notes": "Lakeside Dr exit",
+     "parking": 300
+    },
+    {
+     "mm": 75,
+     "exit": "75",
+     "name": "Flying J Travel Center",
+     "brand": "Flying J",
+     "type": "truck_stop",
+     "city": "Amarillo",
+     "approx": false,
+     "notes": "Lakeside Dr exit",
+     "parking": 100
+    },
+    {
+     "mm": 75,
+     "exit": "75",
+     "name": "Blue Beacon Truck Wash",
+     "brand": "Independent",
+     "type": "truck_wash",
+     "city": "Amarillo",
+     "approx": false,
+     "notes": "Amarillo East location, 8500 E I-40, exit 75; at the Petro/Flying J"
+    },
+    {
+     "mm": 76,
+     "exit": "76",
+     "name": "Pilot Travel Center",
+     "brand": "Pilot",
+     "type": "truck_stop",
+     "city": "Amarillo",
+     "approx": true,
+     "notes": "",
+     "parking": 80
+    },
+    {
+     "mm": 76,
+     "exit": "76",
+     "name": "Texas Travel Information Center - Amarillo",
+     "brand": "State",
+     "type": "rest_area",
+     "city": "Amarillo",
+     "approx": true,
+     "notes": "Welcome center on east side of Amarillo, serves both directions",
+     "parking": 20
+    },
+    {
+     "mm": 142,
+     "exit": "142",
+     "name": "Gray County Safety Rest Area",
+     "brand": "State",
+     "type": "rest_area",
+     "city": "McLean",
+     "approx": true,
+     "notes": "Serves both directions; includes tornado shelter",
+     "parking": 30
+    },
+    {
+     "mm": 165,
+     "exit": "165",
+     "name": "Weigh Station (both directions)",
+     "brand": "State",
+     "type": "weigh_station",
+     "city": "Shamrock",
+     "approx": true,
+     "notes": "Single shared TxDPS scale just east of exit 164 serving both EB and WB traffic entering/leaving Oklahoma"
+    }
+   ]
+  },
+  "I-44": {
+   "maxMM": 15,
+   "stops": [
+    {
+     "mm": 1,
+     "exit": "1",
+     "name": "Texas Travel Information Center - Wichita Falls",
+     "brand": "State",
+     "type": "rest_area",
+     "city": "Wichita Falls",
+     "approx": true,
+     "notes": "Welcome center on Central Freeway, serves traffic entering from Oklahoma",
+     "parking": 10
+    }
+   ]
+  },
+  "I-45": {
+   "maxMM": 285,
+   "stops": [
+    {
+     "mm": 17,
+     "exit": "17",
+     "name": "Buc-ee's",
+     "brand": "Buc-ee's",
+     "type": "truck_stop",
+     "city": "Texas City",
+     "approx": true,
+     "notes": "No semi-truck parking permitted",
+     "parking": 0
+    },
+    {
+     "mm": 102,
+     "exit": "102",
+     "name": "Love's Travel Stop",
+     "brand": "Love's",
+     "type": "truck_stop",
+     "city": "New Waverly",
+     "approx": true,
+     "notes": "",
+     "parking": 80
+    },
+    {
+     "mm": 102,
+     "exit": "102",
+     "name": "Weigh Station (both directions)",
+     "brand": "State",
+     "type": "weigh_station",
+     "city": "New Waverly",
+     "approx": true,
+     "notes": "Paired scales; NB near mm 101.5, SB between Huntsville State Park and New Waverly; Drivewyze PreClear bypass site"
+    },
+    {
+     "mm": 142,
+     "exit": "142",
+     "name": "Buc-ee's",
+     "brand": "Buc-ee's",
+     "type": "truck_stop",
+     "city": "Madisonville",
+     "approx": false,
+     "notes": "No semi-truck parking permitted",
+     "parking": 0
+    },
+    {
+     "mm": 142,
+     "exit": "142",
+     "name": "Love's Travel Stop",
+     "brand": "Love's",
+     "type": "truck_stop",
+     "city": "Madisonville",
+     "approx": true,
+     "notes": "",
+     "parking": 90
+    },
+    {
+     "mm": 165,
+     "exit": "165",
+     "name": "Weigh Station (SB)",
+     "brand": "State",
+     "type": "weigh_station",
+     "city": "Centerville",
+     "approx": true,
+     "notes": "Southbound TxDPS scale just north of Centerville"
+    },
+    {
+     "mm": 197,
+     "exit": "197",
+     "name": "Love's Travel Stop",
+     "brand": "Love's",
+     "type": "truck_stop",
+     "city": "Fairfield",
+     "approx": true,
+     "notes": "",
+     "parking": 80
+    },
+    {
+     "mm": 226,
+     "exit": "226",
+     "name": "Navarro County Safety Rest Area",
+     "brand": "State",
+     "type": "rest_area",
+     "city": "Richland",
+     "approx": true,
+     "notes": "Serves both directions",
+     "parking": 35
+    },
+    {
+     "mm": 249,
+     "exit": "249",
+     "name": "Blue Beacon Truck Wash",
+     "brand": "Independent",
+     "type": "truck_wash",
+     "city": "Ennis",
+     "approx": false,
+     "notes": "3103 S Kaufman St, exit 249"
+    },
+    {
+     "mm": 272,
+     "exit": "272",
+     "name": "Weigh Station (both directions)",
+     "brand": "State",
+     "type": "weigh_station",
+     "city": "Wilmer",
+     "approx": true,
+     "notes": "Paired NB (Ferris) and SB (Wilmer) TxDPS scales at Fulghum Rd, exit 272, south of Dallas"
+    },
+    {
+     "mm": 273,
+     "exit": "273",
+     "name": "SafeStop Dallas",
+     "brand": "Independent",
+     "type": "truck_stop",
+     "city": "Hutchins",
+     "approx": false,
+     "notes": "Opened Feb 2026 at I-45/Wintergreen Rd; paid reservation-only secure parking ($2.95/hr), free showers, gated 24-7",
+     "parking": 140
+    },
+    {
+     "mm": 274,
+     "exit": "274",
+     "name": "Love's Travel Stop",
+     "brand": "Love's",
+     "type": "truck_stop",
+     "city": "Hutchins",
+     "approx": true,
+     "notes": "South Dallas metro",
+     "parking": 100
+    }
+   ]
+  },
+  "I-69": {
+   "maxMM": 165,
+   "stops": []
+  },
+  "I-69C": {
+   "maxMM": 15,
+   "stops": []
+  },
+  "I-69E": {
+   "maxMM": 55,
+   "stops": [
+    {
+     "mm": 24,
+     "exit": "24",
+     "name": "Texas Travel Information Center - Harlingen",
+     "brand": "State",
+     "type": "rest_area",
+     "city": "Harlingen",
+     "approx": true,
+     "notes": "Welcome center serving Rio Grande Valley border traffic",
+     "parking": 10
+    }
+   ]
+  },
+  "I-69W": {
+   "maxMM": 6,
+   "stops": []
+  },
+  "I-410": {
+   "maxMM": 42,
+   "stops": [
+    {
+     "mm": 42,
+     "exit": "42",
+     "name": "Love's Travel Stop",
+     "brand": "Love's",
+     "type": "truck_stop",
+     "city": "San Antonio",
+     "approx": false,
+     "notes": "Opened May 2026; I-410 Exit 42, Southton Rd; first Love's Whataburger",
+     "parking": 70
+    }
+   ]
+  }
+ }
+}

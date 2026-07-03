@@ -1,0 +1,57 @@
+{
+  "state": "Kansas",
+  "abbr": "KS",
+  "interstates": {
+    "I-35": {
+      "maxMM": 235,
+      "stops": [
+        {"mm": 26, "exit": "", "name": "Belle Plaine Service Area", "brand": "Independent", "type": "service_plaza", "city": "Belle Plaine", "approx": false, "notes": "Kansas Turnpike; serves both directions; turnpike milepost", "parking": 35},
+        {"mm": 65, "exit": "", "name": "Towanda Service Area", "brand": "Independent", "type": "service_plaza", "city": "Towanda", "approx": false, "notes": "Kansas Turnpike; serves both directions; turnpike milepost", "parking": 40},
+        {"mm": 97, "exit": "", "name": "Matfield Green Service Area", "brand": "Independent", "type": "service_plaza", "city": "Matfield Green", "approx": false, "notes": "Kansas Turnpike, Flint Hills; serves both directions; turnpike milepost", "parking": 40},
+        {"mm": 127, "exit": "127", "name": "Flying J Travel Center", "brand": "Flying J", "type": "truck_stop", "city": "Emporia", "approx": true, "notes": "US-50 at turnpike exit 127, where I-35 leaves the turnpike", "parking": 90},
+        {"mm": 127, "exit": "127A", "name": "Blue Beacon Truck Wash", "brand": "Independent", "type": "truck_wash", "city": "Emporia", "approx": false, "notes": "US-50 at exit 127A; by the Flying J"},
+        {"mm": 155, "exit": "155", "name": "TA Beto Junction", "brand": "TA", "type": "truck_stop", "city": "Lebo", "approx": false, "notes": "US-75 junction; longtime Beto Junction stop", "parking": 200},
+        {"mm": 183, "exit": "183", "name": "Love's Travel Stop", "brand": "Love's", "type": "truck_stop", "city": "Ottawa", "approx": true, "notes": "US-59 exit", "parking": 80},
+        {"mm": 210, "exit": "210", "name": "QuikTrip Travel Center", "brand": "QuikTrip", "type": "truck_stop", "city": "Gardner", "approx": true, "notes": "QT full-size travel center, KC metro southwest", "parking": 60},
+        {"mm": 213, "exit": "213", "name": "Weigh Station (both directions)", "brand": "State", "type": "weigh_station", "city": "Olathe", "approx": false, "notes": "KHP Olathe scales; separate NB and SB facilities at milepost 213, about 1 mile south of Olathe"}
+      ]
+    },
+    "I-70": {
+      "maxMM": 424,
+      "stops": [
+        {"mm": 1, "exit": "1", "name": "Weigh Station (EB)", "brand": "State", "type": "weigh_station", "city": "Kanorado", "approx": false, "notes": "KHP Kanorado scales; eastbound only, just inside the Colorado line"},
+        {"mm": 7, "exit": "", "name": "Kansas Travel Information Center", "brand": "State", "type": "rest_area", "city": "Goodland", "approx": true, "notes": "Eastbound; welcome center near Colorado line; truck parking", "parking": 25},
+        {"mm": 17, "exit": "17", "name": "24/7 Travel Store", "brand": "Independent", "type": "truck_stop", "city": "Goodland", "approx": true, "notes": "Kansas-based 24/7 Travel Stores chain", "parking": 50},
+        {"mm": 54, "exit": "54", "name": "Love's Travel Stop", "brand": "Love's", "type": "truck_stop", "city": "Colby", "approx": true, "notes": "", "parking": 90},
+        {"mm": 70, "exit": "70", "name": "24/7 Travel Store", "brand": "Independent", "type": "truck_stop", "city": "Oakley", "approx": true, "notes": "US-83 exit", "parking": 50},
+        {"mm": 97, "exit": "", "name": "Rest Area (Grainfield area)", "brand": "State", "type": "rest_area", "city": "Grainfield", "approx": true, "notes": "Serves both directions; truck parking", "parking": 25},
+        {"mm": 127, "exit": "127", "name": "Love's Travel Stop", "brand": "Love's", "type": "truck_stop", "city": "WaKeeney", "approx": true, "notes": "US-283 junction", "parking": 80},
+        {"mm": 132, "exit": "132", "name": "Ogallah Rest Area (both directions)", "brand": "State", "type": "rest_area", "city": "Ogallah", "approx": true, "parking": 25},
+        {"mm": 157, "exit": "157", "name": "Love's Travel Stop", "brand": "Love's", "type": "truck_stop", "city": "Hays", "approx": true, "notes": "US-183 exit", "parking": 90},
+        {"mm": 184, "exit": "184", "name": "Love's Travel Stop", "brand": "Love's", "type": "truck_stop", "city": "Russell", "approx": true, "notes": "US-281 exit", "parking": 80},
+        {"mm": 188, "exit": "", "name": "Topeka Service Area", "brand": "Independent", "type": "service_plaza", "city": "Topeka", "approx": false, "notes": "Kansas Turnpike section east of Topeka; turnpike milepost 188; serves both directions", "parking": 40},
+        {"mm": 209, "exit": "", "name": "Lawrence Service Area", "brand": "Independent", "type": "service_plaza", "city": "Lawrence", "approx": false, "notes": "Kansas Turnpike section; turnpike milepost 209; serves both directions", "parking": 40},
+        {"mm": 224, "exit": "224", "name": "Ellsworth County Rest Area (both directions)", "brand": "State", "type": "rest_area", "city": "Ellsworth", "approx": true, "parking": 25},
+        {"mm": 252, "exit": "252", "name": "Sapp Bros Travel Center", "brand": "Sapp Bros", "type": "truck_stop", "city": "Salina", "approx": true, "notes": "US-81/I-135 side of Salina", "parking": 80},
+        {"mm": 252, "exit": "252", "name": "Blue Beacon Truck Wash", "brand": "Independent", "type": "truck_wash", "city": "Salina", "approx": false, "notes": "N 9th St, about 1 mi south of exit 252"},
+        {"mm": 253, "exit": "253", "name": "Petro Stopping Center", "brand": "Petro", "type": "truck_stop", "city": "Salina", "approx": true, "notes": "N Ohio St exit; full-service stop", "parking": 200},
+        {"mm": 265, "exit": "265", "name": "Solomon Rest Area (both directions)", "brand": "State", "type": "rest_area", "city": "Solomon", "approx": true, "parking": 30},
+        {"mm": 295, "exit": "295", "name": "Sapp Bros Travel Center", "brand": "Sapp Bros", "type": "truck_stop", "city": "Junction City", "approx": true, "notes": "US-77 exit", "parking": 80},
+        {"mm": 336, "exit": "336", "name": "Paxico Rest Area (both directions)", "brand": "State", "type": "rest_area", "city": "Paxico", "approx": true, "parking": 25}
+      ]
+    },
+    "I-135": {
+      "maxMM": 96,
+      "stops": [
+        {"mm": 13, "exit": "13", "name": "Flying J Travel Center", "brand": "Flying J", "type": "truck_stop", "city": "Park City (Wichita)", "approx": true, "notes": "61st St N, north Wichita metro", "parking": 90},
+        {"mm": 68, "exit": "", "name": "Rest Area (McPherson area)", "brand": "State", "type": "rest_area", "city": "McPherson", "approx": true, "notes": "Serves both directions; truck parking", "parking": 20}
+      ]
+    },
+    "I-335": {
+      "maxMM": 177,
+      "stops": [
+        {"mm": 132, "exit": "", "name": "Emporia Service Area", "brand": "Independent", "type": "service_plaza", "city": "Emporia", "approx": false, "notes": "Kansas Turnpike (I-335 leg, Emporia to Topeka); turnpike milepost 132; serves both directions", "parking": 35}
+      ]
+    }
+  }
+}

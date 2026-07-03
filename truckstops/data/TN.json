@@ -1,0 +1,735 @@
+{
+  "state": "Tennessee",
+  "abbr": "TN",
+  "interstates": {
+    "I-24": {
+      "maxMM": 185,
+      "stops": [
+        {
+          "mm": 1,
+          "exit": "1",
+          "name": "Tennessee Welcome Center (eastbound)",
+          "brand": "State",
+          "type": "rest_area",
+          "city": "Clarksville",
+          "approx": true,
+          "notes": "Serves eastbound entering from KY; truck parking",
+          "parking": 20
+        },
+        {
+          "mm": 4,
+          "exit": "4",
+          "name": "Flying J Travel Center",
+          "brand": "Flying J",
+          "type": "truck_stop",
+          "city": "Clarksville",
+          "approx": true,
+          "notes": "US-79",
+          "parking": 90
+        },
+        {
+          "mm": 47,
+          "exit": "47",
+          "name": "TA Nashville",
+          "brand": "TA",
+          "type": "truck_stop",
+          "city": "Nashville",
+          "approx": true,
+          "notes": "N 1st St, downtown Nashville",
+          "parking": 190
+        },
+        {
+          "mm": 62,
+          "exit": "62",
+          "name": "Pilot Travel Center",
+          "brand": "Pilot",
+          "type": "truck_stop",
+          "city": "Antioch (Nashville)",
+          "approx": true,
+          "notes": "Old Hickory Blvd",
+          "parking": 85
+        },
+        {
+          "mm": 62,
+          "exit": "62",
+          "name": "Blue Beacon Truck Wash",
+          "brand": "Independent",
+          "type": "truck_wash",
+          "city": "Antioch (Nashville)",
+          "approx": false,
+          "notes": "Blue Beacon of Nashville, 611 Muci Dr off Exit 62; near Pilot Travel Center"
+        },
+        {
+          "mm": 84,
+          "exit": "84",
+          "name": "Buc-ee's",
+          "brand": "Buc-ee's",
+          "type": "truck_stop",
+          "city": "Murfreesboro",
+          "approx": true,
+          "notes": "No semi parking; under construction, opening Nov 16, 2026 (announced); exit 84 (Joe B Jackson Pkwy); 120 fueling positions",
+          "parking": 0
+        },
+        {
+          "mm": 87,
+          "exit": "87",
+          "name": "Coffee County Rest Area (both directions)",
+          "brand": "State",
+          "type": "rest_area",
+          "city": "Beechgrove",
+          "approx": true,
+          "parking": 30
+        },
+        {
+          "mm": 114,
+          "exit": "114",
+          "name": "Pilot Travel Center",
+          "brand": "Pilot",
+          "type": "truck_stop",
+          "city": "Manchester",
+          "approx": true,
+          "notes": "US-41",
+          "parking": 85
+        },
+        {
+          "mm": 115,
+          "exit": "115",
+          "name": "Weigh Station (WB)",
+          "brand": "State",
+          "type": "weigh_station",
+          "city": "Manchester",
+          "approx": false,
+          "notes": "THP Coffee County scale complex, MM 115 westbound; PrePass"
+        },
+        {
+          "mm": 135,
+          "exit": "135",
+          "name": "Pilot Travel Center",
+          "brand": "Pilot",
+          "type": "truck_stop",
+          "city": "Monteagle",
+          "approx": true,
+          "notes": "Atop Monteagle Mountain; check brakes for grade",
+          "parking": 85
+        },
+        {
+          "mm": 152,
+          "exit": "152",
+          "name": "Pilot Travel Center",
+          "brand": "Pilot",
+          "type": "truck_stop",
+          "city": "Kimball",
+          "approx": true,
+          "notes": "US-72, South Pittsburg area",
+          "parking": 85
+        },
+        {
+          "mm": 174,
+          "exit": "174",
+          "name": "Pilot Travel Center",
+          "brand": "Pilot",
+          "type": "truck_stop",
+          "city": "Chattanooga (Lookout Valley)",
+          "approx": true,
+          "notes": "Browns Ferry Rd",
+          "parking": 85
+        },
+        {
+          "mm": 174,
+          "exit": "174",
+          "name": "Love's Travel Stop",
+          "brand": "Love's",
+          "type": "truck_stop",
+          "city": "Chattanooga (Lookout Valley)",
+          "approx": true,
+          "notes": "Browns Ferry Rd",
+          "parking": 85
+        }
+      ]
+    },
+    "I-26": {
+      "maxMM": 50,
+      "stops": [
+        {
+          "mm": 13,
+          "exit": "13",
+          "name": "Pilot Travel Center",
+          "brand": "Pilot",
+          "type": "truck_stop",
+          "city": "Gray",
+          "approx": true,
+          "notes": "Tri-Cities area between Johnson City and Kingsport",
+          "parking": 85
+        },
+        {
+          "mm": 46,
+          "exit": "46",
+          "name": "Tennessee Welcome Center (westbound)",
+          "brand": "State",
+          "type": "rest_area",
+          "city": "Flag Pond (Unicoi County)",
+          "approx": true,
+          "parking": 15
+        }
+      ]
+    },
+    "I-40": {
+      "maxMM": 451,
+      "stops": [
+        {
+          "mm": 1,
+          "exit": "1",
+          "name": "Tennessee Welcome Center (Memphis)",
+          "brand": "State",
+          "type": "rest_area",
+          "city": "Memphis",
+          "approx": true,
+          "notes": "Riverside Dr, serves eastbound entering from AR; limited truck parking",
+          "parking": 5
+        },
+        {
+          "mm": 12,
+          "exit": "12",
+          "name": "Pilot Travel Center",
+          "brand": "Pilot",
+          "type": "truck_stop",
+          "city": "Memphis",
+          "approx": true,
+          "notes": "Sycamore View Rd",
+          "parking": 85
+        },
+        {
+          "mm": 35,
+          "exit": "35",
+          "name": "Love's Travel Stop",
+          "brand": "Love's",
+          "type": "truck_stop",
+          "city": "Stanton",
+          "approx": true,
+          "notes": "",
+          "parking": 85
+        },
+        {
+          "mm": 45,
+          "exit": "45",
+          "name": "Fayette County Rest Area (both directions)",
+          "brand": "State",
+          "type": "rest_area",
+          "city": "Stanton",
+          "approx": true,
+          "parking": 30
+        },
+        {
+          "mm": 50,
+          "exit": "50",
+          "name": "Weigh Station (WB)",
+          "brand": "State",
+          "type": "weigh_station",
+          "city": "Brownsville",
+          "approx": false,
+          "notes": "THP Haywood County scale complex, MM 50 westbound; PrePass"
+        },
+        {
+          "mm": 56,
+          "exit": "56",
+          "name": "Pilot Travel Center",
+          "brand": "Pilot",
+          "type": "truck_stop",
+          "city": "Brownsville",
+          "approx": true,
+          "notes": "TN-76",
+          "parking": 85
+        },
+        {
+          "mm": 80,
+          "exit": "80",
+          "name": "Pilot Travel Center",
+          "brand": "Pilot",
+          "type": "truck_stop",
+          "city": "Jackson",
+          "approx": true,
+          "notes": "US-45 Bypass",
+          "parking": 85
+        },
+        {
+          "mm": 87,
+          "exit": "87",
+          "name": "Love's Travel Stop",
+          "brand": "Love's",
+          "type": "truck_stop",
+          "city": "Jackson",
+          "approx": true,
+          "notes": "",
+          "parking": 85
+        },
+        {
+          "mm": 126,
+          "exit": "126",
+          "name": "Pilot Travel Center",
+          "brand": "Pilot",
+          "type": "truck_stop",
+          "city": "Holladay",
+          "approx": true,
+          "notes": "TN-69, Camden/Holladay",
+          "parking": 85
+        },
+        {
+          "mm": 126,
+          "exit": "126",
+          "name": "Finish Line Truck Wash",
+          "brand": "Independent",
+          "type": "truck_wash",
+          "city": "Holladay",
+          "approx": false,
+          "notes": "Exit 126; near Pilot Travel Center"
+        },
+        {
+          "mm": 131,
+          "exit": "131",
+          "name": "Rest Area (both directions)",
+          "brand": "State",
+          "type": "rest_area",
+          "city": "Tennessee River",
+          "approx": true,
+          "notes": "Near Tennessee River crossing; truck parking",
+          "parking": 25
+        },
+        {
+          "mm": 172,
+          "exit": "172",
+          "name": "TA Dickson",
+          "brand": "TA",
+          "type": "truck_stop",
+          "city": "Dickson",
+          "approx": false,
+          "notes": "TN-46",
+          "parking": 190
+        },
+        {
+          "mm": 172,
+          "exit": "172",
+          "name": "Love's Travel Stop",
+          "brand": "Love's",
+          "type": "truck_stop",
+          "city": "Dickson",
+          "approx": true,
+          "notes": "TN-46",
+          "parking": 85
+        },
+        {
+          "mm": 182,
+          "exit": "182",
+          "name": "Finish Line Truck Wash",
+          "brand": "Independent",
+          "type": "truck_wash",
+          "city": "Fairview",
+          "approx": false,
+          "notes": "1512 Hwy 96 N, Exit 182 (TN-96)"
+        },
+        {
+          "mm": 238,
+          "exit": "238",
+          "name": "Pilot Travel Center",
+          "brand": "Pilot",
+          "type": "truck_stop",
+          "city": "Lebanon",
+          "approx": true,
+          "notes": "US-231",
+          "parking": 85
+        },
+        {
+          "mm": 258,
+          "exit": "258",
+          "name": "Love's Travel Stop",
+          "brand": "Love's",
+          "type": "truck_stop",
+          "city": "Gordonsville",
+          "approx": true,
+          "notes": "TN-53, Carthage/Gordonsville",
+          "parking": 85
+        },
+        {
+          "mm": 267,
+          "exit": "267",
+          "name": "Rest Area (both directions)",
+          "brand": "State",
+          "type": "rest_area",
+          "city": "Smith County",
+          "approx": true,
+          "notes": "Truck parking; serves EB and WB",
+          "parking": 25
+        },
+        {
+          "mm": 280,
+          "exit": "280",
+          "name": "Love's Travel Stop",
+          "brand": "Love's",
+          "type": "truck_stop",
+          "city": "Baxter",
+          "approx": true,
+          "notes": "",
+          "parking": 85
+        },
+        {
+          "mm": 287,
+          "exit": "287",
+          "name": "Pilot Travel Center",
+          "brand": "Pilot",
+          "type": "truck_stop",
+          "city": "Cookeville",
+          "approx": true,
+          "notes": "S Jefferson Ave",
+          "parking": 85
+        },
+        {
+          "mm": 320,
+          "exit": "320",
+          "name": "Buc-ee's",
+          "brand": "Buc-ee's",
+          "type": "truck_stop",
+          "city": "Crossville",
+          "approx": true,
+          "notes": "Genesis Rd; no semi-truck parking",
+          "parking": 0
+        },
+        {
+          "mm": 324,
+          "exit": "324",
+          "name": "Rest Area (both directions)",
+          "brand": "State",
+          "type": "rest_area",
+          "city": "Cumberland Plateau",
+          "approx": true,
+          "notes": "Truck parking; serves EB and WB",
+          "parking": 25
+        },
+        {
+          "mm": 347,
+          "exit": "347",
+          "name": "Pilot Travel Center",
+          "brand": "Pilot",
+          "type": "truck_stop",
+          "city": "Harriman",
+          "approx": true,
+          "notes": "US-27",
+          "parking": 85
+        },
+        {
+          "mm": 369,
+          "exit": "369",
+          "name": "Pilot Travel Center (Watt Road)",
+          "brand": "Pilot",
+          "type": "truck_stop",
+          "city": "Knoxville",
+          "approx": false,
+          "notes": "Watt Rd cluster on I-40/I-75 overlap; near Pilot HQ",
+          "parking": 85
+        },
+        {
+          "mm": 369,
+          "exit": "369",
+          "name": "TA Knoxville (Watt Road)",
+          "brand": "TA",
+          "type": "truck_stop",
+          "city": "Knoxville",
+          "approx": false,
+          "notes": "Watt Rd cluster on I-40/I-75 overlap",
+          "parking": 190
+        },
+        {
+          "mm": 369,
+          "exit": "369",
+          "name": "Petro Knoxville (Watt Road)",
+          "brand": "Petro",
+          "type": "truck_stop",
+          "city": "Knoxville",
+          "approx": false,
+          "notes": "Watt Rd cluster on I-40/I-75 overlap",
+          "parking": 200
+        },
+        {
+          "mm": 369,
+          "exit": "369",
+          "name": "Blue Beacon Truck Wash",
+          "brand": "Independent",
+          "type": "truck_wash",
+          "city": "Knoxville",
+          "approx": false,
+          "notes": "1501 Everett Rd, Watt Road Exit 369 (I-40/I-75); by TA/Petro/Pilot"
+        },
+        {
+          "mm": 372,
+          "exit": "372",
+          "name": "Weigh Station (both directions)",
+          "brand": "State",
+          "type": "weigh_station",
+          "city": "Knoxville (Farragut)",
+          "approx": false,
+          "notes": "THP Knox County scale complex, MM 372 EB and WB on I-40/I-75 overlap; PrePass"
+        },
+        {
+          "mm": 398,
+          "exit": "398",
+          "name": "Pilot Travel Center",
+          "brand": "Pilot",
+          "type": "truck_stop",
+          "city": "Knoxville (Strawberry Plains)",
+          "approx": false,
+          "notes": "Strawberry Plains Pike",
+          "parking": 85
+        },
+        {
+          "mm": 407,
+          "exit": "407",
+          "name": "Buc-ee's",
+          "brand": "Buc-ee's",
+          "type": "truck_stop",
+          "city": "Sevierville",
+          "approx": false,
+          "notes": "TN-66; largest Buc-ee's; no semi-truck parking",
+          "parking": 0
+        },
+        {
+          "mm": 417,
+          "exit": "417",
+          "name": "Love's Travel Stop",
+          "brand": "Love's",
+          "type": "truck_stop",
+          "city": "Dandridge",
+          "approx": true,
+          "notes": "TN-92",
+          "parking": 85
+        },
+        {
+          "mm": 446,
+          "exit": "446",
+          "name": "Tennessee Welcome Center (westbound)",
+          "brand": "State",
+          "type": "rest_area",
+          "city": "Cocke County",
+          "approx": true,
+          "notes": "Serves westbound entering from NC; truck parking",
+          "parking": 20
+        }
+      ]
+    },
+    "I-55": {
+      "maxMM": 13,
+      "stops": [
+        {
+          "mm": 7,
+          "exit": "7",
+          "name": "Flying J Travel Center",
+          "brand": "Flying J",
+          "type": "truck_stop",
+          "city": "Memphis",
+          "approx": true,
+          "notes": "E Brooks Rd, near Memphis airport industrial area",
+          "parking": 90
+        }
+      ]
+    },
+    "I-65": {
+      "maxMM": 122,
+      "stops": [
+        {
+          "mm": 2,
+          "exit": "2",
+          "name": "Tennessee Welcome Center (northbound)",
+          "brand": "State",
+          "type": "rest_area",
+          "city": "Ardmore",
+          "approx": true,
+          "notes": "Serves northbound entering from AL; truck parking",
+          "parking": 20
+        },
+        {
+          "mm": 5,
+          "exit": "5",
+          "name": "Weigh Station (NB)",
+          "brand": "State",
+          "type": "weigh_station",
+          "city": "Ardmore",
+          "approx": false,
+          "notes": "THP Giles County scale complex, MM 5 northbound; PrePass"
+        },
+        {
+          "mm": 32,
+          "exit": "32",
+          "name": "Love's Travel Stop",
+          "brand": "Love's",
+          "type": "truck_stop",
+          "city": "Cornersville",
+          "approx": true,
+          "notes": "",
+          "parking": 85
+        },
+        {
+          "mm": 119,
+          "exit": "119",
+          "name": "Weigh Station (both directions)",
+          "brand": "State",
+          "type": "weigh_station",
+          "city": "Mitchellville (Portland)",
+          "approx": true,
+          "notes": "THP scale complex near KY line (Robertson County per THP), NB scale house at MM 119; PrePass"
+        },
+        {
+          "mm": 121,
+          "exit": "121",
+          "name": "Tennessee Welcome Center (southbound)",
+          "brand": "State",
+          "type": "rest_area",
+          "city": "Mitchellville",
+          "approx": true,
+          "notes": "Serves southbound entering from KY; truck parking",
+          "parking": 20
+        }
+      ]
+    },
+    "I-69": {
+      "maxMM": 191,
+      "stops": []
+    },
+    "I-75": {
+      "maxMM": 162,
+      "stops": [
+        {
+          "mm": 1,
+          "exit": "1",
+          "name": "Tennessee Welcome Center (northbound)",
+          "brand": "State",
+          "type": "rest_area",
+          "city": "Chattanooga (East Ridge)",
+          "approx": true,
+          "notes": "Serves northbound entering from GA; truck parking",
+          "parking": 20
+        },
+        {
+          "mm": 20,
+          "exit": "20",
+          "name": "Pilot Travel Center",
+          "brand": "Pilot",
+          "type": "truck_stop",
+          "city": "Cleveland",
+          "approx": true,
+          "notes": "US-64",
+          "parking": 85
+        },
+        {
+          "mm": 45,
+          "exit": "45",
+          "name": "McMinn County Rest Area (both directions)",
+          "brand": "State",
+          "type": "rest_area",
+          "city": "Niota (Athens)",
+          "approx": true,
+          "parking": 30
+        },
+        {
+          "mm": 49,
+          "exit": "49",
+          "name": "Pilot Travel Center",
+          "brand": "Pilot",
+          "type": "truck_stop",
+          "city": "Athens",
+          "approx": true,
+          "notes": "TN-30",
+          "parking": 85
+        },
+        {
+          "mm": 60,
+          "exit": "60",
+          "name": "TA Sweetwater",
+          "brand": "TA",
+          "type": "truck_stop",
+          "city": "Sweetwater",
+          "approx": false,
+          "notes": "TN-68",
+          "parking": 190
+        },
+        {
+          "mm": 117,
+          "exit": "117",
+          "name": "Flying J Travel Center",
+          "brand": "Flying J",
+          "type": "truck_stop",
+          "city": "Heiskell (Knoxville north)",
+          "approx": false,
+          "notes": "Raccoon Valley Rd",
+          "parking": 90
+        },
+        {
+          "mm": 134,
+          "exit": "134",
+          "name": "Pilot Travel Center",
+          "brand": "Pilot",
+          "type": "truck_stop",
+          "city": "Caryville",
+          "approx": true,
+          "notes": "US-25W",
+          "parking": 85
+        },
+        {
+          "mm": 161,
+          "exit": "161",
+          "name": "Tennessee Welcome Center (southbound)",
+          "brand": "State",
+          "type": "rest_area",
+          "city": "Jellico",
+          "approx": true,
+          "notes": "Serves southbound entering from KY; truck parking. Watt Rd cluster (Pilot/TA/Petro) is on I-40/I-75 overlap at I-40 exit 369",
+          "parking": 20
+        }
+      ]
+    },
+    "I-81": {
+      "maxMM": 76,
+      "stops": [
+        {
+          "mm": 4,
+          "exit": "4",
+          "name": "Love's Travel Stop",
+          "brand": "Love's",
+          "type": "truck_stop",
+          "city": "White Pine",
+          "approx": true,
+          "notes": "",
+          "parking": 85
+        },
+        {
+          "mm": 21,
+          "exit": "21",
+          "name": "Weigh Station (SB)",
+          "brand": "State",
+          "type": "weigh_station",
+          "city": "Mosheim (Greeneville)",
+          "approx": false,
+          "notes": "THP Greene County scale complex, MM 21 southbound; PrePass"
+        },
+        {
+          "mm": 36,
+          "exit": "36",
+          "name": "Love's Travel Stop",
+          "brand": "Love's",
+          "type": "truck_stop",
+          "city": "Baileyton (Greeneville)",
+          "approx": true,
+          "notes": "Baileyton Rd",
+          "parking": 85
+        },
+        {
+          "mm": 75,
+          "exit": "75",
+          "name": "Tennessee Welcome Center (southbound)",
+          "brand": "State",
+          "type": "rest_area",
+          "city": "Bristol area",
+          "approx": true,
+          "notes": "Serves southbound entering from VA; truck parking",
+          "parking": 20
+        }
+      ]
+    }
+  }
+}

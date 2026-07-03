@@ -1,0 +1,477 @@
+{
+ "state": "Montana",
+ "abbr": "MT",
+ "note": "Exit numbers equal mileposts statewide. Town Pump is Montana's dominant homegrown truck stop chain (listed as brand Independent). I-15 and I-90 share the roadway around Butte (exits ~121-129); Butte-area stops are listed under I-90. Services are sparse on I-94 east of Miles City and on I-15 north of Great Falls.",
+ "interstates": {
+  "I-15": {
+   "maxMM": 398,
+   "stops": [
+    {
+     "mm": 15,
+     "exit": "15",
+     "name": "Lima Rest Area (both directions)",
+     "brand": "State",
+     "type": "rest_area",
+     "city": "Lima",
+     "approx": true,
+     "notes": "First/last rest area near Monida Pass and the Idaho line; truck parking",
+     "parking": 15
+    },
+    {
+     "mm": 63,
+     "exit": "63",
+     "name": "Town Pump",
+     "brand": "Independent",
+     "type": "truck_stop",
+     "city": "Dillon",
+     "approx": true,
+     "notes": "Town Pump chain",
+     "parking": 40
+    },
+    {
+     "mm": 192,
+     "exit": "192",
+     "name": "Town Pump",
+     "brand": "Independent",
+     "type": "truck_stop",
+     "city": "Helena",
+     "approx": true,
+     "notes": "Cedar St exit; Town Pump chain",
+     "parking": 40
+    },
+    {
+     "mm": 244,
+     "exit": "244",
+     "name": "Dearborn Rest Area (both directions)",
+     "brand": "State",
+     "type": "rest_area",
+     "city": "Craig (Dearborn River)",
+     "approx": true,
+     "notes": "Between Helena and Great Falls; truck parking",
+     "parking": 20
+    },
+    {
+     "mm": 277,
+     "exit": "277",
+     "name": "Flying J Travel Center",
+     "brand": "Flying J",
+     "type": "truck_stop",
+     "city": "Great Falls",
+     "approx": false,
+     "notes": "31st St SW, southwest Great Falls",
+     "parking": 90
+    },
+    {
+     "mm": 363,
+     "exit": "363",
+     "name": "Town Pump",
+     "brand": "Independent",
+     "type": "truck_stop",
+     "city": "Shelby",
+     "approx": true,
+     "notes": "Last major services before Sweetgrass port of entry (Canada)",
+     "parking": 50
+    }
+   ]
+  },
+  "I-90": {
+   "maxMM": 554,
+   "stops": [
+    {
+     "mm": 5,
+     "exit": "5",
+     "name": "Dena Mora Rest Area (both directions)",
+     "brand": "State",
+     "type": "rest_area",
+     "city": "Saltese (Lookout Pass)",
+     "approx": true,
+     "notes": "Near the Idaho line below Lookout Pass; truck parking",
+     "parking": 15
+    },
+    {
+     "mm": 5,
+     "exit": "5",
+     "name": "Dena Mora Weigh Station (EB)",
+     "brand": "State",
+     "type": "weigh_station",
+     "city": "Saltese (Lookout Pass)",
+     "approx": true,
+     "notes": "MDT scale near the Idaho line; eastbound entering from Idaho; co-located with Dena Mora rest area"
+    },
+    {
+     "mm": 16,
+     "exit": "16",
+     "name": "Lincoln's 50,000 Silver Dollar",
+     "brand": "Independent",
+     "type": "truck_stop",
+     "city": "Haugan",
+     "approx": false,
+     "notes": "Landmark independent stop near Lookout Pass",
+     "parking": 40
+    },
+    {
+     "mm": 33,
+     "exit": "33",
+     "name": "St. Regis Travel Center",
+     "brand": "Independent",
+     "type": "truck_stop",
+     "city": "St. Regis",
+     "approx": true,
+     "notes": "MT-135 junction",
+     "parking": 50
+    },
+    {
+     "mm": 58,
+     "exit": "58",
+     "name": "Quartz Flats Rest Area (both directions)",
+     "brand": "State",
+     "type": "rest_area",
+     "city": "Superior",
+     "approx": true,
+     "notes": "Between St. Regis and Missoula; truck parking, adjacent USFS campground",
+     "parking": 20
+    },
+    {
+     "mm": 90,
+     "exit": "90",
+     "name": "Weigh Station (both directions)",
+     "brand": "State",
+     "type": "weigh_station",
+     "city": "Missoula",
+     "approx": true,
+     "notes": "MDT scale west of Missoula"
+    },
+    {
+     "mm": 96,
+     "exit": "96",
+     "name": "Muralt's Travel Plaza",
+     "brand": "Independent",
+     "type": "truck_stop",
+     "city": "Missoula",
+     "approx": false,
+     "notes": "Longtime independent full-service plaza, west Missoula",
+     "parking": 80
+    },
+    {
+     "mm": 96,
+     "exit": "96",
+     "name": "Pilot Travel Center",
+     "brand": "Pilot",
+     "type": "truck_stop",
+     "city": "Missoula",
+     "approx": true,
+     "notes": "US-10 W near airport (former Flying J Crossroads)",
+     "parking": 75
+    },
+    {
+     "mm": 96,
+     "exit": "96",
+     "name": "Exit 96 Shine Truck & RV Wash",
+     "brand": "Independent",
+     "type": "truck_wash",
+     "city": "Missoula",
+     "approx": true,
+     "notes": "Independent truck and RV wash off exit 96"
+    },
+    {
+     "mm": 101,
+     "exit": "101",
+     "name": "Town Pump",
+     "brand": "Independent",
+     "type": "truck_stop",
+     "city": "Missoula",
+     "approx": true,
+     "notes": "Reserve St; Town Pump chain",
+     "parking": 40
+    },
+    {
+     "mm": 122,
+     "exit": "122",
+     "name": "Flying J Travel Center",
+     "brand": "Flying J",
+     "type": "truck_stop",
+     "city": "Butte (Rocker)",
+     "approx": false,
+     "notes": "Rocker interchange; on I-15/I-90 overlap",
+     "parking": 100
+    },
+    {
+     "mm": 122,
+     "exit": "122",
+     "name": "Town Pump Rocker Travel Plaza",
+     "brand": "Independent",
+     "type": "truck_stop",
+     "city": "Butte (Rocker)",
+     "approx": false,
+     "notes": "Rocker interchange; on I-15/I-90 overlap",
+     "parking": 80
+    },
+    {
+     "mm": 127,
+     "exit": "127",
+     "name": "Town Pump",
+     "brand": "Independent",
+     "type": "truck_stop",
+     "city": "Butte",
+     "approx": true,
+     "notes": "Harrison Ave; on I-15/I-90 overlap",
+     "parking": 40
+    },
+    {
+     "mm": 144,
+     "exit": "144",
+     "name": "Bearmouth Rest Area (both directions)",
+     "brand": "State",
+     "type": "rest_area",
+     "city": "Drummond (Bearmouth)",
+     "approx": true,
+     "notes": "Between Missoula and Deer Lodge in the Clark Fork canyon; truck parking",
+     "parking": 20
+    },
+    {
+     "mm": 274,
+     "exit": "274",
+     "name": "Town Pump",
+     "brand": "Independent",
+     "type": "truck_stop",
+     "city": "Three Forks",
+     "approx": true,
+     "notes": "US-287 junction",
+     "parking": 50
+    },
+    {
+     "mm": 298,
+     "exit": "298",
+     "name": "Flying J Travel Center",
+     "brand": "Flying J",
+     "type": "truck_stop",
+     "city": "Belgrade",
+     "approx": false,
+     "notes": "Jackrabbit Ln, near Bozeman airport",
+     "parking": 90
+    },
+    {
+     "mm": 306,
+     "exit": "306",
+     "name": "Town Pump",
+     "brand": "Independent",
+     "type": "truck_stop",
+     "city": "Bozeman",
+     "approx": true,
+     "notes": "N 7th Ave area; Town Pump chain",
+     "parking": 40
+    },
+    {
+     "mm": 333,
+     "exit": "333",
+     "name": "Town Pump",
+     "brand": "Independent",
+     "type": "truck_stop",
+     "city": "Livingston",
+     "approx": true,
+     "notes": "Town Pump chain",
+     "parking": 40
+    },
+    {
+     "mm": 367,
+     "exit": "367",
+     "name": "Town Pump",
+     "brand": "Independent",
+     "type": "truck_stop",
+     "city": "Big Timber",
+     "approx": true,
+     "notes": "Town Pump chain",
+     "parking": 40
+    },
+    {
+     "mm": 377,
+     "exit": "377",
+     "name": "Greycliff Rest Area (both directions)",
+     "brand": "State",
+     "type": "rest_area",
+     "city": "Greycliff (Big Timber)",
+     "approx": true,
+     "notes": "Between Big Timber and Reed Point; truck parking",
+     "parking": 20
+    },
+    {
+     "mm": 408,
+     "exit": "408",
+     "name": "Town Pump",
+     "brand": "Independent",
+     "type": "truck_stop",
+     "city": "Columbus",
+     "approx": false,
+     "notes": "Large Town Pump travel plaza",
+     "parking": 60
+    },
+    {
+     "mm": 432,
+     "exit": "432",
+     "name": "Love's Travel Stop",
+     "brand": "Love's",
+     "type": "truck_stop",
+     "city": "Laurel",
+     "approx": false,
+     "notes": "Opened April 2026; Exit 432; largest Love's at 21,532 sq ft",
+     "parking": 177
+    },
+    {
+     "mm": 437,
+     "exit": "437",
+     "name": "Weigh Station (both directions)",
+     "brand": "State",
+     "type": "weigh_station",
+     "city": "Laurel (Billings)",
+     "approx": true,
+     "notes": "MDT scale at the Mossmain interchange west of Billings"
+    },
+    {
+     "mm": 450,
+     "exit": "450",
+     "name": "Pilot Travel Center",
+     "brand": "Pilot",
+     "type": "truck_stop",
+     "city": "Billings",
+     "approx": true,
+     "notes": "East Billings",
+     "parking": 80
+    },
+    {
+     "mm": 450,
+     "exit": "450",
+     "name": "Hoogies Industrial Cleaning",
+     "brand": "Independent",
+     "type": "truck_wash",
+     "city": "Billings",
+     "approx": true,
+     "notes": "Trailer washouts by appointment, State Ave"
+    },
+    {
+     "mm": 455,
+     "exit": "455",
+     "name": "Flying J Travel Center",
+     "brand": "Flying J",
+     "type": "truck_stop",
+     "city": "Billings",
+     "approx": false,
+     "notes": "Johnson Lane interchange, near I-90/I-94 split",
+     "parking": 100
+    },
+    {
+     "mm": 455,
+     "exit": "455",
+     "name": "TA Billings",
+     "brand": "TA",
+     "type": "truck_stop",
+     "city": "Billings",
+     "approx": true,
+     "notes": "Johnson Lane interchange cluster",
+     "parking": 150
+    },
+    {
+     "mm": 455,
+     "exit": "455",
+     "name": "Fly In Lube & Wash",
+     "brand": "Independent",
+     "type": "truck_wash",
+     "city": "Billings (Lockwood)",
+     "approx": true,
+     "notes": "Johnson Ln; near Town Pump/Pilot truck stop"
+    },
+    {
+     "mm": 495,
+     "exit": "495",
+     "name": "Love's Travel Stop",
+     "brand": "Love's",
+     "type": "truck_stop",
+     "city": "Hardin",
+     "approx": true,
+     "notes": "Last major services before Wyoming line",
+     "parking": 75
+    },
+    {
+     "mm": 495,
+     "exit": "495",
+     "name": "Weigh Station (both directions)",
+     "brand": "State",
+     "type": "weigh_station",
+     "city": "Hardin",
+     "approx": true,
+     "notes": "MDT scale near Hardin"
+    }
+   ]
+  },
+  "I-94": {
+   "maxMM": 249,
+   "stops": [
+    {
+     "mm": 65,
+     "exit": "65",
+     "name": "Hysham Rest Area (both directions)",
+     "brand": "State",
+     "type": "rest_area",
+     "city": "Hysham",
+     "approx": true,
+     "notes": "Between Custer and Forsyth; truck parking",
+     "parking": 15
+    },
+    {
+     "mm": 95,
+     "exit": "95",
+     "name": "Town Pump",
+     "brand": "Independent",
+     "type": "truck_stop",
+     "city": "Forsyth",
+     "approx": true,
+     "notes": "Town Pump chain",
+     "parking": 40
+    },
+    {
+     "mm": 138,
+     "exit": "138",
+     "name": "Town Pump",
+     "brand": "Independent",
+     "type": "truck_stop",
+     "city": "Miles City",
+     "approx": true,
+     "notes": "Town Pump chain",
+     "parking": 45
+    },
+    {
+     "mm": 192,
+     "exit": "192",
+     "name": "Bad Route Rest Area",
+     "brand": "State",
+     "type": "rest_area",
+     "city": "Fallon (Bad Route Rd)",
+     "approx": false,
+     "notes": "Both directions; well-known overnight truck parking, no fuel",
+     "parking": 30
+    },
+    {
+     "mm": 215,
+     "exit": "215",
+     "name": "Town Pump",
+     "brand": "Independent",
+     "type": "truck_stop",
+     "city": "Glendive",
+     "approx": true,
+     "notes": "Town Pump chain; last major services before North Dakota",
+     "parking": 40
+    },
+    {
+     "mm": 241,
+     "exit": "241",
+     "name": "Wibaux Rest Area / Montana Welcome Center (WB only)",
+     "brand": "State",
+     "type": "rest_area",
+     "city": "Wibaux",
+     "approx": true,
+     "notes": "Serves westbound traffic entering from North Dakota; truck parking",
+     "parking": 15
+    }
+   ]
+  }
+ }
+}

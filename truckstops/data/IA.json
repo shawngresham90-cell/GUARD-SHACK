@@ -1,0 +1,506 @@
+{
+ "state": "Iowa",
+ "abbr": "IA",
+ "interstates": {
+  "I-29": {
+   "maxMM": 152,
+   "stops": [
+    {
+     "mm": 10,
+     "exit": "10",
+     "name": "Sapp Bros Travel Center",
+     "brand": "Sapp Bros",
+     "type": "truck_stop",
+     "city": "Percival",
+     "approx": false,
+     "notes": "I-29 x US-2, near Nebraska City bridge",
+     "parking": 100
+    },
+    {
+     "mm": 75,
+     "exit": "75",
+     "name": "Love's Travel Stop",
+     "brand": "Love's",
+     "type": "truck_stop",
+     "city": "Missouri Valley",
+     "approx": true,
+     "notes": "I-29 x US-30",
+     "parking": 80
+    },
+    {
+     "mm": 110,
+     "exit": "110",
+     "name": "Onawa Rest Area (both directions)",
+     "brand": "State",
+     "type": "rest_area",
+     "city": "Onawa",
+     "approx": true,
+     "parking": 25
+    },
+    {
+     "mm": 112,
+     "exit": "112",
+     "name": "Kum & Go",
+     "brand": "Kum & Go",
+     "type": "truck_stop",
+     "city": "Onawa",
+     "approx": true,
+     "notes": "IA-175 interchange",
+     "parking": 25
+    },
+    {
+     "mm": 139,
+     "exit": "139",
+     "name": "Salix Rest Area",
+     "brand": "State",
+     "type": "rest_area",
+     "city": "Salix",
+     "approx": true,
+     "notes": "NB and SB, truck parking",
+     "parking": 30
+    },
+    {
+     "mm": 140,
+     "exit": "140",
+     "name": "Weigh Station (SB)",
+     "brand": "State",
+     "type": "weigh_station",
+     "city": "Salix",
+     "approx": true,
+     "notes": "Iowa DOT Salix (Lakeport) scale; SB side active, former opposite-side scale converted to truck parking; PrePass"
+    },
+    {
+     "mm": 141,
+     "exit": "141",
+     "name": "Pilot Travel Center",
+     "brand": "Pilot",
+     "type": "truck_stop",
+     "city": "Sioux City",
+     "approx": true,
+     "notes": "Singing Hills Blvd exit",
+     "parking": 75
+    }
+   ]
+  },
+  "I-35": {
+   "maxMM": 219,
+   "stops": [
+    {
+     "mm": 7,
+     "exit": "7",
+     "name": "Lamoni Welcome Center Rest Area (NB only)",
+     "brand": "State",
+     "type": "rest_area",
+     "city": "Lamoni",
+     "approx": true,
+     "notes": "NB welcome center just north of Missouri line",
+     "parking": 15
+    },
+    {
+     "mm": 33,
+     "exit": "33",
+     "name": "Pilot Travel Center",
+     "brand": "Pilot",
+     "type": "truck_stop",
+     "city": "Osceola",
+     "approx": true,
+     "notes": "US-34 interchange",
+     "parking": 75
+    },
+    {
+     "mm": 120,
+     "exit": "120",
+     "name": "Story City Rest Area (both directions)",
+     "brand": "State",
+     "type": "rest_area",
+     "city": "Story City",
+     "approx": true,
+     "parking": 30
+    },
+    {
+     "mm": 159,
+     "exit": "159",
+     "name": "Dows Rest Area",
+     "brand": "State",
+     "type": "rest_area",
+     "city": "Dows",
+     "approx": true,
+     "notes": "NB and SB, truck parking",
+     "parking": 30
+    },
+    {
+     "mm": 194,
+     "exit": "194",
+     "name": "Pilot Travel Center",
+     "brand": "Pilot",
+     "type": "truck_stop",
+     "city": "Clear Lake",
+     "approx": true,
+     "notes": "I-35 x US-18",
+     "parking": 80
+    },
+    {
+     "mm": 213,
+     "exit": "213",
+     "name": "Weigh Station (SB)",
+     "brand": "State",
+     "type": "weigh_station",
+     "city": "Northwood",
+     "approx": true,
+     "notes": "Iowa DOT Worth County scale for SB traffic entering from Minnesota; PrePass"
+    },
+    {
+     "mm": 214,
+     "exit": "214",
+     "name": "Top of Iowa Welcome Center",
+     "brand": "State",
+     "type": "rest_area",
+     "city": "Northwood",
+     "approx": true,
+     "notes": "SB welcome center near MN line, truck parking",
+     "parking": 25
+    }
+   ]
+  },
+  "I-74": {
+   "maxMM": 6,
+   "stops": []
+  },
+  "I-80": {
+   "maxMM": 306,
+   "stops": [
+    {
+     "mm": 1,
+     "exit": "1B",
+     "name": "Pilot Travel Center",
+     "brand": "Pilot",
+     "type": "truck_stop",
+     "city": "Council Bluffs",
+     "approx": false,
+     "notes": "S 24th St, near I-29 junction",
+     "parking": 70
+    },
+    {
+     "mm": 1,
+     "exit": "1B",
+     "name": "Sapp Bros Travel Center",
+     "brand": "Sapp Bros",
+     "type": "truck_stop",
+     "city": "Council Bluffs",
+     "approx": true,
+     "notes": "S 24th St corridor at I-80/I-29 junction",
+     "parking": 90
+    },
+    {
+     "mm": 1,
+     "exit": "1B",
+     "name": "Blue Beacon Truck Wash",
+     "brand": "Independent",
+     "type": "truck_wash",
+     "city": "Council Bluffs",
+     "approx": false,
+     "notes": "S 24th St on I-80/I-29 overlap; entry at north end of Sapp Bros"
+    },
+    {
+     "mm": 3,
+     "exit": "3",
+     "name": "TA Council Bluffs",
+     "brand": "TA",
+     "type": "truck_stop",
+     "city": "Council Bluffs",
+     "approx": true,
+     "parking": 150
+    },
+    {
+     "mm": 19,
+     "exit": "19",
+     "name": "Underwood Rest Area",
+     "brand": "State",
+     "type": "rest_area",
+     "city": "Underwood",
+     "approx": true,
+     "notes": "EB and WB, truck parking; WB side serves as western Iowa welcome center",
+     "parking": 35
+    },
+    {
+     "mm": 40,
+     "exit": "40",
+     "name": "TA Express Avoca",
+     "brand": "TA Express",
+     "type": "truck_stop",
+     "city": "Avoca",
+     "approx": false,
+     "notes": "Former Wings America travel plaza",
+     "parking": 60
+    },
+    {
+     "mm": 40,
+     "exit": "40",
+     "name": "Wings Truck Wash",
+     "brand": "Independent",
+     "type": "truck_wash",
+     "city": "Avoca",
+     "approx": false,
+     "notes": "E York Rd, north side of exit 40"
+    },
+    {
+     "mm": 80,
+     "exit": "80",
+     "name": "Adair Rest Area",
+     "brand": "State",
+     "type": "rest_area",
+     "city": "Adair",
+     "approx": true,
+     "notes": "EB mm 80, WB mm 81, truck parking",
+     "parking": 30
+    },
+    {
+     "mm": 106,
+     "exit": "106",
+     "name": "Pilot Travel Center",
+     "brand": "Pilot",
+     "type": "truck_stop",
+     "city": "De Soto",
+     "approx": false,
+     "parking": 75
+    },
+    {
+     "mm": 106,
+     "exit": "106",
+     "name": "Kum & Go",
+     "brand": "Kum & Go",
+     "type": "truck_stop",
+     "city": "De Soto",
+     "approx": true,
+     "parking": 25
+    },
+    {
+     "mm": 115,
+     "exit": "115",
+     "name": "Weigh Station (EB)",
+     "brand": "State",
+     "type": "weigh_station",
+     "city": "Van Meter",
+     "approx": false,
+     "notes": "Iowa DOT Dallas County scale east of Van Meter, near De Soto; PrePass"
+    },
+    {
+     "mm": 142,
+     "exit": "142",
+     "name": "Flying J Travel Center",
+     "brand": "Flying J",
+     "type": "truck_stop",
+     "city": "Altoona",
+     "approx": false,
+     "notes": "Des Moines east side, Adventureland Dr",
+     "parking": 100
+    },
+    {
+     "mm": 142,
+     "exit": "142",
+     "name": "Pilot Travel Center",
+     "brand": "Pilot",
+     "type": "truck_stop",
+     "city": "Altoona",
+     "approx": true,
+     "parking": 80
+    },
+    {
+     "mm": 142,
+     "exit": "142",
+     "name": "Love's Travel Stop",
+     "brand": "Love's",
+     "type": "truck_stop",
+     "city": "Bondurant",
+     "approx": true,
+     "notes": "North of I-80 via US-65 toward Bondurant",
+     "parking": 80
+    },
+    {
+     "mm": 142,
+     "exit": "142",
+     "name": "Blue Beacon Truck Wash",
+     "brand": "Independent",
+     "type": "truck_wash",
+     "city": "Altoona",
+     "approx": false,
+     "notes": "Adventureland Dr; near Pilot Travel Center (Des Moines area)"
+    },
+    {
+     "mm": 148,
+     "exit": "148",
+     "name": "Mitchellville Rest Area",
+     "brand": "State",
+     "type": "rest_area",
+     "city": "Mitchellville",
+     "approx": true,
+     "notes": "EB and WB, truck parking",
+     "parking": 35
+    },
+    {
+     "mm": 151,
+     "exit": "151",
+     "name": "Weigh Station (WB)",
+     "brand": "State",
+     "type": "weigh_station",
+     "city": "Mitchellville",
+     "approx": false,
+     "notes": "Iowa DOT Jasper County scale; PrePass"
+    },
+    {
+     "mm": 180,
+     "exit": "180",
+     "name": "Grinnell Rest Area",
+     "brand": "State",
+     "type": "rest_area",
+     "city": "Grinnell",
+     "approx": true,
+     "notes": "EB and WB, truck parking",
+     "parking": 30
+    },
+    {
+     "mm": 208,
+     "exit": "208",
+     "name": "Victor Rest Area (WB)",
+     "brand": "State",
+     "type": "rest_area",
+     "city": "Victor",
+     "approx": false,
+     "notes": "Reopened Feb 2026; 19 truck spaces now, expanding to 36 in phase 2",
+     "parking": 19
+    },
+    {
+     "mm": 211,
+     "exit": "211",
+     "name": "Casey's General Store",
+     "brand": "Casey's",
+     "type": "truck_stop",
+     "city": "Brooklyn",
+     "approx": true,
+     "notes": "Limited truck parking",
+     "parking": 10
+    },
+    {
+     "mm": 220,
+     "exit": "220",
+     "name": "Pilot Travel Center",
+     "brand": "Pilot",
+     "type": "truck_stop",
+     "city": "Williamsburg",
+     "approx": true,
+     "notes": "Near Tanger Outlets",
+     "parking": 80
+    },
+    {
+     "mm": 268,
+     "exit": "268",
+     "name": "Wilton Rest Area",
+     "brand": "State",
+     "type": "rest_area",
+     "city": "Wilton",
+     "approx": true,
+     "notes": "EB mm 268, WB mm 270, truck parking",
+     "parking": 30
+    },
+    {
+     "mm": 268,
+     "exit": "268",
+     "name": "Weigh Station (WB)",
+     "brand": "State",
+     "type": "weigh_station",
+     "city": "Wilton",
+     "approx": true,
+     "notes": "Iowa DOT Cedar County scale between exits 265 and 270; reported closed with scale house removed - verify status"
+    },
+    {
+     "mm": 284,
+     "exit": "284",
+     "name": "Iowa 80 Truckstop (World's Largest)",
+     "brand": "Independent",
+     "type": "truck_stop",
+     "city": "Walcott",
+     "approx": false,
+     "notes": "World's largest truck stop; 900+ truck spaces, Truckers Jamboree",
+     "parking": 900
+    },
+    {
+     "mm": 284,
+     "exit": "284",
+     "name": "Pilot Travel Center",
+     "brand": "Pilot",
+     "type": "truck_stop",
+     "city": "Walcott",
+     "approx": true,
+     "notes": "Across from Iowa 80",
+     "parking": 75
+    },
+    {
+     "mm": 284,
+     "exit": "284",
+     "name": "Blue Beacon Truck Wash",
+     "brand": "Independent",
+     "type": "truck_wash",
+     "city": "Walcott",
+     "approx": false,
+     "notes": "Walker St, adjacent to Iowa 80 Truckstop"
+    },
+    {
+     "mm": 284,
+     "exit": "284",
+     "name": "Truckomat Truck Wash",
+     "brand": "Independent",
+     "type": "truck_wash",
+     "city": "Walcott",
+     "approx": false,
+     "notes": "At Iowa 80 Truckstop (Iowa 80 Group); NW corner of complex"
+    },
+    {
+     "mm": 292,
+     "exit": "292",
+     "name": "Flying J Travel Center",
+     "brand": "Flying J",
+     "type": "truck_stop",
+     "city": "Davenport",
+     "approx": false,
+     "parking": 100
+    },
+    {
+     "mm": 292,
+     "exit": "292",
+     "name": "Love's Travel Stop",
+     "brand": "Love's",
+     "type": "truck_stop",
+     "city": "Davenport",
+     "approx": true,
+     "parking": 80
+    },
+    {
+     "mm": 295,
+     "exit": "295",
+     "name": "Pilot Travel Center",
+     "brand": "Pilot",
+     "type": "truck_stop",
+     "city": "Davenport",
+     "approx": true,
+     "parking": 70
+    }
+   ]
+  },
+  "I-380": {
+   "maxMM": 73,
+   "stops": [
+    {
+     "mm": 68,
+     "exit": "68",
+     "name": "Flying J Travel Center",
+     "brand": "Flying J",
+     "type": "truck_stop",
+     "city": "Evansdale",
+     "approx": true,
+     "notes": "Waterloo east side",
+     "parking": 90
+    }
+   ]
+  }
+ }
+}

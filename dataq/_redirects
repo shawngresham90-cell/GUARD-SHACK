@@ -1,0 +1,3 @@
+# The app is index.html, so "/" serves it natively — no root rewrite needed.
+# Keep old links to /dataq.html working after the rename.
+/dataq.html    /    301

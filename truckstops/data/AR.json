@@ -1,0 +1,413 @@
+{
+ "state": "Arkansas",
+ "abbr": "AR",
+ "interstates": {
+  "I-30": {
+   "maxMM": 143,
+   "stops": [
+    {
+     "mm": 1,
+     "exit": "",
+     "name": "Texarkana Welcome Center",
+     "brand": "State",
+     "type": "rest_area",
+     "city": "Texarkana",
+     "approx": true,
+     "notes": "Eastbound entering from Texas; AR welcome center; truck parking",
+     "parking": 20
+    },
+    {
+     "mm": 26,
+     "exit": "26",
+     "name": "Weigh Station (both directions)",
+     "brand": "State",
+     "type": "weigh_station",
+     "city": "Hope",
+     "approx": true,
+     "notes": "Arkansas Highway Police scales about 4 miles southwest of Hope near Guernsey; separate EB and WB stations; milepost estimated; PrePass"
+    },
+    {
+     "mm": 44,
+     "exit": "44",
+     "name": "Love's Travel Stop",
+     "brand": "Love's",
+     "type": "truck_stop",
+     "city": "Prescott",
+     "approx": true,
+     "notes": "Hwy 24 interchange",
+     "parking": 80
+    },
+    {
+     "mm": 93,
+     "exit": "",
+     "name": "Social Hill Rest Area",
+     "brand": "State",
+     "type": "rest_area",
+     "city": "Social Hill",
+     "approx": true,
+     "notes": "Serves both directions; truck parking; between Malvern and Arkadelphia",
+     "parking": 30
+    },
+    {
+     "mm": 114,
+     "exit": "114",
+     "name": "Buc-ee's",
+     "brand": "Buc-ee's",
+     "type": "truck_stop",
+     "city": "Benton",
+     "approx": true,
+     "notes": "No semi parking; under construction, opening Aug 17, 2026 (announced); exit 114; first Arkansas location",
+     "parking": 0
+    },
+    {
+     "mm": 118,
+     "exit": "118",
+     "name": "Love's Travel Stop",
+     "brand": "Love's",
+     "type": "truck_stop",
+     "city": "Benton",
+     "approx": true,
+     "notes": "Benton/Bryant area southwest of Little Rock",
+     "parking": 80
+    }
+   ]
+  },
+  "I-40": {
+   "maxMM": 285,
+   "stops": [
+    {
+     "mm": 1,
+     "exit": "",
+     "name": "Van Buren Welcome Center",
+     "brand": "State",
+     "type": "rest_area",
+     "city": "Van Buren",
+     "approx": true,
+     "notes": "Eastbound entering from Oklahoma; AR welcome center; truck parking",
+     "parking": 20
+    },
+    {
+     "mm": 7,
+     "exit": "7",
+     "name": "Pilot Travel Center",
+     "brand": "Pilot",
+     "type": "truck_stop",
+     "city": "Van Buren",
+     "approx": false,
+     "notes": "",
+     "parking": 75
+    },
+    {
+     "mm": 9,
+     "exit": "9",
+     "name": "Weigh Station (both directions)",
+     "brand": "State",
+     "type": "weigh_station",
+     "city": "Alma",
+     "approx": true,
+     "notes": "Arkansas Highway Police scales about 4 miles west of Alma; separate EB and WB stations; PrePass"
+    },
+    {
+     "mm": 13,
+     "exit": "13",
+     "name": "Love's Travel Stop",
+     "brand": "Love's",
+     "type": "truck_stop",
+     "city": "Alma",
+     "approx": true,
+     "notes": "At the I-40/I-49 junction",
+     "parking": 90
+    },
+    {
+     "mm": 35,
+     "exit": "35",
+     "name": "Ozark Rest Area (both directions)",
+     "brand": "State",
+     "type": "rest_area",
+     "city": "Ozark",
+     "approx": true,
+     "parking": 20
+    },
+    {
+     "mm": 37,
+     "exit": "37",
+     "name": "Love's Travel Stop",
+     "brand": "Love's",
+     "type": "truck_stop",
+     "city": "Ozark",
+     "approx": true,
+     "notes": "",
+     "parking": 80
+    },
+    {
+     "mm": 84,
+     "exit": "84",
+     "name": "Love's Travel Stop",
+     "brand": "Love's",
+     "type": "truck_stop",
+     "city": "Russellville",
+     "approx": true,
+     "notes": "East Russellville",
+     "parking": 90
+    },
+    {
+     "mm": 161,
+     "exit": "161",
+     "name": "Petro Stopping Center",
+     "brand": "Petro",
+     "type": "truck_stop",
+     "city": "North Little Rock",
+     "approx": false,
+     "notes": "US 70 exit; large full-service stop",
+     "parking": 200
+    },
+    {
+     "mm": 161,
+     "exit": "161",
+     "name": "Pilot Travel Center",
+     "brand": "Pilot",
+     "type": "truck_stop",
+     "city": "North Little Rock",
+     "approx": false,
+     "notes": "US 70 exit, same interchange as the Petro",
+     "parking": 80
+    },
+    {
+     "mm": 161,
+     "exit": "161",
+     "name": "Blue Beacon Truck Wash",
+     "brand": "Independent",
+     "type": "truck_wash",
+     "city": "North Little Rock",
+     "approx": false,
+     "notes": "3210 Valentine Rd, exit 161; at the Petro"
+    },
+    {
+     "mm": 175,
+     "exit": "175",
+     "name": "Love's Travel Stop",
+     "brand": "Love's",
+     "type": "truck_stop",
+     "city": "Lonoke",
+     "approx": true,
+     "notes": "Hwy 31 interchange",
+     "parking": 85
+    },
+    {
+     "mm": 193,
+     "exit": "193",
+     "name": "Love's Travel Stop",
+     "brand": "Love's",
+     "type": "truck_stop",
+     "city": "Hazen",
+     "approx": true,
+     "notes": "Hwy 11 interchange",
+     "parking": 80
+    },
+    {
+     "mm": 239,
+     "exit": "239",
+     "name": "Love's Travel Stop",
+     "brand": "Love's",
+     "type": "truck_stop",
+     "city": "Forrest City",
+     "approx": true,
+     "notes": "Hwy 261/Forrest City area",
+     "parking": 80
+    },
+    {
+     "mm": 242,
+     "exit": "",
+     "name": "Forrest City Rest Area",
+     "brand": "State",
+     "type": "rest_area",
+     "city": "Forrest City",
+     "approx": true,
+     "notes": "East of Forrest City; truck parking",
+     "parking": 25
+    },
+    {
+     "mm": 274,
+     "exit": "274",
+     "name": "Weigh Station (both directions)",
+     "brand": "State",
+     "type": "weigh_station",
+     "city": "West Memphis",
+     "approx": true,
+     "notes": "Arkansas Highway Police scales west of the West Memphis truck stop cluster; EB scale near mm 273.5 with WB counterpart; PrePass"
+    },
+    {
+     "mm": 278,
+     "exit": "278",
+     "name": "Love's Travel Stop",
+     "brand": "Love's",
+     "type": "truck_stop",
+     "city": "West Memphis",
+     "approx": true,
+     "notes": "Service Loop Rd; west edge of the West Memphis cluster",
+     "parking": 90
+    },
+    {
+     "mm": 279,
+     "exit": "279",
+     "name": "TA West Memphis",
+     "brand": "TA",
+     "type": "truck_stop",
+     "city": "West Memphis",
+     "approx": true,
+     "notes": "Part of the West Memphis cluster near the I-40/I-55 junction",
+     "parking": 175
+    },
+    {
+     "mm": 280,
+     "exit": "280",
+     "name": "Petro West Memphis",
+     "brand": "Petro",
+     "type": "truck_stop",
+     "city": "West Memphis",
+     "approx": true,
+     "notes": "Martin Luther King Blvd; huge lot; West Memphis cluster",
+     "parking": 250
+    },
+    {
+     "mm": 280,
+     "exit": "280",
+     "name": "Flying J Travel Center",
+     "brand": "Flying J",
+     "type": "truck_stop",
+     "city": "West Memphis",
+     "approx": true,
+     "notes": "Martin Luther King Blvd; West Memphis cluster",
+     "parking": 90
+    },
+    {
+     "mm": 280,
+     "exit": "280",
+     "name": "Pilot Travel Center",
+     "brand": "Pilot",
+     "type": "truck_stop",
+     "city": "West Memphis",
+     "approx": true,
+     "notes": "West Memphis cluster",
+     "parking": 80
+    },
+    {
+     "mm": 280,
+     "exit": "280",
+     "name": "Blue Beacon Truck Wash",
+     "brand": "Independent",
+     "type": "truck_wash",
+     "city": "West Memphis",
+     "approx": false,
+     "notes": "3600 Service Loop Rd, exit 280; near Petro/Flying J/Pilot; also serves I-55 exit 4"
+    },
+    {
+     "mm": 282,
+     "exit": "",
+     "name": "West Memphis Welcome Center",
+     "brand": "State",
+     "type": "rest_area",
+     "city": "West Memphis",
+     "approx": true,
+     "notes": "Westbound entering from Tennessee; AR welcome center; truck parking",
+     "parking": 25
+    }
+   ]
+  },
+  "I-49": {
+   "maxMM": 99,
+   "stops": [],
+   "notes": "Two separate segments (Texarkana north to Hwy 71, and Alma/Fort Smith north to the Missouri line, exits ~20-99). No major chain truck stops directly on I-49 in Arkansas; nearest full-service stops are on I-40 at Alma (exit 13) and in Texarkana on I-30."
+  },
+  "I-55": {
+   "maxMM": 72,
+   "stops": [
+    {
+     "mm": 6,
+     "exit": "6",
+     "name": "Weigh Station (both directions)",
+     "brand": "State",
+     "type": "weigh_station",
+     "city": "Marion",
+     "approx": true,
+     "notes": "Arkansas Highway Police NB/SB scales between the Memphis bridge and Marion; milepost estimated; PrePass"
+    },
+    {
+     "mm": 63,
+     "exit": "63",
+     "name": "Pilot Travel Center",
+     "brand": "Pilot",
+     "type": "truck_stop",
+     "city": "Blytheville",
+     "approx": true,
+     "notes": "Hwy 18 interchange",
+     "parking": 75
+    },
+    {
+     "mm": 69,
+     "exit": "",
+     "name": "Blytheville Welcome Center",
+     "brand": "State",
+     "type": "rest_area",
+     "city": "Blytheville",
+     "approx": true,
+     "notes": "Southbound entering from Missouri; AR welcome center; truck parking",
+     "parking": 20
+    }
+   ]
+  },
+  "I-57": {
+   "maxMM": 89,
+   "stops": [
+    {
+     "mm": 55,
+     "exit": "55",
+     "name": "Love's Travel Stop",
+     "brand": "Love's",
+     "type": "truck_stop",
+     "city": "Bald Knob",
+     "approx": true,
+     "notes": "US 67/US 64 junction; corridor newly designated I-57 (formerly US 67 freeway)",
+     "parking": 80
+    }
+   ]
+  },
+  "I-440": {
+   "maxMM": 10,
+   "stops": [
+    {
+     "mm": 3,
+     "exit": "3",
+     "name": "Flying J Travel Center",
+     "brand": "Flying J",
+     "type": "truck_stop",
+     "city": "Little Rock",
+     "approx": true,
+     "notes": "Bankhead Dr, near Clinton National Airport",
+     "parking": 85
+    }
+   ]
+  },
+  "I-530": {
+   "maxMM": 46,
+   "stops": [
+    {
+     "mm": 34,
+     "exit": "34",
+     "name": "Love's Travel Stop",
+     "brand": "Love's",
+     "type": "truck_stop",
+     "city": "White Hall",
+     "approx": true,
+     "notes": "Pine Bluff/White Hall area",
+     "parking": 80
+    }
+   ]
+  },
+  "I-555": {
+   "maxMM": 45,
+   "stops": [],
+   "notes": "Turrell to Jonesboro; no major chain truck stops directly on the route. Nearest full-service stops are on I-55 at Blytheville and the West Memphis cluster on I-40/I-55."
+  }
+ }
+}

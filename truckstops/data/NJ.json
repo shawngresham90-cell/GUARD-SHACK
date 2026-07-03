@@ -1,0 +1,59 @@
+{
+  "state": "New Jersey",
+  "abbr": "NJ",
+  "interstates": {
+    "I-76": {
+      "maxMM": 3,
+      "stops": []
+    },
+    "I-78": {
+      "maxMM": 68,
+      "stops": [
+        {"mm": 5, "exit": "5", "name": "Weigh Station (WB)", "brand": "State", "type": "weigh_station", "city": "Greenwich Township (Bloomsbury)", "approx": true, "notes": "NJSP scales; PrePass"},
+        {"mm": 6, "exit": "6", "name": "Weigh Station (EB)", "brand": "State", "type": "weigh_station", "city": "Bloomsbury (Greenwich Township)", "approx": true, "notes": "NJSP super-coop inspection facility; PrePass"},
+        {"mm": 7, "exit": "7", "name": "TA Travel Center", "brand": "TA", "type": "truck_stop", "city": "Bloomsbury", "approx": false, "notes": "", "parking": 180},
+        {"mm": 7, "exit": "7", "name": "Pilot Travel Center", "brand": "Pilot", "type": "truck_stop", "city": "Bloomsbury", "approx": false, "notes": "", "parking": 80}
+      ]
+    },
+    "I-80": {
+      "maxMM": 68,
+      "stops": [
+        {"mm": 2, "exit": "", "name": "Knowlton Rest Area / Welcome Center", "brand": "State", "type": "rest_area", "city": "Knowlton", "approx": true, "notes": "Eastbound; truck parking", "parking": 25},
+        {"mm": 2, "exit": "2", "name": "Weigh Station (EB)", "brand": "State", "type": "weigh_station", "city": "Knowlton", "approx": false, "notes": "NJSP scales ~1 mi east of PA line; PrePass (motion only)"},
+        {"mm": 4, "exit": "4", "name": "TA Travel Center", "brand": "TA", "type": "truck_stop", "city": "Columbia", "approx": false, "notes": "NJ 94, near Delaware Water Gap", "parking": 150}
+      ]
+    },
+    "I-95": {
+      "maxMM": 117,
+      "stops": [
+        {"mm": 5, "exit": "", "name": "Clara Barton Service Area", "brand": "State", "type": "service_plaza", "city": "Oldmans Township", "approx": false, "notes": "NJ Turnpike milepost 5.4; southbound", "parking": 60},
+        {"mm": 5, "exit": "", "name": "John Fenwick Service Area", "brand": "State", "type": "service_plaza", "city": "Oldmans Township", "approx": false, "notes": "NJ Turnpike milepost 5.4; northbound", "parking": 80},
+        {"mm": 30, "exit": "", "name": "Walt Whitman Service Area", "brand": "State", "type": "service_plaza", "city": "Cherry Hill", "approx": true, "notes": "NJ Turnpike milepost 30.2; northbound", "parking": 50},
+        {"mm": 39, "exit": "", "name": "James Fenimore Cooper Service Area", "brand": "State", "type": "service_plaza", "city": "Mount Laurel", "approx": true, "notes": "NJ Turnpike milepost 39.4; southbound", "parking": 50},
+        {"mm": 54, "exit": "7", "name": "Blue Beacon Truck Wash", "brand": "Independent", "type": "truck_wash", "city": "Bordentown", "approx": true, "notes": "402 Rising Sun Rd; NJ Turnpike Exit 7 (US-206) at approx milepost 54, near Pilot Bordentown"},
+        {"mm": 59, "exit": "", "name": "Richard Stockton Service Area", "brand": "State", "type": "service_plaza", "city": "Hamilton Township", "approx": true, "notes": "NJ Turnpike milepost 58.7; northbound", "parking": 60},
+        {"mm": 59, "exit": "", "name": "Woodrow Wilson Service Area", "brand": "State", "type": "service_plaza", "city": "Hamilton Township", "approx": true, "notes": "NJ Turnpike milepost 58.7; southbound", "parking": 60},
+        {"mm": 72, "exit": "", "name": "Molly Pitcher Service Area", "brand": "State", "type": "service_plaza", "city": "Cranbury", "approx": false, "notes": "NJ Turnpike milepost 71.7; southbound; large truck lot", "parking": 150},
+        {"mm": 79, "exit": "", "name": "Joyce Kilmer Service Area", "brand": "State", "type": "service_plaza", "city": "East Brunswick", "approx": false, "notes": "NJ Turnpike milepost 78.7; northbound", "parking": 100},
+        {"mm": 93, "exit": "", "name": "Thomas Edison Service Area", "brand": "State", "type": "service_plaza", "city": "Woodbridge", "approx": true, "notes": "NJ Turnpike milepost 92.9; northbound", "parking": 60},
+        {"mm": 93, "exit": "", "name": "Grover Cleveland Service Area", "brand": "State", "type": "service_plaza", "city": "Woodbridge", "approx": true, "notes": "NJ Turnpike milepost 92.9; southbound", "parking": 60},
+        {"mm": 112, "exit": "", "name": "Alexander Hamilton Service Area", "brand": "State", "type": "service_plaza", "city": "Secaucus", "approx": true, "notes": "NJ Turnpike milepost 111.6; southbound", "parking": 50},
+        {"mm": 116, "exit": "", "name": "Vince Lombardi Service Area", "brand": "State", "type": "service_plaza", "city": "Ridgefield", "approx": false, "notes": "NJ Turnpike milepost 116, eastern spur; northbound access; major truck parking near NYC", "parking": 140}
+      ]
+    },
+    "I-195": {
+      "maxMM": 34,
+      "stops": []
+    },
+    "I-287": {
+      "maxMM": 67,
+      "stops": []
+    },
+    "I-295": {
+      "maxMM": 77,
+      "stops": [
+        {"mm": 3, "exit": "3", "name": "Weigh Station (NB)", "brand": "State", "type": "weigh_station", "city": "Carneys Point", "approx": false, "notes": "NJSP scales north of Delaware Memorial Bridge approach; PrePass (motion only)"}
+      ]
+    }
+  }
+}

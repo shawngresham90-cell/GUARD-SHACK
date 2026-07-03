@@ -1,0 +1,35 @@
+{
+  "state": "Maine",
+  "abbr": "ME",
+  "note": "Maine Turnpike (I-95 mm 0-109) plazas are run by the Turnpike Authority; Kennebunk (mm 25) is the plaza closest to Wells. North of Bangor plan fuel carefully - Irving Big Stops and Dysart's dominate. The Baileyville Irving Big Stop is OFF the interstate network (US-1/Route 9 near Calais) and is not listed below. Maine I-95 exits are milepost-based. I-295 has no plazas; use the West Gardiner plaza at its northern end (I-95 mm 102).",
+  "interstates": {
+    "I-95": {
+      "maxMM": 303,
+      "stops": [
+        {"mm": 3, "exit": "", "name": "Kittery Welcome Center (Maine Visitor Info) Rest Area (NB only)", "brand": "State", "type": "rest_area", "city": "Kittery", "approx": true, "notes": "Northbound, just past NH line; truck parking, no fuel", "parking": 15},
+        {"mm": 5, "exit": "5", "name": "Weigh Station (NB)", "brand": "State", "type": "weigh_station", "city": "Kittery", "approx": true, "notes": "Maine State Police scale and inspection site, northbound around mm 5.5; PrePass not accepted"},
+        {"mm": 25, "exit": "", "name": "Kennebunk Service Plazas (both directions)", "brand": "State", "type": "service_plaza", "city": "Kennebunk", "approx": false, "notes": "NB and SB Maine Turnpike plazas; 24-hour fuel, food, truck parking; closest plaza to Wells", "parking": 50},
+        {"mm": 58, "exit": "", "name": "Cumberland Service Plaza (NB only)", "brand": "State", "type": "service_plaza", "city": "Cumberland", "approx": true, "notes": "Northbound Maine Turnpike plaza; fuel, food, truck parking", "parking": 30},
+        {"mm": 59, "exit": "", "name": "Gray Service Plaza (SB only)", "brand": "State", "type": "service_plaza", "city": "Gray", "approx": true, "notes": "Southbound Maine Turnpike plaza; fuel, food, truck parking", "parking": 30},
+        {"mm": 102, "exit": "", "name": "West Gardiner Service Plaza (both directions)", "brand": "State", "type": "service_plaza", "city": "West Gardiner", "approx": true, "notes": "At the I-95/I-295 toll junction, serves both directions and both routes; fuel, food, truck parking", "parking": 40},
+        {"mm": 109, "exit": "109", "name": "Pilot Travel Center", "brand": "Pilot", "type": "truck_stop", "city": "Augusta", "approx": true, "notes": "Whitten Rd area off Exit 109; verify location before relying on it", "parking": 75},
+        {"mm": 150, "exit": "150", "name": "Dysart's Travel Stop", "brand": "Independent", "type": "truck_stop", "city": "Pittsfield", "approx": true, "notes": "Somerset Ave at Exit 150; smaller sister location to the Hermon Dysart's", "parking": 50},
+        {"mm": 157, "exit": "157", "name": "Irving Circle K (Big Stop)", "brand": "Irving", "type": "truck_stop", "city": "Newport", "approx": true, "notes": "US-2/ME-7 at Exit 157; fuel and parking, verify Big Stop services", "parking": 40},
+        {"mm": 175, "exit": "", "name": "Hampden Rest Areas (both directions)", "brand": "State", "type": "rest_area", "city": "Hampden", "approx": true, "notes": "NB and SB just south of Bangor; truck parking, no fuel", "parking": 20},
+        {"mm": 180, "exit": "180", "name": "Dysart's Truck Stop & Restaurant", "brand": "Independent", "type": "truck_stop", "city": "Hermon (Bangor)", "approx": false, "notes": "Coldbrook Rd at Exit 180; iconic 24-hour full-service truck stop, restaurant, large lot, scales, service shop", "parking": 150},
+        {"mm": 242, "exit": "242", "name": "Medway Rest Area (both directions)", "brand": "State", "type": "rest_area", "city": "Medway", "approx": true, "notes": "South of the Exit 244 interchange; truck parking, no fuel; seasonal closures possible", "parking": 10},
+        {"mm": 244, "exit": "244", "name": "Irving Big Stop", "brand": "Irving", "type": "truck_stop", "city": "Medway", "approx": true, "notes": "ME-157 at Exit 244, gateway to Millinocket/Katahdin; last major fuel before Houlton", "parking": 40},
+        {"mm": 302, "exit": "302", "name": "Irving Big Stop / Circle K", "brand": "Irving", "type": "truck_stop", "city": "Houlton", "approx": true, "notes": "US-2/Ludlow Rd at Exit 302; last stop before the Canadian border (I-95 ends at mm 303)", "parking": 60},
+        {"mm": 303, "exit": "303", "name": "Houlton Visitor Information Center Rest Area (SB only)", "brand": "State", "type": "rest_area", "city": "Houlton", "approx": true, "notes": "At the Canadian border, serves traffic entering from New Brunswick; truck parking, no fuel", "parking": 10}
+      ]
+    },
+    "I-195": {
+      "maxMM": 2,
+      "stops": []
+    },
+    "I-295": {
+      "maxMM": 53,
+      "stops": []
+    }
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "state": "Alaska",
+  "abbr": "AK",
+  "note": "Alaska's interstates (A-1 through A-4) are unsigned routes; drivers know them by highway names (Glenn, Richardson, Alaska, Seward/Sterling, and Parks Highways) and by highway mileposts, not interstate exits. 'mm' values below are route-relative and approximate; notes give the conventional highway milepost where known. Services are sparse -- fuel up at Anchorage, Fairbanks, Tok, Glennallen, and Delta Junction. Alaska DOT&PF maintains scattered highway waysides and pullouts rather than a formal rest-area system; no public rest areas with designated truck parking exist on these routes, so none are listed.",
+  "interstates": {
+    "A-1": {
+      "maxMM": 328,
+      "stops": [
+        {"mm": 13, "exit": "", "name": "Weigh Station (SB)", "brand": "State", "type": "weigh_station", "city": "Eagle River", "approx": true, "notes": "Alaska DOT&PF CVE scale on the Glenn Hwy at Eagle River (~MP 13); serves Anchorage-bound traffic"},
+        {"mm": 187, "exit": "", "name": "The Hub of Alaska", "brand": "Independent", "type": "truck_stop", "city": "Glennallen", "approx": true, "notes": "Glenn Hwy milepost 189 at Richardson Hwy junction; fuel, parking, store", "parking": 20},
+        {"mm": 328, "exit": "", "name": "Tok junction fuel stops (Young's Chevron / Three Bears Outpost)", "brand": "Independent", "type": "truck_stop", "city": "Tok", "approx": true, "notes": "Alaska Hwy milepost ~1314; main fuel/parking hub between the border and Fairbanks", "parking": 25}
+      ]
+    },
+    "A-2": {
+      "maxMM": 206,
+      "stops": [
+        {"mm": 108, "exit": "", "name": "Delta Petro-Wash", "brand": "Independent", "type": "truck_stop", "city": "Delta Junction", "approx": true, "notes": "Alaska Hwy milepost 1422 area (end of Alaska Hwy); fuel, truck wash, parking", "parking": 15},
+        {"mm": 206, "exit": "", "name": "Sourdough Fuel (Petro Star)", "brand": "Independent", "type": "truck_stop", "city": "Fairbanks", "approx": true, "notes": "Fairbanks terminus; Hilltop Truckstop (Fox, Steese Hwy mile 5.5) just north is the traditional Dalton Hwy jump-off", "parking": 10}
+      ]
+    },
+    "A-3": {
+      "maxMM": 148,
+      "stops": [
+        {"mm": 13, "exit": "", "name": "Potter Weigh Station (both directions)", "brand": "State", "type": "weigh_station", "city": "Anchorage", "approx": true, "notes": "Alaska DOT&PF CVE scale at Seward Hwy milepost 114.5 (Potter, south edge of Anchorage); mm is route-relative from Anchorage"}
+      ]
+    },
+    "A-4": {
+      "maxMM": 324,
+      "stops": [
+        {"mm": 316, "exit": "", "name": "Ester Weigh Station (both directions)", "brand": "State", "type": "weigh_station", "city": "Ester", "approx": true, "notes": "Alaska DOT&PF scale on the Parks Hwy near Ester (~MP 351), west of Fairbanks; operation reported intermittent"}
+      ]
+    }
+  }
+}

@@ -1,0 +1,442 @@
+{
+ "state": "Colorado",
+ "abbr": "CO",
+ "note": "Exit numbers equal mileposts statewide. I-225 and I-270 (Denver loops) have no on-highway truck stops and are omitted. Long service gap on I-70 between Grand Junction and the Denver metro through the mountains; plan fuel accordingly.",
+ "interstates": {
+  "I-25": {
+   "maxMM": 299,
+   "stops": [
+    {
+     "mm": 10,
+     "exit": "10",
+     "name": "Trinidad Port of Entry (NB)",
+     "brand": "State",
+     "type": "weigh_station",
+     "city": "Trinidad",
+     "approx": true,
+     "notes": "CSP port of entry; northbound entering from New Mexico; PrePass"
+    },
+    {
+     "mm": 15,
+     "exit": "15",
+     "name": "Love's Travel Stop",
+     "brand": "Love's",
+     "type": "truck_stop",
+     "city": "Trinidad",
+     "approx": true,
+     "notes": "South end of Trinidad",
+     "parking": 75
+    },
+    {
+     "mm": 18,
+     "exit": "18",
+     "name": "Love's Travel Stop",
+     "brand": "Love's",
+     "type": "truck_stop",
+     "city": "Trinidad",
+     "approx": false,
+     "notes": "Opened November 2025; Exit 18/El Moro Rd",
+     "parking": 65
+    },
+    {
+     "mm": 52,
+     "exit": "52",
+     "name": "Love's Travel Stop",
+     "brand": "Love's",
+     "type": "truck_stop",
+     "city": "Walsenburg",
+     "approx": true,
+     "notes": "US-160 junction",
+     "parking": 80
+    },
+    {
+     "mm": 94,
+     "exit": "94",
+     "name": "Pilot Travel Center",
+     "brand": "Pilot",
+     "type": "truck_stop",
+     "city": "Pueblo",
+     "approx": false,
+     "notes": "Lake Ave, south Pueblo",
+     "parking": 75
+    },
+    {
+     "mm": 94,
+     "exit": "94",
+     "name": "Love's Travel Stop",
+     "brand": "Love's",
+     "type": "truck_stop",
+     "city": "Pueblo",
+     "approx": true,
+     "notes": "Lake Ave area near Pilot",
+     "parking": 70
+    },
+    {
+     "mm": 104,
+     "exit": "104",
+     "name": "TA Pueblo",
+     "brand": "TA",
+     "type": "truck_stop",
+     "city": "Pueblo",
+     "approx": false,
+     "notes": "Opened Dec 2, 2025; 1275 Drew Dix Pkwy, full-service, Black Bear Diner, CAT scale",
+     "parking": 210
+    },
+    {
+     "mm": 160,
+     "exit": "160",
+     "name": "Monument Port of Entry (both directions)",
+     "brand": "State",
+     "type": "weigh_station",
+     "city": "Monument",
+     "approx": true,
+     "notes": "CSP port of entry on Monument Hill between Colorado Springs and Denver; PrePass"
+    },
+    {
+     "mm": 254,
+     "exit": "254",
+     "name": "Johnson's Corner",
+     "brand": "Independent",
+     "type": "truck_stop",
+     "city": "Johnstown",
+     "approx": false,
+     "notes": "Famous landmark truck stop, 24-hr restaurant known for cinnamon rolls",
+     "parking": 100
+    },
+    {
+     "mm": 254,
+     "exit": "254",
+     "name": "Love's Travel Stop",
+     "brand": "Love's",
+     "type": "truck_stop",
+     "city": "Johnstown",
+     "approx": true,
+     "notes": "CO-60 area south of Fort Collins",
+     "parking": 80
+    },
+    {
+     "mm": 268,
+     "exit": "268",
+     "name": "Colorado Welcome Center - Fort Collins Rest Area (both directions via exit)",
+     "brand": "State",
+     "type": "rest_area",
+     "city": "Fort Collins",
+     "approx": true,
+     "notes": "Prospect Rd exit; welcome center for southbound traffic entering from Wyoming; limited truck parking",
+     "parking": 10
+    },
+    {
+     "mm": 269,
+     "exit": "269",
+     "name": "Fort Collins Port of Entry (SB)",
+     "brand": "State",
+     "type": "weigh_station",
+     "city": "Fort Collins",
+     "approx": true,
+     "notes": "CSP port of entry; southbound entering from Wyoming; PrePass"
+    }
+   ]
+  },
+  "I-70": {
+   "maxMM": 449,
+   "stops": [
+    {
+     "mm": 15,
+     "exit": "15",
+     "name": "Loma Port of Entry (EB)",
+     "brand": "State",
+     "type": "weigh_station",
+     "city": "Loma (Fruita)",
+     "approx": true,
+     "notes": "CSP port of entry; eastbound entering from Utah; PrePass"
+    },
+    {
+     "mm": 19,
+     "exit": "19",
+     "name": "Colorado Welcome Center - Fruita",
+     "brand": "State",
+     "type": "rest_area",
+     "city": "Fruita",
+     "approx": false,
+     "notes": "Serves both directions; truck parking",
+     "parking": 20
+    },
+    {
+     "mm": 26,
+     "exit": "26",
+     "name": "Pilot Travel Center",
+     "brand": "Pilot",
+     "type": "truck_stop",
+     "city": "Grand Junction",
+     "approx": true,
+     "notes": "West side of Grand Junction",
+     "parking": 80
+    },
+    {
+     "mm": 90,
+     "exit": "90",
+     "name": "Rifle Rest Area",
+     "brand": "State",
+     "type": "rest_area",
+     "city": "Rifle",
+     "approx": true,
+     "notes": "Both directions; truck parking",
+     "parking": 15
+    },
+    {
+     "mm": 119,
+     "exit": "119",
+     "name": "No Name Rest Area (both directions)",
+     "brand": "State",
+     "type": "rest_area",
+     "city": "Glenwood Springs",
+     "approx": false,
+     "notes": "Glenwood Canyon; limited truck spaces",
+     "parking": 8
+    },
+    {
+     "mm": 121,
+     "exit": "121",
+     "name": "Grizzly Creek Rest Area (both directions)",
+     "brand": "State",
+     "type": "rest_area",
+     "city": "Glenwood Canyon",
+     "approx": true,
+     "notes": "Glenwood Canyon recreation access; very limited truck parking",
+     "parking": 4
+    },
+    {
+     "mm": 129,
+     "exit": "129",
+     "name": "Bair Ranch Rest Area (both directions)",
+     "brand": "State",
+     "type": "rest_area",
+     "city": "Glenwood Canyon (east end)",
+     "approx": false,
+     "notes": "East end of Glenwood Canyon; truck parking",
+     "parking": 10
+    },
+    {
+     "mm": 163,
+     "exit": "163",
+     "name": "Edwards Rest Area",
+     "brand": "State",
+     "type": "rest_area",
+     "city": "Edwards",
+     "approx": false,
+     "notes": "Both directions via exit; truck parking",
+     "parking": 20
+    },
+    {
+     "mm": 190,
+     "exit": "190",
+     "name": "Vail Pass Rest Area",
+     "brand": "State",
+     "type": "rest_area",
+     "city": "Vail Pass",
+     "approx": false,
+     "notes": "Both directions; summit of Vail Pass, chain-up season staging",
+     "parking": 15
+    },
+    {
+     "mm": 234,
+     "exit": "234",
+     "name": "Dumont Port of Entry (EB)",
+     "brand": "State",
+     "type": "weigh_station",
+     "city": "Dumont",
+     "approx": true,
+     "notes": "Famous mountain scales; eastbound below the Eisenhower Tunnel descent, CSP brake inspections and chain-law enforcement; PrePass"
+    },
+    {
+     "mm": 275,
+     "exit": "275",
+     "name": "Pilot Travel Center",
+     "brand": "Pilot",
+     "type": "truck_stop",
+     "city": "Denver",
+     "approx": false,
+     "notes": "Exit 275A, Steele St/Vasquez Blvd",
+     "parking": 60
+    },
+    {
+     "mm": 276,
+     "exit": "276A",
+     "name": "Blue Beacon Truck Wash",
+     "brand": "Independent",
+     "type": "truck_wash",
+     "city": "Denver",
+     "approx": false,
+     "notes": "Behind Pilot Travel Center; north Denver"
+    },
+    {
+     "mm": 278,
+     "exit": "278",
+     "name": "Blue Beacon Truck Wash",
+     "brand": "Independent",
+     "type": "truck_wash",
+     "city": "Commerce City",
+     "approx": false,
+     "notes": "Behind TA Denver, Quebec St (near I-270 interchange)"
+    },
+    {
+     "mm": 285,
+     "exit": "285",
+     "name": "TA Denver East",
+     "brand": "TA",
+     "type": "truck_stop",
+     "city": "Aurora",
+     "approx": false,
+     "notes": "Airport Blvd, east Denver metro",
+     "parking": 175
+    },
+    {
+     "mm": 285,
+     "exit": "285",
+     "name": "Sapp Bros Travel Center",
+     "brand": "Sapp Bros",
+     "type": "truck_stop",
+     "city": "Denver",
+     "approx": true,
+     "notes": "Tower Rd area (exit 285/286); coffee-pot water tower landmark",
+     "parking": 90
+    },
+    {
+     "mm": 310,
+     "exit": "310",
+     "name": "Love's Travel Stop",
+     "brand": "Love's",
+     "type": "truck_stop",
+     "city": "Strasburg",
+     "approx": true,
+     "notes": "",
+     "parking": 80
+    },
+    {
+     "mm": 328,
+     "exit": "328",
+     "name": "Deer Trail Rest Area (both directions)",
+     "brand": "State",
+     "type": "rest_area",
+     "city": "Deer Trail",
+     "approx": true,
+     "notes": "Eastern plains rest area between Denver and Limon; truck parking",
+     "parking": 15
+    },
+    {
+     "mm": 356,
+     "exit": "356",
+     "name": "Limon Port of Entry (WB)",
+     "brand": "State",
+     "type": "weigh_station",
+     "city": "Limon",
+     "approx": true,
+     "notes": "CSP port of entry; westbound entering from Kansas; PrePass"
+    },
+    {
+     "mm": 359,
+     "exit": "359",
+     "name": "Flying J Travel Center",
+     "brand": "Flying J",
+     "type": "truck_stop",
+     "city": "Limon",
+     "approx": false,
+     "notes": "Major junction cluster (I-70/US-24/US-40/US-287)",
+     "parking": 90
+    },
+    {
+     "mm": 359,
+     "exit": "359",
+     "name": "TA Limon",
+     "brand": "TA",
+     "type": "truck_stop",
+     "city": "Limon",
+     "approx": false,
+     "notes": "Same junction cluster as Flying J",
+     "parking": 150
+    },
+    {
+     "mm": 437,
+     "exit": "437",
+     "name": "Colorado Welcome Center - Burlington",
+     "brand": "State",
+     "type": "rest_area",
+     "city": "Burlington",
+     "approx": true,
+     "notes": "Serves westbound traffic entering from Kansas; truck parking",
+     "parking": 15
+    }
+   ]
+  },
+  "I-76": {
+   "maxMM": 184,
+   "stops": [
+    {
+     "mm": 31,
+     "exit": "31",
+     "name": "Love's Travel Stop",
+     "brand": "Love's",
+     "type": "truck_stop",
+     "city": "Hudson",
+     "approx": false,
+     "notes": "CO-52 junction",
+     "parking": 80
+    },
+    {
+     "mm": 34,
+     "exit": "34",
+     "name": "Pilot Travel Center",
+     "brand": "Pilot",
+     "type": "truck_stop",
+     "city": "Hudson",
+     "approx": false,
+     "notes": "New build, opened July/August 2025; 7044 County Rd 49, ~32 mi NE of Denver; 8 fuel lanes, 9 showers",
+     "parking": 117
+    },
+    {
+     "mm": 80,
+     "exit": "80",
+     "name": "Love's Travel Stop",
+     "brand": "Love's",
+     "type": "truck_stop",
+     "city": "Fort Morgan",
+     "approx": true,
+     "notes": "Fort Morgan/Brush area services",
+     "parking": 75
+    },
+    {
+     "mm": 90,
+     "exit": "90",
+     "name": "Fort Morgan Port of Entry (both directions)",
+     "brand": "State",
+     "type": "weigh_station",
+     "city": "Fort Morgan",
+     "approx": true,
+     "notes": "CSP port of entry east of Fort Morgan; PrePass"
+    },
+    {
+     "mm": 125,
+     "exit": "125",
+     "name": "Sterling Rest Area",
+     "brand": "State",
+     "type": "rest_area",
+     "city": "Sterling",
+     "approx": true,
+     "notes": "Both directions; truck parking",
+     "parking": 20
+    },
+    {
+     "mm": 180,
+     "exit": "180",
+     "name": "Colorado Welcome Center - Julesburg",
+     "brand": "State",
+     "type": "rest_area",
+     "city": "Julesburg",
+     "approx": false,
+     "notes": "Serves westbound traffic entering from Nebraska; truck parking",
+     "parking": 15
+    }
+   ]
+  }
+ }
+}

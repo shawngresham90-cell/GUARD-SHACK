@@ -1,0 +1,624 @@
+{
+ "state": "Arizona",
+ "abbr": "AZ",
+ "interstates": {
+  "I-8": {
+   "maxMM": 178,
+   "stops": [
+    {
+     "mm": 3,
+     "exit": "3",
+     "name": "Pilot Travel Center",
+     "brand": "Pilot",
+     "type": "truck_stop",
+     "city": "Yuma",
+     "approx": true,
+     "notes": "Gila Ridge Rd area",
+     "parking": 70
+    },
+    {
+     "mm": 12,
+     "exit": "12",
+     "name": "Love's Travel Stop",
+     "brand": "Love's",
+     "type": "truck_stop",
+     "city": "Yuma",
+     "approx": true,
+     "notes": "Fortuna Rd / Foothills area",
+     "parking": 80
+    },
+    {
+     "mm": 55,
+     "exit": "",
+     "name": "Mohawk Rest Area",
+     "brand": "State",
+     "type": "rest_area",
+     "city": "Mohawk",
+     "approx": true,
+     "notes": "Serves both directions; truck parking",
+     "parking": 15
+    },
+    {
+     "mm": 67,
+     "exit": "67",
+     "name": "Dateland Travel Center",
+     "brand": "Independent",
+     "type": "truck_stop",
+     "city": "Dateland",
+     "approx": false,
+     "notes": "Famous for date shakes; truck parking and fuel",
+     "parking": 50
+    },
+    {
+     "mm": 85,
+     "exit": "",
+     "name": "Sentinel Rest Area",
+     "brand": "State",
+     "type": "rest_area",
+     "city": "Sentinel",
+     "approx": true,
+     "notes": "Serves both directions; truck parking",
+     "parking": 15
+    },
+    {
+     "mm": 116,
+     "exit": "116",
+     "name": "Love's Travel Stop",
+     "brand": "Love's",
+     "type": "truck_stop",
+     "city": "Gila Bend",
+     "approx": true,
+     "notes": "Butterfield Trail exit",
+     "parking": 75
+    }
+   ]
+  },
+  "I-10": {
+   "maxMM": 391,
+   "stops": [
+    {
+     "mm": 1,
+     "exit": "1",
+     "name": "Flying J Travel Center",
+     "brand": "Flying J",
+     "type": "truck_stop",
+     "city": "Ehrenberg",
+     "approx": false,
+     "notes": "First exit east of the California line",
+     "parking": 125
+    },
+    {
+     "mm": 1,
+     "exit": "1",
+     "name": "Extreme Clean Truck & RV Wash",
+     "brand": "Independent",
+     "type": "truck_wash",
+     "city": "Ehrenberg",
+     "approx": true,
+     "notes": "14190 Flying J Rd, at the Flying J exit 1"
+    },
+    {
+     "mm": 4,
+     "exit": "4",
+     "name": "Ehrenberg Port of Entry (EB)",
+     "brand": "State",
+     "type": "weigh_station",
+     "city": "Ehrenberg",
+     "approx": false,
+     "notes": "ADOT commercial port at MP 3.8, eastbound entering from California; PrePass/Drivewyze bypass available"
+    },
+    {
+     "mm": 17,
+     "exit": "17",
+     "name": "Love's Travel Stop",
+     "brand": "Love's",
+     "type": "truck_stop",
+     "city": "Quartzsite",
+     "approx": false,
+     "notes": "",
+     "parking": 80
+    },
+    {
+     "mm": 17,
+     "exit": "17",
+     "name": "Pilot Travel Center",
+     "brand": "Pilot",
+     "type": "truck_stop",
+     "city": "Quartzsite",
+     "approx": true,
+     "notes": "",
+     "parking": 75
+    },
+    {
+     "mm": 52,
+     "exit": "",
+     "name": "Bouse Wash Rest Area",
+     "brand": "State",
+     "type": "rest_area",
+     "city": "Quartzsite (east of)",
+     "approx": true,
+     "notes": "Serves both directions; truck parking",
+     "parking": 20
+    },
+    {
+     "mm": 86,
+     "exit": "",
+     "name": "Burnt Well Rest Area",
+     "brand": "State",
+     "type": "rest_area",
+     "city": "Tonopah (west of)",
+     "approx": true,
+     "notes": "Serves both directions; truck parking",
+     "parking": 20
+    },
+    {
+     "mm": 94,
+     "exit": "94",
+     "name": "Love's Travel Stop",
+     "brand": "Love's",
+     "type": "truck_stop",
+     "city": "Tonopah",
+     "approx": true,
+     "notes": "411th Ave exit",
+     "parking": 85
+    },
+    {
+     "mm": 114,
+     "exit": "114",
+     "name": "Love's Travel Stop",
+     "brand": "Love's",
+     "type": "truck_stop",
+     "city": "Buckeye",
+     "approx": false,
+     "notes": "Miller Rd exit",
+     "parking": 90
+    },
+    {
+     "mm": 127,
+     "exit": "127",
+     "name": "Buc-ee's",
+     "brand": "Buc-ee's",
+     "type": "truck_stop",
+     "city": "Goodyear",
+     "approx": false,
+     "notes": "No semi parking; opened June 22, 2026; exit 127 (Bullard Ave); 120 fueling positions",
+     "parking": 0
+    },
+    {
+     "mm": 133,
+     "exit": "133",
+     "name": "TA Phoenix",
+     "brand": "TA",
+     "type": "truck_stop",
+     "city": "Phoenix",
+     "approx": true,
+     "notes": "91st Ave, west Phoenix",
+     "parking": 200
+    },
+    {
+     "mm": 135,
+     "exit": "135",
+     "name": "Blue Beacon Truck Wash",
+     "brand": "Independent",
+     "type": "truck_wash",
+     "city": "Tolleson",
+     "approx": false,
+     "notes": "8423 W Roosevelt St, exit 135; TA Phoenix at exit 133 nearby"
+    },
+    {
+     "mm": 181,
+     "exit": "",
+     "name": "Sacaton Rest Area",
+     "brand": "State",
+     "type": "rest_area",
+     "city": "Gila River Indian Community",
+     "approx": true,
+     "notes": "Serves both directions; truck parking",
+     "parking": 25
+    },
+    {
+     "mm": 200,
+     "exit": "200",
+     "name": "Petro Stopping Center",
+     "brand": "Petro",
+     "type": "truck_stop",
+     "city": "Eloy",
+     "approx": false,
+     "notes": "Sunland Gin Rd; major full-service stop",
+     "parking": 250
+    },
+    {
+     "mm": 200,
+     "exit": "200",
+     "name": "Pilot Travel Center",
+     "brand": "Pilot",
+     "type": "truck_stop",
+     "city": "Eloy",
+     "approx": true,
+     "notes": "Sunland Gin Rd",
+     "parking": 80
+    },
+    {
+     "mm": 200,
+     "exit": "200",
+     "name": "Blue Beacon Truck Wash",
+     "brand": "Independent",
+     "type": "truck_wash",
+     "city": "Eloy",
+     "approx": false,
+     "notes": "5265 S Sunland Gin Rd, exit 200; at the Petro (listed as Casa Grande)"
+    },
+    {
+     "mm": 203,
+     "exit": "203",
+     "name": "Love's Travel Stop",
+     "brand": "Love's",
+     "type": "truck_stop",
+     "city": "Eloy",
+     "approx": false,
+     "notes": "Opened December 2025; Exit 203/Toltec Rd",
+     "parking": 129
+    },
+    {
+     "mm": 208,
+     "exit": "208",
+     "name": "Blue Beacon Truck Wash",
+     "brand": "Independent",
+     "type": "truck_wash",
+     "city": "Eloy",
+     "approx": false,
+     "notes": "Eloy East location, 1172 S Sunshine Blvd, exit 208; near Flying J"
+    },
+    {
+     "mm": 219,
+     "exit": "219",
+     "name": "Bowlin's Picacho Peak Plaza",
+     "brand": "Independent",
+     "type": "truck_stop",
+     "city": "Picacho",
+     "approx": true,
+     "notes": "Bowlin's Travel Centers location; fuel and store",
+     "parking": 25
+    },
+    {
+     "mm": 236,
+     "exit": "236",
+     "name": "Pilot Travel Center",
+     "brand": "Pilot",
+     "type": "truck_stop",
+     "city": "Marana",
+     "approx": true,
+     "notes": "Marana Rd exit",
+     "parking": 80
+    },
+    {
+     "mm": 262,
+     "exit": "262",
+     "name": "Pilot Travel Center",
+     "brand": "Pilot",
+     "type": "truck_stop",
+     "city": "Tucson",
+     "approx": true,
+     "notes": "Benson Hwy area",
+     "parking": 70
+    },
+    {
+     "mm": 268,
+     "exit": "268",
+     "name": "Triple T Truck Stop",
+     "brand": "Independent",
+     "type": "truck_stop",
+     "city": "Tucson",
+     "approx": false,
+     "notes": "Craycroft Rd; longtime TTT independent full-service stop",
+     "parking": 150
+    },
+    {
+     "mm": 304,
+     "exit": "304",
+     "name": "Love's Travel Stop",
+     "brand": "Love's",
+     "type": "truck_stop",
+     "city": "Benson",
+     "approx": true,
+     "notes": "Ocotillo Rd exit",
+     "parking": 80
+    },
+    {
+     "mm": 320,
+     "exit": "",
+     "name": "Texas Canyon Rest Area",
+     "brand": "State",
+     "type": "rest_area",
+     "city": "Dragoon",
+     "approx": true,
+     "notes": "Serves both directions; truck parking; scenic boulder area",
+     "parking": 30
+    },
+    {
+     "mm": 340,
+     "exit": "340",
+     "name": "Love's Travel Stop",
+     "brand": "Love's",
+     "type": "truck_stop",
+     "city": "Willcox",
+     "approx": true,
+     "notes": "Rex Allen Dr exit",
+     "parking": 75
+    },
+    {
+     "mm": 387,
+     "exit": "387",
+     "name": "San Simon Port of Entry (WB)",
+     "brand": "State",
+     "type": "weigh_station",
+     "city": "San Simon",
+     "approx": true,
+     "notes": "ADOT commercial port, westbound about 4 miles west of the NM line; weigh-in-motion; PrePass/Drivewyze bypass available"
+    },
+    {
+     "mm": 389,
+     "exit": "",
+     "name": "San Simon Rest Area",
+     "brand": "State",
+     "type": "rest_area",
+     "city": "San Simon",
+     "approx": true,
+     "notes": "Near NM line; truck parking",
+     "parking": 25
+    }
+   ]
+  },
+  "I-11": {
+   "maxMM": 1,
+   "stops": []
+  },
+  "I-15": {
+   "maxMM": 29,
+   "stops": []
+  },
+  "I-17": {
+   "maxMM": 341,
+   "stops": [
+    {
+     "mm": 252,
+     "exit": "",
+     "name": "Sunset Point Rest Area",
+     "brand": "State",
+     "type": "rest_area",
+     "city": "Black Canyon City (north of)",
+     "approx": false,
+     "notes": "New 19-space commercial truck lot opened 2026 (total 46 truck spaces); $4.1M ADOT project",
+     "parking": 19
+    },
+    {
+     "mm": 287,
+     "exit": "287",
+     "name": "Pilot Travel Center",
+     "brand": "Pilot",
+     "type": "truck_stop",
+     "city": "Camp Verde",
+     "approx": false,
+     "notes": "SR-260 exit",
+     "parking": 70
+    },
+    {
+     "mm": 297,
+     "exit": "",
+     "name": "McGuireville Rest Area",
+     "brand": "State",
+     "type": "rest_area",
+     "city": "McGuireville",
+     "approx": true,
+     "notes": "Serves both directions; truck parking",
+     "parking": 20
+    }
+   ]
+  },
+  "I-19": {
+   "maxMM": 101,
+   "stops": [
+    {
+     "mm": 42,
+     "exit": "",
+     "name": "Canoa Ranch Rest Area",
+     "brand": "State",
+     "type": "rest_area",
+     "city": "Green Valley (south of)",
+     "approx": true,
+     "notes": "km-based exits; I-19 is posted in kilometers; serves both directions; truck parking",
+     "parking": 15
+    }
+   ]
+  },
+  "I-40": {
+   "maxMM": 359,
+   "stops": [
+    {
+     "mm": 4,
+     "exit": "4",
+     "name": "Topock Port of Entry (EB)",
+     "brand": "State",
+     "type": "weigh_station",
+     "city": "Topock",
+     "approx": false,
+     "notes": "ADOT commercial port at MP 3.8, eastbound entering from California; PrePass/Drivewyze bypass available"
+    },
+    {
+     "mm": 23,
+     "exit": "",
+     "name": "Haviland Rest Area",
+     "brand": "State",
+     "type": "rest_area",
+     "city": "Kingman (west of)",
+     "approx": true,
+     "notes": "Serves both directions; truck parking",
+     "parking": 20
+    },
+    {
+     "mm": 48,
+     "exit": "48",
+     "name": "TA Kingman",
+     "brand": "TA",
+     "type": "truck_stop",
+     "city": "Kingman",
+     "approx": true,
+     "notes": "West Beale St side of Kingman",
+     "parking": 150
+    },
+    {
+     "mm": 53,
+     "exit": "53",
+     "name": "Flying J Travel Center",
+     "brand": "Flying J",
+     "type": "truck_stop",
+     "city": "Kingman",
+     "approx": true,
+     "notes": "Andy Devine Ave / US-93",
+     "parking": 100
+    },
+    {
+     "mm": 53,
+     "exit": "53",
+     "name": "Love's Travel Stop",
+     "brand": "Love's",
+     "type": "truck_stop",
+     "city": "Kingman",
+     "approx": true,
+     "notes": "Andy Devine Ave",
+     "parking": 80
+    },
+    {
+     "mm": 66,
+     "exit": "66",
+     "name": "Petro Stopping Center",
+     "brand": "Petro",
+     "type": "truck_stop",
+     "city": "Kingman",
+     "approx": false,
+     "notes": "Blake Ranch Rd; large full-service stop",
+     "parking": 200
+    },
+    {
+     "mm": 66,
+     "exit": "66",
+     "name": "Blue Beacon Truck Wash",
+     "brand": "Independent",
+     "type": "truck_wash",
+     "city": "Kingman",
+     "approx": false,
+     "notes": "3270 E Andy Devine Ave, exit 66; at the Petro"
+    },
+    {
+     "mm": 161,
+     "exit": "161",
+     "name": "Love's Travel Stop",
+     "brand": "Love's",
+     "type": "truck_stop",
+     "city": "Williams",
+     "approx": false,
+     "notes": "",
+     "parking": 80
+    },
+    {
+     "mm": 185,
+     "exit": "185",
+     "name": "Pilot Travel Center",
+     "brand": "Pilot",
+     "type": "truck_stop",
+     "city": "Bellemont",
+     "approx": false,
+     "notes": "West of Flagstaff",
+     "parking": 90
+    },
+    {
+     "mm": 198,
+     "exit": "198",
+     "name": "Little America Travel Center",
+     "brand": "Independent",
+     "type": "truck_stop",
+     "city": "Flagstaff",
+     "approx": false,
+     "notes": "Historic full-service travel center and hotel",
+     "parking": 100
+    },
+    {
+     "mm": 235,
+     "exit": "",
+     "name": "Meteor Crater Rest Area",
+     "brand": "State",
+     "type": "rest_area",
+     "city": "Winslow (west of)",
+     "approx": false,
+     "notes": "Serves both directions; truck parking",
+     "parking": 25
+    },
+    {
+     "mm": 253,
+     "exit": "253",
+     "name": "Flying J Travel Center",
+     "brand": "Flying J",
+     "type": "truck_stop",
+     "city": "Winslow",
+     "approx": false,
+     "notes": "North Park Dr exit",
+     "parking": 80
+    },
+    {
+     "mm": 255,
+     "exit": "255",
+     "name": "Love's Travel Stop",
+     "brand": "Love's",
+     "type": "truck_stop",
+     "city": "Winslow",
+     "approx": false,
+     "notes": "Opened June 2025; Exit 255/Transcon Ln",
+     "parking": 81
+    },
+    {
+     "mm": 277,
+     "exit": "277",
+     "name": "Love's Travel Stop",
+     "brand": "Love's",
+     "type": "truck_stop",
+     "city": "Joseph City",
+     "approx": false,
+     "notes": "Large, busy location between Winslow and Holbrook",
+     "parking": 100
+    },
+    {
+     "mm": 283,
+     "exit": "283",
+     "name": "Hopi Travel Plaza",
+     "brand": "Independent",
+     "type": "truck_stop",
+     "city": "Holbrook",
+     "approx": true,
+     "notes": "Tribal-operated travel plaza",
+     "parking": 75
+    },
+    {
+     "mm": 340,
+     "exit": "340",
+     "name": "Sanders Port of Entry (WB)",
+     "brand": "State",
+     "type": "weigh_station",
+     "city": "Sanders",
+     "approx": false,
+     "notes": "ADOT commercial port at MP 340, westbound entering from New Mexico; PrePass/Drivewyze bypass available"
+    },
+    {
+     "mm": 359,
+     "exit": "",
+     "name": "Painted Cliffs Welcome Center",
+     "brand": "State",
+     "type": "rest_area",
+     "city": "Lupton",
+     "approx": true,
+     "notes": "Westbound only; AZ welcome center at NM line; truck parking",
+     "parking": 20
+    }
+   ]
+  }
+ }
+}
