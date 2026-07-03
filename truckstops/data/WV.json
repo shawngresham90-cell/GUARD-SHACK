@@ -39,6 +39,36 @@
           "notes": "Teays Valley/Hurricane scales, WB near mm 37.5 with EB counterpart nearby; Drivewyze bypass site"
         },
         {
+          "mm": 45,
+          "exit": "45",
+          "name": "Bob Sumerel Tire",
+          "brand": "Bob Sumerel Tire",
+          "type": "repair",
+          "city": "Nitro",
+          "approx": true,
+          "notes": "Goodyear commercial tire dealer at 215 Michigan Ave: truck tires, retreads, truck service & repair; about 1 mile from Nitro exit"
+        },
+        {
+          "mm": 47,
+          "exit": "47",
+          "name": "Heritage International Trucks",
+          "brand": "International",
+          "type": "repair",
+          "city": "Cross Lanes",
+          "approx": true,
+          "notes": "International truck dealer with parts and service at 1 Jain Dr, off WV-622/Goff Mountain Rd interchange"
+        },
+        {
+          "mm": 54,
+          "exit": "54",
+          "name": "FleetPride Parts & Service",
+          "brand": "FleetPride",
+          "type": "repair",
+          "city": "South Charleston",
+          "approx": true,
+          "notes": "Heavy-duty truck and trailer parts branch plus service center (repair and maintenance) at 3204 MacCorkle Ave SW (US-60), near MacCorkle Ave exit"
+        },
+        {
           "mm": 179,
           "exit": "",
           "name": "White Sulphur Springs Welcome Center",
@@ -92,6 +122,26 @@
           "parking": 150
         },
         {
+          "mm": 11,
+          "exit": "11",
+          "name": "TA Truck Service",
+          "brand": "TA",
+          "type": "repair",
+          "city": "Valley Grove",
+          "approx": true,
+          "notes": "Co-located with TA Wheeling travel center at Dallas Pike; 4 service bays: tires, brakes, electrical, DOT inspections, diagnostics, HVAC, alignments, trailer and aftertreatment work; 24/7 RoadSquad roadside"
+        },
+        {
+          "mm": 11,
+          "exit": "11",
+          "name": "Hunter Truck Wheeling",
+          "brand": "Peterbilt",
+          "type": "repair",
+          "city": "Valley Grove",
+          "approx": true,
+          "notes": "Hunter Truck Peterbilt dealer at Exit 11/Dallas Pike: medium- and heavy-duty truck repair, OEM and aftermarket parts"
+        },
+        {
           "mm": 13,
           "exit": "13",
           "name": "Valley Grove Welcome Center (WB only)",
@@ -139,6 +189,16 @@
           "parking": 20
         },
         {
+          "mm": 44,
+          "exit": "44",
+          "name": "FleetPride Parts",
+          "brand": "FleetPride",
+          "type": "repair",
+          "city": "Beckley",
+          "approx": true,
+          "notes": "Heavy-duty truck and trailer parts branch at 490 Ragland Rd, roughly 2 miles from Harper Rd exit; serves I-77/I-64 Beckley junction"
+        },
+        {
           "mm": 45,
           "exit": "45",
           "name": "Beckley Travel Plaza",
@@ -169,6 +229,16 @@
           "city": "Fairplain",
           "approx": true,
           "notes": "At Go-Mart truck stop"
+        },
+        {
+          "mm": 132,
+          "exit": "132",
+          "name": "Love's Truck Care / Speedco",
+          "brand": "Love's",
+          "type": "repair",
+          "city": "Ripley",
+          "approx": true,
+          "notes": "Co-located with Love's Travel Stop #378 at 3875 Charleston Rd (Love's and exit directories list this store at I-77 Exit 132): truck tires, PM/lube, light mechanical, 24-hr roadside assistance"
         },
         {
           "mm": 138,

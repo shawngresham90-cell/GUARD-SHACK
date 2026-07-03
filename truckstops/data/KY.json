@@ -432,6 +432,16 @@
           "parking": 85
         },
         {
+          "mm": 116,
+          "exit": "116",
+          "name": "Love's Truck Care",
+          "brand": "Love's",
+          "type": "repair",
+          "city": "Shepherdsville",
+          "approx": false,
+          "notes": "Truck Care #238: oil change/PM, light mechanical, tire services; at Love's Travel Stop #238 at this exit"
+        },
+        {
           "mm": 121,
           "exit": "121",
           "name": "Love's Travel Stop",
@@ -446,7 +456,18 @@
     },
     "I-69": {
       "maxMM": 156,
-      "stops": []
+      "stops": [
+        {
+          "mm": 108,
+          "exit": "108",
+          "name": "Boss Truck Shop",
+          "brand": "Boss Truck Shops",
+          "type": "repair",
+          "city": "Mortons Gap",
+          "approx": false,
+          "notes": "Truck and tire repair, tire sales (new and retread); 91 Free Henry Ford Rd at KY-813 interchange (Exit 108), co-located with Pilot"
+        }
+      ]
     },
     "I-71": {
       "maxMM": 77,
@@ -461,6 +482,26 @@
           "approx": true,
           "notes": "KY-153",
           "parking": 85
+        },
+        {
+          "mm": 28,
+          "exit": "28",
+          "name": "Boss Truck Shop",
+          "brand": "Boss Truck Shops",
+          "type": "repair",
+          "city": "Pendleton",
+          "approx": false,
+          "notes": "Truck and tire repair, tire sales; 203 Pendleton Rd at Exit 28, near Pilot Travel Center"
+        },
+        {
+          "mm": 28,
+          "exit": "28",
+          "name": "Speedco",
+          "brand": "Speedco",
+          "type": "repair",
+          "city": "Pendleton",
+          "approx": false,
+          "notes": "Love's Speedco #953: truck lube/oil change, tire sales and service; 524 Pendleton Rd at Exit 28"
         },
         {
           "mm": 75,

@@ -74,6 +74,16 @@
           "parking": 85
         },
         {
+          "mm": 37,
+          "exit": "37",
+          "name": "TA Truck Service Candler",
+          "brand": "TA Truck Service",
+          "type": "repair",
+          "city": "Candler (Asheville west)",
+          "approx": true,
+          "notes": "Co-located with TA Candler travel center (153 Wiggins Rd); 4 truck service bays, tire repair, alignments, 24/7 emergency roadside"
+        },
+        {
           "mm": 86,
           "exit": "86",
           "name": "Love's Travel Stop",
@@ -106,6 +116,26 @@
           "parking": 46
         },
         {
+          "mm": 150,
+          "exit": "150",
+          "name": "National Fleet Management",
+          "brand": "Independent",
+          "type": "repair",
+          "city": "Statesville",
+          "approx": true,
+          "notes": "Full-service heavy truck and trailer repair shop with parts department at 1426 Northside Dr, on I-40 between exits 148 and 150"
+        },
+        {
+          "mm": 150,
+          "exit": "150",
+          "name": "Parrish Truck Tire Center",
+          "brand": "Parrish Tire",
+          "type": "repair",
+          "city": "Statesville",
+          "approx": true,
+          "notes": "Commercial truck tire center at 1336 Northside Dr (between I-40 exits 148 and 150); flat repairs, truck/trailer alignments, 24/7 emergency roadside tire service"
+        },
+        {
           "mm": 177,
           "exit": "177",
           "name": "Iredell County Rest Area (both directions)",
@@ -114,6 +144,16 @@
           "city": "Statesville",
           "approx": true,
           "parking": 30
+        },
+        {
+          "mm": 221,
+          "exit": "221",
+          "name": "Snider Fleet Solutions Greensboro",
+          "brand": "Snider Fleet Solutions",
+          "type": "repair",
+          "city": "Greensboro",
+          "approx": true,
+          "notes": "Charlotte-headquartered commercial tire and mechanical service chain; 300 E Meadowview Rd off I-40 exit 221 (S Elm-Eugene St); in-shop service plus 24/7 emergency roadside"
         },
         {
           "mm": 325,

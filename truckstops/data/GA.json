@@ -17,6 +17,16 @@
           "parking": 30
         },
         {
+          "mm": 49,
+          "exit": "49",
+          "name": "Love's Truck Care",
+          "brand": "Love's",
+          "type": "repair",
+          "city": "Dublin",
+          "approx": true,
+          "notes": "Oil/PM, light mechanical and tire services; 3 truck service bays; co-located with Love's Travel Stop #320 at GA-257 (3009 Hwy 257)"
+        },
+        {
           "mm": 51,
           "exit": "51",
           "name": "Love's Travel Stop",
@@ -73,6 +83,16 @@
           "approx": false,
           "notes": "",
           "parking": 80
+        },
+        {
+          "mm": 19,
+          "exit": "19",
+          "name": "Southern Tire Mart at Pilot #358",
+          "brand": "Southern Tire Mart",
+          "type": "repair",
+          "city": "Temple",
+          "approx": true,
+          "notes": "Commercial truck tires, PM and truck services, 24/7 roadside assistance; co-located with Pilot Travel Center at 635 Carrollton St (formerly Wingfoot/Goodyear truck care)"
         },
         {
           "mm": 42,
@@ -174,6 +194,36 @@
           "parking": 90
         },
         {
+          "mm": 2,
+          "exit": "2",
+          "name": "Love's Speedco #933",
+          "brand": "Speedco",
+          "type": "repair",
+          "city": "Lake Park",
+          "approx": true,
+          "notes": "Truck lube, tires, light mechanical and roadside assistance; 6847 Lake Park Bellville Rd in the Lake Park truck stop cluster near Flying J"
+        },
+        {
+          "mm": 11,
+          "exit": "11",
+          "name": "Southern Tire Mart at Pilot #359",
+          "brand": "Southern Tire Mart",
+          "type": "repair",
+          "city": "Valdosta",
+          "approx": true,
+          "notes": "Commercial truck tires, DOT inspections, PM, jump starts, 24/7 roadside assistance; co-located with Pilot Travel Center at 3491 Madison Hwy (formerly Wingfoot)"
+        },
+        {
+          "mm": 13,
+          "exit": "13",
+          "name": "Love's Truck Care",
+          "brand": "Love's",
+          "type": "repair",
+          "city": "Valdosta",
+          "approx": true,
+          "notes": "Tires, oil/PM, light mechanical and roadside assistance; co-located with Love's Travel Stop #550 at 2315 Old Clyattville Rd (opened Aug 2024)"
+        },
+        {
           "mm": 16,
           "exit": "16",
           "name": "Love's Travel Stop",
@@ -267,6 +317,16 @@
           "approx": true,
           "notes": "US-280",
           "parking": 80
+        },
+        {
+          "mm": 102,
+          "exit": "102",
+          "name": "Speedco at Love's Travel Stop #801",
+          "brand": "Speedco",
+          "type": "repair",
+          "city": "Cordele",
+          "approx": true,
+          "notes": "3 truck service bays; tires, oil/PM, light mechanical and roadside assistance; co-located with Love's Travel Stop #801 at GA-257 (1525 E 8th Ave)"
         },
         {
           "mm": 118,
