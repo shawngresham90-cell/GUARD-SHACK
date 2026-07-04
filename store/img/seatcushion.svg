@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600" width="600" height="600">
+  <defs>
+    <linearGradient id="scBody" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#4a4e57"/><stop offset="1" stop-color="#2a2d34"/>
+    </linearGradient>
+    <linearGradient id="scChan" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#5a5f6a"/><stop offset="1" stop-color="#3a3e46"/>
+    </linearGradient>
+    <linearGradient id="scStrap" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#20232a"/><stop offset="1" stop-color="#101216"/>
+    </linearGradient>
+  </defs>
+  <ellipse cx="300" cy="490" rx="200" ry="32" fill="#000" opacity="0.26"/>
+
+  <!-- contoured lumbar cushion body -->
+  <path d="M150 175
+           C 220 150 380 150 450 175
+           C 470 220 470 380 450 425
+           C 380 450 220 450 150 425
+           C 130 380 130 220 150 175 Z"
+        fill="url(#scBody)" stroke="#191b20" stroke-width="3"/>
+
+  <!-- contour indent (lumbar dip) -->
+  <path d="M195 300 C230 268 370 268 405 300 C370 332 230 332 195 300 Z"
+        fill="#23262c" opacity="0.85"/>
+
+  <!-- breathable vertical channels -->
+  <g fill="url(#scChan)" stroke="#1c1e23" stroke-width="2">
+    <rect x="185" y="190" width="34" height="220" rx="17"/>
+    <rect x="233" y="182" width="34" height="236" rx="17"/>
+    <rect x="283" y="178" width="34" height="244" rx="17"/>
+    <rect x="333" y="182" width="34" height="236" rx="17"/>
+    <rect x="381" y="190" width="34" height="220" rx="17"/>
+  </g>
+
+  <!-- mesh texture hint (small dots) -->
+  <g fill="#6a707c" opacity="0.4">
+    <circle cx="202" cy="230" r="2.5"/><circle cx="202" cy="270" r="2.5"/><circle cx="202" cy="310" r="2.5"/><circle cx="202" cy="350" r="2.5"/>
+    <circle cx="250" cy="220" r="2.5"/><circle cx="250" cy="260" r="2.5"/><circle cx="250" cy="300" r="2.5"/><circle cx="250" cy="340" r="2.5"/><circle cx="250" cy="380" r="2.5"/>
+    <circle cx="300" cy="215" r="2.5"/><circle cx="300" cy="255" r="2.5"/><circle cx="300" cy="345" r="2.5"/><circle cx="300" cy="385" r="2.5"/>
+    <circle cx="350" cy="220" r="2.5"/><circle cx="350" cy="260" r="2.5"/><circle cx="350" cy="300" r="2.5"/><circle cx="350" cy="340" r="2.5"/><circle cx="350" cy="380" r="2.5"/>
+    <circle cx="398" cy="230" r="2.5"/><circle cx="398" cy="270" r="2.5"/><circle cx="398" cy="310" r="2.5"/><circle cx="398" cy="350" r="2.5"/>
+  </g>
+
+  <!-- elastic strap wrapping around -->
+  <path d="M148 250 C 90 258 90 342 148 350" fill="none" stroke="url(#scStrap)" stroke-width="16" stroke-linecap="round"/>
+  <path d="M452 250 C 510 258 510 342 452 350" fill="none" stroke="url(#scStrap)" stroke-width="16" stroke-linecap="round"/>
+
+  <!-- top highlight -->
+  <path d="M180 190 C250 172 350 172 420 190" fill="none" stroke="#666b76" stroke-width="5" opacity="0.5" stroke-linecap="round"/>
+</svg>

@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600" width="600" height="600">
+  <defs>
+    <linearGradient id="frBody" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#eef3f6"/><stop offset="1" stop-color="#c3ccd2"/>
+    </linearGradient>
+    <linearGradient id="frLid" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ffffff"/><stop offset="1" stop-color="#d7dee3"/>
+    </linearGradient>
+    <linearGradient id="frTrim" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#2f7dc4"/><stop offset="1" stop-color="#1b5e93"/>
+    </linearGradient>
+  </defs>
+  <ellipse cx="300" cy="500" rx="210" ry="34" fill="#000" opacity="0.28"/>
+  <!-- body -->
+  <rect x="140" y="250" width="320" height="220" rx="20" fill="url(#frBody)" stroke="#9aa4ab" stroke-width="3"/>
+  <!-- blue trim -->
+  <rect x="140" y="440" width="320" height="30" rx="12" fill="url(#frTrim)"/>
+  <!-- lid -->
+  <rect x="128" y="200" width="344" height="70" rx="18" fill="url(#frLid)" stroke="#9aa4ab" stroke-width="3"/>
+  <rect x="128" y="238" width="344" height="20" fill="#c3ccd2" opacity="0.6"/>
+  <!-- handles -->
+  <rect x="120" y="300" width="26" height="90" rx="10" fill="url(#frTrim)"/>
+  <rect x="454" y="300" width="26" height="90" rx="10" fill="url(#frTrim)"/>
+  <!-- latch -->
+  <rect x="282" y="252" width="36" height="30" rx="6" fill="#4a5560"/>
+  <!-- control panel -->
+  <rect x="196" y="300" width="208" height="90" rx="12" fill="#1a2027"/>
+  <rect x="214" y="316" width="120" height="42" rx="6" fill="#0c2a1c"/>
+  <text x="274" y="348" text-anchor="middle" font-family="Arial, sans-serif" font-size="30" font-weight="bold" fill="#39e07a">-4&#176;</text>
+  <circle cx="360" cy="322" r="10" fill="#2f7dc4"/>
+  <circle cx="360" cy="356" r="10" fill="#3a4149"/>
+  <rect x="214" y="366" width="150" height="10" rx="5" fill="#39424b"/>
+  <!-- snowflake badge -->
+  <g transform="translate(300 150)" stroke="#7fc4f2" stroke-width="6" stroke-linecap="round">
+    <line x1="0" y1="-26" x2="0" y2="26"/><line x1="-26" y1="0" x2="26" y2="0"/>
+    <line x1="-18" y1="-18" x2="18" y2="18"/><line x1="18" y1="-18" x2="-18" y2="18"/>
+  </g>
+</svg>

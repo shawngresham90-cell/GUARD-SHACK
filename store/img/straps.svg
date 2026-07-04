@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600" width="600" height="600">
+  <defs>
+    <linearGradient id="stMetal" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#d0d5db"/><stop offset="0.5" stop-color="#9098a1"/><stop offset="1" stop-color="#5c636c"/>
+    </linearGradient>
+    <linearGradient id="stRed" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#e83323"/><stop offset="1" stop-color="#9c1207"/>
+    </linearGradient>
+    <linearGradient id="stBlk" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#4a4f57"/><stop offset="1" stop-color="#1c1e22"/>
+    </linearGradient>
+  </defs>
+  <ellipse cx="300" cy="495" rx="200" ry="33" fill="#000" opacity="0.27"/>
+  <!-- helper for an S-hook: drawn inline per cord end -->
+  <!-- BLACK cord (back) -->
+  <path d="M180 190 C 120 300, 480 300, 420 190" fill="none" stroke="url(#stBlk)" stroke-width="22" stroke-linecap="round"/>
+  <path d="M180 190 C 120 300, 480 300, 420 190" fill="none" stroke="#6a707a" stroke-width="4" stroke-linecap="round" opacity="0.5"/>
+  <!-- RED cord (front, longer loop) -->
+  <path d="M200 230 C 150 420, 450 420, 400 230" fill="none" stroke="url(#stRed)" stroke-width="22" stroke-linecap="round"/>
+  <path d="M200 230 C 150 420, 450 420, 400 230" fill="none" stroke="#ff7a6a" stroke-width="4" stroke-linecap="round" opacity="0.5"/>
+  <!-- BLACK cord 2 (front cross) -->
+  <path d="M240 260 C 260 400, 340 400, 360 260" fill="none" stroke="url(#stBlk)" stroke-width="20" stroke-linecap="round"/>
+  <!-- S-hooks at the ends -->
+  <g fill="none" stroke="url(#stMetal)" stroke-width="11" stroke-linecap="round">
+    <!-- top-left black end -->
+    <path d="M180 190 q -22 -20 -4 -42 q 18 -20 -6 -38"/>
+    <!-- top-right black end -->
+    <path d="M420 190 q 22 -20 4 -42 q -18 -20 6 -38"/>
+    <!-- red left end -->
+    <path d="M200 230 q -26 -18 -8 -44 q 20 -22 -4 -42"/>
+    <!-- red right end -->
+    <path d="M400 230 q 26 -18 8 -44 q -20 -22 4 -42"/>
+  </g>
+  <!-- hook metallic highlights -->
+  <g fill="none" stroke="#eef1f4" stroke-width="3" stroke-linecap="round" opacity="0.7">
+    <path d="M180 188 q -20 -18 -4 -38"/>
+    <path d="M420 188 q 20 -18 4 -38"/>
+  </g>
+</svg>

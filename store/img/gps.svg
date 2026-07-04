@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600" width="600" height="600">
+  <defs>
+    <linearGradient id="gpBezel" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#3a424b"/><stop offset="0.5" stop-color="#1e242b"/><stop offset="1" stop-color="#10141a"/>
+    </linearGradient>
+    <linearGradient id="gpSky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#123a63"/><stop offset="1" stop-color="#0a2140"/>
+    </linearGradient>
+    <linearGradient id="gpLand" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#1c7a52"/><stop offset="1" stop-color="#0f4a31"/>
+    </linearGradient>
+    <linearGradient id="gpStand" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#2c333b"/><stop offset="1" stop-color="#0e1216"/>
+    </linearGradient>
+  </defs>
+  <ellipse cx="300" cy="495" rx="190" ry="33" fill="#000" opacity="0.27"/>
+
+  <!-- mount stand -->
+  <path d="M270 452 L330 452 L318 400 L282 400 Z" fill="url(#gpStand)" stroke="#0b0e12" stroke-width="3"/>
+  <ellipse cx="300" cy="456" rx="70" ry="18" fill="url(#gpStand)" stroke="#0b0e12" stroke-width="3"/>
+  <ellipse cx="300" cy="452" rx="52" ry="12" fill="#3a424b" opacity="0.6"/>
+  <!-- ball joint -->
+  <circle cx="300" cy="398" r="16" fill="url(#gpStand)" stroke="#0b0e12" stroke-width="3"/>
+
+  <!-- device bezel -->
+  <rect x="120" y="130" width="360" height="270" rx="26" fill="url(#gpBezel)" stroke="#0b0e12" stroke-width="4"/>
+  <rect x="138" y="142" width="324" height="14" rx="7" fill="#565f69" opacity="0.45"/>
+
+  <!-- screen -->
+  <clipPath id="gpClip"><rect x="150" y="164" width="300" height="202" rx="12"/></clipPath>
+  <rect x="150" y="164" width="300" height="202" rx="12" fill="url(#gpSky)" stroke="#0b0e12" stroke-width="3"/>
+  <g clip-path="url(#gpClip)">
+    <!-- land blocks -->
+    <path d="M150 250 L300 210 L450 260 L450 366 L150 366 Z" fill="url(#gpLand)"/>
+    <path d="M150 300 L250 280 L360 320 L450 300 L450 366 L150 366 Z" fill="#0f4a31" opacity="0.6"/>
+    <!-- roads (grey grid) -->
+    <path d="M150 320 L450 300" stroke="#4a5560" stroke-width="10" fill="none" opacity="0.5"/>
+    <path d="M230 164 L260 366" stroke="#4a5560" stroke-width="8" fill="none" opacity="0.4"/>
+    <!-- water -->
+    <path d="M360 164 L450 200 L450 164 Z" fill="#155a8a" opacity="0.7"/>
+
+    <!-- orange route line -->
+    <path d="M200 350 L230 300 L290 288 L330 240 L400 210" fill="none" stroke="#ff8a2b" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M200 350 L230 300 L290 288 L330 240 L400 210" fill="none" stroke="#ffc061" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+
+    <!-- current position chevron -->
+    <path d="M200 366 L184 340 L200 348 L216 340 Z" fill="#4fd0ff" stroke="#0a2140" stroke-width="2"/>
+  </g>
+
+  <!-- destination pin -->
+  <g transform="translate(400 200)">
+    <path d="M0 12 C-18 -6 -18 -30 0 -30 C18 -30 18 -6 0 12 Z" fill="#ff4d4d" stroke="#8a1f1f" stroke-width="2"/>
+    <circle cx="0" cy="-18" r="7" fill="#ffffff"/>
+  </g>
+
+  <!-- brand strip -->
+  <text x="300" y="392" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#8b96a1" opacity="0.7">TRUCK GPS</text>
+  <!-- speaker dots -->
+  <g fill="#0b0e12" opacity="0.7">
+    <circle cx="150" cy="386" r="3"/><circle cx="162" cy="386" r="3"/><circle cx="174" cy="386" r="3"/>
+  </g>
+</svg>

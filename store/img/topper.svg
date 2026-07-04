@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600" width="600" height="600">
+  <defs>
+    <linearGradient id="tpTop" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#fbf4e6"/><stop offset="1" stop-color="#ecdcbf"/>
+    </linearGradient>
+    <linearGradient id="tpSide" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#e7d5b3"/><stop offset="1" stop-color="#cbb489"/>
+    </linearGradient>
+  </defs>
+  <ellipse cx="300" cy="486" rx="220" ry="34" fill="#000" opacity="0.26"/>
+  <!-- rolled part on the right -->
+  <g>
+    <ellipse cx="452" cy="300" rx="60" ry="92" fill="url(#tpSide)" stroke="#b7a074" stroke-width="3"/>
+    <ellipse cx="452" cy="300" rx="34" ry="60" fill="#f7edd8"/>
+    <ellipse cx="452" cy="300" rx="16" ry="30" fill="#e7d5b3"/>
+  </g>
+  <!-- flat foam slab, egg-crate top -->
+  <path d="M120 300 L400 300 L400 380 L120 380 Z" fill="url(#tpSide)" stroke="#b7a074" stroke-width="3"/>
+  <path d="M120 300 L400 300 L410 262 L130 262 Z" fill="url(#tpTop)" stroke="#cdb98f" stroke-width="3"/>
+  <!-- egg-crate bumps -->
+  <g fill="#e3d0aa" opacity="0.9">
+    <ellipse cx="165" cy="284" rx="18" ry="9"/><ellipse cx="215" cy="284" rx="18" ry="9"/>
+    <ellipse cx="265" cy="284" rx="18" ry="9"/><ellipse cx="315" cy="284" rx="18" ry="9"/>
+    <ellipse cx="365" cy="284" rx="18" ry="9"/>
+  </g>
+  <g fill="#f3e6c9">
+    <ellipse cx="190" cy="276" rx="15" ry="7"/><ellipse cx="240" cy="276" rx="15" ry="7"/>
+    <ellipse cx="290" cy="276" rx="15" ry="7"/><ellipse cx="340" cy="276" rx="15" ry="7"/>
+  </g>
+  <!-- pillow on top -->
+  <g transform="translate(150 200)">
+    <rect x="0" y="0" width="150" height="70" rx="30" fill="#ffffff" stroke="#d9cbb0" stroke-width="3"/>
+    <rect x="18" y="14" width="114" height="42" rx="20" fill="#f4ecdd"/>
+  </g>
+  <!-- moon accent -->
+  <path d="M430 150 a34 34 0 1 0 12 60 a26 26 0 1 1 -12 -60 Z" fill="#cbb78d"/>
+</svg>
