@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600" width="600" height="600">
+  <defs>
+    <linearGradient id="flBody" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#5b6570"/><stop offset="0.5" stop-color="#2c333b"/><stop offset="1" stop-color="#161b21"/>
+    </linearGradient>
+    <linearGradient id="flHead" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#6d7883"/><stop offset="0.5" stop-color="#333b44"/><stop offset="1" stop-color="#1a1f25"/>
+    </linearGradient>
+    <linearGradient id="flTail" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#4a535d"/><stop offset="1" stop-color="#12161b"/>
+    </linearGradient>
+    <radialGradient id="flLens" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#eafcff"/><stop offset="0.5" stop-color="#7fe8ff"/><stop offset="1" stop-color="#1b6f8c"/>
+    </radialGradient>
+    <linearGradient id="flBeam" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#c9f6ff" stop-opacity="0.75"/><stop offset="1" stop-color="#7fe8ff" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+  <ellipse cx="300" cy="495" rx="190" ry="33" fill="#000" opacity="0.27"/>
+
+  <!-- beam glow -->
+  <path d="M118 300 L40 240 L18 300 L40 360 Z" fill="url(#flBeam)"/>
+  <ellipse cx="120" cy="300" rx="34" ry="70" fill="#bff2ff" opacity="0.35"/>
+
+  <g transform="translate(0 0)">
+    <!-- tail cap -->
+    <rect x="520" y="262" width="30" height="76" rx="10" fill="url(#flTail)" stroke="#0d1114" stroke-width="2"/>
+    <rect x="512" y="278" width="14" height="44" rx="5" fill="url(#flTail)" stroke="#0d1114" stroke-width="2"/>
+
+    <!-- main tube -->
+    <rect x="230" y="256" width="290" height="88" rx="24" fill="url(#flBody)" stroke="#0d1114" stroke-width="3"/>
+    <!-- body highlight -->
+    <rect x="248" y="266" width="256" height="14" rx="7" fill="#8b96a1" opacity="0.5"/>
+
+    <!-- knurled grip rings -->
+    <g fill="#10151a" opacity="0.85">
+      <rect x="300" y="256" width="8" height="88"/>
+      <rect x="316" y="256" width="8" height="88"/>
+      <rect x="332" y="256" width="8" height="88"/>
+      <rect x="348" y="256" width="8" height="88"/>
+      <rect x="364" y="256" width="8" height="88"/>
+      <rect x="380" y="256" width="8" height="88"/>
+      <rect x="396" y="256" width="8" height="88"/>
+      <rect x="412" y="256" width="8" height="88"/>
+    </g>
+    <g fill="#727d88" opacity="0.55">
+      <rect x="308" y="256" width="4" height="88"/>
+      <rect x="324" y="256" width="4" height="88"/>
+      <rect x="340" y="256" width="4" height="88"/>
+      <rect x="356" y="256" width="4" height="88"/>
+      <rect x="372" y="256" width="4" height="88"/>
+      <rect x="388" y="256" width="4" height="88"/>
+      <rect x="404" y="256" width="4" height="88"/>
+    </g>
+
+    <!-- power button -->
+    <rect x="452" y="238" width="40" height="20" rx="8" fill="#20262d" stroke="#0d1114" stroke-width="2"/>
+    <circle cx="472" cy="248" r="6" fill="#ff5b4a"/>
+    <circle cx="470" cy="246" r="2" fill="#ffd0c8"/>
+
+    <!-- head bezel -->
+    <rect x="150" y="238" width="96" height="124" rx="20" fill="url(#flHead)" stroke="#0d1114" stroke-width="3"/>
+    <rect x="176" y="248" width="16" height="104" rx="8" fill="#8b96a1" opacity="0.45"/>
+    <!-- bezel front ring -->
+    <rect x="128" y="244" width="42" height="112" rx="18" fill="url(#flHead)" stroke="#0d1114" stroke-width="3"/>
+
+    <!-- lens -->
+    <ellipse cx="140" cy="300" rx="22" ry="52" fill="url(#flLens)" stroke="#0d1114" stroke-width="3"/>
+    <ellipse cx="136" cy="284" rx="7" ry="16" fill="#ffffff" opacity="0.85"/>
+    <circle cx="132" cy="278" r="4" fill="#ffffff"/>
+  </g>
+</svg>

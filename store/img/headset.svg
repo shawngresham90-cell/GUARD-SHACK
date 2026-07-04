@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600" width="600" height="600">
+  <defs>
+    <linearGradient id="hsBand" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#4a4f57"/><stop offset="1" stop-color="#1c1f24"/>
+    </linearGradient>
+    <radialGradient id="hsCup" cx="0.4" cy="0.35" r="0.8">
+      <stop offset="0" stop-color="#3f444c"/><stop offset="1" stop-color="#14171b"/>
+    </radialGradient>
+    <radialGradient id="hsPad" cx="0.45" cy="0.4" r="0.75">
+      <stop offset="0" stop-color="#33373d"/><stop offset="1" stop-color="#0e1013"/>
+    </radialGradient>
+    <linearGradient id="hsBoom" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#3a3f47"/><stop offset="1" stop-color="#1a1d22"/>
+    </linearGradient>
+  </defs>
+  <ellipse cx="300" cy="500" rx="200" ry="34" fill="#000" opacity="0.27"/>
+  <!-- headband -->
+  <path d="M148 330 Q 148 120 300 120 Q 452 120 452 330" fill="none" stroke="url(#hsBand)" stroke-width="40" stroke-linecap="round"/>
+  <path d="M148 330 Q 148 132 300 132 Q 452 132 452 330" fill="none" stroke="#5a5f67" stroke-width="8" stroke-linecap="round" opacity="0.5"/>
+  <!-- left ear cup -->
+  <g>
+    <rect x="112" y="300" width="88" height="150" rx="40" fill="url(#hsCup)" stroke="#0c0e11" stroke-width="3"/>
+    <ellipse cx="156" cy="375" rx="34" ry="52" fill="url(#hsPad)"/>
+    <ellipse cx="148" cy="360" rx="14" ry="22" fill="#4a4f57" opacity="0.4"/>
+  </g>
+  <!-- right ear cup -->
+  <g>
+    <rect x="400" y="300" width="88" height="150" rx="40" fill="url(#hsCup)" stroke="#0c0e11" stroke-width="3"/>
+    <ellipse cx="444" cy="375" rx="34" ry="52" fill="url(#hsPad)"/>
+    <ellipse cx="436" cy="360" rx="14" ry="22" fill="#4a4f57" opacity="0.4"/>
+    <!-- control button -->
+    <circle cx="444" cy="430" r="7" fill="#3d8fe0"/>
+  </g>
+  <!-- boom mic -->
+  <path d="M156 440 Q 150 500 250 512" fill="none" stroke="url(#hsBoom)" stroke-width="14" stroke-linecap="round"/>
+  <circle cx="256" cy="513" r="18" fill="url(#hsCup)" stroke="#0c0e11" stroke-width="2"/>
+  <circle cx="256" cy="513" r="8" fill="#0d0f12"/>
+</svg>

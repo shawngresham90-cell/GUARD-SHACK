@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600" width="600" height="600">
+  <defs>
+    <linearGradient id="cbBody" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#3a3f47"/><stop offset="1" stop-color="#16191e"/>
+    </linearGradient>
+    <linearGradient id="cbFace" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#2a2e34"/><stop offset="1" stop-color="#1a1d22"/>
+    </linearGradient>
+    <linearGradient id="cbLcd" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ffb733"/><stop offset="1" stop-color="#e07d10"/>
+    </linearGradient>
+    <radialGradient id="cbKnob" cx="0.4" cy="0.35" r="0.75">
+      <stop offset="0" stop-color="#5a5f67"/><stop offset="1" stop-color="#1c1f24"/>
+    </radialGradient>
+    <linearGradient id="cbMic" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#33373d"/><stop offset="1" stop-color="#15181c"/>
+    </linearGradient>
+  </defs>
+  <ellipse cx="300" cy="498" rx="205" ry="34" fill="#000" opacity="0.27"/>
+  <!-- coiled mic cord -->
+  <path d="M150 260 q -30 -20 -10 -44 q 22 -22 -6 -40 q -30 -18 -8 -42 q 24 -22 -4 -40" fill="none" stroke="#111" stroke-width="9" stroke-linecap="round"/>
+  <path d="M150 260 q -30 -20 -10 -44 q 22 -22 -6 -40 q -30 -18 -8 -42 q 24 -22 -4 -40" fill="none" stroke="#2c2f34" stroke-width="4" stroke-linecap="round"/>
+  <!-- radio body -->
+  <rect x="180" y="200" width="260" height="220" rx="22" fill="url(#cbBody)" stroke="#0c0e11" stroke-width="3"/>
+  <rect x="196" y="216" width="228" height="188" rx="12" fill="url(#cbFace)"/>
+  <!-- LCD display -->
+  <rect x="216" y="232" width="150" height="64" rx="8" fill="#3a2405"/>
+  <rect x="222" y="238" width="138" height="52" rx="5" fill="url(#cbLcd)"/>
+  <text x="291" y="280" text-anchor="middle" font-family="Arial, sans-serif" font-size="40" font-weight="bold" fill="#3a2405">19</text>
+  <text x="228" y="252" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#3a2405">CH</text>
+  <!-- volume knob -->
+  <circle cx="392" cy="264" r="30" fill="#0c0e11"/>
+  <circle cx="392" cy="264" r="25" fill="url(#cbKnob)"/>
+  <rect x="389" y="242" width="6" height="14" rx="3" fill="#0c0e11"/>
+  <circle cx="392" cy="264" r="6" fill="#3f444c"/>
+  <!-- speaker grille -->
+  <g fill="#0d0f12">
+    <rect x="216" y="320" width="160" height="7" rx="3.5"/>
+    <rect x="216" y="336" width="160" height="7" rx="3.5"/>
+    <rect x="216" y="352" width="160" height="7" rx="3.5"/>
+    <rect x="216" y="368" width="160" height="7" rx="3.5"/>
+  </g>
+  <!-- small buttons -->
+  <circle cx="400" cy="330" r="9" fill="#4a4f57"/>
+  <circle cx="400" cy="360" r="9" fill="#4a4f57"/>
+  <!-- handheld mic -->
+  <g transform="translate(96 250) rotate(-12)">
+    <rect x="0" y="0" width="72" height="150" rx="20" fill="url(#cbMic)" stroke="#0c0e11" stroke-width="3"/>
+    <circle cx="36" cy="46" r="26" fill="#0d0f12"/>
+    <g fill="#3a3f47">
+      <circle cx="26" cy="38" r="3"/><circle cx="36" cy="38" r="3"/><circle cx="46" cy="38" r="3"/>
+      <circle cx="26" cy="48" r="3"/><circle cx="36" cy="48" r="3"/><circle cx="46" cy="48" r="3"/>
+      <circle cx="26" cy="58" r="3"/><circle cx="36" cy="58" r="3"/><circle cx="46" cy="58" r="3"/>
+    </g>
+    <rect x="18" y="92" width="36" height="40" rx="8" fill="#23262b"/>
+    <rect x="26" y="100" width="20" height="10" rx="3" fill="#4a4f57"/>
+  </g>
+</svg>

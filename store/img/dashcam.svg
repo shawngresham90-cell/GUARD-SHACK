@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600" width="600" height="600">
+  <defs>
+    <linearGradient id="dcBody" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#3a3f47"/><stop offset="1" stop-color="#1a1d22"/>
+    </linearGradient>
+    <radialGradient id="dcLens" cx="0.4" cy="0.35" r="0.75">
+      <stop offset="0" stop-color="#5fb4ff"/><stop offset="0.5" stop-color="#1a4a7a"/><stop offset="1" stop-color="#05101c"/>
+    </radialGradient>
+    <linearGradient id="dcMount" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#4a4f57"/><stop offset="1" stop-color="#23262b"/>
+    </linearGradient>
+  </defs>
+  <ellipse cx="300" cy="500" rx="200" ry="34" fill="#000" opacity="0.28"/>
+  <!-- suction mount -->
+  <rect x="285" y="120" width="30" height="70" rx="6" fill="url(#dcMount)"/>
+  <ellipse cx="300" cy="120" rx="70" ry="26" fill="#2b2f35"/>
+  <ellipse cx="300" cy="118" rx="70" ry="24" fill="#3a3f47"/>
+  <ellipse cx="300" cy="118" rx="52" ry="16" fill="#23262b"/>
+  <!-- body -->
+  <rect x="150" y="180" width="300" height="190" rx="26" fill="url(#dcBody)" stroke="#0d0f12" stroke-width="3"/>
+  <rect x="168" y="198" width="264" height="120" rx="10" fill="#0c0e11"/>
+  <!-- screen glow -->
+  <rect x="180" y="210" width="180" height="96" rx="6" fill="#12212e"/>
+  <rect x="192" y="224" width="120" height="10" rx="5" fill="#2f6f9e" opacity="0.8"/>
+  <rect x="192" y="246" width="150" height="8" rx="4" fill="#24506f" opacity="0.7"/>
+  <rect x="192" y="266" width="90" height="8" rx="4" fill="#24506f" opacity="0.6"/>
+  <!-- lens -->
+  <circle cx="392" cy="258" r="48" fill="#0a0c0f"/>
+  <circle cx="392" cy="258" r="40" fill="url(#dcLens)"/>
+  <circle cx="392" cy="258" r="22" fill="#0a1622"/>
+  <circle cx="380" cy="246" r="8" fill="#bfe4ff" opacity="0.8"/>
+  <!-- rec light -->
+  <circle cx="300" cy="346" r="9" fill="#ff3b30"/>
+  <circle cx="300" cy="346" r="9" fill="#ff6a60" opacity="0.5"/>
+  <text x="322" y="352" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#ff5b52">REC</text>
+</svg>

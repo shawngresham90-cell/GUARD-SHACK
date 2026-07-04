@@ -179,6 +179,7 @@ const PRODUCTS = [
   /* ---------- CAB COMFORT — affiliate ---------- */
   {
     id: "aff-seat-cushion",
+    img: "img/seatcushion.svg",
     type: "affiliate",
     name: "Gel Seat Cushion for Long Hauls",
     price: 39.99,
@@ -190,6 +191,7 @@ const PRODUCTS = [
   },
   {
     id: "aff-12v-blanket",
+    img: "img/heatedblanket.svg",
     type: "affiliate",
     name: "12V Heated Travel Blanket",
     price: 34.99,
@@ -200,6 +202,7 @@ const PRODUCTS = [
   },
   {
     id: "aff-12v-fridge",
+    img: "img/fridge.svg",
     type: "affiliate",
     name: "12V Portable Fridge/Freezer 26qt",
     price: 219.99,
@@ -210,6 +213,7 @@ const PRODUCTS = [
   },
   {
     id: "aff-mattress",
+    img: "img/topper.svg",
     type: "affiliate",
     name: "Memory Foam Truck Mattress Topper",
     price: 89.99,
@@ -222,6 +226,7 @@ const PRODUCTS = [
   /* ---------- ELECTRONICS — affiliate ---------- */
   {
     id: "aff-cb-radio",
+    img: "img/cbradio.svg",
     type: "affiliate",
     name: "Cobra 29 LX CB Radio",
     price: 149.99,
@@ -233,6 +238,7 @@ const PRODUCTS = [
   },
   {
     id: "aff-dashcam",
+    img: "img/dashcam.svg",
     type: "affiliate",
     name: "Dual Dash Cam (Front + Cabin)",
     price: 129.99,
@@ -244,6 +250,7 @@ const PRODUCTS = [
   },
   {
     id: "aff-gps",
+    img: "img/gps.svg",
     type: "affiliate",
     name: "Truck GPS with Bridge Heights & Truck Routes",
     price: 299.99,
@@ -254,6 +261,7 @@ const PRODUCTS = [
   },
   {
     id: "aff-inverter",
+    img: "img/inverter.svg",
     type: "affiliate",
     name: "2000W Pure Sine Power Inverter",
     price: 179.99,
@@ -264,6 +272,7 @@ const PRODUCTS = [
   },
   {
     id: "aff-headset",
+    img: "img/headset.svg",
     type: "affiliate",
     name: "Noise-Canceling Bluetooth Trucker Headset",
     price: 59.99,
@@ -276,6 +285,7 @@ const PRODUCTS = [
   /* ---------- SAFETY & WORK GEAR — affiliate ---------- */
   {
     id: "aff-gloves",
+    img: "img/gloves.svg",
     type: "affiliate",
     name: "Impact Work Gloves (Touchscreen)",
     price: 19.99,
@@ -286,6 +296,7 @@ const PRODUCTS = [
   },
   {
     id: "aff-flashlight",
+    img: "img/flashlight.svg",
     type: "affiliate",
     name: "Rechargeable LED Flashlight 2000lm",
     price: 29.99,
@@ -296,6 +307,7 @@ const PRODUCTS = [
   },
   {
     id: "aff-straps",
+    img: "img/straps.svg",
     type: "affiliate",
     name: "Ratchet Straps 4-Pack (10,000 lb)",
     price: 44.99,
@@ -306,6 +318,7 @@ const PRODUCTS = [
   },
   {
     id: "aff-tpms",
+    img: "img/tpms.svg",
     type: "affiliate",
     name: "Tire Pressure Monitoring System (TPMS)",
     price: 189.99,
@@ -316,6 +329,7 @@ const PRODUCTS = [
   },
   {
     id: "aff-firstaid",
+    img: "img/roadsidekit.svg",
     type: "affiliate",
     name: "DOT-Ready Truck First Aid + Safety Kit",
     price: 34.99,

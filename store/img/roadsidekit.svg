@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600" width="600" height="600">
+  <defs>
+    <linearGradient id="rkBag" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#e2402f"/><stop offset="1" stop-color="#a81e12"/>
+    </linearGradient>
+    <linearGradient id="rkTri" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ff7a2f"/><stop offset="1" stop-color="#e24a12"/>
+    </linearGradient>
+  </defs>
+  <ellipse cx="300" cy="498" rx="215" ry="34" fill="#000" opacity="0.27"/>
+  <!-- warning triangle behind -->
+  <g transform="translate(300 150)">
+    <path d="M0 -70 L86 78 L-86 78 Z" fill="url(#rkTri)" stroke="#8a2c08" stroke-width="4"/>
+    <path d="M0 -46 L60 60 L-60 60 Z" fill="none" stroke="#fff2e0" stroke-width="5"/>
+    <rect x="-8" y="-24" width="16" height="52" rx="6" fill="#fff2e0"/>
+    <circle cx="0" cy="44" r="9" fill="#fff2e0"/>
+  </g>
+  <!-- duffel bag body -->
+  <rect x="150" y="270" width="300" height="180" rx="34" fill="url(#rkBag)" stroke="#7d160c" stroke-width="3"/>
+  <!-- zipper -->
+  <rect x="168" y="300" width="264" height="14" rx="7" fill="#f4c9a0"/>
+  <g stroke="#7d160c" stroke-width="3">
+    <line x1="180" y1="300" x2="180" y2="314"/><line x1="205" y1="300" x2="205" y2="314"/>
+    <line x1="230" y1="300" x2="230" y2="314"/><line x1="255" y1="300" x2="255" y2="314"/>
+    <line x1="280" y1="300" x2="280" y2="314"/><line x1="305" y1="300" x2="305" y2="314"/>
+    <line x1="330" y1="300" x2="330" y2="314"/><line x1="355" y1="300" x2="355" y2="314"/>
+    <line x1="380" y1="300" x2="380" y2="314"/><line x1="405" y1="300" x2="405" y2="314"/>
+  </g>
+  <!-- handles -->
+  <path d="M240 270 C 240 220, 360 220, 360 270" fill="none" stroke="#7d160c" stroke-width="14"/>
+  <path d="M240 270 C 240 224, 360 224, 360 270" fill="none" stroke="#c22a1a" stroke-width="6"/>
+  <!-- reflective stripe -->
+  <rect x="150" y="404" width="300" height="20" fill="#f2f2f2" opacity="0.85"/>
+  <!-- first aid cross badge -->
+  <g transform="translate(360 372)">
+    <rect x="-30" y="-30" width="60" height="60" rx="12" fill="#fff"/>
+    <rect x="-8" y="-22" width="16" height="44" rx="3" fill="#d32f2f"/>
+    <rect x="-22" y="-8" width="44" height="16" rx="3" fill="#d32f2f"/>
+  </g>
+</svg>

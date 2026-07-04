@@ -1,0 +1,92 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600" width="600" height="600">
+  <defs>
+    <linearGradient id="hbTop" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#c1423a"/><stop offset="1" stop-color="#8f2b25"/>
+    </linearGradient>
+    <linearGradient id="hbMid" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#a8342d"/><stop offset="1" stop-color="#742019"/>
+    </linearGradient>
+    <linearGradient id="hbBot" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#8f2b25"/><stop offset="1" stop-color="#5e1712"/>
+    </linearGradient>
+    <linearGradient id="hbPlug" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#3a424b"/><stop offset="1" stop-color="#14181d"/>
+    </linearGradient>
+  </defs>
+  <ellipse cx="300" cy="495" rx="190" ry="33" fill="#000" opacity="0.27"/>
+
+  <!-- heat / warmth wavy lines -->
+  <g fill="none" stroke="#ff9a4d" stroke-width="7" stroke-linecap="round" opacity="0.8">
+    <path d="M210 150 q14 -18 0 -36 q-14 -18 0 -36"/>
+    <path d="M300 132 q14 -18 0 -36 q-14 -18 0 -36"/>
+    <path d="M390 150 q14 -18 0 -36 q-14 -18 0 -36"/>
+  </g>
+  <g fill="none" stroke="#ffcf80" stroke-width="3" stroke-linecap="round" opacity="0.85">
+    <path d="M210 150 q14 -18 0 -36 q-14 -18 0 -36"/>
+    <path d="M300 132 q14 -18 0 -36 q-14 -18 0 -36"/>
+    <path d="M390 150 q14 -18 0 -36 q-14 -18 0 -36"/>
+  </g>
+
+  <!-- folded plush blanket stack -->
+  <!-- bottom fold -->
+  <rect x="132" y="356" width="336" height="76" rx="26" fill="url(#hbBot)" stroke="#4a120e" stroke-width="3"/>
+  <!-- middle fold -->
+  <rect x="146" y="288" width="308" height="80" rx="26" fill="url(#hbMid)" stroke="#4a120e" stroke-width="3"/>
+  <!-- top fold -->
+  <rect x="160" y="214" width="280" height="86" rx="28" fill="url(#hbTop)" stroke="#4a120e" stroke-width="3"/>
+  <!-- top highlight -->
+  <rect x="180" y="226" width="240" height="16" rx="8" fill="#e07068" opacity="0.55"/>
+
+  <!-- plaid lines on top fold -->
+  <g clip-path="url(#hbClip)">
+    <g stroke="#e58a82" stroke-width="4" opacity="0.55">
+      <line x1="210" y1="214" x2="210" y2="300"/>
+      <line x1="260" y1="214" x2="260" y2="300"/>
+      <line x1="310" y1="214" x2="310" y2="300"/>
+      <line x1="360" y1="214" x2="360" y2="300"/>
+    </g>
+    <g stroke="#5e1712" stroke-width="4" opacity="0.5">
+      <line x1="160" y1="252" x2="440" y2="252"/>
+      <line x1="160" y1="278" x2="440" y2="278"/>
+    </g>
+  </g>
+  <clipPath id="hbClip"><rect x="160" y="214" width="280" height="86" rx="28"/></clipPath>
+
+  <!-- plaid on middle fold -->
+  <g clip-path="url(#hbClipM)" stroke="#c85149" stroke-width="4" opacity="0.4">
+    <line x1="200" y1="288" x2="200" y2="368"/>
+    <line x1="250" y1="288" x2="250" y2="368"/>
+    <line x1="300" y1="288" x2="300" y2="368"/>
+    <line x1="350" y1="288" x2="350" y2="368"/>
+    <line x1="400" y1="288" x2="400" y2="368"/>
+    <line x1="146" y1="328" x2="454" y2="328"/>
+  </g>
+  <clipPath id="hbClipM"><rect x="146" y="288" width="308" height="80" rx="26"/></clipPath>
+
+  <!-- stitched fold edges -->
+  <path d="M160 260 q140 -22 280 0" fill="none" stroke="#4a120e" stroke-width="2" stroke-dasharray="6 6" opacity="0.5"/>
+  <path d="M146 332 q154 -20 308 0" fill="none" stroke="#4a120e" stroke-width="2" stroke-dasharray="6 6" opacity="0.5"/>
+
+  <!-- coiled cord with 12V plug -->
+  <path d="M448 396
+           C520 386 500 340 452 356
+           C404 372 420 330 470 342
+           C520 354 508 300 456 318"
+        fill="none" stroke="#20262d" stroke-width="10" stroke-linecap="round"/>
+  <path d="M448 396
+           C520 386 500 340 452 356
+           C404 372 420 330 470 342
+           C520 354 508 300 456 318"
+        fill="none" stroke="#4a535d" stroke-width="3" stroke-linecap="round" opacity="0.6"/>
+
+  <!-- 12V plug barrel -->
+  <g transform="translate(456 300) rotate(-24)">
+    <rect x="-24" y="-22" width="48" height="44" rx="12" fill="url(#hbPlug)" stroke="#0b0e12" stroke-width="3"/>
+    <rect x="-16" y="-16" width="12" height="6" rx="3" fill="#8b96a1" opacity="0.6"/>
+    <!-- tip -->
+    <rect x="22" y="-9" width="20" height="18" rx="5" fill="#b9772a" stroke="#0b0e12" stroke-width="2"/>
+    <rect x="42" y="-4" width="8" height="8" rx="2" fill="#d99a44"/>
+    <!-- 12V label -->
+    <text x="0" y="6" text-anchor="middle" font-family="Arial, sans-serif" font-size="15" font-weight="bold" fill="#39e07a">12V</text>
+  </g>
+</svg>
