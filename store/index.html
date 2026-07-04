@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Road Dog Supply Co. — Trucker Gear, Electronics & Driver Tools</title>
+<meta name="description" content="Gear that earns its keep: trucker hats and tees, CB radios, dash cams, cab comfort, safety gear, and owner-operator spreadsheets. Picked by a driver, not a marketer.">
+<meta name="theme-color" content="#12100e">
+<link rel="manifest" href="store.webmanifest">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext x='50' y='72' font-size='64' text-anchor='middle'%3E%F0%9F%90%95%3C/text%3E%3C/svg%3E">
+<meta property="og:title" content="Road Dog Supply Co. — Trucker Gear & Driver Tools">
+<meta property="og:description" content="Merch, electronics, cab comfort, safety gear, and digital tools for drivers. From Trucking Life With Shawn.">
+<meta property="og:type" content="website">
+<style>
+  :root{
+    --bg:#12100e; --bg2:#1b1815; --card:#221e1a; --card2:#2a251f;
+    --ink:#f3ede4; --muted:#a89d8d; --line:#37312a;
+    --acc:#ff5b1f; --acc2:#ffb15c; --good:#4cc36b; --danger:#e5484d;
+    --radius:14px;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;background:var(--bg);color:var(--ink);line-height:1.5}
+  a{color:var(--acc2)}
+  button{font:inherit;cursor:pointer}
+  img{max-width:100%}
+
+  /* ---------- header ---------- */
+  .topbar{position:sticky;top:0;z-index:50;background:rgba(18,16,14,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+  .topbar-in{max-width:1180px;margin:0 auto;display:flex;align-items:center;gap:14px;padding:12px 18px}
+  .logo{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--ink);white-space:nowrap}
+  .logo .mark{font-size:1.7rem}
+  .logo b{font-size:1.05rem;letter-spacing:.4px}
+  .logo small{display:block;color:var(--muted);font-size:.68rem;font-weight:400;letter-spacing:.6px;text-transform:uppercase}
+  .search{flex:1;display:flex;align-items:center;background:var(--card);border:1px solid var(--line);border-radius:999px;padding:7px 14px;gap:8px;min-width:0}
+  .search input{flex:1;background:none;border:none;outline:none;color:var(--ink);font-size:.95rem;min-width:0}
+  .cart-btn{position:relative;background:var(--acc);color:#1a0d05;border:none;border-radius:999px;padding:9px 18px;font-weight:700;display:flex;align-items:center;gap:8px;transition:transform .12s}
+  .cart-btn:hover{transform:scale(1.04)}
+  .cart-count{background:#1a0d05;color:#fff;border-radius:999px;font-size:.72rem;min-width:20px;height:20px;display:flex;align-items:center;justify-content:center;padding:0 5px}
+
+  .promo{background:linear-gradient(90deg,#3a1503,#5c2404);color:var(--acc2);text-align:center;font-size:.85rem;padding:7px 14px;letter-spacing:.3px}
+  .promo b{color:#fff}
+
+  /* ---------- hero ---------- */
+  .hero{max-width:1180px;margin:26px auto 8px;padding:0 18px}
+  .hero-card{background:radial-gradient(1200px 400px at 20% -10%,#4a1c05 0%,var(--bg2) 55%);border:1px solid var(--line);border-radius:20px;padding:42px 34px;position:relative;overflow:hidden}
+  .hero-card::after{content:"🚛";position:absolute;right:-10px;bottom:-30px;font-size:11rem;opacity:.08;transform:rotate(-8deg)}
+  .hero h1{font-size:clamp(1.6rem,4vw,2.6rem);line-height:1.15;max-width:620px}
+  .hero h1 span{color:var(--acc)}
+  .hero p{color:var(--muted);margin:12px 0 22px;max-width:560px}
+  .hero-cta{display:flex;gap:12px;flex-wrap:wrap}
+  .btn{border:none;border-radius:10px;padding:12px 22px;font-weight:700;text-decoration:none;display:inline-block}
+  .btn-acc{background:var(--acc);color:#1a0d05}
+  .btn-ghost{background:transparent;color:var(--ink);border:1px solid var(--line)}
+  .trust{display:flex;gap:22px;flex-wrap:wrap;margin-top:26px;color:var(--muted);font-size:.82rem}
+  .trust span{display:flex;align-items:center;gap:7px}
+
+  /* ---------- filters ---------- */
+  .filters{max-width:1180px;margin:22px auto 6px;padding:0 18px;display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+  .chip{background:var(--card);border:1px solid var(--line);color:var(--ink);border-radius:999px;padding:8px 16px;font-size:.88rem;transition:all .15s}
+  .chip:hover{border-color:var(--acc)}
+  .chip.active{background:var(--acc);border-color:var(--acc);color:#1a0d05;font-weight:700}
+  .filters select{margin-left:auto;background:var(--card);color:var(--ink);border:1px solid var(--line);border-radius:10px;padding:8px 12px;font-size:.88rem}
+
+  /* ---------- grid ---------- */
+  .grid{max-width:1180px;margin:14px auto 40px;padding:0 18px;display:grid;grid-template-columns:repeat(auto-fill,minmax(248px,1fr));gap:16px}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;display:flex;flex-direction:column;position:relative;transition:transform .15s,border-color .15s}
+  .card:hover{transform:translateY(-3px);border-color:#544a3d}
+  .art{background:linear-gradient(160deg,var(--card2),#191612);height:150px;display:flex;align-items:center;justify-content:center;font-size:4rem;user-select:none}
+  .ribbon{position:absolute;top:12px;left:-1px;background:var(--acc);color:#1a0d05;font-size:.68rem;font-weight:800;letter-spacing:.5px;text-transform:uppercase;padding:4px 12px;border-radius:0 999px 999px 0}
+  .ribbon.digital{background:var(--acc2)}
+  .body{padding:14px 16px 16px;display:flex;flex-direction:column;gap:8px;flex:1}
+  .cat{color:var(--muted);font-size:.7rem;text-transform:uppercase;letter-spacing:1px}
+  .name{font-size:.98rem;font-weight:700;line-height:1.3}
+  .desc{color:var(--muted);font-size:.82rem;flex:1}
+  .price-row{display:flex;align-items:baseline;gap:8px;margin-top:2px}
+  .price{font-size:1.15rem;font-weight:800;color:var(--acc2)}
+  .was{color:var(--muted);text-decoration:line-through;font-size:.85rem}
+  .card .btn-row{display:flex;gap:8px}
+  .add{flex:1;background:var(--acc);color:#1a0d05;border:none;border-radius:10px;padding:10px;font-weight:700;transition:filter .15s}
+  .add:hover{filter:brightness(1.1)}
+  .add.aff{background:var(--card2);color:var(--ink);border:1px solid var(--line)}
+  .add.aff:hover{border-color:var(--acc2)}
+  .aff-note{color:var(--muted);font-size:.68rem;text-align:center}
+  .empty-msg{grid-column:1/-1;text-align:center;color:var(--muted);padding:50px 0}
+
+  /* ---------- cart drawer ---------- */
+  .overlay{position:fixed;inset:0;background:rgba(0,0,0,.55);opacity:0;pointer-events:none;transition:opacity .2s;z-index:90}
+  .overlay.open{opacity:1;pointer-events:auto}
+  .drawer{position:fixed;top:0;right:0;height:100dvh;width:min(430px,100vw);background:var(--bg2);border-left:1px solid var(--line);z-index:100;transform:translateX(105%);transition:transform .25s ease;display:flex;flex-direction:column}
+  .drawer.open{transform:none}
+  .drawer-head{display:flex;align-items:center;justify-content:space-between;padding:16px 18px;border-bottom:1px solid var(--line)}
+  .drawer-head h2{font-size:1.1rem}
+  .x{background:none;border:none;color:var(--muted);font-size:1.5rem;line-height:1}
+  .ship-bar{padding:12px 18px;border-bottom:1px solid var(--line);font-size:.8rem;color:var(--muted)}
+  .ship-track{height:7px;background:var(--card);border-radius:99px;margin-top:7px;overflow:hidden}
+  .ship-fill{height:100%;background:linear-gradient(90deg,var(--acc),var(--acc2));width:0%;transition:width .3s;border-radius:99px}
+  .cart-items{flex:1;overflow-y:auto;padding:10px 18px}
+  .ci{display:flex;gap:12px;padding:12px 0;border-bottom:1px solid var(--line)}
+  .ci-art{width:54px;height:54px;background:var(--card);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.7rem;flex-shrink:0}
+  .ci-mid{flex:1;min-width:0}
+  .ci-name{font-size:.86rem;font-weight:600;line-height:1.25}
+  .ci-price{color:var(--acc2);font-size:.85rem;font-weight:700;margin-top:2px}
+  .ci-digital{color:var(--muted);font-size:.7rem}
+  .qty{display:flex;align-items:center;gap:8px;margin-top:6px}
+  .qty button{width:24px;height:24px;border-radius:7px;border:1px solid var(--line);background:var(--card);color:var(--ink);font-weight:700}
+  .ci-rm{background:none;border:none;color:var(--muted);font-size:.72rem;text-decoration:underline;align-self:flex-start}
+  .cart-empty{text-align:center;color:var(--muted);padding:60px 10px}
+  .cart-empty .big{font-size:3rem;margin-bottom:10px}
+
+  .drawer-foot{border-top:1px solid var(--line);padding:14px 18px 18px;background:var(--bg2)}
+  .code-row{display:flex;gap:8px;margin-bottom:12px}
+  .code-row input{flex:1;background:var(--card);border:1px solid var(--line);border-radius:10px;padding:9px 12px;color:var(--ink);text-transform:uppercase;font-size:.85rem;min-width:0}
+  .code-row button{background:var(--card2);border:1px solid var(--line);color:var(--ink);border-radius:10px;padding:0 16px;font-weight:600}
+  .totals{font-size:.88rem;display:grid;gap:5px;margin-bottom:12px}
+  .totals .row{display:flex;justify-content:space-between;color:var(--muted)}
+  .totals .row.grand{color:var(--ink);font-weight:800;font-size:1.05rem;border-top:1px dashed var(--line);padding-top:8px;margin-top:4px}
+  .totals .off{color:var(--good)}
+  .checkout-email{width:100%;background:var(--acc);color:#1a0d05;border:none;border-radius:11px;padding:14px;font-weight:800;font-size:1rem}
+  .checkout-note{color:var(--muted);font-size:.72rem;text-align:center;margin-top:8px}
+  #paypal-buttons{margin-top:4px}
+
+  .toast{position:fixed;left:50%;bottom:26px;transform:translateX(-50%) translateY(80px);background:var(--card2);border:1px solid var(--acc);color:var(--ink);padding:11px 20px;border-radius:999px;font-size:.88rem;z-index:120;transition:transform .25s;box-shadow:0 8px 30px rgba(0,0,0,.5)}
+  .toast.show{transform:translateX(-50%) translateY(0)}
+
+  /* ---------- sections / footer ---------- */
+  .why{max-width:1180px;margin:0 auto 40px;padding:0 18px;display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px}
+  .why div{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:18px}
+  .why b{display:flex;gap:8px;margin-bottom:6px}
+  .why p{color:var(--muted);font-size:.84rem}
+  footer{border-top:1px solid var(--line);background:var(--bg2);padding:30px 18px;text-align:center;color:var(--muted);font-size:.84rem}
+  footer .links{display:flex;gap:18px;justify-content:center;flex-wrap:wrap;margin-bottom:14px}
+  footer a{text-decoration:none}
+  footer .fine{font-size:.7rem;max-width:640px;margin:10px auto 0;color:#6f665a}
+
+  @media (max-width:640px){
+    .logo b{font-size:.92rem}
+    .logo small{display:none}
+    .hero-card{padding:28px 22px}
+    .topbar-in{gap:8px;padding:10px 12px}
+    .cart-word{display:none}
+    .cart-btn{padding:9px 13px}
+    .search{padding:7px 10px}
+  }
+</style>
+<script type="application/ld+json" id="jsonld"></script>
+</head>
+<body>
+
+<div class="promo">🎉 Grand opening — code <b>SHAWN10</b> takes 10% off at checkout · Free shipping over <b>$50</b></div>
+
+<header class="topbar">
+  <div class="topbar-in">
+    <a class="logo" href="#">
+      <span class="mark">🐕</span>
+      <span><b>ROAD DOG SUPPLY CO.</b><small>Trucking Life With Shawn</small></span>
+    </a>
+    <div class="search">🔍<input id="searchBox" type="search" placeholder="Search gear… (CB, dash cam, hoodie)" aria-label="Search products"></div>
+    <button class="cart-btn" id="openCart" aria-label="Open cart">🛒<span class="cart-word">Cart</span><span class="cart-count" id="cartCount">0</span></button>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="hero-card">
+    <h1>Gear that <span>earns its keep</span> out on the road.</h1>
+    <p>Picked by a driver, not a marketer. Merch, cab comfort, electronics, safety gear, and the spreadsheets that keep your truck profitable — all in one stop.</p>
+    <div class="hero-cta">
+      <a class="btn btn-acc" href="#shop">Shop the Gear</a>
+      <a class="btn btn-ghost" href="#shop" data-cat="Digital">Driver Tools & Downloads</a>
+    </div>
+    <div class="trust">
+      <span>🚛 Driver owned & operated</span>
+      <span>📦 Free shipping over $50</span>
+      <span>⚡ Digital tools delivered instantly</span>
+      <span>🔒 Secure PayPal checkout</span>
+    </div>
+  </div>
+</section>
+
+<div class="filters" id="shop">
+  <button class="chip active" data-cat="All">All Gear</button>
+  <button class="chip" data-cat="Digital">📊 Driver Tools</button>
+  <button class="chip" data-cat="Merch">🧢 Merch</button>
+  <button class="chip" data-cat="Comfort">💺 Cab Comfort</button>
+  <button class="chip" data-cat="Electronics">📻 Electronics</button>
+  <button class="chip" data-cat="Safety">🦺 Safety</button>
+  <select id="sortSel" aria-label="Sort products">
+    <option value="featured">Featured</option>
+    <option value="low">Price: Low → High</option>
+    <option value="high">Price: High → Low</option>
+    <option value="az">Name: A → Z</option>
+  </select>
+</div>
+
+<main class="grid" id="grid" aria-live="polite"></main>
+
+<section class="why">
+  <div><b>🐕 Road-Tested Picks</b><p>Every affiliate item here is the kind of gear that survives a year of OTR abuse. No junk, no drop-ship mystery brands.</p></div>
+  <div><b>📊 Run It Like a Business</b><p>The download tools are built from real owner-operator numbers — cost per mile, IFTA, maintenance. Know your money.</p></div>
+  <div><b>🧢 Merch With Miles On It</b><p>Printed per-order and shipped to your door, so it's waiting at the house after your reset.</p></div>
+  <div><b>🤝 Support the Channel</b><p>Every order and every Amazon click through this page supports Trucking Life With Shawn. Thank you, road dogs.</p></div>
+</section>
+
+<footer>
+  <div class="links">
+    <a href="/truckstops/">🛣️ Truck Stop Directory</a>
+    <a href="/truckinlife/">📖 Truckin' Life Directory</a>
+    <a href="/seo/">🎬 SEO Generator</a>
+    <a href="#" id="contactLink">✉️ Contact</a>
+  </div>
+  <div>© <span id="yr"></span> Road Dog Supply Co. · Trucking Life With Shawn</div>
+  <p class="fine">As an Amazon Associate this site earns from qualifying purchases. Product links marked "View on Amazon" go to Amazon; prices shown for those items are typical street prices and may differ at Amazon. Merch and digital products are sold directly by Road Dog Supply Co.</p>
+</footer>
+
+<!-- cart drawer -->
+<div class="overlay" id="overlay"></div>
+<aside class="drawer" id="drawer" aria-label="Shopping cart">
+  <div class="drawer-head">
+    <h2>🛒 Your Cart</h2>
+    <button class="x" id="closeCart" aria-label="Close cart">✕</button>
+  </div>
+  <div class="ship-bar" id="shipBar">
+    <span id="shipMsg"></span>
+    <div class="ship-track"><div class="ship-fill" id="shipFill"></div></div>
+  </div>
+  <div class="cart-items" id="cartItems"></div>
+  <div class="drawer-foot" id="drawerFoot">
+    <div class="code-row">
+      <input id="codeInput" placeholder="Discount code" aria-label="Discount code">
+      <button id="codeApply">Apply</button>
+    </div>
+    <div class="totals" id="totals"></div>
+    <div id="paypal-buttons"></div>
+    <button class="checkout-email" id="emailCheckout">📧 Place Order by Email</button>
+    <p class="checkout-note" id="checkoutNote"></p>
+  </div>
+</aside>
+
+<div class="toast" id="toast"></div>
+
+<script src="products.js"></script>
+<script>
+(() => {
+  "use strict";
+  const $ = (s) => document.querySelector(s);
+  const money = (n) => "$" + n.toFixed(2);
+
+  /* ---------------- state ---------------- */
+  let cart = [];
+  try { cart = JSON.parse(localStorage.getItem("rd_cart") || "[]"); } catch (e) { cart = []; }
+  let activeCat = "All";
+  let query = "";
+  let sort = "featured";
+  let discount = null; // {code, frac}
+  const saveCart = () => localStorage.setItem("rd_cart", JSON.stringify(cart));
+  const findProduct = (id) => PRODUCTS.find((p) => p.id === id);
+
+  /* ---------------- catalog render ---------------- */
+  function visibleProducts() {
+    let list = PRODUCTS.filter((p) =>
+      (activeCat === "All" || p.category === activeCat) &&
+      (!query || (p.name + " " + p.desc + " " + p.category).toLowerCase().includes(query))
+    );
+    if (sort === "low") list = [...list].sort((a, b) => a.price - b.price);
+    if (sort === "high") list = [...list].sort((a, b) => b.price - a.price);
+    if (sort === "az") list = [...list].sort((a, b) => a.name.localeCompare(b.name));
+    return list;
+  }
+
+  function amazonUrl(p) {
+    const tag = CONFIG.amazonTag ? "&tag=" + encodeURIComponent(CONFIG.amazonTag) : "";
+    return "https://www.amazon.com/s?k=" + encodeURIComponent(p.search) + tag;
+  }
+
+  function renderGrid() {
+    const list = visibleProducts();
+    const grid = $("#grid");
+    if (!list.length) {
+      grid.innerHTML = '<p class="empty-msg">No gear matches that search. Try another word, driver. 🔍</p>';
+      return;
+    }
+    grid.innerHTML = list.map((p) => `
+      <article class="card">
+        ${p.badge ? `<span class="ribbon${p.digital ? " digital" : ""}">${p.badge}</span>` : ""}
+        <div class="art" aria-hidden="true">${p.emoji}</div>
+        <div class="body">
+          <span class="cat">${p.digital ? "Instant Download" : p.category}</span>
+          <h3 class="name">${p.name}</h3>
+          <p class="desc">${p.desc}</p>
+          <div class="price-row">
+            <span class="price">${money(p.price)}</span>
+            ${p.compareAt ? `<span class="was">${money(p.compareAt)}</span>` : ""}
+          </div>
+          <div class="btn-row">
+            ${p.type === "affiliate"
+              ? `<a class="add aff btn-row-link" style="flex:1;text-align:center;text-decoration:none;padding:10px;border-radius:10px" href="${amazonUrl(p)}" target="_blank" rel="noopener sponsored">🛒 View on Amazon ↗</a>`
+              : `<button class="add" data-add="${p.id}">Add to Cart</button>`}
+          </div>
+          ${p.type === "affiliate" ? '<span class="aff-note">Affiliate link — supports the channel at no cost to you</span>' : ""}
+        </div>
+      </article>`).join("");
+  }
+
+  /* ---------------- cart logic ---------------- */
+  function addToCart(id) {
+    const line = cart.find((l) => l.id === id);
+    if (line) line.qty += 1; else cart.push({ id, qty: 1 });
+    saveCart(); renderCart(); toast("Added to cart ✔");
+  }
+  function setQty(id, qty) {
+    cart = qty <= 0 ? cart.filter((l) => l.id !== id)
+                    : cart.map((l) => (l.id === id ? { ...l, qty } : l));
+    saveCart(); renderCart();
+  }
+
+  function cartMath() {
+    const lines = cart.map((l) => ({ ...l, p: findProduct(l.id) })).filter((l) => l.p);
+    const subtotal = lines.reduce((s, l) => s + l.p.price * l.qty, 0);
+    const allDigital = lines.length > 0 && lines.every((l) => l.p.digital);
+    const off = discount ? subtotal * discount.frac : 0;
+    const shipBase = subtotal - off;
+    const shipping = lines.length === 0 || allDigital || shipBase >= CONFIG.freeShippingThreshold ? 0 : CONFIG.flatShipping;
+    return { lines, subtotal, off, shipping, allDigital, total: subtotal - off + shipping };
+  }
+
+  function renderCart() {
+    const m = cartMath();
+    $("#cartCount").textContent = m.lines.reduce((s, l) => s + l.qty, 0);
+
+    // free-shipping bar
+    if (m.lines.length && !m.allDigital) {
+      $("#shipBar").style.display = "";
+      const need = CONFIG.freeShippingThreshold - (m.subtotal - m.off);
+      $("#shipMsg").innerHTML = need > 0
+        ? `Add <b style="color:var(--acc2)">${money(need)}</b> more for FREE shipping 🚚`
+        : `✅ You've got <b style="color:var(--good)">FREE shipping</b>, driver!`;
+      $("#shipFill").style.width = Math.min(100, ((m.subtotal - m.off) / CONFIG.freeShippingThreshold) * 100) + "%";
+    } else {
+      $("#shipBar").style.display = "none";
+    }
+
+    // items
+    if (!m.lines.length) {
+      $("#cartItems").innerHTML = `<div class="cart-empty"><div class="big">🛻</div>Cart's empty.<br>Load it up like it's produce season.</div>`;
+      $("#drawerFoot").style.display = "none";
+      return;
+    }
+    $("#drawerFoot").style.display = "";
+    $("#cartItems").innerHTML = m.lines.map((l) => `
+      <div class="ci">
+        <div class="ci-art">${l.p.emoji}</div>
+        <div class="ci-mid">
+          <div class="ci-name">${l.p.name}</div>
+          ${l.p.digital ? '<div class="ci-digital">⚡ Digital — delivered by email</div>' : ""}
+          <div class="ci-price">${money(l.p.price)}</div>
+          <div class="qty">
+            <button data-dec="${l.id}" aria-label="Decrease quantity">−</button>
+            <span>${l.qty}</span>
+            <button data-inc="${l.id}" aria-label="Increase quantity">+</button>
+          </div>
+        </div>
+        <button class="ci-rm" data-rm="${l.id}">remove</button>
+      </div>`).join("");
+
+    // totals
+    $("#totals").innerHTML = `
+      <div class="row"><span>Subtotal</span><span>${money(m.subtotal)}</span></div>
+      ${m.off ? `<div class="row off"><span>Discount (${discount.code})</span><span>−${money(m.off)}</span></div>` : ""}
+      <div class="row"><span>Shipping</span><span>${m.shipping ? money(m.shipping) : m.allDigital ? "N/A (digital)" : "FREE"}</span></div>
+      <div class="row grand"><span>Total</span><span>${money(m.total)}</span></div>`;
+
+    renderPayPal(m);
+  }
+
+  /* ---------------- checkout: PayPal (live) or email (fallback) ---------------- */
+  let paypalLoaded = false;
+  function renderPayPal(m) {
+    const note = $("#checkoutNote");
+    if (!CONFIG.paypalClientId) {
+      $("#paypal-buttons").innerHTML = "";
+      note.textContent = "We'll confirm your order and send a secure PayPal invoice — nothing is charged until you approve it.";
+      return;
+    }
+    $("#emailCheckout").style.display = "none";
+    note.textContent = "Secure checkout powered by PayPal.";
+    const mount = () => {
+      $("#paypal-buttons").innerHTML = "";
+      window.paypal.Buttons({
+        style: { color: "gold", shape: "pill", label: "checkout" },
+        createOrder: (data, actions) => {
+          const mm = cartMath();
+          return actions.order.create({
+            purchase_units: [{
+              description: CONFIG.storeName + " order",
+              amount: { currency_code: CONFIG.currency, value: mm.total.toFixed(2) },
+            }],
+          });
+        },
+        onApprove: (data, actions) => actions.order.capture().then((d) => {
+          cart = []; discount = null; saveCart(); renderCart();
+          toast("🎉 Order complete! Check your email for confirmation.");
+        }),
+      }).render("#paypal-buttons");
+    };
+    if (paypalLoaded) { mount(); return; }
+    const s = document.createElement("script");
+    s.src = "https://www.paypal.com/sdk/js?client-id=" + encodeURIComponent(CONFIG.paypalClientId) + "&currency=" + CONFIG.currency;
+    s.onload = () => { paypalLoaded = true; mount(); };
+    document.head.appendChild(s);
+  }
+
+  function emailOrder() {
+    const m = cartMath();
+    if (!m.lines.length) return;
+    const body = [
+      "NEW ORDER — " + CONFIG.storeName,
+      "----------------------------------------",
+      ...m.lines.map((l) => `${l.qty} x ${l.p.name} — ${money(l.p.price * l.qty)}${l.p.digital ? " (digital)" : ""}`),
+      "----------------------------------------",
+      "Subtotal: " + money(m.subtotal),
+      discount ? `Discount ${discount.code}: -${money(m.off)}` : null,
+      "Shipping: " + (m.shipping ? money(m.shipping) : m.allDigital ? "N/A (digital)" : "FREE"),
+      "TOTAL: " + money(m.total),
+      "",
+      "My name:",
+      "Ship to (skip if digital only):",
+      "Preferred payment (PayPal / Cash App / Venmo):",
+    ].filter(Boolean).join("\n");
+    location.href = "mailto:" + CONFIG.orderEmail +
+      "?subject=" + encodeURIComponent("Order — " + CONFIG.storeName + " — " + money(m.total)) +
+      "&body=" + encodeURIComponent(body);
+  }
+
+  /* ---------------- ui plumbing ---------------- */
+  const openCart = () => { $("#drawer").classList.add("open"); $("#overlay").classList.add("open"); };
+  const closeCart = () => { $("#drawer").classList.remove("open"); $("#overlay").classList.remove("open"); };
+
+  let toastTimer;
+  function toast(msg) {
+    const t = $("#toast");
+    t.textContent = msg; t.classList.add("show");
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(() => t.classList.remove("show"), 2400);
+  }
+
+  document.addEventListener("click", (e) => {
+    const t = e.target.closest("[data-add],[data-inc],[data-dec],[data-rm],[data-cat]");
+    if (!t) return;
+    if (t.dataset.add) { addToCart(t.dataset.add); openCart(); }
+    if (t.dataset.inc) setQty(t.dataset.inc, (cart.find((l) => l.id === t.dataset.inc)?.qty || 0) + 1);
+    if (t.dataset.dec) setQty(t.dataset.dec, (cart.find((l) => l.id === t.dataset.dec)?.qty || 0) - 1);
+    if (t.dataset.rm) setQty(t.dataset.rm, 0);
+    if (t.dataset.cat !== undefined && t.classList.contains("chip")) {
+      activeCat = t.dataset.cat;
+      document.querySelectorAll(".chip").forEach((c) => c.classList.toggle("active", c === t));
+      renderGrid();
+    }
+    if (t.dataset.cat !== undefined && !t.classList.contains("chip")) {
+      // hero button deep-link to a category
+      activeCat = t.dataset.cat;
+      document.querySelectorAll(".chip").forEach((c) => c.classList.toggle("active", c.dataset.cat === activeCat));
+      renderGrid();
+    }
+  });
+
+  $("#openCart").addEventListener("click", openCart);
+  $("#closeCart").addEventListener("click", closeCart);
+  $("#overlay").addEventListener("click", closeCart);
+  document.addEventListener("keydown", (e) => { if (e.key === "Escape") closeCart(); });
+
+  $("#searchBox").addEventListener("input", (e) => { query = e.target.value.trim().toLowerCase(); renderGrid(); });
+  $("#sortSel").addEventListener("change", (e) => { sort = e.target.value; renderGrid(); });
+
+  $("#codeApply").addEventListener("click", () => {
+    const code = $("#codeInput").value.trim().toUpperCase();
+    if (CONFIG.discountCodes[code]) {
+      discount = { code, frac: CONFIG.discountCodes[code] };
+      toast(`Code ${code} applied — ${Math.round(discount.frac * 100)}% off! 🎉`);
+    } else {
+      discount = null;
+      toast("That code doesn't work, driver. 😕");
+    }
+    renderCart();
+  });
+
+  $("#emailCheckout").addEventListener("click", emailOrder);
+  $("#contactLink").addEventListener("click", (e) => { e.preventDefault(); location.href = "mailto:" + CONFIG.orderEmail; });
+  $("#yr").textContent = new Date().getFullYear();
+
+  /* ---------------- SEO structured data ---------------- */
+  $("#jsonld").textContent = JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "OnlineStore",
+    name: CONFIG.storeName,
+    description: CONFIG.tagline,
+    parentOrganization: { "@type": "Organization", name: CONFIG.brand },
+    makesOffer: PRODUCTS.filter((p) => p.type === "direct").map((p) => ({
+      "@type": "Offer",
+      itemOffered: { "@type": "Product", name: p.name, description: p.desc },
+      price: p.price.toFixed(2),
+      priceCurrency: CONFIG.currency,
+      availability: "https://schema.org/InStock",
+    })),
+  });
+
+  /* ---------------- PWA ---------------- */
+  if ("serviceWorker" in navigator) navigator.serviceWorker.register("store-sw.js").catch(() => {});
+
+  renderGrid();
+  renderCart();
+})();
+</script>
+</body>
+</html>
