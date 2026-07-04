@@ -42,15 +42,32 @@ top of the page —
 Every field used by the visible forms must exist in this hidden form, or Netlify
 ignores it. **Do not delete this block.**
 
+## How the email flow works (Stan Store first)
+
+When a driver submits the free-guide form:
+
+1. Netlify silently logs the email (your **backup list** —
+   Netlify → Forms → `free-dot-guide`).
+2. The driver is immediately redirected to the **Stan Store free-guide page**
+   (`stan.store/TRUCKINGLIFEWITHSHAWN/p/free-7-dot-inspection-mistakes...`),
+   where Stan delivers the guide and captures the email into your **Stan
+   audience** — one list, same place as your sales.
+
+The redirect target is the `data-redirect` attribute on each `<form>` in
+`index.html` — change the URL there if the Stan product link ever changes.
+If JavaScript fails, the form falls back to a native POST → `/thanks.html`,
+which also links to the Stan page.
+
 ## How to deploy (so emails get captured)
 
 1. Deploy this `landing/` folder to **Netlify** (drag-and-drop the folder, or
    connect the repo and set the base directory to `landing`).
 2. Netlify auto-detects the `free-dot-guide` form on deploy.
-3. Test: submit an email on the live site, then check
-   **Netlify → your site → Forms → free-dot-guide** for the entry.
-4. Turn on **Netlify → Forms → Form notifications** to email every new lead to
-   `shawngresham90@gmail.com` (or pipe to Mailchimp/ConvertKit via a webhook).
+3. Test: submit an email on the live site — you should land on the Stan Store
+   guide page, and the entry should appear under
+   **Netlify → your site → Forms → free-dot-guide**.
+4. Optional: turn on **Netlify → Forms → Form notifications** to email every
+   new lead to `shawngresham90@gmail.com`.
 
 Forms only work on Netlify's hosted platform — opening `index.html` from your
 desktop or another host will show the thank-you page but will **not** store the

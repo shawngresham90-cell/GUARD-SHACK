@@ -14,8 +14,10 @@
     }
   });
 
-  // Netlify form submit via AJAX — stays on the page and shows the inline
-  // success note. Falls back to a native POST (→ /thanks.html) if fetch fails.
+  // Netlify form submit via AJAX. Netlify logs the email (backup list), then
+  // the driver is sent to the form's data-redirect (the Stan Store free-guide
+  // page, which delivers the guide and captures the email into Stan).
+  // Falls back to a native POST (→ /thanks.html) if fetch fails.
   document.querySelectorAll('form[data-capture]').forEach(function (form) {
     form.addEventListener('submit', function (e) {
       e.preventDefault();
@@ -37,6 +39,9 @@
         body: body
       }).then(function (res) {
         if (!res.ok) throw new Error('submit failed');
+        // Hand off to the Stan Store (or wherever data-redirect points).
+        var dest = form.getAttribute('data-redirect');
+        if (dest) { window.location.href = dest; return; }
         var ok = form.querySelector('[data-ok]');
         if (ok) ok.classList.add('show');
         form.querySelectorAll('input, textarea, select').forEach(function (el) {
