@@ -34,6 +34,8 @@ to fully automatic.
 3. **Printful (when the first merch order lands)** — free account at
    [printful.com](https://www.printful.com); order the item shipped straight
    to the customer. You keep the difference between your price and theirs.
+   The full product-by-product setup (exact blanks, prices, design briefs)
+   is in [`PRINTFUL-PLAYBOOK.md`](PRINTFUL-PLAYBOOK.md).
 4. **Digital delivery** — email the file to the buyer after payment, or host
    the file and put its URL in the product's `download` field.
 
