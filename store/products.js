@@ -32,9 +32,9 @@ const CONFIG = {
   // PayPal LIVE Client ID. Empty string = checkout falls back to email orders.
   paypalClientId: "",
 
-  // Amazon Associates tracking tag, e.g. "truckinshawn-20".
+  // Amazon Associates tracking tag.
   // Empty string = affiliate buttons still work, just uncredited.
-  amazonTag: "",
+  amazonTag: "truckinglif0d-20",
 
   // Where email-fallback orders and customer questions go.
   orderEmail: "shawngresham90@gmail.com",
