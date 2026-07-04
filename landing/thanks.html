@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>You're in — Trucking Life with Shawn</title>
+<meta name="description" content="Your free DOT guide is ready. Grab it and lock in your CDL.">
+<style>
+  :root{
+    --asphalt:#14130F; --asphalt-2:#1C1A14; --steel:#26241D;
+    --bone:#F4EFE3; --amber:#E47A18; --amber-2:#F2A516; --hivis:#F4D23F;
+    --rust:#B5471F; --on-dark-2:#B7B1A0; --on-dark-3:#837E70;
+    --line-dark:rgba(244,239,227,0.14);
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{
+    background:var(--asphalt); color:var(--bone);
+    font-family:'Barlow',system-ui,-apple-system,sans-serif;
+    line-height:1.6; -webkit-font-smoothing:antialiased;
+    min-height:100vh; display:flex; flex-direction:column;
+  }
+  .hazard{height:8px;background:repeating-linear-gradient(-45deg,var(--amber) 0 18px,var(--asphalt) 18px 36px);}
+  .wrap{width:100%;max-width:640px;margin:0 auto;padding:56px 24px;flex:1;}
+  .stamp{
+    font-family:ui-monospace,monospace;font-weight:700;font-size:13px;
+    letter-spacing:.14em;text-transform:uppercase;color:var(--hivis);
+    display:inline-flex;align-items:center;gap:9px;margin-bottom:18px;
+  }
+  h1{
+    font-family:'Barlow Condensed',system-ui,sans-serif;font-weight:800;
+    text-transform:uppercase;line-height:.98;letter-spacing:-.01em;
+    font-size:clamp(38px,8vw,60px);margin-bottom:16px;
+  }
+  h1 .amber{color:var(--amber);}
+  .lead{font-size:19px;color:var(--on-dark-2);margin-bottom:34px;max-width:52ch;}
+  .btn{
+    display:flex;align-items:center;justify-content:center;gap:12px;
+    text-decoration:none;font-family:'Barlow Condensed',system-ui,sans-serif;
+    font-weight:700;text-transform:uppercase;letter-spacing:.02em;
+    padding:20px 28px;border-radius:8px;transition:background .15s,transform .12s;
+    border:2px solid transparent;line-height:1.05;text-align:center;
+  }
+  .btn:active{transform:scale(.98);}
+  .btn-amber{background:var(--amber);color:#fff;font-size:22px;border-bottom:4px solid var(--rust);}
+  .btn-amber:hover{background:var(--amber-2);}
+  .btn-ghost{background:transparent;border-color:var(--line-dark);color:var(--bone);font-size:17px;margin-top:14px;}
+  .btn-ghost:hover{border-color:var(--bone);}
+  .divider{height:1px;background:var(--line-dark);border:none;margin:44px 0;}
+  .upsell{
+    background:var(--steel);border:1px solid var(--line-dark);
+    border-radius:12px;padding:30px 26px;
+  }
+  .upsell .kick{
+    font-family:ui-monospace,monospace;font-weight:700;font-size:12px;
+    letter-spacing:.14em;text-transform:uppercase;color:var(--amber);margin-bottom:12px;
+  }
+  .upsell h2{
+    font-family:'Barlow Condensed',system-ui,sans-serif;font-weight:800;
+    text-transform:uppercase;font-size:clamp(26px,5vw,36px);line-height:1;margin-bottom:12px;
+  }
+  .upsell p{color:var(--on-dark-2);font-size:16px;margin-bottom:22px;}
+  .price{font-family:'Barlow Condensed',system-ui,sans-serif;font-weight:800;font-size:40px;color:var(--hivis);}
+  .price s{font-family:'Barlow',sans-serif;font-weight:500;font-size:18px;color:var(--on-dark-3);margin-right:10px;}
+  .scripture{
+    font-style:italic;color:var(--on-dark-2);font-size:16px;
+    border-left:3px solid var(--amber);padding:4px 0 4px 18px;margin-top:44px;
+  }
+  .foot{color:var(--on-dark-3);font-size:14px;text-align:center;padding:26px 24px;font-family:ui-monospace,monospace;letter-spacing:.04em;}
+  .foot a{color:var(--amber);text-decoration:none;}
+</style>
+</head>
+<body>
+  <div class="hazard"></div>
+  <main class="wrap">
+    <span class="stamp">✓ You're on the list</span>
+    <h1>Guide's <span class="amber">yours.</span><br>Go grab it.</h1>
+    <p class="lead">Check your inbox in the next few minutes — but you don't have to wait. Tap the button and I'll hand you the guide right now.</p>
+
+    <a class="btn btn-amber" href="https://stan.store/TRUCKINGLIFEWITHSHAWN/p/free-7-dot-inspection-mistakes-that-cost-truckers">
+      📥 Grab the free DOT guide now →
+    </a>
+    <a class="btn btn-ghost" href="/index.html">← Back to the home page</a>
+
+    <hr class="divider">
+
+    <div class="upsell">
+      <div class="kick">While you're here — this funds the CDL school</div>
+      <h2>The Complete DOT Survival System</h2>
+      <p>The full DOT app + 5 of my books — everything to stay legal, pass every inspection, and protect your CDL for good. One-time price. Every sale helps put up the walls on the Dalton school.</p>
+      <div style="display:flex;align-items:baseline;gap:6px;margin-bottom:20px;">
+        <span class="price"><s>$149</s>$49</span>
+        <span style="color:var(--on-dark-2);font-size:15px;">lifetime access</span>
+      </div>
+      <a class="btn btn-amber" style="font-size:19px;" href="https://stan.store/TRUCKINGLIFEWITHSHAWN/p/the-complete-dot-truckers-life-survival-system">
+        Lock in the $49 bundle →
+      </a>
+    </div>
+
+    <p class="scripture">"Whatsoever thy hand findeth to do, do it with thy might." — Ecclesiastes 9:10 (KJV)</p>
+  </main>
+  <div class="hazard"></div>
+  <p class="foot">© 2026 Trucking Life with Shawn · Keep the shiny side up · <a href="/index.html">truckinglifewithshawn</a></p>
+</body>
+</html>
