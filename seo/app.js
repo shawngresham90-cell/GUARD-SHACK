@@ -5,6 +5,7 @@
 
 const CHANNEL = "Trucking Life With Shawn";
 const HANDLE = "@truckinglifewithshawn";
+const WEBSITE = "truckinglifewithshawn.com"; // link hub — all socials, gear & resources
 
 const $ = (id) => document.getElementById(id);
 
@@ -159,6 +160,7 @@ function buildDescription(topic, type, tone, hashtags, format) {
       "",
       "🔔 SUBSCRIBE for more trucking Shorts every week:",
       `   youtube.com/${HANDLE}`,
+      `🌐 All my links, gear & resources: ${WEBSITE}`,
       "",
       hashtags.join(" "),
     ].join("\n");
@@ -180,8 +182,9 @@ function buildDescription(topic, type, tone, hashtags, format) {
     "",
     "💬 Drop a comment and let me know where you're watching from — drivers and four-wheelers all welcome.",
     "",
-    "📲 FOLLOW THE JOURNEY",
-    `   ${HANDLE}`,
+    "📲 FOLLOW THE JOURNEY — all my links, gear & resources in one spot:",
+    `   🌐 ${WEBSITE}`,
+    `   ▶️ youtube.com/${HANDLE}`,
     "",
     `Thanks for rolling with me. Stay safe out there and keep it between the lines. 🚛💨`,
     "",
