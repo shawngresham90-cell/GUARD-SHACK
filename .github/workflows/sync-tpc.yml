@@ -1,0 +1,47 @@
+# Triggers the `tpc-sync` Supabase edge function daily so the Interstate
+# Truck Stop Directory's paid-parking rows (Truck Parking Club listings,
+# prices, availability, affiliate links) stay fresh. Also runs on demand via
+# "Run workflow" in the Actions tab.
+#
+# ONE-TIME SETUP:
+#   1. Deploy the function and set its secrets (from the repo root):
+#        supabase functions deploy tpc-sync --no-verify-jwt
+#        supabase secrets set TPC_API_KEY=... TPC_PARTNER_ID=... TPC_SYNC_SECRET=<long-random-password>
+#   2. Run truckstops/tpc-locations.sql once in the Supabase SQL editor.
+#   3. GitHub -> this repo -> Settings -> Secrets and variables -> Actions ->
+#      "New repository secret" -> Name: TPC_SYNC_SECRET -> the same value as above.
+#      Direct link:
+#      https://github.com/shawngresham90-cell/GUARD-SHACK/settings/secrets/actions/new
+#
+# The Supabase project URL below is public (it's in the app's HTML too).
+
+name: Sync Truck Parking Club listings
+
+on:
+  schedule:
+    - cron: "17 9 * * *" # daily, 9:17 UTC (~4-5 AM Eastern)
+  workflow_dispatch: {}
+
+concurrency:
+  group: sync-tpc
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Require TPC_SYNC_SECRET secret
+        run: |
+          if [ -z "${{ secrets.TPC_SYNC_SECRET }}" ]; then
+            echo "::error::The TPC_SYNC_SECRET repo secret is missing, so the sync can't authenticate. Set it (same value as the Supabase secret) at https://github.com/${{ github.repository }}/settings/secrets/actions/new then re-run this workflow."
+            exit 1
+          fi
+
+      - name: Call tpc-sync edge function
+        run: |
+          set -o pipefail
+          curl -sS --fail-with-body -X POST \
+            "https://mmnvcbejjdweetnxncfi.supabase.co/functions/v1/tpc-sync" \
+            -H "x-tpc-sync-secret: ${{ secrets.TPC_SYNC_SECRET }}" \
+            --max-time 300 | tee sync-result.json
+        timeout-minutes: 6
