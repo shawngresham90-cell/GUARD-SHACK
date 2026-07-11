@@ -1,0 +1,54 @@
+# Deploys the Reg Deck (`regdeck/`) to the dedicated Netlify site
+# https://truckinglife-dot-guide.netlify.app on every push to `main` that
+# touches the app, and any time you click "Run workflow" in the Actions tab.
+#
+# Uses the same NETLIFY_AUTH_TOKEN repo secret as the godatq deploy —
+# if that secret is already set up, there is nothing to configure here.
+#
+# The site ID below is not secret (Netlify treats it as a public identifier).
+
+name: Deploy truckinglife-dot-guide.netlify.app
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "regdeck/**"
+      - ".github/workflows/deploy-regdeck.yml"
+  workflow_dispatch: {}
+
+concurrency:
+  group: deploy-regdeck
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+
+      # nwtgck/actions-netlify exits GREEN when credentials are missing
+      # ("not deployable"), which reads as a successful deploy that never
+      # happened. Fail loudly instead so a green run always means deployed.
+      - name: Require NETLIFY_AUTH_TOKEN secret
+        run: |
+          if [ -z "${{ secrets.NETLIFY_AUTH_TOKEN }}" ]; then
+            echo "::error::The NETLIFY_AUTH_TOKEN repo secret is missing, so nothing can deploy. Create a token at https://app.netlify.com/user/applications#personal-access-tokens and add it at https://github.com/${{ github.repository }}/settings/secrets/actions/new with the name NETLIFY_AUTH_TOKEN, then re-run this workflow."
+            exit 1
+          fi
+
+      - name: Deploy regdeck/ to Netlify (production)
+        uses: nwtgck/actions-netlify@v3.0
+        with:
+          publish-dir: ./regdeck
+          production-deploy: true
+          deploy-message: "GitHub Actions: ${{ github.event.head_commit.message || github.sha }}"
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          enable-commit-comment: false
+          enable-pull-request-comment: false
+        env:
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+          NETLIFY_SITE_ID: 18218033-8a23-4cf7-9eec-b379e1f3c926
+        timeout-minutes: 5

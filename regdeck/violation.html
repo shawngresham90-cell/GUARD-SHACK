@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0a0a0b">
+<title>Violation Checker + CSA Estimator · Reg Deck</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=DM+Mono:wght@400;500&family=Archivo:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/rd.css">
+</head>
+<body>
+<div class="hazard"></div>
+<div class="rd-top">
+  <a class="rd-back" href="/">← Reg Deck</a>
+  <div class="rd-brand">Trucking Life<br>with Shawn</div>
+</div>
+
+<div class="rd-wrap">
+  <div class="rd-hero" id="csa">
+    <h1>📋 Violation Checker</h1>
+    <div class="sub">Pick what happened. Get the reg, the CSA points, what to fix,
+    what to keep, and what to say — before it snowballs.</div>
+    <div id="meterChip"></div>
+  </div>
+
+  <div class="rd-q">
+    <h3>1 · What happened?</h3>
+    <select class="rd-sel" id="vioSel">
+      <option value="">— pick the violation —</option>
+      <optgroup label="🕐 Hours of Service">
+        <option value="hos11">Drove past the 11-hour driving limit</option>
+        <option value="hos14">Drove past the 14-hour window</option>
+        <option value="hos30">Missed the 30-minute break</option>
+        <option value="nolog">No log / ELD not functioning</option>
+        <option value="falselog">False log (wrong duty status, bad PC)</option>
+        <option value="lognotcurrent">Log not current to last change of duty</option>
+      </optgroup>
+      <optgroup label="🚗 Unsafe Driving">
+        <option value="phone">Hand-held phone while driving</option>
+        <option value="texting">Texting while driving</option>
+        <option value="belt">No seat belt</option>
+        <option value="speed1">Speeding 6–10 over</option>
+        <option value="speed2">Speeding 11–14 over</option>
+        <option value="speed3">Speeding 15+ over</option>
+      </optgroup>
+      <optgroup label="🔧 Vehicle Maintenance">
+        <option value="lamp">Light / lamp not working</option>
+        <option value="tireflat">Tire — flat / fabric showing / audible leak</option>
+        <option value="tiretread">Tire — tread below minimum</option>
+        <option value="brakeadj">Brake(s) out of adjustment</option>
+        <option value="brakehose">Brake hose / tubing chafed or leaking</option>
+        <option value="mudflap">Mud flap missing / damaged</option>
+        <option value="emerequip">Emergency equipment missing (triangles / extinguisher)</option>
+        <option value="securement">Cargo securement insufficient</option>
+      </optgroup>
+      <optgroup label="🪪 Driver Fitness">
+        <option value="nomedcard">Medical card not in possession</option>
+        <option value="expmedcard">Medical card expired / not certified</option>
+        <option value="nocdl">No valid CDL for vehicle class</option>
+      </optgroup>
+    </select>
+  </div>
+
+  <div class="rd-q">
+    <h3>2 · Where did it happen?</h3>
+    <div class="rd-row">
+      <button id="ctxRoad" class="picked">Roadside inspection</button>
+      <button id="ctxAudit">Audit / investigation</button>
+    </div>
+  </div>
+
+  <div class="rd-q">
+    <h3>3 · Result &amp; timing (for CSA points)</h3>
+    <div class="hint">Citation vs warning doesn't change CSA — <b>any noted violation counts</b>. Time matters: fresh violations weigh 3×.</div>
+    <div class="rd-row" style="margin-bottom:8px">
+      <button id="oosNo" class="picked">Not placed OOS</button>
+      <button id="oosYes">Placed Out of Service</button>
+    </div>
+    <select class="rd-sel" id="ageSel">
+      <option value="3">Within the last 6 months (weight ×3)</option>
+      <option value="2">6–12 months ago (weight ×2)</option>
+      <option value="1">1–2 years ago (weight ×1)</option>
+    </select>
+  </div>
+
+  <button class="rd-go" id="goVio">CHECK IT →</button>
+  <div id="outVio"></div>
+
+  <a class="rd-upsell" href="https://godatq.netlify.app" target="_blank" rel="noopener">
+    ⚖️ Think it's wrong? Fight it — DataQ Tracker
+    <small>Build your FMCSA Request for Data Review in minutes · free tool</small>
+  </a>
+
+  <div class="rd-foot">
+    <b>POWERED BY TRUCKING LIFE WITH SHAWN</b>
+    SEVERITY/TIME WEIGHTS FOLLOW FMCSA SMS METHODOLOGY — VALUES APPROXIMATE, CONFIRM AT ai.fmcsa.dot.gov<br>
+    REFERENCE AID — NOT LEGAL ADVICE · YOUR ANSWERS NEVER LEAVE THIS DEVICE
+  </div>
+</div>
+
+<script src="/rd.js"></script>
+<script>
+"use strict";
+document.getElementById("meterChip").innerHTML = rdMeterChip();
+
+/* Violation DB — severity weights per FMCSA SMS Appendix A (approximate).
+   fix = what to fix now · docs = what to keep · say = driver response script */
+const DB = {
+  hos11:{reg:"395.3(a)(3)(i)",name:"Driving beyond 11-hour limit",basic:"HOS Compliance",sev:7,oosLikely:true,
+    fix:["Stop driving immediately — you need 10 consecutive hours off (or a legal split) before driving again.",
+      "Check whether adverse conditions (§395.1(b)) or the 16-hour short-haul exception legitimately applied — if so, annotate it."],
+    docs:["ELD recap for the last 8 days","Dispatch records / load tender showing appointment times","Any adverse-condition evidence (weather alerts, crash reports)"],
+    say:"Officer, I understand. My ELD records are complete and I'm not disputing the log — I'd like to note the conditions on the record."},
+  hos14:{reg:"395.3(a)(2)",name:"Driving beyond 14-hour window",basic:"HOS Compliance",sev:7,oosLikely:true,
+    fix:["Park until you've had 10 consecutive hours off.","Review whether a split-sleeper pairing (§395.1(g)) legally extended your window — many drivers under-use it."],
+    docs:["ELD recap","Detention records at shipper/receiver (detention is how most 14-hour violations start)"],
+    say:"Yes ma'am, here are my logs. The shipper held me six hours — I have the detention record if it helps the report."},
+  hos30:{reg:"395.3(a)(3)(ii)",name:"30-minute break violation",basic:"HOS Compliance",sev:7,oosLikely:false,
+    fix:["Take the 30 now — off duty, sleeper, OR on-duty-not-driving all satisfy it since 2020.","Set an ELD alert at 7 hours of driving."],
+    docs:["ELD recap showing the break pattern"],
+    say:"Understood. My ELD shows the full day — I'll take the 30 before I roll."},
+  nolog:{reg:"395.8(a)",name:"No record of duty status / ELD not functioning",basic:"HOS Compliance",sev:5,oosLikely:true,
+    fix:["If the ELD failed: reconstruct paper logs for today + prior 7 days NOW (§395.34 gives you 8 days to repair).","Report the malfunction to your carrier in writing within 24 hours."],
+    docs:["Written malfunction notice to carrier (dated)","Paper logs for current + prior 7 days","ELD malfunction code screenshot"],
+    say:"Officer, the ELD malfunctioned at [time]. I reported it to my carrier and I'm running paper logs per 395.34 — here they are."},
+  falselog:{reg:"395.8(e)",name:"False report of duty status",basic:"HOS Compliance",sev:7,oosLikely:true,
+    fix:["Stop the pattern immediately — false logs are the #1 way drivers lose careers in audits.","If it was a genuine PC/yard-move mistake, annotate the correction with an explanation."],
+    docs:["The original + corrected log with annotation","GPS/fuel receipts that match your corrected story"],
+    say:"I'd like to annotate the record — the duty status was logged wrong and here's the correction. (Say nothing more. Never explain a false log at roadside.)"},
+  lognotcurrent:{reg:"395.8(f)(1)",name:"Log not current to last change of duty",basic:"HOS Compliance",sev:5,oosLikely:false,
+    fix:["Update the log to the minute before you hand anything over — you're allowed to bring it current at the stop."],
+    docs:["ELD recap"],
+    say:"One moment officer — updating my status to current before I show you."},
+  phone:{reg:"392.82",name:"Using a hand-held mobile phone",basic:"Unsafe Driving",sev:10,oosLikely:false,
+    fix:["Mount + one-touch/Bluetooth only, forever. This is a max-severity violation AND a personal fine up to $2,750, plus disqualification on repeat offenses."],
+    docs:["Phone records if you were NOT on a call (this is very disputable via DataQ)","Photo of your mounted/hands-free setup"],
+    say:"Officer, my phone is mounted and paired — I use voice only. (If untrue, say nothing and sign.)"},
+  texting:{reg:"392.80",name:"Texting while driving",basic:"Unsafe Driving",sev:10,oosLikely:false,
+    fix:["Same as phone — max severity. 2 offenses in 3 years = 60-day disqualification."],
+    docs:["Phone records showing no outgoing text at the stop time (strong DataQ material)"],
+    say:"I understand. I'd like the report to note the phone was mounted."},
+  belt:{reg:"392.16",name:"Failing to use seat belt",basic:"Unsafe Driving",sev:7,oosLikely:false,
+    fix:["Belt on before the truck moves. Cheapest 7-severity fix in trucking."],
+    docs:["None useful — this one is officer-observed. Don't argue it."],
+    say:"Yes sir. It won't happen again."},
+  speed1:{reg:"392.2-SLLS2",name:"Speeding 6–10 mph over",basic:"Unsafe Driving",sev:4,oosLikely:false,
+    fix:["Check the citation speed vs the posted limit — work-zone and construction speeds are where most disputes win."],
+    docs:["Photo of signage if the posted limit was obscured/wrong","Dashcam clip","ECM speed data"],
+    say:"Respectfully, I'd like to review the posted limit at that mile marker. (Then sign, don't argue.)"},
+  speed2:{reg:"392.2-SLLS3",name:"Speeding 11–14 mph over",basic:"Unsafe Driving",sev:7,oosLikely:false,
+    fix:["Set the cruise. 11+ over in a CMV is a 'serious violation' — two in 3 years = 60-day CDL disqualification (§383.51)."],
+    docs:["ECM/dashcam data","Court disposition if you fight the citation — a dismissal is DataQ gold"],
+    say:"Yes officer. (Sign it, fight it in court, then DataQ the inspection with the dismissal.)"},
+  speed3:{reg:"392.2-SLLS4",name:"Speeding 15+ mph over",basic:"Unsafe Driving",sev:10,oosLikely:false,
+    fix:["This is reckless territory — max severity, serious violation, insurance red flag. Slow down or lose the career."],
+    docs:["Same as above — court disposition matters most"],
+    say:"Yes officer. (Nothing else. Lawyer for the citation.)"},
+  lamp:{reg:"393.9",name:"Inoperative required lamp",basic:"Vehicle Maintenance",sev:6,oosLikely:false,
+    fix:["Carry spare bulbs + fuses; swap it before you roll.","Log it on the DVIR and get a repair note — an unreported defect makes it worse."],
+    docs:["DVIR showing you caught/reported it","Repair receipt (same day if possible)"],
+    say:"That lamp was working on my pre-trip at [time] — I'll have it repaired before I continue."},
+  tireflat:{reg:"393.75(a)",name:"Flat tire / fabric exposed / audible leak",basic:"Vehicle Maintenance",sev:8,oosLikely:true,
+    fix:["That's an automatic OOS — road service now.","Thump + visual every stop; check inflation on the pre-trip."],
+    docs:["Repair invoice","Photo of the tire before + after","DVIR"],
+    say:"I inspected at my last stop — this developed en route. I'm calling road service now."},
+  tiretread:{reg:"393.75(b)/(c)",name:"Tread depth below minimum (4/32 steer · 2/32 other)",basic:"Vehicle Maintenance",sev:8,oosLikely:true,
+    fix:["Measure monthly with a gauge, not your eyeball. Rotate/replace before the wear bars."],
+    docs:["Tire purchase/rotation records","Fleet maintenance file"],
+    say:"I'd like the measurement location noted on the report. (Tread is measured in a major groove — spot-low measurements are disputable.)"},
+  brakeadj:{reg:"393.47(e)",name:"Brake out of adjustment",basic:"Vehicle Maintenance",sev:4,oosLikely:true,
+    fix:["20%+ of brakes out of adjustment = vehicle OOS. Automatic slack adjusters out of spec = maintenance problem, not an adjustment problem — get the shop to inspect the foundation brake.","Mark and measure pushrod travel on your pre-trip."],
+    docs:["Repair order showing what the shop found","Maintenance history on that axle"],
+    say:"These have automatic slack adjusters — I'm requesting the shop inspect rather than manually re-adjust, per manufacturer guidance."},
+  brakehose:{reg:"393.45",name:"Brake hose/tubing chafed or leaking",basic:"Vehicle Maintenance",sev:4,oosLikely:true,
+    fix:["Audible leak or bulge = OOS. Re-route/secure lines on the tractor-trailer connection — that's where they chafe."],
+    docs:["Repair invoice","Photos"],
+    say:"Calling road service — I'd like the exact location of the defect noted for the repair order."},
+  mudflap:{reg:"393.87",name:"Mud flap missing / damaged",basic:"Vehicle Maintenance",sev:1,oosLikely:false,
+    fix:["Cheap fix — keep a spare flap and bolts in the side box. Low severity but it invites a Level 1 walk-around."],
+    docs:["Repair receipt / photo of replacement"],
+    say:"It was intact on my pre-trip — I'll replace it at the next stop."},
+  emerequip:{reg:"393.95",name:"Emergency equipment missing",basic:"Vehicle Maintenance",sev:2,oosLikely:false,
+    fix:["3 triangles + charged, secured fire extinguisher + spare fuses. Check the gauge on the extinguisher monthly."],
+    docs:["Purchase receipt"],
+    say:"Correcting it today, officer."},
+  securement:{reg:"393.100",name:"Cargo securement insufficient",basic:"Vehicle Maintenance",sev:7,oosLikely:true,
+    fix:["Re-secure before you move — count working-load limits vs cargo weight (aggregate WLL ≥ 1/2 cargo weight).","Check straps at 50 miles, then every 150."],
+    docs:["Photos of the securement after correction","Strap/chain WLL tags"],
+    say:"I'll re-secure now and I'd like to show the corrected securement before the report is finalized."},
+  nomedcard:{reg:"391.41(a)",name:"Medical certificate not in possession",basic:"Driver Fitness",sev:1,oosLikely:false,
+    fix:["If your cert is valid but not on you: get a copy to the officer/carrier same day — this one is very winnable on DataQ with proof it existed.","Keep a photo of the card in your phone AND the paper card in the truck."],
+    docs:["The valid med card (dated before the stop)","State CDLIS/MVR printout showing certification on file"],
+    say:"My certificate is current — it's on file with my state licensing agency. I can have a copy sent right now."},
+  expmedcard:{reg:"391.41(a)",name:"Expired medical certificate / not certified",basic:"Driver Fitness",sev:7,oosLikely:true,
+    fix:["You cannot legally drive until re-examined. Book a DOT physical today.","Set a phone alarm 60 days before every expiration, forever."],
+    docs:["New med certificate","Proof of submission to your state (self-cert)"],
+    say:"Understood, officer. I'm parking and scheduling the exam immediately."},
+  nocdl:{reg:"383.23(a)(2)",name:"No valid CDL for vehicle class",basic:"Driver Fitness",sev:8,oosLikely:true,
+    fix:["Do not drive. Sort the license issue (expired, wrong class, missing endorsement) before touching the truck."],
+    docs:["License reinstatement/renewal paperwork"],
+    say:"(Say nothing beyond identifying yourself. This one needs the license fixed, not words.)"}
+};
+
+const oosNo = document.getElementById("oosNo"), oosYes = document.getElementById("oosYes");
+oosNo.onclick = () => { oosNo.classList.add("picked"); oosYes.classList.remove("picked"); };
+oosYes.onclick = () => { oosYes.classList.add("picked"); oosNo.classList.remove("picked"); };
+const ctxRoad = document.getElementById("ctxRoad"), ctxAudit = document.getElementById("ctxAudit");
+ctxRoad.onclick = () => { ctxRoad.classList.add("picked"); ctxAudit.classList.remove("picked"); };
+ctxAudit.onclick = () => { ctxAudit.classList.add("picked"); ctxRoad.classList.remove("picked"); };
+
+document.getElementById("goVio").addEventListener("click", () => {
+  const out = document.getElementById("outVio");
+  const key = document.getElementById("vioSel").value;
+  if (!key){ out.innerHTML = `<div class="rd-note"><b>Pick the violation first.</b></div>`; return; }
+  if (!rdSpend()){ rdMountGate(out, "You used your 3 free checks for today."); out.scrollIntoView({behavior:"smooth"}); return; }
+  document.getElementById("meterChip").innerHTML = rdMeterChip();
+
+  const v = DB[key];
+  const oos = oosYes.classList.contains("picked");
+  const tw = parseInt(document.getElementById("ageSel").value, 10);
+  const audit = ctxAudit.classList.contains("picked");
+  const sevTotal = v.sev + (oos ? 2 : 0);
+  const points = sevTotal * tw;
+  const cls = points >= 21 ? "v-no" : points >= 10 ? "v-warn" : "v-ok";
+  const impact = points >= 21 ? "Heavy — this alone can move a small fleet's percentile"
+    : points >= 10 ? "Moderate — a pattern of these triggers interventions"
+    : "Light — but it stays on record for 24 months";
+
+  out.innerHTML = `<div class="rd-verdict ${cls}">
+    <div class="v-head">${rdEsc(v.name)}</div>
+    <p><b>49 CFR §${v.reg}</b> · BASIC: <b>${v.basic}</b>${v.oosLikely ? " · <b style='color:var(--danger)'>OOS-listed violation</b>" : ""}</p>
+    <h4>CSA math (SMS methodology, approx.)</h4>
+    <div class="rd-kv"><span class="k">Severity weight</span><span class="v">${v.sev}</span></div>
+    <div class="rd-kv"><span class="k">Out-of-service bump</span><span class="v ${oos?"bad":""}">${oos ? "+2" : "+0"}</span></div>
+    <div class="rd-kv"><span class="k">Time weight (${tw === 3 ? "under 6 mo" : tw === 2 ? "6–12 mo" : "1–2 yr"})</span><span class="v">×${tw}</span></div>
+    <div class="rd-kv"><span class="k">Points on the ${v.basic} BASIC</span><span class="v ${cls === "v-no" ? "bad" : cls === "v-warn" ? "warn" : "good"}">${points}</span></div>
+    <div class="rd-kv"><span class="k">Company impact</span><span class="v">${impact}</span></div>
+    <div class="rd-kv"><span class="k">Driver impact</span><span class="v">On your PSP for 3 years (5 for crashes) — recruiters see it</span></div>
+    <h4>Fix it</h4><ul>${v.fix.map(x => `<li>${x}</li>`).join("")}</ul>
+    <h4>Keep these documents</h4><ul>${v.docs.map(x => `<li>${x}</li>`).join("")}</ul>
+    <h4>What to say ${audit ? "(to the auditor)" : "(at roadside)"}</h4>
+    <div class="rd-script">"${v.say}"</div>
+    <h4>Think it's wrong?</h4>
+    <p>Inaccurate or not-your-fault violations come off through FMCSA's DataQs.
+    <a href="https://godatq.netlify.app" target="_blank" rel="noopener"><b>Build the dispute with the DataQ Tracker →</b></a></p>
+    <div class="cite">Weights follow the FMCSA SMS severity tables (approximate — confirm at ai.fmcsa.dot.gov).
+    Violations affect scores for 24 months (carrier) / PSP 3 yrs (driver).</div>
+  </div>`;
+  out.scrollIntoView({behavior:"smooth"});
+});
+</script>
+</body>
+</html>

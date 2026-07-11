@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0a0a0b">
+<title>Before You Move — Is This Legal? · Reg Deck</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=DM+Mono:wght@400;500&family=Archivo:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/rd.css">
+</head>
+<body>
+<div class="hazard"></div>
+<div class="rd-top">
+  <a class="rd-back" href="/">← Reg Deck</a>
+  <div class="rd-brand">Trucking Life<br>with Shawn</div>
+</div>
+
+<div class="rd-wrap">
+  <div class="rd-hero">
+    <h1>🚦 Before You Move</h1>
+    <div class="sub">Is this move legal? Answer honest, get a straight answer —
+    <b>before</b> the ELD and the DOT answer it for you.</div>
+    <div id="meterChip"></div>
+  </div>
+
+  <div class="rd-tabs">
+    <button id="tabHos" class="on">Can I Drive?</button>
+    <button id="tabPc">PC / Yard Move</button>
+  </div>
+
+  <!-- ================= CAN I DRIVE? (HOS) ================= -->
+  <div id="paneHos">
+    <div class="rd-note"><b>Property-carrying, US interstate rules (49 CFR 395.3).</b>
+      Use your ELD numbers. When in doubt, use the worse number.</div>
+
+    <div class="rd-q">
+      <h3>1 · Hours DRIVEN since your last 10-hour break</h3>
+      <div class="hint">Total driving time since you last had 10 consecutive hours off (or an equivalent split).</div>
+      <input class="rd-num" id="hDrive" type="number" min="0" max="24" step="0.25" placeholder="e.g. 8.5">
+    </div>
+
+    <div class="rd-q">
+      <h3>2 · Hours since you CAME ON DUTY today</h3>
+      <div class="hint">Clock time since you first went on duty after that 10-hour break — this is your 14-hour window. Breaks don't stop it.</div>
+      <input class="rd-num" id="hWindow" type="number" min="0" max="24" step="0.25" placeholder="e.g. 11">
+    </div>
+
+    <div class="rd-q">
+      <h3>3 · Hours driven since your last 30-minute break</h3>
+      <div class="hint">Any 30-minute non-driving stretch counts (off duty, sleeper, or on-duty not driving).</div>
+      <input class="rd-num" id="hSince30" type="number" min="0" max="12" step="0.25" placeholder="e.g. 5">
+    </div>
+
+    <div class="rd-q">
+      <h3>4 · Your cycle</h3>
+      <div class="hint">Which cycle does your carrier run, and how many on-duty hours have you burned in it?</div>
+      <div class="rd-row" style="margin-bottom:8px">
+        <button id="cyc70" class="picked">70 hr / 8 days</button>
+        <button id="cyc60">60 hr / 7 days</button>
+      </div>
+      <input class="rd-num" id="hCycle" type="number" min="0" max="90" step="0.25" placeholder="On-duty hours used in the cycle, e.g. 52">
+    </div>
+
+    <div class="rd-q">
+      <h3>5 · Adverse driving conditions?</h3>
+      <div class="hint">Weather or a crash you could NOT have known about when you were dispatched. Normal rush hour is NOT adverse.</div>
+      <div class="rd-row">
+        <button id="advNo" class="picked">No</button>
+        <button id="advYes">Yes — unexpected</button>
+      </div>
+    </div>
+
+    <button class="rd-go" id="goHos">CAN I DRIVE? →</button>
+    <div id="outHos"></div>
+  </div>
+
+  <!-- ================= PC / YARD MOVE ================= -->
+  <div id="panePc" class="rd-hide">
+    <div class="rd-note"><b>Personal Conveyance is off-duty driving (49 CFR 395.2 + FMCSA guidance).</b>
+      Misusing PC is a false log — §395.8(e), one of the easiest violations for DOT to prove.</div>
+
+    <div class="rd-q">
+      <h3>1 · Is this a yard move?</h3>
+      <div class="hint">Moving the truck inside a yard, terminal, or private property — not on a public road.</div>
+      <div class="rd-row">
+        <button data-q="yard" data-v="no" class="picked">No — public road</button>
+        <button data-q="yard" data-v="yes">Yes — in a yard</button>
+      </div>
+    </div>
+
+    <div id="pcQs">
+      <div class="rd-q">
+        <h3>2 · Are you fully relieved of duty?</h3>
+        <div class="hint">No load appointment you're chasing, no dispatch instruction, nobody expecting the truck.</div>
+        <div class="rd-row">
+          <button data-q="relieved" data-v="yes">Yes — off duty</button>
+          <button data-q="relieved" data-v="no" class="picked">No — still working</button>
+        </div>
+      </div>
+
+      <div class="rd-q">
+        <h3>3 · Why are you moving the truck?</h3>
+        <div class="rd-opts">
+          <button data-q="why" data-v="rest" class="picked">To the nearest safe rest / parking spot</button>
+          <button data-q="why" data-v="food">Food, lodging, or personal errand nearby</button>
+          <button data-q="why" data-v="home">Commuting between home and terminal</button>
+          <button data-q="why" data-v="closer">Getting closer to my next shipper / receiver</button>
+          <button data-q="why" data-v="dispatch">Dispatch asked me to move it</button>
+        </div>
+      </div>
+
+      <div class="rd-q">
+        <h3>4 · Does the move advance the load?</h3>
+        <div class="hint">Would this driving get the freight meaningfully closer to where it's going?</div>
+        <div class="rd-row">
+          <button data-q="advance" data-v="no" class="picked">No</button>
+          <button data-q="advance" data-v="yes">Yes</button>
+        </div>
+      </div>
+
+      <div class="rd-q">
+        <h3>5 · How far is the move?</h3>
+        <div class="rd-row">
+          <button data-q="dist" data-v="short" class="picked">Short — under ~30 min</button>
+          <button data-q="dist" data-v="long">Long — 30 min or more</button>
+        </div>
+      </div>
+    </div>
+
+    <button class="rd-go" id="goPc">CHECK THIS MOVE →</button>
+    <div id="outPc"></div>
+  </div>
+
+  <a class="rd-upsell" href="https://stan.store/TRUCKINGLIFEWITHSHAWN/p/save-your-cdl" target="_blank" rel="noopener">
+    🛡️ Save Your CDL — DOT Survival System · $27
+    <small>The complete playbook from a 17-year driver with zero violations</small>
+  </a>
+
+  <div class="rd-foot">
+    <b>POWERED BY TRUCKING LIFE WITH SHAWN</b>
+    REFERENCE AID — NOT LEGAL ADVICE · CONFIRM AGAINST 49 CFR 395 AT eCFR.GOV<br>
+    YOUR ANSWERS NEVER LEAVE THIS DEVICE
+  </div>
+</div>
+
+<script src="/rd.js"></script>
+<script>
+"use strict";
+
+document.getElementById("meterChip").innerHTML = rdMeterChip();
+
+/* ---------- tabs ---------- */
+const tabHos = document.getElementById("tabHos"), tabPc = document.getElementById("tabPc");
+const paneHos = document.getElementById("paneHos"), panePc = document.getElementById("panePc");
+function showTab(pc){
+  tabHos.classList.toggle("on", !pc); tabPc.classList.toggle("on", pc);
+  paneHos.classList.toggle("rd-hide", pc); panePc.classList.toggle("rd-hide", !pc);
+}
+tabHos.onclick = () => showTab(false);
+tabPc.onclick = () => showTab(true);
+if (location.hash === "#pc") showTab(true);
+
+/* ---------- pick buttons (generic) ---------- */
+document.querySelectorAll(".rd-row button, .rd-opts button").forEach(b => {
+  b.addEventListener("click", () => {
+    const grp = b.dataset.q;
+    if (grp){
+      document.querySelectorAll(`[data-q="${grp}"]`).forEach(x => x.classList.remove("picked"));
+      b.classList.add("picked");
+      if (grp === "yard") document.getElementById("pcQs").classList.toggle("rd-hide", b.dataset.v === "yes");
+    }
+  });
+});
+/* cycle + adverse toggles */
+const cyc70 = document.getElementById("cyc70"), cyc60 = document.getElementById("cyc60");
+cyc70.onclick = () => { cyc70.classList.add("picked"); cyc60.classList.remove("picked"); };
+cyc60.onclick = () => { cyc60.classList.add("picked"); cyc70.classList.remove("picked"); };
+const advNo = document.getElementById("advNo"), advYes = document.getElementById("advYes");
+advNo.onclick = () => { advNo.classList.add("picked"); advYes.classList.remove("picked"); };
+advYes.onclick = () => { advYes.classList.add("picked"); advNo.classList.remove("picked"); };
+
+function picked(q){ const el = document.querySelector(`[data-q="${q}"].picked`); return el ? el.dataset.v : null; }
+function fmtH(h){
+  if (h <= 0) return "0h 00m";
+  const H = Math.floor(h), M = Math.round((h - H) * 60);
+  return `${H}h ${String(M).padStart(2,"0")}m`;
+}
+
+/* ---------- HOS verdict ---------- */
+document.getElementById("goHos").addEventListener("click", () => {
+  const out = document.getElementById("outHos");
+  const drive = parseFloat(document.getElementById("hDrive").value);
+  const win = parseFloat(document.getElementById("hWindow").value);
+  const since30 = parseFloat(document.getElementById("hSince30").value);
+  const cycUsed = parseFloat(document.getElementById("hCycle").value);
+  if ([drive, win, since30, cycUsed].some(v => isNaN(v))){
+    out.innerHTML = `<div class="rd-note"><b>Fill in all four numbers first.</b> Pull them off your ELD recap screen.</div>`;
+    out.scrollIntoView({behavior:"smooth"}); return;
+  }
+  if (!rdSpend()){ rdMountGate(out, "You used your 3 free checks for today."); out.scrollIntoView({behavior:"smooth"}); return; }
+  document.getElementById("meterChip").innerHTML = rdMeterChip();
+
+  const adverse = advYes.classList.contains("picked");
+  const cycMax = cyc60.classList.contains("picked") ? 60 : 70;
+  const driveMax = 11 + (adverse ? 2 : 0);
+  const winMax = 14 + (adverse ? 2 : 0);
+  const driveLeft = driveMax - drive;
+  const winLeft = winMax - win;
+  const cycLeft = cycMax - cycUsed;
+  const breakDue = since30 >= 8;
+  const limit = Math.min(driveLeft, winLeft, cycLeft);
+
+  let cls, head, body;
+  if (limit <= 0){
+    cls = "v-no"; head = "NO — PARK IT";
+    const why = [];
+    if (driveLeft <= 0) why.push(`You're at the <b>${driveMax}-hour driving limit</b> (§395.3(a)(3)).`);
+    if (winLeft <= 0) why.push(`Your <b>${winMax}-hour window is closed</b> (§395.3(a)(2)). Breaks don't extend it.`);
+    if (cycLeft <= 0) why.push(`You're out of <b>${cycMax}-hour cycle time</b> (§395.3(b)).`);
+    body = `<p>${why.join(" ")}</p>
+      <p>Driving now is an out-of-service violation and CSA points on <b>your</b> record.
+      You need ${cycLeft <= 0 ? "a 34-hour restart (or cycle hours to roll off)" : "10 consecutive hours off (or a legal sleeper split)"} before you drive.</p>`;
+  } else if (breakDue){
+    cls = "v-warn"; head = "NOT YET — 30-MIN BREAK FIRST";
+    body = `<p>You've driven <b>${fmtH(since30)}</b> since your last 30-minute interruption.
+      Past 8 cumulative driving hours you must take a 30-minute non-driving break before driving again (§395.3(a)(3)(ii)).</p>
+      <p>Take the 30 — off duty, sleeper, or on-duty-not-driving all count — then you have up to
+      <b>${fmtH(limit)}</b> of driving left.</p>`;
+  } else if (limit < 1){
+    cls = "v-warn"; head = "RISKY — UNDER 1 HOUR LEFT";
+    body = `<p>You legally have <b>${fmtH(limit)}</b> left, but that's razor thin. One detour, one backed-up scale, and you're logging a violation.</p>
+      <p>Shawn's rule: if you can't make the stop with 30 minutes of cushion, secure parking <b>now</b>.</p>`;
+  } else {
+    cls = "v-ok"; head = "YES — YOU'RE LEGAL";
+    body = `<p>You can drive up to <b>${fmtH(limit)}</b> more right now. Plan your parking before you need it.</p>`;
+  }
+
+  out.innerHTML = `<div class="rd-verdict ${cls}">
+    <div class="v-head">${head}</div>${body}
+    <h4>Your numbers</h4>
+    <div class="rd-kv"><span class="k">Driving left (${driveMax}-hr rule${adverse ? " +2 adverse" : ""})</span><span class="v ${driveLeft<=0?"bad":driveLeft<2?"warn":"good"}">${fmtH(Math.max(0,driveLeft))}</span></div>
+    <div class="rd-kv"><span class="k">Window left (${winMax}-hr rule${adverse ? " +2 adverse" : ""})</span><span class="v ${winLeft<=0?"bad":winLeft<2?"warn":"good"}">${fmtH(Math.max(0,winLeft))}</span></div>
+    <div class="rd-kv"><span class="k">Cycle left (${cycMax}-hr)</span><span class="v ${cycLeft<=0?"bad":cycLeft<5?"warn":"good"}">${fmtH(Math.max(0,cycLeft))}</span></div>
+    <div class="rd-kv"><span class="k">30-min break needed before driving</span><span class="v ${breakDue?"bad":"good"}">${breakDue?"YES":"No"}</span></div>
+    <div class="cite" style="margin-top:12px">49 CFR §395.3 · adverse conditions §395.1(b) · splits §395.1(g) —
+    <a href="/?%20" onclick="location.href='/';return false">look any of these up in Reg Deck</a></div>
+  </div>`;
+  out.scrollIntoView({behavior:"smooth"});
+});
+
+/* ---------- PC / Yard verdict ---------- */
+document.getElementById("goPc").addEventListener("click", () => {
+  const out = document.getElementById("outPc");
+  if (!rdSpend()){ rdMountGate(out, "You used your 3 free checks for today."); out.scrollIntoView({behavior:"smooth"}); return; }
+  document.getElementById("meterChip").innerHTML = rdMeterChip();
+
+  const yard = picked("yard") === "yes";
+  let cls, head, body;
+
+  if (yard){
+    cls = "v-warn"; head = "YARD MOVE — LOG IT ON-DUTY";
+    body = `<p>A yard move is legal, but it is <b>on-duty driving time logged as a yard move</b> — it is NOT off duty and it is NOT personal conveyance.</p>
+      <ul>
+        <li>Use your ELD's <b>Yard Move</b> status (special driving category, §395.28).</li>
+        <li>Only on private property / a controlled yard. The second you touch a public road, you're in normal Driving.</li>
+        <li>It still burns your 14-hour window.</li>
+      </ul>
+      <h4>Document</h4>
+      <ul><li>Annotate the move: "yard move — repositioning at [facility]".</li></ul>`;
+  } else {
+    const relieved = picked("relieved") === "yes";
+    const why = picked("why");
+    const advance = picked("advance") === "yes";
+    const long = picked("dist") === "long";
+
+    const kills = [];
+    if (!relieved) kills.push("You are <b>not relieved of duty</b> — PC only exists when you're off the clock completely.");
+    if (why === "dispatch") kills.push("<b>Dispatch directed the move</b> — that's work. It's Driving, on duty.");
+    if (why === "closer") kills.push("Positioning <b>closer to your next load is a business move</b> — FMCSA guidance is explicit that it's not PC.");
+    if (advance) kills.push("The move <b>advances the load</b> — that's the core test PC fails.");
+
+    if (kills.length){
+      cls = "v-no"; head = "DO NOT USE PC";
+      body = `<p>${kills.join(" ")}</p>
+        <p>Log it as <b>Driving</b>. Using PC here is a false log (§395.8(e)) — severity 7,
+        and it's one of the first things an auditor checks. If you're out of hours, you're out of hours.</p>`;
+    } else if (long){
+      cls = "v-warn"; head = "HIGH RISK — KEEP IT SHORT";
+      body = `<p>The purpose looks personal, but a <b>long PC move is a red flag</b>. FMCSA guidance says
+        enough time to reach the <b>nearest</b> reasonably safe location — not the nicest truck stop 100 miles up the road
+        (conveniently toward your receiver).</p>
+        <ul>
+          <li>Pick the nearest safe option and annotate why.</li>
+          <li>If an officer or facility ordered you to move while out of hours: PC to the nearest safe spot is allowed — annotate exactly that.</li>
+        </ul>`;
+    } else {
+      cls = "v-ok"; head = "LOOKS LIKE VALID PC";
+      const reason = {rest: "moving to the nearest safe parking to rest",
+        food: "a short personal errand (food / lodging)",
+        home: "commuting between home and your terminal"}[why] || "a personal move";
+      body = `<p>Off duty, ${reason}, not advancing the load, short distance — that's what PC is for.</p>
+        <h4>Protect yourself</h4>
+        <ul>
+          <li><b>Annotate the log</b>: where you went and why ("PC — to Pilot 2 mi for food").</li>
+          <li>Laden or empty doesn't matter — <b>purpose</b> does.</li>
+          <li>Same story every time: your annotation, your GPS trail, and your fuel card should all agree.</li>
+        </ul>`;
+    }
+  }
+
+  out.innerHTML = `<div class="rd-verdict ${cls}">
+    <div class="v-head">${head}</div>${body}
+    <div class="cite" style="margin-top:12px">49 CFR §395.2 (definitions) · §395.8 (logs) · FMCSA PC guidance (2018-05-31)</div>
+  </div>`;
+  out.scrollIntoView({behavior:"smooth"});
+});
+</script>
+</body>
+</html>
