@@ -29,6 +29,12 @@
   .msg{text-align:center;font-size:.85rem;margin:8px 0}
   .msg.err{color:var(--bad)} .msg.ok{color:var(--ok)}
   .tag{display:inline-block;font-size:.68rem;font-weight:700;border-radius:6px;padding:2px 7px;background:rgba(255,91,31,.18);color:var(--accent);margin-left:6px;vertical-align:middle}
+  code{background:var(--panel2);border:1px solid var(--line);border-radius:5px;padding:1px 5px;font-size:.82rem}
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:8px}
+  textarea{min-height:80px;resize:vertical}
+  .sp-item{display:flex;align-items:center;gap:10px;background:var(--panel2);border:1px solid var(--line);border-radius:9px;padding:8px 10px;margin-bottom:6px}
+  .sp-item .logo{font-size:1.4rem}.sp-item .g{flex:1}.sp-item .g b{font-size:.9rem}.sp-item .g .m{color:var(--muted);font-size:.76rem}
+  label.fld{display:block;font-size:.72rem;color:var(--muted);margin-bottom:3px}
 </style>
 </head>
 <body>
@@ -96,7 +102,81 @@ function render(data){
       + '<div class="actions"><button class="btn bad" onclick="act(\'delete_review\',\''+r.id+'\',\'rev\')">🗑 Delete review</button></div>'
       + '</div>';
   });
+  html += '<h2>⭐ Featured sponsors</h2>'
+    + '<div class="meta" style="margin-bottom:8px">Compose sponsor blocks shown across the directory (home + targeted states). '
+    + 'When done, <b>Generate</b>, then <b>Copy</b> or <b>Download</b> and commit the result to <code>truckstops/sponsors.json</code>. '
+    + 'Nothing shows on the site while the list is empty.</div>'
+    + '<div id="sp-list"></div>'
+    + '<div class="card"><div class="hdr">Add a sponsor</div>'
+    + '<div class="grid2">'
+    + '<div><label class="fld">Name *</label><input id="sp-name" maxlength="80" placeholder="Blue Beacon Truck Wash"></div>'
+    + '<div><label class="fld">Logo (emoji)</label><input id="sp-logo" maxlength="4" placeholder="🧼"></div>'
+    + '</div>'
+    + '<div style="margin-top:8px"><label class="fld">Tagline</label><input id="sp-tag" maxlength="120" placeholder="Fast full-service truck washes nationwide"></div>'
+    + '<div class="grid2">'
+    + '<div><label class="fld">Link URL</label><input id="sp-url" maxlength="300" placeholder="https://…"></div>'
+    + '<div><label class="fld">Target states (blank = everywhere)</label><input id="sp-states" maxlength="200" placeholder="GA, TN, FL"></div>'
+    + '</div>'
+    + '<div class="actions" style="margin-top:10px"><button class="btn ok" onclick="spAdd()">➕ Add sponsor</button></div></div>'
+    + '<div class="actions"><button class="btn" onclick="spGen()">📄 Generate JSON</button>'
+    + '<button class="btn ok" onclick="spCopy()">📋 Copy</button>'
+    + '<button class="btn" onclick="spDownload()">⬇ Download</button></div>'
+    + '<textarea id="sp-json" readonly style="margin-top:8px;font-family:ui-monospace,Menlo,monospace;font-size:.78rem"></textarea>';
+
   document.getElementById('content').innerHTML = html;
+  spLoad();
+}
+
+var SP = [];
+function spLoad(){
+  fetch('sponsors.json', {cache:'no-store'})
+    .then(function(r){ return r.ok ? r.json() : {sponsors:[]}; })
+    .then(function(j){ SP = (j && Array.isArray(j.sponsors)) ? j.sponsors : []; spRender(); })
+    .catch(function(){ SP = []; spRender(); });
+}
+function spRender(){
+  var box = document.getElementById('sp-list'); if(!box) return;
+  if(!SP.length){ box.innerHTML = '<div class="empty" style="padding:12px">No sponsors yet.</div>'; }
+  else {
+    box.innerHTML = SP.map(function(s, i){
+      var tgt = (s.states && s.states.length) ? s.states.join(', ') : 'everywhere';
+      return '<div class="sp-item"><span class="logo">'+esc(s.logo||'⭐')+'</span>'
+        + '<div class="g"><b>'+esc(s.name||'')+'</b>'+(s.active===false?' <span class="tag">hidden</span>':'')
+        + '<div class="m">'+esc(s.tagline||'')+' &bull; '+esc(tgt)+(s.url?' &bull; linked':'')+'</div></div>'
+        + '<button class="btn bad" onclick="spRemove('+i+')">✖</button></div>';
+    }).join('');
+  }
+  spGen();
+}
+function spAdd(){
+  var name = (document.getElementById('sp-name').value||'').trim();
+  if(!name){ setMsg('Sponsor name is required.', 'err'); return; }
+  var states = (document.getElementById('sp-states').value||'').split(',')
+    .map(function(x){ return x.trim().toUpperCase(); }).filter(Boolean);
+  SP.push({
+    name: name,
+    logo: (document.getElementById('sp-logo').value||'').trim() || '⭐',
+    tagline: (document.getElementById('sp-tag').value||'').trim(),
+    url: (document.getElementById('sp-url').value||'').trim(),
+    states: states,
+    active: true
+  });
+  ['sp-name','sp-logo','sp-tag','sp-url','sp-states'].forEach(function(id){ document.getElementById(id).value=''; });
+  setMsg('Added — remember to Generate + commit sponsors.json.', 'ok');
+  spRender();
+}
+function spRemove(i){ SP.splice(i,1); spRender(); }
+function spGen(){ var t=document.getElementById('sp-json'); if(t) t.value = JSON.stringify({sponsors: SP}, null, 2); }
+function spCopy(){
+  spGen(); var t=document.getElementById('sp-json'); t.select();
+  (navigator.clipboard ? navigator.clipboard.writeText(t.value) : Promise.reject())
+    .then(function(){ setMsg('Copied — commit it to truckstops/sponsors.json.', 'ok'); })
+    .catch(function(){ try{ document.execCommand('copy'); setMsg('Copied.', 'ok'); }catch(e){ setMsg('Select the text and copy manually.', 'err'); } });
+}
+function spDownload(){
+  spGen(); var blob = new Blob([document.getElementById('sp-json').value], {type:'application/json'});
+  var a = document.createElement('a'); a.href = URL.createObjectURL(blob); a.download = 'sponsors.json';
+  document.body.appendChild(a); a.click(); a.remove();
 }
 
 function act(action, id, kind){

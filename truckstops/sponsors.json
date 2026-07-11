@@ -1,0 +1,4 @@
+{
+  "_readme": "Featured sponsor blocks for the Truckin' Life Directory. Manage this file from the Admin page (truckstops/admin.html → Featured Sponsors): compose entries there, copy or download the generated JSON, and commit it here. No sponsors are shown while the list is empty. Each sponsor: name (required), tagline, url, logo (an emoji), states (array of 2-letter abbreviations to target, omit/empty = shown everywhere), active (false to hide without deleting).",
+  "sponsors": []
+}
