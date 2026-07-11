@@ -1,2 +1,12 @@
 # Deploy artifacts (built locally / sent to user, not source)
 *.zip
+
+# Android Rescue tool output (recovered user data stays local)
+android-photo-rescue/Recovered/
+android-photo-rescue/RecoveredTexts/
+android-photo-rescue/RecoveredCalls/
+android-photo-rescue/RecoveredContacts/
+
+# Python bytecode cache
+__pycache__/
+*.pyc

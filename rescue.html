@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#0b1220">
+<title>Rescue Vault — Photo &amp; Text Saver</title>
+<link rel="manifest" href="rescue.webmanifest">
+<style>
+  :root{
+    --bg:#0b1220; --panel:#111c30; --panel2:#16243d;
+    --line:#24395c; --txt:#e8eefc; --muted:#9fb0cf; --accent:#3ba0ff;
+    --accent2:#2bd6a7; --danger:#ff5d6c; --warn:#ffb84d;
+  }
+  *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+  html,body{margin:0;padding:0}
+  body{
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    background:var(--bg);color:var(--txt);line-height:1.45;
+    padding-bottom:env(safe-area-inset-bottom);
+  }
+  header{
+    padding:18px 16px calc(14px);
+    background:linear-gradient(160deg,#15233d,#0b1220);
+    border-bottom:1px solid var(--line);position:sticky;top:0;z-index:20;
+    padding-top:calc(14px + env(safe-area-inset-top));
+  }
+  header h1{margin:0;font-size:22px;display:flex;align-items:center;gap:8px}
+  header p{margin:4px 0 0;color:var(--muted);font-size:13px}
+  .wrap{max-width:780px;margin:0 auto;padding:16px}
+  /* tabs */
+  .tabs{display:flex;gap:6px;max-width:780px;margin:10px auto 0;padding:0 16px;flex-wrap:wrap}
+  .tab{
+    flex:1 1 auto;min-width:90px;text-align:center;padding:10px 8px;border-radius:12px;
+    background:var(--panel);border:1px solid var(--line);color:var(--muted);
+    font-size:13px;font-weight:600;cursor:pointer;user-select:none
+  }
+  .tab.active{background:var(--accent);color:#04101f;border-color:var(--accent)}
+  section{display:none}
+  section.active{display:block}
+  .card{
+    background:var(--panel);border:1px solid var(--line);border-radius:16px;
+    padding:16px;margin:14px 0
+  }
+  .card h2{margin:0 0 6px;font-size:17px}
+  .card p.sub{margin:0 0 12px;color:var(--muted);font-size:13px}
+  .btn{
+    display:inline-flex;align-items:center;justify-content:center;gap:8px;
+    border:none;border-radius:12px;padding:13px 16px;font-size:15px;font-weight:700;
+    cursor:pointer;width:100%;margin-top:8px;color:#04101f;background:var(--accent)
+  }
+  .btn.alt{background:var(--accent2)}
+  .btn.ghost{background:transparent;color:var(--txt);border:1px solid var(--line)}
+  .btn.danger{background:var(--danger);color:#fff}
+  .btn.warn{background:var(--warn)}
+  .btn.small{width:auto;padding:9px 12px;font-size:13px;margin-top:0}
+  .row{display:flex;gap:8px;flex-wrap:wrap}
+  .row .btn{width:auto;flex:1 1 0;min-width:120px}
+  .step{display:flex;gap:12px;padding:12px 0;border-top:1px solid var(--line)}
+  .step:first-of-type{border-top:none}
+  .step .num{
+    flex:0 0 28px;height:28px;border-radius:50%;background:var(--panel2);
+    display:flex;align-items:center;justify-content:center;font-weight:800;color:var(--accent)
+  }
+  .step .body{flex:1}
+  .step .body strong{display:block;font-size:15px}
+  .step .body span{color:var(--muted);font-size:13px}
+  .pill{display:inline-block;font-size:11px;font-weight:700;padding:3px 9px;border-radius:999px;background:var(--panel2);color:var(--accent2);margin-left:6px}
+  textarea,input[type=text]{
+    width:100%;background:var(--panel2);border:1px solid var(--line);color:var(--txt);
+    border-radius:12px;padding:12px;font-size:15px;font-family:inherit;resize:vertical
+  }
+  label.field{display:block;font-size:13px;color:var(--muted);margin:10px 0 4px}
+  .gallery{display:grid;grid-template-columns:repeat(auto-fill,minmax(96px,1fr));gap:8px;margin-top:12px}
+  .thumb{position:relative;aspect-ratio:1;border-radius:12px;overflow:hidden;background:var(--panel2);border:1px solid var(--line)}
+  .thumb img{width:100%;height:100%;object-fit:cover;display:block}
+  .thumb .x{
+    position:absolute;top:4px;right:4px;width:26px;height:26px;border-radius:50%;
+    background:rgba(0,0,0,.55);color:#fff;border:none;font-size:15px;cursor:pointer;
+    display:flex;align-items:center;justify-content:center
+  }
+  .note{
+    background:var(--panel2);border:1px solid var(--line);border-radius:12px;padding:12px;margin-top:10px
+  }
+  .note .meta{font-size:11px;color:var(--muted);margin-bottom:4px;display:flex;justify-content:space-between;align-items:center}
+  .note .text{white-space:pre-wrap;font-size:14px}
+  .empty{color:var(--muted);font-size:14px;text-align:center;padding:18px}
+  .banner{
+    background:rgba(255,184,77,.12);border:1px solid rgba(255,184,77,.4);
+    border-radius:12px;padding:12px;font-size:13px;color:#ffdca6;margin:14px 0
+  }
+  .ok{background:rgba(43,214,167,.12);border-color:rgba(43,214,167,.4);color:#a9f3df}
+  .count{font-size:12px;color:var(--muted)}
+  .hide{display:none!important}
+  .toast{
+    position:fixed;left:50%;bottom:calc(20px + env(safe-area-inset-bottom));transform:translateX(-50%);
+    background:#04101f;border:1px solid var(--accent);color:var(--txt);padding:11px 16px;border-radius:12px;
+    font-size:14px;z-index:50;opacity:0;transition:opacity .25s, transform .25s;pointer-events:none;max-width:90%
+  }
+  .toast.show{opacity:1;transform:translateX(-50%) translateY(-4px)}
+  footer{color:var(--muted);font-size:11px;text-align:center;padding:20px}
+  a{color:var(--accent)}
+</style>
+</head>
+<body>
+<header>
+  <h1>🛟 Rescue Vault</h1>
+  <p>Recover what you can — then keep your photos &amp; texts safe forever.</p>
+</header>
+
+<nav class="tabs">
+  <div class="tab active" data-tab="recover">🔎 Recover</div>
+  <div class="tab" data-tab="vault">🖼️ Photos</div>
+  <div class="tab" data-tab="texts">💬 Texts</div>
+  <div class="tab" data-tab="backup">💾 Backup</div>
+</nav>
+
+<div class="wrap">
+
+  <!-- RECOVER -->
+  <section id="recover" class="active">
+    <div class="banner">
+      <strong>Read this first.</strong> No app can dig deleted files out of a locked phone — that's a built-in
+      safety feature of your phone, not something an app can bypass. But the spots below
+      <em>actually</em> hold your deleted items, often for 30–60 days. Check them now.
+    </div>
+
+    <div class="row" style="margin-bottom:8px">
+      <button class="btn small" id="pickIphone">🍎 iPhone steps</button>
+      <button class="btn small alt" id="pickAndroid">🤖 Android steps</button>
+    </div>
+
+    <div class="card" id="iphoneCard">
+      <h2>🍎 iPhone recovery <span class="pill">most likely to work</span></h2>
+      <p class="sub">Try these in order. Photos and texts have separate trash folders.</p>
+      <div class="step"><div class="num">1</div><div class="body"><strong>Photos → Albums → Recently Deleted</strong><span>Kept up to 30 days. Tap a photo → Recover.</span></div></div>
+      <div class="step"><div class="num">2</div><div class="body"><strong>Messages → Edit/Filters → Recently Deleted</strong><span>iOS 16+ keeps deleted texts ~30 days. Select → Recover.</span></div></div>
+      <div class="step"><div class="num">3</div><div class="body"><strong>Settings → [your name] → iCloud → Photos</strong><span>If iCloud backup was on, missing photos may still be in iCloud.com.</span></div></div>
+      <div class="step"><div class="num">4</div><div class="body"><strong>iCloud.com → Account Settings → Restore Files</strong><span>On a computer, Apple keeps some recently deleted files for 30 days.</span></div></div>
+    </div>
+
+    <div class="card hide" id="androidCard">
+      <h2>🤖 Android recovery <span class="pill">most likely to work</span></h2>
+      <p class="sub">Steps vary slightly by brand (Samsung, Pixel, etc.).</p>
+      <div class="step"><div class="num">1</div><div class="body"><strong>Google Photos → Library → Trash</strong><span>Kept up to 60 days. Tap photo → Restore.</span></div></div>
+      <div class="step"><div class="num">2</div><div class="body"><strong>Samsung: Gallery → ☰ → Trash</strong><span>Samsung keeps deleted photos ~30 days separately.</span></div></div>
+      <div class="step"><div class="num">3</div><div class="body"><strong>Google Messages → archive / Recycle bin</strong><span>Check Archived. Samsung Messages → ⋮ → Recycle bin.</span></div></div>
+      <div class="step"><div class="num">4</div><div class="body"><strong>Google One / Backup</strong><span>Settings → Google → Backup. Restore can bring back synced data.</span></div></div>
+    </div>
+
+    <div class="banner ok">
+      <strong>Found them?</strong> Bring them into your Vault so this never happens again — tap
+      <b>🖼️ Photos</b> below and add them.
+    </div>
+
+    <div class="card">
+      <h2>⚠️ Avoid the scams</h2>
+      <p class="sub" style="margin:0">Most “recover deleted photos” apps in the app stores can’t actually work and may steal your data.
+      Stick to the built-in trash folders above. For deep recovery, only a trusted <b>computer</b> tool
+      (EaseUS, Dr.Fone, PhoneRescue) with your phone plugged in has any real chance.</p>
+    </div>
+
+    <div class="card">
+      <h2>🔑 Recover my passwords</h2>
+      <p class="sub">Apps don’t store your real password, so it can’t be “dug out” of the phone — but your
+      <b>saved</b> passwords are easy to get back the right way. Try these in order.</p>
+      <div class="step"><div class="num">1</div><div class="body"><strong>Google Password Manager</strong><span>Open <b>passwords.google.com</b> and sign in — every password saved on Chrome/Android is listed there.</span></div></div>
+      <div class="step"><div class="num">2</div><div class="body"><strong>On the phone</strong><span>Settings → Google → Autofill → Passwords (Android), or Settings → Passwords (iPhone, iCloud Keychain).</span></div></div>
+      <div class="step"><div class="num">3</div><div class="body"><strong>Samsung Pass</strong><span>Samsung phones: open the Samsung Pass app to see saved logins.</span></div></div>
+      <div class="step"><div class="num">4</div><div class="body"><strong>“Forgot password” in each app</strong><span>Always works — resets through your email or phone number. The universal fallback.</span></div></div>
+      <button class="btn" id="openGooglePw">🔑 Open passwords.google.com</button>
+      <div class="banner ok" style="margin:12px 0 0">
+        ⚠️ No legit app can pull passwords out of another app’s storage — anything that claims to is malware.
+        These front-door methods are faster and actually work.
+      </div>
+    </div>
+  </section>
+
+  <!-- PHOTOS VAULT -->
+  <section id="vault">
+    <div class="card">
+      <h2>🖼️ Photo Vault <span class="count" id="photoCount"></span></h2>
+      <p class="sub">Add photos here and they’re saved privately <b>on this device</b>. Nothing is uploaded.</p>
+      <button class="btn" id="addPhotoBtn">➕ Add Photos</button>
+      <input type="file" id="photoInput" accept="image/*" multiple class="hide">
+      <div class="gallery" id="gallery"></div>
+      <div class="empty" id="galleryEmpty">No photos saved yet. Tap “Add Photos”.</div>
+    </div>
+
+    <div class="card" id="photoTrashCard">
+      <h2>🗑️ Photo Trash <span class="count" id="photoTrashCount"></span></h2>
+      <p class="sub">Deleted photos wait here so you can restore them.</p>
+      <div class="gallery" id="trashGallery"></div>
+      <div class="empty" id="trashEmpty">Trash is empty.</div>
+      <button class="btn danger small hide" id="emptyTrashBtn" style="margin-top:12px">Empty Trash permanently</button>
+    </div>
+  </section>
+
+  <!-- TEXTS -->
+  <section id="texts">
+    <div class="card">
+      <h2>💬 Save a Text / Note</h2>
+      <p class="sub">Paste an important message, password hint, or note. Saved on this device.</p>
+      <label class="field">From / Title (optional)</label>
+      <input type="text" id="noteTitle" placeholder="e.g. Mom, or 'WiFi password'">
+      <label class="field">Message</label>
+      <textarea id="noteText" rows="4" placeholder="Type or paste the text you don't want to lose..."></textarea>
+      <button class="btn alt" id="saveNoteBtn">💾 Save Text</button>
+    </div>
+
+    <div class="card">
+      <h2>📚 Saved Texts <span class="count" id="noteCount"></span></h2>
+      <div id="noteList"></div>
+      <div class="empty" id="noteEmpty">Nothing saved yet.</div>
+    </div>
+  </section>
+
+  <!-- BACKUP -->
+  <section id="backup">
+    <div class="card">
+      <h2>💾 Backup &amp; Restore</h2>
+      <p class="sub">Export everything to one file you can email to yourself or save to the cloud.
+      If you ever get a new phone, import it back.</p>
+      <button class="btn" id="exportBtn">⬇️ Export everything to a file</button>
+      <button class="btn ghost" id="importBtn">⬆️ Import from a backup file</button>
+      <input type="file" id="importInput" accept="application/json" class="hide">
+    </div>
+    <div class="card">
+      <h2>📲 Install on your phone</h2>
+      <p class="sub" style="margin:0">Open this page in your browser, tap <b>Share</b> (iPhone) or <b>⋮ menu</b> (Android),
+      then <b>Add to Home Screen</b>. It’ll work like a real app, even offline.</p>
+    </div>
+  </section>
+
+</div>
+
+<div class="toast" id="toast"></div>
+<footer>Rescue Vault · everything stays on your device · v1</footer>
+
+<script>
+/* ---------- tiny helpers ---------- */
+const $ = s => document.querySelector(s);
+const $$ = s => Array.from(document.querySelectorAll(s));
+function toast(msg){const t=$('#toast');t.textContent=msg;t.classList.add('show');clearTimeout(t._t);t._t=setTimeout(()=>t.classList.remove('show'),2200);}
+function fmtDate(ts){const d=new Date(ts);return d.toLocaleDateString()+' '+d.toLocaleTimeString([], {hour:'2-digit',minute:'2-digit'});}
+
+/* ---------- tabs ---------- */
+$$('.tab').forEach(tab=>tab.addEventListener('click',()=>{
+  $$('.tab').forEach(t=>t.classList.remove('active'));
+  $$('section').forEach(s=>s.classList.remove('active'));
+  tab.classList.add('active');
+  $('#'+tab.dataset.tab).classList.add('active');
+  window.scrollTo({top:0,behavior:'smooth'});
+}));
+$('#pickIphone').addEventListener('click',()=>{$('#iphoneCard').classList.remove('hide');$('#androidCard').classList.add('hide');});
+$('#pickAndroid').addEventListener('click',()=>{$('#androidCard').classList.remove('hide');$('#iphoneCard').classList.add('hide');});
+$('#openGooglePw').addEventListener('click',()=>window.open('https://passwords.google.com','_blank','noopener'));
+
+/* ---------- IndexedDB ---------- */
+const DB_NAME='rescueVault', DB_VER=1;
+let db;
+function openDB(){
+  return new Promise((res,rej)=>{
+    const req=indexedDB.open(DB_NAME,DB_VER);
+    req.onupgradeneeded=e=>{
+      const d=e.target.result;
+      if(!d.objectStoreNames.contains('photos')) d.createObjectStore('photos',{keyPath:'id'});
+      if(!d.objectStoreNames.contains('notes'))  d.createObjectStore('notes',{keyPath:'id'});
+    };
+    req.onsuccess=e=>{db=e.target.result;res(db);};
+    req.onerror=e=>rej(e.target.error);
+  });
+}
+function tx(store,mode='readonly'){return db.transaction(store,mode).objectStore(store);}
+function put(store,val){return new Promise((res,rej)=>{const r=tx(store,'readwrite').put(val);r.onsuccess=()=>res();r.onerror=()=>rej(r.error);});}
+function del(store,id){return new Promise((res,rej)=>{const r=tx(store,'readwrite').delete(id);r.onsuccess=()=>res();r.onerror=()=>rej(r.error);});}
+function getAll(store){return new Promise((res,rej)=>{const r=tx(store).getAll();r.onsuccess=()=>res(r.result||[]);r.onerror=()=>rej(r.error);});}
+
+/* ---------- Photos ---------- */
+const galleryEl=$('#gallery'), trashEl=$('#trashGallery');
+async function renderPhotos(){
+  const all=await getAll('photos');
+  const live=all.filter(p=>!p.trashed).sort((a,b)=>b.added-a.added);
+  const trash=all.filter(p=>p.trashed).sort((a,b)=>b.added-a.added);
+  $('#photoCount').textContent=live.length?`(${live.length})`:'';
+  $('#photoTrashCount').textContent=trash.length?`(${trash.length})`:'';
+  galleryEl.innerHTML=''; trashEl.innerHTML='';
+  $('#galleryEmpty').classList.toggle('hide',live.length>0);
+  $('#trashEmpty').classList.toggle('hide',trash.length>0);
+  $('#emptyTrashBtn').classList.toggle('hide',trash.length===0);
+
+  live.forEach(p=>{
+    const div=document.createElement('div');div.className='thumb';
+    const url=URL.createObjectURL(p.blob);
+    div.innerHTML=`<img src="${url}" alt="">`;
+    const x=document.createElement('button');x.className='x';x.textContent='🗑';x.title='Move to trash';
+    x.onclick=async()=>{p.trashed=true;await put('photos',p);toast('Moved to trash');renderPhotos();};
+    div.appendChild(x);
+    div.querySelector('img').onclick=()=>openFull(url);
+    galleryEl.appendChild(div);
+  });
+  trash.forEach(p=>{
+    const div=document.createElement('div');div.className='thumb';
+    const url=URL.createObjectURL(p.blob);
+    div.innerHTML=`<img src="${url}" style="opacity:.6" alt="">`;
+    const x=document.createElement('button');x.className='x';x.textContent='↩';x.title='Restore';
+    x.style.background='rgba(43,214,167,.85)';
+    x.onclick=async()=>{p.trashed=false;await put('photos',p);toast('Restored');renderPhotos();};
+    div.appendChild(x);
+    trashEl.appendChild(div);
+  });
+}
+function openFull(url){const w=window.open();if(w)w.document.write(`<img src="${url}" style="max-width:100%">`);}
+
+$('#addPhotoBtn').onclick=()=>$('#photoInput').click();
+$('#photoInput').onchange=async e=>{
+  const files=[...e.target.files];if(!files.length)return;
+  for(const f of files){
+    await put('photos',{id:crypto.randomUUID(),blob:f,name:f.name,type:f.type,added:Date.now(),trashed:false});
+  }
+  e.target.value='';
+  toast(files.length+' photo'+(files.length>1?'s':'')+' saved ✔');
+  renderPhotos();
+};
+$('#emptyTrashBtn').onclick=async()=>{
+  if(!confirm('Permanently delete all trashed photos? This cannot be undone.'))return;
+  const all=await getAll('photos');
+  for(const p of all.filter(x=>x.trashed)) await del('photos',p.id);
+  toast('Trash emptied');renderPhotos();
+};
+
+/* ---------- Notes / Texts ---------- */
+async function renderNotes(){
+  const notes=(await getAll('notes')).sort((a,b)=>b.added-a.added);
+  $('#noteCount').textContent=notes.length?`(${notes.length})`:'';
+  $('#noteEmpty').classList.toggle('hide',notes.length>0);
+  const list=$('#noteList');list.innerHTML='';
+  notes.forEach(n=>{
+    const div=document.createElement('div');div.className='note';
+    div.innerHTML=`<div class="meta"><span>${n.title?escapeHtml(n.title)+' · ':''}${fmtDate(n.added)}</span></div>
+      <div class="text">${escapeHtml(n.text)}</div>`;
+    const meta=div.querySelector('.meta');
+    const btns=document.createElement('span');
+    const copy=document.createElement('button');copy.className='btn ghost small';copy.textContent='Copy';
+    copy.onclick=()=>{navigator.clipboard?.writeText(n.text);toast('Copied');};
+    const rm=document.createElement('button');rm.className='btn danger small';rm.textContent='Delete';rm.style.marginLeft='6px';
+    rm.onclick=async()=>{if(confirm('Delete this text?')){await del('notes',n.id);toast('Deleted');renderNotes();}};
+    btns.appendChild(copy);btns.appendChild(rm);meta.appendChild(btns);
+    list.appendChild(div);
+  });
+}
+function escapeHtml(s){return (s||'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
+$('#saveNoteBtn').onclick=async()=>{
+  const text=$('#noteText').value.trim();
+  if(!text){toast('Type a message first');return;}
+  await put('notes',{id:crypto.randomUUID(),title:$('#noteTitle').value.trim(),text,added:Date.now()});
+  $('#noteText').value='';$('#noteTitle').value='';
+  toast('Text saved ✔');renderNotes();
+};
+
+/* ---------- Backup / Restore ---------- */
+function blobToDataURL(blob){return new Promise(res=>{const r=new FileReader();r.onload=()=>res(r.result);r.readAsDataURL(blob);});}
+function dataURLToBlob(d){const [meta,b64]=d.split(',');const mime=(meta.match(/:(.*?);/)||[])[1]||'application/octet-stream';
+  const bin=atob(b64);const arr=new Uint8Array(bin.length);for(let i=0;i<bin.length;i++)arr[i]=bin.charCodeAt(i);return new Blob([arr],{type:mime});}
+
+$('#exportBtn').onclick=async()=>{
+  toast('Building backup…');
+  const photos=await getAll('photos'), notes=await getAll('notes');
+  const out={app:'RescueVault',version:1,exported:Date.now(),notes,photos:[]};
+  for(const p of photos){out.photos.push({id:p.id,name:p.name,type:p.type,added:p.added,trashed:!!p.trashed,data:await blobToDataURL(p.blob)});}
+  const blob=new Blob([JSON.stringify(out)],{type:'application/json'});
+  const a=document.createElement('a');a.href=URL.createObjectURL(blob);
+  a.download='rescue-vault-backup-'+new Date().toISOString().slice(0,10)+'.json';
+  a.click();
+  toast('Backup downloaded ✔');
+};
+$('#importBtn').onclick=()=>$('#importInput').click();
+$('#importInput').onchange=async e=>{
+  const file=e.target.files[0];if(!file)return;
+  try{
+    const data=JSON.parse(await file.text());
+    if(data.app!=='RescueVault') throw new Error('Not a Rescue Vault backup');
+    for(const n of (data.notes||[])) await put('notes',n);
+    for(const p of (data.photos||[])) await put('photos',{id:p.id,name:p.name,type:p.type,added:p.added,trashed:!!p.trashed,blob:dataURLToBlob(p.data)});
+    toast('Backup restored ✔');renderPhotos();renderNotes();
+  }catch(err){toast('Could not read that file');}
+  e.target.value='';
+};
+
+/* ---------- boot ---------- */
+(async()=>{
+  try{
+    await openDB();
+    await renderPhotos();
+    await renderNotes();
+  }catch(err){toast('Storage unavailable in this browser');}
+  if('serviceWorker' in navigator){
+    navigator.serviceWorker.register('rescue-sw.js').catch(()=>{});
+  }
+})();
+</script>
+</body>
+</html>
