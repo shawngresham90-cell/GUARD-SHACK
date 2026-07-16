@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+Disallow: /truckstops/admin.html
+Sitemap: https://truckinglifewithshawn.com/truckstops/sitemap.xml
