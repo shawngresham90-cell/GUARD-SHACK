@@ -1,2 +1,4 @@
 # Deploy artifacts (built locally / sent to user, not source)
 *.zip
+
+.claude/settings.local.json
