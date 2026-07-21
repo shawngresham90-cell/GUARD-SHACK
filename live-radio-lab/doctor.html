@@ -19,6 +19,7 @@
 <body>
 <h1>📻 Connection Doctor</h1>
 <div id="out">Running checks…</div>
+<script src="vendor/livekit-client-2.20.2.umd.js"></script>
 <script src="config.js"></script>
 <script>
 "use strict";
@@ -62,8 +63,31 @@
       return r.text().then(function (t) {
         var body = t.slice(0, 200);
         if (r.status === 200) {
-          var hasUrl = /"sfuUrl"\s*:\s*"wss:/.test(t);
-          add(hasUrl ? "ok" : "warn", "5. Token POST", "HTTP 200 — token minted. sfuUrl starts with wss:// = " + hasUrl);
+          var data = {};
+          try { data = JSON.parse(t); } catch (e) {}
+          var hasUrl = typeof data.sfuUrl === "string" && data.sfuUrl.indexOf("wss://") === 0;
+          add(hasUrl ? "ok" : "warn", "5. Token POST",
+            "HTTP 200 — token minted. Server address received (public): " + (data.sfuUrl || "(missing)"));
+          // 6. The definitive test: actually connect to LiveKit with this token.
+          if (hasUrl && data.token && window.LivekitClient) {
+            add("warn", "6. LiveKit connect", "attempting…");
+            var room = new window.LivekitClient.Room();
+            var timer = setTimeout(function () {
+              try { room.disconnect(); } catch (e) {}
+              lines[lines.length - 1] = '<div class="row"><b>6. LiveKit connect:</b> <span class="bad">TIMED OUT after 15s — address likely wrong or unreachable</span></div>';
+              out.innerHTML = lines.join("");
+            }, 15000);
+            room.connect(data.sfuUrl, data.token).then(function () {
+              clearTimeout(timer);
+              lines[lines.length - 1] = '<div class="row"><b>6. LiveKit connect:</b> <span class="ok">SUCCESS — joined and left the room. Everything works.</span></div>';
+              out.innerHTML = lines.join("");
+              try { room.disconnect(); } catch (e) {}
+            }).catch(function (e) {
+              clearTimeout(timer);
+              lines[lines.length - 1] = '<div class="row"><b>6. LiveKit connect:</b> <span class="bad">FAILED — ' + String(e).slice(0, 220) + '</span></div>';
+              out.innerHTML = lines.join("");
+            });
+          }
         } else if (r.status === 503) {
           add("bad", "5. Token POST", "HTTP 503 radio_unavailable → the LIVEKIT_URL / API key / secret env vars are missing in the function");
         } else {
