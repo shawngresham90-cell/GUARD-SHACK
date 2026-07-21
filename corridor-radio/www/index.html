@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Corridor Radio</title>
+  <style>
+    :root {
+      color-scheme: light dark;
+      --bg: #0f1115;
+      --panel: #1a1d24;
+      --accent: #4fc3f7;
+      --text: #e6e8eb;
+      --muted: #9aa3ad;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 2rem 1rem;
+    }
+    header { text-align: center; margin-bottom: 1.5rem; }
+    h1 { margin: 0; font-size: 1.75rem; letter-spacing: 0.5px; }
+    .status { color: var(--muted); font-size: 0.9rem; margin-top: 0.25rem; }
+    .status.connected { color: var(--accent); }
+    main {
+      width: 100%;
+      max-width: 640px;
+      background: var(--panel);
+      border-radius: 12px;
+      padding: 1.25rem;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.35);
+    }
+    #log {
+      height: 320px;
+      overflow-y: auto;
+      background: rgba(0,0,0,0.25);
+      border-radius: 8px;
+      padding: 0.75rem;
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: 0.85rem;
+      line-height: 1.5;
+    }
+    #log div { margin-bottom: 0.25rem; }
+    .form {
+      display: flex;
+      gap: 0.5rem;
+      margin-top: 0.75rem;
+    }
+    input {
+      flex: 1;
+      padding: 0.6rem 0.75rem;
+      border-radius: 8px;
+      border: 1px solid #2a2f38;
+      background: #12151b;
+      color: var(--text);
+      font-size: 0.95rem;
+    }
+    button {
+      padding: 0.6rem 1.1rem;
+      border-radius: 8px;
+      border: none;
+      background: var(--accent);
+      color: #04222e;
+      font-weight: 600;
+      cursor: pointer;
+    }
+    button:disabled { opacity: 0.5; cursor: not-allowed; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>📻 Corridor Radio</h1>
+    <div id="status" class="status">Connecting…</div>
+  </header>
+  <main>
+    <div id="log"></div>
+    <form class="form" id="form">
+      <input id="input" type="text" placeholder="Type a message…" autocomplete="off" />
+      <button id="send" type="submit" disabled>Send</button>
+    </form>
+  </main>
+
+  <script>
+    (function () {
+      var logEl = document.getElementById('log');
+      var statusEl = document.getElementById('status');
+      var form = document.getElementById('form');
+      var input = document.getElementById('input');
+      var sendBtn = document.getElementById('send');
+
+      function log(msg) {
+        var line = document.createElement('div');
+        line.textContent = msg;
+        logEl.appendChild(line);
+        logEl.scrollTop = logEl.scrollHeight;
+      }
+
+      var proto = location.protocol === 'https:' ? 'wss://' : 'ws://';
+      var ws = new WebSocket(proto + location.host + '/', 'corridor-protocol');
+
+      ws.onopen = function () {
+        statusEl.textContent = 'Connected';
+        statusEl.classList.add('connected');
+        sendBtn.disabled = false;
+        log('* connected to corridor');
+      };
+
+      ws.onmessage = function (evt) {
+        log('< ' + evt.data);
+      };
+
+      ws.onclose = function () {
+        statusEl.textContent = 'Disconnected';
+        statusEl.classList.remove('connected');
+        sendBtn.disabled = true;
+        log('* connection closed');
+      };
+
+      ws.onerror = function () {
+        log('* connection error');
+      };
+
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        var text = input.value.trim();
+        if (!text || ws.readyState !== WebSocket.OPEN) return;
+        ws.send(text);
+        log('> ' + text);
+        input.value = '';
+      });
+    })();
+  </script>
+</body>
+</html>

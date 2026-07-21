@@ -1,0 +1,16 @@
+# Compiled binary
+/corridor-server
+
+# Object files
+*.o
+*.obj
+
+# Build artifacts
+*.a
+*.so
+*.dSYM/
+
+# Editor / OS cruft
+*.swp
+*~
+.DS_Store
