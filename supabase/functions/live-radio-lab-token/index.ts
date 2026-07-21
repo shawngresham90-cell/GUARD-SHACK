@@ -80,21 +80,29 @@ async function adminToken(apiKey: string, apiSecret: string, room: string): Prom
   }, apiSecret);
 }
 
+function corsHeaders(origin: string): Record<string, string> {
+  return {
+    "access-control-allow-origin": origin,
+    "access-control-allow-headers": "content-type, x-mod-key",
+    "access-control-allow-methods": "POST, OPTIONS",
+    "access-control-max-age": "86400",
+  };
+}
+
 function json(status: number, body: unknown, origin: string): Response {
   return new Response(JSON.stringify(body), {
     status,
-    headers: {
-      "content-type": "application/json",
-      "access-control-allow-origin": origin,
-      "access-control-allow-headers": "content-type, x-mod-key",
-      "access-control-allow-methods": "POST, OPTIONS",
-    },
+    headers: { "content-type": "application/json", ...corsHeaders(origin) },
   });
 }
 
 Deno.serve(async (req: Request) => {
   const origin = Deno.env.get("ALLOWED_ORIGIN") ?? "*";
-  if (req.method === "OPTIONS") return json(204, {}, origin);
+  // Preflight: 204 responses must have NO body (the Response constructor
+  // throws otherwise, which would fail every browser preflight as "CORS").
+  if (req.method === "OPTIONS") {
+    return new Response(null, { status: 204, headers: corsHeaders(origin) });
+  }
   if (req.method !== "POST") return json(405, { error: "method_not_allowed" }, origin);
 
   const url = Deno.env.get("LIVEKIT_URL");
