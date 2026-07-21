@@ -15,5 +15,7 @@
  * environment variable; for the spike it is edited by hand.
  */
 window.TLWS_RADIO_LAB_CONFIG = {
-  tokenEndpoint: null
+  // Phase 0.5 spike: owner-provisioned dev environment (isolated Supabase
+  // project + LiveKit free dev tier). Public URL — holds no secrets.
+  tokenEndpoint: "https://sjjtivasehvqszjoueme.supabase.co/functions/v1/smooth-task"
 };
