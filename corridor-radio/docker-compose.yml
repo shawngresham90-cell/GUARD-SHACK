@@ -1,0 +1,14 @@
+services:
+  corridor-radio:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: corridor-radio
+    container_name: corridor-radio
+    ports:
+      - "7681:7681"
+    volumes:
+      # Mount the frontend read-only so you can edit www/index.html and
+      # refresh the browser without rebuilding the image.
+      - ./www:/app/www:ro
+    restart: unless-stopped
