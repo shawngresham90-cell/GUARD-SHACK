@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" href="data:,">
+<title>Live Radio Lab — Connection Doctor</title>
+<style>
+  body { background:#0d0d0d; color:#eceae4; font-family:ui-monospace,Menlo,monospace;
+         padding:16px; font-size:14px; line-height:1.6; }
+  h1 { color:#ffb000; font-size:1.1rem; }
+  .row { margin:10px 0; padding:10px; border:1px solid #2b2b2b; border-radius:8px;
+         word-break:break-all; }
+  .ok { color:#35d94a; } .bad { color:#ff8d8d; } .warn { color:#ffd28a; }
+  b { color:#ffb000; }
+</style>
+</head>
+<body>
+<h1>📻 Connection Doctor</h1>
+<div id="out">Running checks…</div>
+<script src="vendor/livekit-client-2.20.2.umd.js"></script>
+<script src="config.js"></script>
+<script>
+"use strict";
+(function () {
+  var out = document.getElementById("out");
+  var lines = [];
+  function add(cls, label, msg) {
+    lines.push('<div class="row"><b>' + label + ':</b> <span class="' + cls + '">' + msg + '</span></div>');
+    out.innerHTML = lines.join("");
+  }
+
+  var cfg = window.TLWS_RADIO_LAB_CONFIG || {};
+  var ep = cfg.tokenEndpoint;
+
+  add("warn", "1. This page's origin (ALLOWED_ORIGIN must equal this exactly)", window.location.origin);
+  add(ep ? "ok" : "bad", "2. Configured token endpoint", ep || "NOT SET");
+  if (!ep) return;
+
+  // 3. Reachability (no-cors: succeeds if the server answered at all, even without CORS)
+  fetch(ep, { method: "GET", mode: "no-cors" }).then(function () {
+    add("ok", "3. Server reachable", "yes — the function URL answers");
+  }).catch(function (e) {
+    add("bad", "3. Server reachable", "NO — " + e + " (wrong URL or function deleted)");
+  }).then(function () {
+    // 4. CORS-readable GET (ours answers 405 method_not_allowed WITH CORS headers)
+    return fetch(ep, { method: "GET" }).then(function (r) {
+      return r.text().then(function (t) {
+        add(r.status === 405 ? "ok" : "warn", "4. CORS GET", "HTTP " + r.status + " body: " + t.slice(0, 120)
+          + (r.status === 405 ? " (our code, CORS header matches this origin)" : " (unexpected — is this our function?)"));
+      });
+    }).catch(function (e) {
+      add("bad", "4. CORS GET", "BLOCKED — " + e + " → ALLOWED_ORIGIN does not match this page's origin (compare with check 1)");
+    });
+  }).then(function () {
+    // 5. The real thing: preflighted POST for a listen token
+    return fetch(ep, {
+      method: "POST",
+      headers: { "content-type": "application/json" },
+      body: JSON.stringify({ action: "token", channelId: "nationwide-19", handle: "Doctor Check", mode: "listen" })
+    }).then(function (r) {
+      return r.text().then(function (t) {
+        var body = t.slice(0, 200);
+        if (r.status === 200) {
+          var data = {};
+          try { data = JSON.parse(t); } catch (e) {}
+          var hasUrl = typeof data.sfuUrl === "string" && data.sfuUrl.indexOf("wss://") === 0;
+          add(hasUrl ? "ok" : "warn", "5. Token POST",
+            "HTTP 200 — token minted. Server address received (public): " + (data.sfuUrl || "(missing)"));
+          // 6. The definitive test: actually connect to LiveKit with this token.
+          if (hasUrl && data.token && window.LivekitClient) {
+            add("warn", "6. LiveKit connect", "attempting…");
+            var room = new window.LivekitClient.Room();
+            var timer = setTimeout(function () {
+              try { room.disconnect(); } catch (e) {}
+              lines[lines.length - 1] = '<div class="row"><b>6. LiveKit connect:</b> <span class="bad">TIMED OUT after 15s — address likely wrong or unreachable</span></div>';
+              out.innerHTML = lines.join("");
+            }, 15000);
+            room.connect(data.sfuUrl, data.token).then(function () {
+              clearTimeout(timer);
+              lines[lines.length - 1] = '<div class="row"><b>6. LiveKit connect:</b> <span class="ok">SUCCESS — joined and left the room. Everything works.</span></div>';
+              out.innerHTML = lines.join("");
+              try { room.disconnect(); } catch (e) {}
+            }).catch(function (e) {
+              clearTimeout(timer);
+              lines[lines.length - 1] = '<div class="row"><b>6. LiveKit connect:</b> <span class="bad">FAILED — ' + String(e).slice(0, 220) + '</span></div>';
+              out.innerHTML = lines.join("");
+            });
+          }
+        } else if (r.status === 503) {
+          add("bad", "5. Token POST", "HTTP 503 radio_unavailable → the LIVEKIT_URL / API key / secret env vars are missing in the function");
+        } else {
+          add("warn", "5. Token POST", "HTTP " + r.status + " body: " + body);
+        }
+      });
+    }).catch(function (e) {
+      add("bad", "5. Token POST", "BLOCKED — " + e + " → preflight failing: old function code still deployed, or ALLOWED_ORIGIN mismatch");
+    });
+  }).then(function () {
+    add("warn", "Done", "Read these results to Claude, top to bottom.");
+  });
+})();
+</script>
+</body>
+</html>
