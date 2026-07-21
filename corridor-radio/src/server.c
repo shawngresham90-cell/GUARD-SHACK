@@ -125,6 +125,14 @@ main(int argc, char **argv)
 	info.gid = -1;
 	info.uid = -1;
 
+	/*
+	 * Bind an IPv4 listen socket only. Some hosts/containers have IPv6
+	 * disabled, in which case libwebsockets' default (dual-stack) listen
+	 * socket fails to open. Disabling IPv6 keeps startup portable; the
+	 * frontend connects over ws://<host>:<port>/ either way.
+	 */
+	info.options = LWS_SERVER_OPTION_DISABLE_IPV6;
+
 	lwsl_user("Corridor Radio server starting on port %d\n", port);
 
 	context = lws_create_context(&info);
