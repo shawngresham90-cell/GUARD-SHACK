@@ -1,141 +1,1010 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Corridor Radio</title>
-  <style>
-    :root {
-      color-scheme: light dark;
-      --bg: #0f1115;
-      --panel: #1a1d24;
-      --accent: #4fc3f7;
-      --text: #e6e8eb;
-      --muted: #9aa3ad;
-    }
-    * { box-sizing: border-box; }
-    body {
-      margin: 0;
-      font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      padding: 2rem 1rem;
-    }
-    header { text-align: center; margin-bottom: 1.5rem; }
-    h1 { margin: 0; font-size: 1.75rem; letter-spacing: 0.5px; }
-    .status { color: var(--muted); font-size: 0.9rem; margin-top: 0.25rem; }
-    .status.connected { color: var(--accent); }
-    main {
-      width: 100%;
-      max-width: 640px;
-      background: var(--panel);
-      border-radius: 12px;
-      padding: 1.25rem;
-      box-shadow: 0 8px 24px rgba(0,0,0,0.35);
-    }
-    #log {
-      height: 320px;
-      overflow-y: auto;
-      background: rgba(0,0,0,0.25);
-      border-radius: 8px;
-      padding: 0.75rem;
-      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
-      font-size: 0.85rem;
-      line-height: 1.5;
-    }
-    #log div { margin-bottom: 0.25rem; }
-    .form {
-      display: flex;
-      gap: 0.5rem;
-      margin-top: 0.75rem;
-    }
-    input {
-      flex: 1;
-      padding: 0.6rem 0.75rem;
-      border-radius: 8px;
-      border: 1px solid #2a2f38;
-      background: #12151b;
-      color: var(--text);
-      font-size: 0.95rem;
-    }
-    button {
-      padding: 0.6rem 1.1rem;
-      border-radius: 8px;
-      border: none;
-      background: var(--accent);
-      color: #04222e;
-      font-weight: 600;
-      cursor: pointer;
-    }
-    button:disabled { opacity: 0.5; cursor: not-allowed; }
-  </style>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<title>Corridor Radio — Internet CB Radio for Truckers</title>
+<style>
+  /* ============================================================
+     CORRIDOR RADIO — Dark CB radio theme
+     ============================================================ */
+  :root {
+    --bg:        #0d0d0d;
+    --panel:     #161616;
+    --panel-2:   #1e1e1e;
+    --amber:     #ffb000;
+    --amber-dim: #a97400;
+    --amber-glow: rgba(255, 176, 0, 0.35);
+    --red:       #d81f1f;
+    --red-hot:   #ff2a2a;
+    --red-dark:  #7a0f0f;
+    --green:     #35d94a;
+    --line:      #2a2a2a;
+    --muted:     #8a6d20;
+  }
+
+  * { box-sizing: border-box; }
+
+  html, body {
+    margin: 0;
+    padding: 0;
+    background: var(--bg);
+    color: var(--amber);
+    font-family: "Courier New", "DejaVu Sans Mono", monospace;
+    -webkit-font-smoothing: antialiased;
+    min-height: 100%;
+  }
+
+  body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 16px 12px 40px;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  .wrap { width: 100%; max-width: 860px; }
+
+  /* ---------- Header ---------- */
+  header {
+    text-align: center;
+    border-bottom: 2px solid var(--amber-dim);
+    padding-bottom: 12px;
+    margin-bottom: 18px;
+  }
+  header h1 {
+    margin: 0;
+    font-size: 2.1rem;
+    letter-spacing: 4px;
+    text-shadow: 0 0 12px var(--amber-glow);
+  }
+  header .sub {
+    margin-top: 4px;
+    font-size: 0.85rem;
+    letter-spacing: 2px;
+    color: var(--amber-dim);
+    text-transform: uppercase;
+  }
+
+  /* ---------- Panels ---------- */
+  .panel {
+    background: var(--panel);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    padding: 16px;
+    margin-bottom: 16px;
+  }
+
+  .section-title {
+    font-size: 0.8rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--amber-dim);
+    margin: 0 0 10px;
+    border-left: 3px solid var(--amber);
+    padding-left: 8px;
+  }
+
+  /* ---------- Connection panel ---------- */
+  #connectPanel { text-align: center; }
+  #connectPanel p { color: var(--amber-dim); font-size: 0.9rem; }
+  .conn-row {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 14px;
+  }
+
+  input[type="text"] {
+    background: #000;
+    border: 1px solid var(--amber-dim);
+    color: var(--amber);
+    font-family: inherit;
+    font-size: 1rem;
+    padding: 12px 14px;
+    border-radius: 6px;
+    outline: none;
+  }
+  input[type="text"]:focus { border-color: var(--amber); box-shadow: 0 0 8px var(--amber-glow); }
+
+  button {
+    font-family: inherit;
+    cursor: pointer;
+    border: none;
+    border-radius: 6px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    transition: transform 0.05s ease, filter 0.15s ease;
+  }
+  button:active { transform: translateY(1px); }
+
+  .btn-amber {
+    background: var(--amber);
+    color: #1a1200;
+    padding: 12px 22px;
+    font-size: 1rem;
+    text-transform: uppercase;
+  }
+  .btn-amber:hover { filter: brightness(1.1); }
+
+  /* ---------- Status bar ---------- */
+  #statusBar {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.85rem;
+    letter-spacing: 1px;
+    margin-bottom: 4px;
+  }
+  .dot {
+    width: 12px; height: 12px;
+    border-radius: 50%;
+    background: var(--red);
+    box-shadow: 0 0 6px var(--red);
+    flex: 0 0 auto;
+  }
+  .dot.online { background: var(--green); box-shadow: 0 0 8px var(--green); }
+  #statusText { color: var(--amber-dim); }
+  #whoami { margin-left: auto; color: var(--amber); }
+
+  /* ---------- Channel grids ---------- */
+  .grid {
+    display: grid;
+    gap: 8px;
+    grid-template-columns: repeat(auto-fill, minmax(72px, 1fr));
+  }
+  .chan-btn {
+    background: var(--panel-2);
+    color: var(--amber);
+    border: 1px solid var(--line);
+    padding: 12px 6px;
+    font-size: 0.95rem;
+    border-radius: 6px;
+    text-align: center;
+  }
+  .chan-btn:hover { border-color: var(--amber-dim); filter: brightness(1.15); }
+  .chan-btn.active {
+    background: var(--amber);
+    color: #1a1200;
+    border-color: var(--amber);
+    box-shadow: 0 0 10px var(--amber-glow);
+  }
+  .grid.cities { grid-template-columns: repeat(auto-fill, minmax(104px, 1fr)); }
+
+  .btn-usa {
+    width: 100%;
+    background: linear-gradient(180deg, var(--red-hot), var(--red-dark));
+    color: #fff;
+    padding: 18px;
+    font-size: 1.3rem;
+    letter-spacing: 3px;
+    border-radius: 8px;
+    border: 2px solid #ff5b5b;
+    text-shadow: 0 1px 2px #000;
+  }
+  .btn-usa.active { box-shadow: 0 0 18px rgba(255,42,42,0.6); }
+
+  /* ---------- Current channel display ---------- */
+  #channelDisplay {
+    text-align: center;
+    padding: 18px;
+    border: 1px dashed var(--amber-dim);
+    border-radius: 8px;
+    background: #000;
+  }
+  #channelDisplay .label {
+    font-size: 0.7rem; letter-spacing: 2px; color: var(--amber-dim);
+  }
+  #channelName {
+    font-size: 2.4rem;
+    letter-spacing: 3px;
+    text-shadow: 0 0 14px var(--amber-glow);
+    margin-top: 4px;
+  }
+
+  /* ---------- Member list ---------- */
+  #members { list-style: none; margin: 0; padding: 0; }
+  #members li {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 6px;
+    border-bottom: 1px solid var(--line);
+    font-size: 0.95rem;
+  }
+  #members li:last-child { border-bottom: none; }
+  .spk-dot {
+    width: 12px; height: 12px; border-radius: 50%;
+    background: #333;
+    flex: 0 0 auto;
+  }
+  .spk-dot.talking {
+    background: var(--green);
+    box-shadow: 0 0 8px var(--green);
+    animation: pulse 0.9s infinite ease-in-out;
+  }
+  .member-you { color: var(--amber-dim); font-size: 0.75rem; margin-left: auto; }
+  @keyframes pulse {
+    0%,100% { transform: scale(1);   opacity: 1;   }
+    50%     { transform: scale(1.5); opacity: 0.6; }
+  }
+
+  /* ---------- PTT ---------- */
+  #pttWrap { text-align: center; padding: 8px 0 4px; }
+  #pttButton {
+    width: 220px; height: 220px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 50% 35%, var(--red-hot), var(--red-dark));
+    color: #fff;
+    font-size: 1.25rem;
+    letter-spacing: 2px;
+    border: 6px solid #3a0808;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.6), inset 0 -6px 12px rgba(0,0,0,0.4);
+    text-shadow: 0 2px 3px #000;
+    line-height: 1.3;
+    touch-action: none;
+  }
+  #pttButton:disabled { filter: grayscale(0.7) brightness(0.6); cursor: not-allowed; }
+  #pttButton.transmitting {
+    background: radial-gradient(circle at 50% 35%, #ff6b6b, #b81515);
+    box-shadow: 0 0 40px rgba(255,42,42,0.8), inset 0 -6px 12px rgba(0,0,0,0.4);
+    border-color: #ff5b5b;
+    transform: scale(0.97);
+  }
+  #pttHint { margin-top: 10px; font-size: 0.75rem; color: var(--amber-dim); letter-spacing: 1px; }
+
+  /* ---------- Chat ---------- */
+  #chatLog {
+    height: 240px;
+    overflow-y: auto;
+    background: #000;
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    padding: 10px;
+    font-size: 0.85rem;
+    line-height: 1.5;
+  }
+  #chatLog .msg { margin-bottom: 4px; word-break: break-word; }
+  #chatLog .ts { color: var(--muted); margin-right: 6px; }
+  #chatLog .who { color: var(--amber); font-weight: bold; margin-right: 4px; }
+  #chatLog .txt { color: #d8d8d8; }
+  #chatLog .sys { color: var(--amber-dim); font-style: italic; }
+  .chat-row { display: flex; gap: 8px; margin-top: 10px; }
+  .chat-row input { flex: 1; }
+
+  /* ---------- Utility ---------- */
+  .hidden { display: none !important; }
+
+  /* ---------- Mobile ---------- */
+  @media (max-width: 600px) {
+    header h1 { font-size: 1.5rem; letter-spacing: 2px; }
+    #pttButton { width: 180px; height: 180px; font-size: 1.05rem; }
+    #channelName { font-size: 1.8rem; }
+    .grid { grid-template-columns: repeat(auto-fill, minmax(60px, 1fr)); }
+    .grid.cities { grid-template-columns: repeat(auto-fill, minmax(92px, 1fr)); }
+    .panel { padding: 12px; }
+  }
+</style>
 </head>
 <body>
+<div class="wrap">
+
   <header>
-    <h1>📻 Corridor Radio</h1>
-    <div id="status" class="status">Connecting…</div>
+    <h1>CORRIDOR RADIO</h1>
+    <div class="sub">Internet CB Radio for Truckers</div>
   </header>
-  <main>
-    <div id="log"></div>
-    <form class="form" id="form">
-      <input id="input" type="text" placeholder="Type a message…" autocomplete="off" />
-      <button id="send" type="submit" disabled>Send</button>
-    </form>
-  </main>
 
-  <script>
-    (function () {
-      var logEl = document.getElementById('log');
-      var statusEl = document.getElementById('status');
-      var form = document.getElementById('form');
-      var input = document.getElementById('input');
-      var sendBtn = document.getElementById('send');
+  <!-- ================= CONNECTION PANEL ================= -->
+  <div id="connectPanel" class="panel">
+    <div class="section-title">Sign On</div>
+    <p>Pick a handle and key up. Break one-nine, good buddy.</p>
+    <div class="conn-row">
+      <input id="handleInput" type="text" placeholder="YOUR HANDLE" maxlength="20" autocomplete="off" />
+      <button id="connectBtn" class="btn-amber">Connect</button>
+    </div>
+  </div>
 
-      function log(msg) {
-        var line = document.createElement('div');
-        line.textContent = msg;
-        logEl.appendChild(line);
-        logEl.scrollTop = logEl.scrollHeight;
-      }
+  <!-- ================= RADIO PANEL ================= -->
+  <div id="radioPanel" class="hidden">
 
-      var proto = location.protocol === 'https:' ? 'wss://' : 'ws://';
-      var ws = new WebSocket(proto + location.host + '/', 'corridor-protocol');
+    <div class="panel">
+      <div id="statusBar">
+        <span id="connDot" class="dot"></span>
+        <span id="statusText">OFFLINE</span>
+        <span id="whoami"></span>
+      </div>
+    </div>
 
-      ws.onopen = function () {
-        statusEl.textContent = 'Connected';
-        statusEl.classList.add('connected');
-        sendBtn.disabled = false;
-        log('* connected to corridor');
-      };
+    <div class="panel">
+      <div class="section-title">Interstate Corridors</div>
+      <div id="corridorGrid" class="grid"></div>
+    </div>
 
-      ws.onmessage = function (evt) {
-        log('< ' + evt.data);
-      };
+    <div class="panel">
+      <div class="section-title">Major Cities</div>
+      <div id="cityGrid" class="grid cities"></div>
+    </div>
 
-      ws.onclose = function () {
-        statusEl.textContent = 'Disconnected';
-        statusEl.classList.remove('connected');
-        sendBtn.disabled = true;
-        log('* connection closed');
-      };
+    <div class="panel">
+      <div class="section-title">Nationwide</div>
+      <button id="usaBtn" class="btn-usa" data-room="ALL-USA">ALL USA</button>
+    </div>
 
-      ws.onerror = function () {
-        log('* connection error');
-      };
+    <div class="panel">
+      <div id="channelDisplay">
+        <div class="label">CURRENT CHANNEL</div>
+        <div id="channelName">—</div>
+      </div>
+    </div>
 
-      form.addEventListener('submit', function (e) {
-        e.preventDefault();
-        var text = input.value.trim();
-        if (!text || ws.readyState !== WebSocket.OPEN) return;
-        ws.send(text);
-        log('> ' + text);
-        input.value = '';
+    <div class="panel">
+      <div class="section-title">On Channel</div>
+      <ul id="members"></ul>
+    </div>
+
+    <div class="panel">
+      <div id="pttWrap">
+        <button id="pttButton" disabled>PUSH<br>TO<br>TALK</button>
+        <div id="pttHint">Hold the button or press SPACEBAR to transmit</div>
+      </div>
+    </div>
+
+    <div class="panel">
+      <div class="section-title">Channel Chat</div>
+      <div id="chatLog"></div>
+      <div class="chat-row">
+        <input id="chatInput" type="text" placeholder="Type a message…" maxlength="300" autocomplete="off" />
+        <button id="chatSend" class="btn-amber">Send</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- Hidden container for remote peer <audio> elements -->
+<div id="audioSink" style="display:none"></div>
+
+<script>
+"use strict";
+/* ============================================================
+   CORRIDOR RADIO — client
+   ------------------------------------------------------------
+   Signaling protocol (pipe-delimited text frames over WS):
+
+     server -> client:
+       WELCOME|<myId>
+       PEERS|<id>:<handle>,<id>:<handle>,...      (roster on join)
+       PEER_JOIN|<id>|<handle>
+       PEER_LEAVE|<id>
+       OFFER|<fromId>|<sdpBase64>
+       ANSWER|<fromId>|<sdpBase64>
+       ICE|<fromId>|<candidateBase64>
+       CHAT|<fromId>|<handle>|<text>
+       PTT|<fromId>|DOWN|UP
+
+     client -> server:
+       JOIN|<room>|<handle>
+       LEAVE|<room>
+       SIGNAL is relayed by target: OFFER|<toId>|<sdp>, ANSWER|<toId>|<sdp>, ICE|<toId>|<cand>
+       CHAT|<room>|<text>
+       PTT|<room>|DOWN|UP
+
+   The server is expected to relay OFFER/ANSWER/ICE to the target
+   peer (rewriting the id field to the sender's id) and to broadcast
+   CHAT/PTT to everyone else in the room.
+   ============================================================ */
+
+/* ---------- Static channel data ---------- */
+var CORRIDORS = ["I-5","I-10","I-15","I-20","I-25","I-35","I-40",
+                 "I-55","I-65","I-70","I-75","I-80","I-85","I-90","I-95"];
+var CITIES = ["Atlanta","Chicago","Dallas","Denver","Houston","Los Angeles",
+              "Memphis","Miami","New York","Phoenix","Seattle"];
+
+var ICE_CONFIG = {
+  iceServers: [
+    { urls: "stun:stun.l.google.com:19302" },
+    { urls: "stun:stun1.l.google.com:19302" }
+  ]
+};
+
+var WS_PORT = 7681;
+var WS_PROTOCOL = "corridor-protocol";
+
+/* ---------- State ---------- */
+var ws = null;
+var myId = null;
+var myHandle = "";
+var currentRoom = null;
+
+var localStream = null;      // microphone MediaStream
+var micReady = false;
+var transmitting = false;
+
+// peers: id -> { handle, pc, audioEl, analyser, rafId, talking, remoteStream }
+var peers = {};
+
+/* ---------- DOM refs ---------- */
+var $ = function (id) { return document.getElementById(id); };
+var connectPanel = $("connectPanel");
+var radioPanel   = $("radioPanel");
+var handleInput  = $("handleInput");
+var connectBtn   = $("connectBtn");
+var connDot      = $("connDot");
+var statusText   = $("statusText");
+var whoami       = $("whoami");
+var corridorGrid = $("corridorGrid");
+var cityGrid     = $("cityGrid");
+var usaBtn       = $("usaBtn");
+var channelName  = $("channelName");
+var membersEl    = $("members");
+var pttButton    = $("pttButton");
+var chatLog      = $("chatLog");
+var chatInput    = $("chatInput");
+var chatSend     = $("chatSend");
+var audioSink    = $("audioSink");
+
+/* ============================================================
+   Utility helpers
+   ============================================================ */
+function b64encode(str) { return btoa(unescape(encodeURIComponent(str))); }
+function b64decode(str) { return decodeURIComponent(escape(atob(str))); }
+
+function nowTs() {
+  var d = new Date();
+  var hh = String(d.getHours()).padStart(2, "0");
+  var mm = String(d.getMinutes()).padStart(2, "0");
+  return hh + ":" + mm;
+}
+
+function esc(s) {
+  return String(s).replace(/[&<>"']/g, function (c) {
+    return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c];
+  });
+}
+
+function wsSend(str) {
+  if (ws && ws.readyState === WebSocket.OPEN) ws.send(str);
+}
+
+/* ============================================================
+   Chat log
+   ============================================================ */
+function addChat(handle, text) {
+  var row = document.createElement("div");
+  row.className = "msg";
+  row.innerHTML = '<span class="ts">' + nowTs() + '</span>' +
+                  '<span class="who">' + esc(handle) + ':</span>' +
+                  '<span class="txt">' + esc(text) + '</span>';
+  chatLog.appendChild(row);
+  chatLog.scrollTop = chatLog.scrollHeight;
+}
+function addSys(text) {
+  var row = document.createElement("div");
+  row.className = "msg sys";
+  row.innerHTML = '<span class="ts">' + nowTs() + '</span><span class="sys">* ' + esc(text) + '</span>';
+  chatLog.appendChild(row);
+  chatLog.scrollTop = chatLog.scrollHeight;
+}
+
+/* ============================================================
+   Status / connection UI
+   ============================================================ */
+function setOnline(online) {
+  connDot.classList.toggle("online", online);
+  statusText.textContent = online ? "ONLINE" : "OFFLINE";
+  pttButton.disabled = !(online && micReady && currentRoom);
+}
+
+/* ============================================================
+   Build channel buttons
+   ============================================================ */
+function buildChannelButtons() {
+  CORRIDORS.forEach(function (name) {
+    var b = document.createElement("button");
+    b.className = "chan-btn";
+    b.textContent = name;
+    b.dataset.room = name;
+    b.addEventListener("click", function () { switchRoom(name, b); });
+    corridorGrid.appendChild(b);
+  });
+  CITIES.forEach(function (name) {
+    var b = document.createElement("button");
+    b.className = "chan-btn";
+    b.textContent = name;
+    b.dataset.room = "CITY-" + name.toUpperCase().replace(/\s+/g, "-");
+    b.addEventListener("click", function () { switchRoom(b.dataset.room, b, name); });
+    cityGrid.appendChild(b);
+  });
+  usaBtn.addEventListener("click", function () { switchRoom("ALL-USA", usaBtn, "ALL USA"); });
+}
+
+function clearActiveButtons() {
+  var all = document.querySelectorAll(".chan-btn, .btn-usa");
+  for (var i = 0; i < all.length; i++) all[i].classList.remove("active");
+}
+
+/* ============================================================
+   Microphone
+   ============================================================ */
+function initMic() {
+  if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia) {
+    addSys("Microphone not supported in this browser.");
+    return Promise.reject(new Error("no getUserMedia"));
+  }
+  return navigator.mediaDevices.getUserMedia({
+    audio: { echoCancellation: true, noiseSuppression: true, autoGainControl: true },
+    video: false
+  }).then(function (stream) {
+    localStream = stream;
+    // Start muted — audio only flows while PTT is held.
+    localStream.getAudioTracks().forEach(function (t) { t.enabled = false; });
+    micReady = true;
+    addSys("Microphone ready. Key up to talk.");
+    setOnline(ws && ws.readyState === WebSocket.OPEN);
+  }).catch(function (err) {
+    addSys("Microphone access denied — you can still listen and chat.");
+    micReady = false;
+  });
+}
+
+/* ============================================================
+   WebSocket connection + signaling
+   ============================================================ */
+function connect() {
+  myHandle = (handleInput.value || "").trim();
+  if (!myHandle) { handleInput.focus(); return; }
+
+  connectBtn.disabled = true;
+  connectBtn.textContent = "Connecting…";
+
+  var url = "ws://" + location.hostname + ":" + WS_PORT + "/";
+  try {
+    ws = new WebSocket(url, WS_PROTOCOL);
+  } catch (e) {
+    addSys("Failed to open WebSocket: " + e.message);
+    resetConnectBtn();
+    return;
+  }
+
+  ws.onopen = function () {
+    connectPanel.classList.add("hidden");
+    radioPanel.classList.remove("hidden");
+    whoami.textContent = "☰ " + myHandle;
+    setOnline(true);
+    addSys("Connected to Corridor Radio.");
+    initMic();
+    // Default channel — jump on ALL USA until the driver picks a lane.
+    switchRoom("ALL-USA", usaBtn, "ALL USA");
+  };
+
+  ws.onmessage = function (evt) { handleMessage(evt.data); };
+
+  ws.onclose = function () {
+    setOnline(false);
+    addSys("Disconnected from server.");
+    teardownAllPeers();
+  };
+
+  ws.onerror = function () { addSys("Connection error."); };
+}
+
+function resetConnectBtn() {
+  connectBtn.disabled = false;
+  connectBtn.textContent = "Connect";
+}
+
+function handleMessage(data) {
+  var parts = String(data).split("|");
+  var type = parts[0];
+
+  switch (type) {
+    case "WELCOME":
+      myId = parts[1];
+      whoami.textContent = "☰ " + myHandle + " (" + myId + ")";
+      break;
+
+    case "PEERS": {
+      // PEERS|id:handle,id:handle,...
+      var roster = parts[1] ? parts[1].split(",") : [];
+      roster.forEach(function (entry) {
+        if (!entry) return;
+        var idx = entry.indexOf(":");
+        var pid = entry.slice(0, idx);
+        var ph = entry.slice(idx + 1);
+        if (pid && pid !== myId && !peers[pid]) {
+          // We are the newcomer -> we initiate the offer to existing peers.
+          createPeer(pid, ph, true);
+        }
       });
-    })();
-  </script>
+      renderMembers();
+      break;
+    }
+
+    case "PEER_JOIN": {
+      var jid = parts[1], jh = parts[2];
+      if (jid && jid !== myId && !peers[jid]) {
+        // Existing peer -> wait for the newcomer's offer (non-initiator).
+        createPeer(jid, jh, false);
+        addSys(jh + " joined the channel.");
+        renderMembers();
+      }
+      break;
+    }
+
+    case "PEER_LEAVE": {
+      var lid = parts[1];
+      if (peers[lid]) {
+        addSys(peers[lid].handle + " left the channel.");
+        destroyPeer(lid);
+        renderMembers();
+      }
+      break;
+    }
+
+    case "OFFER":   handleOffer(parts[1], b64decode(parts[2])); break;
+    case "ANSWER":  handleAnswer(parts[1], b64decode(parts[2])); break;
+    case "ICE":     handleRemoteIce(parts[1], b64decode(parts[2])); break;
+
+    case "CHAT": {
+      // CHAT|fromId|handle|text
+      var chId = parts[1];
+      if (chId === myId) break; // don't echo our own
+      var chHandle = parts[2] || "unknown";
+      var chText = parts.slice(3).join("|");
+      addChat(chHandle, chText);
+      break;
+    }
+
+    case "PTT": {
+      // PTT|fromId|DOWN|UP
+      var pid = parts[1], updown = parts[2];
+      if (peers[pid]) {
+        peers[pid].pttActive = (updown === "DOWN");
+        updateTalking(pid);
+      }
+      break;
+    }
+
+    default:
+      // Unknown frame — ignore.
+      break;
+  }
+}
+
+/* ============================================================
+   Room switching
+   ============================================================ */
+function switchRoom(room, btnEl, displayName) {
+  if (room === currentRoom) return;
+
+  // Leave the old room: close every peer connection.
+  if (currentRoom) {
+    wsSend("LEAVE|" + currentRoom);
+    teardownAllPeers();
+  }
+
+  currentRoom = room;
+  clearActiveButtons();
+  if (btnEl) btnEl.classList.add("active");
+  channelName.textContent = displayName || room;
+  renderMembers();
+
+  wsSend("JOIN|" + room + "|" + myHandle);
+  addSys("Now on channel " + (displayName || room) + ".");
+  setOnline(ws && ws.readyState === WebSocket.OPEN);
+}
+
+/* ============================================================
+   WebRTC peer management (full mesh)
+   ============================================================ */
+function createPeer(peerId, handle, isInitiator) {
+  if (peers[peerId]) return peers[peerId];
+
+  var pc = new RTCPeerConnection(ICE_CONFIG);
+  var peer = {
+    handle: handle,
+    pc: pc,
+    audioEl: null,
+    analyser: null,
+    rafId: null,
+    talking: false,      // from audio analysis
+    pttActive: false,    // from PTT signaling
+    remoteStream: null
+  };
+  peers[peerId] = peer;
+
+  // Add our local mic tracks so the remote can hear us when we key up.
+  if (localStream) {
+    localStream.getAudioTracks().forEach(function (track) {
+      pc.addTrack(track, localStream);
+    });
+  }
+
+  pc.onicecandidate = function (e) {
+    if (e.candidate) {
+      wsSend("ICE|" + peerId + "|" + b64encode(JSON.stringify(e.candidate)));
+    }
+  };
+
+  pc.ontrack = function (e) {
+    var stream = e.streams && e.streams[0] ? e.streams[0] : new MediaStream([e.track]);
+    attachRemoteStream(peerId, stream);
+  };
+
+  pc.onconnectionstatechange = function () {
+    if (pc.connectionState === "failed" || pc.connectionState === "closed") {
+      // leave cleanup to PEER_LEAVE / teardown
+    }
+  };
+
+  if (isInitiator) {
+    pc.createOffer()
+      .then(function (offer) { return pc.setLocalDescription(offer); })
+      .then(function () {
+        wsSend("OFFER|" + peerId + "|" + b64encode(JSON.stringify(pc.localDescription)));
+      })
+      .catch(function (err) { console.error("offer error", err); });
+  }
+
+  return peer;
+}
+
+function handleOffer(fromId, sdpJson) {
+  var peer = peers[fromId];
+  if (!peer) peer = createPeer(fromId, "driver", false);
+  var pc = peer.pc;
+  var desc = new RTCSessionDescription(JSON.parse(sdpJson));
+  pc.setRemoteDescription(desc)
+    .then(function () { return pc.createAnswer(); })
+    .then(function (answer) { return pc.setLocalDescription(answer); })
+    .then(function () {
+      wsSend("ANSWER|" + fromId + "|" + b64encode(JSON.stringify(pc.localDescription)));
+    })
+    .catch(function (err) { console.error("answer error", err); });
+}
+
+function handleAnswer(fromId, sdpJson) {
+  var peer = peers[fromId];
+  if (!peer) return;
+  var desc = new RTCSessionDescription(JSON.parse(sdpJson));
+  peer.pc.setRemoteDescription(desc).catch(function (err) {
+    console.error("setRemoteDescription(answer) error", err);
+  });
+}
+
+function handleRemoteIce(fromId, candJson) {
+  var peer = peers[fromId];
+  if (!peer) return;
+  var cand = new RTCIceCandidate(JSON.parse(candJson));
+  peer.pc.addIceCandidate(cand).catch(function (err) {
+    console.error("addIceCandidate error", err);
+  });
+}
+
+/* ---------- Remote audio + speech detection ---------- */
+function attachRemoteStream(peerId, stream) {
+  var peer = peers[peerId];
+  if (!peer) return;
+  peer.remoteStream = stream;
+
+  // Hidden autoplay audio element so we actually hear the peer.
+  if (!peer.audioEl) {
+    var el = document.createElement("audio");
+    el.autoplay = true;
+    el.playsInline = true;
+    audioSink.appendChild(el);
+    peer.audioEl = el;
+  }
+  peer.audioEl.srcObject = stream;
+  var p = peer.audioEl.play();
+  if (p && p.catch) p.catch(function () { /* autoplay may need a gesture */ });
+
+  startSpeechDetection(peerId, stream);
+}
+
+var sharedAudioCtx = null;
+function getAudioCtx() {
+  if (!sharedAudioCtx) {
+    var AC = window.AudioContext || window.webkitAudioContext;
+    if (AC) sharedAudioCtx = new AC();
+  }
+  if (sharedAudioCtx && sharedAudioCtx.state === "suspended") {
+    sharedAudioCtx.resume().catch(function () {});
+  }
+  return sharedAudioCtx;
+}
+
+function startSpeechDetection(peerId, stream) {
+  var peer = peers[peerId];
+  if (!peer) return;
+  var ctx = getAudioCtx();
+  if (!ctx) return;
+
+  var source = ctx.createMediaStreamSource(stream);
+  var analyser = ctx.createAnalyser();
+  analyser.fftSize = 512;
+  analyser.smoothingTimeConstant = 0.6;
+  source.connect(analyser);
+  peer.analyser = analyser;
+
+  var buf = new Uint8Array(analyser.fftSize);
+  var THRESHOLD = 0.045; // RMS threshold for "talking"
+
+  function tick() {
+    if (!peers[peerId] || peers[peerId].analyser !== analyser) return; // stale
+    analyser.getByteTimeDomainData(buf);
+    var sum = 0;
+    for (var i = 0; i < buf.length; i++) {
+      var v = (buf[i] - 128) / 128;
+      sum += v * v;
+    }
+    var rms = Math.sqrt(sum / buf.length);
+    var loud = rms > THRESHOLD;
+    // Talking = actual audio energy AND/OR an explicit PTT-down signal.
+    var talkingNow = loud || peer.pttActive;
+    if (talkingNow !== peer.talking) {
+      peer.talking = talkingNow;
+      updateTalking(peerId);
+    }
+    peer.rafId = requestAnimationFrame(tick);
+  }
+  peer.rafId = requestAnimationFrame(tick);
+}
+
+function destroyPeer(peerId) {
+  var peer = peers[peerId];
+  if (!peer) return;
+  if (peer.rafId) cancelAnimationFrame(peer.rafId);
+  peer.analyser = null;
+  if (peer.pc) {
+    try { peer.pc.ontrack = null; peer.pc.onicecandidate = null; peer.pc.close(); } catch (e) {}
+  }
+  if (peer.audioEl) {
+    try { peer.audioEl.srcObject = null; peer.audioEl.remove(); } catch (e) {}
+  }
+  delete peers[peerId];
+}
+
+function teardownAllPeers() {
+  Object.keys(peers).forEach(destroyPeer);
+  renderMembers();
+}
+
+/* ============================================================
+   Member list rendering + talking indicator
+   ============================================================ */
+function renderMembers() {
+  membersEl.innerHTML = "";
+
+  // Self first.
+  membersEl.appendChild(memberRow("me", myHandle, transmitting, true));
+
+  // Peers.
+  Object.keys(peers).forEach(function (pid) {
+    var p = peers[pid];
+    membersEl.appendChild(memberRow(pid, p.handle, p.talking, false));
+  });
+
+  if (Object.keys(peers).length === 0) {
+    var li = document.createElement("li");
+    li.style.color = "var(--amber-dim)";
+    li.style.fontSize = "0.8rem";
+    li.textContent = "No other drivers on this channel yet.";
+    membersEl.appendChild(li);
+  }
+}
+
+function memberRow(id, handle, talking, isSelf) {
+  var li = document.createElement("li");
+  li.dataset.member = id;
+  var dot = document.createElement("span");
+  dot.className = "spk-dot" + (talking ? " talking" : "");
+  var name = document.createElement("span");
+  name.textContent = handle || "driver";
+  li.appendChild(dot);
+  li.appendChild(name);
+  if (isSelf) {
+    var tag = document.createElement("span");
+    tag.className = "member-you";
+    tag.textContent = "YOU";
+    li.appendChild(tag);
+  }
+  return li;
+}
+
+function updateTalking(peerId) {
+  var peer = peers[peerId];
+  if (!peer) return;
+  var row = membersEl.querySelector('li[data-member="' + cssEscape(peerId) + '"]');
+  if (row) {
+    var dot = row.querySelector(".spk-dot");
+    if (dot) dot.classList.toggle("talking", !!(peer.talking || peer.pttActive));
+  }
+}
+
+function updateSelfTalking() {
+  var row = membersEl.querySelector('li[data-member="me"]');
+  if (row) {
+    var dot = row.querySelector(".spk-dot");
+    if (dot) dot.classList.toggle("talking", transmitting);
+  }
+}
+
+function cssEscape(s) {
+  if (window.CSS && CSS.escape) return CSS.escape(s);
+  return String(s).replace(/["\\]/g, "\\$&");
+}
+
+/* ============================================================
+   Push To Talk
+   ============================================================ */
+function startTransmit() {
+  if (transmitting) return;
+  if (!micReady || !currentRoom || !ws || ws.readyState !== WebSocket.OPEN) return;
+  transmitting = true;
+  getAudioCtx(); // resume audio context on user gesture
+  if (localStream) localStream.getAudioTracks().forEach(function (t) { t.enabled = true; });
+  pttButton.classList.add("transmitting");
+  wsSend("PTT|" + currentRoom + "|DOWN");
+  updateSelfTalking();
+}
+
+function stopTransmit() {
+  if (!transmitting) return;
+  transmitting = false;
+  if (localStream) localStream.getAudioTracks().forEach(function (t) { t.enabled = false; });
+  pttButton.classList.remove("transmitting");
+  wsSend("PTT|" + currentRoom + "|UP");
+  updateSelfTalking();
+}
+
+/* Mouse */
+pttButton.addEventListener("mousedown", function (e) { e.preventDefault(); startTransmit(); });
+window.addEventListener("mouseup", function () { stopTransmit(); });
+
+/* Touch (mobile) */
+pttButton.addEventListener("touchstart", function (e) { e.preventDefault(); startTransmit(); }, { passive: false });
+pttButton.addEventListener("touchend",   function (e) { e.preventDefault(); stopTransmit(); }, { passive: false });
+pttButton.addEventListener("touchcancel",function ()  { stopTransmit(); });
+
+/* Spacebar — but not while typing in the chat box */
+window.addEventListener("keydown", function (e) {
+  if (e.code === "Space" && document.activeElement !== chatInput && document.activeElement !== handleInput) {
+    e.preventDefault();
+    startTransmit();
+  }
+});
+window.addEventListener("keyup", function (e) {
+  if (e.code === "Space") { e.preventDefault(); stopTransmit(); }
+});
+
+/* ============================================================
+   Chat sending
+   ============================================================ */
+function sendChat() {
+  var text = (chatInput.value || "").trim();
+  if (!text || !currentRoom) return;
+  wsSend("CHAT|" + currentRoom + "|" + text);
+  addChat(myHandle + " (you)", text);
+  chatInput.value = "";
+}
+chatSend.addEventListener("click", sendChat);
+chatInput.addEventListener("keydown", function (e) {
+  if (e.key === "Enter") { e.preventDefault(); sendChat(); }
+});
+
+/* ============================================================
+   Wire-up connect
+   ============================================================ */
+connectBtn.addEventListener("click", connect);
+handleInput.addEventListener("keydown", function (e) {
+  if (e.key === "Enter") { e.preventDefault(); connect(); }
+});
+
+buildChannelButtons();
+handleInput.focus();
+</script>
 </body>
 </html>

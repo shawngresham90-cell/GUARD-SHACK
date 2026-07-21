@@ -110,7 +110,7 @@ main(int argc, char **argv)
 {
 	struct lws_context_creation_info info;
 	struct lws_context *context;
-	int port = 8080;
+	int port = 7681;
 
 	if (argc > 1)
 		port = atoi(argv[1]);

@@ -57,7 +57,7 @@ make clean
 ./corridor-server [port]
 ```
 
-The server listens on port `8080` by default; pass a port number as the
+The server listens on port `7681` by default; pass a port number as the
 first argument to override it. Once running, open
-<http://localhost:8080/> in a browser to load the frontend and connect
+<http://localhost:7681/> in a browser to load the frontend and connect
 to the WebSocket endpoint.
