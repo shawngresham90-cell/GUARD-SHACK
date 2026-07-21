@@ -1,0 +1,30 @@
+[Unit]
+Description=Corridor Radio - Internet CB Radio server
+Documentation=https://github.com/shawngresham90-cell/GUARD-SHACK
+After=network.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=www-data
+Group=www-data
+WorkingDirectory=/opt/corridor-radio
+ExecStart=/opt/corridor-radio/corridor-server 7681
+
+# Restart the service on any exit, after a short back-off.
+Restart=always
+RestartSec=5
+
+# Send stdout/stderr to the systemd journal.
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=corridor-radio
+
+# --- Hardening (safe defaults for a static file + WebSocket server) ---
+NoNewPrivileges=true
+ProtectSystem=full
+ProtectHome=true
+PrivateTmp=true
+
+[Install]
+WantedBy=multi-user.target

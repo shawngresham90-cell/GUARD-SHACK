@@ -1,0 +1,15 @@
+# Locally-built artifacts (the image builds its own)
+corridor-server
+*.o
+*.a
+*.so
+
+# VCS / meta
+.git
+.gitignore
+
+# Docs and deploy configs not needed in the build context
+README.md
+nginx/
+systemd/
+scripts/

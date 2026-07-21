@@ -1,0 +1,28 @@
+# Compiled binary
+/corridor-server
+
+# Object files
+*.o
+*.obj
+
+# Build artifacts
+*.a
+*.so
+*.dSYM/
+
+# OS cruft
+.DS_Store
+Thumbs.db
+
+# Editor swap / backup files
+*.swp
+*.swo
+*.swn
+*~
+*.bak
+.*.sw[a-p]
+\#*\#
+.\#*
+
+# The web frontend is part of the project — always track it.
+!www/
