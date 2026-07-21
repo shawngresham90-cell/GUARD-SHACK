@@ -169,14 +169,18 @@ function connectTo(ch) {
     });
   }).catch(function (err) {
     console.warn("connect failed", err);
+    var detail = (err && (err.msg || err.message)) || String(err);
+    if (detail === "Failed to fetch" || /NetworkError|load failed/i.test(detail)) {
+      detail = "The radio service refused this page (likely a CORS/ALLOWED_ORIGIN mismatch) or is unreachable.";
+    }
     if (err && err.failSoft) return goOffline(err.msg);
     if (S.retries < MAX_AUTO_RETRIES) {
       S.retries++;
       var wait = 1000 * Math.pow(2, S.retries);
-      setConnState("reconnecting", "Retrying in " + (wait / 1000) + "s…");
+      setConnState("reconnecting", "Retrying in " + (wait / 1000) + "s… (" + detail + ")");
       setTimeout(function () { if (S.channel === ch) connectTo(ch); }, wait);
     } else {
-      goOffline((err && err.msg) || "Could not reach the radio service.");
+      goOffline("Could not connect. Technical reason: " + detail);
     }
   });
 }
